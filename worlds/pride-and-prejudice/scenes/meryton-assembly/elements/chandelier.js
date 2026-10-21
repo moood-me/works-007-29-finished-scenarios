@@ -3,7 +3,7 @@
 // the lower of eight (lib: RINGS, candles) —, festoons of crystal drops between them and drops hanging under the lower
 // ring. Its flames are `chandelier_flames`; its light the scene's `chandelier_near` / `_far`. A copy for each
 const L = e.kit.brush, W = e.lib, px = L.px(e);
-const GILT = '#c9a75e', GLASS = '#e9eef0';
+const GILT = '#b8913f', GLASS = '#dfe8ec';
 const all = W.candles();
 const candlePath = near => {
   const p = new Path2D();
@@ -55,11 +55,11 @@ L.pen(g, stem, 0.9 * px, 0.55);
 for (const ring of W.RINGS) {
   const band = new Path2D();
   band.ellipse(0, ring.y, ring.rx, ring.ry, 0, 0, Math.PI * 2);
-  band.moveTo(ring.rx - 0.04, ring.y + 0.01);
-  band.ellipse(0, ring.y + 0.01, ring.rx - 0.04, ring.ry - 0.025, 0, 0, Math.PI * 2);
+  band.moveTo(ring.rx - 0.07, ring.y + 0.015);
+  band.ellipse(0, ring.y + 0.015, ring.rx - 0.07, ring.ry - 0.04, 0, 0, Math.PI * 2);
   g.fillStyle = GILT;
   g.fill(band, 'evenodd');
-  L.pen(g, band, 0.9 * px, 0.6);
+  L.pen(g, band, 1.2 * px, 0.8);
 }
 // the arms from the stem out to the lower ring, curving
 const arms = new Path2D();
@@ -70,7 +70,7 @@ for (const s of [-1, 1]) {
   arms.quadraticCurveTo(s * 0.3, -1.42, s * 0.42, -1.25);
 }
 g.strokeStyle = GILT;
-g.lineWidth = 0.025;
+g.lineWidth = 0.035;
 g.stroke(arms);
 L.pen(g, arms, 0.7 * px, 0.4);
 // festoons of crystal drops: from the upper ring sagging to the lower, and drops hanging under the lower ring
@@ -80,8 +80,8 @@ for (let k = 0; k < 8; k++) {
   for (let i = 0; i <= 8; i++) {
     const u = i / 8, a = a0 + (a1 - a0) * u, sag = Math.sin(u * Math.PI) * 0.16;
     const x = Math.cos(a) * 0.74, y = -0.6 + Math.sin(a) * 0.11 + sag;
-    drops.moveTo(x + 0.014, y);
-    drops.ellipse(x, y, 0.014, 0.018, 0, 0, Math.PI * 2);
+    drops.moveTo(x + 0.02, y);
+    drops.ellipse(x, y, 0.02, 0.026, 0, 0, Math.PI * 2);
   }
 }
 for (let k = 0; k < 16; k++) {

@@ -19,10 +19,10 @@ L.pen(g, leaves, 1.4 * px, 0.8);
 L.pen(g, arch, 1.5 * px, 0.8);
 // the lunette over the gallery: a half-round of glass in radiating bars, the evening's light beyond
 const lun = new Path2D();
-lun.moveTo(-1.5, -4.75);
-lun.arc(0, -4.75, 1.5, Math.PI, 0);
+lun.moveTo(-1.15, -4.75);
+lun.arc(0, -4.75, 1.15, Math.PI, 0);
 lun.closePath();
-const sky = g.createLinearGradient(0, -6.25, 0, -4.75);
+const sky = g.createLinearGradient(0, -5.9, 0, -4.75);
 sky.addColorStop(0, '#aab7cf');
 sky.addColorStop(1, '#efdcc0');
 g.fillStyle = sky;
@@ -31,10 +31,10 @@ const bars = new Path2D();
 for (let k = 1; k < 6; k++) {
   const a = Math.PI + (k / 6) * Math.PI;
   bars.moveTo(0, -4.75);
-  bars.lineTo(Math.cos(a) * 1.5, -4.75 + Math.sin(a) * 1.5);
+  bars.lineTo(Math.cos(a) * 1.15, -4.75 + Math.sin(a) * 1.15);
 }
-bars.moveTo(0.45, -4.75);
-bars.arc(0, -4.75, 0.45, 0, Math.PI, true);
+bars.moveTo(0.35, -4.75);
+bars.arc(0, -4.75, 0.35, 0, Math.PI, true);
 g.strokeStyle = '#efe8d6';
 g.lineWidth = 0.05;
 g.stroke(bars);

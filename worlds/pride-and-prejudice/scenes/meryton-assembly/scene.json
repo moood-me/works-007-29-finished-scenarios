@@ -9,21 +9,21 @@
   "light": {
     "vignette": 0.12,
     "grain": 0.05,
-    "haze": 0.03,
-    "hazeColor": "#efdcbc",
-    "hazeGlow": 0.6,
-    "ambient": 0.82,
-    "ambientColor": "#f5e4c6",
-    "inside": 0.55,
+    "haze": 0.02,
+    "hazeColor": "#ece4d2",
+    "hazeGlow": 0.35,
+    "ambient": 0.86,
+    "ambientColor": "#f2ece0",
+    "inside": 0.6,
     "bounce": 0.65,
     "looks": {
       "later": {
-        "ambient": 0.66,
-        "ambientColor": "#f0d2a6",
+        "ambient": 0.7,
+        "ambientColor": "#f1dfc2",
         "inside": 0.3,
         "tint": "#f0b070",
-        "tintStrength": 0.06,
-        "hazeGlow": 0.85,
+        "tintStrength": 0.05,
+        "hazeGlow": 0.55,
         "lights": {
           "window_a": 0.35,
           "window_b": 0.35,
@@ -36,19 +36,19 @@
     {
       "id": "window_a",
       "of": "opening_a",
-      "daylight": 1.3,
+      "daylight": 1.6,
       "reach": 7
     },
     {
       "id": "window_b",
       "of": "opening_b",
-      "daylight": 1.3,
+      "daylight": 1.6,
       "reach": 7
     },
     {
       "id": "window_c",
       "of": "opening_c",
-      "daylight": 1.3,
+      "daylight": 1.6,
       "reach": 7
     },
     {
@@ -56,8 +56,8 @@
       "across": 3.0,
       "distance": 7.5,
       "elevation": 4.6,
-      "color": "#ffcf8c",
-      "strength": 1.7,
+      "color": "#ffe2b8",
+      "strength": 1.2,
       "reach": 10,
       "flicker": 0.05
     },
@@ -66,8 +66,8 @@
       "across": 0.6,
       "distance": 12.5,
       "elevation": 4.6,
-      "color": "#ffcf8c",
-      "strength": 1.7,
+      "color": "#ffe2b8",
+      "strength": 1.2,
       "reach": 10,
       "flicker": 0.05
     },
@@ -76,8 +76,8 @@
       "across": -2.47,
       "distance": 2.0,
       "elevation": 2.35,
-      "color": "#ffcf8c",
-      "strength": 0.8,
+      "color": "#ffe2b8",
+      "strength": 0.7,
       "reach": 4.5,
       "flicker": 0.1
     },
@@ -86,8 +86,8 @@
       "across": -2.47,
       "distance": 4.5,
       "elevation": 2.35,
-      "color": "#ffcf8c",
-      "strength": 0.8,
+      "color": "#ffe2b8",
+      "strength": 0.7,
       "reach": 4.5,
       "flicker": 0.1
     },
@@ -96,8 +96,8 @@
       "across": -2.47,
       "distance": 9.5,
       "elevation": 2.35,
-      "color": "#ffcf8c",
-      "strength": 0.8,
+      "color": "#ffe2b8",
+      "strength": 0.7,
       "reach": 4.5,
       "flicker": 0.1
     },
@@ -106,8 +106,8 @@
       "across": -2.47,
       "distance": 14.5,
       "elevation": 2.35,
-      "color": "#ffcf8c",
-      "strength": 0.8,
+      "color": "#ffe2b8",
+      "strength": 0.7,
       "reach": 4.5,
       "flicker": 0.1
     },
@@ -116,8 +116,8 @@
       "across": 4.07,
       "distance": 8.25,
       "elevation": 2.35,
-      "color": "#ffcf8c",
-      "strength": 0.8,
+      "color": "#ffe2b8",
+      "strength": 0.7,
       "reach": 4.5,
       "flicker": 0.1
     },
@@ -126,8 +126,8 @@
       "across": 4.07,
       "distance": 11.75,
       "elevation": 2.35,
-      "color": "#ffcf8c",
-      "strength": 0.8,
+      "color": "#ffe2b8",
+      "strength": 0.7,
       "reach": 4.5,
       "flicker": 0.1
     }
@@ -157,43 +157,39 @@
     "charlotte_look": "elizabeth",
     "jane_look": "bingley",
     "jane_mood": "smile",
-    "jane_reach": {
-      "r": [
-        0.52,
-        4.82,
-        1.15
-      ]
-    },
     "bingley_look": "jane",
     "bingley_mood": "smile",
-    "bingley_reach": {
-      "l": [
-        0.6,
-        4.82,
-        1.15
-      ]
-    },
     "darcy_look": "bingley",
     "darcy_mood": "thinking",
     "guest_a_lady_look": "guest_a_gent",
-    "guest_a_lady_reach": {
-      "r": [
-        -1.08,
-        8.15,
-        1.15
-      ]
-    },
     "guest_a_gent_look": "guest_a_lady",
-    "guest_a_gent_reach": {
-      "l": [
-        -1.0,
-        8.15,
-        1.15
-      ]
-    },
     "guest_b_lady_look": "guest_b_gent",
     "guest_b_lady_mood": "smile",
-    "guest_b_gent_look": "guest_b_lady"
+    "guest_b_gent_look": "guest_b_lady",
+    "elizabeth_reach": {
+      "foot_r": [
+        -0.955,
+        3.31,
+        0.04
+      ],
+      "foot_l": [
+        -0.785,
+        3.37,
+        0.04
+      ]
+    },
+    "charlotte_reach": {
+      "foot_r": [
+        -1.606,
+        3.637,
+        0.04
+      ],
+      "foot_l": [
+        -1.458,
+        3.741,
+        0.04
+      ]
+    }
   },
   "states": {
     "later": {
@@ -214,10 +210,10 @@
       "facing": 270,
       "height": 11,
       "box": [
-        -11,
-        -11,
-        11,
-        1
+        -12,
+        -12,
+        12,
+        1.1
       ]
     },
     {
@@ -258,7 +254,7 @@
         -3.6,
         -6,
         3.6,
-        0
+        0.03
       ],
       "inside": true
     },
@@ -631,7 +627,7 @@
         "who": "jane",
         "turn": 240
       },
-      "across": 0.1,
+      "across": 0.15,
       "distance": 4.9,
       "shadow": true,
       "inside": true
@@ -644,7 +640,7 @@
         "who": "bingley",
         "turn": 120
       },
-      "across": 1.0,
+      "across": 0.95,
       "distance": 5.0,
       "shadow": true,
       "inside": true
@@ -658,8 +654,8 @@
         "turn": 145,
         "does": "hands_behind"
       },
-      "across": 2.3,
-      "distance": 6.0,
+      "across": 2.2,
+      "distance": 5.6,
       "shadow": true,
       "inside": true
     },
@@ -708,8 +704,8 @@
           }
         }
       },
-      "across": 3.95,
-      "distance": 7.0,
+      "across": 3.9,
+      "distance": 10.6,
       "shadow": true,
       "inside": true
     },
@@ -732,8 +728,8 @@
           }
         }
       },
-      "across": 3.35,
-      "distance": 7.2,
+      "across": 3.3,
+      "distance": 10.9,
       "shadow": true,
       "inside": true
     },
