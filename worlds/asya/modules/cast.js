@@ -39,8 +39,8 @@ return {
       // a short soft beard round the jaw and the chin
       beard: { name: 'beard', draw: F => {
         const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
-        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.04), [0, -0.6, 0.8], 0.15, F.colors.hair, h.sides, h.square);
-        F.ball(add(h.at, add(mul(hu, -r * 0.82), mul(hf, r * 0.52))), h.axes, [r * 0.48, r * 0.34, r * 0.32], F.colors.hair, h.sides);
+        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.03), [0, -0.82, 0.57], 0.62, F.colors.hair, h.sides, h.square);
+        F.ball(add(h.at, add(mul(hu, -r * 0.86), mul(hf, r * 0.5))), h.axes, [r * 0.36, r * 0.24, r * 0.24], F.colors.hair, h.sides);
       } },
       // Gagin's brush in the right hand, dry: the handle along the fist, the tip a touch of ochre
       brush: { name: 'brush', draw: F => {

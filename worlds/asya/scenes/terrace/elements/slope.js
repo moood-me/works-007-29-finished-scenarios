@@ -60,4 +60,4 @@ for (let i = 0; i < 40; i++) {
 // the road along the water at its foot
 g.fillStyle = "#cdbf9f";
 g.fillRect(-430, -3, 950, 3);
-L.unfinish(g, [-440, -260, 520, 3], ACROSS, D);
+L.unfinish(g, [-440, -262, 640, 4], ACROSS, D);

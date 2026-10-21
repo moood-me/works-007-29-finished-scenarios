@@ -1,13 +1,13 @@
-// The terrace's floor, seen from above (x across, y toward the viewer, metres; its middle 1 m right, 3.2 m ahead):
+// The terrace's floor, seen from above (x across, y toward the viewer, metres; its middle 1 m right, 2.3 m ahead):
 // worn sandstone flags in rows, a little moss in the joints. Where it is seen toward the frame's sides and its foot,
 // the flags are only drawn — pencil outlines on paper.
 const L = e.lib;
 const AX = 1;
-const AD = 3.2;
+const AD = 2.3;
 const W = 9;
-const H = 2.6;
-const tones = ["#d5c7aa", "#cbbc9e", "#dbcfb5", "#c6b697", "#d1c2a3"];
-g.fillStyle = L.toPaper("#bfae90", 0);
+const H = 1.8;
+const tones = ["#dcc9a3", "#d3bd94", "#e0cfac", "#cdb48a", "#d8c49d"];
+g.fillStyle = L.toPaper("#b9a27e", 0);
 g.fillRect(-W, -H, 2 * W, 2 * H);
 let n = 0;
 for (let y = -H; y < H; ) {

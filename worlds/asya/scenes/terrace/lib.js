@@ -10,8 +10,8 @@ const smooth = (a, b, v) => {
 };
 // how unfinished a thing is where it is seen sx frame heights off the middle: 0 painted … 1 a pencil drawing
 const edge = (sx) => smooth(0.56, 0.86, Math.abs(sx));
-// how unfinished the floor is near the frame's foot (its distance, metres: the frame's foot is 2.8 m off)
-const foot = (distance) => smooth(3.5, 2.9, distance);
+// how unfinished the floor is near the frame's foot (its distance, metres: the frame's foot is 2.66 m off)
+const foot = (distance) => smooth(3.2, 2.7, distance);
 const rgbOf = (hex) => [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)];
 const css = (c, a) => `rgba(${Math.round(c[0])}, ${Math.round(c[1])}, ${Math.round(c[2])}, ${a ?? 1})`;
 // a colour going over to the paper by k
@@ -46,6 +46,10 @@ function unfinish(g, box, across, distance) {
 function hatch(g, box, across, distance) {
   const [l, t, r, b] = box;
   const gap = distance * 0.0072;
+  g.save();
+  g.beginPath();
+  g.rect(l, t, r - l, b - t);
+  g.clip();
   const lean = (b - t) * 0.45;
   g.lineWidth = distance * 0.0011;
   for (let x = l - lean, i = 0; x < r; x += gap, i++) {
@@ -60,6 +64,7 @@ function hatch(g, box, across, distance) {
     g.lineTo(x + lean * ((y1 - t) / (b - t)), y1);
     g.stroke();
   }
+  g.restore();
 }
 // a vine leaf: five rounded lobes round (x, y), s across, turned a radians
 function leaf(g, x, y, s, a) {

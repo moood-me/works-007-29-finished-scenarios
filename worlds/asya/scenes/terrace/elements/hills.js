@@ -65,4 +65,4 @@ g.fillRect(rx + 3, ry - 33, 4, 4);
 // the bank's foot, darker, at the water
 g.fillStyle = "#6e8657";
 g.fillRect(-W, -9, 2 * W, 13);
-L.unfinish(g, [-W, -300, W, 5], ACROSS, D);
+L.unfinish(g, [-W - 150, -305, W + 150, 6], ACROSS, D);

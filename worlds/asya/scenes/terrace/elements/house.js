@@ -1,10 +1,9 @@
-// The Gagins' white house, its front on the terrace (on the left, its corner 3.2 m left of the start, 5.6 m ahead):
-// whitewashed walls over a sandstone plinth, Asya's window upstairs with its pale green-blue shutters open (her
-// geranium stands on the sill — its own element), a window below, a vine climbing the corner. Toward the left it
-// dissolves into a drawing.
+// The Gagins' white house, its front on the terrace (on the left, its corner 2.6 m left of the start, 4.1 m ahead):
+// whitewashed walls over a sandstone plinth, two windows with pale green-blue shutters, a vine climbing the corner.
+// Toward the left it dissolves into a drawing. (Asya's window is on its side, over the valley: house_side.)
 const L = e.lib;
-const ACROSS = -6.4;
-const D = 5.6;
+const ACROSS = -5.8;
+const D = 4.1;
 const box = [-3.2, -4.4, 3.2, 0.02];
 // the wall: whitewash with a little warm wash in it
 g.fillStyle = "#f2ede2";
