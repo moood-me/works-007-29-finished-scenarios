@@ -14,26 +14,26 @@ window and the passage. Everyone is clearly seen: the room is lit warm and brigh
 
 ## Space
 
-A room seen from its open side (camera `picture`, horizon 0.42). Metres: across to the right, distance ahead; the
-eye 1.7 m over the floor. The room 6.8 m wide (across −3.4…3.4), its back wall at distance 5.2, the ceiling 2.4 m up.
-What matters lies within the 4:3 middle (x 0.125…0.875); the stove runs a little past it on the right.
+A room seen from its open side (camera `picture`, horizon 0.39). Metres: across to the right, distance ahead; the
+eye 1.7 m over the floor. The room 6 m wide (across −3.0…3.0), its back wall at distance 5.2, the ceiling 2.4 m up.
+What matters lies within the 4:3 middle (x 0.125…0.875): the icons, the stove's fire; the window is half seen in 4:3, whole in 16:9.
 
 | What | Where (across, distance) |
 | --- | --- |
-| back wall, the passage door (across 0.1…1.0, 1.75 m high), the crockery shelf over it, a towel | 0, 5.2 |
-| left wall, the window in it (distance 4.15…4.85, 0.86…1.66 m up) | −3.4 |
-| right wall (behind the stove) | 3.4 |
-| the icons' corner: a corner shelf, three icons, a towel, the lampada (1.5 m up) | −3.08, 4.9 |
-| the clock (ходики), its pendulum swinging | −0.15, 5.17 |
+| back wall, the passage door (across −0.35…0.55, 1.75 m high), the crockery shelf over it | 0, 5.2 |
+| left wall, the window in it (distance 4.48…5.02, 0.86…1.66 m up) | −3.0 |
+| right wall (behind the stove) | 3.0 |
+| the icons' corner: a corner shelf, three icons, a towel, the lampada (1.55 m up) | −2.7, 4.9 |
+| the clock (ходики), its pendulum swinging | −0.45, 5.17 |
 | the table (top 0.76 m, across −2.95…−1.05, distance 4.0…4.9), its cloth, bread, glasses, the bottle | −2.0, 4.45 |
 | the samovar on the table, steaming | −1.4, 4.68 |
 | the lamp hung over the table (its flame about 1.8 m up) | −1.85, 4.45 |
-| the stove (front at distance 3.6, across 1.3…3.4; top 1.8 m; the mouth across 2.45…3.0, 0.62…1.15 m up) | 2.35, 3.6…5.2 |
+| the stove (front at distance 3.6, across 0.85…2.95; top 1.8 m; the mouth across 1.7…2.25, 0.62…1.15 m up) | 1.9, 3.6…5.2 |
 | benches (seat 0.45 m): behind the table, under the window, along the stove's side | — |
 | Vasily Andreich, seated behind the table under the icons, hands on the table | −2.3, 5.02 |
-| the old man, standing at the table's end, leaning on it with both hands, turned to his guest | −0.72, 4.45 |
-| the elder son, in the passage door, his arms folded | 0.55, 4.85 |
-| Nikita, seated at the end of the bench by the stove, hands in his lap | 1.14, 3.5 |
+| the old man, standing at the table's end, his right hand on it, turned to his guest | −0.75, 4.35 |
+| the elder son, in the passage door, his arms folded | 0.1, 4.85 |
+| Nikita, seated at the end of the bench by the stove, hands in his lap | 0.69, 3.5 |
 
 ## Elements
 
@@ -56,11 +56,13 @@ round the lamp. The people and the samovar cast their shadows; the table top cas
 ## State
 
 People: Vasily `table_talk` (seated at a table, hands folded on it, small head movements), seated on `[-2.3, 5.02,
-0.45]`, hat off (`vasily_wear {hat: none}`), looks at the old man, mood smile; the old man `lean_table` (leaning on
-the table with both hands; `old_man_reach` puts his hands on the table's end), looks at Vasily, mood smile; the son
-`arms_folded`, looks at Vasily, mood thinking (sullen); Nikita `bench_sit` (seated, hands in the lap) on `[1.14, 3.5,
-0.45]`, hat off and the frost gone from his beard (`nikita_wear`), looking down at the floor before the table, mood
-tired.
+0.45]`, hat off (`vasily_wear {hat: none}`), looks at the old man, mood smile; the old man `stand`, his right hand on the
+table's end (`old_man_reach`), turned 220 (toward us), looks at Vasily, mood smile (the cast's `lean_table` is there
+for a moment when he leans over to his guest); the son
+`arms_folded`, looks at Vasily, mood thinking (sullen); Nikita `bench_sit` (seated, hands in the lap) on `[0.69, 3.5,
+0.45]`, indoors in his shirt and red sash — hat and coat off, the frost gone from his beard (`nikita_wear`: `garment:
+none` — a skirt over a seated lap spreads like a sheet) —, his eyes on the bottle on the table (`table_things#bottle`:
+the pledge he keeps), mood neutral.
 
 ## Showcase
 
