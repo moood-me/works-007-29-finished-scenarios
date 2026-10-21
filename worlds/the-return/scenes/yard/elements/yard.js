@@ -37,18 +37,18 @@ g.fillStyle = "rgba(110,100,80,0.45)";
 g.beginPath();
 g.ellipse(X(2.6), Y(9.3), 0.45, 0.22, 0.3, 0, Math.PI * 2);
 g.fill();
-// wood chips round the block (across 2.2, 4.0 ahead)
+// wood chips round the block (across 2.56, 4.8 ahead)
 for (let i = 0; i < 70; i++) {
   const r = 0.15 + 0.8 * L.rnd(i, 71) ** 0.7, a = L.rnd(i, 72) * Math.PI * 2;
   g.fillStyle = i % 3 ? "#ecdfbf" : "#b99f72";
   g.save();
-  g.translate(X(2.2) + Math.cos(a) * r, Y(4.0) + Math.sin(a) * r * 0.8);
+  g.translate(X(2.56) + Math.cos(a) * r, Y(4.8) + Math.sin(a) * r * 0.8);
   g.rotate(L.rnd(i, 74) * Math.PI);
   g.fillRect(-0.04, -0.012, 0.05 + 0.06 * L.rnd(i, 73), 0.025);
   g.restore();
 }
-// the boot prints of the one who came in: from the gate (across −0.5, 11.4) in a long curve to where he stands (0.75,
-// 2.7) — each a heel and a sole pressed darker into the sand, its rim a little lighter, left and right by turns
+// the boot prints of the one who came in: from the gate (across −0.5, 11.4) in a long curve to where he stands (0.95,
+// 2.6) — each a heel and a sole pressed darker into the sand, its rim a little lighter, left and right by turns
 const print = (x, y, a, side) => {
   g.save();
   g.translate(x + Math.cos(a) * side * 0.11, y + Math.sin(a) * side * 0.11);
@@ -66,7 +66,7 @@ const print = (x, y, a, side) => {
 const way = (u) => {
   const v = 1 - u;
   // (a cubic from the gate to where he stands)
-  const p = [[-0.5, 11.4], [-0.3, 8.2], [1.0, 5.2], [0.75, 3.1]];
+  const p = [[-0.5, 11.4], [-0.3, 8.2], [1.3, 5.6], [1.0, 3.0]];
   const ax = v * v * v * p[0][0] + 3 * v * v * u * p[1][0] + 3 * v * u * u * p[2][0] + u * u * u * p[3][0];
   const ad = v * v * v * p[0][1] + 3 * v * v * u * p[1][1] + 3 * v * u * u * p[2][1] + u * u * u * p[3][1];
   return [X(ax), Y(ad)];

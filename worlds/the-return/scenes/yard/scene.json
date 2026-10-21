@@ -1,44 +1,44 @@
 {
   "engine": 3,
   "title": "The Ivanovs' Yard",
-  "horizon": 0.32,
+  "horizon": 0.27,
   "camera": {
     "mode": "picture"
   },
   "light": {
-    "vignette": 0.3,
-    "grain": 0.25,
-    "haze": 0.2,
-    "hazeColor": "#efe5d2",
-    "hazeGlow": 0.5,
-    "ambient": 0.48,
-    "ambientColor": "#9da8c4",
-    "bounce": 0.4,
-    "tint": "#ffdcae",
-    "tintStrength": 0.1,
-    "saturation": 0.92,
-    "brightness": 1.03,
+    "vignette": 0.25,
+    "grain": 0.38,
+    "haze": 0.22,
+    "hazeColor": "#ebe7dc",
+    "hazeGlow": 0.3,
+    "ambient": 0.58,
+    "ambientColor": "#b9bfc9",
+    "bounce": 0.45,
+    "tint": "#efe6d2",
+    "tintStrength": 0.06,
+    "saturation": 0.86,
+    "brightness": 1.02,
     "wind": [
       1,
       0.2,
-      0.45
+      0.4
     ]
   },
   "lights": [
     {
       "id": "sun",
       "from": [
-        128,
-        12
+        150,
+        38
       ],
-      "color": "#ffbb78",
-      "strength": 1.3
+      "color": "#fff0da",
+      "strength": 1.25
     },
     {
       "id": "stove",
       "of": "house_lights#door",
-      "reach": 7,
-      "strength": 1.2
+      "reach": 4,
+      "strength": 0.5
     }
   ],
   "modules": [
@@ -46,37 +46,50 @@
   ],
   "state": {
     "ivanov_look": [
-      -0.2,
-      1.6,
-      1.0
+      0.2,
+      1.4,
+      1.55
     ],
     "ivanov_mood": "tired",
     "ivanov_reach": {
       "l": [
-        1.04,
-        2.565,
+        1.173,
+        2.395,
         0.74
       ]
     },
     "lyuba_look": [
       0.6,
-      2.4,
-      1.6
+      1.6,
+      1.2
     ],
     "lyuba_mood": "sad",
     "lyuba_reach": {
       "r": [
-        -0.3,
-        3.53,
-        1.18
+        0.132,
+        2.263,
+        0.85
+      ],
+      "l": [
+        0.198,
+        2.309,
+        0.85
       ]
     },
     "petrushka_look": [
-      0.4,
-      2.0,
-      1.4
+      0.6,
+      1.8,
+      1.6
     ],
-    "petrushka_mood": "thinking"
+    "petrushka_mood": "thinking",
+    "nastya_look": [
+      0.5,
+      2.0,
+      1.5
+    ],
+    "nastya_reach": {
+      "r": "petrushka#hand_l"
+    }
   },
   "objects": [
     {
@@ -229,19 +242,19 @@
     },
     {
       "id": "house_lights",
-      "name": "Izba: the lamp in the windows, the stove through the open door",
+      "name": "Izba: the stove's glow through the open door",
       "across": -3.6,
       "distance": 7,
       "facing": 90,
       "height": 2.75,
       "box": [
-        -3.1,
+        -0.5,
         -2.45,
-        4.1,
+        0.3,
         -0.45
       ],
       "glows": true,
-      "flicker": 0.12,
+      "flicker": 0.1,
       "inFront": [
         "house_wall"
       ]
@@ -410,8 +423,8 @@
     {
       "id": "block",
       "name": "Chopping block and axe",
-      "across": 2.2,
-      "distance": 4.0,
+      "across": 2.56,
+      "distance": 4.8,
       "height": 1.0,
       "box": [
         -0.32,
@@ -424,7 +437,7 @@
     {
       "id": "buckets",
       "name": "Buckets",
-      "across": -2.75,
+      "across": -2.0,
       "distance": 4.3,
       "height": 0.65,
       "box": [
@@ -439,12 +452,12 @@
       "id": "yoke",
       "name": "Yoke on the ground",
       "plane": true,
-      "across": -2.45,
-      "distance": 3.95,
+      "across": -1.9,
+      "distance": 3.9,
       "elevation": 0.01,
       "width": 1.7,
       "depth": 0.75,
-      "rotation": 12,
+      "rotation": 55,
       "shadow": true
     },
     {
@@ -508,10 +521,10 @@
       "person": {
         "cast": "cast",
         "who": "ivanov",
-        "turn": 205
+        "turn": 215
       },
-      "across": 0.75,
-      "distance": 2.7,
+      "across": 0.95,
+      "distance": 2.6,
       "shadow": true
     },
     {
@@ -520,10 +533,10 @@
       "person": {
         "cast": "cast",
         "who": "lyuba",
-        "turn": 150
+        "turn": 145
       },
-      "across": -0.4,
-      "distance": 3.7,
+      "across": 0.05,
+      "distance": 2.45,
       "shadow": true
     },
     {
@@ -532,17 +545,29 @@
       "person": {
         "cast": "cast",
         "who": "petrushka",
-        "turn": 195,
+        "turn": 150,
         "does": "hands_behind"
       },
-      "across": -1.75,
-      "distance": 3.9,
+      "across": -0.5,
+      "distance": 2.8,
+      "shadow": true
+    },
+    {
+      "id": "nastya",
+      "name": "Nastya",
+      "person": {
+        "cast": "cast",
+        "who": "nastya",
+        "turn": 160
+      },
+      "across": -0.85,
+      "distance": 3.1,
       "shadow": true
     },
     {
       "id": "tufts",
       "name": "Tufts of dry grass",
-      "across": -2.5,
+      "across": -1.6,
       "distance": 2.6,
       "height": 0.42,
       "box": [
@@ -553,29 +578,24 @@
       ],
       "copies": [
         {
-          "across": -2.5,
+          "across": -1.6,
           "distance": 2.6
         },
         {
-          "across": -0.95,
-          "distance": 2.25,
-          "scale": 0.8,
-          "flip": true
-        },
-        {
-          "across": 1.9,
+          "across": 1.4,
           "distance": 2.6,
-          "scale": 1.1
-        },
-        {
-          "across": 3.0,
-          "distance": 3.3,
+          "scale": 0.9,
           "flip": true
         },
         {
-          "across": 1.5,
-          "distance": 3.6,
-          "scale": 0.7
+          "across": -1.35,
+          "distance": 3.45,
+          "scale": 0.8
+        },
+        {
+          "across": 2.15,
+          "distance": 3.7,
+          "flip": true
         },
         {
           "across": -3.35,
