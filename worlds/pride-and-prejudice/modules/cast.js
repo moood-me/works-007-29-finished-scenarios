@@ -163,7 +163,7 @@ return {
         const { sub, mix, unit, cross } = V(), k = F.k, m = F.fit.h;
         for (const s of ['Left', 'Right']) {
           const a = F.P(`${s}Arm`), b = F.P(`${s}ForeArm`), u = unit(sub(b, a)), e1 = unit(cross(u, F.fwd('Chest'))), e2 = cross(e1, u);
-          F.ball(mix(a, b, 0.15), [e1, u, e2], [0.06 * k, 0.075 * m, 0.06 * k], F.colors.garment, 14);
+          F.ball(mix(a, b, 0.15), [e1, u, e2], [0.052 * k, 0.068 * m, 0.052 * k], F.colors.garment, 14);
         }
       } },
       // curls at the temples, under the knot of hair (the hair's colour)
