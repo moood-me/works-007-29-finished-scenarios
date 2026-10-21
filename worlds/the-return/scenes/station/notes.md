@@ -2,8 +2,9 @@
 
 The third scene of «The Return» (Platonov, 1946; the game's scenario: docs/new-games/vozvrashchenie/scenario.md, §4
 «Станция», chapter 2.1 (c)). Stage 2 of writing the game — the look: the station of the Ivanovs' village on a misty
-late-August morning, Wednesday, before the train, and two people not seen before — Nastya and Semyon Yevseyevich —
-beside Lyuba and Petrushka, in another light than the yard's evening and the izba's lamp. A still picture (`picture`):
+late-August morning, Wednesday, about eleven, the moment Ivanov has stepped off the train at the water tower and stands
+before his family — Lyuba, Petrushka, and two people not seen before, Nastya and Semyon Yevseyevich —, in another light
+than the yard's noon and the izba's lamp. A still picture (`picture`):
 people stand and breathe; the fog over the fields drifts, the veil of cloud drifts, smoke rises from the station house's
 chimney, the bell's rope and the grass stir. No script, no showcase, no caption (the title is the page's: ru «Станция»).
 
@@ -11,20 +12,24 @@ chimney, the bell's rope and the grass stir. No script, no showcase, no caption 
 
 The world's gouache (the izba's lib: dry ragged strokes kept inside what they paint, the paper's tooth as soft blots,
 never specks): clapboard in the railway's ochre with white trims, a red-brown iron roof, old red brick, weathered grey
-planks, the ballast's grey, rusty rails with pale worn tops, packed sand. The morning: the fog not yet off the fields —
-`haze` 0.5 toward a warm white (`hazeColor`), so the water tower at 44 m is soft, the store at 46 m paler, the poles
-fade along the line, the forest is a ghost; a low drifting bank of fog 60 m off (`mist`); a high whitish sky. A soft sun
-behind the eye's left (`sun`, bearing 200, 28° up, a warm white) lights the faces and the house front, the shadows fall
-away behind the people; a high pale `ambient` keeps everything light. Not dark.
+planks, the ballast's grey, rusty rails with pale worn tops, packed sand. Late morning: the fog
+lifting off the fields — `haze` 0.3 toward a warm white (`hazeColor`): the water tower at 44 m soft but whole, the store
+at 46 m paler, the poles fade along the line, the forest far and pale; a low drifting bank of fog 60 m off (`mist`); a
+high whitish sky. The haze was 0.5: it washed out everything but the near house, so the house's ochre stood alone
+against a white picture; at 0.3, with the picture's `saturation` 1.08, the near and the far are one painting. A warm sun
+behind the eye's left (`sun`, bearing 205, 38° up, strength 1.05) lights the faces turned toward the eye and the house
+front, the shadows fall away behind the people; a high pale `ambient` keeps everything light. Not dark.
 
 ## The frame
 
-The eye on the platform, 1.7 m up, the horizon at 0.32. The line runs aslant — from behind the eye's left (the train
+The eye on the platform, 1.7 m up, the horizon at 0.27 (at 0.32 the nearest feet fell at the frame's foot and Lyuba's
+hem was cut). The line runs aslant — from behind the eye's left (the train
 comes from there: from Masha's side) away to the far left into the fog: the main track with the kerb of old sleepers at
 the platform's edge, a siding beyond it, the telegraph poles beyond that; it leads the eye to the water tower standing by
-it in the fog (x ≈ −0.29 of the frame). The four on the platform 2.7–3.1 m off, whole, feet near the frame's foot,
-their faces toward the eye: they look along the line toward where the train will come, behind the viewer — the
-viewer stands where Ivanov will step off. Behind them the station house's long ochre front (the door, the bell, the
+it in the fog (x ≈ −0.29 of the frame). Ivanov on the left at 2.8 m, by the kerb (his feet at about
+0.91 of the frame), turned toward his family — his back and cheek to the eye; the four 3.3–4.1 m off on the right, whole,
+stepped back one behind the other in depth (not a row), all looking at him: their faces three-quarter toward the eye
+(turned about 241°, toward the eye's left), so the meeting reads as faces, not backs. Behind them the station house's long ochre front (the door, the bell, the
 windows), its near gable end on the right (seen whole in 16:9).
 
 ## The space (metres: across to the right, distance ahead; the eye at 0, 0, 1.7 m)
@@ -49,19 +54,21 @@ laid by these numbers (worked out once, written into scene.json as across/distan
 
 ## The people (the world's `cast`)
 
-One moment of chapter 2.1 (c), before the train comes in: the three who came to meet it and the old man who brought the
-girl. Each looks along the line toward the eye's left-behind, where the train will come from (looks' points behind the
-eye), so the faces are seen near full, a little turned.
+One moment of chapter 2.1 (c): the train has stopped at the water tower, Ivanov has come along the platform and stops
+before them; a breath before Lyuba runs to him. Everyone's look is on someone — the four on Ivanov's head, he on Lyuba's.
 
-- `petrushka` (−0.75, 3.0, turned 200) — at the left, nearest the line, `hands_behind` («руки за спиной»), watching
-  for the train (he knows all the trains by the clock), `thinking` (wary, grown up).
-- `lyuba` — `lyuba_best` (new in the cast): the blue pre-war dress, no apron, the white kerchief (§2.1: «Люба в синем
-  довоенном платье») — (0.0, 2.7, turned 190), her hands clasped before her (`lyuba_reach`), `sad` (waiting, afraid
-  of it).
-- `nastya` (0.8, 2.9, turned 175) — by the old man, holding the flap of his jacket (`nastya_reach` l, a point at his
-  right side), looking low toward the eye, `neutral` (she does not remember her father).
-- `semyon` — `semyon_out` (new in the cast): his clean jacket, the cap on — (1.2, 3.1, turned 200), looking along the line
-  with the others, nearly level (`semyon_look`): looking down at the girl, the cap's peak hides his eyes, `neutral` (he only brought her: «Я на минутку. Довёл только»).
+- `ivanov` — the greatcoat, the side cap, the kit bag in his left hand (`ivanov`) — (−0.85, 2.8, turned 90: toward the
+  family), looking at Lyuba, `smile` (awkward, tired from the road).
+- `lyuba` — `lyuba_best`: the blue pre-war dress, no apron, the white kerchief (§2.1: «Люба в синем довоенном платье») —
+  (0.05, 3.3, turned 241), the nearest to him, her hands clasped before her breast (`lyuba_reach`, 0.2 m before her at
+  1.05 m), `smile` (laughing through tears — «смеётся сквозь слёзы»).
+- `petrushka` (0.7, 3.65, turned 241) — a step behind his mother, `hands_behind` («руки за спиной»), `sad` (moved and
+  holding it in, waiting; not the frown he had: `thinking` read as an angry grimace at this distance).
+- `semyon` — `semyon_out`: his clean jacket, the cap on — (1.45, 3.85, turned 245), looking at Ivanov, `smile` (kind,
+  ceremonious: «Я на минутку. Довёл только»).
+- `nastya` (1.85, 4.1, turned 244) — half behind the old man on his far side, holding the back of his jacket's flap
+  with her left hand (`nastya_reach`, a point 0.18 m off his middle toward her, at 0.7 m), peeking at the stranger,
+  `afraid` (she does not remember her father: «Деда!»).
 
-Ivanov is not in the picture: he is on the train. Other lights of this place (the junction's night in rain, Masha's
-station at dawn — the scenario's §4) are for later scenes or looks.
+Other lights of this place (the junction's night in rain, Masha's station at dawn — the scenario's §4) are for later
+scenes or looks. The train itself is not in the frame: only its stop by the water tower behind Ivanov.

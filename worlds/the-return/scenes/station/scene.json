@@ -1,23 +1,23 @@
 {
   "engine": 3,
   "title": "The Station",
-  "horizon": 0.32,
+  "horizon": 0.27,
   "camera": {
     "mode": "picture"
   },
   "light": {
     "vignette": 0.25,
     "grain": 0.08,
-    "haze": 0.5,
-    "hazeColor": "#ebe9e2",
-    "hazeGlow": 0.3,
-    "ambient": 0.7,
+    "haze": 0.3,
+    "hazeColor": "#eeeadf",
+    "hazeGlow": 0.25,
+    "ambient": 0.68,
     "ambientColor": "#cfd3d8",
     "bounce": 0.5,
-    "tint": "#fff4e2",
-    "tintStrength": 0.06,
-    "saturation": 0.95,
-    "brightness": 1.03,
+    "tint": "#fff0d8",
+    "tintStrength": 0.08,
+    "saturation": 1.08,
+    "brightness": 1.02,
     "wind": [
       1,
       0.2,
@@ -28,60 +28,46 @@
     {
       "id": "sun",
       "from": [
-        200,
-        28
+        205,
+        38
       ],
-      "color": "#fff2de",
-      "strength": 0.9
+      "color": "#fff0d6",
+      "strength": 1.05
     }
   ],
   "modules": [
     "cast"
   ],
   "state": {
-    "petrushka_look": [
-      -1.6,
-      -4.0,
-      2.0
-    ],
-    "petrushka_mood": "thinking",
-    "lyuba_look": [
-      -1.4,
-      -4.0,
-      2.2
-    ],
-    "lyuba_mood": "sad",
+    "ivanov_look": "lyuba",
+    "ivanov_mood": "smile",
+    "lyuba_look": "ivanov",
+    "lyuba_mood": "smile",
     "lyuba_reach": {
       "r": [
-        -0.084,
-        2.512,
-        0.95
+        -0.149,
+        3.247,
+        1.05
       ],
       "l": [
-        0.014,
-        2.494,
-        0.95
+        -0.101,
+        3.159,
+        1.05
       ]
     },
-    "nastya_look": [
-      0.5,
-      -2.0,
-      0.9
-    ],
-    "nastya_mood": "neutral",
+    "petrushka_look": "ivanov",
+    "petrushka_mood": "sad",
+    "semyon_look": "ivanov",
+    "semyon_mood": "smile",
+    "nastya_look": "ivanov",
+    "nastya_mood": "afraid",
     "nastya_reach": {
       "l": [
-        0.995,
-        3.121,
-        0.72
+        1.6,
+        3.945,
+        0.7
       ]
-    },
-    "semyon_look": [
-      -0.6,
-      -3.0,
-      1.55
-    ],
-    "semyon_mood": "neutral"
+    }
   },
   "objects": [
     {
@@ -350,16 +336,15 @@
       ]
     },
     {
-      "id": "petrushka",
-      "name": "Petrushka",
+      "id": "ivanov",
+      "name": "Ivanov",
       "person": {
         "cast": "cast",
-        "who": "petrushka",
-        "turn": 200,
-        "does": "hands_behind"
+        "who": "ivanov",
+        "turn": 90
       },
-      "across": -0.75,
-      "distance": 3.0,
+      "across": -0.85,
+      "distance": 2.8,
       "shadow": true
     },
     {
@@ -368,22 +353,23 @@
       "person": {
         "cast": "cast",
         "who": "lyuba_best",
-        "turn": 190
+        "turn": 241
       },
-      "across": 0.0,
-      "distance": 2.7,
+      "across": 0.05,
+      "distance": 3.3,
       "shadow": true
     },
     {
-      "id": "nastya",
-      "name": "Nastya",
+      "id": "petrushka",
+      "name": "Petrushka",
       "person": {
         "cast": "cast",
-        "who": "nastya",
-        "turn": 175
+        "who": "petrushka",
+        "turn": 241,
+        "does": "hands_behind"
       },
-      "across": 0.8,
-      "distance": 2.9,
+      "across": 0.7,
+      "distance": 3.65,
       "shadow": true
     },
     {
@@ -392,10 +378,22 @@
       "person": {
         "cast": "cast",
         "who": "semyon_out",
-        "turn": 200
+        "turn": 245
       },
-      "across": 1.2,
-      "distance": 3.1,
+      "across": 1.45,
+      "distance": 3.85,
+      "shadow": true
+    },
+    {
+      "id": "nastya",
+      "name": "Nastya",
+      "person": {
+        "cast": "cast",
+        "who": "nastya",
+        "turn": 244
+      },
+      "across": 1.85,
+      "distance": 4.1,
       "shadow": true
     }
   ]
