@@ -45,7 +45,7 @@ const path = (w, colour) => {
   g.lineWidth = w;
   g.beginPath();
   g.moveTo(-0.9, Y(-1));
-  g.bezierCurveTo(-0.5, Y(4), 2.2, Y(7.5), 3.2, Y(10.9));
+  g.bezierCurveTo(-0.6, Y(3), 1.4, Y(5.5), 2.4, Y(8.1));
   g.stroke();
 };
 path(1.5, "rgba(184, 164, 124, 0.5)");
@@ -54,6 +54,6 @@ path(0.85, "#bba783");
 g.strokeStyle = "rgba(184, 164, 124, 0.55)";
 g.lineWidth = 0.7;
 g.beginPath();
-g.moveTo(-0.6, Y(3));
+g.moveTo(-0.8, Y(2.5));
 g.bezierCurveTo(-3, Y(10), -9, Y(14), -16, Y(26));
 g.stroke();

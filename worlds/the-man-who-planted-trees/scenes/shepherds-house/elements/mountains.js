@@ -10,7 +10,7 @@ const ridge = (base, amp, seed, step) => {
   g.closePath();
   g.fill();
 };
-g.fillStyle = "#9a8fb0";
+g.fillStyle = "#7a7096";
 ridge(200, 220, 11, 120);
-g.fillStyle = "#857a9c";
+g.fillStyle = "#665c84";
 ridge(60, 150, 21, 100);

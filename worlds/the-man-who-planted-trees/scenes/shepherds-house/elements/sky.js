@@ -1,7 +1,7 @@
 // The dusk sky over the plateau: deep violet overhead going down through mauve and rose to apricot at the horizon; the
 // sun sitting on the far mountains left of the house (its point `sun` is where the scene's `sun` light comes from); long
 // thin clouds lit from below (a layer that drifts); the first stars high up
-const H = 0.58, A = e.aspect, sunX = A * 0.34;
+const H = 0.58, A = e.aspect, sunX = A * 0.34, sunY = H - 0.03;
 const sky = g.createLinearGradient(0, -0.35, 0, 1.25);
 sky.addColorStop(0, "#28264a");
 sky.addColorStop(0.2, "#3b3560");
@@ -13,7 +13,7 @@ sky.addColorStop(1, "#f1c39a");
 g.fillStyle = sky;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);
 // the glow round the low sun
-const glow = g.createRadialGradient(sunX, H - 0.01, 0, sunX, H - 0.01, 0.55);
+const glow = g.createRadialGradient(sunX, sunY, 0, sunX, sunY, 0.55);
 glow.addColorStop(0, "rgba(255, 228, 176, 0.85)");
 glow.addColorStop(0.25, "rgba(255, 196, 140, 0.35)");
 glow.addColorStop(1, "rgba(255, 180, 130, 0)");
@@ -21,10 +21,10 @@ g.fillStyle = glow;
 g.fillRect(sunX - 0.6, H - 0.6, 1.2, 1.0);
 g.fillStyle = "#fff0cf";
 g.beginPath();
-g.arc(sunX, H - 0.012, 0.022, 0, Math.PI * 2);
+g.arc(sunX, sunY, 0.022, 0, Math.PI * 2);
 g.fill();
-e.at(sunX, H - 0.012, "sun");
-e.light(sunX, H - 0.012, 0.06, "#ffd9a0", 0.6);
+e.at(sunX, sunY, "sun");
+e.light(sunX, sunY, 0.06, "#ffd9a0", 0.6);
 // the first stars, high and faint
 e.layer("stars", {}, (g) => {
   for (let i = 0; i < 40; i++) {
