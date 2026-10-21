@@ -40,6 +40,22 @@ function topHat(F, c, out, colour) {
   F.bar(add(c, mul(out, 0.01 * m)), add(c, mul(out, 0.035 * m)), 0.085 * m, 0.086 * m, [[0, BAND]], 18, side);
   F.ball(top, axes, [0.09 * m, 0.09 * m, 0.006 * m], colour, 18);
 }
+// a man's coat's front over the chest: the shirt's white between the lapels, a dark stock at the throat, the lapels
+// turned back in a deeper shade of the coat, a row of buttons down to the waist — on the coat's surface (the trunk's
+// sections a little out of the coat's own, which stands off them by 1.12)
+const STOCK = [0.14, 0.13, 0.14, 1], BUTTON = [0.2, 0.18, 0.17, 1];
+const FRONT = F => ({ axes: [null, null, null], shirt: [0.05 * F.k, 0.07 * F.fit.h, 0.012 * F.k], stock: [0.045 * F.k, 0.03 * F.fit.h, 0.02 * F.k],
+  button: [0.012 * F.k, 0.012 * F.k, 0.006 * F.k], lapel: [[0, 0.016 * F.k], [1, 0.02 * F.k], [2, 0.008 * F.k]] });
+function coatFront(F) {
+  const { add, mul, mix } = V(), K = F.keep(FRONT), secs = F.trunk(1.16), waist = secs[2], chest = secs[3], shoulders = secs[4];
+  const front = (s, x = 0) => add(add(s[0], mul(s[2], s[4])), mul(s[1], x * s[3]));
+  const sd = chest[1], uc = F.up('Chest'), fw = chest[2], axes = K.axes, shade = F.colors.garment.map((v, i) => (i < 3 ? v * 0.72 : v));
+  axes[0] = sd; axes[1] = uc; axes[2] = fw;
+  F.ball(mix(front(shoulders), front(chest), 0.45), axes, K.shirt, F.colors.top, 12);
+  F.ball(add(front(shoulders), mul(uc, 0.012 * F.fit.h)), axes, K.stock, STOCK, 10);
+  for (const sx of [-1, 1]) F.tube([front(shoulders, sx * 0.38), front(chest, sx * 0.3), front(waist, sx * 0.04)], K.lapel, [[0, shade]], 6, fw);
+  for (const u of [0.25, 0.6, 0.95]) F.ball(mix(front(chest, 0.12), front(waist, 0.1), u), axes, K.button, BUTTON, 6);
+}
 return {
   ...data,
   characters: {
@@ -78,7 +94,7 @@ return {
     // and rounder, so a face reads across the street; washed in colours under the scene's light and shaded (`toned`),
     // drawn round with the houses' own sepia ink line (the ground `litho`); its cloth folded in long strokes as a
     // lithograph hatches it; the face `litho`
-    styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.55, egg: [0.94, 1.04, 0.99], neck: 0.72, legs: 1.0, limb: 1.2, feet: 'wedge', sides: 24,
+    styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.6, egg: [0.9, 1.07, 0.99], neck: 0.72, legs: 1.0, limb: 1.2, feet: 'wedge', sides: 24,
       trunk: { w: [0.88, 0.94, 0.8, 0.92, 0.98], d: [0.96, 1.0, 0.92, 0.94, 0.86] }, arms: 'litho', paint: 'toned', line: 2.2, tinted: false,
       face: 'litho', ragged: 0, folds: { n: 11, depth: 0.1 }, ground: 'litho' } },
     // the arms of the style: a sleeve full at the shoulder, the forearm tapering to a real wrist, a hand with a palm as
@@ -91,41 +107,43 @@ return {
     // same solids for every expression, only where they are changes, so one goes over into another)
     faces: { litho: { name: 'lithograph', draw: F => {
       const { axes, r: rh, on } = F.head, [, hu] = axes, x = MOODS[F.look.expression] ?? MOODS.neutral;
-      const skin = F.colors.skin, brow = F.colors.hair.map(v => v * 0.7), crease = [skin[0] * 0.8, skin[1] * 0.68, skin[2] * 0.66];
-      const cheek = [skin[0], skin[1] * 0.86, skin[2] * 0.86], lips = [skin[0] * 0.8, skin[1] * 0.46, skin[2] * 0.48];
-      const lower = [skin[0] * 0.86, skin[1] * 0.56, skin[2] * 0.57], open = Math.min(1, x.eye), up = 1.3;
+      const skin = F.colors.skin, brow = F.colors.hair.map(v => v * 0.62), crease = [skin[0] * 0.78, skin[1] * 0.64, skin[2] * 0.62];
+      const cheek = [skin[0], skin[1] * 0.93, skin[2] * 0.92], lips = [skin[0] * 0.78, skin[1] * 0.44, skin[2] * 0.46];
+      const lower = [skin[0] * 0.84, skin[1] * 0.54, skin[2] * 0.55], open = Math.min(1, x.eye), up = 1.8;
       for (const sx of [-1, 1]) {
         // (on the head's drawn surface, which stands a little out of its radius: the features a little out of it too)
-        F.ball(on([sx * 0.5, -0.22, 0.83], 1.01), axes, [rh * 0.14, rh * 0.085, rh * 0.03], cheek, 10);
-        // the eye: its white, the iris a little under the lid (its top hidden: a living look), a glint in it, the upper
-        // lid a heavy ink line drawn out at its outer end, the lower lid a fine crease
-        F.ball(on([sx * 0.34, 0.05, 0.94], 1.02), axes, [rh * 0.17, rh * 0.115 * x.eye, rh * 0.05], WHITE, 12);
-        F.ball(on([sx * 0.33, 0.035, 0.955], 1.045), axes, [rh * 0.095, rh * 0.105 * open, rh * 0.045], IRIS, 10);
-        F.ball(on([sx * 0.31, 0.075, 0.96], 1.07), axes, [rh * 0.026, rh * 0.026, rh * 0.02], GLINT, 6);
-        F.tube([on([sx * 0.16, 0.06 + 0.1 * x.eye, 0.93], 1.07), on([sx * 0.34, 0.1 + 0.115 * x.eye, 0.945], 1.08), on([sx * 0.54, 0.07 + 0.085 * x.eye, 0.84], 1.07)],
-          [[0, rh * 0.03], [1, rh * 0.05], [2, rh * 0.034]], [[0, LID]], 6, hu);
-        F.tube([on([sx * 0.2, 0.05 - 0.09 * x.eye, 0.93], 1.035), on([sx * 0.34, 0.04 - 0.115 * x.eye, 0.94], 1.04), on([sx * 0.5, 0.05 - 0.07 * x.eye, 0.87], 1.035)],
-          [[0, rh * 0.012], [1, rh * 0.018], [2, rh * 0.012]], [[0, crease]], 6, hu);
+        // a warmth in the cheek, wide and faint
+        F.ball(on([sx * 0.52, -0.25, 0.82], 1.0), axes, [rh * 0.19, rh * 0.12, rh * 0.03], cheek, 12);
+        // the eye, large enough to read across the street: its white, the iris a little under the lid (its top hidden:
+        // a living look), a glint in it, the upper lid a heavy ink line drawn out at its outer end, the lower lid's crease
+        F.ball(on([sx * 0.34, 0.06, 0.94], 1.02), axes, [rh * 0.205, rh * 0.14 * x.eye, rh * 0.05], WHITE, 14);
+        F.ball(on([sx * 0.33, 0.04, 0.955], 1.045), axes, [rh * 0.12, rh * 0.128 * open, rh * 0.045], IRIS, 12);
+        F.ball(on([sx * 0.3, 0.09, 0.96], 1.07), axes, [rh * 0.034, rh * 0.034, rh * 0.02], GLINT, 6);
+        F.tube([on([sx * 0.12, 0.07 + 0.12 * x.eye, 0.93], 1.07), on([sx * 0.34, 0.11 + 0.14 * x.eye, 0.945], 1.08), on([sx * 0.58, 0.07 + 0.1 * x.eye, 0.8], 1.07)],
+          [[0, rh * 0.035], [1, rh * 0.062], [2, rh * 0.04]], [[0, LID]], 6, hu);
+        F.tube([on([sx * 0.17, 0.05 - 0.11 * x.eye, 0.93], 1.035), on([sx * 0.34, 0.04 - 0.14 * x.eye, 0.94], 1.04), on([sx * 0.52, 0.05 - 0.08 * x.eye, 0.86], 1.035)],
+          [[0, rh * 0.014], [1, rh * 0.022], [2, rh * 0.014]], [[0, crease]], 6, hu);
         // the brow, as the mood lifts or knits it
-        F.tube([on([sx * 0.13, 0.33 + x.inner * up, 0.93], 1.05), on([sx * 0.32, 0.37 + ((x.inner + x.outer) * up) / 2, 0.9], 1.06), on([sx * 0.54, 0.31 + x.outer * up, 0.82], 1.05)],
-          [[0, rh * 0.055], [1, rh * 0.06], [2, rh * 0.03]], [[0, brow]], 6, hu);
+        F.tube([on([sx * 0.1, 0.36 + x.inner * up, 0.93], 1.05), on([sx * 0.33, 0.41 + ((x.inner + x.outer) * up) / 2, 0.9], 1.06), on([sx * 0.58, 0.34 + x.outer * up, 0.8], 1.05)],
+          [[0, rh * 0.07], [1, rh * 0.078], [2, rh * 0.04]], [[0, brow]], 6, hu);
       }
       // the nose, the shade under it
-      F.ball(on([0, -0.1, 1], 1.0), axes, [rh * 0.085, rh * 0.16, rh * 0.13], skin.map(v => v * 0.95), 10);
-      F.tube([on([-0.08, -0.25, 0.96], 1.04), on([0, -0.28, 0.99], 1.06), on([0.08, -0.25, 0.96], 1.04)], [[0, rh * 0.014], [1, rh * 0.02], [2, rh * 0.014]], [[0, crease]], 6, hu);
+      F.ball(on([0, -0.1, 1], 1.0), axes, [rh * 0.09, rh * 0.17, rh * 0.14], skin.map(v => v * 0.94), 10);
+      F.tube([on([-0.09, -0.26, 0.96], 1.04), on([0, -0.29, 0.99], 1.06), on([0.09, -0.26, 0.96], 1.04)], [[0, rh * 0.016], [1, rh * 0.024], [2, rh * 0.016]], [[0, crease]], 6, hu);
       // (the mouth: its corners up or down, open — a dark oval within it — or closed: an open one no wider than nothing;
       // the upper lip a line of the lips' colour, the lower a fuller curve under it)
-      const w = x.wide * 1.3, y = -0.44, c = x.corners * up;
+      const w = x.wide * 1.6, y = -0.46, c = x.corners * up;
       F.ball(on([0, y - x.open / 2, 0.95], 1.01), axes, [rh * w * 0.75, rh * x.open, rh * 0.03], IRIS, 10);
-      F.tube([on([-w, y + c, 0.93], 1.04), on([0, y + 0.01, 0.945], 1.055), on([w, y + c, 0.93], 1.04)], [[0, rh * 0.028], [1, rh * 0.042], [2, rh * 0.028]], [[0, lips]], 6, hu);
-      F.tube([on([-w * 0.7, y + c * 0.6 - 0.04, 0.93], 1.035), on([0, y - 0.075 - x.open, 0.94], 1.045), on([w * 0.7, y + c * 0.6 - 0.04, 0.93], 1.035)],
-        [[0, rh * 0.02], [1, rh * 0.04], [2, rh * 0.02]], [[0, lower]], 6, hu);
+      F.tube([on([-w, y + c, 0.92], 1.04), on([0, y + 0.01, 0.945], 1.055), on([w, y + c, 0.92], 1.04)], [[0, rh * 0.032], [1, rh * 0.05], [2, rh * 0.032]], [[0, lips]], 6, hu);
+      F.tube([on([-w * 0.7, y + c * 0.6 - 0.045, 0.93], 1.035), on([0, y - 0.085 - x.open, 0.94], 1.045), on([w * 0.7, y + c * 0.6 - 0.045, 0.93], 1.035)],
+        [[0, rh * 0.024], [1, rh * 0.048], [2, rh * 0.024]], [[0, lower]], 6, hu);
     } } },
     garments: {
-      // a frock coat: from the shoulders to the knee, long sleeves
-      frockcoat: { name: 'frock coat', hang: [{ to: 1.0, from: 'shoulders', flare: 0.14 }], sleeves: 'garment' },
-      // a longer, fuller frock coat to below the knee
-      longcoat: { name: 'long frock coat', hang: [{ to: 1.15, from: 'shoulders', flare: 0.18 }], sleeves: 'garment' },
+      // a frock coat: from the shoulders to the knee, straight (a man's coat, not a skirt), long sleeves; its front over the
+      // chest (coatFront)
+      frockcoat: { name: 'frock coat', hang: [{ to: 0.98, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment', draw: coatFront },
+      // a longer frock coat, to just below the knee, as straight
+      longcoat: { name: 'long frock coat', hang: [{ to: 1.05, from: 'shoulders', flare: 0.05, folds: false }], sleeves: 'garment', draw: coatFront },
       // a dress to the ankles from the waist, its bodice and sleeves in its colour, a mantle over the shoulders down
       // to the hips (the top's colour)
       caped: { name: 'dress with a mantle', hang: [{ to: 1.95, from: 'waist', flare: 0.5, off: 0.94 },
