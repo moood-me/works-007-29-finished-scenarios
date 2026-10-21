@@ -1,0 +1,105 @@
+{
+  "engine": 3,
+  "title": "The Dreamer's Room",
+  "horizon": 0.42,
+  "camera": { "mode": "picture" },
+  "light": {
+    "ambient": 0.86,
+    "ambientColor": "#e2e6df",
+    "inside": 0.6,
+    "bounce": 0.6,
+    "haze": 0.05,
+    "hazeColor": "#d9ddd6",
+    "hazeGlow": 0.35,
+    "brightness": 1.06,
+    "saturation": 0.9,
+    "tint": "#dfe6e2",
+    "tintStrength": 0.05,
+    "vignette": 0.3,
+    "grain": 0.18
+  },
+  "lights": [
+    { "id": "window_day", "of": "window", "daylight": 1.8, "reach": 6.5 },
+    { "id": "candle", "of": "table_things#flame", "color": "#ffb46a", "strength": 0.5, "reach": 1.8, "on": "candle", "flicker": 0.2 }
+  ],
+  "modules": ["cast"],
+  "state": {
+    "candle": 1,
+    "rain": 1,
+    "dreamer_on": [0.6, 3.45, 0.45],
+    "dreamer_do": { "motion": "seated", "loop": true },
+    "dreamer_look": [-0.3, 2.3, 1.05],
+    "dreamer_mood": "sad",
+    "matryona_with": ["letter"],
+    "matryona_reach": { "r": [-0.3, 2.7, 1.05] },
+    "matryona_look": [0.15, 1.9, 1.3],
+    "matryona_mood": "thinking"
+  },
+  "states": {
+    "candle": { "range": [0, 1], "smooth": true, "means": "the candle-end left burning on the table: 0 out, 1 burning (its light and its glow)" },
+    "rain": { "range": [0, 1], "smooth": true, "means": "the rain outside the window, in the courtyard and running down the panes: 0 none, 1 a steady summer rain" }
+  },
+  "objects": [
+    { "id": "yard", "name": "The house across the courtyard", "across": -6.5, "distance": 14.8, "elevation": -4.5, "facing": 90, "height": 9, "box": [-3.6, -9, 3.6, 0] },
+    { "id": "rain", "name": "Rain in the courtyard", "particles": { "kind": "rain", "area": [-8, -1.7, 2, 19], "amount": "rain", "ground": "pass" } },
+    { "id": "floor", "name": "Floor", "plane": true, "across": 0.15, "distance": 2.75, "width": 3.5, "depth": 5.5, "inside": true },
+    { "id": "ceiling", "name": "Ceiling", "plane": true, "across": 0.15, "distance": 2.4, "elevation": 2.45, "width": 3.5, "depth": 4.8, "inside": true },
+    { "id": "passage", "name": "Stairwell beyond the door", "across": -1.07, "distance": 5.35, "facing": 180, "height": 2.3, "box": [-0.7, -2.3, 0.7, 0.01], "inside": true },
+    { "id": "wall_back", "name": "Back wall", "across": 0, "distance": 4.8, "facing": 180, "height": 2.45, "box": [-1.6, -2.45, 1.9, 0], "inside": true },
+    { "id": "wall_left", "name": "Left wall", "across": -1.6, "distance": 2.4, "facing": 90, "height": 2.45, "box": [-2.4, -2.45, 2.4, 0], "inside": true },
+    { "id": "wall_right", "name": "Right wall", "across": 1.9, "distance": 2.4, "facing": 270, "height": 2.45, "box": [-2.4, -2.45, 2.4, 0], "inside": true },
+    { "id": "window", "name": "Window onto the courtyard", "across": -1.59, "distance": 3.65, "facing": 90, "height": 2.1, "box": [-0.56, -2.11, 0.56, -0.77], "inside": true },
+    { "id": "pane_drops", "name": "Rain running down the panes", "on": "window", "distance": 0.02, "elevation": 1.4, "particles": { "kind": "drops", "source": [0.85, 0, 1.1], "rate": 2, "amount": "rain" } },
+    { "id": "sill", "name": "Windowsill", "plane": true, "across": -1.47, "distance": 3.65, "elevation": 0.8, "width": 0.26, "depth": 1.05, "inside": true },
+    { "id": "door", "name": "Door to the stair, ajar", "across": -0.7, "distance": 4.8, "facing": 125, "height": 1.95, "box": [-0.76, -1.96, 0.01, 0.01], "inside": true, "shadow": true },
+    { "id": "table_top", "name": "Table's top", "plane": true, "across": 0.8, "distance": 4.52, "elevation": 0.74, "width": 1.2, "depth": 0.54, "inside": true, "shadow": true },
+    { "id": "table", "name": "Writing table", "across": 0.8, "distance": 4.25, "facing": 180, "height": 0.77, "box": [-0.62, -0.78, 0.62, 0.01], "inside": true, "shadow": true },
+    { "id": "table_things", "name": "Papers, inkwell, cup, candle-end", "across": 0.8, "distance": 4.6, "elevation": 0.74, "height": 0.26, "box": [-0.52, -0.27, 0.48, 0.01], "inside": true, "flicker": 0.25 },
+    { "id": "stick", "name": "His knotty stick", "across": 1.76, "distance": 4.66, "facing": 225, "height": 0.95, "box": [-0.1, -0.95, 0.13, 0.02], "inside": true, "shadow": true },
+    {
+      "id": "cobweb",
+      "name": "Cobwebs in the corners",
+      "across": 1.617,
+      "distance": 4.517,
+      "elevation": 1.6,
+      "facing": 225,
+      "height": 0.85,
+      "box": [-0.42, -0.86, 0.42, 0.02],
+      "copies": [
+        { "across": 1.617, "distance": 4.517, "elevation": 1.6, "facing": 225 },
+        { "across": -1.43, "distance": 4.63, "elevation": 1.94, "facing": 135, "scale": 0.6, "flip": true }
+      ],
+      "inside": true
+    },
+    { "id": "chair_back", "name": "Chair's back", "across": 0.722, "distance": 3.596, "facing": 220, "height": 0.99, "box": [-0.22, -1.0, 0.22, 0.01], "inside": true, "shadow": true },
+    { "id": "chair_seat", "name": "Chair's seat", "plane": true, "across": 0.6, "distance": 3.45, "elevation": 0.45, "width": 0.42, "depth": 0.4, "rotation": 40, "inside": true },
+    { "id": "chair_front", "name": "Chair's front", "across": 0.478, "distance": 3.304, "facing": 220, "height": 0.47, "box": [-0.22, -0.48, 0.22, 0.01], "inside": true, "shadow": true },
+    { "id": "dreamer", "name": "The Dreamer", "person": { "cast": "cast", "who": "dreamer", "turn": 220 }, "across": 0.6, "distance": 3.45, "inside": true },
+    { "id": "matryona", "name": "Matryona", "person": { "cast": "cast", "who": "matryona", "turn": 135 }, "across": -0.7, "distance": 3.0, "inside": true }
+  ],
+  "music": {
+    "prompts": [
+      { "text": "a solo piano nocturne in the manner of Field and early Chopin, slow, tender, rubato, soft pedal", "weight": 0.5 },
+      { "text": "a string quartet playing a quiet romance, long held notes, muted violins, 1840s salon music", "weight": 0 },
+      { "text": "a lone cello singing a slow melancholy melody over soft pizzicato", "weight": 0.6 },
+      { "text": "a music box melody slowly unwinding, delicate and a little sad", "weight": 0.3 },
+      { "text": "a Russian romance on a seven-string guitar, gentle fingerpicking, wistful", "weight": 0 },
+      { "text": "an ambient drone of pale strings, like light on water at night", "weight": 0 },
+      { "text": "a harp playing slow broken chords, shimmering, calm", "weight": 0 },
+      { "text": "a clarinet melody over a soft string bed, a quiet reverie", "weight": 0 },
+      { "text": "a distant church bell striking, with a sustained organ pedal note", "weight": 0 },
+      { "text": "a waltz played very slowly on an old upright piano, dreamy and nostalgic", "weight": 0 },
+      { "text": "a chamber trio of piano, violin and cello, Tchaikovsky-like lyricism, hushed", "weight": 0 },
+      { "text": "a flute and harp duet, airy and transparent, a summer night", "weight": 0 },
+      { "text": "minimal piano with long silences, a few notes at a time, intimate", "weight": 0.9 },
+      { "text": "a romantic violin solo, singing and yearning, with a soft piano accompaniment", "weight": 0 },
+      { "text": "a balalaika tremolo playing a quiet folk tune far away", "weight": 0 },
+      { "text": "soft choir humming without words, slow, luminous", "weight": 0 },
+      { "text": "slow felt piano on a grey rainy morning, muffled, close, a little out of tune", "weight": 0.7 }
+    ],
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.35,
+    "scale": "D_FLAT_MAJOR_B_FLAT_MINOR"
+  }
+}

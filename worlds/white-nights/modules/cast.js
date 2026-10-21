@@ -27,6 +27,8 @@ const MOODS = {
   tired: { inner: 0.02, outer: -0.05, eye: 0.55, wide: 0.12, corners: -0.015, open: 0 },
 };
 const BOARDS = [0.42, 0.27, 0.2, 1], PAGES = [0.93, 0.9, 0.81, 1];
+// a letter's: its paper (folded, a little grey) and its red wax seal
+const PAPER = [0.94, 0.92, 0.86, 1], SEAL = [0.62, 0.12, 0.1, 1];
 // a top hat held by its brim: the opening at `c` turned to the holder, the crown out along `out` (unit); a little
 // wider at the top, as hats of the time were; `colour` its felt
 function topHat(F, c, out, colour) {
@@ -62,6 +64,11 @@ return {
     babushka: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'shawled', hair: 'bun', hat: 'mobcap',
       body: { height: 0.88, thick: 0.96, shoulders: 0.86, head: 1.04 },
       colors: { skin: '#e8d0bd', hair: '#ddd7cd', top: '#c4a568', garment: '#4c3f47', hat: '#f3efe6', accent: '#8a7598', shoes: '#2a2426' } },
+    // Matryona, the Dreamer's servant, past sixty: short and broad, a brown homespun dress to the floor, a faded brick-red
+    // shawl over the shoulders, a washed linen kerchief tied under the chin over grey hair
+    matryona: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'shawled', hair: 'short', hat: 'kerchief',
+      body: { height: 0.9, thick: 1.06, shoulders: 0.94, head: 1.03 },
+      colors: { skin: '#e0bea0', hair: '#8f877c', top: '#a3593f', garment: '#5f5247', hat: '#ddd4bf', accent: '#cfc4ab', shoes: '#2a2522' } },
   },
   shapes: {
     // the world's style: the slender figure of `shadow` (a small head, a long neck, hands with fingers, pointed shoes)
@@ -154,6 +161,14 @@ return {
         F.cap(at, axes, egg.map(e => e * r * out * 1.17), [0, 0.66, -0.75], -0.18, F.colors.hat, sides, square);
         F.ball(add(at, add(mul(hu, -r * 1.02), mul(hf, r * 0.3))), axes, [r * 0.17, r * 0.09, r * 0.1], F.colors.accent, 10);
       } },
+      // a working woman's kerchief: linen drawn close over the hair and the brow, framing the face, its ends tied in a
+      // knot under the chin (the accent), its corner hanging at the nape
+      kerchief: { name: 'kerchief', draw: F => {
+        const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
+        F.cap(at, axes, egg.map(e => e * r * out * 1.1), [0, 0.42, -0.91], -0.16, F.colors.hat, sides, square);
+        F.ball(add(at, add(mul(hu, -r * 1.0), mul(hf, r * 0.34))), axes, [r * 0.16, r * 0.1, r * 0.1], F.colors.accent, 10);
+        F.ball(add(at, add(mul(hu, -r * 0.62), mul(hf, -r * 0.98))), axes, [r * 0.3, r * 0.26, r * 0.1], F.colors.hat, 10);
+      } },
     },
     parts: {
       // a top hat held before the chest in both hands, between them, its crown out from the chest
@@ -199,6 +214,17 @@ return {
         F.ball(add(c, mul(s, -0.059 * m)), axes, [0.06 * m, 0.008 * m, 0.085 * m], PAGES, 10, 6);
         F.ball(add(c, mul(s, 0.059 * m)), axes, [0.06 * m, 0.008 * m, 0.085 * m], PAGES, 10, 6);
         F.point('book', add(c, mul(n, 0.01 * m)));
+      } },
+      // a folded letter held out in the right hand by its lower edge, standing up out of the fingers (tipped up from the
+      // forearm's line, so it shows its face, not its edge), a red wax seal on its face; its point `letter`
+      letter: { name: 'letter', draw: F => {
+        const { add, sub, mul, cross, unit } = V(), m = F.fit.h, hand = F.P('RightHand');
+        const fore = unit(sub(hand, F.P('RightForeArm'))), across = unit(cross(fore, [0, 1, 0]));
+        const along = unit(add(mul(fore, 0.55), mul(cross(across, fore), 0.83))), face = cross(across, along);
+        const c = add(hand, mul(along, 0.08 * m)), axes = [across, face, along];
+        F.ball(c, axes, [0.055 * m, 0.004 * m, 0.08 * m], PAPER, 10, 6);
+        F.ball(add(c, mul(face, 0.005 * m)), axes, [0.013 * m, 0.004 * m, 0.013 * m], SEAL, 8);
+        F.point('letter', c);
       } },
     },
   },
