@@ -3,9 +3,9 @@
 
 // the world's palette: snow and its blue hollows, weathered wood, the warm few
 const C = {
-  snow: "#e9eef4",
-  snowShade: "#c9d4e2",
-  snowDeep: "#b4c2d6",
+  snow: "#eaf0f7",
+  snowShade: "#c4d2e6",
+  snowDeep: "#a9bcd8",
   wood: "#8a7763",
   woodDark: "#5f4f40",
   woodLight: "#a8957e",
@@ -72,17 +72,39 @@ function logEnds(g, x, y0, y1, log, out) {
   }
 }
 
-// a wisp of snow blown low along the ground: a long thin soft streak, see-through, from x to x + len at height y
+// a wisp of snow blown low along the ground: a long thin streak, soft on every side (see-through, no hard edge),
+// from x to x + len at height y, a few finer threads along it
 function wisp(g, x, y, len, thick, alpha) {
-  const grad = g.createLinearGradient(x, 0, x + len, 0);
-  grad.addColorStop(0, "rgba(240,244,250,0)");
-  grad.addColorStop(0.3, `rgba(240,244,250,${alpha})`);
-  grad.addColorStop(0.7, `rgba(240,244,250,${alpha * 0.8})`);
-  grad.addColorStop(1, "rgba(240,244,250,0)");
-  g.fillStyle = grad;
+  const cx = x + len / 2;
+  g.save();
+  g.translate(cx, y);
+  g.scale(len / 2, thick);
+  const soft = g.createRadialGradient(0, 0, 0, 0, 0, 1);
+  soft.addColorStop(0, `rgba(242,246,252,${alpha})`);
+  soft.addColorStop(0.55, `rgba(242,246,252,${alpha * 0.55})`);
+  soft.addColorStop(1, "rgba(242,246,252,0)");
+  g.fillStyle = soft;
   g.beginPath();
-  g.ellipse(x + len / 2, y, len / 2, thick, 0, 0, Math.PI * 2);
+  g.arc(0, 0, 1, 0, Math.PI * 2);
   g.fill();
+  g.restore();
 }
 
-return { C, snowCap, logs, logEnds, wisp };
+// a band of ground wind over a layer's box [x0, y0, x1, y1] (y1 the ground): `n` wisps, each painted again a box's
+// width to either side so the layer wraps as it drifts
+function groundWind(c, rnd, box, n, lenMin, lenMax, thickMin, thickMax, aMin, aMax) {
+  const [x0, y0, x1] = box, W = x1 - x0;
+  for (let i = 0; i < n; i++) {
+    const x = x0 + rnd() * W;
+    const y = -0.03 + (y0 + thickMax + 0.04) * rnd() ** 1.6;
+    const len = lenMin + rnd() * (lenMax - lenMin);
+    const thick = thickMin + rnd() * (thickMax - thickMin);
+    const alpha = aMin + rnd() * (aMax - aMin);
+    for (const dx of [-W, 0, W]) {
+      if (x + dx + len < x0 || x + dx > x1) continue;
+      wisp(c, x + dx, y, len, thick, alpha);
+    }
+  }
+}
+
+return { C, snowCap, logs, logEnds, wisp, groundWind };

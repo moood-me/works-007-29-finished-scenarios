@@ -1,11 +1,13 @@
-// Mukhorty, the gelding, in harness, seen from his near side, his head to the right (to the post): a small strong
+// Mukhorty, the gelding, in harness, seen from his near side, his head to the LEFT (the card stands turned so that he
+// comes toward the eye at the left, his body going away to the right — the sleigh behind him): a small strong
 // peasant horse, bay-brown with tan markings — the muzzle, round the eye, the flank, the inside of the legs —, dark
 // legs, a thick dark mane and tail, frost on his back. On him: the collar, the painted wooden bow over it, the near
-// shaft running back to the sleigh, the saddle-pad with its straps, the bridle; the rein tied to the post's ring.
+// shaft running back to the sleigh, the saddle-pad with its straps, the bridle (Nikita holds him at the cheek).
+// Drawn as a horse facing right, mirrored (g.scale(-1, 1)): the numbers below are the right-facing drawing's; the
+// pivots and the points, given to the engine, are mirrored by hand (x negated).
 // Layers: `tail` and `mane` bent by the wind; `head` nodding a little about the throat (animate).
 // Points: `head`, `cheek` (where Nikita's hand lies), `nose` (his breath), `neck`.
-// (x −2.3…2.6 m: the shaft's end at the sleigh x −2.2, the rump x −0.95, the muzzle x 1.47, the post's ring x 2.48;
-// its foot at 0)
+// (x −1.55…2.25 m: the muzzle x −1.47, the rump x 0.95, the shaft's end at the sleigh x 2.2; its foot at 0)
 const L = e.lib;
 const C = L.C;
 const COAT = "#6e4a33";
@@ -14,6 +16,8 @@ const LEG = "#3e2b20";
 const HAIR = "#2e211a";
 const HOOF = "#38322c";
 const FAR = "#553926";
+g.save();
+g.scale(-1, 1);
 
 // a leg: from its top (x, y) down to the hoof at (fx, 0), a joint at (kx, ky); w — its width at the top
 function leg(x, y, kx, ky, fx, w, coat, lower) {
@@ -150,8 +154,12 @@ g.moveTo(-2.2, -0.38);
 g.quadraticCurveTo(-0.6, -0.84, 0.84, -1.12);
 g.stroke();
 
+g.restore();
+
 // the mane on the near side of the crest, hanging in locks: the wind bends it
-e.layer("mane", { pivot: [0.7, -1.68], wind: { strength: 0.3, gust: 0.6, scale: 0.6 } }, c => {
+e.layer("mane", { pivot: [-0.7, -1.68], wind: { strength: 0.3, gust: 0.6, scale: 0.6 } }, c => {
+  c.save();
+  c.scale(-1, 1);
   c.fillStyle = HAIR;
   c.beginPath();
   c.moveTo(0.36, -1.5);
@@ -166,10 +174,13 @@ e.layer("mane", { pivot: [0.7, -1.68], wind: { strength: 0.3, gust: 0.6, scale: 
   }
   c.closePath();
   c.fill();
+  c.restore();
 });
 
 // the collar and the bow sit over the mane: a layer of their own, painted after it (still)
 e.layer("harness", {}, c => {
+  c.save();
+  c.scale(-1, 1);
   // the collar: a thick padded ring round the neck's base, its wooden hames along it
   c.strokeStyle = "#2f2621";
   c.lineWidth = 0.16;
@@ -201,10 +212,13 @@ e.layer("harness", {}, c => {
   c.stroke();
   c.setLineDash([]);
   L.snowCap(c, 0.68, 0.8, -2.26, 0.03, 71);
+  c.restore();
 });
 
 // the tail: long, thick, hanging from the croup, its end swinging in the wind
-e.layer("tail", { pivot: [-0.9, -1.36], wind: { strength: 0.5, gust: 0.7, scale: 0.8 } }, c => {
+e.layer("tail", { pivot: [0.9, -1.36], wind: { strength: 0.5, gust: 0.7, scale: 0.8 } }, c => {
+  c.save();
+  c.scale(-1, 1);
   c.fillStyle = HAIR;
   c.beginPath();
   c.moveTo(-0.86, -1.4);
@@ -216,19 +230,14 @@ e.layer("tail", { pivot: [-0.9, -1.36], wind: { strength: 0.5, gust: 0.7, scale:
   c.bezierCurveTo(-0.86, -1.25, -0.82, -1.32, -0.86, -1.4);
   c.closePath();
   c.fill();
+  c.restore();
 });
-
-// the rein, from the bit to the post's ring, sagging (still: the head's nod is too small to move it)
-g.strokeStyle = "#3a2f27";
-g.lineWidth = 0.016;
-g.beginPath();
-g.moveTo(1.34, -1.28);
-g.quadraticCurveTo(1.95, -0.92, 2.48, -1.0);
-g.stroke();
 
 // the head: from the poll down to the muzzle, a little lowered; the ears, the forelock, the eye, the tan of the
 // muzzle and round the eye, the bridle and the bit — it nods about the throat
-e.layer("head", { pivot: [0.98, -1.66] }, c => {
+e.layer("head", { pivot: [-0.98, -1.66] }, c => {
+  c.save();
+  c.scale(-1, 1);
   c.fillStyle = COAT;
   c.beginPath();
   c.moveTo(0.94, -1.88);
@@ -298,9 +307,10 @@ e.layer("head", { pivot: [0.98, -1.66] }, c => {
   c.beginPath();
   c.arc(1.33, -1.28, 0.025, 0, Math.PI * 2);
   c.stroke();
-  e.at(1.08, -1.66, "head");
-  e.at(1.2, -1.5, "cheek");
-  e.at(1.48, -1.3, "nose");
+  c.restore();
+  e.at(-1.08, -1.66, "head");
+  e.at(-1.2, -1.5, "cheek");
+  e.at(-1.48, -1.3, "nose");
 });
-e.at(1.08, -1.7);
-e.at(0.8, -1.5, "neck");
+e.at(-1.08, -1.7);
+e.at(-0.8, -1.5, "neck");
