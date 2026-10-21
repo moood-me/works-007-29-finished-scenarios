@@ -26,12 +26,12 @@ return {
     // in his right hand
     axl: { kind: 'shapes', style: 'giant', who: 'old', garment: 'coat', hair: 'short', parts: ['beard', 'bundle'],
       body: { height: 0.96, thick: 0.9, shoulders: 0.95 },
-      colors: { skin: '#cfa587', hair: '#e1ddd5', garment: '#6e6252', top: '#b9ae99', bottom: '#4b443b', shoes: '#2e2924' } },
+      colors: { skin: '#cfa587', hair: '#d6d1c8', garment: '#6e6252', top: '#b9ae99', bottom: '#4b443b', shoes: '#2e2924' } },
     // Beatrice, past seventy: small, straight-backed, grey hair in a knot, a long slate-blue dress, the red shawl —
     // the only red in the game
-    beatrice: { kind: 'shapes', style: 'giant', who: 'woman', garment: 'shawl_dress', hair: 'bun',
+    beatrice: { kind: 'shapes', style: 'giant', who: 'woman', garment: 'shawl_dress', hair: 'bun', scarf: true,
       body: { height: 0.9, thick: 0.86, shoulders: 0.86 },
-      colors: { skin: '#dcb398', hair: '#d3ccc4', garment: '#596572', top: '#596572', accent: '#b0302b', shoes: '#2b2724' } },
+      colors: { skin: '#dcb398', hair: '#9d9790', garment: '#596572', top: '#596572', accent: '#b0302b', shoes: '#2b2724' } },
     // Wistan, about thirty-five: tall, broad, dark short hair, a long moss-dark coat over a warrior's tunic, a sword
     // at his left hip
     wistan: { kind: 'shapes', style: 'giant', who: 'man', garment: 'coat', hair: 'short', parts: ['sword'],
@@ -63,15 +63,15 @@ return {
       // a long dress with long sleeves, and over the shoulders a short shawl in the accent colour
       shawl_dress: { name: 'dress and shawl', hang: [
         { to: 1.95, from: 'shoulders', flare: 0.32 },
-        { to: 0.32, from: 'shoulders', flare: 0.3, color: 'accent', folds: false },
+        { to: 0.05, from: 'shoulders', flare: 0.55, off: 1.3, color: 'accent' },
       ], sleeves: 'garment' },
     },
     parts: {
-      // a short full beard over the jaw and the chin (the colour of the hair)
+      // a short beard on the chin and under it (the colour of the hair), the mouth above it left clear
       beard: { name: 'beard', draw: F => {
         const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
-        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.04), [0, -0.55, 0.83], 0.25, F.colors.hair, h.sides, h.square);
-        F.ball(add(h.at, add(mul(hu, -r * 0.88), mul(hf, r * 0.5))), h.axes, [r * 0.52, r * 0.4, r * 0.36], F.colors.hair, h.sides);
+        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.04), [0, -0.95, 0.3], 0.68, F.colors.hair, h.sides, h.square);
+        F.ball(add(h.at, add(mul(hu, -r * 0.92), mul(hf, r * 0.42))), h.axes, [r * 0.42, r * 0.32, r * 0.3], F.colors.hair, h.sides);
       } },
       // a cloth bundle tied at the top, hanging from the right hand
       bundle: { name: 'bundle', draw: F => {

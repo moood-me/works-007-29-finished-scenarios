@@ -44,7 +44,9 @@
         "ambient": 0.8,
         "shafts": 0.4
       }
-    }
+    },
+    "tint": "#f2e4cc",
+    "tintStrength": 0.07
   },
   "lights": [
     {
@@ -1482,7 +1484,7 @@
       "person": {
         "cast": "cast",
         "who": "wistan",
-        "turn": 212
+        "turn": 220
       },
       "across": 1.2,
       "distance": 4.1,

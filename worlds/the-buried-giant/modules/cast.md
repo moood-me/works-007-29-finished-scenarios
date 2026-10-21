@@ -12,13 +12,13 @@ fine line, a head a little large and a bold simple face (`giant`: eyes, brows, n
 
 - `axl` — Axl, past seventy: lean, white hair, a short white beard (`beard`), a worn brown-grey coat; a cloth bundle in
   his right hand (`bundle`).
-- `beatrice` — Beatrice, past seventy: small, grey hair in a knot, a long slate-blue dress and a short red shawl over
-  the shoulders (`shawl_dress`; the shawl is the look's `accent` colour) — the only red in the game.
+- `beatrice` — Beatrice, past seventy: small, grey hair in a knot, a long slate-blue dress, a red shawl over the
+  shoulders and round the neck (`shawl_dress` and the scarf, both the look's `accent` colour) — the only red in the game.
 - `wistan` — Wistan, about thirty-five: tall and broad, dark short hair, a long moss-dark coat, a sword at the left
   hip (`sword`).
 
 ## Parts
 
-`beard` — a short full beard in the hair's colour. `bundle` — a tied cloth bundle hanging from the right hand (it
+`beard` — a short beard on the chin, the mouth left clear, in the hair's colour. `bundle` — a tied cloth bundle hanging from the right hand (it
 swings a little late). `sword` — a sword in a leather scabbard at the left hip, the hilt forward, the point down
 behind the leg.

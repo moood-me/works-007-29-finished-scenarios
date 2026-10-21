@@ -5,7 +5,7 @@ const r = e.lib.rnd(3), P = (a, d) => [a, 110 - d];
 g.fillStyle = '#868a69';
 g.fillRect(-130, -120, 260, 240);
 // broad patches: heather, pale dry grass, darker turf — small near, big far
-const colors = ['#7a6d68', '#a3a07d', '#717758', '#8f906c', '#6f6763'];
+const colors = ['#8a7d76', '#a3a07d', '#7a805f', '#949570', '#857a72'];
 for (let i = 0; i < 420; i++) {
   const d = -6 + Math.pow(r(), 1.7) * 230, a = (r() - 0.5) * (30 + d * 1.6), s = 0.4 + d * 0.06;
   const [x, y] = P(a, d);
