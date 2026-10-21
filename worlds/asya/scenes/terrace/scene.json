@@ -1,0 +1,325 @@
+{
+  "engine": 3,
+  "title": "The Gagins' Terrace",
+  "caption": "An evening above the Rhine.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "modules": [
+    "cast"
+  ],
+  "light": {
+    "vignette": 0,
+    "grain": 0.06,
+    "haze": 0.02,
+    "hazeColor": "#e6ddcc",
+    "ambient": 0.55,
+    "ambientColor": "#c3cfdc",
+    "bounce": 0.6,
+    "brightness": 1.0,
+    "saturation": 1.08,
+    "wind": [
+      1,
+      0.2,
+      0.35
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        118,
+        16
+      ],
+      "color": "#ffe1b4",
+      "strength": 1.45
+    }
+  ],
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Evening sky",
+      "sky": true
+    },
+    {
+      "id": "hills",
+      "name": "The far bank's hills",
+      "across": -100,
+      "distance": 2200,
+      "box": [
+        -3050,
+        -305,
+        3050,
+        6
+      ]
+    },
+    {
+      "id": "town",
+      "name": "Z. across the river",
+      "across": -60,
+      "distance": 1480,
+      "box": [
+        -700,
+        -65,
+        700,
+        1
+      ]
+    },
+    {
+      "id": "rhine",
+      "name": "The Rhine",
+      "plane": true,
+      "across": 0,
+      "distance": 1015,
+      "elevation": -114,
+      "width": 9200,
+      "depth": 910,
+      "reflect": {
+        "strength": 0.5,
+        "fade": 0,
+        "rough": 0.35,
+        "ripple": 0.35
+      }
+    },
+    {
+      "id": "slope",
+      "name": "The vineyard slope",
+      "across": 430,
+      "distance": 640,
+      "box": [
+        -440,
+        -262,
+        640,
+        4
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "Terrace floor",
+      "plane": true,
+      "walk": true,
+      "across": 1,
+      "distance": 2.3,
+      "elevation": 0,
+      "width": 18,
+      "depth": 3.6
+    },
+    {
+      "id": "parapet",
+      "name": "Low wall at the edge",
+      "across": 2.7,
+      "distance": 4.1,
+      "facing": 180,
+      "box": [
+        -5.3,
+        -0.8,
+        5.3,
+        0.02
+      ]
+    },
+    {
+      "id": "parapet_top",
+      "name": "Coping of the low wall",
+      "plane": true,
+      "across": 2.7,
+      "distance": 4.275,
+      "elevation": 0.6,
+      "width": 10.6,
+      "depth": 0.35
+    },
+    {
+      "id": "house",
+      "name": "The white house",
+      "across": -5.8,
+      "distance": 4.1,
+      "facing": 180,
+      "box": [
+        -3.2,
+        -4.75,
+        3.2,
+        0.04
+      ]
+    },
+    {
+      "id": "house_side",
+      "name": "The house's side",
+      "across": -2.6,
+      "distance": 4.1,
+      "facing": 90,
+      "box": [
+        0,
+        -4.4,
+        4.6,
+        0.02
+      ]
+    },
+    {
+      "id": "geranium",
+      "name": "Asya's geranium",
+      "across": -2.48,
+      "distance": 6.5,
+      "elevation": 3.05,
+      "box": [
+        -0.28,
+        -0.6,
+        0.28,
+        0.02
+      ]
+    },
+    {
+      "id": "easel",
+      "name": "Easel with the portrait",
+      "across": -0.3,
+      "distance": 3.85,
+      "facing": 192,
+      "box": [
+        -0.5,
+        -1.9,
+        0.5,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "vine",
+      "name": "Vine over the terrace",
+      "across": 0.4,
+      "distance": 2.7,
+      "elevation": 2.35,
+      "translucent": 0.25,
+      "box": [
+        -4.4,
+        -1.1,
+        4.4,
+        0.35
+      ]
+    },
+    {
+      "id": "nn",
+      "name": "N. N.",
+      "person": {
+        "cast": "cast",
+        "who": "nn",
+        "turn": 165,
+        "does": "hands_behind"
+      },
+      "across": -1.2,
+      "distance": 2.95,
+      "shadow": true
+    },
+    {
+      "id": "gagin",
+      "name": "Gagin",
+      "person": {
+        "cast": "cast",
+        "who": "gagin",
+        "turn": 230
+      },
+      "across": 0.45,
+      "distance": 3.7,
+      "shadow": true
+    },
+    {
+      "id": "asya",
+      "name": "Asya",
+      "person": {
+        "cast": "cast",
+        "who": "asya",
+        "turn": 215,
+        "does": "seated"
+      },
+      "across": 1.45,
+      "distance": 4.22,
+      "shadow": true
+    }
+  ],
+  "state": {
+    "asya_on": [
+      1.45,
+      4.22,
+      0.6
+    ],
+    "asya_look": "nn",
+    "asya_mood": "smile",
+    "nn_look": [
+      -0.5,
+      1.4,
+      0.3
+    ],
+    "nn_mood": "thinking",
+    "gagin_look": "nn",
+    "gagin_mood": "smile",
+    "gagin_with": [
+      "brush"
+    ]
+  },
+  "music": {
+    "prompts": [
+      {
+        "text": "Solo piano in the manner of Schubert, slow and tender, a summer evening, intimate, a little wistful",
+        "weight": 1.2
+      },
+      {
+        "text": "A distant Viennese waltz by a small string band, heard from far below across water, soft and dreamy",
+        "weight": 0.6
+      },
+      {
+        "text": "Warm string quartet, slow, romantic, nineteenth-century chamber music, golden light",
+        "weight": 0.8
+      },
+      {
+        "text": "Solo cello melody, slow, singing, a quiet confession",
+        "weight": 0
+      },
+      {
+        "text": "Gentle guitar and flute, a Rhine folk song half-remembered, pastoral",
+        "weight": 0
+      },
+      {
+        "text": "Music box playing a simple waltz, delicate, childlike",
+        "weight": 0
+      },
+      {
+        "text": "Soft clarinet over sustained strings, evening river, calm and longing",
+        "weight": 0
+      },
+      {
+        "text": "Sparse piano notes with long pauses, an unfinished melody, hesitation",
+        "weight": 0
+      },
+      {
+        "text": "Lush romantic orchestra, slow swell, hopeful and bittersweet",
+        "weight": 0
+      },
+      {
+        "text": "Students singing Gaudeamus far away, a brass band, festive at a distance",
+        "weight": 0
+      },
+      {
+        "text": "Harp arpeggios like water, light and airy, summer",
+        "weight": 0
+      },
+      {
+        "text": "Violin and piano duet, a quiet romance, Biedermeier salon",
+        "weight": 0
+      },
+      {
+        "text": "Ambient pads like warm evening air, crickets implied, minimal",
+        "weight": 0
+      },
+      {
+        "text": "Accordion waltz from a tavern, faint, nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "Solo oboe pastoral melody over a drone, hills and vineyards",
+        "weight": 0
+      }
+    ],
+    "bpm": 72,
+    "density": 0.35,
+    "brightness": 0.55,
+    "scale": "A_FLAT_MAJOR_F_MINOR"
+  }
+}
