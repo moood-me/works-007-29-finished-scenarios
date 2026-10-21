@@ -2,6 +2,9 @@
 // ceiling; a wide arched mouth on a raised stone hearth (cut through: the fire stands behind it), a heavy oak mantel
 // beam at 1.55 m with copper pans, a pewter jug and a horseshoe nailed above; a pair of tongs and a bellows by it.
 const L = e.lib, W = 1.1, H = 4.5;
+g.beginPath();
+g.rect(-W, -H, 2 * W, H + 0.02);
+g.clip();
 // the stones: a warm grey ground, then rounded stones in rows, mortar between
 g.fillStyle = '#9a9086';
 g.fillRect(-W, -H, 2 * W, H);
@@ -69,7 +72,7 @@ for (const [x, c] of [[-0.35, '#a5532e'], [-0.18, '#c07a3e'], [0.0, '#8a4a2a']])
   g.fill();
   g.fillRect(x - 0.045, -1.84, 0.09, 0.03);
 }
-for (const [x, r] of [[0.45, 0.13], [0.8, 0.11]]) {
+for (const [x, r] of [[0.8, 0.1]]) {
   g.strokeStyle = '#4a3a30';
   g.lineWidth = 0.012;
   g.beginPath();

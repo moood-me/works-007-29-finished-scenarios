@@ -3,6 +3,9 @@
 // two plank doors to the rooms. Cut through it: the window (x −0.65…0.45, 1.05…2.15 m up) and the door to the yard
 // (x 2.7…3.6, up to 2.2 m), where the blizzard shows.
 const L = e.lib;
+g.beginPath();
+g.rect(-5, -4.5, 10, 4.52);
+g.clip();
 L.plaster(g, 51, -5.5, -4.5, 11, 4.5);
 // the timbers
 for (const x of [-4.4, -1.6, 1.1, 2.55, 3.75, 5.2]) L.timber(g, 52 + x * 10, x, 0, x, -4.5, 0.2);

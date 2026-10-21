@@ -1,6 +1,9 @@
 // The hearth's right side, from its front (5.0 m) back to the wall (6.2 m): the same rounded stones, a little
 // darker, up to the ceiling.
 const L = e.lib;
+g.beginPath();
+g.rect(-0.6, -4.5, 1.2, 4.52);
+g.clip();
 g.fillStyle = '#857c72';
 g.fillRect(-0.6, -4.5, 1.2, 4.5);
 for (let row = 0, y = 0; y > -4.5; row++) {
