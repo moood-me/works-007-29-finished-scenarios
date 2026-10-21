@@ -30,7 +30,7 @@ for (let x = -480, i = 0; x < 420; i++) {
   const w = 7 + 8 * L.rnd(i, 71);
   const h = 6 + 6 * L.rnd(i, 73);
   const gap = 1 + 5 * L.rnd(i, 75);
-  if ((x > -130 && x < -20) || (x > 100 && x < 150)) {
+  if ((x > -130 && x < -20) || (x > -245 && x < -200)) {
     x += w + gap;
     continue;
   }
@@ -47,26 +47,26 @@ for (let x = -480, i = 0; x < 420; i++) {
       n++;
       const lit = L.rnd(n, 79) > 0.72;
       g.fillStyle = lit ? "#ffd38a" : "#59636f";
-      g.fillRect(fx, fy, 1, 1.4);
-      if (lit) e.light(fx + 0.5, fy + 0.7, 1.4, "#ffc06a", 0.7);
+      g.fillRect(fx, fy, 1.1, 1.5);
+      if (lit) e.light(fx + 0.55, fy + 0.75, 3.5, "#ffc06a", 0.8);
     }
   }
   x += w + gap;
 }
 // the church and its spire
 g.fillStyle = "#e6dfcf";
-g.fillRect(104, -17, 24, 16);
-g.fillRect(118, -29, 10, 12);
+g.fillRect(-236, -17, 24, 16);
+g.fillRect(-222, -29, 10, 12);
 g.fillStyle = "#566273";
 g.beginPath();
-g.moveTo(102, -17);
-g.lineTo(116, -23);
-g.lineTo(130, -17);
+g.moveTo(-238, -17);
+g.lineTo(-224, -23);
+g.lineTo(-210, -17);
 g.fill();
 g.beginPath();
-g.moveTo(117, -29);
-g.lineTo(123, -52);
-g.lineTo(129, -29);
+g.moveTo(-223, -29);
+g.lineTo(-217, -52);
+g.lineTo(-211, -29);
 g.fill();
 // the inn's garden: dark lindens, the inn's long house behind, lanterns strung between the trees
 g.fillStyle = "#e9e1cc";
@@ -75,7 +75,7 @@ g.fillStyle = "#5a6676";
 g.fillRect(-124, -15, 38, 3);
 g.fillStyle = "#ffd08a";
 for (let fx = -119; fx < -92; fx += 3.2) g.fillRect(fx, -8, 1.2, 1.6);
-e.light(-105, -7, 5, "#ffc070", 0.8);
+e.light(-105, -7, 8, "#ffc070", 0.8);
 g.fillStyle = "#4f6648";
 for (let i = 0; i < 7; i++) {
   const x = -88 + 10 * i + 3 * L.rnd(i, 81);
@@ -91,9 +91,9 @@ for (let s = 0; s < 3; s++) {
     const y = y0 + 1.1 * Math.sin((i / 15) * Math.PI * 3);
     g.fillStyle = tones[(i + s) % tones.length];
     g.beginPath();
-    g.arc(x, y, 0.55, 0, Math.PI * 2);
+    g.arc(x, y, 0.7, 0, Math.PI * 2);
     g.fill();
-    e.light(x, y, 1.1, tones[(i + s) % tones.length], 0.9);
+    e.light(x, y, 2.4, tones[(i + s) % tones.length], 0.9);
   }
 }
 e.at(-60, -7, "garden");
@@ -104,6 +104,6 @@ g.fillStyle = "#3e3a36";
 g.fillRect(48, -3, 0.4, 4.5);
 g.fillStyle = "#ffd890";
 g.fillRect(47.6, -3.6, 1.2, 1);
-e.light(48.2, -3.1, 2.4, "#ffc070", 1);
+e.light(48.2, -3.1, 4, "#ffc070", 1);
 e.at(40, 1, "landing");
 L.unfinish(g, [-600, -55, 600, 3.5], ACROSS, D);

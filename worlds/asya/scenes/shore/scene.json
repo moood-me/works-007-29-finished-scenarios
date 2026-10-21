@@ -14,7 +14,7 @@
     "grain": 0.06,
     "haze": 0.07,
     "hazeColor": "#2f3c62",
-    "hazeGlow": 0.5,
+    "hazeGlow": 0.7,
     "shafts": 0.35,
     "ambient": 0.7,
     "ambientColor": "#9aaad0",
@@ -30,7 +30,7 @@
   "lights": [
     {
       "id": "moon",
-      "from": "moon#disc",
+      "from": "sky#disc",
       "color": "#c4d2f4",
       "strength": 0.9
     },
@@ -38,8 +38,8 @@
       "id": "lamp",
       "of": "lantern#flame",
       "color": "#ffc070",
-      "strength": 1.8,
-      "reach": 7,
+      "strength": 1.6,
+      "reach": 5,
       "flicker": 0.12,
       "glow": 0.35
     }
@@ -131,7 +131,7 @@
     {
       "id": "bench",
       "name": "The bench by the water",
-      "across": -1.75,
+      "across": -2.7,
       "distance": 3.3,
       "facing": 180,
       "onLand": false,
@@ -217,8 +217,8 @@
       "id": "boat",
       "name": "The ferryman's boat",
       "unseen": true,
-      "across": 2.75,
-      "distance": 6.1,
+      "across": 2.55,
+      "distance": 5.35,
       "elevation": -0.8,
       "onLand": false,
       "facing": 160
@@ -287,11 +287,11 @@
       "person": {
         "cast": "cast",
         "who": "nn",
-        "turn": 125,
+        "turn": 140,
         "does": "hands_behind"
       },
-      "across": 0,
-      "distance": 5.1,
+      "across": -0.1,
+      "distance": 5.2,
       "shadow": true
     },
     {
@@ -300,11 +300,11 @@
       "person": {
         "cast": "cast",
         "who": "ferryman",
-        "turn": 270,
+        "turn": 265,
         "does": "seated"
       },
-      "across": 2.42,
-      "distance": 5.98,
+      "across": 2.22,
+      "distance": 5.23,
       "shadow": true
     },
     {
@@ -313,21 +313,22 @@
       "particles": {
         "kind": "smoke",
         "at": "ferryman#pipe",
-        "rate": 2.5,
+        "rate": 1.5,
         "size": [
-          0.03,
-          0.3
+          0.08,
+          0.5
         ],
         "life": [
-          2.5,
-          4.5
+          3,
+          5
         ],
         "speed": [
           0.04,
           0.12
         ],
-        "opacity": 0.3,
-        "shadow": 0
+        "opacity": 0.2,
+        "shadow": 0,
+        "soft": 0.2
       }
     }
   ],
