@@ -100,8 +100,10 @@ function logs(g, seed, x0, x1, height, log = 0.26, tooth = 1.4) {
 }
 
 // a window in a log wall, its middle at x, its sill at `sill` and its top at `top` metres up: a carved white-blue frame
-// (nalichnik) round four panes of dark glass with the sky's pale in their upper halves
-function windowFrame(g, x, sill, top, w = 0.78) {
+// (nalichnik) round four panes of dark glass with the sky's pale in their upper halves, the war's strips of paper
+// still pasted crosswise over the panes (yellowed); `boarded`: its lower left pane gone and boarded over
+// (no glass to be had after the war)
+function windowFrame(g, x, sill, top, w = 0.78, boarded = false) {
   const h = top - sill;
   g.fillStyle = "#c9d2d2";
   g.fillRect(x - w / 2 - 0.12, -top - 0.18, w + 0.24, h + 0.32);
@@ -120,13 +122,35 @@ function windowFrame(g, x, sill, top, w = 0.78) {
   g.fillStyle = "#c9d2d2";
   g.fillRect(x - 0.025, -top, 0.05, h);
   g.fillRect(x - w / 2, -top + h * 0.45, w, 0.045);
+  // the paper strips: a cross over each of the four panes, yellowed
+  const pw = w / 2 - 0.025, ph = h * 0.45;
+  g.strokeStyle = "rgba(226,214,178,0.85)";
+  g.lineWidth = 0.035;
+  for (const [px, py, hh] of [[x - w / 2, -top, ph], [x + 0.025, -top, ph], [x - w / 2, -top + ph + 0.045, h - ph - 0.045], [x + 0.025, -top + ph + 0.045, h - ph - 0.045]]) {
+    g.beginPath();
+    g.moveTo(px + 0.02, py + 0.02);
+    g.lineTo(px + pw - 0.02, py + hh - 0.02);
+    g.moveTo(px + pw - 0.02, py + 0.02);
+    g.lineTo(px + 0.02, py + hh - 0.06);
+    g.stroke();
+  }
+  if (boarded) {
+    // the lower left pane: three grey boards nailed over it
+    const by = -top + ph + 0.045, bh = h - ph - 0.045;
+    for (let i = 0; i < 3; i++) {
+      g.fillStyle = ["#8d8577", "#9b9283", "#837b6e"][i];
+      g.fillRect(x - w / 2 - 0.02, by + (i * bh) / 3, pw + 0.04, bh / 3 - 0.012);
+    }
+    g.fillStyle = "#4b453d";
+    for (let i = 0; i < 3; i++) for (const nx of [0.03, pw - 0.03]) g.fillRect(x - w / 2 + nx - 0.008, by + (i * bh) / 3 + bh / 6 - 0.008, 0.016, 0.016);
+  }
   g.fillStyle = "#9aa6a8";
   for (let i = 0; i < 5; i++) g.fillRect(x - w / 2 - 0.08 + i * ((w + 0.16) / 4) - 0.02, -top - 0.3 + (i % 2) * 0.05, 0.04, 0.08);
 }
 
 // a rail on a card that stands where it lies, across 0, facing the eye, "onLand": false (painted in the land's own
 // metres): from 64 m left to 64 m right, its foot on the embankment's top as the line rises — rusty iron, its worn top
-// a pale steel catching the evening
+// a pale steel catching the day
 function rail(g) {
   const edge = (lift) => {
     for (let x = -64; x <= 64; x += 1) g.lineTo(x, -top(x) - lift);

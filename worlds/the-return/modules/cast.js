@@ -176,7 +176,7 @@ return {
     // greatcoat to the calves, belted, its two rows of brass buttons, the shoulder boards, the collar; a side cap with its
     // star, high boots; the kit bag carried by its neck in his left hand
     ivanov: { kind: 'shapes', style: 'soldier', who: 'man', garment: 'greatcoat', hair: 'short', hat: 'pilotka', parts: ['coat_kit', 'sack'], line: true,
-      body: { height: 1.0, shoulders: 1.0, thick: 1.0 },
+      body: { height: 1.0, shoulders: 0.97, thick: 1.0 },
       colors: { skin: '#c08b66', hair: '#3e3027', top: '#5d604c', garment: '#5d604c', bottom: '#46463a', shoes: '#26201b', hat: '#6f7055' } },
     // Ivanov at home, not yet decided to stay: the khaki tunic belted, the breeches in the high boots, the side cap
     // still on, the greatcoat thrown over his shoulders, unbuttoned (not hung on the nail)
@@ -214,15 +214,17 @@ return {
   },
   shapes: {
     // the world's style: gouache on rough paper — natural proportions with the head a little large (the faces read), a
-    // tinted painted edge, the colours lit by the scene's light (`lit`), the body and the cloth in broad flat planes (a
-    // brush's facets: `facets`, few sides — the face's front kept round), working hands, trousers and boots of some
-    // thickness; `soldier` — the same in a soldier's high boots
+    // tinted painted edge a little heavier than a pen's (a brush's contour), the colours lit by the scene's light (`lit`),
+    // the body and the cloth smooth (no facets: lit flat, a cloth's quads read as square patches), limbs of some
+    // thickness (cloth over them, not sticks), working hands, trousers and boots; `soldier` — the same in a soldier's
+    // high boots, the sleeves of a greatcoat thicker, the shoulders no wider than the arms under them
     styles: {
-      gouache: { from: 'soft', name: 'gouache', facets: true, sides: 12, head: 1.22, egg: [0.92, 1.06, 0.98], neck: 0.8, legs: 1.02, limb: 1.0, arms: 'hand', feet: 'trouser',
-        trunk: { w: [0.94, 0.98, 0.88, 0.97, 0.92], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.4, tinted: true,
+      gouache: { from: 'soft', name: 'gouache', sides: 16, head: 1.22, egg: [0.92, 1.06, 0.98], neck: 0.8, legs: 1.02, limb: 1.12, arms: 'hand', feet: 'trouser',
+        trunk: { w: [0.94, 0.98, 0.88, 0.97, 0.9], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.8, tinted: true,
         folds: { n: 6, depth: 0.07 }, face: 'gouache', ground: 'paper' },
       // a soldier: the same in high boots, the head a little longer and squarer in the jaw (a man's)
-      soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot', egg: [0.88, 1.09, 0.98], headSquare: 2.35 },
+      soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot', egg: [0.88, 1.09, 0.98], headSquare: 2.35, limb: 1.24,
+        trunk: { w: [0.94, 0.98, 0.88, 0.96, 0.84], d: [0.88, 0.88, 0.82, 0.86, 0.78] } },
     },
     // an arm with a working hand (a broad palm, a long one, its fingers' ends not pinched); a leg in trousers; a leg in a
     // high boot from below the knee
@@ -242,12 +244,12 @@ return {
         const under = shade(skin, 0.84), lips = [skin[0] * 0.74, skin[1] * 0.5, skin[2] * 0.46, 1];
         // the brows: the hair's colour a little toward the skin's (a dark heavy bar reads as a frown at any mood)
         const brow = [0, 1, 2, 3].map(i => (i < 3 ? F.colors.hair[i] * 0.55 + skin[i] * 0.25 : 1));
-        const lid = 0.04 + 0.1 * x.eye;
+        const lid = 0.05 + 0.115 * x.eye;
         for (const sx of [-1, 1]) {
-          F.ball(on([sx * 0.34, 0.05, 0.94], 0.975), axes, [rh * 0.15, rh * 0.095 * x.eye, rh * 0.04], WHITES, 12);
-          F.ball(on([sx * 0.32, 0.04, 0.95], 0.99), axes, [rh * 0.075, rh * 0.08 * Math.min(1, x.eye), rh * 0.035], IRIS, 10);
-          F.tube([on([sx * 0.19, lid - 0.03, 0.93], 1.0), on([sx * 0.34, lid + 0.01, 0.95], 1.006), on([sx * 0.5, lid - 0.04, 0.85], 1.0)],
-            [[0, rh * 0.022], [1, rh * 0.032], [2, rh * 0.018]], [[0, LASH]], 6, hu);
+          F.ball(on([sx * 0.34, 0.05, 0.94], 0.975), axes, [rh * 0.17, rh * 0.11 * x.eye, rh * 0.045], WHITES, 12);
+          F.ball(on([sx * 0.32, 0.04, 0.95], 0.99), axes, [rh * 0.088, rh * 0.094 * Math.min(1, x.eye), rh * 0.038], IRIS, 10);
+          F.tube([on([sx * 0.17, lid - 0.03, 0.93], 1.0), on([sx * 0.34, lid + 0.01, 0.95], 1.006), on([sx * 0.52, lid - 0.045, 0.85], 1.0)],
+            [[0, rh * 0.026], [1, rh * 0.038], [2, rh * 0.02]], [[0, LASH]], 6, hu);
           F.tube([on([sx * 0.22, -0.09, 0.95], 0.99), on([sx * 0.36, -0.11, 0.95], 0.995), on([sx * 0.48, -0.07, 0.88], 0.99)],
             [[0, rh * 0.016], [2, rh * 0.012]], [[0, under]], 6, hu);
           F.tube([on([sx * 0.15, 0.32 + x.inner, 0.95], 1.0), on([sx * 0.32, 0.37 + (x.inner + x.outer) / 2, 0.92], 1.01), on([sx * 0.5, 0.3 + x.outer, 0.84], 1.0)],
@@ -269,7 +271,7 @@ return {
     garments: {
       // a soldier's greatcoat: fitted to the waist (the trunk in its cloth), from the belt a skirt of heavy cloth to the
       // calves, flaring only a little; long sleeves
-      greatcoat: { name: 'greatcoat', hang: [{ to: 1.62, from: 'waist', flare: 0.11, off: 1.02 }], sleeves: 'garment', bodice: true },
+      greatcoat: { name: 'greatcoat', hang: [{ to: 1.62, from: 'waist', flare: 0.05, off: 1.0 }], sleeves: 'garment', bodice: true },
     },
     hats: {
       // a white kerchief over the hair, tied at the nape
