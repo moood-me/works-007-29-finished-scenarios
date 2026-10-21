@@ -11,7 +11,7 @@
     "bounce": 0.5,
     "haze": 0.12,
     "hazeColor": "#5e5248",
-    "hazeGlow": 0.7,
+    "hazeGlow": 0.35,
     "tint": "#ffe2c0",
     "tintStrength": 0.03,
     "saturation": 1.0,
@@ -23,7 +23,7 @@
       "id": "lamp",
       "of": "lamp#flame",
       "color": "#ffc27a",
-      "strength": 2.1,
+      "strength": 1.5,
       "reach": 6,
       "flicker": 0.05
     },
@@ -66,14 +66,9 @@
     "vasily_look": "old_man",
     "vasily_mood": "smile",
     "old_man_reach": {
-      "l": [
-        -1.12,
-        4.25,
-        0.79
-      ],
       "r": [
         -1.12,
-        4.62,
+        4.5,
         0.79
       ]
     },
@@ -466,11 +461,11 @@
       "person": {
         "cast": "cast",
         "who": "old_man",
-        "turn": 232,
-        "does": "lean_table"
+        "turn": 220,
+        "does": "stand"
       },
-      "across": -0.72,
-      "distance": 4.45,
+      "across": -0.75,
+      "distance": 4.35,
       "shadow": true
     },
     {
