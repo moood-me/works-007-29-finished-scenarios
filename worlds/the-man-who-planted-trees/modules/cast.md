@@ -17,14 +17,22 @@ line, a simple face (eyes, brows, nose, mouth — `<id>_mood`).
 - `lina` — Lina, 17, the charcoal burner's daughter: sturdy, dark hair under a rust-red kerchief (the world's one
   colour accent), a soot-grey dress, barefoot; a tin mug in her right hand (of her look).
 
-Older ages (Elzéard 61/75/85, the Traveller 26/40/50, Lina 23/37/47), Jan and the others come with the scenes that
-need them.
+Six years on (the second chapter):
+
+- `elzeard_61` — Elzéard at 61: the same man, his hair white, the jacket faded; the rod in his hand (of his look).
+- `traveller_26` — the Traveller at 26, back from the war: a grey-olive soldier's greatcoat to the knee, a field cap,
+  the bag on its strap.
+- `lina_23` — Lina at 23: the rust-red kerchief, a slate-blue dress, shoes; a wooden pail in her right hand (of her
+  look).
+
+Older ages (Elzéard 75/85, the Traveller 40/50, Lina 37/47), Jan and the others come with the scenes that need them.
 
 ## Things (the cast's parts: a look's `parts`, or `<id>_with`)
 
 `rod` — the iron rod, upright in the right hand from the ground to a hand's width over the fist; its top is the
 person's point `#rod`. `mug` — a tin mug upright in the right hand (`#mug`). `satchel` — the bag at the left hip
-(`#bag`). `flask` — the flask at the right hip (`#flask`).
+(`#bag`). `flask` — the flask at the right hip (`#flask`). `pail` — a wooden pail hanging from the right hand by its
+bail (`#pail`).
 
 ## Motions
 

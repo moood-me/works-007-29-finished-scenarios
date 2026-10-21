@@ -5,7 +5,7 @@
 // points a part names (F.point) are the person's: "elzeard#rod".
 const V = () => MooodShapes.V;
 const IRON = [0.2, 0.2, 0.21, 1], TIN = [0.48, 0.48, 0.46, 1], LEATHER = [0.42, 0.31, 0.22, 1], CLOTH = [0.47, 0.5, 0.42, 1];
-const STRAP = [0.3, 0.22, 0.16, 1];
+const STRAP = [0.3, 0.22, 0.16, 1], WOOD = [0.5, 0.38, 0.26, 1], HOOP = [0.27, 0.25, 0.24, 1];
 // toward the person's right, level
 function rightOf(F) {
   const { sub, unit } = V(), d = sub(F.P('RightLeg'), F.P('LeftLeg'));
@@ -33,6 +33,21 @@ return {
     lina: { kind: 'shapes', style: 'plateau', who: 'woman', garment: 'dress', hair: 'long', hat: 'kerchief', barefoot: 'both', parts: ['mug'],
       body: { height: 0.9, thick: 0.88, shoulders: 0.88 },
       colors: { skin: '#c99a76', hair: '#2b211b', top: '#6b6558', garment: '#6b6558', hat: '#a4523c' } },
+    // six years on (the second chapter): Elzéard at sixty-one — the same man, his hair gone white, the jacket faded;
+    // the iron rod in his hand
+    elzeard_61: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'jacket', hair: 'short', hat: 'hat', parts: ['rod'],
+      body: { height: 1.03, thick: 0.82, shoulders: 0.99, neck: 1.05 },
+      colors: { skin: '#cc9a76', hair: '#d6d2ca', top: '#dcd6c8', garment: '#655341', bottom: '#4a443b', hat: '#3b332b', shoes: '#2a241f' } },
+    // the Traveller at twenty-six, back from the war: a soldier's greatcoat of faded grey-olive to the knee, a field cap,
+    // the bag on its strap; no flask
+    traveller_26: { kind: 'shapes', style: 'plateau', who: 'youth', garment: 'coat', hair: 'short', hat: 'cap', parts: ['satchel'],
+      body: { height: 1.0, thick: 0.86, shoulders: 1.0 },
+      colors: { skin: '#cfa382', hair: '#4f3624', top: '#cfc9b9', garment: '#6b6f57', bottom: '#4a4a40', hat: '#585b48', shoes: '#2b2620' } },
+    // Lina at twenty-three: a grown woman, the same rust-red kerchief, a slate-blue dress, shoes now; a wooden pail in
+    // her right hand
+    lina_23: { kind: 'shapes', style: 'plateau', who: 'woman', garment: 'dress', hair: 'long', hat: 'kerchief', parts: ['pail'],
+      body: { height: 0.92, thick: 0.9, shoulders: 0.9 },
+      colors: { skin: '#c99a76', hair: '#2b211b', top: '#5d6670', garment: '#5d6670', hat: '#a4523c', shoes: '#3a2e26' } },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, clean colours, the scene's light; a simple face
@@ -58,6 +73,17 @@ return {
         const { add, mul } = V(), m = F.fit.h, c = add(add(F.P('RightHand'), mul(F.fwd('RightHand'), 0.05 * m)), [0, -0.05 * m, 0]);
         F.bar(add(c, [0, -0.045 * m, 0]), add(c, [0, 0.045 * m, 0]), 0.04 * m, 0.043 * m, [[0, TIN]], 12, rightOf(F));
         F.point('mug', c);
+      } },
+      // a wooden pail hanging from the right hand by its iron bail
+      pail: { name: 'pail', draw: F => {
+        const { add, mul, cross } = V(), m = F.fit.h, right = rightOf(F), fwd = cross(right, [0, 1, 0]);
+        const hand = add(F.P('RightHand'), mul(right, 0.05 * m)), rim = add(hand, [0, -0.15 * m, 0]), foot = add(hand, [0, -0.42 * m, 0]);
+        F.bar(foot, rim, 0.11 * m, 0.13 * m, [[0, WOOD]], 12, right);
+        F.bar(add(rim, [0, -0.05 * m, 0]), add(rim, [0, -0.025 * m, 0]), 0.132 * m, 0.134 * m, [[0, HOOP]], 12, right);
+        F.bar(add(foot, [0, 0.03 * m, 0]), add(foot, [0, 0.055 * m, 0]), 0.114 * m, 0.116 * m, [[0, HOOP]], 12, right);
+        F.tube([add(rim, mul(right, -0.13 * m)), add(hand, [0, -0.01 * m, 0]), add(rim, mul(right, 0.13 * m))],
+          [[0, 0.006 * m], [2, 0.006 * m]], [[0, HOOP]], 5, fwd, 0.4);
+        F.point('pail', add(foot, [0, 0.14 * m, 0]));
       } },
       // a canvas bag on a strap over the left shoulder, hanging at the left hip
       satchel: { name: 'bag', draw: F => {
