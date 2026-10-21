@@ -1,6 +1,6 @@
 // A June sky over Derbyshire in a graded wash: a clear cerulean at the top, deepest where the page sets the scene's
-// title and caption (white over it reads), paling to a soft blue toward the woods — still blue enough that the far
-// crowns stand against it. A few clouds drift high, from the right-hand corner, whole, clear of the title and the caption
+// title (white over it reads), paling to a soft blue toward the woods — still blue enough that the far
+// crowns stand against it. A few clouds drift high, from the right-hand corner, whole, clear of the title
 // and above the woods' line (nothing of them peeks between the crowns); the beech's crown holds the left corner
 // (stage heights; the horizon at 0.36)
 const L = e.kit.brush, A = e.aspect, H = 0.36, r = L.rand(11);

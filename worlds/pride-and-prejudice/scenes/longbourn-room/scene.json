@@ -462,7 +462,7 @@
       "name": "Elizabeth Bennet",
       "person": {
         "cast": "cast",
-        "who": "elizabeth",
+        "who": "elizabeth_home",
         "turn": 145
       },
       "across": 0.3,
