@@ -44,10 +44,10 @@
     "nastya_turn": 160,
     "nastya_do": { "motion": "read", "loop": true },
     "nastya_with": ["book"],
-    "nastya_look": "dreamer",
+    "nastya_look": [-1.4, 2.6, 1.3],
     "nastya_mood": "smile",
     "dreamer_with": ["hat_low"],
-    "dreamer_look": "nastya",
+    "dreamer_look": [-1.1, 3.0, 0.9],
     "dreamer_mood": "smile"
   },
   "states": {
@@ -102,7 +102,7 @@
       "distance": 4.32,
       "inside": true
     },
-    { "id": "dreamer", "name": "The Dreamer", "person": { "cast": "cast", "who": "dreamer", "turn": 150 }, "across": -1.8, "distance": 4.05, "inside": true },
+    { "id": "dreamer", "name": "The Dreamer", "person": { "cast": "cast", "who": "dreamer", "turn": 160 }, "across": -1.8, "distance": 4.05, "inside": true },
     { "id": "pin", "name": "Grandmother's pin", "across": -0.2, "distance": 4.0, "height": 1.5, "box": [-1.2, -1.2, 1.2, 0.3], "inside": true },
     { "id": "dust", "name": "Dust in the sun", "across": -0.8, "distance": 3.4, "elevation": 1.2, "inside": true, "particles": { "kind": "dust", "source": [2.6, 2.4, 2.0] } }
   ],
