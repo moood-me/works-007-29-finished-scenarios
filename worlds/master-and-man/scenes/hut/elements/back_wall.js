@@ -1,15 +1,15 @@
 // The back wall of the old man's hut, seen from inside: hewn logs darkened by the stove, the low door into the passage
 // (open: the passage dark and cold beyond it, the leaf swung in against the passage's wall), a shelf above the door with
 // the household's crockery. The stove stands before its right part, the table and the icons' corner before its left.
-// (x −3.45…3.45 m: across the same; the door x 0.1…1.0, 1.75 m high over a high threshold; its foot at the floor)
+// (x −3.05…3.05 m: across the same; the door x −0.35…0.55, 1.75 m high over a high threshold; its foot at the floor)
 const L = e.lib;
 const C = L.C;
 const rnd = () => e.rnd();
-const X0 = -3.45;
-const X1 = 3.45;
+const X0 = -3.05;
+const X1 = 3.05;
 const TOP = -2.42;
-const D0 = 0.1;
-const D1 = 1.0;
+const D0 = -0.35;
+const D1 = 0.55;
 const DH = 1.75;
 
 L.logs(g, X0, X1, TOP, 0, 0.24, rnd);
@@ -46,9 +46,9 @@ g.fillRect(D0, -DH, 0.03, DH);
 // the shelf over the door: a board on two brackets, the crockery on it — glazed bowls, a jug, a stack of plates
 const SH = -2.0;
 g.fillStyle = C.boardDark;
-g.fillRect(-0.4, SH, 1.75, 0.04);
-g.fillRect(-0.3, SH + 0.04, 0.04, 0.14);
-g.fillRect(1.2, SH + 0.04, 0.04, 0.14);
+g.fillRect(-0.85, SH, 1.75, 0.04);
+g.fillRect(-0.75, SH + 0.04, 0.04, 0.14);
+g.fillRect(0.75, SH + 0.04, 0.04, 0.14);
 const pots = [
   [-0.25, 0.09, 0.07, "#8a5a32"],
   [-0.05, 0.12, 0.13, "#6e7a5a"],
@@ -61,15 +61,7 @@ const pots = [
 for (const [x, w, h, c] of pots) {
   g.fillStyle = c;
   g.beginPath();
-  g.ellipse(x, SH - h * 0.45, w * 0.5, h * 0.55, 0, 0, Math.PI * 2);
+  g.ellipse(x - 0.45, SH - h * 0.45, w * 0.5, h * 0.55, 0, 0, Math.PI * 2);
   g.fill();
-  g.fillRect(x - w * 0.32, SH - h, w * 0.64, h * 0.3);
+  g.fillRect(x - 0.45 - w * 0.32, SH - h, w * 0.64, h * 0.3);
 }
-
-// a woven towel hung on a peg by the corner, its red-bordered ends
-g.fillStyle = C.linen;
-g.fillRect(-1.12, -1.75, 0.2, 0.62);
-L.border(g, -1.12, -0.92, -1.22, 0.07);
-L.border(g, -1.12, -0.92, -1.32, 0.05);
-g.fillStyle = C.boardDark;
-g.fillRect(-1.05, -1.8, 0.06, 0.06);

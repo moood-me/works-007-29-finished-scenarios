@@ -3,12 +3,12 @@
 // the mouth — an arched opening left unpainted, the fire inside it seen through it (the element `embers`); a small
 // niche for drying mittens; the stove's top at 1.8 m (felt boots and a sheepskin drying on it) and the chimney's breast
 // rising narrower to the ceiling.
-// (x −1.05…1.05: across 1.3…3.4; the mouth x 0.1…0.65, 0.62…1.15 m up; its foot at the floor)
+// (x −1.05…1.05: across 0.85…2.95; the mouth x −0.2…0.35, 0.62…1.15 m up; its foot at the floor)
 const L = e.lib;
 const C = L.C;
 const TOP = 1.8;
-const M0 = 0.1;
-const M1 = 0.65;
+const M0 = -0.2;
+const M1 = 0.35;
 const MB = 0.62;
 const MT = 1.15;
 const MR = (M1 - M0) / 2;
@@ -55,15 +55,15 @@ g.restore();
 
 // the hearth's ledge under the mouth: a step of clay, a little darker
 g.fillStyle = C.limeShade;
-g.fillRect(-0.15, -MB, 1.2, 0.05);
+g.fillRect(-0.45, -MB, 1.2, 0.05);
 g.fillStyle = "rgba(90,80,70,0.4)";
-g.fillRect(-0.15, -MB + 0.05, 1.2, 0.015);
+g.fillRect(-0.45, -MB + 0.05, 1.2, 0.015);
 // an iron pot standing on the ledge, a poker leaning by it
 g.fillStyle = C.iron;
 g.beginPath();
-g.ellipse(-0.02, -MB - 0.08, 0.09, 0.08, 0, 0, Math.PI * 2);
+g.ellipse(0.56, -MB - 0.08, 0.09, 0.08, 0, 0, Math.PI * 2);
 g.fill();
-g.fillRect(-0.09, -MB - 0.16, 0.14, 0.02);
+g.fillRect(0.49, -MB - 0.16, 0.14, 0.02);
 g.strokeStyle = C.iron;
 g.lineWidth = 0.015;
 g.beginPath();
@@ -74,20 +74,20 @@ g.stroke();
 // the hole under the hearth: an arch, dark, logs stacked in it
 g.fillStyle = "#2e2622";
 g.beginPath();
-g.moveTo(0.05, 0);
-g.lineTo(0.05, -0.3);
-g.arc(0.35, -0.3, 0.3, Math.PI, 0);
-g.lineTo(0.65, 0);
+g.moveTo(-0.25, 0);
+g.lineTo(-0.25, -0.3);
+g.arc(0.05, -0.3, 0.3, Math.PI, 0);
+g.lineTo(0.35, 0);
 g.closePath();
 g.fill();
 for (const [x, y] of [[0.17, -0.06], [0.3, -0.06], [0.43, -0.06], [0.56, -0.06], [0.23, -0.17], [0.36, -0.17], [0.49, -0.17], [0.3, -0.28], [0.43, -0.28]]) {
   g.fillStyle = "#8a6a48";
   g.beginPath();
-  g.arc(x, y, 0.055, 0, Math.PI * 2);
+  g.arc(x - 0.3, y, 0.055, 0, Math.PI * 2);
   g.fill();
   g.fillStyle = "#c8a878";
   g.beginPath();
-  g.arc(x, y, 0.035, 0, Math.PI * 2);
+  g.arc(x - 0.3, y, 0.035, 0, Math.PI * 2);
   g.fill();
 }
 

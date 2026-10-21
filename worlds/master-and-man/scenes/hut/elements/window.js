@@ -1,9 +1,9 @@
 // The window's panes in the left wall: the winter evening outside, blue going dark — the snowy plain, a dark line of
 // willows, a sky still lighter low down —, frost flowers grown up from the corners of the panes, the snow blowing past
 // (a layer that drifts down and aslant). It glows: the room's light does not darken it; its cold light comes in.
-// (x −0.34…0.34, y −1.64…−0.88 — inside the casing painted on the wall)
-const X0 = -0.34;
-const X1 = 0.34;
+// (x −0.27…0.27, y −1.64…−0.88 — inside the casing painted on the wall)
+const X0 = -0.27;
+const X1 = 0.27;
 const Y0 = -1.64;
 const Y1 = -0.88;
 const sky = g.createLinearGradient(0, Y0, 0, Y1);
