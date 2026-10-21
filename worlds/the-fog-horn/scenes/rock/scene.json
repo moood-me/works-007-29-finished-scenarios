@@ -1,0 +1,499 @@
+{
+  "engine": 3,
+  "title": "The Rock",
+  "caption": "The last clear evening before the fog.",
+  "horizon": 0.62,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.86,
+    "ambientColor": "#ece8ea",
+    "bounce": 0.5,
+    "haze": 0.11,
+    "hazeColor": "#d6d1d0",
+    "hazeGlow": 0.6,
+    "shafts": 0.3,
+    "tint": "#f2d8c2",
+    "tintStrength": 0.06,
+    "vignette": 0.25,
+    "grain": 0.08,
+    "wind": [
+      -1,
+      0.3,
+      0.6
+    ],
+    "looks": {
+      "night": {
+        "ambient": 0.55,
+        "ambientColor": "#8197c6",
+        "haze": 0.14,
+        "hazeColor": "#3b4b6c",
+        "hazeGlow": 1.2,
+        "shafts": 0.45,
+        "saturation": 0.82,
+        "tint": "#8ea3d2",
+        "tintStrength": 0.08,
+        "lights": {
+          "sun": 0
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": "sky#sun",
+      "color": "#ffdcb4",
+      "strength": 1
+    },
+    {
+      "id": "moon",
+      "from": "sky#moon",
+      "color": "#b8c8ee",
+      "strength": 0.6,
+      "on": "night"
+    },
+    {
+      "id": "lamp",
+      "of": "lantern_glass#lamp",
+      "color": "#ffd690",
+      "strength": 1.6,
+      "reach": 30,
+      "on": "lamp"
+    },
+    {
+      "id": "lantern",
+      "at": "johnny#flame",
+      "color": "#ffc47e",
+      "strength": 1.3,
+      "reach": 5,
+      "on": "lantern",
+      "flicker": 0.12
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "night": 0,
+    "lamp": 1,
+    "nora": 0,
+    "lantern": 0,
+    "johnny_with": [
+      "lantern"
+    ],
+    "johnny_look": [
+      -520,
+      900,
+      4
+    ],
+    "johnny_mood": "thinking",
+    "mcdunn_look": "johnny",
+    "mcdunn_mood": "neutral"
+  },
+  "states": {
+    "night": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — the pearl-grey evening, the sun low in the haze; 1 — the blue night, the moon up"
+    },
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the tower's lamp: 0 out, 1 lit and turning, its beam over the water (stronger as the night comes)"
+    },
+    "nora": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Nora's window on the far shore: 0 dark, 1 lit — one long blink is 1 held, then 0"
+    },
+    "lantern": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the hand lantern in Johnny's hand shining (set johnny_with to [\"lantern_lit\"] with it, [\"lantern\"] when out)"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "sea",
+      "name": "Sea",
+      "plane": true,
+      "across": 0,
+      "distance": 1500,
+      "elevation": -1.2,
+      "width": 8000,
+      "depth": 3000,
+      "reflect": {
+        "strength": 0.45,
+        "fade": 30,
+        "rough": 0.45,
+        "ripple": 0.35
+      }
+    },
+    {
+      "id": "far_shore",
+      "name": "The far shore",
+      "across": -480,
+      "distance": 900,
+      "elevation": -1.2,
+      "height": 40,
+      "box": [
+        -520,
+        -45,
+        520,
+        2
+      ]
+    },
+    {
+      "id": "fog_wall",
+      "name": "The fog on the horizon",
+      "across": 1000,
+      "distance": 1500,
+      "elevation": -1.2,
+      "height": 70,
+      "box": [
+        -900,
+        -75,
+        900,
+        2
+      ]
+    },
+    {
+      "id": "mist",
+      "name": "Mist over the water",
+      "across": -150,
+      "distance": 240,
+      "elevation": -1.2,
+      "height": 8,
+      "box": [
+        -450,
+        -9,
+        450,
+        1
+      ]
+    },
+    {
+      "id": "rock",
+      "name": "The rock",
+      "plane": true,
+      "drape": true,
+      "across": 4,
+      "distance": 24.5,
+      "width": 40,
+      "depth": 43
+    },
+    {
+      "id": "rocks",
+      "name": "Rocks in the water",
+      "across": -7,
+      "distance": 9,
+      "height": 2.8,
+      "box": [
+        -1.8,
+        -2.9,
+        1.8,
+        0.2
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -7.4,
+          "distance": 9.5,
+          "scale": 0.9
+        },
+        {
+          "across": -11,
+          "distance": 15,
+          "scale": 1.3,
+          "flip": true
+        },
+        {
+          "across": -5,
+          "distance": 15.5,
+          "scale": 0.7
+        },
+        {
+          "across": -17,
+          "distance": 25,
+          "scale": 1.8
+        },
+        {
+          "across": -2.5,
+          "distance": 21,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": -27,
+          "distance": 42,
+          "scale": 2.6,
+          "flip": true
+        },
+        {
+          "across": 9.5,
+          "distance": 26,
+          "scale": 1.1
+        },
+        {
+          "across": 22,
+          "distance": 31,
+          "scale": 1.9,
+          "flip": true
+        },
+        {
+          "across": 5.5,
+          "distance": 12,
+          "scale": 0.45,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "near_rock",
+      "name": "The rock at the edge",
+      "across": -3.6,
+      "distance": 4.9,
+      "height": 2,
+      "box": [
+        -1.9,
+        -2.1,
+        1.9,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tower",
+      "name": "The lighthouse",
+      "across": 15,
+      "distance": 40,
+      "height": 17,
+      "box": [
+        -7.4,
+        -17,
+        7.4,
+        0
+      ],
+      "shadow": true
+    },
+    {
+      "id": "steps",
+      "name": "Steps to the door",
+      "on": "tower",
+      "distance": -3.3,
+      "height": 0.7,
+      "box": [
+        -1.3,
+        -0.7,
+        1.3,
+        0.1
+      ]
+    },
+    {
+      "id": "room_window",
+      "name": "The room's window",
+      "on": "tower",
+      "distance": -2.25,
+      "elevation": 13.9,
+      "height": 1,
+      "box": [
+        -0.45,
+        -1.05,
+        0.45,
+        0.05
+      ],
+      "glows": true
+    },
+    {
+      "id": "gallery",
+      "name": "The gallery",
+      "on": "tower",
+      "distance": -3,
+      "elevation": 17,
+      "height": 1.8,
+      "box": [
+        -3.3,
+        -1.2,
+        3.3,
+        0.85
+      ],
+      "shadow": true
+    },
+    {
+      "id": "lantern_glass",
+      "name": "The lamp behind the glass",
+      "on": "tower",
+      "distance": -1.15,
+      "elevation": 17,
+      "height": 2.4,
+      "box": [
+        -1.35,
+        -2.5,
+        1.35,
+        0
+      ],
+      "glows": true
+    },
+    {
+      "id": "lantern_room",
+      "name": "The lantern room",
+      "on": "tower",
+      "distance": -1.3,
+      "elevation": 17,
+      "height": 4.4,
+      "box": [
+        -1.6,
+        -4.5,
+        1.6,
+        0.05
+      ],
+      "inFront": [
+        "lantern_glass"
+      ]
+    },
+    {
+      "id": "beam",
+      "name": "The beam",
+      "on": "tower",
+      "distance": -1.4,
+      "elevation": 17,
+      "height": 2.4,
+      "box": [
+        -75,
+        -10,
+        75,
+        7
+      ],
+      "glows": true,
+      "inFront": [
+        "lantern_room"
+      ]
+    },
+    {
+      "id": "surf",
+      "name": "Surf on the rocks",
+      "particles": {
+        "kind": "splashes",
+        "at": [
+          -7.6,
+          8.9,
+          1.05
+        ],
+        "color": "#e9edf0"
+      }
+    },
+    {
+      "id": "johnny",
+      "name": "Johnny",
+      "person": {
+        "cast": "cast",
+        "who": "johnny",
+        "turn": 210
+      },
+      "across": -1.3,
+      "distance": 5.3
+    },
+    {
+      "id": "mcdunn",
+      "name": "McDunn",
+      "person": {
+        "cast": "cast",
+        "who": "mcdunn",
+        "turn": 165,
+        "does": "hands_behind"
+      },
+      "across": 1.25,
+      "distance": 6.7
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "slow solo cello, long bowed low notes, sparse, mournful and tender, lots of silence",
+        "weight": 1.2
+      },
+      {
+        "text": "distant foghorn-like low brass drones, two tones, very slow, cinematic, melancholy",
+        "weight": 0.8
+      },
+      {
+        "text": "soft felt piano, a few notes, sea ambience, bittersweet, quiet evening",
+        "weight": 1
+      },
+      {
+        "text": "ambient synth pad like cold sea air, slow swells, minimal, grey and calm",
+        "weight": 0
+      },
+      {
+        "text": "lonely harmonium, folk lullaby feeling, slow and plain",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, restrained, longing, very soft dynamics",
+        "weight": 0
+      },
+      {
+        "text": "bowed double bass and low clarinet, dark and warm, slow",
+        "weight": 0
+      },
+      {
+        "text": "glassy celesta and music box, faraway, like a light across water",
+        "weight": 0
+      },
+      {
+        "text": "acoustic guitar fingerpicked, sparse, a seaside cabin at dusk",
+        "weight": 0
+      },
+      {
+        "text": "deep ocean drone, sub bass, slow tidal pulse, mysterious",
+        "weight": 0
+      },
+      {
+        "text": "solo violin, high and thin, sorrowful lament",
+        "weight": 0
+      },
+      {
+        "text": "minimalist piano ostinato, gentle repetition, waiting",
+        "weight": 0
+      },
+      {
+        "text": "warm accordion, slow waltz, nostalgic harbour",
+        "weight": 0
+      },
+      {
+        "text": "choir humming wordless, very low and soft, sacred calm",
+        "weight": 0
+      },
+      {
+        "text": "ethereal bowed vibraphone and reverb, fog and stillness",
+        "weight": 0
+      },
+      {
+        "text": "low horn chorale, slow, noble sadness",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
