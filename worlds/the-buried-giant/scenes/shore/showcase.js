@@ -3,6 +3,6 @@
 return [
   { name: 'evening', run: async s => { await s.wait(5); } },
   { name: 'dusk', run: async s => { await s.move('night', 0.5, { over: 8 }); await s.wait(2); } },
-  { name: 'night', run: async s => { await s.move('night', 1, { over: 6 }); await s.wait(5); } },
-  { name: 'evening again', run: async s => { await s.move('night', 0, { over: 8 }); } },
+  { name: 'night', run: async s => { await s.all(s.move('night', 1, { over: 6 }), s.move('lantern', 1, { over: 4 })); await s.wait(5); } },
+  { name: 'evening again', run: async s => { await s.all(s.move('night', 0, { over: 8 }), s.move('lantern', 0.35, { over: 8 })); } },
 ];

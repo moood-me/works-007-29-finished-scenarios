@@ -52,7 +52,7 @@ e.layer('sun', {}, g => {
   e.light(sx, sy, 0.05, '#ffe2b0', 0.8, 'glow');
   e.at(sx, sy, 'sun');
 });
-// the night: deep blue, a last green-grey light low over the sea, stars
+// the night: deep blue, a last grey light low over the sea
 e.layer('night', {}, g => {
   const n = g.createLinearGradient(0, -0.35, 0, 1.25);
   n.addColorStop(0, '#141c33');
@@ -62,6 +62,9 @@ e.layer('night', {}, g => {
   n.addColorStop(1, '#2f3647');
   g.fillStyle = n;
   g.fillRect(-0.3, -0.35, W + 0.6, 1.6);
+});
+// the stars, coming out late in the dusk
+e.layer('stars', { box: [-0.3, -0.35, W + 0.3, 0.4] }, g => {
   const r = e.lib.rnd(11);
   for (let i = 0; i < 260; i++) {
     const x = -0.3 + r() * (W + 0.6), y = -0.35 + Math.pow(r(), 1.3) * 0.72, s = 0.0012 + r() * r() * 0.003;
