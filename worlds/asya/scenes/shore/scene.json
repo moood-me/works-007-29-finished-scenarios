@@ -131,7 +131,7 @@
     {
       "id": "bench",
       "name": "The bench by the water",
-      "across": -2.7,
+      "across": -3.2,
       "distance": 3.3,
       "facing": 180,
       "onLand": false,

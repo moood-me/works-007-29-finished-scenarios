@@ -45,7 +45,7 @@ for (let x = -480, i = 0; x < 420; i++) {
   for (let fx = x + 1.4; fx < x + w - 1.6; fx += 2.6) {
     for (const fy of [-1 - h * 0.78, -1 - h * 0.4]) {
       n++;
-      const lit = L.rnd(n, 79) > 0.72;
+      const lit = L.rnd(n, 79) > 0.72 && L.edge((ACROSS + fx) / D) < 0.4;
       g.fillStyle = lit ? "#ffd38a" : "#59636f";
       g.fillRect(fx, fy, 1.1, 1.5);
       if (lit) e.light(fx + 0.55, fy + 0.75, 3.5, "#ffc06a", 1.2);
