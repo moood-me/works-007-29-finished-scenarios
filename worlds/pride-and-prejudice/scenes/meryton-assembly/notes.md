@@ -11,7 +11,7 @@ windows' light, the floor's wax gives back the room.
 
 - **Elizabeth** (`elizabeth`) — nearest, left of the middle (−1.0, 3.25 m off), standing with her hands folded
   (`hands_folded`), turned a little to the
-  screen's right (195°: under 180 is toward the screen's left), looking ahead and down (`elizabeth_look`), a knowing
+  screen's right (195°: under 180 is toward the screen's left), looking ahead (`elizabeth_look`), a knowing
   smile (`elizabeth_mood`; the showcase starts her neutral and lets it come).
 - **Charlotte Lucas** (`charlotte`, cast `charlotte`: the world's rare grey gown, hers alone) — at Elizabeth's
   left, a little behind (−1.65, 3.55 m), turned to her (215°), looking at her.
@@ -45,7 +45,7 @@ The engine's: the three windows' daylight (`window_a/b/c`, 1.6) from the right; 
 `_far`: points at their candles' height, a warm pale gold) and the seven girandoles (`sconce_0` … `sconce_6`; the
 first, on the left wall 2 m off, and the last, on the right wall 4.75 m off, are out of the frame — they light the
 faces from before); `ambient` 0.86 in a warm cream, `inside` 0.6, `bounce` 0.65; a light haze lit round the flames
-(`hazeGlow` 0.35). `later` (0…1) is a look: the windows down to a third, the chandeliers up, the room warmer — the
+(`hazeGlow` 0.35). `later` (0…1) is a look: the windows down to a third, the chandeliers and the girandoles near the eye up (the faces stay lit), the room warmer — the
 showcase moves it. No painting reads it.
 
 ## Brushes
