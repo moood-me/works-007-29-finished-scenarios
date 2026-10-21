@@ -18,14 +18,14 @@
  "light": {
   "vignette": 0.22,
   "grain": 0.06,
-  "haze": 0.3,
-  "hazeColor": "#e7dcd9",
+  "haze": 0.22,
+  "hazeColor": "#e9dcd6",
   "hazeGlow": 0.6,
   "shafts": 0.45,
   "ambient": 0.8,
   "ambientColor": "#e3e0ee",
-  "bounce": 0.55,
-  "saturation": 1.0,
+  "bounce": 0.6,
+  "saturation": 1.05,
   "tint": "#f4d9c8",
   "tintStrength": 0.1,
   "wind": [
