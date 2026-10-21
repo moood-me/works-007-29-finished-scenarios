@@ -1,7 +1,7 @@
 // The stone bridge where the water narrows, to the right: three round arches on two piers, a coping along the top,
 // voussoirs drawn round each arch; a grassy abutment at either end with a few shrubs. Its foot is the water's level;
 // through the arches the water beyond, and the water doubles it
-const L = e.lib, px = L.px(e), r = L.rand(53);
+const L = e.kit.brush, px = L.px(e), r = L.rand(53);
 const STONE = '#ddd0b1';
 const body = new Path2D();
 body.rect(-17, -6.2, 39, 6.4);
@@ -36,11 +36,15 @@ for (const [c, rad] of arches) {
   }
 }
 lines.moveTo(-17, -5.0); lines.lineTo(22, -5.0);
-L.pen(g, lines, 0.9 * px, 0.35);
-L.pen(g, body, 1.1 * px, 0.55);
+L.pen(g, lines, 1.71 * px, 0.65);
+// (the shade inside each arch's crown, hatched)
+const vaults = new Path2D();
+for (const [c, rad] of arches) { vaults.moveTo(c + rad, -1.4); vaults.arc(c, -1.4, rad, 0, Math.PI, true); vaults.closePath(); }
+L.hatch(g, vaults, [-13, -5.2, 14.5, -1.4], 0.32, 0.9, 1.1 * px, 0.35);
+L.pen(g, body, 2.09 * px, 0.85);
 // the abutments: banks of grass down to the water at either end, a shrub or two
 const banks = new Path2D();
 banks.moveTo(-27, 0.25); banks.quadraticCurveTo(-19, -1, -16.5, -6.3); banks.lineTo(-16.5, 0.25); banks.closePath();
 banks.moveTo(21.5, -6.3); banks.quadraticCurveTo(24, -1, 34, 0.25); banks.lineTo(21.5, 0.25); banks.closePath();
 L.wash(g, banks, '#93a873', [-27, -6.5, 34, 0.25], r, 2);
-L.foliage(g, [[-22, -4.2, 2.3], [-19.2, -6.6, 2.1], [25, -6.8, 2.4], [28.5, -4.6, 2.2]], ['#5c7650', '#738f5e', '#93ad77'], r, 0.5);
+L.foliage(g, [[-22, -4.2, 2.3], [-19.2, -6.6, 2.1], [25, -6.8, 2.4], [28.5, -4.6, 2.2]], ['#5c7650', '#738f5e', '#93ad77'], r, 0.5, 1.6 * px);

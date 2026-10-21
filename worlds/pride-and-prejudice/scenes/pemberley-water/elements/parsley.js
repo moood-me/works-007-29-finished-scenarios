@@ -1,6 +1,6 @@
 // Cow parsley at the lawn's edge: tall stems, each with a flat lace head of cream flowers; it sways about its foot
 // (copies along the foreground)
-const r = e.lib.rand(79);
+const r = e.kit.brush.rand(79);
 e.layer('stems', { wind: { strength: 0.08, gust: 0.5, scale: 2 }, pivot: [0, 0.02] }, g2 => {
   const stems = new Path2D(), lace = new Path2D(), leaves = new Path2D();
   for (let i = 0; i < 4; i++) {

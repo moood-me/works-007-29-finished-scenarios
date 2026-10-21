@@ -1,0 +1,48 @@
+// A small round table near the eye at the left, a brass candlestick on it with a lit candle (the flame: `near_flame`)
+// — the light that falls on the faces from before them — and a book (x across, y up negative; its top at 0.72 m)
+const L = e.kit.brush, px = L.px(e), r = L.rand(149);
+const top = new Path2D();
+top.ellipse(0, -0.72, 0.42, 0.09, 0, 0, Math.PI * 2);
+L.wash(g, top, '#86553a', [-0.42, -0.81, 0.42, -0.63], r, 2);
+const rim = new Path2D();
+rim.rect(-0.42, -0.72, 0.84, 0.04);
+g.fillStyle = '#6e432d';
+g.fill(rim);
+const pillar = new Path2D();
+pillar.moveTo(-0.03, -0.68);
+pillar.lineTo(-0.045, -0.2);
+pillar.lineTo(-0.3, 0);
+pillar.lineTo(-0.26, 0);
+pillar.lineTo(0, -0.14);
+pillar.lineTo(0.26, 0);
+pillar.lineTo(0.3, 0);
+pillar.lineTo(0.045, -0.2);
+pillar.lineTo(0.03, -0.68);
+pillar.closePath();
+g.fill(pillar);
+L.pen(g, top, 1.4 * px, 0.85);
+L.pen(g, pillar, 1.2 * px, 0.8);
+// the candlestick and the candle; a book beside them
+const stick = new Path2D();
+stick.moveTo(-0.07, -0.74);
+stick.lineTo(-0.02, -0.8);
+stick.lineTo(-0.015, -0.92);
+stick.lineTo(-0.04, -0.94);
+stick.lineTo(0.04, -0.94);
+stick.lineTo(0.015, -0.92);
+stick.lineTo(0.02, -0.8);
+stick.lineTo(0.07, -0.74);
+stick.closePath();
+g.fillStyle = '#c9a457';
+g.fill(stick);
+const candle = new Path2D();
+candle.rect(-0.014, -1.1, 0.028, 0.16);
+g.fillStyle = '#f6f0de';
+g.fill(candle);
+const book = new Path2D();
+book.rect(0.12, -0.78, 0.2, 0.05);
+g.fillStyle = '#6b7d5e';
+g.fill(book);
+L.pen(g, stick, 1.0 * px, 0.75);
+L.pen(g, candle, 0.9 * px, 0.6);
+L.pen(g, book, 1.0 * px, 0.7);

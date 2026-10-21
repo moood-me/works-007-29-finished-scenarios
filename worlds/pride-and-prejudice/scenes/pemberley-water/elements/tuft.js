@@ -1,6 +1,6 @@
 // A tuft of uncut grass at the lawn's edge nearest the eye, with a buttercup or two: blades in three greens; it bends
 // in the wind about its foot (its copies along the foreground, never in step)
-const r = e.lib.rand(73);
+const r = e.kit.brush.rand(73);
 e.layer('blades', { wind: { strength: 0.06, gust: 0.5, scale: 2 }, pivot: [0, 0.02] }, g2 => {
   const greens = ['#5f7748', '#7d9358', '#a0b26f'];
   for (let t = 0; t < 3; t++) {

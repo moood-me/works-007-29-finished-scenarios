@@ -1,0 +1,533 @@
+{
+  "engine": 3,
+  "title": "Longbourn, the Drawing Room",
+  "caption": "The window still light, and the candles lit early.",
+  "horizon": 0.4,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "vignette": 0.2,
+    "grain": 0.05,
+    "haze": 0.02,
+    "hazeColor": "#efe2c8",
+    "hazeGlow": 0.5,
+    "ambient": 0.74,
+    "ambientColor": "#f3e7d3",
+    "inside": 0.62,
+    "bounce": 0.6,
+    "looks": {
+      "dusk": {
+        "ambient": 0.56,
+        "ambientColor": "#eed8ba",
+        "inside": 0.42,
+        "tint": "#f0b880",
+        "tintStrength": 0.08,
+        "lights": {
+          "window_light": 0.5
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "window_light",
+      "of": "opening",
+      "daylight": 1.3,
+      "reach": 6
+    },
+    {
+      "id": "candle",
+      "of": "near_flame#flame",
+      "color": "#ffcf8c",
+      "strength": 1.5,
+      "reach": 4.5,
+      "flicker": 0.12
+    },
+    {
+      "id": "mantel_left",
+      "of": "mantel_flames#left",
+      "color": "#ffcf8c",
+      "strength": 0.9,
+      "reach": 3.5,
+      "flicker": 0.12
+    },
+    {
+      "id": "mantel_right",
+      "of": "mantel_flames#right",
+      "color": "#ffcf8c",
+      "strength": 0.9,
+      "reach": 3.5,
+      "flicker": 0.12
+    },
+    {
+      "id": "hearth",
+      "of": "coals#glow",
+      "color": "#ff9a4a",
+      "strength": 0.9,
+      "reach": 3.5,
+      "flicker": 0.35
+    }
+  ],
+  "modules": [
+    "cast",
+    "brush"
+  ],
+  "state": {
+    "dusk": 0,
+    "jane_on": [
+      -1.04,
+      3.5,
+      0.46
+    ],
+    "jane_look": "elizabeth",
+    "jane_mood": "smile",
+    "elizabeth_look": "jane",
+    "elizabeth_mood": "laugh",
+    "lydia_look": "elizabeth",
+    "lydia_mood": "laugh"
+  },
+  "states": {
+    "dusk": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the hour: 0 an early autumn evening, the window still light (by default); 1 later — the window dimmer, the room warm with its candles and the fire"
+    }
+  },
+  "objects": [
+    {
+      "id": "garden",
+      "name": "The garden beyond the window",
+      "across": 4.5,
+      "distance": 16,
+      "height": 6,
+      "box": [
+        -3.2,
+        -6.2,
+        3.2,
+        1.2
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "Floor",
+      "plane": true,
+      "across": 0.2,
+      "distance": 3.4,
+      "width": 6,
+      "depth": 5.4,
+      "inside": true
+    },
+    {
+      "id": "back_wall",
+      "name": "Far wall with the window",
+      "across": 0.2,
+      "distance": 6.0,
+      "facing": 180,
+      "height": 4.2,
+      "box": [
+        -3,
+        -4.2,
+        3,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "left_wall",
+      "name": "Left wall with the chimneypiece",
+      "across": -2.8,
+      "distance": 3.4,
+      "facing": 90,
+      "height": 4.2,
+      "box": [
+        -2.8,
+        -4.2,
+        2.8,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "right_wall",
+      "name": "Right wall with the door",
+      "across": 3.2,
+      "distance": 3.4,
+      "facing": 270,
+      "height": 4.2,
+      "box": [
+        -2.8,
+        -4.2,
+        2.8,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "opening",
+      "name": "Window opening",
+      "unseen": true,
+      "across": 1.7,
+      "distance": 6.0,
+      "facing": 180,
+      "height": 2,
+      "box": [
+        -0.6,
+        -2.75,
+        0.6,
+        -0.75
+      ]
+    },
+    {
+      "id": "window",
+      "name": "Sash window",
+      "across": 1.7,
+      "distance": 5.97,
+      "facing": 180,
+      "height": 3.1,
+      "box": [
+        -0.8,
+        -2.85,
+        0.8,
+        -0.65
+      ],
+      "inside": true
+    },
+    {
+      "id": "curtains",
+      "name": "Curtains",
+      "across": 1.7,
+      "distance": 5.92,
+      "facing": 180,
+      "height": 3.1,
+      "box": [
+        -1.1,
+        -3.1,
+        1.1,
+        0.03
+      ],
+      "translucent": 0.45,
+      "inside": true
+    },
+    {
+      "id": "coals",
+      "name": "Coals in the grate",
+      "across": -2.77,
+      "distance": 5.0,
+      "facing": 90,
+      "height": 0.45,
+      "box": [
+        -0.4,
+        -0.46,
+        0.4,
+        0.02
+      ],
+      "glows": true
+    },
+    {
+      "id": "fire",
+      "name": "Fire in the grate",
+      "inside": true,
+      "particles": {
+        "kind": "fire",
+        "at": [
+          -2.72,
+          5.0,
+          0.26
+        ],
+        "source": [
+          0.04,
+          0.5,
+          0.03
+        ],
+        "size": [
+          0.12,
+          0.03
+        ]
+      }
+    },
+    {
+      "id": "mantel_candles",
+      "name": "Candlesticks on the mantel",
+      "across": -2.74,
+      "distance": 5.0,
+      "elevation": 1.3,
+      "facing": 90,
+      "height": 0.4,
+      "box": [
+        -0.7,
+        -0.42,
+        0.7,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "mantel_flames",
+      "name": "Mantel candle flames",
+      "across": -2.73,
+      "distance": 5.0,
+      "elevation": 1.68,
+      "facing": 90,
+      "height": 0.08,
+      "box": [
+        -0.66,
+        -0.09,
+        0.66,
+        0.01
+      ],
+      "glows": true,
+      "flicker": 0.3
+    },
+    {
+      "id": "sofa",
+      "name": "Sofa",
+      "across": -1.4,
+      "distance": 5.6,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -1.1,
+        -1.0,
+        1.1,
+        0.03
+      ],
+      "inside": true,
+      "shadow": {
+        "onto": [
+          "floor",
+          "back_wall",
+          "left_wall",
+          "right_wall"
+        ]
+      }
+    },
+    {
+      "id": "chair",
+      "name": "Jane's chair",
+      "across": -1.04,
+      "distance": 3.72,
+      "facing": 180,
+      "height": 1.02,
+      "box": [
+        -0.28,
+        -1.04,
+        0.28,
+        0.02
+      ],
+      "inside": true,
+      "shadow": {
+        "onto": [
+          "floor",
+          "back_wall",
+          "left_wall",
+          "right_wall"
+        ]
+      }
+    },
+    {
+      "id": "tambour",
+      "name": "Embroidery frame",
+      "across": -0.62,
+      "distance": 3.15,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -0.3,
+        -1.02,
+        0.3,
+        0.03
+      ],
+      "inside": true,
+      "shadow": {
+        "onto": [
+          "floor",
+          "back_wall",
+          "left_wall",
+          "right_wall"
+        ]
+      }
+    },
+    {
+      "id": "near_table",
+      "name": "Small table with a candle",
+      "across": -1.45,
+      "distance": 1.9,
+      "facing": 180,
+      "height": 1.12,
+      "box": [
+        -0.45,
+        -1.12,
+        0.45,
+        0.03
+      ],
+      "inside": true,
+      "shadow": {
+        "onto": [
+          "floor",
+          "back_wall",
+          "left_wall",
+          "right_wall"
+        ]
+      }
+    },
+    {
+      "id": "near_flame",
+      "name": "Candle flame",
+      "across": -1.45,
+      "distance": 1.89,
+      "elevation": 1.1,
+      "height": 0.08,
+      "box": [
+        -0.03,
+        -0.08,
+        0.03,
+        0.01
+      ],
+      "glows": true,
+      "flicker": 0.3
+    },
+    {
+      "id": "jane",
+      "name": "Jane Bennet",
+      "person": {
+        "cast": "cast",
+        "who": "jane",
+        "turn": 205,
+        "does": "seated"
+      },
+      "across": -1.04,
+      "distance": 3.5,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "elizabeth",
+      "name": "Elizabeth Bennet",
+      "person": {
+        "cast": "cast",
+        "who": "elizabeth",
+        "turn": 140
+      },
+      "across": -0.17,
+      "distance": 3.25,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "lydia",
+      "name": "Lydia Bennet",
+      "person": {
+        "cast": "cast",
+        "who": "lydia",
+        "turn": 150
+      },
+      "across": 2.55,
+      "distance": 5.1,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "motes",
+      "name": "Motes in the window's light",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          1.4,
+          5.0,
+          1.5
+        ],
+        "source": [
+          1.6,
+          1.6,
+          1.4
+        ],
+        "rate": 4,
+        "life": [
+          8,
+          12
+        ]
+      }
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a solo square piano playing a gentle Regency-era country air, unhurried, intimate, slightly imperfect touch",
+        "weight": 1.2
+      },
+      {
+        "text": "English country dance tune from Playford's Dancing Master on a single violin, slow and wistful",
+        "weight": 0.6
+      },
+      {
+        "text": "chamber music for pianoforte and cello, late eighteenth century, warm and restrained",
+        "weight": 0.8
+      },
+      {
+        "text": "soft classical string quartet in the style of Haydn, a quiet andante on a summer afternoon",
+        "weight": 0.5
+      },
+      {
+        "text": "harp arpeggios like water, light and clear, pastoral English summer",
+        "weight": 0
+      },
+      {
+        "text": "wooden flute melody over sustained strings, English parkland, gentle breeze",
+        "weight": 0
+      },
+      {
+        "text": "melancholy minor-key piano nocturne, hesitant pauses, unspoken feeling",
+        "weight": 0
+      },
+      {
+        "text": "bright Mozartian piano sonata movement, playful wit and lightness",
+        "weight": 0
+      },
+      {
+        "text": "slow pastoral oboe solo with chamber orchestra, morning mist over meadows",
+        "weight": 0
+      },
+      {
+        "text": "music box version of a country dance, delicate and nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "guitar-like plucked fortepiano, sparse notes, birdsong-like ornaments",
+        "weight": 0
+      },
+      {
+        "text": "warm viola and piano duet, tender restraint, Georgian drawing room",
+        "weight": 0
+      },
+      {
+        "text": "distant ballroom minuet heard through an open window, soft and muffled",
+        "weight": 0
+      },
+      {
+        "text": "romantic but restrained piano theme, period drama film score, gentle swell of strings",
+        "weight": 0
+      },
+      {
+        "text": "clavichord improvisation, intimate, quiet, introspective",
+        "weight": 0
+      },
+      {
+        "text": "light pizzicato strings, a walk through a garden, gentle humour",
+        "weight": 0
+      },
+      {
+        "text": "sustained soft string pads with solo piano phrases, calm water and stillness",
+        "weight": 0
+      }
+    ],
+    "bpm": 72,
+    "density": 0.35,
+    "brightness": 0.6,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}
