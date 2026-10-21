@@ -55,16 +55,29 @@
     "cast"
   ],
   "state": {
-    "ivanov_look": "semyon",
-    "ivanov_mood": "thinking",
-    "ivanov_with": [
-      "coat_kit"
+    "ivanov_look": [
+      1.3,
+      2.6,
+      1.55
     ],
-    "lyuba_look": "nastya",
+    "ivanov_mood": "thinking",
+    "lyuba_look": [
+      0.3,
+      2.6,
+      1.2
+    ],
     "lyuba_mood": "smile",
-    "semyon_look": "ivanov",
+    "semyon_look": [
+      1.0,
+      2.4,
+      1.6
+    ],
     "semyon_mood": "neutral",
-    "nastya_look": "ivanov",
+    "nastya_look": [
+      0.7,
+      2.6,
+      1.4
+    ],
     "nastya_mood": "afraid",
     "nastya_reach": {
       "l": [
@@ -236,9 +249,10 @@
           0
         ],
         "size": [
-          0.1,
-          0.03
-        ]
+          0.16,
+          0.04
+        ],
+        "rate": 30
       }
     },
     {
@@ -417,10 +431,10 @@
       "distance": 3.6,
       "height": 0.45,
       "box": [
-        -0.28,
-        -0.46,
-        0.28,
-        0.02
+        -0.34,
+        -0.47,
+        0.3,
+        0.03
       ],
       "shadow": true,
       "inside": true
@@ -454,7 +468,7 @@
       "person": {
         "cast": "cast",
         "who": "lyuba",
-        "turn": 140
+        "turn": 165
       },
       "across": -0.85,
       "distance": 3.75,
@@ -467,7 +481,12 @@
       "person": {
         "cast": "cast",
         "who": "ivanov",
-        "turn": 150
+        "turn": 165,
+        "look": {
+          "parts": [
+            "coat_kit"
+          ]
+        }
       },
       "across": 0.55,
       "distance": 3.9,
@@ -480,7 +499,7 @@
       "person": {
         "cast": "cast",
         "who": "semyon",
-        "turn": 230
+        "turn": 205
       },
       "across": 1.85,
       "distance": 3.45,
@@ -493,7 +512,7 @@
       "person": {
         "cast": "cast",
         "who": "nastya",
-        "turn": 230
+        "turn": 200
       },
       "across": 1.4,
       "distance": 3.65,

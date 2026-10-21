@@ -48,14 +48,15 @@ The room: across −3.0…2.9, distance 1.0…5.8, the ceiling 2.4.
 ## The people (the world's `cast`)
 
 One moment of chapter 2's evening (scenario 2.6): Semyon Yevseyevich has come in on his way to his night shift, for the
-children; Nastya holds the flap of his jacket.
+children; Nastya holds on to his jacket. Each looks at the one they mean, the point of the look (`<id>_look`) brought
+toward the eye so that the faces are seen three-quarter, not in profile across the room.
 
-- `lyuba` (−0.85, 3.75, turned 140) — at the stove, where she stands (§2: «стоит у печи»), looking at Nastya with Semyon,
+- `lyuba` (−0.85, 3.75, turned 165) — at the stove, where she stands (§2: «стоит у печи»), looking at Nastya with Semyon,
   a little smile (`smile`).
-- `ivanov` (0.55, 3.9, turned 150) — standing, in the greatcoat (he has not hung it on the nail), the kit bag set down by
-  the door (`ivanov_with`: the coat's kit only, not the bag in hand), wary of the man who comes in «as one of their
+- `ivanov` (0.55, 3.9, turned 165) — standing, in the greatcoat (he has not hung it on the nail), the kit bag set down by
+  the door (his look's `parts`: the coat's kit only, not the bag in hand), wary of the man who comes in «as one of their
   own» (`thinking`), looking at him.
-- `semyon` (1.85, 3.45, turned 230) — new in the cast: grey, cropped, cap off, an old dark jacket; just inside, by the
+- `semyon` (1.85, 3.45, turned 205) — new in the cast: grey, cropped, cap off, an old dark jacket; just inside, by the
   door, looking at Ivanov, ceremonious (`neutral`).
-- `nastya` (1.4, 3.65, turned 230) — new in the cast: five, fair, a faded rose frock; at his side, her left hand on his
+- `nastya` (1.4, 3.65, turned 200) — new in the cast: five, fair, a faded rose frock; at his side, her left hand on his
   jacket's hem (`nastya_reach`), looking at the stranger who is her father (`afraid`).

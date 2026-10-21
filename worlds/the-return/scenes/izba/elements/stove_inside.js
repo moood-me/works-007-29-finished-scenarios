@@ -2,9 +2,9 @@
 // hearth, glowing — the fire's light is its glow (`fire`: the scene's light `stove`); the flames are `stove_fire`.
 // It flickers (the element's "flicker").
 const vault = g.createLinearGradient(0, -0.62, 0, 0);
-vault.addColorStop(0, "#7a3a24");
-vault.addColorStop(0.6, "#b4542c");
-vault.addColorStop(1, "#e08a3c");
+vault.addColorStop(0, "#3a160c");
+vault.addColorStop(0.6, "#6e2814");
+vault.addColorStop(1, "#b0441c");
 g.fillStyle = vault;
 g.fillRect(-0.34, -0.62, 0.68, 0.64);
 for (let i = 0; i < 16; i++) {
