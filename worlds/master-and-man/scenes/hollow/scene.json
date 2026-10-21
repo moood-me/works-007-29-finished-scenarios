@@ -56,7 +56,7 @@
     "vasily_look": "nikita",
     "vasily_mood": "thinking",
     "nikita_look": [
-      -1.4,
+      -1.0,
       2.1,
       0.4
     ],
@@ -202,7 +202,7 @@
     {
       "id": "horse",
       "name": "Mukhorty",
-      "across": -1.9,
+      "across": -1.5,
       "distance": 5.3,
       "facing": 165,
       "height": 2.1,
@@ -218,7 +218,7 @@
       "id": "sleigh",
       "name": "Sleigh",
       "unseen": true,
-      "across": 0.5,
+      "across": 0.9,
       "distance": 3.1,
       "facing": 150
     },
@@ -322,7 +322,7 @@
         "turn": 230,
         "does": "knees_sit"
       },
-      "across": 0.9,
+      "across": 1.3,
       "distance": 3.91,
       "shadow": true
     },
@@ -335,7 +335,7 @@
         "turn": 235,
         "does": "huddle"
       },
-      "across": -0.01,
+      "across": 0.39,
       "distance": 3.38,
       "shadow": true
     },

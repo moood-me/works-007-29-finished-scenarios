@@ -41,30 +41,30 @@ for (let i = 0; i < 320; i++) {
   g.stroke();
 }
 
-// the sleigh's furrow: from the right, down the bank, to where it stopped (the sleigh's back at about across 1.6,
+// the sleigh's furrow: from the right, down the bank, to where it stopped (the sleigh's back at about across 2.0,
 // distance 3.7); two runner grooves in a broad ploughed trough, half filled with new snow
 g.strokeStyle = "rgba(168,186,214,0.55)";
 g.lineWidth = 1.3;
 g.beginPath();
-g.moveTo(1.6, D(3.7));
+g.moveTo(2.0, D(3.7));
 g.bezierCurveTo(5, D(5.6), 10, D(9), 16, D(15));
 g.stroke();
 g.strokeStyle = "rgba(146,166,198,0.6)";
 g.lineWidth = 0.08;
 for (const off of [-0.45, 0.45]) {
   g.beginPath();
-  g.moveTo(1.6 + off * 0.5, D(3.7 - off * 0.8));
+  g.moveTo(2.0 + off * 0.5, D(3.7 - off * 0.8));
   g.bezierCurveTo(5 + off * 0.5, D(5.6 - off * 0.8), 10 + off * 0.6, D(9 - off * 0.7), 16 + off * 0.6, D(15 - off * 0.7));
   g.stroke();
 }
 
 // the trampled snow round the sleigh's front and under the horse: grey-blue, broken, footprints in it
-const tr = g.createRadialGradient(-1.4, D(4.1), 0, -1.4, D(4.1), 2.4);
+const tr = g.createRadialGradient(-0.9, D(4.1), 0, -0.9, D(4.1), 2.4);
 tr.addColorStop(0, "rgba(170,182,204,0.6)");
 tr.addColorStop(1, "rgba(170,182,204,0)");
 g.fillStyle = tr;
 g.save();
-g.translate(-1.4, D(4.1));
+g.translate(-0.9, D(4.1));
 g.scale(1.5, 0.7);
 g.beginPath();
 g.arc(0, 0, 2.4, 0, Math.PI * 2);
@@ -72,7 +72,7 @@ g.restore();
 g.fill();
 g.fillStyle = "rgba(140,156,186,0.55)";
 for (let i = 0; i < 26; i++) {
-  const x = -3.2 + e.rnd() * 3.6, y = D(3.3 + e.rnd() * 2.4);
+  const x = -2.8 + e.rnd() * 3.6, y = D(3.3 + e.rnd() * 2.4);
   g.beginPath();
   g.ellipse(x, y, 0.07, 0.13, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();
