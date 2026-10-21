@@ -9,7 +9,8 @@ take Nikita.
 Why this place: it holds the world's whole palette and its three people at once. White, grey-blue, ice-blue
 (snow, sky, the far forest, the church), and the few warm spots of the story: the master's **red fox coat**, Nikita's
 **red sash**, the **yellow window** of the shop. And the three stand as they stand in the story: the master **higher**,
-on his porch, hands on his hips, looking down at his workman; Nikita **lower**, at the horse's head, his hand on its
+on his porch, hands on his hips, looking down over his yard (his face three-quarters to us — looking at Nikita it
+would be a profile turned away; he looks at him in the showcase's `glance`); Nikita **lower**, at the horse's head, his hand on its
 cheek, looking at the horse, not at the master; Praskovya **in the door, not on the porch**, her hands folded at her
 breast, looking at her husband.
 
@@ -63,10 +64,10 @@ blue-grey: the snowy air takes the church and the forest. Everything is painted 
 
 ## State
 
-`snow` 0…1 — how thick it falls (0.55). People: `vasily_look` nikita, `praskovya_look` vasily, `nikita_look`
+`snow` 0…1 — how thick it falls (0.55). People: `vasily_look` `[0.5, 3.5, 0]` (down over the yard before him), `praskovya_look` vasily, `nikita_look`
 `horse#head`, `nikita_reach` `{r: horse#cheek}` — his hand on the horse's cheek.
 
 ## Showcase
 
-`yard` (they stand, 8 s) → `glance` (the master looks back at his wife and again at Nikita) → `snow` (thicker, then
+`yard` (they stand, 8 s) → `glance` (the master looks back at his wife, then at Nikita, then over the yard again) → `snow` (thicker, then
 easing).

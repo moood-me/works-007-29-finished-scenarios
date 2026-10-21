@@ -1,6 +1,6 @@
 // The yard's own little film, outside games: they stand as they stand in the story — the snow and the ground wind
-// going, the horse breathing; the master glances back at his wife in the door and turns to Nikita again; the snow
-// thickens and eases.
+// going, the horse breathing; the master, looking down over his yard, glances back at his wife in the door, then at
+// Nikita, and looks out over the yard again; the snow thickens and eases.
 return [
   { name: "yard", run: async (s) => { await s.wait(8); } },
   {
@@ -10,6 +10,8 @@ return [
       await s.wait(3);
       s.person("vasily").look("nikita");
       await s.wait(4);
+      s.person("vasily").look([0.5, 3.5, 0]);
+      await s.wait(2);
     },
   },
   {

@@ -27,7 +27,7 @@
   "modules": ["cast"],
   "state": {
     "snow": 0.55,
-    "vasily_look": "nikita",
+    "vasily_look": [0.5, 3.5, 0],
     "praskovya_look": "vasily",
     "nikita_look": "horse#head",
     "nikita_reach": { "r": "horse#cheek" }
@@ -53,7 +53,7 @@
     { "id": "sleigh", "name": "Sleigh", "across": -1.6, "distance": 7.25, "height": 1.1, "box": [-1.3, -1.15, 1.4, 0.05], "shadow": true },
     { "id": "horse", "name": "Mukhorty", "across": 1.9, "distance": 7.2, "height": 2.3, "box": [-2.3, -2.32, 2.6, 0.05], "shadow": true },
     { "id": "post", "name": "Hitching post", "across": 4.5, "distance": 7.6, "height": 1.45, "box": [-0.3, -1.5, 0.3, 0.05], "shadow": true },
-    { "id": "vasily", "name": "Vasily Andreich", "person": { "cast": "cast", "who": "vasily", "turn": 135, "does": "hands_hips" }, "across": -3.05, "distance": 6.1, "shadow": true },
+    { "id": "vasily", "name": "Vasily Andreich", "person": { "cast": "cast", "who": "vasily", "turn": 155, "does": "hands_hips" }, "across": -3.05, "distance": 6.1, "shadow": true },
     { "id": "praskovya", "name": "Praskovya Mikhailovna", "person": { "cast": "cast", "who": "praskovya", "turn": 165, "does": "hands_breast" }, "across": -4.4, "distance": 7.22, "shadow": true },
     { "id": "nikita", "name": "Nikita", "person": { "cast": "cast", "who": "nikita", "turn": 230, "does": "stand" }, "across": 3.85, "distance": 7.3, "shadow": true },
     { "id": "drift_far", "name": "Ground wind, far", "across": 4, "distance": 11, "height": 0.7, "box": [-15, -0.7, 15, 0.02] },
