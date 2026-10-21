@@ -42,9 +42,9 @@ def main():
         a = -8.4 - 0.12 * d - rng.uniform(0, 8)
         grass.append({'across': round(a, 2), 'distance': round(d, 2), 'scale': round(rng.uniform(0.7, 1.4), 2), 'flip': rng.random() < 0.5})
     # a few smaller stones half sunk in the shingle near the viewer, in the corners
-    for a, d, sc in ((-3.6, 1.6, 0.32), (-4.4, 2.6, 0.22), (3.9, 1.3, 0.36), (4.8, 2.4, 0.25), (3.2, 2.9, 0.18)):
+    for a, d, sc in ((-2.3, 2.2, 0.34), (-2.9, 3.1, 0.25), (2.4, 2.0, 0.4), (3.1, 2.9, 0.27), (1.7, 1.8, 0.25)):
         rocks.append({'across': a, 'distance': d, 'scale': sc, 'flip': rng.random() < 0.5, 'tint': '#f2eee8'})
-    for a, d in ((-3.9, 1.9), (-4.6, 3.1), (-3.2, 1.1)):
+    for a, d in ((-2.5, 2.5), (-3.2, 3.3), (-2.0, 1.9), (2.8, 2.3)):
         grass.append({'across': a, 'distance': d, 'scale': round(rng.uniform(0.8, 1.2), 2), 'flip': rng.random() < 0.5})
     spec = json.loads(SCENE.read_text(encoding='utf-8'))
     for o in spec['objects']:
