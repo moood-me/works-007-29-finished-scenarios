@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Rock","translation":"Скала","where":"scenes/rock/scene.json title"},
+  {"text":"The last clear evening before the fog.","translation":"Последний ясный вечер перед туманом.","where":"scenes/rock/scene.json caption"}
+]}
