@@ -322,8 +322,8 @@
         "turn": 230,
         "does": "knees_sit"
       },
-      "across": 0.67,
-      "distance": 4.22,
+      "across": 0.9,
+      "distance": 4.41,
       "shadow": true
     },
     {
@@ -332,11 +332,11 @@
       "person": {
         "cast": "cast",
         "who": "nikita",
-        "turn": 215,
+        "turn": 235,
         "does": "huddle"
       },
-      "across": -0.25,
-      "distance": 3.69,
+      "across": -0.01,
+      "distance": 3.88,
       "shadow": true
     },
     {
@@ -370,7 +370,25 @@
       "name": "Blizzard",
       "particles": {
         "kind": "blizzard",
-        "amount": "storm"
+        "amount": "storm",
+        "count": 40000
+      }
+    },
+    {
+      "id": "flakes",
+      "name": "Snow driving past near",
+      "particles": {
+        "kind": "snow",
+        "amount": "storm",
+        "count": 6000,
+        "reach": 8,
+        "wind": 2.8,
+        "gust": 1.0,
+        "turbulence": 0.5,
+        "size": [
+          0.025,
+          0.025
+        ]
       }
     },
     {

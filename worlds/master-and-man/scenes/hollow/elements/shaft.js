@@ -57,7 +57,7 @@ function ribbon(c, len, width, droop, waves, phase) {
   for (let i = 0; i <= n; i++) {
     const u = i / n;
     const x = KNOT[0] - u * len;
-    const y = KNOT[1] + droop * u * u + 0.05 * u * Math.sin(u * waves * Math.PI * 2 + phase);
+    const y = KNOT[1] + droop * u * u + 0.07 * u * Math.sin(u * waves * Math.PI * 2 + phase);
     const w = width * (1 - 0.25 * u) * (0.75 + 0.25 * Math.cos(u * waves * Math.PI * 2 + phase));
     top.push([x, y - w / 2]);
     bot.push([x, y + w / 2]);
@@ -96,9 +96,9 @@ function ribbon(c, len, width, droop, waves, phase) {
     c.stroke();
   }
 }
-e.layer("sash_long", { pivot: KNOT, wind: { strength: 0.85, gust: 1.0, scale: 0.35 }, box: [-1.35, -2.75, 0.2, -2.15] }, c => {
-  ribbon(c, 1.15, 0.11, 0.16, 1.6, 0.3);
+e.layer("sash_long", { pivot: KNOT, wind: { strength: 0.85, gust: 1.0, scale: 0.35 }, box: [-1.0, -2.75, 0.2, -2.1] }, c => {
+  ribbon(c, 0.8, 0.085, 0.22, 1.8, 0.3);
 });
-e.layer("sash_short", { pivot: KNOT, wind: { strength: 1.0, gust: 1.0, scale: 0.3 }, box: [-1.0, -2.75, 0.2, -2.15] }, c => {
-  ribbon(c, 0.78, 0.095, 0.24, 1.3, 2.1);
+e.layer("sash_short", { pivot: KNOT, wind: { strength: 1.0, gust: 1.0, scale: 0.3 }, box: [-0.75, -2.75, 0.2, -2.1] }, c => {
+  ribbon(c, 0.55, 0.075, 0.3, 1.5, 2.1);
 });
