@@ -48,7 +48,7 @@ for (let x = -480, i = 0; x < 420; i++) {
       const lit = L.rnd(n, 79) > 0.72;
       g.fillStyle = lit ? "#ffd38a" : "#59636f";
       g.fillRect(fx, fy, 1.1, 1.5);
-      if (lit) e.light(fx + 0.55, fy + 0.75, 3.5, "#ffc06a", 0.8);
+      if (lit) e.light(fx + 0.55, fy + 0.75, 3.5, "#ffc06a", 1.2);
     }
   }
   x += w + gap;

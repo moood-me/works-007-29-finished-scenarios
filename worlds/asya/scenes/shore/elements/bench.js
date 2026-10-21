@@ -11,4 +11,4 @@ g.fillRect(-0.92, -0.88, 1.84, 0.1);
 g.fillRect(-0.92, -0.72, 1.84, 0.1);
 g.fillStyle = "#7f705b";
 g.fillRect(-0.92, -0.47, 1.84, 0.05);
-L.unfinish(g, box, -1.75, 3.3);
+L.unfinish(g, box, -2.7, 3.3);
