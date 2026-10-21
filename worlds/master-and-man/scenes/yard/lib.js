@@ -52,7 +52,7 @@ function logs(g, x0, x1, y0, y1, log, rnd) {
     g.fillRect(x0, y - log * 0.12, x1 - x0, log * 0.12);
     g.fillStyle = C.woodDark;
     for (let k = 0; k < (x1 - x0) / 1.4; k++) {
-      const cx = x0 + rnd() * (x1 - x0), w = 0.4 + rnd() * 0.9;
+      const cx = x0 + rnd() * (x1 - x0), w = Math.min(0.4 + rnd() * 0.9, x1 - cx);
       g.fillRect(cx, top + log * (0.4 + rnd() * 0.3), w, 0.012);
     }
   }

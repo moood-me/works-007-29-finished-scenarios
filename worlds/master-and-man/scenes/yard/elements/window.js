@@ -12,13 +12,18 @@ warm.addColorStop(0.5, "#f2bd68");
 warm.addColorStop(1, "#c98e4a");
 g.fillStyle = warm;
 g.fillRect(X0, Y0, X1 - X0, Y1 - Y0);
-// (frost in the corners of the panes, white and feathery)
+// (frost in the corners of the panes, white and feathery — within the panes)
+g.save();
+g.beginPath();
+g.rect(X0, Y0, X1 - X0, Y1 - Y0);
+g.clip();
 g.fillStyle = "rgba(250,246,240,0.55)";
 for (const [cx, cy] of [[X0, Y1], [X1, Y1], [0, Y1], [X0, -2.0]]) {
   g.beginPath();
   g.ellipse(cx, cy, 0.16, 0.12, 0, 0, Math.PI * 2);
   g.fill();
 }
+g.restore();
 // the sash and the bars
 g.fillStyle = "#4a3a2c";
 g.fillRect(X0, Y0, X1 - X0, 0.05);

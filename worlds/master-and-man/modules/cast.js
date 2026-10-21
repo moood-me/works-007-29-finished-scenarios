@@ -5,11 +5,12 @@
 // A part's lengths are a man's metres times F.fit.h (the person's height as a share of a man's 1.76 m).
 const V = () => MooodShapes.V;
 
-// a full beard over the jaw and the chin, in the colour of the hair; `long` — how far it falls
+// a beard over the jaw and the chin — below the nose, the cheeks above it bare —, in the colour of the hair; `long` — how
+// far it falls on the chest
 function beard(F, long) {
   const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
-  F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.55, 0.83], 0.25, F.colors.hair, h.sides, h.square);
-  F.ball(add(h.at, add(mul(hu, -r * (0.9 + 0.25 * long)), mul(hf, r * 0.5))), h.axes, [r * 0.62, r * (0.46 + 0.3 * long), r * 0.42], F.colors.hair, h.sides);
+  F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.78, 0.62], 0.68, F.colors.hair, h.sides, h.square);
+  F.ball(add(h.at, add(mul(hu, -r * (0.95 + 0.25 * long)), mul(hf, r * 0.45))), h.axes, [r * 0.55, r * (0.4 + 0.3 * long), r * 0.4], F.colors.hair, h.sides);
 }
 
 // the fur collar's rings, kept from frame to frame: four rings round the neck (below inside and out, above out and in)
