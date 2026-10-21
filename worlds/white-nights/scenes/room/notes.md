@@ -28,9 +28,8 @@ The room: across −1.6…1.9, 0…4.8 deep, the ceiling 2.45 (`floor` — it ru
 
 - Left wall: the window onto the courtyard, 3.2…4.1 m in, 0.8…2.0 m up (`window` — the frame, two shut leaves of three
   panes, a faint film on the glass; `sill` with two books and a candle-end). It is shut, as all the game. Beyond it,
-  seen through: the rain in the courtyard (`rain`, particles kept to the yard by their `area`) and the wall of the house
-  across, wet ochre with rows of windows (`yard`, at across −6.5, its foot out of sight below); rain running down the
-  panes (`pane_drops`, on the window).
+  seen through: the wall of the house across the courtyard, wet ochre with rows of windows (`yard`, at across −6.5, its
+  foot out of sight below); rain running down the panes (`pane_drops`, on the window).
 - Back wall: the door to the stair at across −1.45…−0.7, standing ajar into the room (`door`, hinged at −0.7, facing
   125; `passage` — the stairwell's grey wall and the rail going down, seen through it); a little shelf of books; over
   the table a cheap print of Venice pinned up askew.
@@ -54,15 +53,20 @@ The room: across −1.6…1.9, 0…4.8 deep, the ceiling 2.45 (`floor` — it ru
 
 ## State
 
-`candle` 0…1 — the candle-end's light and glow; `rain` 0…1 — the rain outside and on the panes (the «Утро» finale has
+`candle` 0…1 — the candle-end's light and glow; `rain` 0…1 — the rain running down the panes (the «Утро» finale has
 no rain). The people's keys are the engine's (`<id>_on`, `_do`, `_look`, `_with`, `_reach`, `_mood`).
 
 ## What moves
 
-The rain outside and on the glass, the candle's flame and its light, the cobweb in the draught, the two breathing.
+The rain on the glass, the candle's flame and its light, the cobweb in the draught, the two breathing.
 Nothing is painted again while the scene plays.
 
 ## Not here yet
+
+Rain falling in the courtyard, seen through the window: a `rain` particles element kept to the yard by its `area`
+(across −8…−2.6, 5…21 m ahead — all of it beyond the left wall) was drawn over the opaque left wall too, its streaks
+over the whole near wall (GPU render of branch dreamer-room, 2026-10-21): the weather is not hidden by the card standing
+between it and the eye. Left out until the engine hides it; the panes' `drops` stay.
 
 The window opening (the finale «Окно»), Matryona sweeping the cobweb down, a showcase — they come with the game's
 stages, not this look.
