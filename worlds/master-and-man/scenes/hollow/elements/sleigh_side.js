@@ -13,17 +13,17 @@ const BAST = "#7a6a52";
 // the runner's curl at the front, out of the snow: thick, dark, iron along its face
 g.lineCap = "round";
 g.strokeStyle = WOOD_DARK;
-g.lineWidth = 0.09;
+g.lineWidth = 0.065;
 g.beginPath();
 g.moveTo(-0.95, -0.06);
-g.quadraticCurveTo(-1.36, -0.08, -1.33, -0.42);
-g.quadraticCurveTo(-1.3, -0.66, -1.12, -0.62);
+g.quadraticCurveTo(-1.3, -0.1, -1.3, -0.4);
+g.quadraticCurveTo(-1.28, -0.58, -1.14, -0.6);
 g.stroke();
 g.strokeStyle = C.iron;
 g.lineWidth = 0.025;
 g.beginPath();
-g.moveTo(-1.0, -0.03);
-g.quadraticCurveTo(-1.39, -0.06, -1.37, -0.4);
+g.moveTo(-1.0, -0.035);
+g.quadraticCurveTo(-1.33, -0.08, -1.335, -0.38);
 g.stroke();
 
 // the body: dark boards, its back higher and rounded

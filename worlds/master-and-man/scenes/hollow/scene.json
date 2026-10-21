@@ -6,11 +6,11 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.56,
+    "ambient": 0.5,
     "ambientColor": "#93a6cc",
     "bounce": 0.6,
     "haze": 0.42,
-    "hazeColor": "#8c9dbc",
+    "hazeColor": "#7d8fb0",
     "hazeGlow": 0.3,
     "shafts": 0.15,
     "tint": "#9fb2d8",
@@ -32,7 +32,7 @@
         38
       ],
       "color": "#c8d6f2",
-      "strength": 1.0
+      "strength": 1.1
     },
     {
       "id": "snowlight",
@@ -304,10 +304,10 @@
       "across": -1.15,
       "distance": 0.2,
       "facing": 180,
-      "height": 2.8,
+      "height": 2.45,
       "box": [
-        -1.4,
-        -2.8,
+        -1.0,
+        -2.45,
         0.35,
         0.14
       ],
@@ -371,7 +371,12 @@
       "particles": {
         "kind": "blizzard",
         "amount": "storm",
-        "count": 40000
+        "count": 60000,
+        "reach": 25,
+        "size": [
+          0.014,
+          0.014
+        ]
       }
     },
     {
