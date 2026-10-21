@@ -10,7 +10,7 @@
     "cast"
   ],
   "light": {
-    "ambient": 0.72,
+    "ambient": 0.66,
     "ambientColor": "#dde0ec",
     "tint": "#ffe2bf",
     "tintStrength": 0.08,
