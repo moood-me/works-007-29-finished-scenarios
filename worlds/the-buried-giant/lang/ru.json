@@ -1,0 +1,14 @@
+{
+ "strings": [
+  {
+   "text": "The Buried Giant",
+   "translation": "Погребённый великан",
+   "where": "world.json title"
+  },
+  {
+   "text": "A land under a pale mist that takes memory with it: an old couple walk across it to find their son, past a giant's cairn, a dragon's pit and a ferryman's shore. After Kazuo Ishiguro.",
+   "translation": "Земля под бледным туманом, который уносит память: двое стариков идут через неё к сыну — мимо кургана великана, логова драконицы, к берегу лодочника. По Кадзуо Исигуро.",
+   "where": "world.json description"
+  }
+ ]
+}

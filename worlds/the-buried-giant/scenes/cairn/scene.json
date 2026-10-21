@@ -712,10 +712,17 @@
           "tint": "#e9ebe0"
         },
         {
-          "across": 7.52,
-          "distance": 13.26,
-          "scale": 0.81,
+          "across": -4.54,
+          "distance": 2.89,
+          "scale": 1.06,
           "tint": "#ffffff"
+        },
+        {
+          "across": 5.83,
+          "distance": 13.26,
+          "scale": 0.84,
+          "flip": true,
+          "tint": "#f3f1e6"
         },
         {
           "across": -3.84,
@@ -813,10 +820,11 @@
           "tint": "#ffffff"
         },
         {
-          "across": -1.79,
-          "distance": 22.81,
-          "scale": 1.17,
-          "tint": "#f3f1e6"
+          "across": -1.38,
+          "distance": 3.23,
+          "scale": 1.26,
+          "flip": true,
+          "tint": "#e9ebe0"
         },
         {
           "across": -2.9,
@@ -845,46 +853,62 @@
           "tint": "#e9ebe0"
         },
         {
-          "across": 2.56,
-          "distance": 24.81,
-          "scale": 1.21,
-          "tint": "#e9ebe0"
-        },
-        {
-          "across": 5.28,
-          "distance": 3.13,
-          "scale": 0.87,
-          "tint": "#f3f1e6"
-        },
-        {
-          "across": -2.16,
-          "distance": 16.89,
-          "scale": 1.14,
-          "tint": "#f3f1e6"
-        },
-        {
-          "across": 9.63,
-          "distance": 22.01,
-          "scale": 1.24,
-          "tint": "#e9ebe0"
-        },
-        {
-          "across": 4.25,
-          "distance": 2.54,
-          "scale": 1.26,
+          "across": -1.14,
+          "distance": 2.51,
+          "scale": 1.0,
           "flip": true,
           "tint": "#e9ebe0"
         },
         {
-          "across": -11.52,
-          "distance": 17.77,
-          "scale": 1.06,
+          "across": 5.13,
+          "distance": 15.46,
+          "scale": 1.33,
+          "tint": "#f3f1e6"
+        },
+        {
+          "across": -8.73,
+          "distance": 29.53,
+          "scale": 1.38,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 10.19,
+          "distance": 17.02,
+          "scale": 1.25,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 3.04,
+          "distance": 23.16,
+          "scale": 0.94,
+          "flip": true,
           "tint": "#e9ebe0"
         },
         {
-          "across": -2.8,
-          "distance": 7.03,
-          "scale": 1.07,
+          "across": -4.62,
+          "distance": 6.66,
+          "scale": 1.06,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -2.06,
+          "distance": 20.7,
+          "scale": 0.95,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 2.57,
+          "distance": 4.69,
+          "scale": 0.81,
+          "flip": true,
+          "tint": "#e9ebe0"
+        },
+        {
+          "across": 2.62,
+          "distance": 18.82,
+          "scale": 0.85,
           "flip": true,
           "tint": "#f3f1e6"
         },
@@ -1218,15 +1242,16 @@
           "tint": "#e9ebe0"
         },
         {
-          "across": 7.7,
-          "distance": 25.76,
-          "scale": 1.38,
+          "across": -2.27,
+          "distance": 3.91,
+          "scale": 1.32,
           "tint": "#e9ebe0"
         },
         {
-          "across": -7.57,
-          "distance": 29.76,
-          "scale": 0.99,
+          "across": 11.68,
+          "distance": 17.39,
+          "scale": 0.9,
+          "flip": true,
           "tint": "#e9ebe0"
         },
         {
@@ -1303,27 +1328,6 @@
           "scale": 1.15,
           "flip": true,
           "tint": "#ffffff"
-        },
-        {
-          "across": 1.73,
-          "distance": 29.84,
-          "scale": 1.07,
-          "flip": true,
-          "tint": "#e9ebe0"
-        },
-        {
-          "across": -13.47,
-          "distance": 28.84,
-          "scale": 1.09,
-          "flip": true,
-          "tint": "#e9ebe0"
-        },
-        {
-          "across": 13.13,
-          "distance": 20.58,
-          "scale": 1.18,
-          "flip": true,
-          "tint": "#e9ebe0"
         }
       ]
     },
@@ -1517,31 +1521,35 @@
       "shadow": true
     },
     {
-      "id": "fg_rock",
-      "name": "Rock",
-      "across": -2.75,
-      "distance": 2.9,
-      "height": 1.2,
-      "box": [
-        -1.45,
-        -1.25,
-        1.45,
-        0.1
-      ],
-      "shadow": true
-    },
-    {
       "id": "fg_grass",
       "name": "Tall grass",
-      "across": 2.5,
-      "distance": 2.3,
       "height": 1.05,
       "box": [
         -0.8,
         -1.15,
         0.8,
         0.05
-      ]
+      ],
+      "copies": [
+        {
+          "across": 2.5,
+          "distance": 2.3
+        },
+        {
+          "across": -2.6,
+          "distance": 2.6,
+          "flip": true,
+          "scale": 0.9
+        },
+        {
+          "across": -3.4,
+          "distance": 3.4,
+          "scale": 0.7,
+          "tint": "#f0eee4"
+        }
+      ],
+      "across": 2.5,
+      "distance": 2.3
     }
   ],
   "music": {
