@@ -23,13 +23,11 @@ needed — the one warm spot in the cool light.
 Light (all the engine's; everything is painted in daylight colours): an ambient in lilac-white (0.55: nothing is
 dark, yet the lights model the people round), a low warm far light from where the sky glows (`glow`, bearing −21°, 6°
 up — the people's warm side and rims), the pale northern sky behind the viewer (`skylight`, bearing 165°, 40° up,
-0.65: in a white night the whole sky is light, so the faces turned to us are lit, cool and clear), and the lamps: the
-near one (`lamp`, from `lamp#flame`, warm and strong, 7 m) stands a few steps beyond Nastenka and the Dreamer, between
+0.65: in a white night the whole sky is light, so the faces turned to us are lit, cool and clear), and the lamps: the near one (`lamp`, from `lamp#flame`, warm, 1.9 within 5.5 m: a warm spot, not a wash over the whole street) stands a few steps beyond Nastenka and the Dreamer, between
 them on the screen, so its warmth rims their backs and shoulders and throws their shadows toward the viewer over the
 flagstones (their `shadow` names it); the others along both banks light by their own flames (each lamp's e.light). A
-little flicker; their halos the haze's `hazeGlow`. The water keeps its own light (`glows`: it holds the whole light
-sky), painted as that sky mirrored and lighter than the sky over it — pearl and rose far down the canal where it
-mirrors the low sky, a pale lilac nearer the viewer —; its mirror (0.55, a little rough, rippled) lays the houses,
+little flicker; their halos the haze's `hazeGlow`. The water is lit as everything is (no glow of its own: a glowing canal bloomed into a white glare with no bank in it), painted as the sky mirrored — pearl and rose far down the canal where it
+mirrors the low sky, a pale lilac nearer the viewer —; its mirror (0.8, a little rough, rippled) lays the houses,
 the bridge and the lamps on it and draws the lamps along both banks and the afterglow (`sky#afterglow`, an e.light)
 out into long trembling paths. Haze fades the far end of the canal and the dome; grain and vignette for the print's
 paper. The scene's title is the page's (translated: «Набережная канала»); there is no caption.

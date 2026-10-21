@@ -13,7 +13,7 @@
     "hazeColor": "#e3dce3",
     "hazeGlow": 0.9,
     "shafts": 0.12,
-    "brightness": 1.08,
+    "brightness": 1.14,
     "saturation": 0.92,
     "tint": "#efe1cf",
     "tintStrength": 0.08,
@@ -48,8 +48,8 @@
       "id": "lamp",
       "of": "lamp#flame",
       "color": "#ffc77e",
-      "strength": 2.8,
-      "reach": 7,
+      "strength": 1.9,
+      "reach": 5.5,
       "on": "lamp",
       "flicker": 0.12
     }
@@ -125,12 +125,11 @@
       "width": 21.7,
       "depth": 320,
       "reflect": {
-        "strength": 0.55,
+        "strength": 0.8,
         "fade": 0,
-        "rough": 0.28,
+        "rough": 0.2,
         "ripple": 0.4
-      },
-      "glows": true
+      }
     },
     {
       "id": "far_wall",
