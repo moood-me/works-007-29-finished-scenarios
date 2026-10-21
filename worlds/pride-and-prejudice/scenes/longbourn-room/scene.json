@@ -83,8 +83,8 @@
   "state": {
     "dusk": 0,
     "jane_on": [
-      -0.5,
-      4.4,
+      -0.35,
+      3.45,
       0.46
     ],
     "jane_look": "lydia",
@@ -361,8 +361,8 @@
     {
       "id": "chair",
       "name": "Jane's chair",
-      "across": -0.5,
-      "distance": 4.62,
+      "across": -0.35,
+      "distance": 3.67,
       "facing": 180,
       "height": 1.02,
       "box": [
@@ -384,8 +384,8 @@
     {
       "id": "tambour",
       "name": "Embroidery frame",
-      "across": -0.6,
-      "distance": 3.93,
+      "across": -0.45,
+      "distance": 2.98,
       "facing": 180,
       "height": 0.9,
       "box": [
@@ -407,8 +407,8 @@
     {
       "id": "near_table",
       "name": "Small table with a candle",
-      "across": 1.45,
-      "distance": 4,
+      "across": 1.5,
+      "distance": 3.5,
       "facing": 180,
       "height": 1.12,
       "box": [
@@ -430,8 +430,8 @@
     {
       "id": "near_flame",
       "name": "Candle flame",
-      "across": 1.45,
-      "distance": 3.99,
+      "across": 1.5,
+      "distance": 3.49,
       "elevation": 1.1,
       "height": 0.08,
       "box": [
@@ -452,8 +452,8 @@
         "turn": 165,
         "does": "seated"
       },
-      "across": -0.5,
-      "distance": 4.4,
+      "across": -0.35,
+      "distance": 3.45,
       "shadow": true,
       "inside": true
     },
@@ -463,10 +463,10 @@
       "person": {
         "cast": "cast",
         "who": "elizabeth",
-        "turn": 145
+        "turn": 150
       },
-      "across": 0.3,
-      "distance": 5,
+      "across": 0.6,
+      "distance": 3.85,
       "shadow": true,
       "inside": true
     },
@@ -476,10 +476,10 @@
       "person": {
         "cast": "cast",
         "who": "lydia",
-        "turn": 165
+        "turn": 160
       },
-      "across": -1.5,
-      "distance": 3.3,
+      "across": -1.4,
+      "distance": 2.75,
       "shadow": true,
       "inside": true
     },
