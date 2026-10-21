@@ -12,7 +12,7 @@ light and its two people standing. No motion of people, no camera moves.
   (`lantern_glass`, glowing: its glass grey by day, warm when the lamp is lit), the lantern room's frame and roof, the
   beam (`beam`: two additive layers turned about the lamp by its animate — a turn every 14 s, foreshortened, brightest
   coming toward the viewer; stronger by night).
-- **People.** Johnny (left, the unlit lantern in his right hand, looking at the far shore) and McDunn (hands behind
+- **People.** Johnny (left, the unlit lantern in his right hand, looking down at the water — his face three-quarters to the viewer; a look at the far shore itself would turn him away) and McDunn (hands behind
   his back, looking at Johnny). Cast: modules/cast.
 - **Keys.** `night` (the evening → the night: the sky's layers cross-fade, the light's look), `lamp`, `nora` (her
   window), `lantern` (the hand lantern's light; `johnny_with` to `["lantern_lit"]` with it).
