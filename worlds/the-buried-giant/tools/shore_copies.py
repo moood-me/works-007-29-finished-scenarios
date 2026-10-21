@@ -11,8 +11,9 @@ SCENE = Path(__file__).resolve().parent.parent / 'scenes' / 'shore' / 'scene.jso
 
 
 def land(a, d):  # as the scene's lib.land
-    x = d - 0.012 * a * a
-    return -0.032 * x - 0.12 * max(0, x - 9.5) + min(7, 0.05 * max(0, -a - 5) ** 1.6)
+    x = max(-40, d - 0.012 * a * a)
+    bank = min(7, 0.05 * max(0, -a - 5) ** 1.6) * (1 - min(1, max(0, (d - 60) / 60)))
+    return max(-1.5, -0.032 * x - 0.12 * max(0, x - 9.5) + bank)
 
 
 def shore_at(a):
@@ -40,6 +41,11 @@ def main():
         d = rng.uniform(-1, 16)
         a = -8.4 - 0.12 * d - rng.uniform(0, 8)
         grass.append({'across': round(a, 2), 'distance': round(d, 2), 'scale': round(rng.uniform(0.7, 1.4), 2), 'flip': rng.random() < 0.5})
+    # a few smaller stones half sunk in the shingle near the viewer, in the corners
+    for a, d, sc in ((-3.6, 1.6, 0.32), (-4.4, 2.6, 0.22), (3.9, 1.3, 0.36), (4.8, 2.4, 0.25), (3.2, 2.9, 0.18)):
+        rocks.append({'across': a, 'distance': d, 'scale': sc, 'flip': rng.random() < 0.5, 'tint': '#f2eee8'})
+    for a, d in ((-3.9, 1.9), (-4.6, 3.1), (-3.2, 1.1)):
+        grass.append({'across': a, 'distance': d, 'scale': round(rng.uniform(0.8, 1.2), 2), 'flip': rng.random() < 0.5})
     spec = json.loads(SCENE.read_text(encoding='utf-8'))
     for o in spec['objects']:
         if o['id'] == 'rocks':

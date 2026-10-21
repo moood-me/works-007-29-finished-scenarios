@@ -25,9 +25,9 @@ g.fill();
 // clumps of dry weed in a broken line above the wet
 for (let i = 0; i < 90; i++) {
   const a = -8 + r() * 60, d = L.shoreAt(a) - 1.9 - r() * 0.9, [x, y] = P(a, d);
-  g.fillStyle = r() < 0.5 ? '#6f6551' : '#5d5646';
+  g.fillStyle = r() < 0.5 ? '#857a66' : '#7a705e';
   g.beginPath();
-  g.ellipse(x, y, 0.12 + r() * 0.35, 0.05 + r() * 0.08, (r() - 0.5) * 0.6, 0, Math.PI * 2);
+  g.ellipse(x, y, 0.08 + r() * 0.2, 0.04 + r() * 0.05, (r() - 0.5) * 0.6, 0, Math.PI * 2);
   g.fill();
 }
 // pebbles: many small near the viewer and along the way to the water

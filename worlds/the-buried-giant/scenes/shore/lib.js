@@ -2,10 +2,10 @@
 // a band of haze that wraps round its box, a clump of grass
 const WATER = -0.3; // the sea's level (the plane `sea`)
 // the land: the shingle sloping gently down to the water, the cove's arms curving out to sea on either side, the
-// grassy bank rising on the left; under the water it falls away faster
+// grassy bank rising on the left; under the water it falls away faster, to a floor 1.5 m down; far off it is level
 function land(a, d) {
-  const x = d - 0.012 * a * a;
-  return -0.032 * x - 0.12 * Math.max(0, x - 9.5) + Math.min(7, 0.05 * Math.pow(Math.max(0, -a - 5), 1.6));
+  const x = Math.max(-40, d - 0.012 * a * a), bank = Math.min(7, 0.05 * Math.pow(Math.max(0, -a - 5), 1.6)) * (1 - anim.span(d, 60, 120));
+  return Math.max(-1.5, -0.032 * x - 0.12 * Math.max(0, x - 9.5) + bank);
 }
 // how far ahead the water's edge is, `a` metres across
 function shoreAt(a) {
