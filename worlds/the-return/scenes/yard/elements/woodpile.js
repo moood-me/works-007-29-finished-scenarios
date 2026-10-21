@@ -1,4 +1,4 @@
-// The woodpile along the yard's right side, its face of log ends to the yard (x −1.2 the far end … 1.2 the near): split
+// The woodpile by the fence on the right, its face of log ends to the yard and the eye (x −1.2 … 1.2): split
 // birch and pine stacked to 1.6 m — pale cut faces in their bark rings, a few darker — two old boards over the top.
 const L = e.lib, FACES = ["#d2b88e", "#c9ad80", "#dcc59c", "#b89b70"];
 g.fillStyle = "#5e5142";

@@ -1,4 +1,4 @@
-// The stove's brick chimney through the roof by the ridge, a cap of tin on it; its mouth the smoke's point.
+// The stove's brick chimney through the roof's slope, a cap of tin on it; its mouth the smoke's point.
 g.fillStyle = "#a4705a";
 g.fillRect(-0.26, -1.0, 0.52, 1.0);
 g.fillStyle = "#8a5b49";
