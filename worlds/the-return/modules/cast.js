@@ -227,9 +227,9 @@ return {
       soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot', egg: [0.88, 1.09, 0.98], headSquare: 2.35, limb: 1.14,
         // (heavy cloth's folds down the skirt, deep enough to catch the light; the sleeves a shade darker than the coat,
         // so that an arm hanging before it reads as an arm)
-        folds: { n: 9, depth: 0.06 }, sleeves: 0.86,
+        straight: true, folds: { n: 9, depth: 0.06 }, sleeves: 0.86,
         // (the waist as wide as the hips: a belted greatcoat's skirt begins at the belt, not as a shelf out from it)
-        trunk: { w: [0.94, 0.98, 1.0, 0.96, 0.92], d: [0.88, 0.88, 0.92, 0.86, 0.78] } },
+        trunk: { w: [0.98, 1.06, 1.2, 1.08, 0.95], d: [0.92, 0.94, 1.02, 0.92, 0.8] } },
     },
     // an arm with a working hand (a wrist, then a broad palm to the knuckles — the style's fingers go on from there); a
     // leg in trousers; a leg in a high boot from below the knee
@@ -250,7 +250,7 @@ return {
         // the brows: the hair's colour a little toward the skin's (a dark heavy bar reads as a frown at any mood)
         const brow = [0, 1, 2, 3].map(i => (i < 3 ? F.colors.hair[i] * 0.62 + skin[i] * 0.18 : 1));
         for (const sx of [-1, 1]) {
-          F.ball(on([sx * 0.31, 0.06, 0.95], 0.985), axes, [rh * 0.1, rh * 0.085 * x.eye, rh * 0.04], IRIS, 10);
+          F.ball(on([sx * 0.31, 0.04, 0.95], 0.985), axes, [rh * 0.125, rh * 0.105 * x.eye, rh * 0.045], IRIS, 12);
           F.tube([on([sx * 0.13, 0.31 + x.inner, 0.95], 1.0), on([sx * 0.3, 0.36 + (x.inner + x.outer) / 2, 0.92], 1.01), on([sx * 0.49, 0.29 + x.outer, 0.84], 1.0)],
             [[0, rh * 0.046], [1, rh * 0.052], [2, rh * 0.03]], [[0, brow]], 6, hu);
         }
@@ -273,7 +273,7 @@ return {
       // a soldier's greatcoat: fitted to the waist (the trunk in its cloth), from the belt a skirt of heavy cloth to the
       // calves, its sides straight lines down to a hem round the legs (the soldier's style is straight-cut: a bell from
       // the hips read as a dress); long sleeves
-      greatcoat: { name: 'greatcoat', hang: [{ to: 1.62, from: 'waist', flare: 0.12, off: 1.0 }], sleeves: 'garment', bodice: true },
+      greatcoat: { name: 'greatcoat', hang: [{ to: 1.62, from: 'waist', flare: 0.08, off: 1.0 }], sleeves: 'garment', bodice: true },
     },
     hats: {
       // a white kerchief over the hair, tied at the nape
