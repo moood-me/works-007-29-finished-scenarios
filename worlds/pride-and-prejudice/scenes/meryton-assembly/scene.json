@@ -634,10 +634,21 @@
         "cast": "cast",
         "who": "darcy",
         "turn": 145,
-        "does": "hands_behind"
+        "does": "hands_behind",
+        "look": {
+          "colors": {
+            "skin": "#e6c2a2",
+            "hair": "#2b1d15",
+            "top": "#f1ece0",
+            "garment": "#2a3650",
+            "bottom": "#2b2a30",
+            "shoes": "#262020",
+            "socks": "#ece6d8"
+          }
+        }
       },
-      "across": 2.2,
-      "distance": 5.6,
+      "across": 2.0,
+      "distance": 4.5,
       "shadow": true,
       "inside": true
     },
