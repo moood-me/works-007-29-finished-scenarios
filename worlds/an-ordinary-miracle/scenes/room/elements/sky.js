@@ -48,9 +48,9 @@ e.layer('clouds', { drift: [0.0015, 0], box: [-0.3, -0.35, A + 0.3, 0.38] }, (g)
 });
 // the lightning's light inside the clouds: a pale lilac glow, added
 e.layer('flash', { blend: 'add', box: [-0.3, -0.35, A + 0.3, 0.45] }, (g) => {
-  const gl = g.createRadialGradient(A * 0.38, 0.22, 0, A * 0.38, 0.22, 0.5);
-  gl.addColorStop(0, 'rgba(214, 206, 255, 0.9)');
-  gl.addColorStop(0.5, 'rgba(160, 150, 220, 0.35)');
+  const gl = g.createRadialGradient(A * 0.42, 0.28, 0, A * 0.42, 0.28, 0.35);
+  gl.addColorStop(0, 'rgba(226, 220, 255, 1)');
+  gl.addColorStop(0.45, 'rgba(170, 160, 230, 0.5)');
   gl.addColorStop(1, 'rgba(160, 150, 220, 0)');
   g.fillStyle = gl;
   g.fillRect(-0.3, -0.35, W, 0.8);

@@ -94,7 +94,7 @@ return {
       bun_grey: { name: 'bun with a grey lock', draw: F => {
         MooodShapes.HAIR.bun.draw(F);
         const { axes, r: rh, on } = F.head;
-        F.tube([on([0.14, 0.44, 0.88], 1.04), on([0.18, 0.8, 0.45], 1.07), on([0.16, 0.86, -0.25], 1.07), on([0.12, 0.62, -0.75], 1.05)],
+        F.tube([on([0.06, 0.42, 0.9], 1.1), on([0.08, 0.8, 0.45], 1.15), on([0.07, 0.88, -0.25], 1.15), on([0.05, 0.62, -0.75], 1.13)],
           [[0, rh * 0.1], [1, rh * 0.13], [3, rh * 0.07]], [[0, GREY]], 8, axes[1], 0.5);
       } },
     },
@@ -189,8 +189,8 @@ return {
         ];
         F.rings(rings, F.colors.accent, null, null);
         for (let q = 0; q < n; q += 3) {
-          const p = rings[1][q], out = unit(sub(p, sh[0]));
-          F.ball(add(p, mul(out, 0.008 * k)), [sh[1], uc, sh[2]], [0.012 * k, 0.02 * k, 0.01 * k], SPECK, 6);
+          const p = rings[2][q], out = unit(sub(p, sh[0]));
+          F.ball(add(p, mul(out, 0.006 * k)), [sh[1], uc, sh[2]], [0.008 * k, 0.012 * k, 0.006 * k], SPECK, 6);
         }
       } },
       // a ginger pointed beard under the chin and a moustache with its ends turned up
