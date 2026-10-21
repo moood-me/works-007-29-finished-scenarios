@@ -7,7 +7,7 @@ young oaks; Lina (23) with her pail at the water's edge, the Traveller (26) in h
 farther up by his hives at the wood's edge, the rod in his hand.
 
 - Camera `picture`, horizon 0.55; the frame is as tall as its distance (a 53° lens), so a person 7 m off is a fifth of
-  it. Lina 7.6 m, the Traveller 5.8 m, Elzéard 15.6 m; the stream's line ends at him.
+  it. Lina 7.6 m (a step off the water), the Traveller 5.8 m, Elzéard 15.6 m; the stream's line ends at him.
 - The land is one draped plane (`land`) over `relief.js`; the stream's line, the slope and the channel are in
   `lib.js` (`streamX`, `streamW`, `slope`, `channel`, `ground`) — shared by the relief, `land`, `water` and
   `tools/stream-copies.mjs`. The water is a mirroring plane at `WATER` (−0.32 m) in the channel, painted only where

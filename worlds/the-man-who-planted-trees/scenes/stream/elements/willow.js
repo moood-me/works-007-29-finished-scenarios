@@ -16,7 +16,7 @@ e.layer("willow", { pivot: [0, 0], wind: { strength: 0.45, gust: 0.5 } }, (g) =>
   for (const [x, y] of tips) {
     for (let k = 0; k < 9; k++) {
       const sx = x * (0.6 + k * 0.05) + (e.rnd() - 0.5) * 0.3, sy = y * (0.66 + k * 0.04), l = 0.5 + e.rnd() * 0.8;
-      g.strokeStyle = k % 2 ? "#a9b493" : "#8b9877";
+      g.strokeStyle = k % 2 ? "#9ba78a" : "#7f8b6e";
       g.lineWidth = 0.05 + e.rnd() * 0.03;
       g.beginPath();
       g.moveTo(sx, sy);

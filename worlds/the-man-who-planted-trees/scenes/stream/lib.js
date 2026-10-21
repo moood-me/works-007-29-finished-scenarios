@@ -6,7 +6,7 @@ const smooth = (a, b, v) => anim.ease.smooth(anim.span(v, a, b));
 // the stream's middle, metres right of the view's line: in from the lower left, winding to the middle of the view and
 // up into the oaks
 function streamX(d) {
-  return -4.8 + 5.0 * smooth(-4, 30, d) + 0.9 * Math.sin(d / 4.5) * anim.span(d, 2, 30) + 0.8 * Math.sin((d - 30) / 15) * anim.span(d, 30, 60);
+  return -4.8 + 5.0 * smooth(-4, 30, d) + 1.1 * Math.sin((d + 3) / 4) * anim.span(d, -6, 10) + 0.8 * Math.sin((d - 30) / 15) * anim.span(d, 30, 60);
 }
 // its width there: narrowing up the slope, wider and narrower as it winds
 function streamW(d) {

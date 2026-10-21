@@ -21,7 +21,7 @@ const pick = (list) => list[Math.floor(rnd() * list.length)];
 const TINTS = ['#ffffff', '#f2f4ea', '#e8ecdf', '#f6f1e4'];
 // where the wood begins, across the view; the people, kept clear of what stands at their feet
 const edge = (a) => Math.min(60, 19.5 + 0.02 * (a - 3) * (a - 3));
-const PEOPLE = [[2.9, 15.6], [2.6, 5.8], [-1.4, 7.6]];
+const PEOPLE = [[2.9, 15.6], [2.6, 5.8], [-1.0, 7.6]];
 const clear = (a, d, r) => PEOPLE.every(([pa, pd]) => Math.hypot(a - pa, d - pd) > r);
 const offStream = (a, d, gap) => Math.abs(a - lib.streamX(d)) > lib.streamW(d) / 2 + gap;
 
