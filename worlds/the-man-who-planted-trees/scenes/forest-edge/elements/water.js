@@ -3,7 +3,7 @@
 // sky's pale colour it mirrors (a mirror shows no sky: its own paint stands for it), a few darker lines of the current.
 // In the wood the land's painting carries the stream on.
 const L = e.lib, Y = (d) => 14 - d;
-const edgeAt = (d, side) => L.streamX(d) + side * (L.streamW(d) / 2 + 0.35);
+const edgeAt = (d, side) => L.streamX(d) + side * (L.streamW(d) / 2 + 0.6);
 g.fillStyle = "#c9d5dc";
 g.beginPath();
 for (let d = -4; d <= 32; d += 0.25) g.lineTo(edgeAt(d, -1), Y(d));
