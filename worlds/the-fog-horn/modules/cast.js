@@ -47,7 +47,7 @@ return {
     // with a simple face (eyes, brows, nose, mouth) so the faces read
     styles: { fog: { from: 'flat', name: 'The Fog Horn', line: 0.8, face: 'simple' } },
     parts: {
-      // a full beard over the jaw, the mouth and the chin, the eyes and the nose clear (the colour of the hair)
+      // a full beard under the mouth over the jaw and the chin (the colour of the hair)
       beard: {
         name: 'beard',
         draw: F => {
@@ -55,8 +55,8 @@ return {
           const h = F.head;
           const [, hu, hf] = h.axes;
           const r = h.r * h.out;
-          F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.85, 0.53], 0.62, F.colors.hair, h.sides, h.square);
-          F.ball(add(h.at, add(mul(hu, -r * 1.0), mul(hf, r * 0.45))), h.axes, [r * 0.5, r * 0.36, r * 0.34], F.colors.hair, h.sides);
+          F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.95, 0.3], 0.72, F.colors.hair, h.sides, h.square);
+          F.ball(add(h.at, add(mul(hu, -r * 1.02), mul(hf, r * 0.38))), h.axes, [r * 0.4, r * 0.3, r * 0.3], F.colors.hair, h.sides);
         },
       },
       // the hand lantern, out: grey glass

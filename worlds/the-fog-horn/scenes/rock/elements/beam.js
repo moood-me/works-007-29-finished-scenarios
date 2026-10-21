@@ -3,7 +3,7 @@
 const LY = -1.35;
 const cone = (c, dir) => {
   c.filter = 'blur(1.2px)';
-  for (const [w, a] of [[1, 0.1], [0.6, 0.14], [0.3, 0.2]]) {
+  for (const [w, a] of [[1, 0.15], [0.6, 0.21], [0.3, 0.3]]) {
     const r = c.createLinearGradient(0, 0, dir * 72, 0);
     r.addColorStop(0, `rgba(255,236,196,${a})`);
     r.addColorStop(0.3, `rgba(255,232,190,${a * 0.5})`);
