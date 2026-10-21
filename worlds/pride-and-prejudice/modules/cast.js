@@ -120,24 +120,25 @@ return {
       // every expression (the engine goes from one to another on the GPU)
       austen: { name: 'Regency', draw: F => {
         const { axes, r: rh, on } = F.head, [, hu] = axes, x = EXPR[F.look.expression] ?? EXPR.neutral, sk = F.colors.skin;
-        const brow = shade(F.colors.hair, 0.55, 0.55, 0.55), lips = shade(sk, 0.82, 0.52, 0.5), nose = shade(sk, 0.96, 0.93, 0.91);
+        const brow = shade(F.colors.hair, 0.55, 0.55, 0.55), lips = shade(sk, 0.8, 0.5, 0.48);
         const lid = 0.05 * (x.eye - 1);
         for (const sx of [-1, 1]) {
-          F.ball(on([sx * 0.32, 0.06, 0.92], 0.975), axes, [rh * 0.15, rh * 0.085 * x.eye, rh * 0.04], WHITES, 12);
-          F.ball(on([sx * 0.31, 0.06, 0.94], 0.99), axes, [rh * 0.072, rh * 0.084 * x.eye, rh * 0.04], INK, 12);
-          F.tube([on([sx * 0.15, 0.12 + lid, 0.96], 1.0), on([sx * 0.32, 0.17 + lid * 1.3, 0.94], 1.008), on([sx * 0.5, 0.1 + lid, 0.86], 1.0)],
-            [[0, rh * 0.022], [1, rh * 0.036], [2, rh * 0.02]], [[0, INK]], 6, hu);
-          F.tube([on([sx * 0.14, 0.34 + x.inner, 0.93], 0.995), on([sx * 0.31, 0.38 + (x.inner + x.outer) / 2, 0.9], 1.0), on([sx * 0.5, 0.32 + x.outer, 0.83], 0.995)],
-            [[0, rh * 0.046], [1, rh * 0.044], [2, rh * 0.026]], [[0, brow]], 6, hu);
+          F.ball(on([sx * 0.35, 0.07, 0.9], 0.975), axes, [rh * 0.19, rh * 0.105 * x.eye, rh * 0.045], WHITES, 12);
+          F.ball(on([sx * 0.34, 0.07, 0.93], 0.995), axes, [rh * 0.095, rh * 0.104 * x.eye, rh * 0.045], INK, 12);
+          F.tube([on([sx * 0.13, 0.15 + lid, 0.96], 1.0), on([sx * 0.35, 0.21 + lid * 1.3, 0.93], 1.01), on([sx * 0.58, 0.12 + lid, 0.82], 1.0)],
+            [[0, rh * 0.026], [1, rh * 0.044], [2, rh * 0.024]], [[0, INK]], 6, hu);
+          F.tube([on([sx * 0.13, 0.38 + x.inner, 0.93], 0.995), on([sx * 0.34, 0.43 + (x.inner + x.outer) / 2, 0.89], 1.0), on([sx * 0.57, 0.36 + x.outer, 0.8], 0.995)],
+            [[0, rh * 0.056], [1, rh * 0.054], [2, rh * 0.03]], [[0, brow]], 6, hu);
         }
-        F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.075, rh * 0.15, rh * 0.11], nose, 10);
-        const w = x.wide, y = -0.42;
+        // (the nose the skin's own colour: the light gives its form, no pen round it)
+        F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.07, rh * 0.15, rh * 0.11], sk, 10);
+        const w = x.wide * 1.25, y = -0.42;
         F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.75, rh * x.open, rh * 0.03], INK, 10);
-        F.ball(on([0, y - 0.065, 0.95], 0.975), axes, [rh * w * 0.62, rh * 0.05, rh * 0.03], lips, 10);
-        F.tube([on([-w, y + x.corners, 0.93], 0.995), on([0, y + 0.015, 0.95], 1.0), on([w, y + x.corners, 0.93], 0.995)],
-          [[0, rh * 0.024], [1, rh * 0.042], [2, rh * 0.024]], [[0, lips]], 6, hu);
-        F.tube([on([-w * 1.05, y + x.corners * 1.1, 0.93], 1.0), on([0, y - 0.01, 0.95], 1.006), on([w * 1.05, y + x.corners * 1.1, 0.93], 1.0)],
-          [[0, rh * 0.008], [1, rh * 0.014], [2, rh * 0.008]], [[0, INK]], 6, hu);
+        F.ball(on([0, y - 0.07, 0.95], 0.975), axes, [rh * w * 0.62, rh * 0.06, rh * 0.035], lips, 10);
+        F.tube([on([-w, y + x.corners * 1.3, 0.92], 0.995), on([0, y + 0.02, 0.95], 1.0), on([w, y + x.corners * 1.3, 0.92], 0.995)],
+          [[0, rh * 0.028], [1, rh * 0.05], [2, rh * 0.028]], [[0, lips]], 6, hu);
+        F.tube([on([-w * 1.06, y + x.corners * 1.4, 0.92], 1.0), on([0, y - 0.015, 0.95], 1.008), on([w * 1.06, y + x.corners * 1.4, 0.92], 1.0)],
+          [[0, rh * 0.012], [1, rh * 0.02], [2, rh * 0.012]], [[0, INK]], 6, hu);
       } },
     },
     garments: {
@@ -146,7 +147,7 @@ return {
       gown: { name: 'high-waisted gown', hang: [{ to: 1.9, from: 'shoulders', flare: 0.5 }], sleeves: 'garment', bodice: true },
       // a gentleman's tailcoat: close over the chest, its fronts cut away over the tops of the thighs (its tails behind:
       // the part `tails`), long sleeves
-      tailcoat: { name: 'tailcoat', hang: [{ to: 0.3, from: 'shoulders', flare: 0.07, folds: false }], sleeves: 'garment' },
+      tailcoat: { name: 'tailcoat', hang: [{ to: 0.2, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
     },
     parts: {
       // a sash round the gown just under the bust (the look's accent colour): a band between the gown's chest ring and

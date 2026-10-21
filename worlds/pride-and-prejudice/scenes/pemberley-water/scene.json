@@ -93,10 +93,10 @@
       "name": "Far hills",
       "across": 0,
       "distance": 900,
-      "height": 140,
+      "height": 200,
       "box": [
         -1800,
-        -150,
+        -215,
         1800,
         6
       ]

@@ -23,11 +23,11 @@ g.fill(through);
 g.save();
 g.clip(through);
 const stream = g.createLinearGradient(0, -1.2, 0, 0.2);
-stream.addColorStop(0, '#93a99f');
-stream.addColorStop(1, '#a9bcb5');
+stream.addColorStop(0, '#83978d');
+stream.addColorStop(1, '#94a89f');
 g.fillStyle = stream;
 g.fillRect(-14, -1.2, 29, 1.4);
-g.fillStyle = 'rgba(214,224,220,0.5)';
+g.fillStyle = 'rgba(214,224,220,0.3)';
 for (const [c] of arches) g.fillRect(c - 1.6, -0.75, 3.2, 0.09);
 // (the vault's shade: deepest under the crown, the far opening lighter)
 for (const [c, rad] of arches) {

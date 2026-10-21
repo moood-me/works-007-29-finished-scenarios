@@ -11,7 +11,7 @@ fine nib, as thin as the places' finer strokes of the world's `brush`, the same 
 hand), cloth falling in many deep soft folds (`folds` 13, depth 0.13).
 Arms and legs (`regency` profiles) with flesh to them, slim wrists and ankles. Faces `austen` (the cast's own): almond
 eyes — their warm whites, a dark iris filling them, a pen-dark upper lid —, brows a shade darker than the hair, a
-straight nose, lips a shade rosier than the skin parted by a fine pen line — each expression of `<id>_mood` (`smile`: the
+straight nose (the skin's own colour, its form the light's), lips a shade rosier than the skin parted by a fine pen line — each expression of `<id>_mood` (`smile`: the
 corners well up, the eyes a little narrowed, the brows' outer ends lifted — knowing; `thinking`: the brows drawn down
 and together, the mouth level; a laugh narrows the eyes only a little, so they still read). Gowns fall from under the
 bust in a soft A-line to the instep, the slippers' toes showing (`gown`, flare 0.5, `to` 1.9). The light is the scene's.
