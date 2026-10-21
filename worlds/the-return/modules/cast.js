@@ -8,6 +8,7 @@ const V = () => MooodShapes.V;
 // the colours of the things the cast's parts are (each [r, g, b, 1])
 const SACK = [0.52, 0.48, 0.34, 1], CORD = [0.33, 0.29, 0.2, 1], APRON = [0.74, 0.71, 0.64, 1];
 const LEATHER = [0.3, 0.2, 0.12, 1], BRASS = [0.74, 0.62, 0.32, 1], BOARD = [0.55, 0.53, 0.4, 1], STAR = [0.72, 0.14, 0.1, 1];
+const WOOD = [0.86, 0.74, 0.54, 1], WOOD_DARK = [0.56, 0.42, 0.27, 1];
 const IRIS = [0.17, 0.12, 0.1, 1], MOUTH = [0.25, 0.12, 0.1, 1];
 const UP = [0, 1, 0];
 // the faces' expressions (a person's <id>_mood, by the engine's names): the brows' inner and outer ends up (+) or down,
@@ -184,6 +185,11 @@ return {
     ivanov_home: { kind: 'shapes', style: 'soldier', who: 'man', garment: 'tunic', hair: 'crop', hat: 'pilotka', parts: ['tunic_kit', 'coat_over'], line: true,
       body: { height: 1.0, shoulders: 1.0, thick: 1.0, head: 0.9 },
       colors: { skin: '#cf9a74', hair: '#4a3a2e', top: '#86825e', garment: '#5d604c', bottom: '#4c4b3c', shoes: '#26201b', hat: '#6f7055' } },
+    // Ivanov indoors on his first evening home: the greatcoat still on and belted («Сними, жарко». — «Знобит»), the side
+    // cap off (his short hair over the whole head), no kit bag
+    ivanov_coat: { kind: 'shapes', style: 'soldier', who: 'man', garment: 'greatcoat', hair: 'short', parts: ['coat_kit'], line: true,
+      body: { height: 1.0, shoulders: 0.97, thick: 1.0, head: 0.9 },
+      colors: { skin: '#cf9a74', hair: '#4a3a2e', top: '#6d7059', garment: '#6d7059', bottom: '#4a4a3d', shoes: '#26201b' } },
     // Lyubov Vasilyevna (Lyuba), his wife, 33: slight, tired; a faded blue cotton dress, a grey linen apron over it, a
     // white kerchief, her hair in a knot under it
     lyuba: { kind: 'shapes', style: 'gouache', who: 'woman', garment: 'dress', hair: 'bun', hat: 'kerchief', parts: ['apron'], line: true,
@@ -204,6 +210,11 @@ return {
     semyon_out: { kind: 'shapes', style: 'gouache', who: 'man', garment: 'jacket', hair: 'short', hat: 'cap', line: true,
       body: { height: 0.96, shoulders: 0.96, thick: 0.94, neck: 0.94 },
       colors: { skin: '#c49a7c', hair: '#9d968a', top: '#b4b0a0', garment: '#4f4b42', bottom: '#3d3a34', shoes: '#2b251f', hat: '#45433d' } },
+    // Semyon come in of an evening on his way to the night shift: the clean jacket, his cap off at the threshold, the
+    // new carved horse held before him in both hands, like a pass
+    semyon_visit: { kind: 'shapes', style: 'gouache', who: 'man', garment: 'jacket', hair: 'short', parts: ['horse'], line: true,
+      body: { height: 0.96, shoulders: 0.96, thick: 0.94, neck: 0.94 },
+      colors: { skin: '#c49a7c', hair: '#9d968a', top: '#b4b0a0', garment: '#4f4b42', bottom: '#3d3a34', shoes: '#2b251f' } },
     // Lyuba meeting the train: her blue pre-war dress, kept for this, no apron, the white kerchief
     lyuba_best: { kind: 'shapes', style: 'gouache', who: 'woman', garment: 'dress', hair: 'bun', hat: 'kerchief', line: true,
       body: { height: 0.93, thick: 0.88, shoulders: 0.88 },
@@ -305,6 +316,24 @@ return {
         F.ball(mix(hand, bottom, 0.56), axes, [0.1 * m, 0.21 * m, 0.15 * m], SACK, 12, 2.2);
         F.ball(add(hand, mul(along, -0.07 * m)), axes, [0.04 * m, 0.045 * m, 0.045 * m], SACK, 8);
         F.ball(add(hand, mul(along, -0.045 * m)), axes, [0.042 * m, 0.012 * m, 0.042 * m], CORD, 8);
+      } },
+      // a little horse carved of lime wood for Nastya, standing on the palms of both hands (between them, a little over
+      // them): its body, the neck and the head turned up, four legs, the tail — pale wood, the mane and the hooves darker
+      horse: { name: 'carved horse in both hands', draw: F => {
+        const { add, mul, mix, level, unit, cross } = V(), r = F.P('RightHand'), l = F.P('LeftHand');
+        const along = unit(level(add(F.side('Hips'), mul(F.fwd('Hips'), 0.35)))), up = UP, fw = unit(cross(along, up));
+        const base = add(mix(r, l, 0.5), mul(up, 0.025)), axes = [along, up, fw];
+        const at = (x, y, z) => add(base, add(mul(along, x), add(mul(up, y), mul(fw, z))));
+        F.ball(at(0, 0.085, 0), axes, [0.08, 0.034, 0.03], WOOD, 12);
+        for (const [x, z] of [[-0.055, -0.016], [-0.05, 0.016], [0.05, -0.016], [0.055, 0.016]]) {
+          F.bar(at(x, 0.075, z), at(x * 1.08, 0.0, z), 0.012, 0.009, [[0, WOOD]], 6, fw);
+          F.ball(at(x * 1.08, 0.005, z), axes, [0.011, 0.007, 0.011], WOOD_DARK, 6);
+        }
+        F.bar(at(0.06, 0.1, 0), at(0.092, 0.16, 0), 0.02, 0.015, [[0, WOOD]], 6, fw);
+        F.ball(at(0.108, 0.168, 0), axes, [0.032, 0.017, 0.015], WOOD, 8);
+        F.bar(at(0.05, 0.118, 0), at(0.084, 0.18, 0), 0.008, 0.006, [[0, WOOD_DARK]], 5, fw);
+        F.bar(at(0.084, 0.182, 0), at(0.08, 0.205, 0), 0.006, 0.002, [[0, WOOD]], 4, fw);
+        F.bar(at(-0.075, 0.095, 0), at(-0.1, 0.045, 0), 0.009, 0.005, [[0, WOOD_DARK]], 5, fw);
       } },
       // the greatcoat's own: the belt round the waist and its brass buckle, two rows of brass buttons up the chest, the
       // shoulder boards lying on the shoulders, the collar round the neck

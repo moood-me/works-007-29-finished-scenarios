@@ -30,6 +30,8 @@ sand, ochre, grey-green cloth.
   boots, the side cap still on, the greatcoat thrown over his shoulders, open (`coat_over`: a shell of heavy cloth from
   its turned-down collar over the shoulders and the arms to the calves, its fronts apart, its own boards; it does not
   swing). The scenario's sign: «шинель на плечах или на гвозде» — on the nail when he stays.
+- `ivanov_coat` — Ivanov indoors on his first evening home, the greatcoat still on and belted (`coat_kit`), the side cap
+  off (short hair over the whole head), no kit bag («Сними, жарко». — «Знобит»).
 - `lyuba` — Lyubov Vasilyevna, his wife, 33: slight; a faded blue dress, a grey linen apron (`apron`), a white kerchief
   (`kerchief`).
 - `petrushka` — Petrushka, the son, 11: thin but square-shouldered; a cut-down man's shirt, patched trousers, a man's old
@@ -37,6 +39,9 @@ sand, ochre, grey-green cloth.
 - `semyon` — Semyon Yevseyevich, 50: a widower, the night watchman at the store by the station; a little stooped, grey
   and cropped, his cap off indoors; an old dark jacket (`jacket`) over a grey collarless shirt, worn trousers, boots.
 - `semyon_out` — Semyon out of doors: his clean dark jacket (the good one), a grey shirt, the cap on (the engine's `cap`).
+- `semyon_visit` — Semyon come in of an evening on his way to the night shift: the clean jacket, the cap off, the new
+  carved horse (`horse`: lime wood, standing on the palms between his hands — set both hands' `_reach` to points a
+  little apart before his chest).
 - `lyuba_best` — Lyuba meeting the train: her blue pre-war dress, no apron, the white kerchief.
 - `nastya` — Nastya, the daughter, 5: small, fair, round-faced; a faded rose cotton frock (`dress`), bare legs, little
   shoes.
