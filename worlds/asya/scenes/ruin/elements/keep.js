@@ -40,8 +40,12 @@ g.fillRect(0.8, -10.4, 2.8, 10.45);
 // weather streaks down from the tops, put-log holes, the tower's arrow slits
 for (let i = 0; i < 24; i++) {
   const x = -6.3 + 9.8 * L.rnd(i, 115);
-  g.fillStyle = `rgba(96, 88, 78, ${0.08 + 0.1 * L.rnd(i, 117)})`;
-  g.fillRect(x, -10.4, 0.08 + 0.2 * L.rnd(i, 119), 4 + 5 * L.rnd(i, 121));
+  const len = 4 + 5 * L.rnd(i, 121);
+  const streak = g.createLinearGradient(0, -10.4, 0, -10.4 + len);
+  streak.addColorStop(0, `rgba(96, 88, 78, ${0.07 + 0.08 * L.rnd(i, 117)})`);
+  streak.addColorStop(1, "rgba(96, 88, 78, 0)");
+  g.fillStyle = streak;
+  g.fillRect(x, -10.4, 0.08 + 0.2 * L.rnd(i, 119), len);
 }
 g.fillStyle = "#5e544a";
 for (let i = 0; i < 9; i++) g.fillRect(-5.6 + 0.62 * i, -4.1 + 0.06 * L.rnd(i, 123), 0.13, 0.13);

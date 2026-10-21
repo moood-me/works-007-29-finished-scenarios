@@ -5,7 +5,7 @@
 const L = e.lib;
 const ACROSS = 0;
 const D = 5;
-const box = [-2.45, -2.25, 1.5, 0.1];
+const box = [-2.6, -2.25, 1.5, 0.1];
 // the top of the wall over x: the fallen left end, a step, the long level crest with its notches, the broken corner
 const topAt = (x) => {
   if (x < -2.0) return -0.5 - 0.15 * L.smooth(-2.45, -2.0, x);
@@ -34,11 +34,15 @@ for (let y = 0.05; y > -2.05; y -= 0.3) {
     x += w;
   }
 }
-// weather streaks from the top, darker near the foot
+// weather streaks from the top, fading downward; the foot darker with damp
 for (let i = 0; i < 16; i++) {
   const x = -2.4 + 3.8 * L.rnd(i, 213);
-  g.fillStyle = `rgba(96, 88, 78, ${0.07 + 0.08 * L.rnd(i, 215)})`;
-  g.fillRect(x, -2, 0.06 + 0.14 * L.rnd(i, 217), 0.8 + 1.0 * L.rnd(i, 219));
+  const len = 0.8 + 1.0 * L.rnd(i, 219);
+  const streak = g.createLinearGradient(0, -2, 0, -2 + len);
+  streak.addColorStop(0, `rgba(96, 88, 78, ${0.06 + 0.06 * L.rnd(i, 215)})`);
+  streak.addColorStop(1, "rgba(96, 88, 78, 0)");
+  g.fillStyle = streak;
+  g.fillRect(x, -2, 0.06 + 0.14 * L.rnd(i, 217), len);
 }
 const damp = g.createLinearGradient(0, -0.5, 0, 0.05);
 damp.addColorStop(0, "rgba(90, 96, 70, 0)");
