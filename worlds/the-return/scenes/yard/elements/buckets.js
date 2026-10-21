@@ -29,17 +29,17 @@ const bucket = (x) => {
 };
 bucket(-0.22);
 bucket(0.2);
-// the yoke: a long curved pole of pale wood leaning from the ground on the left over both buckets, its hooks hanging
+// the yoke: a curved pole of pale wood leaning from the ground on the left over both buckets, its hooks hanging
 g.strokeStyle = "#a88a5e";
 g.lineWidth = 0.04;
 g.lineCap = "round";
 g.beginPath();
-g.moveTo(-0.62, -0.02);
-g.quadraticCurveTo(-0.05, -0.62, 0.58, -0.36);
+g.moveTo(-0.45, -0.02);
+g.quadraticCurveTo(0.0, -0.6, 0.5, -0.36);
 g.stroke();
 g.strokeStyle = "#4f4a42";
 g.lineWidth = 0.012;
-for (const [x, y] of [[-0.48, -0.17], [0.46, -0.4]]) {
+for (const [x, y] of [[-0.36, -0.15], [0.4, -0.38]]) {
   g.beginPath();
   g.moveTo(x, y);
   g.lineTo(x + 0.01, y + 0.1);
