@@ -17,18 +17,18 @@ and Gagin stand on the crest below, both looking up at her — Gagin afraid, N. 
 | `rhine` | plane, −111 m, 420…1300 m | the river, a rough mirror with ripples; the ferry halfway over, its wake |
 | `valley` | plane, −110 m, 190…430 m | the valley's floor under the cliff: fields, vineyards, orchards, the road |
 | `chapel` | 268 m, 125 m right, on the floor | the chapel by the road, walnuts, poplars (point `chapel`) |
-| `keep` | 11 m, left | the castle's high wall with a pointed window open to the sky, the tower's stump on its right; layers `ivy`, `tufts0…2` |
-| `ash` | 6.8 m, far left | the ash with the Madonna's shrine (point `madonna`); its crown above the frame, layers `crown`, `fronds` |
-| `ground` | plane, 0 | the crest's and the spur's turf, the path to the wall's broken end; its right edge is the cliff's |
-| `wall` | 6.4 m, −2.45…1.5 m across | the low wall (1.9 m), on the turf left of 0.35 m, on the cliff's rock right of it; layers `ivy`, `tufts0…2` |
+| `keep` | 9.5 m, left | the castle's high wall with a pointed window open to the sky, the tower's stump on its right; layers `ivy`, `tufts0…2` |
+| `ash` | 5.6 m, far left | the ash with the Madonna's shrine (point `madonna`); its crown above the frame, layers `crown`, `fronds` |
+| `ground` | plane, 0 | the crest's and the spur's turf, the path to the wall's broken end; its right edge is the cliff's, running from the frame's foot to the wall's corner |
+| `wall` | 5 m, −2.45…1.5 m across | the low wall (1.9 m) on the turf, its right end at the cliff's edge; layers `ivy`, `tufts0…2` |
 | `crest` | unseen plane, 1.9 m | the wall's broad crest (`walk`): the way N. N. may go to her |
-| `spur_face` | from the wall's corner back 10.8 m, facing 112 | the spur's cliff toward the valley; layer `grass` |
-| `nn`, `gagin`, `asya` | 3.9, 5.6 m; Asya on the wall's end | N. N. hands behind his back; Gagin at the wall's foot; Asya `seated` on `asya_on` [1.3, 6.95, 1.9] |
+| `nn`, `gagin`, `asya` | 3.3, 4.3 m; Asya on the wall's end | N. N. hands behind his back; Gagin at the wall's foot; Asya `seated` on `asya_on` [1.42, 5.55, 1.9], her legs hanging past the wall's end over the drop |
 
-The land (`relief.js`): the crest (to 0.35 m right of the line of sight, up to the wall) and the spur behind the wall
-(its edge running out to the right, to 16.4 m) level at 0; beyond, the cliff to the valley's floor (−110), the Rhine's
-bed 3 m lower from 420 m, the far bank from 1.28 km. The cliff's faces are cards (`wall`'s rock, `spur_face`); the far
-cards stand at their own elevations (`onLand: false`).
+The land (`relief.js`): the crest (to 1.5 m right of the line of sight — the wall's right end —, up to the wall) and
+the spur behind the wall (to 16.4 m) level at 0; beyond, the cliff to the valley's floor (−110), the Rhine's bed 3 m
+lower from 420 m, the far bank from 1.28 km. The cliff's faces turn away from the viewer and are not painted: the drop
+reads by the valley seen far below right past the crest's edge. The far cards stand at their own elevations
+(`onLand: false`). Asya's seat is over the spur's land (0): a seat's elevation is over the land there.
 
-Motion: the clouds' drift, the river's ripples, the wind in the grass on the walls and the cliff, the ivy, the ash's
-fronds; the three breathe. No script, no showcase yet.
+Motion: the clouds' drift, the river's ripples, the wind in the grass on the walls, the ivy, the ash's fronds; the
+three breathe. No script, no showcase yet.
