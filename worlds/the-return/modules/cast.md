@@ -35,6 +35,8 @@ sand, ochre, grey-green cloth.
   boots.
 - `semyon` — Semyon Yevseyevich, 50: a widower, the night watchman at the store by the station; a little stooped, grey
   and cropped, his cap off indoors; an old dark jacket (`jacket`) over a grey collarless shirt, worn trousers, boots.
+- `semyon_out` — Semyon out of doors: his clean dark jacket (the good one), a grey shirt, the cap on (the engine's `cap`).
+- `lyuba_best` — Lyuba meeting the train: her blue pre-war dress, no apron, the white kerchief.
 - `nastya` — Nastya, the daughter, 5: small, fair, round-faced; a faded rose cotton frock (`dress`), bare legs, little
   shoes.
 
