@@ -1,7 +1,7 @@
 # cast — the people of «Master and Man»
 
 A module for scenes with people (elements with `person`: `{"cast": "cast", "who": …}` — people_guide). In the scene's
-`modules`. 3 looks, 3 motions of its own (besides the engine's `stand` and `walk`). A part's lengths are a man's metres
+`modules`. 5 looks, 7 motions of its own (besides the engine's `stand` and `walk`). A part's lengths are a man's metres
 times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
@@ -25,12 +25,25 @@ ice-blue, with few warm spots: the red fox fur, the red sash.
   low worn sheepskin hat (`sheepskin_hat`), grey felt boots.
 - `praskovya` — Praskovya Mikhailovna, his wife: slight, a long dark blue-grey dress down to the floor (`long_dress`), a light woollen shawl over her head,
   tied under the chin (`shawl`).
+- `old_man` — the old man of Grishkino, master of the rich household: past seventy, still broad, a long white beard
+  (`beard_long`); at home in a long linen shirt worn outside (`shirt`), a narrow dark woven belt (`sash` in his dark
+  accent), dark trousers, felt boots, no hat; deep-set eyes under heavy white brows (`tolstoy_old`).
+- `son` — his elder son: about thirty, tall, a short dark beard (`beard_trim`); a blue-grey shirt belted (`shirt`,
+  `sash` dark), dark trousers, black boots; brows drawn down, sullen (`tolstoy_son`).
+
+Indoors the master and Nikita take their hats off: `<id>_wear: {hat: "none"}`; Nikita's frost thawed —
+`nikita_wear: {hat: "none", parts: ["beard_long", "sash"]}`.
 
 ## Motions (Kimodo's, standing loops)
 
 - `hands_hips` — stands with his hands on his hips.
 - `hands_breast` — stands with her hands folded at the breast, swaying a very little (holding her shawl).
 - `hands_behind` — stands with the hands behind the back.
+- `table_talk` — seated at a table, the hands folded on it, talking calmly with small movements of the head (seat him
+  with `<id>_on: [across, distance, seat]`).
+- `bench_sit` — seated upright on a bench, the hands resting in the lap, breathing calmly.
+- `arms_folded` — stands with the arms folded across the chest, waiting, shifting the weight now and then.
+- `lean_table` — stands bent forward, both hands resting on a table at waist height (`<id>_reach` puts the hands on it).
 
 The engine's `stand` (at rest, breathing) and `walk`. `<id>_reach` puts a hand where it is told, over any of them (Nikita's
 left hand holding the horse by the bit: `{"l": {"on": "horse", "at": [-1.41, -0.08, 1.32]}}`) and `<id>_look` turns the head.
