@@ -20,7 +20,7 @@
       0.3,
       0.35
     ],
-    "saturation": 1.0,
+    "saturation": 1,
     "looks": {
       "evening": {
         "ambientColor": "#f6e5cd",
@@ -37,7 +37,7 @@
       "id": "sun",
       "from": [
         215,
-        38
+        30
       ],
       "place": {
         "bearing": "sun_bearing",
@@ -54,10 +54,10 @@
   "state": {
     "evening": 0,
     "sun_bearing": 215,
-    "sun_height": 38,
+    "sun_height": 30,
     "elizabeth_look": [
-      0.4,
-      2.4,
+      0.5,
+      2.3,
       1.6
     ],
     "elizabeth_mood": "smile",
@@ -79,7 +79,7 @@
     },
     "sun_height": {
       "type": "number",
-      "means": "the sun's height, degrees: 38 the afternoon, about 22 the early evening"
+      "means": "the sun's height, degrees: 30 the afternoon (by default; the people's shadows long enough to read), about 20 the early evening"
     }
   },
   "objects": [
@@ -296,7 +296,7 @@
           "scale": 0.9
         },
         {
-          "across": -6.0,
+          "across": -6,
           "distance": 9.62,
           "flip": true
         },
@@ -325,9 +325,11 @@
         "who": "elizabeth",
         "turn": 175
       },
-      "across": -0.55,
-      "distance": 3.3,
-      "shadow": true
+      "across": -0.5,
+      "distance": 3.1,
+      "shadow": {
+        "strength": 0.75
+      }
     },
     {
       "id": "darcy",
@@ -338,20 +340,22 @@
         "turn": 135,
         "does": "hands_behind"
       },
-      "across": 0.55,
-      "distance": 4.4,
-      "shadow": true
+      "across": 0.6,
+      "distance": 3.9,
+      "shadow": {
+        "strength": 0.75
+      }
     },
     {
       "id": "tree_left",
       "name": "Beech",
-      "across": -3.6,
-      "distance": 4.6,
+      "across": -4.7,
+      "distance": 5.6,
       "height": 10,
       "box": [
-        -2.8,
-        -11.5,
-        6,
+        -1.4,
+        -11,
+        4.2,
         0.4
       ],
       "shadow": true
@@ -359,13 +363,13 @@
     {
       "id": "shrub_right",
       "name": "Laurel",
-      "across": 3.4,
-      "distance": 4.6,
-      "height": 2.5,
+      "across": 4.5,
+      "distance": 5.2,
+      "height": 1.5,
       "box": [
-        -2,
-        -2.7,
-        2.4,
+        -1.4,
+        -1.8,
+        1.6,
         0.3
       ],
       "shadow": true
@@ -391,12 +395,12 @@
         },
         {
           "across": -2.3,
-          "distance": 3.0,
+          "distance": 3,
           "scale": 1.1,
           "flip": true
         },
         {
-          "across": -2.0,
+          "across": -2,
           "distance": 2.92,
           "scale": 0.9,
           "flip": false
@@ -410,26 +414,8 @@
         {
           "across": -1.35,
           "distance": 2.75,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false
-        },
-        {
-          "across": 0.35,
-          "distance": 3.0,
-          "scale": 0.8,
-          "flip": true
-        },
-        {
-          "across": 0.7,
-          "distance": 2.92,
-          "scale": 1.1,
-          "flip": false
-        },
-        {
-          "across": 1.05,
-          "distance": 2.83,
-          "scale": 0.9,
-          "flip": true
         },
         {
           "across": 1.4,
@@ -439,8 +425,8 @@
         },
         {
           "across": 1.75,
-          "distance": 3.0,
-          "scale": 1.0,
+          "distance": 3,
+          "scale": 1,
           "flip": true
         },
         {

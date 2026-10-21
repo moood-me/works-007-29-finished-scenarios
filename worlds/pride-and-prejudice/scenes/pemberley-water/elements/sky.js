@@ -1,13 +1,13 @@
 // A June sky over Derbyshire in a graded wash: a clear cerulean at the top, deepest where the page sets the scene's
-// title and caption (white over it reads), paling to a warm cream toward the hills; soft clouds drift low over the
+// title and caption (white over it reads), paling to a soft blue-grey toward the hills (no bright band between the far crowns); soft clouds drift low over the
 // woods, never up behind the title (stage heights; the horizon at 0.36)
 const L = e.kit.brush, A = e.aspect, H = 0.36, r = L.rand(11);
 const blue = g.createLinearGradient(0, -0.35, 0, H + 0.08);
-blue.addColorStop(0, '#4c76a0');
-blue.addColorStop(0.36, '#5f88b2');
+blue.addColorStop(0, '#3d6693');
+blue.addColorStop(0.36, '#527ea9');
 blue.addColorStop(0.62, '#8daccb');
-blue.addColorStop(0.84, '#cbd8dc');
-blue.addColorStop(1, '#f0e8d3');
+blue.addColorStop(0.84, '#b7cad7');
+blue.addColorStop(1, '#cbd8dd');
 g.fillStyle = blue;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);
 // (the wash laid unevenly, as a wet sky is: deeper and paler patches, kept to the sky's sides and its lower band)

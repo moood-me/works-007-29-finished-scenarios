@@ -1,11 +1,12 @@
-// Jane's embroidery frame: a hoop of linen on a turned stand, its work half done — a spray of leaves and a rose in
-// coloured silks (x across, y up negative; the hoop at 0.8…0.98 m)
+// Jane's embroidery frame: a hoop of linen on a turned stand just before her knees, the hoop over her lap where her
+// hands hold it, its work half done — a spray of leaves and a rose in coloured silks (x across, y up negative; the hoop
+// at 0.75 m). Its points: `hoop` (the work), `left` and `right` (its rim's two sides, where Jane's hands are)
 const L = e.kit.brush, px = L.px(e), r = L.rand(139);
 const stand = new Path2D();
-stand.moveTo(-0.012, -0.8);
+stand.moveTo(-0.012, -0.66);
 stand.lineTo(-0.016, -0.12);
 stand.lineTo(0.016, -0.12);
-stand.lineTo(0.012, -0.8);
+stand.lineTo(0.012, -0.66);
 stand.closePath();
 stand.moveTo(-0.02, -0.14);
 stand.lineTo(-0.22, 0);
@@ -19,25 +20,28 @@ g.fillStyle = '#7f5038';
 g.fill(stand);
 L.pen(g, stand, 1.0 * px, 0.7);
 const hoop = new Path2D();
-hoop.ellipse(0, -0.89, 0.25, 0.1, -0.08, 0, Math.PI * 2);
-L.wash(g, hoop, '#f6f1e4', [-0.25, -0.99, 0.25, -0.79], r, 1);
+hoop.ellipse(0, -0.75, 0.24, 0.1, -0.06, 0, Math.PI * 2);
+L.wash(g, hoop, '#f6f1e4', [-0.24, -0.85, 0.24, -0.65], r, 1);
 const work = new Path2D();
-work.moveTo(-0.08, -0.87);
-work.quadraticCurveTo(-0.02, -0.92, 0.06, -0.9);
-work.moveTo(-0.05, -0.88);
-work.lineTo(-0.07, -0.92);
-work.moveTo(0, -0.9);
-work.lineTo(0.01, -0.94);
+work.moveTo(-0.08, -0.73);
+work.quadraticCurveTo(-0.02, -0.78, 0.06, -0.76);
+work.moveTo(-0.05, -0.74);
+work.lineTo(-0.07, -0.78);
+work.moveTo(0, -0.76);
+work.lineTo(0.01, -0.8);
 g.strokeStyle = '#7f9a6c';
 g.lineWidth = 0.008;
 g.stroke(work);
 const rose = new Path2D();
-rose.arc(0.07, -0.9, 0.018, 0, Math.PI * 2);
+rose.arc(0.07, -0.76, 0.018, 0, Math.PI * 2);
 g.fillStyle = '#c4948f';
 g.fill(rose);
 const rim = new Path2D();
-rim.ellipse(0, -0.89, 0.25, 0.1, -0.08, 0, Math.PI * 2);
-rim.ellipse(0, -0.89, 0.235, 0.088, -0.08, 0, Math.PI * 2);
+rim.ellipse(0, -0.75, 0.24, 0.1, -0.06, 0, Math.PI * 2);
+rim.ellipse(0, -0.75, 0.225, 0.088, -0.06, 0, Math.PI * 2);
 g.fillStyle = '#9b6b48';
 g.fill(rim, 'evenodd');
 L.pen(g, hoop, 1.2 * px, 0.8);
+e.at(0, -0.75, 'hoop');
+e.at(-0.2, -0.74, 'left');
+e.at(0.2, -0.76, 'right');

@@ -1,8 +1,9 @@
-// The left wall (facing into the room: x along it away from the viewer, its middle at 3.4 m; y up negative): the
-// chimneypiece at 5 m (x 1.6) — cream stone, a dark firebox (its grate and glowing coals: `coals`), the mantel shelf at
+// The left wall (facing into the room: x along it away from the viewer, its middle at 3.4 m; y up negative): a second
+// sash window near the eye (x −1.3…−0.1: 2.1…3.3 m off, the sill at 0.75 m — the daylight from before the sisters, on
+// their faces; its frame is a copy of `window`, its pane the unseen `side_opening`), the chimneypiece at 5 m (x 1.6) — cream stone, a dark firebox (its grate and glowing coals: `coals`), the mantel shelf at
 // 1.25 m — and over it a landscape in a gilt frame
 const L = e.kit.brush, W = e.lib, px = L.px(e), r = L.rand(103);
-W.wall(g, -2.8, 2.8, [], r, px);
+W.wall(g, -2.8, 2.8, [[-1.3, -2.75, -0.1, -0.75]], r, px);
 // the chimneypiece: its jambs and frieze, the shelf a little wider, the firebox
 const piece = new Path2D();
 piece.rect(0.85, -1.2, 1.5, 1.2);

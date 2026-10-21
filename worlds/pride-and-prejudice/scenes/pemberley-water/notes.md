@@ -9,32 +9,36 @@ drawing room and the sisters.
 
 ## What is where (from the start: x across the stage, metres; the horizon at 0.36)
 
-- **Elizabeth** (`elizabeth`, cast `elizabeth`) — near, on the gravel walk at −0.55 m, 3.3 m off: her body turned a
+- **Elizabeth** (`elizabeth`, cast `elizabeth`) — near, well inside the gravel walk at −0.5 m, 3.1 m off: her body turned a
   little away from him (175°; as the engine turns a person, under 180 is toward the screen's left), her head turned
   back toward his side (`elizabeth_look`, a point before him), a small smile (`elizabeth_mood`) — she knows he looks.
   Bareheaded, as she walks out: a white high-waisted gown, short puffed sleeves, a sage sash.
-- **Mr Darcy** (`darcy`, cast `darcy`) — a step behind her right shoulder, at 0.55 m, 4.4 m off, turned to her (135°),
+- **Mr Darcy** (`darcy`, cast `darcy`) — a step behind her right shoulder, at 0.6 m, 3.9 m off, on the middle of the walk, turned to her (135°),
   hands behind his back (`hands_behind`), looking at her (`darcy_look: "elizabeth"`), grave (`darcy_mood: thinking`) —
   "looks at her when she does not see". A dark blue tailcoat with its tails to the knee, a pale waistcoat, a white
-  cravat, buff breeches, black top boots. Both faces are three-quarter to the eye; both within the 4:3 frame.
+  cravat, buff breeches, black top boots. Both faces are three-quarter to the eye; both within the 4:3 frame. Their
+  shadows (`shadow` strength 0.75) fall long behind them to the right from the lower sun — they stand on the gravel;
+  no grass tufts stand before his feet.
 - The house (`house`) above and between them in the distance, 150 m off across the water at across −20, on the
   relief's rise; the woods (`woods`, 320 m) and the far hills (`hills`, 900 m) behind it; park trees in clumps on
   either side (`park_tree`, copies); the stone bridge to the right (`bridge`, across 33, 92 m, its foot at the water's
   level −0.2) — whole within the 4:3 frame, its grassy abutments running on past it.
 - The water (`water`, a mirror plane at −0.2 from 9 m to 107 m), lily pads by the near bank on the left; the bank's
   side-on edge (`near_edge`, the land steps from 0 to −0.7 at 9.4 m) with reeds (`reeds`, copies).
-- Near: the lawn and the walk (`lawn`, draped; the walk curves through both their places), a beech's trunk at the left
-  edge with a bough over the top of the frame (`tree_left`, its crown a wind layer), a laurel with cream roses at the
-  right edge (`shrub_right`), grass tufts and cow parsley along the bottom at the sides, clear of her hem (`tuft`,
+- Near: the lawn and the walk (`lawn`, draped; the walk, 2.3 m wide, curves under both their places), a beech's
+  trunk at the left edge of the 16:9 frame, 5.6 m off (`tree_left`: grey-green bark washed unevenly, moss at the foot,
+  the shade side hatched, a beech's dark "eyes"; one low bough with a few clumps at the top-left corner — a wind
+  layer; the crown is above the frame, the title's middle clear), a low laurel with cream roses at the right edge,
+  5.2 m off, its top under the eye so the bridge and the water stand clear (`shrub_right`), grass tufts and cow parsley along the bottom at the sides, clear of her hem (`tuft`,
   `parsley`, copies, each a wind layer about its foot).
-- The sky (`sky`): a graded cerulean, deepest at the top where the page sets the title and caption in white; its
-  clouds drift low over the woods and never rise behind the text.
+- The sky (`sky`): a graded cerulean, deep at the top where the page sets the title and caption in white (they read
+  over it), paling to a soft blue-grey at the hills; its clouds drift low over the woods and never rise behind the text.
 
 ## Light
 
-The engine's: the sun from behind the viewer on the left (`sun_bearing` 215, `sun_height` 38, strength 0.95) lights
+The engine's: the sun from behind the viewer on the left (`sun_bearing` 215, `sun_height` 30, strength 0.95) lights
 both faces from the front; ambient 0.78, a light haze toward a pale green-grey. `evening` (0…1) is a look — warmer, a
-little more haze; the showcase moves it with the sun (238, 22) for an early evening, still bright. No painting reads
+little more haze; the showcase moves it with the sun (238, 20) for an early evening, still bright. No painting reads
 these keys.
 
 ## Brushes
