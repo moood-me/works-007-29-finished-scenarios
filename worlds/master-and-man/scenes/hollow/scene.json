@@ -1,7 +1,7 @@
 {
   "engine": 3,
   "title": "The Hollow",
-  "horizon": 0.42,
+  "horizon": 0.38,
   "camera": {
     "mode": "picture"
   },
@@ -57,7 +57,7 @@
     "vasily_mood": "thinking",
     "nikita_look": [
       -1.4,
-      2.6,
+      2.1,
       0.4
     ],
     "nikita_mood": "neutral"
@@ -203,7 +203,7 @@
       "id": "horse",
       "name": "Mukhorty",
       "across": -1.9,
-      "distance": 5.8,
+      "distance": 5.3,
       "facing": 165,
       "height": 2.1,
       "box": [
@@ -219,7 +219,7 @@
       "name": "Sleigh",
       "unseen": true,
       "across": 0.5,
-      "distance": 3.6,
+      "distance": 3.1,
       "facing": 150
     },
     {
@@ -323,7 +323,7 @@
         "does": "knees_sit"
       },
       "across": 0.9,
-      "distance": 4.41,
+      "distance": 3.91,
       "shadow": true
     },
     {
@@ -336,14 +336,14 @@
         "does": "huddle"
       },
       "across": -0.01,
-      "distance": 3.88,
+      "distance": 3.38,
       "shadow": true
     },
     {
       "id": "wind_front",
       "name": "Ground wind before the eye",
       "across": 0.4,
-      "distance": 2.3,
+      "distance": 2.0,
       "height": 0.5,
       "box": [
         -3,
@@ -356,7 +356,7 @@
       "id": "drift_front",
       "name": "Drift before the eye",
       "across": -1.9,
-      "distance": 2.0,
+      "distance": 1.7,
       "height": 0.65,
       "box": [
         -1.85,
@@ -372,23 +372,6 @@
         "kind": "blizzard",
         "amount": "storm",
         "count": 40000
-      }
-    },
-    {
-      "id": "flakes",
-      "name": "Snow driving past near",
-      "particles": {
-        "kind": "snow",
-        "amount": "storm",
-        "count": 6000,
-        "reach": 8,
-        "wind": 2.8,
-        "gust": 1.0,
-        "turbulence": 0.5,
-        "size": [
-          0.025,
-          0.025
-        ]
       }
     },
     {

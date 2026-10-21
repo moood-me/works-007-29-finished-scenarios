@@ -16,7 +16,7 @@ return [
       await s.wait(1);
       s.person("nikita").look("horse#head");
       await s.wait(3);
-      s.person("nikita").look([-1.4, 2.6, 0.4]);
+      s.person("nikita").look([-1.4, 2.1, 0.4]);
       await s.wait(2);
     },
   },
