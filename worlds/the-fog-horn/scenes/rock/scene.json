@@ -403,11 +403,11 @@
       "person": {
         "cast": "cast",
         "who": "mcdunn",
-        "turn": 205,
+        "turn": 210,
         "does": "hands_behind"
       },
-      "across": 1.1,
-      "distance": 5.8
+      "across": 1,
+      "distance": 7
     }
   ],
   "music": {
