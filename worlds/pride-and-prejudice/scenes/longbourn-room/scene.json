@@ -87,17 +87,17 @@
       4.4,
       0.46
     ],
-    "jane_look": "tambour#hoop",
+    "jane_look": "lydia",
     "jane_reach": {
       "r": "tambour#left",
       "l": "tambour#right"
     },
     "jane_mood": "smile",
-    "elizabeth_look": "tambour#hoop",
+    "elizabeth_look": "lydia",
     "elizabeth_mood": "laugh",
     "lydia_look": [
-      -3.2,
-      1.6,
+      -2.6,
+      1,
       1.6
     ],
     "lydia_mood": "laugh"
@@ -384,8 +384,8 @@
     {
       "id": "tambour",
       "name": "Embroidery frame",
-      "across": -0.7,
-      "distance": 4.05,
+      "across": -0.95,
+      "distance": 4.1,
       "facing": 180,
       "height": 0.8,
       "box": [
@@ -476,7 +476,7 @@
       "person": {
         "cast": "cast",
         "who": "lydia",
-        "turn": 150
+        "turn": 165
       },
       "across": -1.6,
       "distance": 3.7,

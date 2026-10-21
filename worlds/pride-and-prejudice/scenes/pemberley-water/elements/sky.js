@@ -6,8 +6,8 @@ const blue = g.createLinearGradient(0, -0.35, 0, H + 0.08);
 blue.addColorStop(0, '#3d6693');
 blue.addColorStop(0.36, '#527ea9');
 blue.addColorStop(0.62, '#8daccb');
-blue.addColorStop(0.84, '#c4d3da');
-blue.addColorStop(1, '#dfe4dc');
+blue.addColorStop(0.84, '#b7cad7');
+blue.addColorStop(1, '#cbd8dd');
 g.fillStyle = blue;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);
 // (the wash laid unevenly, as a wet sky is: deeper and paler patches, kept to the sky's sides and its lower band)

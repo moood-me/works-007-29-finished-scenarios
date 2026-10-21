@@ -13,14 +13,14 @@ front-left; the far window to the garden is the one seen, still light; candles a
 is turned three-quarter to the eye and toward that light.
 
 - **Jane** (`jane`, cast `jane`) — seated (`seated`, on `jane_on` [−0.5, 4.4, 0.46]: her chair's seat; `chair`
-  behind her) at her embroidery frame (`tambour`, low before her knees at −0.7, 4.05 m), turned toward the eye and the
-  side window (150°; under 180 is toward the screen's left), her hands on the hoop's rim (`jane_reach`: `tambour#left`,
-  `tambour#right`), looking down at her work (`tambour#hoop`), a small smile. The frame hides her lap.
+  behind her) at her embroidery frame (`tambour`, beside her knees on the window side at −0.95, 4.1 m), turned toward the eye and
+  the side window (150°; under 180 is toward the screen's left), her hands on the hoop's rim (`jane_reach`:
+  `tambour#left`, `tambour#right`), looking up from her work at Lydia (`jane_look`), a small smile.
 - **Elizabeth** (`elizabeth`) — standing behind Jane's right shoulder at 0.3 m, 5.0 m off (her head against the wall
-  between the portrait and the window), turned 140°, looking down at Jane's work and laughing.
+  between the portrait and the window), turned 140°, looking at Lydia and laughing.
 - **Lydia** (`lydia`, cast `lydia`: a bright coral-pink gown, her scarlet ribbon — the world's rare scarlet, hers
-  alone) — nearest of the three, at the left by the side window (−1.6 m, 3.7 m off), turned 150°, laughing, looking out
-  of the window toward the lane (`lydia_look`) — "always at the window".
+  alone) — nearest of the three, at the left by the side window (−1.6 m, 3.7 m off), turned almost to the eye (165°),
+  laughing, looking out of the window's near end toward the lane (`lydia_look`) — "always at the window".
 - The room: `floor` (oak boards, a cream rug with a sage border under the three), `back_wall` (the window cut in it,
   a small oval portrait over the `sofa`), `left_wall` (the side window near the eye — 2.1…3.3 m off, seen at the 16:9
   frame's left edge; the chimneypiece at 5 m: the grate `coals`, the fire's particles `fire`, two candles on the mantel
