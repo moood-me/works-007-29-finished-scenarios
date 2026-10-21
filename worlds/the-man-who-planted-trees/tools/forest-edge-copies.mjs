@@ -65,7 +65,8 @@ for (let d = 1; d < 28; d += 0.45 + rnd() * 0.6) {
 // tall grass over the meadow, thicker away from the path
 while (copies.grass.length < 60) {
   const d = 3 + Math.pow(rnd(), 1.2) * 22, a = lib.edgeA(d) + 1 + rnd() * (lib.browA(d) + 0.5 - lib.edgeA(d));
-  if (offStream(a, d, 1.2) && clear(a, d, 1.5)) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.8 + rnd() * 0.5), flip: rnd() < 0.5 });
+  const toVillage = Math.atan2(a, d) > 0.3 && Math.atan2(a, d) < 0.6 && d < 16;
+  if (offStream(a, d, 1.2) && clear(a, d, 1.5) && !toVillage) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.8 + rnd() * 0.5), flip: rnd() < 0.5 });
 }
 
 const path = new URL('scene.json', folder), spec = JSON.parse(readFileSync(path, 'utf8'));

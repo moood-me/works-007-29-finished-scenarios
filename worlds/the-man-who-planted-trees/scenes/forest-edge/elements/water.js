@@ -4,15 +4,15 @@
 // In the wood the land's painting carries the stream on.
 const L = e.lib, Y = (d) => 14 - d;
 const edgeAt = (d, side) => L.streamX(d) + side * (L.streamW(d) / 2 + 0.6);
-g.fillStyle = "#c9d5dc";
+g.fillStyle = "#a9b9c2";
 g.beginPath();
 for (let d = -4; d <= 32; d += 0.25) g.lineTo(edgeAt(d, -1), Y(d));
 for (let d = 32; d >= -4; d -= 0.25) g.lineTo(edgeAt(d, 1), Y(d));
 g.closePath();
 g.fill();
-g.strokeStyle = "rgba(140, 160, 172, 0.5)";
+g.strokeStyle = "rgba(120, 140, 152, 0.55)";
 g.lineCap = "round";
-for (let i = 0; i < 70; i++) {
+for (let i = 0; i < 110; i++) {
   const d = -4 + e.rnd() * 35, l = 0.6 + e.rnd() * 1.6, off = (e.rnd() - 0.5) * L.streamW(d) * 0.7;
   g.lineWidth = 0.025 + e.rnd() * 0.03;
   g.beginPath();

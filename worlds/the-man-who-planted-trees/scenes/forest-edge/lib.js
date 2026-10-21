@@ -5,7 +5,7 @@
 const smooth = (a, b, v) => anim.ease.smooth(anim.span(v, a, b));
 // the stream's middle, metres right of the view's line: in from the lower left, along the forest's edge, into the wood
 function streamX(d) {
-  return -6.2 + 4.6 * smooth(-4, 22, d) + 0.8 * Math.sin(d / 4.5) * anim.span(d, -2, 12) + 1.6 * smooth(22, 40, d);
+  return -6.2 + 4.6 * smooth(-4, 22, d) + 1.3 * Math.sin(d / 3.4) * anim.span(d, -4, 8) + 1.6 * smooth(22, 40, d);
 }
 // its width there
 function streamW(d) {
@@ -22,14 +22,14 @@ function browA(d) {
 }
 // the land without the stream's channel: level where the people stand, on a shelf at the brow of the valley; the
 // forest's hill rising to the left and back; to the right of the brow the valley's side falling, steep first, then
-// easing to its floor 44 m down, where the village is — seen from the shelf over the brow; the far side rising from
+// easing to its floor 26 m down, where the village is — seen from the shelf over the brow; the far side rising from
 // 700 m to a level 75 m up at 1400 m, where the far hills stand
 function slope(across, d) {
   const inWood = edgeA(d) - across;
   const rise = (4 * smooth(0, 30, inWood) + 30 * smooth(40, 420, d) * smooth(0, 60, inWood)) * (1 - smooth(500, 900, d));
   const p = Math.max(0, across - browA(d));
   const q = p < 2 ? (p * p) / 4 : p - 1;
-  const fall = -44 * (1 - Math.exp(-q / 25)) * (1 - smooth(700, 1300, d));
+  const fall = -26 * (1 - Math.exp(-q / 25)) * (1 - smooth(700, 1300, d));
   return rise + fall + 75 * smooth(700, 1400, d);
 }
 // the channel: 0.6 m deep in the middle, its grassy banks easing up to the land

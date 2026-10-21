@@ -11,7 +11,7 @@ stone where the path goes into the wood — bread left for Elzéard, untouched.
 - The land is one draped plane (`land`) over `relief.js`; `lib.js` has the shape (`streamX`, `streamW`, the forest's
   edge `edgeA`, `slope`, `channel`, `ground`) — shared by the relief, `land`, `water` and
   `tools/forest-edge-copies.mjs`. Near, the meadow shelf is level; the forest climbs to the left and back (30 m by
-  420 m off); to the right, beyond a brink 20–35 m off, the valley falls 40 m to its floor, where the village is
+  420 m off); to the right, beyond a brink 20–35 m off, the valley falls 26 m to its floor, where the village is
   (`village`, 225 m ahead, 108 m right: houses and fruit trees as parts, each standing at its own depth); the far side
   rises half a kilometre on (`hills`, `mountains`).
 - The forest: `oak_a`, `oak_b`, `oak_c` (grown oaks, `lib.oak`, their crowns a layer in the wind) along the edge and in
