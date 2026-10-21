@@ -3,7 +3,7 @@
 // where people walk, and a rag runner — faded stripes of old cloth — from the doorway into the room (3.5…4.1 ahead,
 // across 0.5…1.95): Semyon Yevseyevich stands on its end.
 const L = e.lib;
-L.planks(g, 61, -2.1, -1.6, 4.2, 3.2, 0.3, ["#a68c66", "#9c825e", "#ae9470", "#97805e"], true, 0.6);
+L.planks(g, 61, -2.1, -1.6, 4.2, 3.2, 0.3, ["#a99476", "#9e8a6c", "#b09c7e", "#9a866a"], true, 0.6);
 g.globalAlpha = 0.22;
 g.fillStyle = "#d2bf9a";
 g.beginPath();

@@ -71,17 +71,22 @@ function paper(g, x, y, w, h, size, alpha = 1) {
 // are hewn flat, honey-brown and darkened with years, each a band with a darker lower edge and the caulked seam under
 // it, broad dry dabs along the grain; `tooth` — the paper's tile (about a fifth of the distance it is seen from)
 function hewn(g, seed, x0, x1, height, log = 0.25, tooth = 0.9) {
-  g.fillStyle = "#94795a";
+  g.fillStyle = "#8a7a60";
   g.fillRect(x0, -height, x1 - x0, height);
+  g.save();
+  g.beginPath();
+  g.rect(x0, -height, x1 - x0, height);
+  g.clip();
   for (let i = 0, y = 0; y > -height; i++, y -= log) {
-    g.fillStyle = ["#b0956f", "#a68b66", "#b89d77", "#a08463"][i % 4];
+    g.fillStyle = ["#ab9a7a", "#a19072", "#b3a282", "#9b8a6c"][i % 4];
     g.fillRect(x0, y - log + 0.018, x1 - x0, log - 0.036);
     g.fillStyle = "rgba(70,52,34,0.5)";
     g.fillRect(x0, y - 0.034, x1 - x0, 0.034);
     g.fillStyle = "rgba(160,140,104,0.55)";
     g.fillRect(x0, y - 0.013, x1 - x0, 0.013);
-    strokes(g, seed + i * 7, x0, y - log + 0.035, x1 - x0, log - 0.07, ["#c4aa83", "#977b5b", "#bba07a"], Math.round((x1 - x0) * 2.2), 0.6, 0.09, 0, 0.3);
+    strokes(g, seed + i * 7, x0, y - log + 0.035, x1 - x0, log - 0.07, ["#c2b192", "#8f7e62", "#b8a888"], Math.round((x1 - x0) * 2.2), 0.6, 0.09, 0, 0.3);
   }
+  g.restore();
   paper(g, x0, -height, x1 - x0, height, tooth, 0.4);
 }
 

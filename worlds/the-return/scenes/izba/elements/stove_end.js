@@ -17,14 +17,14 @@ g.fillRect(-0.56, -1.95, 1.12, 0.08);
 g.fillStyle = "rgba(120,104,82,0.35)";
 g.fillRect(-0.55, -1.87, 1.1, 0.02);
 // the soot over the mouth, licked up from its crown
-const soot = g.createLinearGradient(0, -1.2, 0, -1.75);
-soot.addColorStop(0, "rgba(74,62,52,0.5)");
+const soot = g.createLinearGradient(0, -1.2, 0, -1.56);
+soot.addColorStop(0, "rgba(74,62,52,0.22)");
 soot.addColorStop(1, "rgba(74,62,52,0)");
 g.fillStyle = soot;
 g.beginPath();
 g.moveTo(0.06, -1.15);
-g.bezierCurveTo(0.12, -1.55, 0.2, -1.7, 0.24, -1.78);
-g.bezierCurveTo(0.29, -1.68, 0.36, -1.55, 0.42, -1.15);
+g.bezierCurveTo(0.14, -1.4, 0.2, -1.5, 0.24, -1.56);
+g.bezierCurveTo(0.28, -1.5, 0.34, -1.4, 0.4, -1.15);
 g.closePath();
 g.fill();
 // the hearth ledge: a shelf standing out before the mouth, its edge and its shade

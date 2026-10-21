@@ -18,8 +18,8 @@ g.fillStyle = "#cfc6b0";
 g.fillRect(wx - 0.022, -top, 0.044, top - sill);
 g.fillRect(wx - w / 2, -top + 0.34, w, 0.04);
 // the paper strips, yellowed, crosswise over the four panes
-g.strokeStyle = "rgba(226,212,172,0.9)";
-g.lineWidth = 0.03;
+g.strokeStyle = "rgba(226,212,172,0.6)";
+g.lineWidth = 0.02;
 const lower = top - sill - 0.38;
 const panes = [
   [wx - w / 2, -top + 0.38, w / 2 - 0.022, lower],
