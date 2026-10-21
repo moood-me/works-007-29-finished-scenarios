@@ -4,6 +4,7 @@
 const INK = e.lib.INK;
 g.fillStyle = '#ebe4d6';
 g.fillRect(-2.7, -3, 5.4, 6);
+e.lib.wash(g, -2.7, -3, 5.4, 6, [235, 228, 214], 5, 0.8, 1, 0);
 // nearer the viewer, away from the windows, the whitewash goes into a warm shade
 const shade = g.createLinearGradient(0, -1, 0, 3);
 shade.addColorStop(0, 'rgba(120,96,74,0)');

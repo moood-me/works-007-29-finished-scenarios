@@ -20,6 +20,11 @@ g.stroke();
 g.strokeStyle = INK;
 g.lineWidth = 0.008;
 g.stroke();
+g.save();
+g.clip();
+e.lib.wash(g, -0.46, -1.2, 0.92, 1.1, [140, 94, 92], 6, 0.03, 0.25, 0.2);
+e.lib.hatch(g, -0.46, -0.42, 0.92, 0.3, 0.025, 0.25, 0.004);
+g.restore();
 // (the seams of the cushioned back, the nails)
 g.beginPath();
 g.moveTo(-0.27, -0.2);

@@ -12,6 +12,12 @@ g.fill();
 g.strokeStyle = INK;
 g.lineWidth = 0.012;
 g.stroke();
+// (the stringer's wood washed, its face hatched in shade)
+g.save();
+g.clip();
+e.lib.wash(g, -1, -2.8, 2, 2.8, [143, 106, 76], 7, 0.05, 0.3, 0.1);
+e.lib.hatch(g, -1, -2.8, 2, 2.8, 0.035, 0.2, 0.004);
+g.restore();
 // (the rail, from the post's top up to the ceiling, and the balusters down to the stringer)
 const top = [0.96, -1.05], dir = [-2.0, -2.8], u = (2.8 - 1.05) / 2.8, end = [top[0] + dir[0] * u, -2.8];
 g.beginPath();

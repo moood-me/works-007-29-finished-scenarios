@@ -23,3 +23,5 @@ for (const s of [-1, 1]) {
   g.strokeRect(x - 0.04, -0.66, 0.08, 0.54);
   g.fillRect(x - 0.025, -0.12, 0.05, 0.12);
 }
+// (the shade under the seat's rail, hatched)
+e.lib.hatch(g, -0.36, -0.27, 0.72, 0.15, 0.025, 0.25, 0.004);

@@ -7,6 +7,8 @@ for (let i = 0; i < 25; i++) {
   g.fillStyle = `rgb(${Math.round(172 + 14 * k)},${Math.round(136 + 10 * k)},${Math.round(98 + 8 * k)})`;
   g.fillRect(x, -3, 0.22, 6);
 }
+// (the paint worn unevenly: the lithograph's wash over the planks)
+e.lib.wash(g, -2.7, -3, 5.4, 6, [176, 140, 101], 4, 0.45, 0.8, 0);
 g.beginPath();
 for (let i = 0; i <= 25; i++) {
   g.moveTo(-2.7 + i * 0.22, -3);

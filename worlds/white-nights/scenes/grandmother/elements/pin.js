@@ -4,9 +4,9 @@
 // Grandmother's end and a glint along it (the engine's glow)
 e.layer('pin', { pivot: [0, 0], box: [-1.2, -1.2, 1.2, 0.3] }, (g) => {
   g.fillStyle = e.lib.INK;
-  g.fillRect(0.2, -0.013, 0.6, 0.026);
-  g.fillStyle = '#f6f8fc';
-  g.fillRect(0.2, -0.007, 0.6, 0.014);
-  e.light(0.22, 0, 0.045, '#fff4dc', 1.4, 'head');
-  e.light(0.52, 0, 0.035, '#fff4dc', 1.1, 'glint');
+  g.fillRect(0.2, -0.01, 0.6, 0.02);
+  g.fillStyle = '#dfe4ec';
+  g.fillRect(0.2, -0.005, 0.6, 0.01);
+  e.light(0.22, 0, 0.03, '#fff4dc', 0.7, 'head');
+  e.light(0.52, 0, 0.022, '#fff4dc', 0.45, 'glint');
 });
