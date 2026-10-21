@@ -89,19 +89,6 @@
       "sky": true
     },
     {
-      "id": "hills",
-      "name": "Far hills",
-      "across": 0,
-      "distance": 900,
-      "height": 200,
-      "box": [
-        -1800,
-        -215,
-        1800,
-        6
-      ]
-    },
-    {
       "id": "woods",
       "name": "Woods behind the house",
       "across": 0,

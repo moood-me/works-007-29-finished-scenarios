@@ -20,7 +20,7 @@ drawing room and the sisters.
   shadows (`shadow` strength 0.75) fall long behind them to the right from the sun low on the left — they stand on the gravel;
   no grass tufts stand before his feet.
 - The house (`house`) above and between them in the distance, 150 m off across the water at across −20, on the
-  relief's rise; the woods (`woods`, 320 m) and the far hills (`hills`, 900 m) behind it; park trees in clumps on
+  relief's rise; the high woods behind it (`woods`, 320 m) close the view — no far hills: from here the woods stand higher than any range at 900 m, which only ever showed as pale flat slivers between their crowns; park trees in clumps on
   either side (`park_tree`, copies); the stone bridge to the right on the far shore (`bridge`, across 38, 106 m, its foot at the
   water's level −0.2), where the stream comes down out of the park into the water: its piers stand in the water on
   pointed cutwaters, the stone wet and darker at the waterline, the vaults in shade with the stream going back under
