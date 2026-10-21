@@ -17,6 +17,6 @@ second cup) — the place, its light and its two people standing. No motion of p
   in the middle with the oil lamp (`table_lamp`, key `lamp`) and the two mugs (`table_things#cup`,
   `table_things#second_cup`); right, the ladder to the hatch and the two bunks.
 - **People.** McDunn by the lever, hands behind his back, looking at Johnny; Johnny on the right, the unlit hand
-  lantern in his hand (the same as on the rock), looking at McDunn. Cast: modules/cast.
+  lantern in his hand (the same as on the rock), looking down at the second cup. Cast: modules/cast.
 - **Keys.** `night` (the sunset → the blue night in the window: the sky's layers cross-fade, the light's look; the sun's
   light out), `lamp`, `stove`, `beacon`, `nora`, `lantern` (as on the rock).

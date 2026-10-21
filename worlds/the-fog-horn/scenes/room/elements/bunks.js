@@ -1,6 +1,6 @@
 // The two bunks along the wall, one over the other: plain wooden frames, grey wool blankets hanging over the rails,
 // a pillow at the head of each — the upper one Johnny's, made tidily; the lower McDunn's.
-const WOOD = '#765c44';
+const WOOD = '#6a5039';
 // the posts
 g.fillStyle = WOOD;
 g.fillRect(-0.99, -1.8, 0.07, 1.8);
@@ -23,16 +23,20 @@ const bunk = (y, blanket, fold) => {
   g.fillStyle = fold;
   g.fillRect(-0.6, y - 0.16, 0.12, 0.38);
   // the pillow
-  g.fillStyle = '#d6d0c2';
+  g.fillStyle = '#c9c2b2';
   g.beginPath();
-  g.ellipse(-0.76, y - 0.17, 0.15, 0.07, 0, 0, Math.PI * 2);
+  g.moveTo(-0.9, y - 0.16);
+  g.quadraticCurveTo(-0.9, y - 0.27, -0.8, y - 0.26);
+  g.lineTo(-0.66, y - 0.25);
+  g.quadraticCurveTo(-0.6, y - 0.24, -0.62, y - 0.16);
+  g.closePath();
   g.fill();
   // the front rail under it
   g.fillStyle = WOOD;
   g.fillRect(-0.92, y, 0.32, 0.12);
 };
-bunk(-0.45, '#7a7f86', '#868b91');
-bunk(-1.38, '#80848a', '#8d9196');
+bunk(-0.45, '#6f6a66', '#7c7672');
+bunk(-1.38, '#6a7078', '#767c84');
 // the top rails
 g.fillStyle = '#6c5440';
 g.fillRect(-0.99, -1.8, 1.98, 0.05);

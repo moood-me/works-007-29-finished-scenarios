@@ -28,16 +28,16 @@ function glow(c, x, y, sx, sy, color, alpha) {
 }
 e.layer('day', {}, c => {
   const sky = c.createLinearGradient(0, Y0, 0, H);
-  sky.addColorStop(0, '#8e97ad');
-  sky.addColorStop(0.55, '#c6b9bb');
-  sky.addColorStop(0.85, '#e8c6aa');
-  sky.addColorStop(1, '#f2cda4');
+  sky.addColorStop(0, '#7d86a2');
+  sky.addColorStop(0.55, '#c3a9aa');
+  sky.addColorStop(0.85, '#eab48c');
+  sky.addColorStop(1, '#f6bf86');
   c.fillStyle = sky;
   c.fillRect(X0, Y0, W, H - Y0);
-  c.fillStyle = '#d9c3ac';
+  c.fillStyle = '#d9b394';
   c.fillRect(X0, H, W, 1.25 - H);
-  glow(c, SX, SY + 0.02, 0.7, 0.07, '#f7c793', 1);
-  glow(c, SX, SY, 0.16, 0.12, '#fbdcb4', 0.95);
+  glow(c, SX, SY + 0.02, 0.7, 0.07, '#f9b77a', 1);
+  glow(c, SX, SY, 0.16, 0.12, '#fdd6a4', 0.95);
 });
 e.layer('sun', { box: [SX - 0.05, SY - 0.05, SX + 0.05, SY + 0.05] }, c => {
   c.fillStyle = '#fff0d6';
