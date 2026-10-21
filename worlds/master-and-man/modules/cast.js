@@ -126,10 +126,10 @@ return {
   ...data,
   characters: {
     // Vasily Andreich Brekhunov, the master: about fifty, stout and ruddy, a trimmed brown beard and moustache; over his
-    // sheepskin the long red fox-fur coat — a fat roll of lighter fur at the neck, the same fur down its front, at its
-    // hem and its cuffs —, a round dark fur hat, felt boots
+    // sheepskin the long red fox-fur coat — a fat roll of lighter fur at the neck, the same fur at its hem and its
+    // cuffs —, a round dark fur hat, felt boots
     vasily: { kind: 'shapes', style: 'tolstoy', who: 'man', garment: 'fox_coat', hair: 'short', hat: 'fur_hat', face: 'tolstoy',
-      parts: ['beard_trim', 'fur_collar', 'fur_front', 'fur_cuffs'],
+      parts: ['beard_trim', 'fur_collar', 'fur_cuffs'],
       body: { height: 1.0, thick: 1.12, shoulders: 1.16, head: 1.1 },
       colors: { skin: '#e8a184', hair: '#6e4128', top: '#7b6a55', garment: '#c45a22', bottom: '#3c3530', shoes: '#4a4038', hat: '#3a2c24', accent: '#e8b07a' } },
     // Nikita, the workman: about fifty, wiry, a greying beard white with frost; a thin homespun coat worn through at the
@@ -153,7 +153,7 @@ return {
     garments: {
       // the fox-fur coat: from the shoulders to below the middle of the shin, wide at the hem, wide sleeves; under its
       // hem a band of lighter fur (an inner layer, a little longer)
-      fox_coat: { name: 'fox-fur coat', hang: [{ to: 1.76, from: 'shoulders', flare: 0.2, color: 'accent', folds: false }, { to: 1.6, from: 'shoulders', flare: 0.18 }],
+      fox_coat: { name: 'fox-fur coat', hang: [{ to: 1.76, from: 'shoulders', flare: 0.1, color: 'accent', folds: false }, { to: 1.6, from: 'shoulders', flare: 0.2 }],
         sleeves: 'garment', wide: 0.14 },
       // the wife's dress: long sleeves, the skirt full from the waist down to the floor
       long_dress: { name: 'long dress', hang: [{ to: 2.02, from: 'waist', flare: 0.5, off: 0.94 }], bodice: true },

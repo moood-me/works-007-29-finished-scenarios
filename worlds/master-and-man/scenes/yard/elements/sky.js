@@ -4,7 +4,7 @@
 const A = e.aspect;
 const X0 = -0.3;
 const X1 = A + 0.3;
-const HZ = 0.46;
+const HZ = 0.49;
 
 const sky = g.createLinearGradient(0, -0.35, 0, HZ);
 sky.addColorStop(0, "#66798f");

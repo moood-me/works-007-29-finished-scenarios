@@ -16,23 +16,23 @@ under her chin, looking at her husband.
 
 ## Space
 
-Metres: across to the right, distance ahead; the eye 1.7 m up, the camera `picture`, the horizon 0.46. A close view
+Metres: across to the right, distance ahead; the eye 1.7 m up, the camera `picture`, the horizon 0.49. A close view
 so the faces read, framed for 4:3 as well as 16:9: the porch and its two people in the left half, Nikita at the middle,
 the horse with the whole sleigh behind him within x 0.125…0.875 of the stage.
 
 | What | Where (across, distance) |
 | --- | --- |
-| the house front (log wall, lit window at across −0.4) | −4.5, 4.2 |
-| the porch landing (0.85 m up), its face, canopy, steps on the right | −1.95, 2.7…3.45 |
-| Vasily Andreich, on the landing, nearest | −1.2, 3.08 |
-| Praskovya, in the open door | −2.25, 3.98 |
-| Nikita, left of the horse's head, facing us | 0.55, 3.78 |
-| Mukhorty (facing 135: head toward us at the left), the sleigh behind him (`on` the horse) | 1.8, 5.0 |
-| the neighbour's hut with smoke, birches, the fence and gate | 9.6…19.6, 14.4…32.4 |
-| the church | 39.6, 84.4 |
+| the house front (log wall, lit window at across −0.4) | −4.5, 4.8 |
+| the porch landing (0.85 m up), its face, canopy, steps on the right | −1.95, 3.3…4.05 |
+| Vasily Andreich, on the landing, nearest | −1.2, 3.68 |
+| Praskovya, in the open door | −2.25, 4.58 |
+| Nikita, at the horse's head on its near side, facing as the horse does (3/4 to us) | 1.27, 4.7 |
+| Mukhorty (facing 140: head toward us at the left), the sleigh behind him (`on` the horse) | 1.69, 5.6 |
+| the neighbour's hut with smoke, birches, the fence and gate | 9.6…19.6, 15…33 |
+| the church | 39.6, 85 |
 
-The paintings were laid out with the eye 0.4 m further left and 0.6 m further back: where a painting's comment gives
-across/distance (the yard's marks, the house's door), take 0.4 from across and 0.6 from distance for the scene's.
+The paintings were laid out with the eye 0.4 m further left: where a painting's comment gives across (the yard's
+marks, the house's door), take 0.4 from it for the scene's.
 
 ## Elements
 
@@ -40,8 +40,8 @@ sky (cold grey-blue, drifting clouds), far_land, church, birch (copies, crowns b
 (+ chimney_smoke), yard (snow plane: tracks, prints, the pressed hollow under Nikita's boots), fence, house_front (the
 door 2.17 m high), roof, window (glows; `window_lamp`), porch_floor / porch / porch_side / canopy / steps / treads,
 horse (+ `breath`, `horse.animate.js`), sleigh, the three people (`modules/cast`, style `tolstoy`, face `tolstoy`: the
-head a little large, eyes with whites, frost-red cheeks, bare hands; Vasily's fox coat has a fur roll collar, fur front
-band, fur cuffs and a lighter fur hem; Nikita's beard has frost, his felt boots dark grey), their breath (`breath_<id>`
+head a little large, eyes with whites, frost-red cheeks, bare hands; Vasily's fox coat has a fur roll collar, fur cuffs and
+a lighter fur hem; Nikita's beard has frost, his felt boots dark grey), their breath (`breath_<id>`
 particles, bursts from their animate), drift_far / drift_near / wind_front (ground wind: drifting see-through wisps —
 drift_near runs behind Nikita, under the horse, so his boots stand clear), drift_front (a near drift at the bottom
 right, under the horse), snowfall.
@@ -57,10 +57,10 @@ the only warm colours.
 ## State
 
 `snow` 0…1 — how thick it falls (0.8). People: Vasily `hands_hips` (his hands on his hips, three-quarters to us),
-`vasily_look` `[0.2, 0.6, 1.1]` (down over the yard), mood smile; Praskovya `stand`, her hands at her chin holding the
+`vasily_look` `[0.2, 1.2, 1.1]` (down over the yard), mood smile; Praskovya `stand`, her hands at her chin holding the
 shawl's ends (`praskovya_reach` — two points under her chin), `praskovya_look` vasily, mood sad; Nikita `stand`, turned
-to us (160), `nikita_look` `[0.9, 3.6, 1.1]` (down by the horse's muzzle), `nikita_reach` `{l: {on: horse, at:
-[-1.2, -0.08, 1.5]}}` — his left hand on the horse's cheek, on its near side, the elbow bent; `script.js` moves it a little down the cheek and back every 2.6 s (he strokes the horse), mood smile.
+as the horse is (230: three-quarters to us), `nikita_look` `horse#nose`, `nikita_reach` `{r: {on: horse, at:
+[-1.2, -0.06, 1.5]}}` — his right hand on the horse's cheek, on its near side, the elbow bent; `script.js` moves it a little down the cheek and back every 2.6 s (he strokes the horse), mood smile.
 
 ## Showcase
 

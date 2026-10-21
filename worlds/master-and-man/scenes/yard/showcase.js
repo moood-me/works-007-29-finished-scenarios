@@ -11,7 +11,7 @@ return [
       await s.wait(3);
       s.person("vasily").look("nikita");
       await s.wait(4);
-      s.person("vasily").look([0.2, 0.6, 1.1]);
+      s.person("vasily").look([0.2, 1.2, 1.1]);
       await s.wait(2);
     },
   },

@@ -29,4 +29,4 @@ illustration — white, grey-blue, ice-blue, with few warm spots: the red fox fu
 - `hands_behind` — stands with the hands behind the back.
 
 The engine's `stand` (at rest, breathing) and `walk`. With `stand`, `<id>_reach` puts a hand where it is told (Nikita's
-left hand on the horse's cheek: `{"l": {"on": "horse", "at": [-1.2, -0.08, 1.5]}}`) and `<id>_look` turns the head.
+right hand on the horse's cheek: `{"r": {"on": "horse", "at": [-1.2, -0.06, 1.5]}}`) and `<id>_look` turns the head.
