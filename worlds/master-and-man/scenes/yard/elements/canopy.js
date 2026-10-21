@@ -1,7 +1,7 @@
 // The porch's canopy, its front toward the yard (held by the corner post at the left and by the consoles on the wall):
 // the beam, the carved white valance under it with icicles, the little gable with its white bargeboard and the snow
 // lying thick on it. Mostly above the frame — it frames the master from above.
-// (x −1.3…1.3 m: across −3.05…−0.45; y −3.95…−2.9 over the ground)
+// (x −1.3…1.3 m: across −3.0…−0.4; y −3.95…−2.9 over the ground)
 const L = e.lib;
 const C = L.C;
 const BEAM = 3.05;
