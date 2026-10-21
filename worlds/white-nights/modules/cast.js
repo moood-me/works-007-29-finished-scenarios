@@ -41,10 +41,10 @@ function topHat(F, c, out, colour) {
   F.ball(top, axes, [0.09 * m, 0.09 * m, 0.006 * m], colour, 18);
 }
 // a man's coat's front over the chest: a waistcoat between the lapels in the lapels' deeper shade of the coat, the shirt's white only
-// a little at the throat under a dark stock, the lapels turned back, a row of buttons down to the waist — on the coat's surface (the trunk's
+// a little at the throat under a dark stock wound round the neck, the lapels turned back, a row of buttons down to the waist — on the coat's surface (the trunk's
 // sections a little out of the coat's own, which stands off them by 1.12)
 const STOCK = [0.14, 0.13, 0.14, 1], BUTTON = [0.2, 0.18, 0.17, 1];
-const FRONT = F => ({ axes: [null, null, null], vest: [0.055 * F.k, 0.075 * F.fit.h, 0.011 * F.k], shirt: [0.03 * F.k, 0.03 * F.fit.h, 0.013 * F.k], stock: [0.04 * F.k, 0.022 * F.fit.h, 0.008 * F.k],
+const FRONT = F => ({ axes: [null, null, null], vest: [0.055 * F.k, 0.075 * F.fit.h, 0.011 * F.k], shirt: [0.03 * F.k, 0.022 * F.fit.h, 0.012 * F.k], stock: [0.062 * F.k, 0.026 * F.fit.h, 0.06 * F.k],
   button: [0.012 * F.k, 0.012 * F.k, 0.006 * F.k], lapel: [[0, 0.016 * F.k], [1, 0.02 * F.k], [2, 0.008 * F.k]] });
 function coatFront(F) {
   const { add, mul, mix } = V(), K = F.keep(FRONT), secs = F.trunk(1.16), waist = secs[2], chest = secs[3], shoulders = secs[4];
@@ -52,8 +52,10 @@ function coatFront(F) {
   const sd = chest[1], uc = F.up('Chest'), fw = chest[2], axes = K.axes, shade = F.colors.garment.map((v, i) => (i < 3 ? v * 0.72 : v));
   axes[0] = sd; axes[1] = uc; axes[2] = fw;
   F.ball(mix(front(shoulders), front(chest), 0.55), axes, K.vest, shade, 12);
-  F.ball(mix(front(shoulders), front(chest), 0.18), axes, K.shirt, F.colors.top, 12);
-  F.ball(add(front(shoulders), mul(uc, 0.012 * F.fit.h)), axes, K.stock, STOCK, 10);
+  // (the stock wound round the neck's foot, the shirt's white showing under it at the front)
+  const neck = F.P('Neck1');
+  F.ball(add(neck, mul(uc, 0.012 * F.fit.h)), axes, K.stock, STOCK, 12);
+  F.ball(add(add(neck, mul(fw, 0.052 * F.k)), mul(uc, -0.022 * F.fit.h)), axes, K.shirt, F.colors.top, 10);
   for (const sx of [-1, 1]) F.tube([front(shoulders, sx * 0.38), front(chest, sx * 0.3), front(waist, sx * 0.04)], K.lapel, [[0, shade]], 6, fw);
   for (const u of [0.25, 0.6, 0.95]) F.ball(mix(front(chest, 0.12), front(waist, 0.1), u), axes, K.button, BUTTON, 6);
 }
