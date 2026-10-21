@@ -7,11 +7,14 @@ const rnd = (n, seed) => anim.hash(n, seed);
 
 // `n` soft rounded dabs over the rectangle x, y, w, h in the colours given (picked at random), each `r` across (±40%),
 // `squash` as tall as wide, at `alpha` — the gouache's broken colour over a flat ground, kept within the rectangle
-function dabs(g, seed, x, y, w, h, colors, n, r, squash = 0.6, alpha = 0.5) {
+// (unless `loose`: a bush's leaves, round at its edge)
+function dabs(g, seed, x, y, w, h, colors, n, r, squash = 0.6, alpha = 0.5, loose = false) {
   g.save();
-  g.beginPath();
-  g.rect(x, y, w, h);
-  g.clip();
+  if (!loose) {
+    g.beginPath();
+    g.rect(x, y, w, h);
+    g.clip();
+  }
   const was = g.globalAlpha;
   g.globalAlpha = alpha;
   for (let i = 0; i < n; i++) {

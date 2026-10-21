@@ -58,8 +58,8 @@ return {
       body: { height: 1.01, thick: 0.92 },
       colors: { skin: '#e3b796', hair: '#2b211c', top: '#ece6da', garment: '#2f5446', bottom: '#2c2a2a', shoes: '#231c18', accent: '#b2333a' },
     },
-    // the Mistress, the wizard's mortal wife: sturdy, past fifty, dark hair in a bun with one grey lock at the left
-    // temple she does not dye (so that he sees it), a madder-red homespun dress, a cream apron
+    // the Mistress, the wizard's mortal wife: sturdy, past fifty, dark hair in a bun with one grey lock from the
+    // brow she does not dye (so that he sees it), a madder-red homespun dress, a cream apron
     hozyayka: {
       kind: 'shapes', style: 'tale', who: 'woman', garment: 'dress_apron', hair: 'bun_grey',
       body: { height: 0.92, thick: 1.0, shoulders: 0.92, hips: 1.12 },
@@ -91,13 +91,13 @@ return {
       dress_apron: { name: 'dress and apron', hang: [{ to: 1.9, from: 'waist', flare: 0.42, off: 0.94, color: 'top' }], bare: true,
         draw: F => MooodShapes.GARMENTS.apron.draw(F) },
     },
-    // hair in a bun, one grey lock from the left temple back over the crown
+    // hair in a bun, one grey lock from the brow's parting back over the crown
     hair: {
       bun_grey: { name: 'bun with a grey lock', draw: F => {
         MooodShapes.HAIR.bun.draw(F);
         const { axes, r: rh, on } = F.head;
-        F.tube([on([0.3, 0.42, 0.82], 1.04), on([0.36, 0.78, 0.4], 1.07), on([0.28, 0.82, -0.3], 1.07), on([0.18, 0.62, -0.75], 1.05)],
-          [[0, rh * 0.07], [1, rh * 0.1], [3, rh * 0.06]], [[0, GREY]], 8, axes[1], 0.5);
+        F.tube([on([0.14, 0.44, 0.88], 1.04), on([0.18, 0.8, 0.45], 1.07), on([0.16, 0.86, -0.25], 1.07), on([0.12, 0.62, -0.75], 1.05)],
+          [[0, rh * 0.1], [1, rh * 0.13], [3, rh * 0.07]], [[0, GREY]], 8, axes[1], 0.5);
       } },
     },
     // an arm with a working hand (a broad palm, its fingers' ends not pinched); a leg in trousers

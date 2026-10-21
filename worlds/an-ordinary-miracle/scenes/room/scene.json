@@ -42,9 +42,11 @@
     },
     {
       "id": "window",
-      "of": "window#sky",
+      "across": -0.67,
+      "distance": 4.6,
+      "elevation": 1.75,
       "color": "#a9badb",
-      "strength": 1.2,
+      "strength": 1.0,
       "reach": 4
     }
   ],
@@ -623,8 +625,8 @@
         "who": "medved",
         "turn": 220
       },
-      "across": 1.85,
-      "distance": 3.3,
+      "across": 1.75,
+      "distance": 3.35,
       "shadow": true
     }
   ],

@@ -1,7 +1,7 @@
 // The window on the mountains, from inside (its opening x −0.65…0.65, 1.15…2.35 m up, left open — the panes are not
 // painted, the storm shows through): a frame of six small panes, a deep sill, a white embroidered towel draped over
-// the frame's top with red-stitched ends hanging, a red geranium in a clay pot on the sill. The window's light
-// (`sky`: the scene's light `window`, cool, brightening with the far lightning — animate).
+// the frame's top with red-stitched ends hanging, a red geranium in a clay pot on the sill. (The cool light coming in
+// is the scene's light `window`.)
 const L = e.lib, X = 0.65, Y0 = -2.35, Y1 = -1.15;
 g.fillStyle = '#8a6038';
 g.fillRect(-X - 0.1, Y0 - 0.1, 0.1, Y1 - Y0 + 0.2);
@@ -60,6 +60,5 @@ g.lineTo(-0.3, Y1 - 0.15);
 g.lineTo(-0.34, Y1);
 g.closePath();
 g.fill();
-L.dabs(g, 141, -0.6, Y1 - 0.38, 0.36, 0.24, ['#4f7a3e', '#3e6633', '#6a8f4c'], 26, 0.045, 0.8, 0.95);
-L.dabs(g, 142, -0.56, Y1 - 0.44, 0.26, 0.14, ['#d83a34', '#e8564a', '#b5282a'], 16, 0.03, 0.9, 0.95);
-e.light(0, (Y0 + Y1) / 2, 0.55, '#b4c2e0', 0.35, 'sky');
+L.dabs(g, 141, -0.6, Y1 - 0.38, 0.36, 0.24, ['#4f7a3e', '#3e6633', '#6a8f4c'], 26, 0.045, 0.8, 0.95, true);
+L.dabs(g, 142, -0.56, Y1 - 0.44, 0.26, 0.14, ['#d83a34', '#e8564a', '#b5282a'], 16, 0.03, 0.9, 0.95, true);
