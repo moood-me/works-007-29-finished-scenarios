@@ -15,9 +15,10 @@ function glow(g, x, y, sx, sy, color, alpha) {
   g.save();
   g.translate(x, y);
   g.scale(sx, sy);
+  // (falling off smoothly — no edge to its disc)
+  const [cr, cg, cb] = [1, 3, 5].map(i => parseInt(color.slice(i, i + 2), 16));
   const r = g.createRadialGradient(0, 0, 0, 0, 0, 1);
-  r.addColorStop(0, color);
-  r.addColorStop(1, 'rgba(0,0,0,0)');
+  for (const u of [0, 0.2, 0.4, 0.6, 0.8, 1]) r.addColorStop(u, `rgba(${cr},${cg},${cb},${(1 - u * u) ** 2})`);
   g.globalAlpha = alpha;
   g.fillStyle = r;
   g.beginPath();
@@ -54,7 +55,7 @@ e.layer('clouds', { drift: [0.003, 0], box: [X0, Y0, A + 0.3, H] }, g => {
     const y = 0.05 + Math.pow(e.rnd(), 0.8) * 0.42;
     const w = 0.25 + e.rnd() * 0.45;
     const h = 0.012 + e.rnd() * 0.025;
-    const c = e.rnd() < 0.45 ? '#efdccc' : '#cacad3';
+    const c = e.rnd() < 0.45 ? '#f0e0d2' : '#d4d3db';
     for (const k of [-W, 0, W]) glow(g, x + k, y, w, h, c, 0.35 + 0.25 * e.rnd());
   }
 });
