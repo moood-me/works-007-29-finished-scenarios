@@ -14,13 +14,11 @@
     "grain": 0.06,
     "haze": 0.05,
     "hazeColor": "#d8c2c8",
-    "ambient": 0.6,
-    "ambientColor": "#aeb0d8",
+    "ambient": 0.65,
+    "ambientColor": "#b4b6dc",
     "bounce": 0.55,
     "brightness": 1.0,
-    "saturation": 1.1,
-    "tint": "#ff9c70",
-    "tintStrength": 0.05,
+    "saturation": 1.0,
     "wind": [
       1,
       0.3,
@@ -34,8 +32,8 @@
         155,
         5
       ],
-      "color": "#ffb47e",
-      "strength": 1.7
+      "color": "#ffc898",
+      "strength": 1.25
     }
   ],
   "objects": [
@@ -53,7 +51,7 @@
       "onLand": false,
       "box": [
         -3650,
-        -420,
+        -540,
         3650,
         6
       ]
@@ -115,8 +113,8 @@
     {
       "id": "keep",
       "name": "The old castle's high wall and tower",
-      "across": -4.4,
-      "distance": 11,
+      "across": -4.0,
+      "distance": 9.5,
       "facing": 180,
       "box": [
         -6.4,
@@ -125,21 +123,6 @@
         0.05
       ],
       "shadow": true
-    },
-    {
-      "id": "spur_face",
-      "name": "The spur's cliff",
-      "across": 1.4,
-      "distance": 6.4,
-      "facing": 112,
-      "onLand": false,
-      "elevation": 0,
-      "box": [
-        0,
-        -0.5,
-        10.8,
-        12
-      ]
     },
     {
       "id": "ground",
@@ -156,7 +139,7 @@
       "id": "wall",
       "name": "The low wall over the cliff",
       "across": 0,
-      "distance": 6.4,
+      "distance": 5.0,
       "facing": 180,
       "onLand": false,
       "elevation": 0,
@@ -175,7 +158,7 @@
       "unseen": true,
       "walk": true,
       "across": -0.05,
-      "distance": 7.05,
+      "distance": 5.65,
       "elevation": 1.9,
       "width": 2.9,
       "depth": 1.3
@@ -183,8 +166,8 @@
     {
       "id": "ash",
       "name": "The ash at the ruin's edge",
-      "across": -4.3,
-      "distance": 6.8,
+      "across": -3.7,
+      "distance": 5.6,
       "translucent": 0.3,
       "box": [
         -3.4,
@@ -200,11 +183,11 @@
       "person": {
         "cast": "cast",
         "who": "nn",
-        "turn": 110,
+        "turn": 105,
         "does": "hands_behind"
       },
-      "across": -1.65,
-      "distance": 3.9,
+      "across": -1.5,
+      "distance": 3.3,
       "shadow": true
     },
     {
@@ -215,8 +198,8 @@
         "who": "gagin",
         "turn": 130
       },
-      "across": -0.6,
-      "distance": 5.6,
+      "across": -0.55,
+      "distance": 4.3,
       "shadow": true
     },
     {
@@ -225,18 +208,18 @@
       "person": {
         "cast": "cast",
         "who": "asya",
-        "turn": 150,
+        "turn": 165,
         "does": "seated"
       },
-      "across": 1.3,
-      "distance": 6.95,
+      "across": 1.42,
+      "distance": 5.55,
       "shadow": true
     }
   ],
   "state": {
     "asya_on": [
-      1.3,
-      6.95,
+      1.42,
+      5.55,
       1.9
     ],
     "asya_look": "nn",

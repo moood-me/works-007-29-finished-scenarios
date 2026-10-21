@@ -1,10 +1,10 @@
-// The ash at the ruin's edge, 6.8 m ahead on the left (the game's «ясень с Мадонной»): a grey trunk leaning a little
+// The ash at the ruin's edge, 5.6 m ahead on the left (the game's «ясень с Мадонной»): a grey trunk leaning a little
 // toward the wall, a small wooden shrine nailed to it with a blue-robed Madonna; its crown overhead, mostly above the
 // frame — what is seen of it are the long feathered fronds hanging into the frame's top, in the wind (layers `crown`
 // and `fronds`). Being toward the frame's left, it is mostly a pencil drawing.
 const L = e.lib;
-const ACROSS = -4.3;
-const D = 6.8;
+const ACROSS = -3.7;
+const D = 5.6;
 const box = [-3.4, -10, 5.4, 0.05];
 // the trunk and the boughs
 g.fillStyle = "#9b958a";

@@ -1,7 +1,7 @@
 // The crest and the spur, seen from above (a plane: x across, y toward the viewer, metres; its middle 3 m left and
 // 9.55 m ahead): the summer turf of the hilltop the ruin stands on, a trodden path across it to the low wall's broken
-// end; its right edge is the cliff's — 0.35 m right of the line of sight up to the wall, then the spur's edge running
-// out to the right to 16.4 m; beyond it nothing (the drop). Toward the frame's foot and its left it is only drawn —
+// end; its right edge is the cliff's — 0.9 m right of the line of sight up to the wall, then the spur's edge going back
+// from the wall's right end to 16.4 m; beyond it nothing (the drop). Toward the frame's foot and its left it is only drawn —
 // pencil on paper.
 const L = e.lib;
 const N = e.anim.noise;
@@ -10,7 +10,7 @@ const AD = 9.55;
 const W = 9;
 const H = 6.95;
 // where the turf ends on the right, at a distance (the cliff's edge, a little ragged)
-const edgeAt = (d) => (d < 6.4 ? 0.35 : 1.4 + 0.4 * (d - 6.4)) + 0.05 * N(d * 3, 17);
+const edgeAt = (d) => (d < 5 ? 0.9 : 1.4 - 0.04 * (d - 5)) + 0.05 * N(d * 3, 17);
 const kOf = (across, d) => Math.max(L.edge(across / d), L.foot(d));
 // the turf, band by band toward the viewer, going over to the paper toward the frame's foot and its left
 for (let y = -H; y < H; y += 0.1) {
@@ -28,7 +28,7 @@ for (let y = -H; y < H; y += 0.1) {
 // the path: a trodden band of earth from the frame's foot to the wall's broken end
 g.save();
 g.lineCap = "round";
-const path = [[-0.9 - AX, AD - 2.6], [-1.3 - AX, AD - 4.2], [-2.2 - AX, AD - 6.25]];
+const path = [[-0.7 - AX, AD - 2.6], [-1.1 - AX, AD - 3.6], [-2.1 - AX, AD - 4.85]];
 for (const [w, tone] of [[0.6, "rgba(196, 178, 140, 0.55)"], [0.32, "rgba(206, 190, 154, 0.6)"]]) {
   g.strokeStyle = tone;
   g.lineWidth = w;
@@ -46,7 +46,7 @@ for (let y = -H + 0.05; y < H; y += 0.12) {
   if (d > 16.4) continue;
   const right = edgeAt(d) - AX;
   for (let x = -5 - AX + 0.1 * L.rnd(n, 281); x < right - 0.05; x += 0.16 + 0.1 * L.rnd(n, 283), n++) {
-    if (d > 6.4 && AX + x > -2.3 && AX + x < 1.2) continue;
+    if (d > 5 && AX + x > -2.3) continue;
     const k = kOf(AX + x, d);
     if (k > 0.95) continue;
     g.strokeStyle = k > 0.5 ? L.graphite(0.25 * k) : n % 2 ? `rgba(104, 128, 70, ${0.55 * (1 - k)})` : `rgba(176, 192, 120, ${0.5 * (1 - k)})`;

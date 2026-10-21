@@ -1,11 +1,11 @@
-// The old castle's high wall on the spur, 11 m ahead on the left, its face toward us: on its right the stump of the
+// The old castle's high wall on the spur, 9.5 m ahead on the left, its face toward us: on its right the stump of the
 // tower (10 m, its top broken), on its left the curtain wall, ragged, with a tall pointed window open to the sky; worn
 // sandstone in courses, put-log holes, weather streaks; ivy over its lower part, grass and small bushes on its broken
 // tops (their own layers, in the wind). Its left is a pencil drawing.
 const L = e.lib;
 const N = e.anim.noise;
-const ACROSS = -4.4;
-const D = 11;
+const ACROSS = -4;
+const D = 9.5;
 const box = [-6.4, -10.6, 3.6, 0.05];
 // the silhouette: the curtain wall's ragged top rising from the left, the tower's broken top on the right
 const outline = [[-6.4, 0.05], [-6.4, -4.6], [-5.8, -5.0], [-5.3, -4.8], [-4.7, -5.6], [-4.0, -5.9], [-3.4, -6.6],

@@ -1,13 +1,13 @@
-// The low wall over the cliff, 6.4 m ahead, its face toward us: what is left of the castle's outer wall, 1.9 m high,
+// The low wall over the cliff, 5 m ahead, its face toward us: what is left of the castle's outer wall, 1.9 m high,
 // from its broken left end (a step, a heap of fallen stones — the way up onto its broad crest) to its right end over
-// the drop, where Asya sits. Left of 0.35 m it stands on the crest's grass; right of it the crest ends and the wall
+// the drop, where Asya sits. Left of 0.9 m it stands on the crest's grass; right of it the crest ends and the wall
 // stands on the bare rock of the cliff, which goes on down out of the frame. Ivy on its left end and a festoon near
 // its right; grass on its top in the wind (its own layers).
 const L = e.lib;
 const ACROSS = 0;
-const D = 6.4;
+const D = 5;
 const box = [-2.45, -2.25, 1.5, 2.6];
-const EDGE = 0.35;
+const EDGE = 0.9;
 // the top of the wall over x: the fallen left end, a step, the long level crest with its notches, the broken corner
 const topAt = (x) => {
   if (x < -2.0) return -0.5 - 0.15 * L.smooth(-2.45, -2.0, x);
@@ -44,7 +44,7 @@ for (let i = 0; i < 26; i++) {
 g.restore();
 // tufts and a small bush clinging to the rock
 g.fillStyle = "#6f8a4c";
-for (const [x, y, r] of [[0.6, 0.45, 0.16], [1.15, 1.2, 0.22], [0.75, 1.9, 0.14], [1.35, 0.15, 0.1]]) {
+for (const [x, y, r] of [[1.05, 0.45, 0.14], [1.3, 1.2, 0.18], [1.1, 1.9, 0.14], [1.42, 0.15, 0.08]]) {
   g.beginPath();
   g.ellipse(x, y, r * 1.3, r, 0, 0, Math.PI * 2);
   g.fill();
@@ -101,7 +101,7 @@ e.layer("ivy", { wind: 0.15, pivot: [-1.6, -1.6] }, (c) => {
   for (let i = 0; i < 110; i++) {
     const u = L.rnd(i, 237);
     const right = i % 4 === 0;
-    const x = right ? 0.45 + 0.5 * u : -2.45 + 1.1 * u;
+    const x = right ? 0.35 + 0.45 * u : -2.45 + 1.1 * u;
     const top = topAt(x) + 0.05;
     const y = right ? top + 1.1 * L.rnd(i, 239) ** 1.6 : top + (0.05 - top) * L.rnd(i, 239) ** 0.8;
     c.fillStyle = ["#4f6f3e", "#5d7d47", "#46663a", "#6a8a50"][i % 4];

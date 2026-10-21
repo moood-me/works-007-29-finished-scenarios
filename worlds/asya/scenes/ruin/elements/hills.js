@@ -12,12 +12,12 @@ const ridge = (x, base, rise, seed, scale) => -(base + rise * (0.5 + 0.5 * N(x /
 g.fillStyle = "#9fb0c6";
 g.beginPath();
 g.moveTo(-W, 6);
-for (let x = -W; x <= W; x += 40) g.lineTo(x, ridge(x, 210, 140, 12, 1000));
+for (let x = -W; x <= W; x += 40) g.lineTo(x, ridge(x, 300, 160, 12, 1000));
 g.lineTo(W, 6);
 g.fill();
 // the near ridge: its line, and the land under it
 const top = [];
-for (let x = -W; x <= W; x += 25) top.push([x, ridge(x, 90, 170, 15, 700)]);
+for (let x = -W; x <= W; x += 25) top.push([x, ridge(x, 150, 230, 15, 700)]);
 const topAt = (x) => top[Math.min(top.length - 1, Math.max(0, Math.round((x + W) / 25)))][1];
 g.fillStyle = "#8fa673";
 g.beginPath();
@@ -66,4 +66,4 @@ g.fillRect(rx + 3.5, ry - 37, 4.5, 4.5);
 // the bank's foot, darker, at the water
 g.fillStyle = "#6e8657";
 g.fillRect(-W, -10, 2 * W, 16);
-L.unfinish(g, [-W - 50, -420, W + 50, 6], ACROSS, D);
+L.unfinish(g, [-W - 50, -540, W + 50, 6], ACROSS, D);

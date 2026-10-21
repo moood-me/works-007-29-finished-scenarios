@@ -53,7 +53,7 @@ for (let i = 0; i < road.length; i++) {
 g.stroke();
 // the bank's shingle at the far edge, where the river begins
 g.fillStyle = "#d8cfb8";
-g.fillRect(-W, -H, 2 * W, 12);
+g.fillRect(-W, -H, 2 * W, 6);
 // toward the sides of the frame: paper (by where each band is seen: across over its distance)
 for (let y = -H; y < H; y += 20) {
   const d = AD - (y + 10);
