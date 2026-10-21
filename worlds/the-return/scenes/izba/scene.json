@@ -33,7 +33,7 @@
     "lyuba_reach": {
       "r": [-0.368, 2.501, 0.86], "l": [-0.27, 2.483, 0.86]
     },
-    "petrushka_look": [1, 2, 1.45],
+    "petrushka_look": [0.6, 1.3, 1.4],
     "petrushka_mood": "angry",
     "ivanov_look": [0.2, 2, 1.3],
     "ivanov_mood": "thinking"
@@ -61,7 +61,7 @@
     {"id": "sack", "name": "Kit bag by the door", "across": 1.3, "distance": 3, "height": 0.45, "box": [-0.34, -0.47, 0.3, 0.03], "shadow": true, "inside": true},
     {"id": "motes", "name": "Dust in the lamplight", "inside": true, "particles": {"kind": "dust", "at": [0.2, 2.8, 1.3], "source": [2, 1.2, 1], "rate": 4, "life": [10, 16]}},
     {"id": "lyuba", "name": "Lyuba", "person": {"cast": "cast", "who": "lyuba", "turn": 190}, "across": -0.3, "distance": 2.6, "shadow": true, "inside": true},
-    {"id": "petrushka", "name": "Petrushka", "person": {"cast": "cast", "who": "petrushka", "turn": 160, "does": "hands_behind"}, "across": 0.2, "distance": 2.45, "shadow": true, "inside": true},
+    {"id": "petrushka", "name": "Petrushka", "person": {"cast": "cast", "who": "petrushka", "turn": 175, "does": "hands_behind"}, "across": 0.2, "distance": 2.45, "shadow": true, "inside": true},
     {"id": "ivanov", "name": "Ivanov", "person": {"cast": "cast", "who": "ivanov", "turn": 220, "look": {"parts": ["coat_kit"]}}, "across": 1, "distance": 3.25, "shadow": true, "inside": true}
   ]
 }

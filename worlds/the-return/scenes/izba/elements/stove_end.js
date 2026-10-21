@@ -2,8 +2,7 @@
 // by hand; its mouth (x 0.1…0.6, 0.82…1.32 m up, its top arched) cut out and facing the eye — the fire inside
 // (`stove_inside`, `stove_fire`) is seen straight through it, its light on the faces by the table; the hearth ledge under
 // the mouth with the iron pot on it; the soot over the mouth; the dark niche under the hearth with firewood in it; the
-// iron door taken off and leant by the plinth; the oven fork leaning at the left; two little niches with mittens drying;
-// over its top's edge a pair of felt boots.
+// iron door taken off and leant by the plinth; the oven fork leaning at the left; two little niches with mittens drying.
 const L = e.lib;
 L.whitewash(g, 91, -0.7, -1.85, 1.4, 1.85, 0.8);
 // the cornice at the top's edge, a line of shade under it
@@ -13,12 +12,12 @@ g.fillStyle = "rgba(120,104,82,0.35)";
 g.fillRect(-0.72, -1.81, 1.44, 0.02);
 // the soot over the mouth, rising
 const soot = g.createLinearGradient(0, -1.3, 0, -1.84);
-soot.addColorStop(0, "rgba(70,60,52,0.6)");
+soot.addColorStop(0, "rgba(70,60,52,0.28)");
 soot.addColorStop(1, "rgba(70,60,52,0)");
 g.fillStyle = soot;
 g.beginPath();
 g.moveTo(0.06, -1.28);
-g.quadraticCurveTo(0.35, -2.0, 0.64, -1.28);
+g.quadraticCurveTo(0.35, -1.75, 0.64, -1.28);
 g.closePath();
 g.fill();
 // the hearth ledge: a shelf of whitewash before the mouth, its edge
@@ -125,27 +124,6 @@ for (const x of [-0.42, -0.2]) {
 g.fillStyle = "#a39d92";
 g.fillRect(-0.17, -1.52, 0.045, 0.1);
 g.fillRect(-0.115, -1.51, 0.045, 0.09);
-// on the stove's top, seen over its edge: a pair of grey felt boots drying
-g.fillStyle = "#b4aea2";
-g.beginPath();
-g.moveTo(-0.3, -1.88);
-g.lineTo(-0.28, -2.1);
-g.lineTo(-0.18, -2.1);
-g.lineTo(-0.17, -1.95);
-g.lineTo(-0.06, -1.92);
-g.lineTo(-0.06, -1.88);
-g.closePath();
-g.fill();
-g.fillStyle = "#a9a397";
-g.beginPath();
-g.moveTo(-0.14, -1.88);
-g.lineTo(-0.12, -2.06);
-g.lineTo(-0.02, -2.06);
-g.lineTo(-0.01, -1.94);
-g.lineTo(0.09, -1.91);
-g.lineTo(0.09, -1.88);
-g.closePath();
-g.fill();
 // the corner toward the room, a line of shade
 g.fillStyle = "rgba(150,134,110,0.4)";
 g.fillRect(0.65, -1.85, 0.05, 1.85);
