@@ -322,7 +322,7 @@
       "person": {
         "cast": "cast",
         "who": "elizabeth",
-        "turn": 190
+        "turn": 170
       },
       "across": -1.1,
       "distance": 4.0,
@@ -334,7 +334,7 @@
       "person": {
         "cast": "cast",
         "who": "darcy",
-        "turn": 215,
+        "turn": 145,
         "does": "hands_behind"
       },
       "across": 1.15,

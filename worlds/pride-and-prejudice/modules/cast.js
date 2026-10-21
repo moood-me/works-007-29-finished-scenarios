@@ -19,13 +19,13 @@ return {
     // high at the throat, fawn breeches, black boots
     darcy: { kind: 'shapes', style: 'austen', who: 'man', garment: 'tailcoat', hair: 'short', parts: ['cravat'],
       body: { height: 1.06, thick: 0.9, shoulders: 1.04 },
-      colors: { skin: '#e2bea0', hair: '#2a1e17', top: '#f2efe6', garment: '#29334a', bottom: '#a38f6c', shoes: '#1f1b19' } },
+      colors: { skin: '#e2bea0', hair: '#2a1e17', top: '#f2efe6', garment: '#29334a', bottom: '#8c7b5c', shoes: '#1f1b19' } },
   },
   shapes: {
     // the world's style: slender, long-legged, small-headed figures; colours with their shade (a wash), a fine line a
     // darker shade of what it edges (the pen); faces with eyes, brows and a mouth, as the drawings have them
     styles: {
-      austen: { from: 'soft', name: 'Pride and Prejudice', head: 1.15, egg: [0.9, 1.08, 0.96], neck: 0.95, legs: 1.06, limb: 0.78,
+      austen: { from: 'soft', name: 'Pride and Prejudice', head: 1.08, egg: [0.9, 1.08, 0.96], neck: 0.95, legs: 1.06, limb: 0.78,
         sides: 20, square: 2, trunk: { w: [0.84, 0.88, 0.74, 0.88, 0.98], d: [0.82, 0.84, 0.74, 0.8, 0.72] }, arms: 'palm', feet: 'point',
         paint: 'toned', line: 1.1, tinted: true, folds: { n: 6, depth: 0.05 }, face: 'simple', ground: 'paper', drape: true },
     },
@@ -33,7 +33,7 @@ return {
       // a high-waisted gown: hung from the shoulders, falling straight and a little wider to the ankle, long sleeves
       gown: { name: 'high-waisted gown', hang: [{ to: 1.95, from: 'shoulders', flare: 0.3 }], sleeves: 'garment', bodice: true },
       // a gentleman's coat: from the shoulders to mid-thigh, close to the body, long sleeves
-      tailcoat: { name: 'coat', hang: [{ to: 0.6, from: 'shoulders', flare: 0.03, off: 1.0 }], sleeves: 'garment' },
+      tailcoat: { name: 'coat', hang: [{ to: 0.6, from: 'shoulders', flare: 0.04 }], sleeves: 'garment' },
     },
     parts: {
       // a sash round the gown just under the bust (the look's accent colour): a band between the gown's chest ring and
@@ -63,8 +63,8 @@ return {
       cravat: { name: 'cravat', draw: F => {
         const { add, mul } = V(), k = F.k, m = F.fit.h, axes = [F.side('Chest'), F.up('Chest'), F.fwd('Chest')];
         const knot = add(F.P('Neck1'), add(mul(axes[2], 0.05 * k), mul(axes[1], -0.01 * m)));
-        F.ball(knot, axes, [0.06 * k, 0.05 * m, 0.04 * k], LINEN, 12);
-        F.ball(add(knot, add(mul(axes[1], -0.06 * m), mul(axes[2], 0.005 * k))), axes, [0.045 * k, 0.05 * m, 0.03 * k], LINEN, 10);
+        F.ball(knot, axes, [0.045 * k, 0.035 * m, 0.03 * k], LINEN, 12);
+        F.ball(add(knot, add(mul(axes[1], -0.045 * m), mul(axes[2], 0.004 * k))), axes, [0.03 * k, 0.035 * m, 0.022 * k], LINEN, 10);
       } },
     },
   },
