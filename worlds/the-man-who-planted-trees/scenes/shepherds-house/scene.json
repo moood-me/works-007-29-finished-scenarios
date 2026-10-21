@@ -218,8 +218,8 @@
           0.3,
           0.6
         ],
-        "color": "#b9b0b2",
-        "opacity": 0.45,
+        "color": "#a29a9e",
+        "opacity": 0.6,
         "wind": 1,
         "turbulence": 0.6
       }
@@ -542,7 +542,7 @@
       "person": {
         "cast": "cast",
         "who": "elzeard",
-        "turn": 215,
+        "turn": 35,
         "does": "hands_behind"
       },
       "across": 1.3,
@@ -555,7 +555,7 @@
       "person": {
         "cast": "cast",
         "who": "traveller",
-        "turn": 115
+        "turn": 295
       },
       "across": -0.6,
       "distance": 4.4,
@@ -567,7 +567,7 @@
       "person": {
         "cast": "cast",
         "who": "lina",
-        "turn": 135
+        "turn": 315
       },
       "across": -2.0,
       "distance": 5.2,

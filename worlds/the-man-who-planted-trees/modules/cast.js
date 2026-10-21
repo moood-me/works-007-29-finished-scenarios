@@ -4,7 +4,7 @@
 // carries. A part's lengths are a man's metres times F.fit.h (the person's height as a share of a man's 1.76 m); the
 // points a part names (F.point) are the person's: "elzeard#rod".
 const V = () => MooodShapes.V;
-const IRON = [0.2, 0.2, 0.21, 1], TIN = [0.66, 0.66, 0.63, 1], LEATHER = [0.42, 0.31, 0.22, 1], CLOTH = [0.47, 0.5, 0.42, 1];
+const IRON = [0.2, 0.2, 0.21, 1], TIN = [0.48, 0.48, 0.46, 1], LEATHER = [0.42, 0.31, 0.22, 1], CLOTH = [0.47, 0.5, 0.42, 1];
 const STRAP = [0.3, 0.22, 0.16, 1];
 // toward the person's right, level
 function rightOf(F) {
