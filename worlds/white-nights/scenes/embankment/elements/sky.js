@@ -1,14 +1,14 @@
 // The white night's sky, in stage heights: lilac-grey above, paling to pearl, a warm rose-peach band low over the
 // horizon where the evening glow lingers into the dawn (the north-west, over the far bank, to the left: a soft warm
 // glow there, the point sky#afterglow); below the horizon the same pale air. High thin streaks of cloud drift slowly across (a layer the engine moves).
-const A = e.aspect, H = 0.56; // (H: the horizon on the stage, as the scene's "horizon" says)
-const air = g.createLinearGradient(0, -0.35, 0, 1.25);
+const A = e.aspect, H = 0.47; // (H: the horizon on the stage, as the scene's "horizon" says)
+const air = g.createLinearGradient(0, -0.35, 0, 1.25), at = y => (y + 0.35) / 1.6; // (a stop at the stage height y)
 air.addColorStop(0, '#a7a5c3');
-air.addColorStop(H - 0.24, '#c6c0d7');
-air.addColorStop(H - 0.05, '#e2d8df');
-air.addColorStop(H - 0.005, '#f1e1d6');
-air.addColorStop(H + 0.015, '#f3e8df');
-air.addColorStop(H + 0.12, '#e8e2e1');
+air.addColorStop(at(H - 0.24), '#c6c0d7');
+air.addColorStop(at(H - 0.05), '#e2d8df');
+air.addColorStop(at(H - 0.005), '#f1e1d6');
+air.addColorStop(at(H + 0.015), '#f3e8df');
+air.addColorStop(at(H + 0.12), '#e8e2e1');
 air.addColorStop(1, '#dbd8df');
 g.fillStyle = air;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);

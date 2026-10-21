@@ -40,18 +40,19 @@ function topHat(F, c, out, colour) {
   F.bar(add(c, mul(out, 0.01 * m)), add(c, mul(out, 0.035 * m)), 0.085 * m, 0.086 * m, [[0, BAND]], 18, side);
   F.ball(top, axes, [0.09 * m, 0.09 * m, 0.006 * m], colour, 18);
 }
-// a man's coat's front over the chest: the shirt's white between the lapels, a dark stock at the throat, the lapels
-// turned back in a deeper shade of the coat, a row of buttons down to the waist — on the coat's surface (the trunk's
+// a man's coat's front over the chest: a waistcoat between the lapels in the lapels' deeper shade of the coat, the shirt's white only
+// a little at the throat under a dark stock, the lapels turned back, a row of buttons down to the waist — on the coat's surface (the trunk's
 // sections a little out of the coat's own, which stands off them by 1.12)
 const STOCK = [0.14, 0.13, 0.14, 1], BUTTON = [0.2, 0.18, 0.17, 1];
-const FRONT = F => ({ axes: [null, null, null], shirt: [0.05 * F.k, 0.07 * F.fit.h, 0.012 * F.k], stock: [0.045 * F.k, 0.03 * F.fit.h, 0.02 * F.k],
+const FRONT = F => ({ axes: [null, null, null], vest: [0.055 * F.k, 0.075 * F.fit.h, 0.011 * F.k], shirt: [0.03 * F.k, 0.03 * F.fit.h, 0.013 * F.k], stock: [0.045 * F.k, 0.03 * F.fit.h, 0.02 * F.k],
   button: [0.012 * F.k, 0.012 * F.k, 0.006 * F.k], lapel: [[0, 0.016 * F.k], [1, 0.02 * F.k], [2, 0.008 * F.k]] });
 function coatFront(F) {
   const { add, mul, mix } = V(), K = F.keep(FRONT), secs = F.trunk(1.16), waist = secs[2], chest = secs[3], shoulders = secs[4];
   const front = (s, x = 0) => add(add(s[0], mul(s[2], s[4])), mul(s[1], x * s[3]));
   const sd = chest[1], uc = F.up('Chest'), fw = chest[2], axes = K.axes, shade = F.colors.garment.map((v, i) => (i < 3 ? v * 0.72 : v));
   axes[0] = sd; axes[1] = uc; axes[2] = fw;
-  F.ball(mix(front(shoulders), front(chest), 0.45), axes, K.shirt, F.colors.top, 12);
+  F.ball(mix(front(shoulders), front(chest), 0.55), axes, K.vest, shade, 12);
+  F.ball(mix(front(shoulders), front(chest), 0.18), axes, K.shirt, F.colors.top, 12);
   F.ball(add(front(shoulders), mul(uc, 0.012 * F.fit.h)), axes, K.stock, STOCK, 10);
   for (const sx of [-1, 1]) F.tube([front(shoulders, sx * 0.38), front(chest, sx * 0.3), front(waist, sx * 0.04)], K.lapel, [[0, shade]], 6, fw);
   for (const u of [0.25, 0.6, 0.95]) F.ball(mix(front(chest, 0.12), front(waist, 0.1), u), axes, K.button, BUTTON, 6);
@@ -103,7 +104,7 @@ return {
     // knot low at the nape
     nastenka: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'caped', hair: 'bands', hat: 'none',
       body: { height: 0.93, thick: 0.8, shoulders: 0.86, head: 1.03 },
-      colors: { skin: '#efd2bb', hair: '#2a1e19', top: '#5a6482', garment: '#b9adc4', hat: '#e4d6b4', accent: '#8e3f4e', shoes: '#2c2628' } },
+      colors: { skin: '#efd2bb', hair: '#2a1e19', top: '#5a6482', garment: '#b9adc4', hat: '#e4d6b4', accent: '#8e3f4e', shoes: '#4a3b38' } },
     // the Lodger, about twenty-eight: tall, upright, a well-brushed long slate-blue frock coat, black hair under a tall
     // black top hat (tophat; at his chest instead: "_wear": {"hat": "none"} and the part hat_hand)
     lodger: { kind: 'shapes', style: 'litho', who: 'man', garment: 'longcoat', hair: 'neat', hat: 'tophat',
@@ -128,13 +129,16 @@ return {
     // and rounder, so a face reads across the street; washed in colours under the scene's light and shaded (`toned`),
     // drawn round with the houses' own sepia ink line (the ground `litho`); its cloth folded in long strokes as a
     // lithograph hatches it; the face `litho`
-    styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.6, egg: [0.9, 1.07, 0.99], neck: 0.72, legs: 1.0, limb: 1.2, feet: 'wedge', sides: 24,
-      trunk: { w: [0.88, 0.94, 0.8, 0.92, 0.98], d: [0.96, 1.0, 0.92, 0.94, 0.86] }, arms: 'litho', paint: 'toned', line: 2.2, tinted: false,
-      face: 'litho', ragged: 0, folds: { n: 11, depth: 0.1 }, ground: 'litho', fingers: false } },
+    styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.6, egg: [0.9, 1.07, 0.99], neck: 0.72, legs: 1.0, limb: 1.2, feet: 'litho', sides: 24,
+      trunk: { w: [0.88, 0.94, 0.8, 0.92, 0.98], d: [0.96, 1.0, 0.92, 0.94, 0.86] }, arms: 'litho', paint: 'toned', line: 1.6, tinted: false,
+      face: 'litho', ragged: 0, folds: { n: 6, depth: 0.035 }, ground: 'litho', fingers: false } },
     // the arms of the style: a sleeve full at the shoulder, the forearm tapering to a real wrist, a hand with a palm as
     // wide as a hand is, its fingers closed in it (the style has no separate fingers: a quiet hand, never splayed) — a
     // hand on the granite or round a hat's brim reads as a hand
-    arms: { litho: [[0, 0.05], [0.5, 0.046], [1, 0.037], [1.5, 0.034], [1.9, 0.027], [2, 0.022], [2.3, 0.032], [2.62, 0.031], [2.88, 0.022], [3, 0.008]] },
+    arms: { litho: [[0, 0.058], [0.5, 0.054], [1, 0.046], [1.5, 0.042], [1.9, 0.034], [2, 0.026], [2.3, 0.034], [2.62, 0.033], [2.88, 0.024], [3, 0.01]] },
+    // the legs of the style: full to the knee, the trouser (or the stocking under a dress) straight down to a real ankle,
+    // a low shoe of the time with a rounded toe — never a pointed dark stroke under a hem
+    legs: { litho: [[0, 0.085], [1, 0.06], [1.5, 0.055], [2, 0.042], [2.3, 0.045], [2.75, 0.04], [3, 0.016]] },
     // the paper and the ink of the scenes' lithograph: the line is the houses' sepia (their lib's INK)
     grounds: { litho: { name: 'lithograph', bg: '#ece5d6', ink: '#4a3f3a', grid: '#dcd4c4', rim: '#e9b97c' } },
     // a face that reads at a few metres: eyes with their whites, a dark iris and the upper lid drawn in ink, brows of the

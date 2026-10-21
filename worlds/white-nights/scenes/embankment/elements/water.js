@@ -7,18 +7,18 @@
 // moves)
 const W = 21.7, D = 320;
 const along = g.createLinearGradient(0, -D / 2, 0, D / 2);
-along.addColorStop(0, '#f3e2d6');
-along.addColorStop(0.5, '#efe6e6');
-along.addColorStop(0.8, '#e2dce4');
-along.addColorStop(0.93, '#cfcadb');
-along.addColorStop(1, '#bab7cf');
+along.addColorStop(0, '#f7ebe3');
+along.addColorStop(0.5, '#f4eeee');
+along.addColorStop(0.8, '#ece8f0');
+along.addColorStop(0.93, '#e3e0ed');
+along.addColorStop(1, '#dad7e9');
 g.fillStyle = along;
 g.fillRect(-W / 2, -D / 2, W, D);
 const walls = g.createLinearGradient(-W / 2, 0, W / 2, 0);
-walls.addColorStop(0, 'rgba(176,168,186,0.45)');
+walls.addColorStop(0, 'rgba(176,168,186,0.3)');
 walls.addColorStop(0.1, 'rgba(176,168,186,0)');
 walls.addColorStop(0.9, 'rgba(176,168,186,0)');
-walls.addColorStop(1, 'rgba(176,168,186,0.45)');
+walls.addColorStop(1, 'rgba(176,168,186,0.3)');
 g.fillStyle = walls;
 g.fillRect(-W / 2, -D / 2, W, D);
 e.layer('ripple', { box: [-W / 2, -D / 2, W / 2, D / 2], drift: [0, 0.25] }, (g) => {

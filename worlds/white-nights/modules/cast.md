@@ -6,9 +6,9 @@ lengths are a man's metres times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
 
-`litho` — made from the engine's `shadow` (slender, pointed shoes), its own arms (`litho`: a full sleeve, a real wrist, a palm as wide as a hand, the fingers closed in it — no separate fingers, so a hand is quiet, never splayed), rounder in the trunk so a person
+`litho` — made from the engine's `shadow` (slender), its own arms (`litho`: a full sleeve, a real wrist, a palm as wide as a hand, the fingers closed in it — no separate fingers, so a hand is quiet, never splayed) and legs (`litho`: full to the knee, straight down to a real ankle, a low shoe with a rounded toe), rounder in the trunk so a person
 stands in the street as a body, not a cut-out; the head a little larger than life, a little narrower at the chin, so that a face reads
-across the street. Painted in colours under the scene's light and shaded (`toned`), the cloth in long deep folds, drawn round
+across the street. Painted in colours under the scene's light and shaded (`toned`), the cloth in a few long soft folds (an even edge, never a serrated one), drawn round
 with the houses' own sepia ink (the cast's ground `litho`: its `ink` is the scenes' `INK`, #4a3f3a) — an old lithograph
 touched with watercolour. The face is the cast's `litho`, drawn to read across the street: large eyes with their whites, a large dark iris half under a
 heavy inked upper lid, a glint in it, the lower lid's crease, thick brows of the hair's colour that the mood lifts or
@@ -61,8 +61,8 @@ full and down to the collar), `neat` (the same, close to the head, short at the 
 ## Garments, hats
 
 `frockcoat` (to the knee), `longcoat` (just below the knee) — both straight, a man's coat and not a skirt, the trousers
-showing under it, and over the chest the coat's front (`coatFront`: the shirt's white between the lapels, a dark stock,
-buttons), `caped` (a dress to the ankles with a mantle over the
+showing under it, and over the chest the coat's front (`coatFront`: a waistcoat between the lapels in their deeper shade of the coat, the shirt's white
+only at the throat under a dark stock, buttons), `caped` (a dress to the ankles with a mantle over the
 shoulders to the hips), `frock` (the same dress without the mantle, a little shorter and narrower, smooth — it is sat in), `shawled` (an old woman's fuller dress to the floor,
 a shawl over the shoulders to the hips, the top's colour); `tophat` (a tall black top hat worn a little back, a narrow brim, a silk band), `mobcap` (an old woman's white linen cap, a ribbon bow under the chin), `kerchief` (a working woman's linen kerchief drawn close over the hair and the brow, knotted under the chin — the accent —, its corner at the nape).
 
