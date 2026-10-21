@@ -1,0 +1,92 @@
+{
+  "engine": 3,
+  "title": "Brekhunov's Yard",
+  "caption": "The second day after the winter feast of St Nicholas.",
+  "horizon": 0.46,
+  "camera": { "mode": "picture" },
+  "light": {
+    "ambient": 0.82,
+    "ambientColor": "#dbe2ec",
+    "bounce": 0.6,
+    "haze": 0.2,
+    "hazeColor": "#d5dce5",
+    "hazeGlow": 0.5,
+    "shafts": 0.05,
+    "tint": "#e8eef6",
+    "tintStrength": 0.05,
+    "saturation": 0.95,
+    "vignette": 0.28,
+    "grain": 0.07,
+    "wind": [-1, 0.1, 0.9]
+  },
+  "lights": [
+    { "id": "sun", "from": [225, 16], "color": "#fff0dc", "strength": 0.55 },
+    { "id": "window_lamp", "of": "window#lamp", "color": "#ffbe6a", "strength": 0.9, "reach": 4, "flicker": 0.08 },
+    { "id": "door_lamp", "across": -4.4, "distance": 7.9, "elevation": 1.9, "color": "#ffb766", "strength": 0.7, "reach": 2.6, "flicker": 0.1 }
+  ],
+  "modules": ["cast"],
+  "state": {
+    "snow": 0.55,
+    "vasily_look": "nikita",
+    "praskovya_look": "vasily",
+    "nikita_look": "horse#head",
+    "nikita_reach": { "r": "horse#cheek" }
+  },
+  "states": {
+    "snow": { "range": [0, 1], "smooth": true, "means": "how thick the snow falls: 0 none, 0.55 a light fall (by default), 1 thick" }
+  },
+  "objects": [
+    { "id": "sky", "name": "Sky", "sky": true },
+    { "id": "far_land", "name": "Fields and forest far off", "across": 20, "distance": 300, "height": 30, "box": [-400, -30, 400, 0.05] },
+    { "id": "church", "name": "Church", "across": 26, "distance": 80, "height": 25, "box": [-9, -25, 8.5, 0.3] },
+    { "id": "birch", "name": "Birch", "across": 3, "distance": 21, "height": 13, "box": [-4.5, -13.5, 4.5, 0.2],
+      "copies": [ { "across": 3, "distance": 21 }, { "across": 13, "distance": 29, "scale": 0.85, "flip": true } ] },
+    { "id": "yard", "name": "Snow on the ground", "plane": true, "across": 0, "distance": 100, "width": 300, "depth": 200 },
+    { "id": "fence", "name": "Fence and gate", "across": 6, "distance": 15, "height": 2.1, "box": [-9, -4, 22, 0.1] },
+    { "id": "house_front", "name": "House front", "across": -5.1, "distance": 7.4, "facing": 180, "height": 4.3, "box": [-4.2, -4.45, 4.2, 0.05], "shadow": true },
+    { "id": "house_side", "name": "House side", "across": -1.0, "distance": 7.4, "facing": 90, "height": 6.6, "box": [-0.5, -6.8, 9.5, 0.05], "shadow": true },
+    { "id": "roof", "name": "Roof", "plane": true, "across": -5.1, "distance": 9.6, "elevation": 5.4, "width": 8.8, "depth": 5.4, "tilt": 26.5 },
+    { "id": "window", "name": "Lit window", "across": -2.1, "distance": 7.37, "facing": 180, "height": 2.5, "box": [-0.4, -2.52, 0.4, -1.48], "glows": true },
+    { "id": "porch_floor", "name": "Porch landing", "plane": true, "walk": true, "across": -3.5, "distance": 6.65, "elevation": 0.85, "width": 2.2, "depth": 1.5 },
+    { "id": "porch", "name": "Porch", "across": -3.5, "distance": 5.88, "facing": 180, "height": 3.7, "box": [-1.55, -4.2, 1.55, 0.05], "shadow": true },
+    { "id": "steps", "name": "Porch steps", "across": -1.9, "distance": 5.9, "facing": 180, "height": 0.85, "box": [-0.55, -0.9, 0.7, 0.05] },
+    { "id": "sleigh", "name": "Sleigh", "across": -1.6, "distance": 7.25, "height": 1.1, "box": [-1.3, -1.15, 1.4, 0.05], "shadow": true },
+    { "id": "horse", "name": "Mukhorty", "across": 1.9, "distance": 7.2, "height": 2.3, "box": [-2.3, -2.32, 2.6, 0.05], "shadow": true },
+    { "id": "post", "name": "Hitching post", "across": 4.5, "distance": 7.6, "height": 1.45, "box": [-0.3, -1.5, 0.3, 0.05], "shadow": true },
+    { "id": "vasily", "name": "Vasily Andreich", "person": { "cast": "cast", "who": "vasily", "turn": 135, "does": "hands_hips" }, "across": -3.05, "distance": 6.1, "shadow": true },
+    { "id": "praskovya", "name": "Praskovya Mikhailovna", "person": { "cast": "cast", "who": "praskovya", "turn": 165, "does": "hands_breast" }, "across": -4.4, "distance": 7.22, "shadow": true },
+    { "id": "nikita", "name": "Nikita", "person": { "cast": "cast", "who": "nikita", "turn": 230, "does": "stand" }, "across": 3.85, "distance": 7.3, "shadow": true },
+    { "id": "drift_far", "name": "Ground wind, far", "across": 4, "distance": 11, "height": 0.7, "box": [-15, -0.7, 15, 0.02] },
+    { "id": "drift_near", "name": "Ground wind, near", "across": 0, "distance": 5, "height": 0.6, "box": [-8, -0.6, 8, 0.02] },
+    { "id": "drift_front", "name": "Drift with wormwood", "across": -2.4, "distance": 3.4, "height": 0.5, "box": [-2.7, -0.55, 2.5, 0.06] },
+    { "id": "snowfall", "name": "Snowfall", "particles": { "kind": "snow", "amount": "snow", "wind": 1.3, "gust": 0.6 } },
+    { "id": "breath", "name": "Horse's breath", "particles": { "kind": "smoke", "at": "horse#nose", "rate": 0, "direction": [0.6, 0, -0.5], "spread": 25,
+      "speed": [0.25, 0.45], "life": [1.4, 2.4], "size": [0.05, 0.38], "gravity": -0.06, "drag": 1.4, "wind": 0.5, "turbulence": 0.05,
+      "color": "#eef2f6", "opacity": 0.45 } }
+  ],
+  "music": {
+    "prompts": [
+      { "text": "Solo cello, slow and low, a Russian winter afternoon, long bowed notes with space between them", "weight": 1.2 },
+      { "text": "Sparse piano in a minor key, cold and clear, single notes like snow falling, unhurried", "weight": 1 },
+      { "text": "A distant church bell tolling once in a while over fields of snow, deep and soft", "weight": 0.7 },
+      { "text": "Quiet wind-like string harmonics and a soft drone, open fifths, empty white plain", "weight": 0.6 },
+      { "text": "Balalaika plucked softly and slowly, a sad Russian folk tune far away", "weight": 0 },
+      { "text": "Russian Orthodox choir humming without words, very far, low male voices", "weight": 0 },
+      { "text": "Bayan accordion playing a slow village waltz, warm and a little out of tune", "weight": 0 },
+      { "text": "Sleigh bells faint and slow, a horse's steady walk, winter road, gentle", "weight": 0 },
+      { "text": "Clarinet and bassoon in a dry, plain 19th-century chamber style, a merchant's sober tune", "weight": 0 },
+      { "text": "String quartet, Tchaikovsky-like winter melancholy, restrained and tender", "weight": 0 },
+      { "text": "Low brass chorale, heavy and calm, the weight of a cold sky", "weight": 0 },
+      { "text": "Gusli zither strummed slowly, modal, ancient and plain", "weight": 0 },
+      { "text": "Music box slowly winding down in a warm room with a lamp, outside the snow", "weight": 0 },
+      { "text": "Ambient textures of wind over snow, soft noise, a few glassy tones", "weight": 0 },
+      { "text": "Solo violin, folk mode, a simple tune sung under the breath while working with a horse", "weight": 0 },
+      { "text": "Slow marimba and soft mallets, icy, minimal, a grey northern light", "weight": 0 },
+      { "text": "Harmonium sustained chords, a village church at dusk, plain and devout", "weight": 0 }
+    ],
+    "bpm": 64,
+    "density": 0.3,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
