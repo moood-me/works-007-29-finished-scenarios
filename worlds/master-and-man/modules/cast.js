@@ -97,20 +97,18 @@ function beard(F, long) {
 
 // frost on the beard, the moustache and the brows: white rime caught in the hair (Nikita's, out in the cold all day) —
 // thick enough to read from across the yard: the beard's grey goes white with it at its ends, little icicles hang in it
-const FROST = [[-0.3, -0.62, 0.78], [0.32, -0.6, 0.78], [0, -0.78, 0.66], [-0.16, -0.72, 0.72], [0.18, -0.74, 0.7], [-0.45, -0.45, 0.78],
-  [0.46, -0.44, 0.78], [-0.2, -0.32, 0.93], [0.22, -0.33, 0.93], [0.05, -0.9, 0.5], [-0.08, -0.55, 0.85], [0.1, -0.6, 0.82],
-  [-0.38, -0.55, 0.74], [0.4, -0.52, 0.74], [-0.1, -0.29, 0.96], [0.1, -0.3, 0.96], [-0.25, -0.8, 0.6], [0.27, -0.78, 0.6]];
-const BROW_FROST = [[-0.36, 0.3, 0.88], [-0.22, 0.32, 0.93], [0.24, 0.32, 0.93], [0.38, 0.3, 0.88]];
-const BEARD_FROST = [[-0.2, 0.1], [0.18, 0.04], [0, -0.2], [-0.1, -0.36], [0.14, -0.3], [-0.26, -0.12], [0.26, -0.16], [0.02, 0.0],
-  [-0.06, -0.5], [0.08, -0.46]];
+const FROST = [[-0.3, -0.62, 0.78], [0.32, -0.6, 0.78], [0, -0.78, 0.66], [-0.45, -0.45, 0.78], [0.46, -0.44, 0.78],
+  [-0.2, -0.32, 0.93], [0.22, -0.33, 0.93], [0.08, -0.55, 0.85]];
+const BROW_FROST = [[-0.34, 0.3, 0.88], [0.36, 0.3, 0.88]];
+const BEARD_FROST = [[-0.18, 0.08], [0.16, 0.0], [-0.04, -0.28], [0.12, -0.42]];
 function frost(F) {
   const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out, white = [0.95, 0.97, 1.0];
-  for (const d of FROST) F.ball(h.on(d, 1.1), h.axes, [r * 0.1, r * 0.07, r * 0.05], white, 8);
+  for (const d of FROST) F.ball(h.on(d, 1.1), h.axes, [r * 0.13, r * 0.08, r * 0.05], white, 8);
   for (const d of BROW_FROST) F.ball(h.on(d, 1.04), h.axes, [r * 0.06, r * 0.03, r * 0.03], white, 8);
   // (on the long beard's fall, before the chest; and its tip, white, an icicle or two under it)
   const c = add(h.at, add(mul(hu, -r * 1.25), mul(hf, r * 0.38 + r * 0.33)));
   for (const [sx, sy] of BEARD_FROST) {
-    F.ball(add(c, add(mul(h.axes[0], r * sx), mul(hu, r * sy))), h.axes, [r * 0.1, r * 0.08, r * 0.05], white, 8);
+    F.ball(add(c, add(mul(h.axes[0], r * sx), mul(hu, r * sy))), h.axes, [r * 0.14, r * 0.1, r * 0.05], white, 8);
   }
   for (const sx of [-0.12, 0.1]) {
     const top = add(c, add(mul(h.axes[0], r * sx), mul(hu, -r * 0.5)));
@@ -156,7 +154,7 @@ return {
     nikita: { kind: 'shapes', style: 'tolstoy', who: 'man', garment: 'armyak', hair: 'short', hat: 'sheepskin_hat', face: 'tolstoy_nikita',
       parts: ['beard_long', 'beard_frost', 'sash'],
       body: { height: 0.98, thick: 0.9, shoulders: 1.0 },
-      colors: { skin: '#d49274', hair: '#b4ada4', top: '#a99d86', garment: '#7f725c', bottom: '#5b5349', shoes: '#6c655d', hat: '#6a5d4c', accent: '#c4262c' } },
+      colors: { skin: '#d49274', hair: '#c4bfb8', top: '#a99d86', garment: '#7f725c', bottom: '#5b5349', shoes: '#6c655d', hat: '#6a5d4c', accent: '#c4262c' } },
     // Praskovya Mikhailovna, his wife: slight, a dark blue dress with long sleeves down to the floor, a light woollen
     // shawl over her head
     praskovya: { kind: 'shapes', style: 'tolstoy', who: 'woman', garment: 'long_dress', hair: 'bun', hat: 'shawl', face: 'tolstoy_praskovya',

@@ -1,7 +1,6 @@
 // The porch's front, toward the yard: the boarded face of its landing (0.85 m up) with a snow-capped edge and short
 // icicles under it, a corner post at the left holding the canopy, a railing of turned balusters along the left end
-// (the door and the right are open: the steps go down at the right); a horse collar hung on the post over the rail, a
-// wooden snow shovel leaning on the landing's face. Snow drifted against its foot.
+// (the door and the right are open: the steps go down at the right). Snow drifted against its foot.
 // (x −1.1…1.1 m: across −2.8…−0.6; its foot at 0, the post up to 3.05)
 const L = e.lib;
 const C = L.C;
@@ -61,31 +60,6 @@ for (const [y, ry] of [[-2.0, 0.16], [-2.55, 0.12]]) {
   g.ellipse(X0 + 0.05, y, 0.085, ry, 0, 0, Math.PI * 2);
   g.fill();
 }
-
-// a horse collar hung on the post over the rail: a padded ring of dark leather, its wooden hames along it
-g.fillStyle = C.woodDark;
-g.fillRect(X0 + 0.02, -2.32, 0.1, 0.05);
-g.strokeStyle = "#3a2e26";
-g.lineWidth = 0.1;
-g.beginPath();
-g.ellipse(X0 + 0.2, -2.0, 0.16, 0.28, 0.1, 0, Math.PI * 2);
-g.stroke();
-g.strokeStyle = "#8a6a46";
-g.lineWidth = 0.03;
-g.beginPath();
-g.ellipse(X0 + 0.2, -2.0, 0.22, 0.34, 0.1, Math.PI * 0.75, Math.PI * 2.25);
-g.stroke();
-// a wooden snow shovel leaning on the landing's face, snow on its blade
-g.save();
-g.translate(0.45, 0);
-g.rotate(-0.2);
-g.fillStyle = C.woodLight;
-g.fillRect(-0.025, -1.55, 0.05, 1.2);
-g.fillStyle = "#9c8b72";
-g.fillRect(-0.17, -0.4, 0.34, 0.4);
-g.fillStyle = C.snow;
-g.fillRect(-0.17, -0.4, 0.34, 0.05);
-g.restore();
 
 // the snow drifted against the landing's face: soft mounds, bluer in their hollows
 for (const [x, w, h] of [[-0.9, 0.55, 0.3], [-0.3, 0.5, 0.22], [0.4, 0.6, 0.28], [0.95, 0.35, 0.2]]) {

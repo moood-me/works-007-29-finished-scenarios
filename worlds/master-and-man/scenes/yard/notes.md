@@ -41,7 +41,7 @@ sky (slate-blue, a cold glare low on the right; drifting clouds, faster low scud
 horizon), far_land, church, birch (copies), neighbour (+ chimney_smoke), yard (snow plane: tracks, prints, the
 pressed hollow under Nikita's boots, hay under the horse's head), fence, house_front (weathered logs, each its own
 shade, moss in the seams; the door 2.17 m high; icicles under the eaves), roof, window (glows; `window_lamp`),
-porch_floor / porch (a horse collar on its post, a snow shovel against it) / porch_side / canopy / steps / treads,
+porch_floor / porch / porch_side / canopy / steps / treads,
 horse (stocky: a deep barrel, a thick neck, stout feathered legs; + `breath`, `horse.animate.js`), sleigh (solid:
 dark boards, a woven bast panel, thick iron-shod runners with snow on them, sunk in the snow; casts its shadow), the
 three people (`modules/cast`, style `tolstoy`, each with a face of their own), their breath (`breath_<id>` particles,
