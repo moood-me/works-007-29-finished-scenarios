@@ -24,6 +24,9 @@ const MOODS = {
 };
 // the circlet's ring of points (made once a figure: F.keep)
 const CIRCLET = () => ({ pts: new Array(17) });
+// the crown's ring of points and its teeth (made once a figure)
+const CROWN = () => ({ pts: new Array(25) });
+const RUBY = [0.72, 0.1, 0.14, 1], GREY = [0.8, 0.79, 0.76, 1], SPECK = [0.12, 0.1, 0.1, 1];
 // (a colour darkened to `k` of it)
 const shade = (c, k) => c.map((v, i) => (i < 3 ? v * k : v));
 // (a trunk's section moved along its own up by `dy` and widened by `s`: [centre, side, front, half-width, half-depth])
@@ -55,6 +58,20 @@ return {
       body: { height: 1.01, thick: 0.92 },
       colors: { skin: '#e3b796', hair: '#2b211c', top: '#ece6da', garment: '#2f5446', bottom: '#2c2a2a', shoes: '#231c18', accent: '#b2333a' },
     },
+    // the Mistress, the wizard's mortal wife: sturdy, past fifty, dark hair in a bun with one grey lock from the
+    // brow she does not dye (so that he sees it), a madder-red homespun dress, a cream kerchief round her neck
+    hozyayka: {
+      kind: 'shapes', style: 'tale', who: 'woman', garment: 'dress_long', hair: 'bun_grey', scarf: true,
+      body: { height: 0.92, thick: 1.0, shoulders: 0.92, hips: 1.12 },
+      colors: { skin: '#e9bfa0', hair: '#3e2b20', top: '#9c4430', garment: '#9c4430', shoes: '#3a2a20', accent: '#efe5cf' },
+    },
+    // the King: short and round, a tyrant and a tender father — a crimson robe to the floor with an ermine cape on
+    // the shoulders, a small gold crown with red stones, a ginger pointed beard and moustache
+    korol: {
+      kind: 'shapes', style: 'tale', who: 'man', garment: 'robe', hair: 'short', parts: ['ermine', 'crown', 'beard'],
+      body: { height: 0.9, thick: 1.32, shoulders: 0.98, hips: 1.15 },
+      colors: { skin: '#efc3a2', hair: '#9a5a2c', top: '#e1c27a', garment: '#9b2436', bottom: '#5a1c26', shoes: '#3a1e1a', accent: '#f1ece2' },
+    },
   },
   shapes: {
     // the world's style: a storybook figure — made from the engine's `soft` with the head a little large (the faces
@@ -67,6 +84,19 @@ return {
       // the same with a long coat cut straight (its sides straight lines from the shoulders to the hem: a bell from the
       // hips reads as a dress)
       tale_coat: { from: 'tale', name: 'storybook, a straight coat', straight: true, folds: { n: 8, depth: 0.025 } },
+    },
+    // a homespun dress to the ankles with long sleeves, all of the garment's colour
+    garments: {
+      dress_long: { name: 'long-sleeved dress', hang: [{ to: 1.9, from: 'waist', flare: 0.42, off: 0.94 }], bodice: true, bare: true, sleeves: 'garment' },
+    },
+    // hair in a bun, one grey lock from the brow's parting back over the crown
+    hair: {
+      bun_grey: { name: 'bun with a grey lock', draw: F => {
+        MooodShapes.HAIR.bun.draw(F);
+        const { axes, r: rh, on } = F.head;
+        F.tube([on([0.06, 0.42, 0.9], 1.1), on([0.08, 0.8, 0.45], 1.15), on([0.07, 0.88, -0.25], 1.15), on([0.05, 0.62, -0.75], 1.13)],
+          [[0, rh * 0.1], [1, rh * 0.13], [3, rh * 0.07]], [[0, GREY]], 8, axes[1], 0.5);
+      } },
     },
     // an arm with a working hand (a broad palm, its fingers' ends not pinched); a leg in trousers
     arms: {
@@ -130,6 +160,48 @@ return {
         F.tube(K.pts, [[0, r * 0.045], [16, r * 0.045]], [[0, GOLD]], 6, axes[1]);
         F.ball(on([0, 0.56, 0.86], 1.08), axes, [r * 0.07, r * 0.11, r * 0.04], GOLD, 8);
         F.ball(on([0, 0.44, 0.92], 1.11), axes, [r * 0.05, r * 0.05, r * 0.03], GEM, 8);
+      } },
+      // a small gold crown sitting on the crown of the head: a band with five teeth, a red stone at each tooth's foot
+      crown: { name: 'gold crown', draw: F => {
+        const { axes, r, on } = F.head, hu = axes[1];
+        const K = F.keep(CROWN);
+        for (let q = 0; q < 25; q++) {
+          const a = -Math.PI + (q / 24) * Math.PI * 2;
+          K.pts[q] = on([Math.sin(a), 0.62, Math.cos(a)], 1.1);
+        }
+        F.tube(K.pts, [[0, r * 0.1], [24, r * 0.1]], [[0, GOLD]], 6, hu, 0.5);
+        for (let i = 0; i < 5; i++) {
+          const a = (i / 5) * Math.PI * 2, foot = on([Math.sin(a), 0.62, Math.cos(a)], 1.1);
+          const tip = on([Math.sin(a) * 0.8, 1.3, Math.cos(a) * 0.8], 1.12);
+          F.bar(foot, tip, r * 0.09, r * 0.02, [[0, GOLD]], 6, hu);
+          F.ball(on([Math.sin(a), 0.6, Math.cos(a)], 1.17), axes, [r * 0.07, r * 0.07, r * 0.05], RUBY, 8);
+        }
+      } },
+      // an ermine collar over the shoulders: white fur round the neck and on the shoulders, black tail tips in it
+      ermine: { name: 'ermine cape', draw: F => {
+        const { add, mul, sub, unit } = V();
+        const m = F.fit.h, k = F.k, sq = F.style.square, n = 24, sh = F.trunk(1)[4], uc = F.up('Chest');
+        const neck = [add(F.P('Neck1'), mul(uc, 0.015 * m)), sh[1], sh[2], 0.07 * k, 0.065 * k];
+        const rings = [
+          F.ringOf(neck, n, sq),
+          F.ringOf(sectionAt(sh, uc, 0.03 * m, 1.16), n, sq),
+          F.ringOf(sectionAt(sh, uc, -0.035 * m, 1.2), n, sq),
+        ];
+        F.rings(rings, F.colors.accent, null, null);
+        for (let q = 0; q < n; q += 3) {
+          const p = rings[2][q], out = unit(sub(p, sh[0]));
+          F.ball(add(p, mul(out, 0.006 * k)), [sh[1], uc, sh[2]], [0.008 * k, 0.012 * k, 0.006 * k], SPECK, 6);
+        }
+      } },
+      // a ginger pointed beard under the chin and a moustache with its ends turned up
+      beard: { name: 'pointed beard', draw: F => {
+        const { axes, r: rh, on } = F.head, hu = axes[1], c = F.colors.hair;
+        F.ball(on([0, -0.85, 0.62], 0.92), axes, [rh * 0.3, rh * 0.36, rh * 0.26], c, 10);
+        F.bar(on([0, -0.95, 0.6], 0.95), on([0, -1.25, 0.55], 1.0), rh * 0.18, rh * 0.03, [[0, c]], 8, axes[2]);
+        for (const sx of [-1, 1]) {
+          F.tube([on([sx * 0.04, -0.3, 0.98], 1.0), on([sx * 0.3, -0.34, 0.92], 1.02), on([sx * 0.5, -0.16, 0.8], 1.03)],
+            [[0, rh * 0.07], [1, rh * 0.06], [2, rh * 0.02]], [[0, c]], 6, hu);
+        }
       } },
     },
   },
