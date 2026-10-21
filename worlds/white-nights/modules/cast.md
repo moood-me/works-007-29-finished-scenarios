@@ -6,7 +6,8 @@ lengths are a man's metres times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
 
-`litho` — made from the engine's `shadow` (slender, a small head on a long neck, hands with fingers, pointed shoes),
+`litho` — made from the engine's `shadow` (slender, hands with fingers, pointed shoes), its head larger and its limbs
+fuller so that faces read at a distance,
 painted in colours under the scene's light (`toned`), a fine line round every colour in a darker shade of it
 (`tinted`) — an old lithograph touched with watercolour; the face `simple` (eyes, brows, nose, mouth; `<id>_mood`).
 Hems are even (no ragged edge).

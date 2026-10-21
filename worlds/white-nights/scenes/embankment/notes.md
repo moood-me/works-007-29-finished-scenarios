@@ -41,17 +41,18 @@ fades the far end of the canal and the dome; grain and vignette for the print's 
 
 ## The people (the world's `cast`: modules/cast.md)
 
-- `nastya` — Nastenka at the parapet, 5.5 m off: turned toward the corner (155°), her right hand on the parapet's
-  top (`nastya_reach.r`), looking toward the corner ([3, 1, 1.55]), waiting (`thinking`).
-- `dreamer` — the Dreamer a step farther from her than he need be (2.5 m), turned to her (227°), looking at her,
+- `nastya` — Nastenka by the parapet, 4.6 m off: turned toward the corner (150°), looking toward it ([3, 1, 1.55]),
+  waiting (`thinking`).
+- `dreamer` — the Dreamer a step farther from her than he need be (2.3 m, 6 m off), turned to her (232°), looking at her,
   his top hat held before his chest in both hands (`dreamer_with: hat_hands`, his hands put there by
   `dreamer_reach`), a shy smile.
-- `lodger` — the Lodger by the lamp, 11 m off, upright, turned toward her (187°), his top hat at his chest in the
+- `lodger` — the Lodger by the lamp, 9.8 m off, upright, turned toward her (189°), his top hat at his chest in the
   right hand (`lodger_with: hat_hand`, `lodger_reach.r`), looking at her.
 
 They stand (the engine's `stand`: breathing). The cast has no motions of its own yet: the motion model's Space was
 paused when this was made, so the poses are `stand` with the hands put where they hold things by `reach`. Leaning on
-the parapet, holding a hat shyly, standing to attention are the first motions to make (make_motion → put_motion).
+the parapet, holding a hat shyly, standing to attention are the first motions to make (make_motion → put_motion). (Her hand put on the parapet's top by `reach` came out as an
+  arm stuck out sideways: left for a leaning motion.)
 
 ## State
 

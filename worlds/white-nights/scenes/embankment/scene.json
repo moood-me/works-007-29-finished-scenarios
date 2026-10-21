@@ -28,15 +28,14 @@
   "modules": ["cast"],
   "state": {
     "lamp": 1,
-    "nastya_reach": { "r": [-1.88, 5.38, 1.06] },
-    "nastya_look": [3.0, 1.0, 1.55],
+        "nastya_look": [3.0, 1.0, 1.55],
     "nastya_mood": "thinking",
     "dreamer_with": ["hat_hands"],
-    "dreamer_reach": { "r": [0.156, 7.093, 1.12], "l": [0.28, 6.963, 1.12] },
+    "dreamer_reach": { "r": [0.048, 5.917, 1.25], "l": [0.158, 5.775, 1.25] },
     "dreamer_look": "nastya",
     "dreamer_mood": "smile",
     "lodger_with": ["hat_hand"],
-    "lodger_reach": { "r": [-0.784, 11.009, 1.38] },
+    "lodger_reach": { "r": [-0.79, 9.611, 1.38] },
     "lodger_look": "nastya",
     "lodger_mood": "neutral"
   },
@@ -54,7 +53,7 @@
       "elevation": -2.2,
       "width": 21.7,
       "depth": 320,
-      "reflect": { "strength": 0.7, "fade": 0, "rough": 0.12, "ripple": 0.2 }
+      "reflect": { "strength": 0.8, "fade": 0, "rough": 0.12, "ripple": 0.2 }
     },
     { "id": "far_wall", "name": "Far bank's wall", "across": -24, "distance": 0, "elevation": -2.2, "facing": 90, "height": 3.3, "box": [0, -3.35, 320, 0.05] },
     { "id": "far_street", "name": "Far bank's street", "plane": true, "across": -27.25, "distance": 160, "elevation": 0, "width": 5.5, "depth": 320 },
@@ -170,9 +169,9 @@
     { "id": "mist", "name": "Mist on the water", "across": -13, "distance": 130, "elevation": -2.2, "height": 3, "box": [-10, -3, 10, 0.2] },
     { "id": "vista", "name": "House at the canal's turn", "across": -12, "distance": 322, "facing": 180, "height": 19.3, "box": [-25.3, -19.3, 25.3, 0.1] },
     { "id": "spire", "name": "Dome and spire far off", "across": -60, "distance": 900, "height": 100, "box": [-16.5, -101, 16.5, 0.1] },
-    { "id": "nastya", "name": "Nastenka", "person": { "cast": "cast", "who": "nastenka", "turn": 155 }, "across": -1.35, "distance": 5.5 },
-    { "id": "dreamer", "name": "The Dreamer", "person": { "cast": "cast", "who": "dreamer", "turn": 227 }, "across": 0.4, "distance": 7.2 },
-    { "id": "lodger", "name": "The Lodger", "person": { "cast": "cast", "who": "lodger", "turn": 187 }, "across": -0.7, "distance": 11.2 }
+    { "id": "nastya", "name": "Nastenka", "person": { "cast": "cast", "who": "nastenka", "turn": 150 }, "across": -1.5, "distance": 4.6 },
+    { "id": "dreamer", "name": "The Dreamer", "person": { "cast": "cast", "who": "dreamer", "turn": 232 }, "across": 0.3, "distance": 6 },
+    { "id": "lodger", "name": "The Lodger", "person": { "cast": "cast", "who": "lodger", "turn": 189 }, "across": -0.7, "distance": 9.8 }
   ],
   "music": {
     "prompts": [

@@ -37,7 +37,7 @@ return {
   shapes: {
     // the world's style: the slender figure of `shadow` (a small head, a long neck, hands with fingers, pointed shoes)
     // in colours under the scene's light, a fine tinted line round each colour, a face that reads
-    styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.04, neck: 1.1, paint: 'toned', line: 1.3, tinted: true,
+    styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.26, neck: 0.95, legs: 1.0, limb: 0.92, paint: 'toned', line: 1.3, tinted: true,
       face: 'simple', ragged: 0, folds: { n: 6, depth: 0.05 }, ground: 'paper' } },
     garments: {
       // a frock coat: from the shoulders to the knee, long sleeves
