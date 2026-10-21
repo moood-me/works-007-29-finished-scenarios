@@ -59,11 +59,11 @@ return {
       colors: { skin: '#e3b796', hair: '#2b211c', top: '#ece6da', garment: '#2f5446', bottom: '#2c2a2a', shoes: '#231c18', accent: '#b2333a' },
     },
     // the Mistress, the wizard's mortal wife: sturdy, past fifty, dark hair in a bun with one grey lock from the
-    // brow she does not dye (so that he sees it), a madder-red homespun dress, a cream apron
+    // brow she does not dye (so that he sees it), a madder-red homespun dress, a cream kerchief round her neck
     hozyayka: {
-      kind: 'shapes', style: 'tale', who: 'woman', garment: 'dress_apron', hair: 'bun_grey',
+      kind: 'shapes', style: 'tale', who: 'woman', garment: 'dress_long', hair: 'bun_grey', scarf: true,
       body: { height: 0.92, thick: 1.0, shoulders: 0.92, hips: 1.12 },
-      colors: { skin: '#e9bfa0', hair: '#3e2b20', top: '#9c4430', garment: '#efe5cf', shoes: '#3a2a20' },
+      colors: { skin: '#e9bfa0', hair: '#3e2b20', top: '#9c4430', garment: '#9c4430', shoes: '#3a2a20', accent: '#efe5cf' },
     },
     // the King: short and round, a tyrant and a tender father — a crimson robe to the floor with an ermine cape on
     // the shoulders, a small gold crown with red stones, a ginger pointed beard and moustache
@@ -85,11 +85,9 @@ return {
       // hips reads as a dress)
       tale_coat: { from: 'tale', name: 'storybook, a straight coat', straight: true, folds: { n: 8, depth: 0.025 } },
     },
-    // a long dress of the top's colour with an apron of the garment's over it (the engine's apron: cloth from the chest
-    // to the knees)
+    // a homespun dress to the ankles with long sleeves, all of the garment's colour
     garments: {
-      dress_apron: { name: 'dress and apron', hang: [{ to: 1.9, from: 'waist', flare: 0.42, off: 0.94, color: 'top' }], bare: true,
-        draw: F => MooodShapes.GARMENTS.apron.draw(F) },
+      dress_long: { name: 'long-sleeved dress', hang: [{ to: 1.9, from: 'waist', flare: 0.42, off: 0.94 }], bodice: true, bare: true, sleeves: 'garment' },
     },
     // hair in a bun, one grey lock from the brow's parting back over the crown
     hair: {
