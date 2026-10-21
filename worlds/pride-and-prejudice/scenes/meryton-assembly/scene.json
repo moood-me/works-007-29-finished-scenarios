@@ -18,16 +18,18 @@
     "bounce": 0.65,
     "looks": {
       "later": {
-        "ambient": 0.7,
-        "ambientColor": "#f1dfc2",
-        "inside": 0.3,
+        "ambient": 0.78,
+        "ambientColor": "#f6dcb4",
+        "inside": 0.35,
         "tint": "#f0b070",
         "tintStrength": 0.05,
         "hazeGlow": 0.55,
         "lights": {
-          "window_a": 0.35,
-          "window_b": 0.35,
-          "window_c": 0.35
+          "window_a": 0.3,
+          "window_b": 0.3,
+          "window_c": 0.3,
+          "chandelier_near": 1.35,
+          "chandelier_far": 1.35
         }
       }
     }
@@ -55,7 +57,7 @@
       "id": "chandelier_near",
       "across": 3.0,
       "distance": 7.5,
-      "elevation": 4.6,
+      "elevation": 4.3,
       "color": "#ffe2b8",
       "strength": 1.2,
       "reach": 10,
@@ -65,7 +67,7 @@
       "id": "chandelier_far",
       "across": 0.6,
       "distance": 12.5,
-      "elevation": 4.6,
+      "elevation": 4.3,
       "color": "#ffe2b8",
       "strength": 1.2,
       "reach": 10,
@@ -138,22 +140,12 @@
   ],
   "state": {
     "later": 0,
-    "elizabeth_on": [
-      -1.0,
-      3.7,
-      0.46
-    ],
     "elizabeth_look": [
       -0.5,
       1.2,
       1.0
     ],
     "elizabeth_mood": "smile",
-    "charlotte_on": [
-      -1.75,
-      4.0,
-      0.46
-    ],
     "charlotte_look": "elizabeth",
     "jane_look": "bingley",
     "jane_mood": "smile",
@@ -165,31 +157,7 @@
     "guest_a_gent_look": "guest_a_lady",
     "guest_b_lady_look": "guest_b_gent",
     "guest_b_lady_mood": "smile",
-    "guest_b_gent_look": "guest_b_lady",
-    "elizabeth_reach": {
-      "foot_r": [
-        -0.955,
-        3.31,
-        0.04
-      ],
-      "foot_l": [
-        -0.785,
-        3.37,
-        0.04
-      ]
-    },
-    "charlotte_reach": {
-      "foot_r": [
-        -1.606,
-        3.637,
-        0.04
-      ],
-      "foot_l": [
-        -1.458,
-        3.741,
-        0.04
-      ]
-    }
+    "guest_b_gent_look": "guest_b_lady"
   },
   "states": {
     "later": {
@@ -398,11 +366,11 @@
       "name": "Chandeliers",
       "across": 3.0,
       "distance": 7.5,
-      "elevation": 3.8,
+      "elevation": 3.5,
       "height": 2.3,
       "box": [
         -0.85,
-        -2.25,
+        -2.55,
         0.85,
         0.06
       ],
@@ -423,7 +391,7 @@
       "name": "Chandelier flames",
       "across": 3.0,
       "distance": 7.49,
-      "elevation": 3.8,
+      "elevation": 3.5,
       "height": 1.6,
       "box": [
         -0.82,
@@ -544,8 +512,8 @@
     {
       "id": "chairs",
       "name": "Chairs",
-      "across": -1.0,
-      "distance": 3.92,
+      "across": -2.45,
+      "distance": 6.2,
       "height": 1,
       "box": [
         -0.3,
@@ -561,14 +529,6 @@
         ]
       },
       "copies": [
-        {
-          "across": -1.0,
-          "distance": 3.92
-        },
-        {
-          "across": -1.75,
-          "distance": 4.22
-        },
         {
           "across": -2.45,
           "distance": 6.2
@@ -597,8 +557,7 @@
       "person": {
         "cast": "cast",
         "who": "elizabeth",
-        "turn": 200,
-        "does": "seated"
+        "turn": 195
       },
       "across": -1.0,
       "distance": 3.7,
@@ -611,8 +570,7 @@
       "person": {
         "cast": "cast",
         "who": "charlotte",
-        "turn": 215,
-        "does": "seated"
+        "turn": 215
       },
       "across": -1.75,
       "distance": 4.0,
@@ -667,8 +625,8 @@
         "who": "guest_lady",
         "turn": 250
       },
-      "across": -1.45,
-      "distance": 8.2,
+      "across": -1.2,
+      "distance": 8.5,
       "shadow": true,
       "inside": true
     },
@@ -680,8 +638,8 @@
         "who": "guest_gent",
         "turn": 110
       },
-      "across": -0.65,
-      "distance": 8.4,
+      "across": -0.25,
+      "distance": 8.6,
       "shadow": true,
       "inside": true
     },
@@ -691,7 +649,7 @@
       "person": {
         "cast": "cast",
         "who": "guest_lady",
-        "turn": 110,
+        "turn": 120,
         "look": {
           "colors": {
             "skin": "#efcfb2",
@@ -704,8 +662,8 @@
           }
         }
       },
-      "across": 3.9,
-      "distance": 10.6,
+      "across": 3.2,
+      "distance": 11.0,
       "shadow": true,
       "inside": true
     },
@@ -715,7 +673,7 @@
       "person": {
         "cast": "cast",
         "who": "guest_gent",
-        "turn": 250,
+        "turn": 240,
         "look": {
           "colors": {
             "skin": "#e2bd9c",
@@ -728,8 +686,8 @@
           }
         }
       },
-      "across": 3.3,
-      "distance": 10.9,
+      "across": 2.5,
+      "distance": 11.2,
       "shadow": true,
       "inside": true
     },

@@ -1,5 +1,5 @@
-// A chandelier hanging from the ceiling (x across, y up negative from its bottom finial at 3.8 m; the ceiling at 6 m is
-// y −2.2): a gilt chain and canopy, a glass stem of bulbs, two gilt rings seen from below — the upper of six candles,
+// A chandelier hanging from the ceiling (x across, y up negative from its bottom finial at 3.5 m; the ceiling at 6 m is
+// y −2.5): a gilt chain and canopy, a glass stem of bulbs, two gilt rings seen from below — the upper of six candles,
 // the lower of eight (lib: RINGS, candles) —, festoons of crystal drops between them and drops hanging under the lower
 // ring. Its flames are `chandelier_flames`; its light the scene's `chandelier_near` / `_far`. A copy for each
 const L = e.kit.brush, W = e.lib, px = L.px(e);
@@ -24,14 +24,14 @@ const cups = near => {
 };
 // the chain and the canopy
 const chain = new Path2D();
-for (let y = -2.18; y < -1.6; y += 0.07) {
+for (let y = -2.48; y < -1.6; y += 0.07) {
   chain.moveTo(0.02, y);
   chain.ellipse(0, y, 0.02, 0.035, 0, 0, Math.PI * 2);
 }
 L.pen(g, chain, 1.3 * px, 0.8);
 const canopy = new Path2D();
-canopy.moveTo(-0.18, -2.2);
-canopy.quadraticCurveTo(0, -2.02, 0.18, -2.2);
+canopy.moveTo(-0.18, -2.5);
+canopy.quadraticCurveTo(0, -2.32, 0.18, -2.5);
 canopy.closePath();
 g.fillStyle = GILT;
 g.fill(canopy);
