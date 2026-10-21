@@ -11,7 +11,7 @@ import random
 from pathlib import Path
 
 SCENE = Path(__file__).resolve().parent.parent / 'scenes' / 'lair' / 'scene.json'
-PIT = (10.5, 18.5, 8.5)  # as the scene's lib.PIT: across, distance, radius
+PIT = (11.5, 21, 12)  # as the scene's lib.PIT: across, distance, radius
 PEOPLE = ((0.9, 7.6), (-4.0, 9.6), (-1.92, 5.51), (-1.3, 5.0))
 
 
@@ -35,7 +35,7 @@ def main():
         crags.append({'across': round(PIT[0] + math.cos(t) * PIT[2] * k, 2), 'distance': round(PIT[1] + math.sin(t) * PIT[2] * k, 2),
                       'scale': s, 'flip': rng.random() < 0.5, 'tint': rng.choice(tints)})
     # fallen on the floor behind her
-    for a, d, s in ((6.5, 22.5, 0.5), (14.5, 22, 0.6)):
+    for a, d, s in ((5.5, 26.5, 0.5), (16.5, 26, 0.6)):
         crags.append({'across': a, 'distance': d, 'scale': s, 'flip': rng.random() < 0.5, 'tint': rng.choice(tints)})
     # up the slope on the left, beyond the path
     for _ in range(4):

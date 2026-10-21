@@ -191,57 +191,57 @@
    "shadow": true,
    "copies": [
     {
-     "across": 19.78,
-     "distance": 15.02,
+     "across": 24.6,
+     "distance": 16.08,
      "scale": 1.5,
      "flip": false,
      "tint": "#f6f0ea"
     },
     {
-     "across": 19.07,
-     "distance": 24.37,
+     "across": 23.6,
+     "distance": 29.29,
      "scale": 0.7,
      "flip": true,
      "tint": "#f6f0ea"
     },
     {
-     "across": 15.08,
-     "distance": 27.71,
+     "across": 17.97,
+     "distance": 34.01,
      "scale": 1.8,
      "flip": true,
      "tint": "#e8e4de"
     },
     {
-     "across": 12.94,
-     "distance": 28.07,
+     "across": 14.94,
+     "distance": 34.52,
      "scale": 0.6,
      "flip": false,
      "tint": "#ffffff"
     },
     {
-     "across": 5.8,
-     "distance": 26.93,
+     "across": 4.87,
+     "distance": 32.9,
      "scale": 1.2,
      "flip": true,
      "tint": "#f2eee8"
     },
     {
-     "across": 2.4,
-     "distance": 24.95,
+     "across": 0.06,
+     "distance": 30.1,
      "scale": 0.8,
      "flip": true,
      "tint": "#ffffff"
     },
     {
-     "across": 6.5,
-     "distance": 22.5,
+     "across": 5.5,
+     "distance": 26.5,
      "scale": 0.5,
      "flip": true,
      "tint": "#f2eee8"
     },
     {
-     "across": 14.5,
-     "distance": 22,
+     "across": 16.5,
+     "distance": 26,
      "scale": 0.6,
      "flip": false,
      "tint": "#f6f0ea"
@@ -279,8 +279,8 @@
   {
    "id": "mist_pit",
    "name": "Mist in the pit",
-   "across": 10.5,
-   "distance": 23,
+   "across": 11.5,
+   "distance": 28,
    "box": [
     -30,
     -6,
@@ -291,8 +291,8 @@
   {
    "id": "querig",
    "name": "Querig",
-   "across": 10.7,
-   "distance": 18.5,
+   "across": 11.5,
+   "distance": 21,
    "box": [
     -6.0,
     -3.3,
@@ -340,15 +340,15 @@
   {
    "id": "pit_mist",
    "name": "Mist welling up in the pit",
-   "across": 10.5,
-   "distance": 18.5,
+   "across": 11.5,
+   "distance": 21,
    "elevation": 0.4,
    "particles": {
     "kind": "smoke",
     "amount": "breath",
     "source": [
-     10,
-     6,
+     14,
+     9,
      0.4
     ],
     "rate": 0.8,
@@ -383,8 +383,8 @@
   {
    "id": "mist_low",
    "name": "Low mist about her feet",
-   "across": 10.5,
-   "distance": 15.5,
+   "across": 11.5,
+   "distance": 17.5,
    "box": [
     -12,
     -1.0,
@@ -706,21 +706,21 @@
      "flip": true
     },
     {
-     "across": 1.53,
-     "distance": 15.17,
-     "scale": 0.8,
-     "flip": true
-    },
-    {
-     "across": -0.41,
-     "distance": 16.11,
+     "across": -3.98,
+     "distance": 7.82,
      "scale": 1.05,
-     "flip": true
+     "flip": false
     },
     {
-     "across": 3.08,
-     "distance": 5.77,
-     "scale": 0.79,
+     "across": -3.11,
+     "distance": 15.92,
+     "scale": 0.73,
+     "flip": false
+    },
+    {
+     "across": 3.25,
+     "distance": 7.49,
+     "scale": 1.16,
      "flip": false
     },
     {
@@ -766,12 +766,6 @@
      "flip": true
     },
     {
-     "across": 1.1,
-     "distance": 13.88,
-     "scale": 0.95,
-     "flip": false
-    },
-    {
      "across": -8.32,
      "distance": 23.6,
      "scale": 1.21,
@@ -814,15 +808,9 @@
      "flip": false
     },
     {
-     "across": -1.19,
-     "distance": 21.76,
-     "scale": 1.07,
-     "flip": true
-    },
-    {
-     "across": -0.16,
-     "distance": 21.3,
-     "scale": 1.08,
+     "across": -2.52,
+     "distance": 16.75,
+     "scale": 1.22,
      "flip": false
     },
     {
@@ -838,27 +826,21 @@
      "flip": false
     },
     {
-     "across": 0.36,
-     "distance": 21.08,
-     "scale": 0.81,
-     "flip": true
-    },
-    {
-     "across": -5.36,
-     "distance": 13.76,
-     "scale": 0.95,
-     "flip": true
-    },
-    {
-     "across": -9.92,
-     "distance": 4.07,
-     "scale": 0.86,
-     "flip": false
-    },
-    {
-     "across": 5.6,
-     "distance": 2.49,
+     "across": -7.6,
+     "distance": 8.35,
      "scale": 0.98,
+     "flip": true
+    },
+    {
+     "across": -3.01,
+     "distance": 12.7,
+     "scale": 0.68,
+     "flip": true
+    },
+    {
+     "across": -0.85,
+     "distance": 9.98,
+     "scale": 0.63,
      "flip": false
     },
     {
@@ -904,12 +886,6 @@
      "flip": false
     },
     {
-     "across": 0.6,
-     "distance": 20.67,
-     "scale": 1.1,
-     "flip": false
-    },
-    {
      "across": -9.6,
      "distance": 21.27,
      "scale": 1.04,
@@ -940,34 +916,58 @@
      "flip": true
     },
     {
+     "across": -6.69,
+     "distance": 19.01,
+     "scale": 0.67,
+     "flip": false
+    },
+    {
+     "across": -8.5,
+     "distance": 4.48,
+     "scale": 0.87,
+     "flip": true
+    },
+    {
+     "across": -6.59,
+     "distance": 17.36,
+     "scale": 1.04,
+     "flip": false
+    },
+    {
+     "across": -0.31,
+     "distance": 3.66,
+     "scale": 0.85,
+     "flip": false
+    },
+    {
      "across": -2.3,
      "distance": 1.9,
      "scale": 1.9,
-     "flip": false
+     "flip": true
     },
     {
      "across": -2.9,
      "distance": 2.6,
      "scale": 1.6,
-     "flip": true
+     "flip": false
     },
     {
      "across": -1.9,
      "distance": 2.4,
      "scale": 1.3,
-     "flip": true
+     "flip": false
     },
     {
      "across": 2.2,
      "distance": 1.8,
      "scale": 1.7,
-     "flip": false
+     "flip": true
     },
     {
      "across": 3.6,
      "distance": 3.0,
      "scale": 1.5,
-     "flip": true
+     "flip": false
     }
    ]
   },
