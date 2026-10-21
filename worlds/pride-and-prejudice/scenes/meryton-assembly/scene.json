@@ -79,8 +79,8 @@
       "distance": 2.0,
       "elevation": 2.35,
       "color": "#ffe2b8",
-      "strength": 0.7,
-      "reach": 4.5,
+      "strength": 0.9,
+      "reach": 5,
       "flicker": 0.1
     },
     {
@@ -89,8 +89,8 @@
       "distance": 4.5,
       "elevation": 2.35,
       "color": "#ffe2b8",
-      "strength": 0.7,
-      "reach": 4.5,
+      "strength": 0.9,
+      "reach": 5,
       "flicker": 0.1
     },
     {
@@ -99,8 +99,8 @@
       "distance": 9.5,
       "elevation": 2.35,
       "color": "#ffe2b8",
-      "strength": 0.7,
-      "reach": 4.5,
+      "strength": 0.9,
+      "reach": 5,
       "flicker": 0.1
     },
     {
@@ -109,8 +109,8 @@
       "distance": 14.5,
       "elevation": 2.35,
       "color": "#ffe2b8",
-      "strength": 0.7,
-      "reach": 4.5,
+      "strength": 0.9,
+      "reach": 5,
       "flicker": 0.1
     },
     {
@@ -119,8 +119,8 @@
       "distance": 8.25,
       "elevation": 2.35,
       "color": "#ffe2b8",
-      "strength": 0.7,
-      "reach": 4.5,
+      "strength": 0.9,
+      "reach": 5,
       "flicker": 0.1
     },
     {
@@ -129,8 +129,18 @@
       "distance": 11.75,
       "elevation": 2.35,
       "color": "#ffe2b8",
-      "strength": 0.7,
-      "reach": 4.5,
+      "strength": 0.9,
+      "reach": 5,
+      "flicker": 0.1
+    },
+    {
+      "id": "sconce_6",
+      "across": 4.1000000000000005,
+      "distance": 4.75,
+      "elevation": 2.35,
+      "color": "#ffe2b8",
+      "strength": 0.9,
+      "reach": 5,
       "flicker": 0.1
     }
   ],
@@ -166,7 +176,7 @@
         1
       ],
       "smooth": true,
-      "means": "the hour: 0 an early evening, the windows still light (by default); 1 later — the windows a deep blue, the room warm with its candles alone"
+      "means": "the hour: 0 an early evening, the windows still light (by default); 1 later — the windows dimmer, the room warm with its candles"
     }
   },
   "objects": [
@@ -180,7 +190,7 @@
       "box": [
         -12,
         -12,
-        12,
+        14.2,
         1.1
       ]
     },
@@ -457,6 +467,11 @@
           "across": 4.37,
           "distance": 11.75,
           "facing": 270
+        },
+        {
+          "across": 4.37,
+          "distance": 4.75,
+          "facing": 270
         }
       ]
     },
@@ -505,6 +520,11 @@
         {
           "across": 4.36,
           "distance": 11.75,
+          "facing": 270
+        },
+        {
+          "across": 4.36,
+          "distance": 4.75,
           "facing": 270
         }
       ]
@@ -560,7 +580,7 @@
         "turn": 195
       },
       "across": -1.0,
-      "distance": 3.7,
+      "distance": 3.25,
       "shadow": true,
       "inside": true
     },
@@ -572,8 +592,8 @@
         "who": "charlotte",
         "turn": 215
       },
-      "across": -1.75,
-      "distance": 4.0,
+      "across": -1.65,
+      "distance": 3.55,
       "shadow": true,
       "inside": true
     },

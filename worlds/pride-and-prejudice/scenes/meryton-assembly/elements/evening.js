@@ -34,7 +34,7 @@ while (x < 11) {
   for (let row = 0; row < 2; row++) {
     for (let c = 0; c < 3; c++) {
       const wx = x + w * (0.2 + 0.3 * c) - 0.3, wy = -h + 0.7 + row * 1.9;
-      (r() < 0.3 ? lit : dark).rect(wx, wy, 0.55, 1.0);
+      (r() < 0.18 ? lit : dark).rect(wx, wy, 0.55, 1.0);
     }
   }
   x += w + 0.15;
@@ -45,7 +45,7 @@ g.fillStyle = '#8b7b72';
 g.fill(chimneys);
 g.fillStyle = '#6f7484';
 g.fill(dark);
-g.fillStyle = '#f2cf8e';
+g.fillStyle = '#e8d2a4';
 g.fill(lit);
 L.pen(g, fronts, 1.4 * px, 0.45);
 L.pen(g, roofs, 1.4 * px, 0.5);

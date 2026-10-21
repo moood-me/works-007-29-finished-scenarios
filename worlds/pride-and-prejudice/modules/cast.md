@@ -29,6 +29,12 @@ bust in a soft A-line to the instep, the slippers' toes showing (`gown`, flare 0
   tailcoat, close over the chest, its fronts cut away over the tops of the thighs (`tailcoat`), its tails to the knee behind (`tails`, a sheet of
   cloth kept to the back), the buff waistcoat as a narrow V between its open fronts (`waistcoat`), a white cravat — a high
   stock round the neck and its fall under the chin (`cravat`) —, buff breeches, dark brown-black top boots (`socks`).
+- `bingley` — Charles Bingley: a little shorter than Darcy, open-faced, sandy hair brushed forward; dressed for a ball —
+  a warm brown tailcoat with its tails, a white waistcoat and cravat, cream knee breeches, white stockings, black pumps.
+- `charlotte` — Charlotte Lucas, twenty-seven: plain, sitting and standing straight, brown hair up without curls; her grey
+  gown (the world's rare grey) with a darker grey sash.
+- `guest_lady`, `guest_gent` — the neighbours at a ball, nobody in particular: a lady in a gown, a gentleman in a tailcoat;
+  a scene gives each its own colours (the look's `colors`, whole) from the world's greens, creams, buffs and soft blues.
 
 The world's three rare colours — Lydia's scarlet ribbon, Charlotte's grey gown, the blue seal of Darcy's letter — are
 kept for those three; nobody else wears them.
