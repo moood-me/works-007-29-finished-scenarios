@@ -5,7 +5,7 @@ with a low fire before it, mist lying in the saddle and coming off the mountain 
 from inside; the people in front always clear. Stage 2 (look): Axl and Beatrice hand in hand, Wistan before the cairn
 looking at Axl — standing, breathing, no moves.
 
-- Land: `relief.js` (gentle climb ahead from 6 m, shoulders rising either side from 4 m) and the draped plane `land`
+- Land: `relief.js` (gentle climb ahead from 6 m, shoulders rising either side from 8 m) and the draped plane `land`
   (centre 110 m ahead: a place `d` ahead is at y = 110 − d) — grass, heather, the path past the cairn's left and up
   the saddle, stones.
 - The cairn: a form (`kit.lump`, 2.6 m radius, 2.4 m high), point `cairn#top`.

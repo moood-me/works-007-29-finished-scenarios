@@ -10,7 +10,7 @@ from pathlib import Path
 
 SCENE = Path(__file__).resolve().parent.parent / 'scenes' / 'cairn' / 'scene.json'
 CLEAR = [  # (across, distance, radius): nothing grows there
-    (-1.25, 5.6, 1.1), (1.1, 7.2, 0.8), (2.8, 10.5, 3.4), (-7.4, 12.5, 3.6), (-2.9, 2.6, 1.6), (2.5, 2.3, 1.0),
+    (-1.1, 5.8, 1.1), (1.35, 4.7, 0.8), (-4.6, 10.2, 2.4), (2.8, 10.5, 3.4), (-7.4, 12.5, 3.6), (-2.9, 2.6, 1.6), (2.5, 2.3, 1.0),
 ]
 
 
@@ -48,8 +48,8 @@ def main():
     rng = random.Random(1)
     spec = json.loads(SCENE.read_text(encoding='utf-8'))
     copies = {
-        'boulders': lay(rng, 16, 6, 60, 14, 1.2, (0.6, 2.2), ['#ffffff', '#f2f0ea', '#e8e8e4']),
-        'heather': lay(rng, 70, 3, 40, 10, 0.4, (0.8, 1.8), ['#ffffff', '#f4eeee', '#ebe6e2']),
+        'boulders': lay(rng, 14, 8, 60, 14, 1.2, (0.5, 1.5), ['#ffffff', '#f2f0ea', '#e8e8e4']),
+        'heather': lay(rng, 45, 3, 40, 10, 0.4, (0.5, 1.0), ['#ffffff', '#f4eeee', '#ebe6e2']),
         'tufts': lay(rng, 110, 2.5, 30, 8, 0.3, (0.7, 1.4), ['#ffffff', '#f3f1e6', '#e9ebe0']),
     }
     for o in spec['objects']:
