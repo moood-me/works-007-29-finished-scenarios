@@ -57,14 +57,14 @@ One moment of chapter 2's evening: he has come in and not hung up the greatcoat 
 empty); the table is laid, the second plate set. Each is turned a little toward the others and looks toward them, the
 looks' points (`<id>_look`) brought some 30° toward the eye, so that the faces are seen three-quarter, not in profile.
 
-- `lyuba` (−0.3, 2.45, turned 150) — by the stove's corner (§2: «стоит у печи; руки прячет под фартук»): her hands
+- `lyuba` (−0.38, 2.45, turned 150) — by the stove's corner (§2: «стоит у печи; руки прячет под фартук»): her hands
   reach (`lyuba_reach`) under the apron's top in front of her, her eyes lowered toward her husband's side (not at the
   table, not at the eye), `tired` (worn out, ashamed).
-- `petrushka` (0.05, 2.7, turned 140) — at the end of the bench before the table, `hands_behind` («руки за спиной»),
+- `petrushka` (0.15, 2.7, turned 140) — at the end of the bench before the table, `hands_behind` («руки за спиной»),
   looking up toward his father, `neutral` (the serious little master of the house; his size and the open face the child).
 - `ivanov` (1.0, 2.65, turned 220) — `ivanov_home`: on the runner before the door (§2: «стоит, когда другие сидят;
   ближе к двери»), in the tunic, belted, the breeches in his high boots, the side cap straight, the greatcoat thrown
   over his shoulders (§4: «шинель на плечах или на гвозде» — on the shoulders: he has not decided to stay), looking
-  toward the two, `sad` (held in, at a loss).
+  toward the two, `neutral` (held in; the loss is in where he stands and how the coat hangs on him).
 
 Semyon Yevseyevich and Nastya stay in the cast for the scenes that need them; they are not in this picture.

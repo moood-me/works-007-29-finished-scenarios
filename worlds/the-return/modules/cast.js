@@ -244,12 +244,10 @@ return {
           F.tube([on([sx * 0.15, 0.32 + x.inner, 0.95], 1.0), on([sx * 0.32, 0.37 + (x.inner + x.outer) / 2, 0.92], 1.01), on([sx * 0.5, 0.3 + x.outer, 0.84], 1.0)],
             [[0, rh * 0.036], [1, rh * 0.042], [2, rh * 0.024]], [[0, brow]], 6, hu);
         }
-        // a man's: the shaved jaw's blue-grey shade along the chin and the cheeks' lower half, the hollows under the
-        // cheekbones
+        // a man's: the shaved jaw's faint blue-grey shade along the chin and under the jaw
         if (F.look.who === 'man') {
-          const jaw = [skin[0] * 0.84, skin[1] * 0.8, skin[2] * 0.84, 1];
-          F.ball(on([0, -0.68, 0.74], 0.955), axes, [rh * 0.4, rh * 0.18, rh * 0.1], jaw, 12);
-          for (const sx of [-1, 1]) F.ball(on([sx * 0.5, -0.32, 0.8], 0.975), axes, [rh * 0.1, rh * 0.15, rh * 0.04], shade(skin, 0.9), 8);
+          const jaw = [skin[0] * 0.9, skin[1] * 0.87, skin[2] * 0.9, 1];
+          F.ball(on([0, -0.74, 0.66], 0.955), axes, [rh * 0.36, rh * 0.14, rh * 0.08], jaw, 12);
         }
         F.ball(on([0, -0.12, 1], 0.99), axes, [rh * 0.1, rh * 0.16, rh * 0.14], shade(skin, 0.97), 10);
         F.ball(on([0, -0.25, 0.98], 0.98), axes, [rh * 0.1, rh * 0.03, rh * 0.05], under, 8);

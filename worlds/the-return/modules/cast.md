@@ -10,7 +10,7 @@ shoulders not wider than a body's), the body and the cloth in broad flat planes 
 trousers of some thickness (`feet: trouser`); `soldier` — the same in a soldier's high boots (`feet: jackboot`), the head a little longer and squarer in the jaw (a
 man's). The face
 `gouache`: the whites of the eyes and the irises (as open as the lids let them), the upper lids' dark line, the shade
-under the eyes, brows of the hair's colour softened toward the skin (a dark heavy bar reads as a frown at any mood), the nose and the shade under it, the lips; a man's (`who: man`) also the shaved jaw's blue-grey shade and the hollows under the cheekbones. It takes `<id>_mood` by the engine's names, each
+under the eyes, brows of the hair's colour softened toward the skin (a dark heavy bar reads as a frown at any mood), the nose and the shade under it, the lips; a man's (`who: man`) also the shaved jaw's faint blue-grey shade under the chin. It takes `<id>_mood` by the engine's names, each
 bolder than the engine's own (`MOODS` in cast.js) so that it reads at three or four metres: `tired` — heavy lids, the
 brows' outer ends down; `sad` — grief held in and waiting: the brows' inner ends up, the eyes open, the lips parted;
 `thinking` — wary: the brows drawn down and together, the eyes narrowed; `angry` — sullen, a boy's grown-up
