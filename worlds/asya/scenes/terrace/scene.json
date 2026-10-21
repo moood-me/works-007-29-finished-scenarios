@@ -170,8 +170,8 @@
     {
       "id": "easel",
       "name": "Easel with the portrait",
-      "across": -0.45,
-      "distance": 3.45,
+      "across": -0.3,
+      "distance": 3.85,
       "facing": 192,
       "box": [
         -0.5,
@@ -201,11 +201,11 @@
       "person": {
         "cast": "cast",
         "who": "nn",
-        "turn": 160,
+        "turn": 165,
         "does": "hands_behind"
       },
-      "across": -1.25,
-      "distance": 2.95,
+      "across": -1.2,
+      "distance": 2.75,
       "shadow": true
     },
     {
@@ -214,10 +214,10 @@
       "person": {
         "cast": "cast",
         "who": "gagin",
-        "turn": 205
+        "turn": 230
       },
-      "across": 0.35,
-      "distance": 3.15,
+      "across": 0.45,
+      "distance": 3.7,
       "shadow": true
     },
     {
@@ -243,8 +243,8 @@
     "asya_look": "nn",
     "asya_mood": "smile",
     "nn_look": [
-      -0.6,
-      1.5,
+      -0.5,
+      1.4,
       0.3
     ],
     "nn_mood": "thinking",

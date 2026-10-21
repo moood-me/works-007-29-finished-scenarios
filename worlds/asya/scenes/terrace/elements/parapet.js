@@ -11,7 +11,7 @@ for (let row = 0, y = -0.52; row < 2; row++, y += 0.26) {
   for (let x = box[0] + (row ? 0.25 : 0); x < box[2]; n++) {
     const w = 0.42 + 0.3 * L.rnd(n, 81);
     g.fillStyle = ["#d8cbaf", "#d0c1a2", "#ddd1b8", "#cbbb9b"][n % 4];
-    g.fillRect(x + 0.012, y + 0.012, w - 0.024, 0.236);
+    g.fillRect(x + 0.012, y + 0.012, Math.min(w, box[2] - x) - 0.024, 0.236);
     x += w;
   }
 }

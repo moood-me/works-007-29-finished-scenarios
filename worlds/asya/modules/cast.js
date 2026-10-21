@@ -24,7 +24,7 @@ return {
     // dark cravat, light trousers, bare-headed
     nn: { kind: 'shapes', style: 'etude', who: 'man', garment: 'frockcoat', hair: 'short', scarf: true,
       body: { height: 1.02, thick: 0.88, shoulders: 0.98 },
-      colors: { skin: '#e7c3a4', hair: '#4e3626', top: '#f3efe6', garment: '#2e4b52', bottom: '#d4cbb6', shoes: '#2b2421', accent: '#26303a' } },
+      colors: { skin: '#e7c3a4', hair: '#4e3626', top: '#f3efe6', garment: '#2e4b52', bottom: '#a99f8a', shoes: '#2b2421', accent: '#26303a' } },
   },
   shapes: {
     // the world's style: a light watercolour figure — the flat geometry's clean shapes, softened (no bars: limbs taper
@@ -32,8 +32,8 @@ return {
     styles: { etude: { from: 'flat', name: 'Etude', head: 1.14, rigid: false, straight: false, arms: 'palm', line: 0.8,
       folds: { n: 5, depth: 0.03 }, face: 'simple' } },
     garments: {
-      // a frock coat: from the shoulders to above the knee, long sleeves
-      frockcoat: { name: 'frock coat', hang: [{ to: 0.85, from: 'shoulders', flare: 0.16 }], sleeves: 'garment' },
+      // a frock coat: from the shoulders to the knee, long sleeves
+      frockcoat: { name: 'frock coat', hang: [{ to: 1.2, from: 'shoulders', flare: 0.18 }], sleeves: 'garment' },
     },
     parts: {
       // Gagin's brush in the right hand, dry: the handle along the fist, the tip a touch of ochre
