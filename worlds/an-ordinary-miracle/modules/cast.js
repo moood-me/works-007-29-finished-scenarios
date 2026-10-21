@@ -39,7 +39,7 @@ return {
     // trousers, soft boots
     medved: {
       kind: 'shapes', style: 'tale', who: 'youth', garment: 'tunic', hair: 'spiky', parts: ['sash'],
-      body: { height: 1.05, shoulders: 1.12, thick: 1.1, arms: 1.03 },
+      body: { height: 1.05, shoulders: 1.05, thick: 1.0, arms: 1.03 },
       colors: { skin: '#e2b48e', hair: '#5b3a20', top: '#ddd1b4', garment: '#ddd1b4', bottom: '#4e4134', shoes: '#3b2b20', accent: '#d39a32' },
     },
     // the Princess: eighteen, slender, long dark-honey hair, a cornflower-blue travelling dress, a thin gold circlet
@@ -51,7 +51,7 @@ return {
     // the Master, the wizard: ageless — dark hair without a grey thread in it, a long bottle-green coat over a white
     // shirt, a crimson scarf
     hozyain: {
-      kind: 'shapes', style: 'tale', who: 'man', garment: 'coat', hair: 'short', scarf: true,
+      kind: 'shapes', style: 'tale_coat', who: 'man', garment: 'coat', hair: 'short', scarf: true,
       body: { height: 1.01, thick: 0.92 },
       colors: { skin: '#e3b796', hair: '#2b211c', top: '#ece6da', garment: '#2f5446', bottom: '#2c2a2a', shoes: '#231c18', accent: '#b2333a' },
     },
@@ -64,6 +64,9 @@ return {
       tale: { from: 'soft', name: 'storybook', sides: 16, head: 1.26, egg: [0.92, 1.05, 0.98], neck: 0.75, legs: 1.0, limb: 1.1, arms: 'hand', feet: 'trouser',
         trunk: { w: [0.94, 0.98, 0.88, 0.97, 0.95], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.7, tinted: true,
         folds: { n: 6, depth: 0.06 }, face: 'tale', ground: 'paper' },
+      // the same with a long coat cut straight (its sides straight lines from the shoulders to the hem: a bell from the
+      // hips reads as a dress)
+      tale_coat: { from: 'tale', name: 'storybook, a straight coat', straight: true, folds: { n: 8, depth: 0.025 } },
     },
     // an arm with a working hand (a broad palm, its fingers' ends not pinched); a leg in trousers
     arms: {

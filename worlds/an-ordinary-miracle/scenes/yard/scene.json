@@ -9,8 +9,8 @@
     "ambient": 0.68,
     "ambientColor": "#c3cde2",
     "bounce": 0.5,
-    "haze": 0.05,
-    "hazeColor": "#ecdcc2",
+    "haze": 0.035,
+    "hazeColor": "#dfe2e4",
     "hazeGlow": 0.4,
     "shafts": 0.2,
     "tint": "#ffd9a8",
@@ -55,12 +55,12 @@
   ],
   "state": {
     "medved_look": "princess",
-    "medved_mood": "neutral",
+    "medved_mood": "smile",
     "princess_look": "medved",
     "princess_mood": "smile",
     "hozyain_look": [
       -0.1,
-      3.6,
+      2.8,
       1.5
     ],
     "hozyain_mood": "smile"
@@ -75,12 +75,12 @@
       "id": "peaks",
       "name": "The snowy peaks",
       "across": 0,
-      "distance": 5000,
-      "height": 1900,
+      "distance": 6000,
+      "height": 2400,
       "box": [
-        -5200,
-        -2000,
-        5200,
+        -6300,
+        -2550,
+        6300,
         20
       ]
     },
@@ -331,10 +331,10 @@
       "shadow": true,
       "height": 2.7,
       "box": [
-        -8.1,
-        -2.8,
+        -8.4,
+        -2.85,
         0.4,
-        0.05
+        0.1
       ]
     },
     {
@@ -363,21 +363,6 @@
       "depth": 3.72,
       "tilt": 36,
       "shadow": true
-    },
-    {
-      "id": "konyok",
-      "name": "The carved horse on the ridge",
-      "across": -2.15,
-      "distance": 9.3,
-      "elevation": 4.85,
-      "facing": 90,
-      "height": 0.75,
-      "box": [
-        -0.25,
-        -0.8,
-        0.45,
-        0.05
-      ]
     },
     {
       "id": "chimney",
@@ -509,9 +494,9 @@
       "shadow": true,
       "height": 0.65,
       "box": [
-        -0.6,
-        -0.7,
-        0.7,
+        -0.65,
+        -1.0,
+        0.75,
         0.05
       ]
     },
@@ -524,7 +509,7 @@
       "shadow": true,
       "height": 0.85,
       "box": [
-        -0.65,
+        -0.72,
         -0.9,
         0.8,
         0.02
@@ -538,7 +523,7 @@
       "facing": 270,
       "height": 0.85,
       "box": [
-        -1.25,
+        -1.45,
         -0.9,
         0.05,
         0.02
@@ -676,10 +661,10 @@
       "person": {
         "cast": "cast",
         "who": "medved",
-        "turn": 140
+        "turn": 160
       },
-      "across": -0.95,
-      "distance": 3.7,
+      "across": -0.8,
+      "distance": 2.85,
       "shadow": true
     },
     {
@@ -688,10 +673,10 @@
       "person": {
         "cast": "cast",
         "who": "princess",
-        "turn": 215
+        "turn": 200
       },
-      "across": 0.75,
-      "distance": 3.45,
+      "across": 0.6,
+      "distance": 2.7,
       "shadow": true
     },
     {

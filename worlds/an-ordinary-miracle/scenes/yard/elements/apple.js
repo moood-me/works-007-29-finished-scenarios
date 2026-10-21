@@ -22,7 +22,7 @@ g.fillStyle = '#8a7360';
 g.fillRect(-0.16, -1.6, 0.08, 1.55);
 e.layer('crown', { pivot: [0, -2.0], wind: { strength: 0.16, gust: 0.5, scale: 8 }, box: [-3.2, -5.6, 3.2, -1.2] }, (g) => {
   const blobs = 34;
-  for (const [cols, k, lift] of [[['#3f6b38', '#4a7840'], 1, 0], [['#5f8d45', '#6d9a4b'], 0.86, 0.12], [['#93b85a', '#a8c665'], 0.6, 0.3]]) {
+  for (const [cols, k, lift] of [[['#3f6b38', '#4a7840'], 1, 0], [['#5f8d45', '#6d9a4b'], 0.86, 0.12], [['#7fa64f', '#8fb257'], 0.6, 0.3]]) {
     for (let i = 0; i < blobs; i++) {
       const a = 6.28 * L.rnd(i, 121), r = 2.2 * Math.sqrt(L.rnd(i, 122)), x = Math.cos(a) * r * 1.15 + lift * 1.6, y = -3.6 + Math.sin(a) * r * 0.78 - lift * 1.2;
       g.fillStyle = cols[i % 2];

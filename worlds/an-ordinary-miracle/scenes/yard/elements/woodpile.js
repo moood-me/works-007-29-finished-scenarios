@@ -14,10 +14,13 @@ for (let row = 0; row * R * 1.8 < H - 0.1; row++) {
     g.fill();
     g.fillStyle = k < 0.5 ? '#e3c28a' : '#d6b47c';
     g.beginPath();
-    g.moveTo(x, y);
-    g.arc(x, y, R * 0.78, k * 6, k * 6 + 4.9);
-    g.closePath();
+    g.arc(x, y, R * 0.78, 0, Math.PI * 2);
     g.fill();
+    g.strokeStyle = '#b8955f';
+    g.lineWidth = R * 0.08;
+    g.beginPath();
+    g.arc(x, y, R * 0.42, 0, Math.PI * 2);
+    g.stroke();
   }
 }
 g.fillStyle = '#7c6a55';
