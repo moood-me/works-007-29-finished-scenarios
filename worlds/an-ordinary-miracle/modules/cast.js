@@ -179,21 +179,19 @@ return {
           F.ball(on([Math.sin(a), 0.6, Math.cos(a)], 1.17), axes, [r * 0.07, r * 0.07, r * 0.05], RUBY, 8);
         }
       } },
-      // an ermine cape over the shoulders: white fur round the neck and down onto the shoulders and the chest, black
-      // tail tips in it
+      // an ermine collar over the shoulders: white fur round the neck and on the shoulders, black tail tips in it
       ermine: { name: 'ermine cape', draw: F => {
         const { add, mul, sub, unit } = V();
-        const m = F.fit.h, k = F.k, sq = F.style.square, n = 24, sh = F.trunk(1)[4], ch = F.trunk(1)[3], uc = F.up('Chest');
+        const m = F.fit.h, k = F.k, sq = F.style.square, n = 24, sh = F.trunk(1)[4], uc = F.up('Chest');
         const neck = [add(F.P('Neck1'), mul(uc, 0.015 * m)), sh[1], sh[2], 0.07 * k, 0.065 * k];
         const rings = [
           F.ringOf(neck, n, sq),
-          F.ringOf(sectionAt(sh, uc, 0.03 * m, 1.18), n, sq),
-          F.ringOf(sectionAt(sh, uc, -0.03 * m, 1.26), n, sq),
-          F.ringOf(sectionAt(ch, uc, 0.02 * m, 1.24), n, sq),
+          F.ringOf(sectionAt(sh, uc, 0.03 * m, 1.16), n, sq),
+          F.ringOf(sectionAt(sh, uc, -0.035 * m, 1.2), n, sq),
         ];
         F.rings(rings, F.colors.accent, null, null);
         for (let q = 0; q < n; q += 3) {
-          const p = rings[2][q], out = unit(sub(p, sh[0]));
+          const p = rings[1][q], out = unit(sub(p, sh[0]));
           F.ball(add(p, mul(out, 0.008 * k)), [sh[1], uc, sh[2]], [0.012 * k, 0.02 * k, 0.01 * k], SPECK, 6);
         }
       } },

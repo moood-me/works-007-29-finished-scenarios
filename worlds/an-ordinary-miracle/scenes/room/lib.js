@@ -6,8 +6,12 @@
 const rnd = (n, seed) => anim.hash(n, seed);
 
 // `n` soft rounded dabs over the rectangle x, y, w, h in the colours given (picked at random), each `r` across (±40%),
-// `squash` as tall as wide, at `alpha` — the gouache's broken colour over a flat ground
+// `squash` as tall as wide, at `alpha` — the gouache's broken colour over a flat ground, kept within the rectangle
 function dabs(g, seed, x, y, w, h, colors, n, r, squash = 0.6, alpha = 0.5) {
+  g.save();
+  g.beginPath();
+  g.rect(x, y, w, h);
+  g.clip();
   const was = g.globalAlpha;
   g.globalAlpha = alpha;
   for (let i = 0; i < n; i++) {
@@ -18,11 +22,16 @@ function dabs(g, seed, x, y, w, h, colors, n, r, squash = 0.6, alpha = 0.5) {
     g.fill();
   }
   g.globalAlpha = was;
+  g.restore();
 }
 
 // a wall of hewn logs seen from inside, from x0 to x1, from the foot (y 0) up to `top` (negative), each `d` thick: a
 // honey face, a lighter band where the log's round turns up, a dark seam of moss under each, knots and cracks
 function logs(g, seed, x0, x1, top, d) {
+  g.save();
+  g.beginPath();
+  g.rect(x0, top, x1 - x0, -top);
+  g.clip();
   const rows = Math.ceil(-top / d);
   for (let i = 0; i < rows; i++) {
     const yb = -i * d, yt = Math.max(top, yb - d);
@@ -42,6 +51,7 @@ function logs(g, seed, x0, x1, top, d) {
       g.fill();
     }
   }
+  g.restore();
 }
 
 // a ridge's outline: its height at x (positive, up), a few broad swells and finer ones — the same every painting

@@ -13,21 +13,21 @@ const leg = (g, x) => {
   g.fillRect(x - 0.05, -0.68, 0.025, 0.68);
 };
 e.part(0, 0.85, (g) => {
-  leg(g, -1.17);
-  leg(g, 1.17);
-}, [-1.32, -0.7, 1.32, 0.02]);
-leg(g, -1.17);
-leg(g, 1.17);
+  leg(g, -0.98);
+  leg(g, 0.98);
+}, [-1.12, -0.7, 1.12, 0.02]);
+leg(g, -0.98);
+leg(g, 0.98);
 g.fillStyle = '#a77a4c';
-g.fillRect(-1.3, -0.8, 2.6, 0.05);
+g.fillRect(-1.1, -0.8, 2.2, 0.05);
 g.fillStyle = '#8a5f38';
 g.beginPath();
-g.moveTo(-1.24, -0.75);
-g.lineTo(1.24, -0.75);
-g.lineTo(1.24, -0.68);
-for (let i = 12; i >= 0; i--) {
-  const x = -1.24 + (2.48 * i) / 12;
-  g.quadraticCurveTo(x + 0.103, -0.63, x, -0.68);
+g.moveTo(-1.04, -0.75);
+g.lineTo(1.04, -0.75);
+g.lineTo(1.04, -0.68);
+for (let i = 10; i >= 0; i--) {
+  const x = -1.04 + (2.08 * i) / 10;
+  g.quadraticCurveTo(x + 0.104, -0.63, x, -0.68);
 }
 g.closePath();
 g.fill();

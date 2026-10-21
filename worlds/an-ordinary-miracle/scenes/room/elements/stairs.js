@@ -2,6 +2,10 @@
 // on) from the floor at x 0 to the ceiling's hatch at x 1.75, the stringer under them darker, a turned baluster on
 // every step, a handrail, a newel post with a knob at its foot. (The treads' tops are `treads`.)
 const N = 12, R = 0.25, T = 0.146;
+// (what rises past the ceiling is cut at it)
+g.beginPath();
+g.rect(-0.02, -3.05, 1.97, 3.07);
+g.clip();
 const zig = new Path2D();
 zig.moveTo(0, 0);
 for (let i = 0; i < N; i++) {
