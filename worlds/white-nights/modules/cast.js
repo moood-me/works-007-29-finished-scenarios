@@ -75,11 +75,11 @@ return {
     // same solids for every expression, only where they are changes, so one goes over into another)
     faces: { litho: { name: 'lithograph', draw: F => {
       const { axes, r: rh, on } = F.head, [, hu] = axes, x = MOODS[F.look.expression] ?? MOODS.neutral;
-      const skin = F.colors.skin, brow = F.colors.hair.map(v => v * 0.8), cheek = [skin[0], skin[1] * 0.86, skin[2] * 0.84];
+      const skin = F.colors.skin, brow = F.colors.hair.map(v => v * 0.8), cheek = [skin[0], skin[1] * 0.93, skin[2] * 0.92];
       const lips = [skin[0] * 0.8, skin[1] * 0.5, skin[2] * 0.5], open = Math.min(1, x.eye);
       for (const sx of [-1, 1]) {
         // (on the head's drawn surface, which stands a little out of its radius: the features a little out of it too)
-        F.ball(on([sx * 0.5, -0.2, 0.84], 1.02), axes, [rh * 0.14, rh * 0.09, rh * 0.03], cheek, 10);
+        F.ball(on([sx * 0.5, -0.2, 0.84], 1.01), axes, [rh * 0.12, rh * 0.075, rh * 0.03], cheek, 10);
         F.ball(on([sx * 0.34, 0.06, 0.94], 1.02), axes, [rh * 0.15, rh * 0.1 * x.eye, rh * 0.05], WHITE, 12);
         F.ball(on([sx * 0.32, 0.05, 0.95], 1.04), axes, [rh * 0.08, rh * 0.09 * open, rh * 0.045], IRIS, 10);
         F.tube([on([sx * 0.18, 0.08 + 0.09 * x.eye, 0.93], 1.06), on([sx * 0.34, 0.1 + 0.1 * x.eye, 0.94], 1.07), on([sx * 0.5, 0.07 + 0.07 * x.eye, 0.86], 1.06)],
