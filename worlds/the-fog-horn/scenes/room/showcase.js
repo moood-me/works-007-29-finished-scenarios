@@ -9,7 +9,7 @@ return [
       s.set('nora', 0);
       s.set('lamp', 1);
       s.set('stove', 1);
-      s.set('johnny_look', 'table_things#second_cup');
+      s.set('johnny_look', [0.4, 3.0, 0.2]);
       await s.wait(7);
     },
   },

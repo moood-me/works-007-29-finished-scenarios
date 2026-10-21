@@ -94,7 +94,11 @@
     "johnny_with": [
       "lantern"
     ],
-    "johnny_look": "table_things#second_cup",
+    "johnny_look": [
+      0.4,
+      3,
+      0.2
+    ],
     "johnny_mood": "thinking",
     "mcdunn_look": "johnny",
     "mcdunn_mood": "neutral"
@@ -518,11 +522,7 @@
       "distance": 4.55,
       "elevation": 0.75,
       "width": 1.1,
-      "depth": 1.1,
-      "shadow": {
-        "light": "lamp",
-        "strength": 0.55
-      }
+      "depth": 1.1
     },
     {
       "id": "table_legs",
