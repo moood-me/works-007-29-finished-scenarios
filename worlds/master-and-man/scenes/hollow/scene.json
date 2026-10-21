@@ -371,7 +371,7 @@
       "particles": {
         "kind": "blizzard",
         "amount": "storm",
-        "count": 50000,
+        "count": 38000,
         "reach": 10
       }
     },
