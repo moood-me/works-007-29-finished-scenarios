@@ -150,7 +150,7 @@ return {
     old_man: { kind: 'shapes', style: 'tolstoy', who: 'man', garment: 'shirt', hair: 'short', face: 'tolstoy_old',
       parts: ['beard_long', 'sash'],
       body: { height: 0.97, thick: 1.0, shoulders: 1.05 },
-      colors: { skin: '#d99a7c', hair: '#e8e4dc', top: '#e4dccb', garment: '#e4dccb', bottom: '#4e4a50', shoes: '#6c655d', accent: '#6a4636' } },
+      colors: { skin: '#d99a7c', hair: '#c9c3b9', top: '#e4dccb', garment: '#e4dccb', bottom: '#4e4a50', shoes: '#6c655d', accent: '#6a4636' } },
     // his elder son: about thirty, tall, a short dark beard; a blue-grey shirt belted, dark trousers in black boots
     son: { kind: 'shapes', style: 'tolstoy', who: 'man', garment: 'shirt', hair: 'short', face: 'tolstoy_son',
       parts: ['beard_trim', 'sash'],

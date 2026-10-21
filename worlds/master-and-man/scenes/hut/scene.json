@@ -83,6 +83,7 @@
     ],
     "nikita_wear": {
       "hat": "none",
+      "garment": "shirt",
       "parts": [
         "beard_long",
         "sash"
