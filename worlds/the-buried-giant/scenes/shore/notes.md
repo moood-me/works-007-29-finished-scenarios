@@ -19,5 +19,6 @@ his shoulder and the lantern in his hand, looking out at the viewer — standing
   drifting; the night and the stars layers shown by `night` (animate). The look `night` puts the sun out.
 - People: `axl`, `beatrice`, `boatman` of the cast. The boatman's right hand is set on the oar's loom by
   `boatman_reach` (a point before his right chest: move it with him if he is moved); `lantern_light` is at
-  `boatman#flame`. `lantern` 0.35 by day (a faint glow), 1 at night.
+  `boatman#flame`. `lantern` 0.35 by day (a faint glow), 1 at night. The boatman casts no shadow (`"shadow": false`): the lantern
+  hangs against his robe, and the robe's shadow from it lay over the shingle as a hard-edged wedge.
 - Copies (`rocks`, `grass`) are laid by `tools/shore_copies.py`, which writes them into scene.json.
