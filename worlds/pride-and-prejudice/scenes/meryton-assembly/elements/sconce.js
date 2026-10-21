@@ -1,6 +1,6 @@
 // A girandole on a pilaster (x along the wall, y up negative from the foot of its backplate at 2.0 m): an oval gilt
 // backplate with a small looking-glass in it, two S-curved arms out to the candle cups, two candles (lib: SCONCE).
-// Its flames are `sconce_flames`, its light the scene's `sconce_0` … `sconce_6`. A copy on each pilaster that has one
+// Its flames are `sconce_flames`, its light the scene's `sconce_0` … `sconce_7`. A copy on each pilaster that has one
 const L = e.kit.brush,
   W = e.lib,
   px = L.px(e),

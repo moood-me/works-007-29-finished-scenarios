@@ -21,8 +21,9 @@ windows' light, the floor's wax gives back the room.
 - **Darcy** (`darcy`, his ball look: the dark blue tailcoat over a white waistcoat, black knee breeches, white
   stockings, pumps — by the look's `colors`, not his Pemberley boots) — apart at the right (2.0, 4.5 m), nearly to the
   eye (165°), hands behind his back (`hands_behind`), looking out over the room toward Elizabeth's side
-  (`darcy_look`, a point before him at head height), grave (`darcy_mood: thinking`). His face takes the near
-  girandole's light (`sconce_1`, a little stronger than the rest); turned toward Bingley, it went into shadow.
+  (`darcy_look`, a point before him at head height), grave (`darcy_mood: thinking`). His face takes the light of
+  the girandoles before him (`sconce_7` on the right wall, `sconce_1` on the left); turned toward Bingley, it went into
+  shadow.
 - The neighbours (cast `guest_lady`, `guest_gent`, each its own colours by the look's `colors`): a couple facing each
   other in the set behind, in the gap between Elizabeth and Jane (`guest_a_lady`, `guest_a_gent`, 8.5 m); a couple
   talking under the far windows, between Bingley and Darcy (`guest_b_lady`, `guest_b_gent`, 11 m). They stand where
@@ -45,8 +46,8 @@ windows' light, the floor's wax gives back the room.
 ## Light
 
 The engine's: the three windows' daylight (`window_a/b/c`, 1.6) from the right; the two chandeliers (`chandelier_near`,
-`_far`: points at their candles' height, a warm pale gold) and the seven girandoles (`sconce_0` … `sconce_6`; the
-first, on the left wall 2 m off, and the last, on the right wall 4.75 m off, are out of the frame — they light the
+`_far`: points at their candles' height, a warm pale gold) and the eight girandoles (`sconce_0` … `sconce_7`; the
+first, on the left wall 2 m off, and the last two, on the right wall 4.75 and 2 m off, are out of the frame — they light the
 faces from before); `ambient` 0.86 in a warm cream, `inside` 0.6, `bounce` 0.65; a light haze lit round the flames
 (`hazeGlow` 0.35). `later` (0…1) is a look: the windows down to a third, the chandeliers and the girandoles near the eye up (the faces stay lit), the room warmer — the
 showcase moves it. No painting reads it.
