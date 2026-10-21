@@ -4,7 +4,7 @@ const { hash } = anim;
 const INK = '#4a3f3a';
 
 // Old wallpaper on a wall x0…x1 (metres), from the ceiling at -top down to the floor at 0: a warm cream ground,
-// paler stripes, small sprigs between them (one path), a frieze under the ceiling, a brown skirting
+// paler stripes, small four-petalled flowers with two leaves between them (one path each), a frieze under the ceiling, a brown skirting
 function wallpaper(g, x0, x1, top, seed) {
   const w = x1 - x0;
   g.fillStyle = '#dcc9ad';
@@ -16,8 +16,10 @@ function wallpaper(g, x0, x1, top, seed) {
   for (let y = -top + 0.42; y < -0.25; y += 0.24, row++) {
     for (let x = x0 + 0.26; x < x1; x += 0.34) {
       const jx = (hash(row * 97 + Math.round(x * 10), seed) - 0.5) * 0.02;
-      g.moveTo(x + jx + 0.022, y);
-      g.ellipse(x + jx, y, 0.022, 0.03, 0.4, 0, Math.PI * 2);
+      for (const [dx, dy] of [[0, -0.016], [0.015, 0], [0, 0.016], [-0.015, 0]]) {
+        g.moveTo(x + jx + dx + 0.011, y + dy);
+        g.arc(x + jx + dx, y + dy, 0.011, 0, Math.PI * 2);
+      }
     }
   }
   g.fillStyle = 'rgba(160,104,96,0.5)';
@@ -26,8 +28,10 @@ function wallpaper(g, x0, x1, top, seed) {
   row = 0;
   for (let y = -top + 0.42; y < -0.25; y += 0.24, row++) {
     for (let x = x0 + 0.26; x < x1; x += 0.34) {
-      g.moveTo(x - 0.035, y + 0.045);
-      g.lineTo(x + 0.035, y + 0.015);
+      g.moveTo(x - 0.02, y + 0.05);
+      g.quadraticCurveTo(x - 0.03, y + 0.02, x - 0.01, y + 0.02);
+      g.moveTo(x + 0.02, y + 0.05);
+      g.quadraticCurveTo(x + 0.03, y + 0.02, x + 0.01, y + 0.02);
     }
   }
   g.strokeStyle = 'rgba(112,128,96,0.6)';

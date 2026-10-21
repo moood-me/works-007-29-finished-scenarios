@@ -40,7 +40,7 @@ The room: across −2.65…2.75, 0…6 deep, the ceiling 2.8 (`floor`, `ceiling`
 
 ## The people (the world's `cast`: modules/cast.md)
 
-- `babushka` — Grandmother in the armchair (`babushka_on` the seat, the cast's `seated` loop: upright, hands folded),
+- `babushka` — Grandmother in the armchair (`babushka_on` the seat, the cast's `seated` loop: still, the hands on her knees),
   facing the room, her blind eyes turned straight at the guest (`babushka_look: "dreamer"`).
 - `nastya` — Nastenka on the low bench at Grandmother's side, at home (her look over the character: the dress without
   the mantle, no bonnet, her hair up), turned half to Grandmother (145°), reading to her (the cast's `read` loop, the

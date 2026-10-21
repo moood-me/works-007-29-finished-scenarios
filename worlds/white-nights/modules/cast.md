@@ -48,6 +48,6 @@ under the chin), `mobcap` (an old woman's white linen cap, a ribbon bow under th
 Made by the motion model (make_motion), put in with put_motion (`cast.data.json`). Both are seated loops: the person
 sits on a seat by `<id>_on: [across, distance, top]` (the hips over it), `<id>_do: {"motion": …, "loop": true}`.
 
-- `seated` — sits upright, the hands folded in the lap, breathing (made on a bench; the head turns where `_look` says).
+- `seated` — sits still on a chair, the hands resting on the thighs, breathing slowly (the head free for `_look`).
 - `read` — sits holding a book open in both hands at the chest, reading, now and then turning a page (with the part
   `book`).
