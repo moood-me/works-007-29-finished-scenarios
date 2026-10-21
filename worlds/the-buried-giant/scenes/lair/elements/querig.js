@@ -3,7 +3,7 @@
 // right. Layers: `body` (breathes — animate), `head`, `eye` (the old amber eye) and `lid` over it (opened by the
 // state's `querig_eye` — animate). Points: `nostrils` (where her breath comes out — the particles `breath`), `eye`,
 // `head` (and her unnamed point, for the camera)
-const K = 1.2; // she is drawn in metres at 1/K of her size, and scaled up by K
+const K = 1.2; // she is drawn at 1/K of her size and scaled up by K (her points, marked under the scale, follow it)
 const BODY = '#93a08e', SHADE = '#7b8578', BELLY = '#c2bfa6', RIB = 'rgba(96,104,92,0.75)', PLATE = '#667064';
 const WING = '#6c675f', BONE = '#5a5650', HORN = '#d6cdb6', CLAW = '#cfc5ae';
 // her back, from the shoulder to the tail's tip (a smooth line through these)
@@ -218,9 +218,9 @@ e.layer('head', {}, g => {
   g.beginPath();
   g.ellipse(-5.6, -0.47, 0.07, 0.04, -0.3, 0, Math.PI * 2);
   g.fill();
-  e.at(-5.66 * K, -0.46 * K, 'nostrils');
-  e.at(-4.8 * K, -0.95 * K, 'head');
-  e.at(-4.8 * K, -0.95 * K);
+  e.at(-5.66, -0.46, 'nostrils');
+  e.at(-4.8, -0.95, 'head');
+  e.at(-4.8, -0.95);
 });
 e.layer('eye', {}, g => {
   g.scale(K, K);
@@ -233,7 +233,7 @@ e.layer('eye', {}, g => {
   g.beginPath();
   g.ellipse(-4.68, -0.7, 0.025, 0.065, 0, 0, Math.PI * 2);
   g.fill();
-  e.at(-4.68 * K, -0.7 * K, 'eye');
+  e.at(-4.68, -0.7, 'eye');
 });
 e.layer('lid', { pivot: [-4.68 * K, -0.79 * K] }, g => {
   g.scale(K, K);
