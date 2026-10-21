@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Grandmother's Room","translation":"Комната бабушки","where":"scenes/grandmother/scene.json title"},
+  {"text":"Sunday, after mass. Grandmother in her armchair, Nastenka pinned to her dress, a guest at the door with his hat in his hands.","translation":"Воскресенье, после обедни. Бабушка в кресле, Настенька приколота к её платью, у двери гость со шляпой в руках.","where":"scenes/grandmother/scene.json caption"}
+]}
