@@ -10,7 +10,7 @@ g.fillRect(-1500, -720, 3000, 1440);
 // the valley floor and its far side: fields in long strips, golden, green and fallow, hedged
 for (let i = 0; i < 260; i++) {
   const d = 110 + Math.pow(R(), 0.9) * 1250, a = 20 + R() * 1300 - 200 * (d < 300 ? 0 : 1), w = 18 + R() * (20 + d * 0.06), h = 8 + R() * (10 + d * 0.03);
-  if (a * 0.8 + d * 0.25 < 70) continue;
+  if (a - L.browA(d) < 30) continue;
   g.fillStyle = ["#9aa260", "#c0b274", "#b3ad7c", "#8c9658", "#c9bd85"][Math.floor(R() * 5)];
   g.save();
   g.translate(a, Y(d));
@@ -22,7 +22,7 @@ g.strokeStyle = "#6f7a4c";
 g.lineWidth = 1.6;
 for (let i = 0; i < 50; i++) {
   const d = 140 + R() * 900, a = 60 + R() * 1100, l = 30 + R() * 90, t = (R() - 0.5) * 0.6 + (R() < 0.5 ? 0 : Math.PI / 2);
-  if (a * 0.8 + d * 0.25 < 75) continue;
+  if (a - L.browA(d) < 40) continue;
   g.beginPath();
   g.moveTo(a, Y(d));
   g.lineTo(a + Math.cos(t) * l, Y(d) + Math.sin(t) * l);

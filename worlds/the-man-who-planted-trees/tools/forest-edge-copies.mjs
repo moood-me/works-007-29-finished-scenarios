@@ -20,7 +20,7 @@ const r2 = (v) => Math.round(v * 100) / 100;
 const pick = (list) => list[Math.floor(rnd() * list.length)];
 const TINTS = ['#ffffff', '#f2f4ea', '#e8ecdf', '#f6f1e4'];
 // the people and the stone, kept clear of what stands at their feet; the path's line near
-const PEOPLE = [[0.6, 7.0], [2.9, 7.9], [-1.0, 9.4], [0.3, 16.2]];
+const PEOPLE = [[0.4, 5.6], [2.5, 6.4], [-1.2, 7.6], [0.3, 16.2]];
 const clear = (a, d, r) => PEOPLE.every(([pa, pd]) => Math.hypot(a - pa, d - pd) > r);
 const offStream = (a, d, gap) => Math.abs(a - lib.streamX(d)) > lib.streamW(d) / 2 + gap;
 // the left edge of what the view can see at d (a little past the frame's 21:9 edge)
@@ -53,7 +53,7 @@ for (let d0 = 84; d0 <= 430; d0 += 12) {
   }
 }
 // willows by the water: two on the far bank under the oaks, one on the near bank where the path goes into the wood
-for (const [d, side, s] of [[6, -1, 0.95], [19.5, 1, 0.95], [13, -1, 0.85]]) {
+for (const [d, side, s] of [[19.5, 1, 0.9]]) {
   const a = lib.streamX(d) + side * (lib.streamW(d) / 2 + 1.0);
   copies.willow.push({ across: r2(a), distance: d, scale: s, flip: side > 0 });
 }
@@ -63,9 +63,9 @@ for (let d = 1; d < 28; d += 0.45 + rnd() * 0.6) {
   if (clear(a, d, 0.7)) copies.sedge.push({ across: r2(a), distance: r2(d), scale: r2(0.7 + rnd() * 0.5), flip: rnd() < 0.5 });
 }
 // tall grass over the meadow, thicker away from the path
-while (copies.grass.length < 70) {
-  const d = 1.5 + Math.pow(rnd(), 1.3) * 22, a = lib.edgeA(d) + 1 + rnd() * (6 + d * 1.6);
-  if (offStream(a, d, 1.2) && clear(a, d, 0.9)) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.8 + rnd() * 0.5), flip: rnd() < 0.5 });
+while (copies.grass.length < 60) {
+  const d = 3 + Math.pow(rnd(), 1.2) * 22, a = lib.edgeA(d) + 1 + rnd() * (lib.browA(d) + 0.5 - lib.edgeA(d));
+  if (offStream(a, d, 1.2) && clear(a, d, 1.5)) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.8 + rnd() * 0.5), flip: rnd() < 0.5 });
 }
 
 const path = new URL('scene.json', folder), spec = JSON.parse(readFileSync(path, 'utf8'));

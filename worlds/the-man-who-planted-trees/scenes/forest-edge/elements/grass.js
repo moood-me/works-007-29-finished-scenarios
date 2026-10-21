@@ -14,13 +14,13 @@ e.layer("blades", { pivot: [0, 0], wind: { strength: 0.5, gust: 0.5 } }, (g) => 
     if (i % 5 === 0) {
       g.fillStyle = "#c9b780";
       g.beginPath();
-      g.ellipse(tx, ty - 0.03, 0.018, 0.05, a, 0, Math.PI * 2);
+      g.ellipse(tx, ty - 0.025, 0.012, 0.035, a, 0, Math.PI * 2);
       g.fill();
     }
     if (i % 7 === 3) {
       g.fillStyle = e.rnd() < 0.5 ? "#f1ece0" : "#e3cf72";
       g.beginPath();
-      g.arc(tx, ty, 0.03, 0, Math.PI * 2);
+      g.arc(tx, ty, 0.018, 0, Math.PI * 2);
       g.fill();
     }
   }

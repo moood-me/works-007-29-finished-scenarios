@@ -22,10 +22,10 @@ e.layer("crown", { pivot: [0, -2.2], wind: { strength: 0.3, gust: 0.5 } }, (g) =
     tips.push([x, y]);
   }
   for (const [x, y] of tips) {
-    for (let k = 0; k < 14; k++) {
+    for (let k = 0; k < 22; k++) {
       const sx = x * (0.4 + k * 0.05) + (e.rnd() - 0.5) * 0.6, sy = -2.2 + (y + 2.2) * (0.55 + k * 0.035), l = 1.4 + e.rnd() * 1.8;
       g.strokeStyle = ["#7d8a66", "#9aa784", "#6b7757"][k % 3];
-      g.lineWidth = 0.09 + e.rnd() * 0.05;
+      g.lineWidth = 0.045 + e.rnd() * 0.03;
       g.beginPath();
       g.moveTo(sx, sy);
       g.quadraticCurveTo(sx + Math.sign(x || 1) * 0.35, sy - 0.1, sx + Math.sign(x || 1) * 0.3, Math.min(-0.2, sy + l));
