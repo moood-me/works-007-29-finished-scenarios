@@ -14,12 +14,12 @@ const FLOOR = 0.85;
 const EAVES = 4.2;
 const DOOR0 = 1.8;
 const DOOR1 = 2.7;
-const DOOR_TOP = 2.85;
+const DOOR_TOP = 3.02;
 const WIN = 4.1;
 const WIN2 = 0.4;
 
 // the base: upright boards, grey
-g.fillStyle = "#857a6c";
+g.fillStyle = "#7f7870";
 g.fillRect(X0, -FLOOR, X1 - X0, FLOOR);
 g.strokeStyle = "#6a6055";
 g.lineWidth = 0.02;
@@ -45,9 +45,9 @@ for (let x = X0 + 0.1; x < X1 + 0.1; x += 0.2) {
 // the door: its opening onto the passage — warm, lit by the lamp within —, the leaf open into it at the left, a high
 // threshold
 const passage = g.createLinearGradient(0, -DOOR_TOP, 0, -FLOOR);
-passage.addColorStop(0, "#6b4f39");
-passage.addColorStop(0.55, "#86664a");
-passage.addColorStop(1, "#94765a");
+passage.addColorStop(0, "#5e4a3c");
+passage.addColorStop(0.55, "#76604d");
+passage.addColorStop(1, "#837059");
 g.fillStyle = passage;
 g.fillRect(DOOR0, -DOOR_TOP, DOOR1 - DOOR0, DOOR_TOP - FLOOR);
 // (the far doorway inside, the room's warm light through it)

@@ -28,7 +28,7 @@ for (const x of [-0.95, -0.35, 0.25, 0.8]) {
   g.stroke();
 }
 // the body: woven bast, its back higher and rounded
-g.fillStyle = "#9c8a68";
+g.fillStyle = "#8f8670";
 g.beginPath();
 g.moveTo(-1.1, -0.3);
 g.lineTo(-1.1, -0.98);
@@ -62,21 +62,21 @@ g.moveTo(-0.68, -0.8);
 g.lineTo(0.95, -0.72);
 g.stroke();
 // the straw heaped in it: a soft mound over the rim from the back to the front, lighter on top, stalks sticking out
-g.fillStyle = "#b7a679";
+g.fillStyle = "#aaa38a";
 g.beginPath();
 g.moveTo(-0.72, -0.8);
 g.bezierCurveTo(-0.5, -1.02, 0.3, -1.04, 0.62, -0.92);
 g.quadraticCurveTo(0.86, -0.84, 0.95, -0.72);
 g.closePath();
 g.fill();
-g.fillStyle = "#cbbb8c";
+g.fillStyle = "#bdb79e";
 g.beginPath();
 g.moveTo(-0.6, -0.86);
 g.bezierCurveTo(-0.4, -1.0, 0.2, -1.01, 0.5, -0.93);
 g.quadraticCurveTo(0.1, -0.92, -0.6, -0.86);
 g.closePath();
 g.fill();
-g.strokeStyle = "#a8976a";
+g.strokeStyle = "#9d9680";
 g.lineWidth = 0.012;
 for (let i = 0; i < 14; i++) {
   const x = -0.6 + i * 0.1;

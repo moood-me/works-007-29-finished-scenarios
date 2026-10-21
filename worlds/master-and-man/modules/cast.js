@@ -1,6 +1,6 @@
 // The people of «Master and Man» as people in a scene (an element with "person"): who they are — figures of shapes in
 // this world's style, `tolstoy`: near-true proportions (the head a little large, so faces read), rounded forms, a fine
-// tinted line round them, painted faces — eyes, brows, a nose, a mouth, cheeks reddened by the frost —, mittens and felt
+// tinted line round them, painted faces — eyes, brows, a nose, a mouth, cheeks reddened by the frost —, bare hands and felt
 // boots: a painterly illustration, lit by the scene's own light — and how they stand: the motions in cast.data.json
 // (Kimodo's). cast.md says who is who and what each motion is.
 // A part's lengths are a man's metres times F.fit.h (the person's height as a share of a man's 1.76 m).
@@ -23,9 +23,10 @@ const EXPRESSIONS = {
   tired: { inner: 0.02, outer: -0.05, eye: 0.5, wide: 0.12, corners: -0.015, open: 0 },
 };
 const DARK = [0.16, 0.12, 0.11];
+const EYE_WHITE = [0.95, 0.93, 0.9];
 
 // the world's face: larger eyes and brows than the engine's simple one, a fuller nose, the cheeks reddened by the cold —
-// a face that reads from across a yard
+// a face that reads from across a yard: whites to the eyes, so where they look and how (meek, smug, anxious) shows
 function face(F) {
   const { axes, r: rh, on } = F.head, [, hu] = axes;
   const x = EXPRESSIONS[F.look.expression] ?? EXPRESSIONS.neutral;
@@ -33,9 +34,10 @@ function face(F) {
   for (const sx of [-1, 1]) {
     // (the cheek, a soft red patch under the eye; the eye; the brow over it)
     F.ball(on([sx * 0.46, -0.16, 0.85], 0.975), axes, [rh * 0.17, rh * 0.12, rh * 0.05], cheek, 10);
-    F.ball(on([sx * 0.31, 0.08, 0.94], 0.99), axes, [rh * 0.085, rh * 0.1 * x.eye, rh * 0.045], DARK, 10);
+    F.ball(on([sx * 0.31, 0.08, 0.93], 0.985), axes, [rh * 0.15, rh * 0.115 * x.eye, rh * 0.04], EYE_WHITE, 10);
+    F.ball(on([sx * 0.3, 0.07, 0.95], 1.0), axes, [rh * 0.08, rh * 0.095 * x.eye, rh * 0.045], DARK, 10);
     F.tube([on([sx * 0.13, 0.33 + x.inner, 0.94], 1.0), on([sx * 0.3, 0.37 + (x.inner + x.outer) / 2, 0.9], 1.005), on([sx * 0.47, 0.31 + x.outer, 0.83], 1.0)],
-      [[0, rh * 0.04], [1, rh * 0.042], [2, rh * 0.026]], [[0, brow]], 6, hu);
+      [[0, rh * 0.05], [1, rh * 0.054], [2, rh * 0.032]], [[0, brow]], 6, hu);
   }
   // (the nose: fuller, a little redder at its tip)
   F.ball(on([0, -0.08, 1], 0.97), axes, [rh * 0.1, rh * 0.15, rh * 0.13], tint(F.colors.skin, [1.0, 0.9, 0.88]), 10);
@@ -50,7 +52,7 @@ function face(F) {
 function beard(F, long) {
   const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
   F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.03), [0, -0.92, 0.38], 0.78, F.colors.hair, h.sides, h.square);
-  F.ball(add(h.at, add(mul(hu, -r * (1.0 + 0.25 * long)), mul(hf, r * 0.38))), h.axes, [r * 0.5, r * (0.36 + 0.3 * long), r * 0.36], F.colors.hair, h.sides);
+  F.ball(add(h.at, add(mul(hu, -r * (1.0 + 0.25 * long)), mul(hf, r * 0.38))), h.axes, [r * 0.5, r * (0.32 + 0.22 * long), r * 0.34], F.colors.hair, h.sides);
   // (the moustache: two soft rolls from under the nose down over the mouth's corners)
   for (const sx of [-1, 1]) {
     const a = h.on([sx * 0.06, -0.24, 0.97], 1.03), b = h.on([sx * 0.3, -0.4, 0.86], 1.02);
@@ -124,34 +126,35 @@ return {
   ...data,
   characters: {
     // Vasily Andreich Brekhunov, the master: about fifty, stout and ruddy, a trimmed brown beard and moustache; over his
-    // sheepskin the long red fox-fur coat — a fat roll of lighter fur at the neck, the same fur down its front, at its
-    // hem and its cuffs —, a tall dark fur hat, felt boots
+    // sheepskin the long red fox-fur coat — a fat roll of lighter fur at the neck, the same fur at its cuffs —, a round dark fur hat, felt boots
     vasily: { kind: 'shapes', style: 'tolstoy', who: 'man', garment: 'fox_coat', hair: 'short', hat: 'fur_hat', face: 'tolstoy',
-      parts: ['beard_trim', 'fur_collar', 'fur_front', 'fur_cuffs'],
-      body: { height: 1.0, thick: 1.28, shoulders: 1.1, head: 1.05 },
+      parts: ['beard_trim', 'fur_collar', 'fur_cuffs'],
+      body: { height: 1.0, thick: 1.12, shoulders: 1.16, head: 1.1 },
       colors: { skin: '#e8a184', hair: '#6e4128', top: '#7b6a55', garment: '#c45a22', bottom: '#3c3530', shoes: '#4a4038', hat: '#3a2c24', accent: '#e8b07a' } },
     // Nikita, the workman: about fifty, wiry, a greying beard white with frost; a thin homespun coat worn through at the
     // hem, tied with his red sash; a worn sheepskin hat, grey felt boots
     nikita: { kind: 'shapes', style: 'tolstoy', who: 'man', garment: 'armyak', hair: 'short', hat: 'sheepskin_hat', face: 'tolstoy',
       parts: ['beard_long', 'beard_frost', 'sash'],
       body: { height: 0.98, thick: 0.9, shoulders: 1.0 },
-      colors: { skin: '#d49274', hair: '#a59d92', top: '#a99d86', garment: '#7f725c', bottom: '#5b5349', shoes: '#a29d94', hat: '#6a5d4c', accent: '#c4262c' } },
-    // Praskovya Mikhailovna, his wife: slight, a dark blue dress, a light woollen shawl over her head
-    praskovya: { kind: 'shapes', style: 'tolstoy', who: 'woman', garment: 'dress', hair: 'bun', hat: 'shawl', face: 'tolstoy',
-      body: { height: 0.92, thick: 0.84, shoulders: 0.86 },
+      colors: { skin: '#d49274', hair: '#a59d92', top: '#a99d86', garment: '#7f725c', bottom: '#5b5349', shoes: '#6c655d', hat: '#6a5d4c', accent: '#c4262c' } },
+    // Praskovya Mikhailovna, his wife: slight, a dark blue dress with long sleeves down to the floor, a light woollen
+    // shawl over her head
+    praskovya: { kind: 'shapes', style: 'tolstoy', who: 'woman', garment: 'long_dress', hair: 'bun', hat: 'shawl', face: 'tolstoy',
+      body: { height: 0.92, thick: 0.92, shoulders: 0.9, head: 1.04 },
       colors: { skin: '#eec5a8', hair: '#4b3a2e', top: '#4a5876', garment: '#4a5876', shoes: '#2a2624', hat: '#ece4d4' } },
   },
   shapes: {
-    // the world's style: near-true proportions (a smaller head than the engine's soft, a longer neck — yet large
-    // enough for a face to read), rounded, a fine line of a darker shade, mittens, felt boots
-    styles: { tolstoy: { from: 'soft', name: 'Tolstoy', head: 1.2, neck: 0.6, legs: 0.98, limb: 1.0, line: 1.5,
-      folds: { n: 7, depth: 0.05 }, arms: 'mitten', feet: 'boot', face: 'tolstoy' } },
+    // the world's style: near-true proportions with the head a little large (as the engine's soft has it), so a face
+    // reads from across a yard; rounded, a fine line of a darker shade, hands with fingers, felt boots
+    styles: { tolstoy: { from: 'soft', name: 'Tolstoy', head: 1.4, neck: 0.5, legs: 0.98, limb: 1.0, line: 1.5,
+      folds: { n: 7, depth: 0.05 }, arms: 'palm', fingers: true, feet: 'boot', face: 'tolstoy' } },
     faces: { tolstoy: { name: 'Tolstoy face', draw: face } },
     garments: {
-      // the fox-fur coat: from the shoulders to below the middle of the shin, wide at the hem, wide sleeves; under its
-      // hem a band of lighter fur (an inner layer, a little longer)
-      fox_coat: { name: 'fox-fur coat', hang: [{ to: 1.76, from: 'shoulders', flare: 0.32, color: 'accent', folds: false }, { to: 1.6, from: 'shoulders', flare: 0.3 }],
-        sleeves: 'garment', wide: 0.3 },
+      // the fox-fur coat: from the shoulders to the middle of the shin, a little wider at the hem, wide sleeves
+      fox_coat: { name: 'fox-fur coat', hang: [{ to: 1.66, from: 'shoulders', flare: 0.2 }],
+        sleeves: 'garment', wide: 0.14 },
+      // the wife's dress: long sleeves, the skirt full from the waist down to the floor
+      long_dress: { name: 'long dress', hang: [{ to: 2.02, from: 'waist', flare: 0.5, off: 0.94 }], bodice: true },
       // the workman's coat of homespun: to the knee, worn ragged at the hem
       armyak: { name: 'homespun coat', hang: [{ to: 1.12, from: 'shoulders', flare: 0.2, ragged: true }], sleeves: 'garment' },
     },
@@ -160,13 +163,13 @@ return {
       fur_hat: { name: 'fur hat', draw: F => {
         const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu] = axes;
         F.cap(at, axes, egg.map(e => e * r * out * 1.16), [0, 1, -0.15], 0.32, F.colors.hat, sides, square);
-        F.ball(add(at, mul(hu, r * 0.95)), axes, [r * 1.04, r * 0.8, r * 1.04], F.colors.hat, sides);
+        F.ball(add(at, mul(hu, r * 0.82)), axes, [r * 1.04, r * 0.56, r * 1.04], F.colors.hat, sides);
       } },
       // a worn sheepskin hat, low and round, pushed a little back
       sheepskin_hat: { name: 'sheepskin hat', draw: F => {
         const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
-        F.cap(at, axes, egg.map(e => e * r * out * 1.12), [0, 1, -0.25], 0.3, F.colors.hat, sides, square);
-        F.ball(add(at, add(mul(hu, r * 0.62), mul(hf, -r * 0.1))), axes, [r * 0.98, r * 0.42, r * 0.98], F.colors.hat, sides);
+        F.cap(at, axes, egg.map(e => e * r * out * 1.12), [0, 1, -0.25], 0.46, F.colors.hat, sides, square);
+        F.ball(add(at, add(mul(hu, r * 0.7), mul(hf, -r * 0.1))), axes, [r * 0.98, r * 0.42, r * 0.98], F.colors.hat, sides);
       } },
       // a woollen shawl over the head, tied under the chin, its corner down the back
       shawl: { name: 'shawl', draw: F => {
