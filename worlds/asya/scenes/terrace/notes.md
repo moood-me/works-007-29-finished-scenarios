@@ -23,7 +23,7 @@ frame (its across over its distance) and goes over to the paper toward the sides
 | `geranium` | on her sill, 6.5 m ahead, 3.05 m up | the red geranium (`leaves`, `flowers` layers in the wind); point `geranium#flowers` |
 | `easel` | 3.85 m | Gagin's easel with the eyeless portrait of Asya; point `easel#portrait` |
 | `vine` | 2.7 m, over the head | the pergola's vine hanging into the top of the frame, eight stretches swaying |
-| `nn`, `gagin`, `asya` | 2.75, 3.7, 4.22 m | the people (the world's `cast`): N. N. hands behind his back, Gagin with a dry brush, Asya sitting on the wall |
+| `nn`, `gagin`, `asya` | 2.95, 3.7, 4.22 m | the people (the world's `cast`): N. N. hands behind his back, Gagin with a dry brush, Asya sitting on the wall |
 
 The land (`relief.js`): the terrace level (and the house) to 9 m, the slope falling 115 m to the river's bed, the far bank 5 m over the
 water from 1.45 km. Nothing is seen of the slope near (the wall hides it); the far cards stand on the land.

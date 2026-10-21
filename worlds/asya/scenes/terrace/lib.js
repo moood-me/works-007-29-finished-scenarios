@@ -2,7 +2,7 @@
 // in the middle, the edges a light unfinished drawing — paper, graphite hatching), the palette, and a few drawing
 // helpers. The camera is a still picture from the start (across 0, distance 0), so where a thing is seen across the
 // frame is its across over its distance (sx, in frame heights from the middle): the further out, the less finished.
-const PAPER = [239, 232, 216];
+const PAPER = [243, 240, 231];
 const GRAPHITE = [104, 97, 89];
 const smooth = (a, b, v) => {
   const u = anim.clamp((v - a) / (b - a), 0, 1);

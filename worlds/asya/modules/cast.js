@@ -32,8 +32,8 @@ return {
     styles: { etude: { from: 'flat', name: 'Etude', head: 1.14, rigid: false, straight: false, arms: 'palm', line: 0.8,
       folds: { n: 5, depth: 0.03 }, face: 'simple' } },
     garments: {
-      // a frock coat: from the shoulders to the knee, long sleeves
-      frockcoat: { name: 'frock coat', hang: [{ to: 1.2, from: 'shoulders', flare: 0.18 }], sleeves: 'garment' },
+      // a frock coat: from the shoulders to above the knee, long sleeves
+      frockcoat: { name: 'frock coat', hang: [{ to: 0.95, from: 'shoulders', flare: 0.12 }], sleeves: 'garment' },
     },
     parts: {
       // Gagin's brush in the right hand, dry: the handle along the fist, the tip a touch of ochre
