@@ -53,14 +53,14 @@ e.layer('head', { pivot: [-0.08, -0.22] }, (g) => {
   g.quadraticCurveTo(-0.32, -0.28, -0.22, -0.3);
   g.closePath();
   g.fill();
-  // the white blaze down the face
+  // the muzzle paler, a white blaze up the brow
+  g.fillStyle = '#d9a46a';
+  g.beginPath();
+  g.ellipse(-0.33, -0.33, 0.08, 0.035, -0.15, 0, Math.PI * 2);
+  g.fill();
   g.fillStyle = WHITE;
   g.beginPath();
-  g.moveTo(-0.22, -0.44);
-  g.quadraticCurveTo(-0.32, -0.38, -0.41, -0.33);
-  g.lineTo(-0.38, -0.31);
-  g.quadraticCurveTo(-0.3, -0.35, -0.2, -0.4);
-  g.closePath();
+  g.ellipse(-0.22, -0.41, 0.025, 0.045, 0.6, 0, Math.PI * 2);
   g.fill();
   // the nose, the eye, the lifted lip and the fang
   g.fillStyle = '#1e1612';

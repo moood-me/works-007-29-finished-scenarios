@@ -168,8 +168,10 @@ return {
       // a feather stuck in the hat's band at the left side, sweeping up and back, in the look's accent colour
       plume: { name: 'feather', draw: F => {
         const { axes, r, on } = F.head, c = F.colors.accent;
-        F.tube([on([0.88, 0.62, 0.1], 1.0), on([1.05, 1.05, -0.35], 1.0), on([0.85, 1.35, -0.95], 1.0), on([0.55, 1.2, -1.45], 1.0)],
-          [[0, r * 0.07], [1, r * 0.17], [2, r * 0.13], [3, r * 0.02]], [[0, c]], 8, axes[0], 0.35);
+        for (const sx of [-1, 1]) {
+          F.tube([on([sx * 0.85, 0.62, 0.3], 1.02), on([sx * 1.15, 1.15, -0.1], 1.0), on([sx * 1.0, 1.6, -0.8], 1.0), on([sx * 0.6, 1.5, -1.6], 1.0)],
+            [[0, r * 0.08], [1, r * 0.22], [2, r * 0.17], [3, r * 0.03]], [[0, c]], 8, axes[0], 0.35);
+        }
       } },
       // a clay mug held between the hands, a white cloth bunched in the right hand
       mug: { name: 'mug and cloth', draw: F => {
@@ -184,7 +186,9 @@ return {
       gun: { name: 'long gun', draw: F => {
         const { add, mul, mean } = V();
         const m = F.fit.h, mid = mean([F.P('LeftHand'), F.P('RightHand')]), up = [0, 1, 0], fw = F.fwd('Hips');
-        const butt = add(mid, mul(up, -0.62 * m)), lock = add(mid, mul(up, -0.2 * m)), muzzle = add(mid, mul(up, 0.55 * m));
+        // (leaning on his right shoulder: the barrel clear of the face)
+        const lean = add(mul(up, 0.5 * m), mul(F.side('Hips'), -0.2 * m));
+        const butt = add(mid, mul(up, -0.62 * m)), lock = add(mid, mul(up, -0.2 * m)), muzzle = add(mid, lean);
         F.bar(butt, lock, 0.05 * m, 0.028 * m, [[0, [0.42, 0.26, 0.14, 1]]], 10, fw, 0.55);
         F.bar(lock, muzzle, 0.016 * m, 0.012 * m, [[0, [0.2, 0.2, 0.22, 1]]], 8, fw);
         F.ball(lock, [F.side('Hips'), up, fw], [0.022 * m, 0.035 * m, 0.03 * m], [0.62, 0.5, 0.3, 1], 8);
