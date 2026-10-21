@@ -3,8 +3,9 @@
 // right. Layers: `body` (breathes — animate), `head`, `eye` (the old amber eye) and `lid` over it (opened by the
 // state's `querig_eye` — animate). Points: `nostrils` (where her breath comes out — the particles `breath`), `eye`,
 // `head` (and her unnamed point, for the camera)
-const BODY = '#8e978a', SHADE = '#7a8377', BELLY = '#b7b6a1', RIB = 'rgba(96,104,92,0.75)', PLATE = '#667064';
-const WING = '#76726a', BONE = '#5a5650', HORN = '#d6cdb6', CLAW = '#cfc5ae';
+const K = 1.2; // she is drawn in metres at 1/K of her size, and scaled up by K
+const BODY = '#93a08e', SHADE = '#7b8578', BELLY = '#c2bfa6', RIB = 'rgba(96,104,92,0.75)', PLATE = '#667064';
+const WING = '#6c675f', BONE = '#5a5650', HORN = '#d6cdb6', CLAW = '#cfc5ae';
 // her back, from the shoulder to the tail's tip (a smooth line through these)
 const BACK = [[-1.6, -2.25], [-1.0, -2.42], [-0.2, -2.48], [0.6, -2.44], [1.4, -2.27], [2.1, -1.96], [2.7, -1.46], [3.2, -1.04], [3.9, -0.78], [4.5, -0.44], [5.0, -0.14]];
 const through = (g, pts) => {
@@ -17,6 +18,7 @@ const at = (t) => {
   return [BACK[i][0] + (BACK[i + 1][0] - BACK[i][0]) * u, BACK[i][1] + (BACK[i + 1][1] - BACK[i][1]) * u];
 };
 e.layer('body', { pivot: [0, 0] }, g => {
+  g.scale(K, K);
   const r = e.lib.rnd(61);
   // the far legs, a shade darker, behind the body
   g.fillStyle = SHADE;
@@ -157,6 +159,7 @@ e.layer('body', { pivot: [0, 0] }, g => {
   }
 });
 e.layer('head', {}, g => {
+  g.scale(K, K);
   // the head lying on the ground, long-snouted: brow, horns swept back, the jaw's line, the nostril
   g.fillStyle = HORN;
   for (const [x, y, len, up] of [[-4.15, -0.9, 1.05, 0.5], [-4.3, -0.82, 0.8, 0.32]]) {
@@ -215,11 +218,12 @@ e.layer('head', {}, g => {
   g.beginPath();
   g.ellipse(-5.6, -0.47, 0.07, 0.04, -0.3, 0, Math.PI * 2);
   g.fill();
-  e.at(-5.66, -0.46, 'nostrils');
-  e.at(-4.8, -0.95, 'head');
-  e.at(-4.8, -0.95);
+  e.at(-5.66 * K, -0.46 * K, 'nostrils');
+  e.at(-4.8 * K, -0.95 * K, 'head');
+  e.at(-4.8 * K, -0.95 * K);
 });
 e.layer('eye', {}, g => {
+  g.scale(K, K);
   // the old amber eye, a dark slit in it
   g.fillStyle = '#d6bf78';
   g.beginPath();
@@ -229,9 +233,10 @@ e.layer('eye', {}, g => {
   g.beginPath();
   g.ellipse(-4.68, -0.7, 0.025, 0.065, 0, 0, Math.PI * 2);
   g.fill();
-  e.at(-4.68, -0.7, 'eye');
+  e.at(-4.68 * K, -0.7 * K, 'eye');
 });
-e.layer('lid', { pivot: [-4.68, -0.79] }, g => {
+e.layer('lid', { pivot: [-4.68 * K, -0.79 * K] }, g => {
+  g.scale(K, K);
   // the heavy lid closed over it, its edge a dark line
   g.fillStyle = '#859083';
   g.beginPath();

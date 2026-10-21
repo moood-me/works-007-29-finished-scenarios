@@ -7,7 +7,7 @@ const CLOTH = [0.6, 0.55, 0.46, 1], LEATHER = [0.24, 0.18, 0.13, 1], STEEL = [0.
 // the hood's edge round the face: high over the brow in front, down past the cheeks at the sides, to the nape behind
 const EDGE = x => 0.5 - 1.5 * Math.min(1, Math.max(0, (Math.abs(x) - 0.75) / 0.8));
 const COWL = F => ({ pts: [null, null, null], profile: [[0, F.head.r * 1.0], [2, 0.16 * F.k]], colors: [[0, F.colors.garment]] });
-const OAR = [0.55, 0.45, 0.33, 1], IRON = [0.2, 0.19, 0.18, 1], FLAME = [1, 0.8, 0.45, 2], RUST = [0.5, 0.44, 0.38, 1];
+const OAR = [0.55, 0.45, 0.33, 1], IRON = [0.2, 0.19, 0.18, 1], FLAME = [1, 0.8, 0.45, 2], RUST = [0.55, 0.53, 0.5, 1];
 // the face's expressions (<id>_mood): brows' inner and outer ends up, the eyes' openness, the mouth's width, its
 // corners up or down — as the engine's simple face has them
 const MOODS = {
