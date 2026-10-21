@@ -29,10 +29,10 @@ over (no glass to be had).
 ## The frame
 
 A family portrait at its awkward moment, near: Ivanov and Lyuba at 2 m (their faces about an eighth of the frame's
-height, cut below the knees), the children behind them at 2.8 and 3.05 m, whole; all inside the 4:3 frame's middle
+height, cut below the knees), the children behind them at 2.8 and 3.0 m, whole; all inside the 4:3 frame's middle
 (stage x 0.33…1.35). The horizon at 0.36, so that the izba's whole long wall, its near corner and the chimney's
 smoke are in the frame. The izba on the left behind the children, its door open; behind Lyuba the gate and the line on
-its embankment rising to the right to the crossing, its barrier raised; behind Ivanov the well's sweep, the woodpile,
+its embankment rising to the right to the crossing, its barrier raised (16:9 only); behind Ivanov the well's sweep, the woodpile,
 the block with the axe; the station's water tower far off between the izba and Lyuba. The buckets at the left edge
 (16:9 only).
 
@@ -46,7 +46,7 @@ the block with the axe; the station's water tower far off between the izba and L
 | `yard` | the ground, draped over the land (`relief.js`: the embankment — its near slope 14…15.6 ahead, its top to 17.8, its far slope to 19.6 — 1.0 m high on the left rising to 1.9 m at the crossing, `lib.top`; where the road climbs, across 7.8…10.2, its near slope reaches from 11.5 ahead, `lib.ramp`): the pale yard, the trodden path gate → porch steps and the trodden patch, the boot prints from the gate to where Ivanov stands, pebbles and stones, chips by the block, wet ground by the well, grass along the house's wall and its gable end; beyond the fence the footpath along the line (12.2…13), the embankment's slopes, ballast and sleepers, the dirt road with its two ruts up the ramp to the crossing and over it |
 | `rail_near`, `rail_far` | the rails (16.2, 17.2): cards in the land's metres, rising with the line (`lib.rail`) |
 | `poles` | telegraph poles every 20 m at 13 ahead, their wires (copies) |
-| `barrier` | the crossing's barrier on the left of the road at the top of the rise, raised (7.4, 14.8) |
+| `barrier` | the crossing's barrier on the right of the road at the top of the rise, raised (10.7, 14.8: on the road's left it stood behind the well sweep's post and its two poles read as one tangle; there it is in the 16:9 frame only) |
 | `house_end`, `house_wall`, `house_lights`, `roof`, `chimney`, `chimney_smoke` | the izba on the left, 5.4 m wide, 6.6 m long: its gable end toward the eye (5.0 ahead, across −8.4…−3.0: logs, the gable's upright boards, a vent, barge boards); its long wall to the yard (across −3.0, 5.0…11.6 ahead, anchor 8.3; the near corner's log ends; the door at 8.0 ahead standing open, a window either side in carved frames, paper strips crosswise on the panes, the far window's lower left pane boarded — `lib.windowFrame`); on its plane `house_lights` — the passage behind the door and the stove's glow in it; the roof's slope (a plane, `rotation` 90, `tilt` 35, eaves at −2.6, ridge at −5.7, 4.82 m, 4.7…11.9 ahead), the brick chimney on the slope (−4.4, 11.0) and its smoke |
 | `porch`, `steps`, `porch_front`, `risers` | the porch before the door (0.5 m up, across −3.0…−1.7, 7.2…8.8 ahead) and two steps down to the right; `porch` and `steps` are walked on |
 | `fence`, `gate` | the low paling (1.1 m) along the line at 11.5 ahead (across −5.96…6.47 — its left end behind the izba —, its corner post by the woodpile), the gate's gap (across −1.02…0.06) and its leaf standing open into the yard |
@@ -61,14 +61,14 @@ toward the eye, so that both faces are three-quarter — no further, or the look
 at the stranger who is their father. Each its own expression:
 
 - `ivanov` (0.6, 2.0, turned 235) — on the right: in the greatcoat he will not take off until he decides to stay, the
-  kit bag still in his left hand (`ivanov_reach` l: the hand at his side, a little back), the right hand out from the
-  coat's front at his thigh (r: 0.31 m to the side, a little forward — nearer, the straight skirt hides it); looking down at his wife with an awkward, held-in smile (`smile`).
+  kit bag still in his left hand (`ivanov_reach` l: the hand at his side, a little back), the right arm hanging as the
+  motion has it (on his far side); looking down at his wife with an awkward, held-in smile (`smile`).
 - `lyuba` (−0.1, 2.0, turned 125) — before him, her hands folded at her waist before the apron (`lyuba_reach`), looking
   up into his face: grief held in and waiting (`sad`).
 - `petrushka` (−0.95, 2.8, turned 125) — the son, a step behind his mother, facing his father: the grown-up frown
   (`angry`), the hands behind his back (`hands_behind`, his habit) — the right one held by his sister (r:
   `nastya#hand_l`).
-- `nastya` (−1.65, 3.05, turned 140) — the little one half a step behind her brother and to his side (her own outline),
+- `nastya` (−1.38, 3.0, turned 140) — the little one close at her brother's side, a little behind (her own outline; near enough that his hand reaches hers at his side, not an arm stretched back),
   holding his hand (l: `petrushka#hand_r`), looking at the stranger, wary (`afraid`).
 
 The reaches are points in the world worked out from where each stands and faces (a hand 0.25 m to the side); moving
