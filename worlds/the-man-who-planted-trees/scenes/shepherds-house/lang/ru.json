@@ -1,0 +1,14 @@
+{
+ "strings": [
+  {
+   "text": "The Shepherd's House",
+   "translation": "Дом пастуха",
+   "where": "scenes/shepherds-house/scene.json title"
+  },
+  {
+   "text": "One lit window for a day's walk around.",
+   "translation": "Одно светлое окно на день пути вокруг.",
+   "where": "scenes/shepherds-house/scene.json caption"
+  }
+ ]
+}
