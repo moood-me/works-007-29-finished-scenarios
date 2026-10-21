@@ -2,35 +2,35 @@
 // ash, its thick end sunk in the drift, rime along its windward side; and at its top his red sash, tied round it so that
 // they will be found — its two ends streaming out on the wind to the left, rippling and snapping (layers bent by the
 // wind about the knot). The sash is the brightest thing in the night.
-// (on the sleigh's anchor, its front; x along the sleigh; the pole from the snow to 3.0 m, the knot at 2.92)
+// (on the sleigh's anchor, its front; x along the sleigh; the pole from the snow to 2.6 m, the knot at 2.52)
 const L = e.lib;
 const C = L.C;
 const RED = "#c0342a";
 const RED_DARK = "#8c231d";
-const KNOT = [0.05, -2.92];
+const KNOT = [0.05, -2.52];
 
 // the pole: thick at the foot, narrowing to the top, a little crooked
 g.fillStyle = "#8a7458";
 g.beginPath();
 g.moveTo(-0.04, 0.12);
-g.quadraticCurveTo(-0.01, -1.5, 0.025, -3.0);
-g.lineTo(0.07, -3.0);
-g.quadraticCurveTo(0.05, -1.5, 0.045, 0.12);
+g.quadraticCurveTo(-0.01, -1.3, 0.025, -2.6);
+g.lineTo(0.07, -2.6);
+g.quadraticCurveTo(0.05, -1.3, 0.045, 0.12);
 g.closePath();
 g.fill();
 g.fillStyle = "rgba(60,48,36,0.45)";
 g.beginPath();
 g.moveTo(0.02, 0.12);
-g.quadraticCurveTo(0.035, -1.5, 0.055, -3.0);
-g.lineTo(0.07, -3.0);
-g.quadraticCurveTo(0.05, -1.5, 0.045, 0.12);
+g.quadraticCurveTo(0.035, -1.3, 0.055, -2.6);
+g.lineTo(0.07, -2.6);
+g.quadraticCurveTo(0.05, -1.3, 0.045, 0.12);
 g.closePath();
 g.fill();
 // (rime along its windward side, the right)
 g.fillStyle = "rgba(240,244,250,0.9)";
 for (let i = 0; i < 40; i++) {
   const u = e.rnd();
-  const y = 0.05 - u * 3.0;
+  const y = 0.05 - u * 2.6;
   const x = 0.045 + (0.025 - 0.045) * u + 0.01;
   g.fillRect(x - 0.005, y, 0.012, 0.02 + e.rnd() * 0.05);
 }
@@ -43,11 +43,11 @@ g.closePath();
 g.fill();
 // the sash wound round the pole under the knot
 g.fillStyle = RED;
-g.fillRect(0.0, -2.95, 0.1, 0.09);
+g.fillRect(0.0, -2.55, 0.1, 0.09);
 g.fillStyle = RED_DARK;
-g.fillRect(0.0, -2.9, 0.1, 0.015);
+g.fillRect(0.0, -2.5, 0.1, 0.015);
 e.at(KNOT[0], KNOT[1], "sash");
-e.at(0.05, -1.6);
+e.at(0.05, -1.4);
 
 // one end of the sash, streaming out from the knot: a ribbon that ripples along its length, its fringed end
 function ribbon(c, len, width, droop, waves, phase) {
@@ -96,9 +96,9 @@ function ribbon(c, len, width, droop, waves, phase) {
     c.stroke();
   }
 }
-e.layer("sash_long", { pivot: KNOT, wind: { strength: 0.85, gust: 1.0, scale: 0.35 }, box: [-1.35, -3.15, 0.2, -2.55] }, c => {
-  ribbon(c, 1.15, 0.075, 0.16, 1.6, 0.3);
+e.layer("sash_long", { pivot: KNOT, wind: { strength: 0.85, gust: 1.0, scale: 0.35 }, box: [-1.35, -2.75, 0.2, -2.15] }, c => {
+  ribbon(c, 1.15, 0.11, 0.16, 1.6, 0.3);
 });
-e.layer("sash_short", { pivot: KNOT, wind: { strength: 1.0, gust: 1.0, scale: 0.3 }, box: [-1.0, -3.15, 0.2, -2.55] }, c => {
-  ribbon(c, 0.78, 0.065, 0.24, 1.3, 2.1);
+e.layer("sash_short", { pivot: KNOT, wind: { strength: 1.0, gust: 1.0, scale: 0.3 }, box: [-1.0, -2.75, 0.2, -2.15] }, c => {
+  ribbon(c, 0.78, 0.095, 0.24, 1.3, 2.1);
 });

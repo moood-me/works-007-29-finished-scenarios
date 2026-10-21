@@ -6,10 +6,10 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.62,
+    "ambient": 0.56,
     "ambientColor": "#93a6cc",
     "bounce": 0.6,
-    "haze": 0.5,
+    "haze": 0.42,
     "hazeColor": "#8c9dbc",
     "hazeGlow": 0.3,
     "shafts": 0.15,
@@ -32,7 +32,7 @@
         38
       ],
       "color": "#c8d6f2",
-      "strength": 0.85
+      "strength": 1.0
     },
     {
       "id": "snowlight",
@@ -50,27 +50,11 @@
   "state": {
     "storm": 0.85,
     "horse_cover": true,
-    "vasily_on": {
-      "on": "sleigh",
-      "at": [
-        0.45,
-        0.45,
-        0.3
-      ]
-    },
     "vasily_reach": {
       "r": "vasily#chest"
     },
     "vasily_look": "nikita",
     "vasily_mood": "thinking",
-    "nikita_on": {
-      "on": "sleigh",
-      "at": [
-        -0.6,
-        0.45,
-        0.15
-      ]
-    },
     "nikita_look": [
       -1.4,
       2.6,
@@ -247,7 +231,8 @@
       "distance": 0.475,
       "elevation": 0.15,
       "width": 2.1,
-      "depth": 0.95
+      "depth": 0.95,
+      "walk": true
     },
     {
       "id": "sleigh_far",
@@ -319,10 +304,10 @@
       "across": -1.15,
       "distance": 0.2,
       "facing": 180,
-      "height": 3.2,
+      "height": 2.8,
       "box": [
         -1.4,
-        -3.2,
+        -2.8,
         0.35,
         0.14
       ],
@@ -338,7 +323,7 @@
         "does": "knees_sit"
       },
       "across": 0.67,
-      "distance": 4.2,
+      "distance": 4.22,
       "shadow": true
     },
     {
@@ -351,7 +336,7 @@
         "does": "huddle"
       },
       "across": -0.25,
-      "distance": 3.7,
+      "distance": 3.69,
       "shadow": true
     },
     {
