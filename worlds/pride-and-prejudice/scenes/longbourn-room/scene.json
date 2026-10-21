@@ -7,15 +7,15 @@
     "mode": "picture"
   },
   "light": {
-    "vignette": 0.1,
+    "vignette": 0.16,
     "grain": 0.05,
     "haze": 0.02,
     "hazeColor": "#f1e6cf",
-    "hazeGlow": 0.45,
-    "ambient": 0.95,
+    "hazeGlow": 0.18,
+    "ambient": 0.8,
     "ambientColor": "#f6ecdb",
     "inside": 0.9,
-    "bounce": 0.7,
+    "bounce": 0.55,
     "looks": {
       "dusk": {
         "ambient": 0.74,
@@ -83,14 +83,24 @@
   "state": {
     "dusk": 0,
     "jane_on": [
-      -0.5,
-      4.4,
+      -0.35,
+      3.45,
       0.46
     ],
     "jane_look": "lydia",
     "jane_reach": {
       "r": "tambour#left",
-      "l": "tambour#right"
+      "l": "tambour#right",
+      "foot_r": [
+        -0.55,
+        3.09,
+        0.04
+      ],
+      "foot_l": [
+        -0.36,
+        3.04,
+        0.04
+      ]
     },
     "jane_mood": "smile",
     "elizabeth_look": "lydia",
@@ -361,8 +371,8 @@
     {
       "id": "chair",
       "name": "Jane's chair",
-      "across": -0.5,
-      "distance": 4.62,
+      "across": -0.35,
+      "distance": 3.67,
       "facing": 180,
       "height": 1.02,
       "box": [
@@ -384,8 +394,8 @@
     {
       "id": "tambour",
       "name": "Embroidery frame",
-      "across": -0.6,
-      "distance": 3.93,
+      "across": -0.45,
+      "distance": 2.98,
       "facing": 180,
       "height": 0.9,
       "box": [
@@ -407,8 +417,8 @@
     {
       "id": "near_table",
       "name": "Small table with a candle",
-      "across": 1.45,
-      "distance": 4,
+      "across": 1.5,
+      "distance": 3.5,
       "facing": 180,
       "height": 1.12,
       "box": [
@@ -430,8 +440,8 @@
     {
       "id": "near_flame",
       "name": "Candle flame",
-      "across": 1.45,
-      "distance": 3.99,
+      "across": 1.5,
+      "distance": 3.49,
       "elevation": 1.1,
       "height": 0.08,
       "box": [
@@ -452,8 +462,8 @@
         "turn": 165,
         "does": "seated"
       },
-      "across": -0.5,
-      "distance": 4.4,
+      "across": -0.35,
+      "distance": 3.45,
       "shadow": true,
       "inside": true
     },
@@ -463,10 +473,11 @@
       "person": {
         "cast": "cast",
         "who": "elizabeth",
-        "turn": 145
+        "turn": 150,
+        "does": "hands_folded"
       },
-      "across": 0.3,
-      "distance": 5,
+      "across": 0.62,
+      "distance": 3.3,
       "shadow": true,
       "inside": true
     },
@@ -476,10 +487,11 @@
       "person": {
         "cast": "cast",
         "who": "lydia",
-        "turn": 165
+        "turn": 160,
+        "does": "hands_hips"
       },
-      "across": -1.5,
-      "distance": 3.3,
+      "across": -1.12,
+      "distance": 2.8,
       "shadow": true,
       "inside": true
     },
