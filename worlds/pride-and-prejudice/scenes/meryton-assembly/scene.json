@@ -32,7 +32,7 @@
           "chandelier_far": 1.35,
           "sconce_0": 1.6,
           "sconce_6": 1.6,
-          "sconce_1": 1.3
+          "sconce_1": 1.9
         }
       }
     }
@@ -92,8 +92,8 @@
       "distance": 4.5,
       "elevation": 2.35,
       "color": "#ffe2b8",
-      "strength": 0.9,
-      "reach": 5,
+      "strength": 1.4,
+      "reach": 6.5,
       "flicker": 0.1
     },
     {
@@ -634,10 +634,21 @@
         "cast": "cast",
         "who": "darcy",
         "turn": 145,
-        "does": "hands_behind"
+        "does": "hands_behind",
+        "look": {
+          "colors": {
+            "skin": "#e6c2a2",
+            "hair": "#2b1d15",
+            "top": "#f1ece0",
+            "garment": "#2a3650",
+            "bottom": "#2b2a30",
+            "shoes": "#262020",
+            "socks": "#ece6d8"
+          }
+        }
       },
-      "across": 2.2,
-      "distance": 5.6,
+      "across": 2.0,
+      "distance": 4.5,
       "shadow": true,
       "inside": true
     },
