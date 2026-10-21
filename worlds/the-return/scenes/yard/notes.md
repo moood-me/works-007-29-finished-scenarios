@@ -45,7 +45,7 @@ the son and the mother on the left, the father on the right, the gate between; t
 heads turned to one another (each `<id>_look` a point by the other's head, brought a little toward the eye, so the faces
 are seen three-quarter, not in profile).
 
-- `ivanov` (0.35, 3.2, turned 200) — in the greatcoat he will not take off until he decides to stay: belted, two rows of
+- `ivanov` (0.35, 3.2, turned 195) — in the greatcoat he will not take off until he decides to stay: belted, two rows of
   brass buttons, shoulder boards, the collar; the side cap with its star, the kit bag's straps over his shoulders;
   upright, looking at his son and his wife, face plain.
 - `lyuba` (−1.05, 3.55, turned 145) — a step behind her son, looking at her husband, her hands together at the apron
