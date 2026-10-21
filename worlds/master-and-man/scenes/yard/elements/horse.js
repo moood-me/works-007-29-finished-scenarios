@@ -2,12 +2,14 @@
 // comes toward the eye at the left, his body going away to the right — the sleigh behind him): a small strong
 // peasant horse, bay-brown with tan markings — the muzzle, round the eye, the flank, the inside of the legs —, dark
 // legs, a thick dark mane and tail, frost on his back. On him: the collar, the painted wooden bow over it, the near
-// shaft running back to the sleigh, the saddle-pad with its straps, the bridle (Nikita holds him at the cheek).
+// shaft running back to the sleigh, the saddle-pad with its straps, the bridle (Nikita holds him by it, at the muzzle).
+// A stocky horse, not a thin one: a short back, a deep round barrel, a thick arched neck, stout legs with feathered
+// fetlocks; seen whole along his near side — Nikita stands before his head, not before his body.
 // Drawn as a horse facing right, mirrored (g.scale(-1, 1)): the numbers below are the right-facing drawing's; the
 // pivots and the points, given to the engine, are mirrored by hand (x negated).
 // Layers: `tail` and `mane` bent by the wind; `head` nodding a little about the throat (animate).
-// Points: `head`, `cheek` (where Nikita's hand lies), `nose` (his breath), `neck`.
-// (x −1.55…2.25 m: the muzzle x −1.47, the rump x 0.95, the shaft's end at the sleigh x 2.2; its foot at 0)
+// Points: `head`, `cheek`, `nose` (his breath; Nikita holds the bridle just above it), `neck`.
+// (x −1.55…2.25 m: the muzzle x −1.47, the rump x 1.06, the shaft's end at the sleigh x 2.2; its foot at 0)
 const L = e.lib;
 const C = L.C;
 const COAT = "#5b4536";
@@ -19,101 +21,112 @@ const FAR = "#47362b";
 g.save();
 g.scale(-1, 1);
 
-// a leg: from its top (x, y) down to the hoof at (fx, 0), a joint at (kx, ky); w — its width at the top
+// a leg: from its top (x, y) down to the hoof at (fx, 0), a joint at (kx, ky); w — its width at the top: a strong
+// leg, a broad knee or hock, a stout cannon, a tuft of hair over the hoof (a peasant horse's feathering)
 function leg(x, y, kx, ky, fx, w, coat, lower) {
   g.fillStyle = coat;
   g.beginPath();
   g.moveTo(x - w / 2, y);
-  g.quadraticCurveTo(kx - w * 0.45, (y + ky) / 2, kx - w * 0.22, ky);
-  g.lineTo(fx - w * 0.17, -0.1);
-  g.lineTo(fx + w * 0.17, -0.1);
-  g.lineTo(kx + w * 0.22, ky);
-  g.quadraticCurveTo(kx + w * 0.5, (y + ky) / 2, x + w / 2, y);
+  g.quadraticCurveTo(kx - w * 0.5, (y + ky) / 2, kx - w * 0.27, ky);
+  g.lineTo(fx - w * 0.2, -0.12);
+  g.lineTo(fx + w * 0.2, -0.12);
+  g.lineTo(kx + w * 0.27, ky);
+  g.quadraticCurveTo(kx + w * 0.55, (y + ky) / 2, x + w / 2, y);
   g.closePath();
   g.fill();
   g.fillStyle = lower;
   g.beginPath();
-  g.moveTo(kx - w * 0.22, ky + 0.06);
-  g.lineTo(fx - w * 0.19, -0.08);
-  g.lineTo(fx + w * 0.19, -0.08);
-  g.lineTo(kx + w * 0.22, ky + 0.06);
+  g.moveTo(kx - w * 0.25, ky + 0.06);
+  g.lineTo(fx - w * 0.21, -0.1);
+  g.lineTo(fx + w * 0.21, -0.1);
+  g.lineTo(kx + w * 0.25, ky + 0.06);
   g.closePath();
   g.fill();
   // (the fetlock's tuft and the hoof)
   g.fillStyle = HAIR;
   g.beginPath();
-  g.ellipse(fx - w * 0.1, -0.11, w * 0.2, 0.05, 0, 0, Math.PI * 2);
+  g.ellipse(fx - w * 0.04, -0.12, w * 0.3, 0.07, 0, 0, Math.PI * 2);
   g.fill();
   g.fillStyle = HOOF;
   g.beginPath();
-  g.moveTo(fx - w * 0.2, -0.1);
-  g.lineTo(fx - w * 0.26, 0);
-  g.lineTo(fx + w * 0.3, 0);
-  g.lineTo(fx + w * 0.2, -0.1);
+  g.moveTo(fx - w * 0.22, -0.09);
+  g.lineTo(fx - w * 0.3, 0);
+  g.lineTo(fx + w * 0.34, 0);
+  g.lineTo(fx + w * 0.22, -0.09);
   g.closePath();
   g.fill();
 }
 
 // the far legs, a shade darker, a little apart from the near ones
-leg(-0.62, -1.0, -0.66, -0.48, -0.58, 0.2, FAR, "#2e2119");
-leg(0.58, -0.9, 0.64, -0.46, 0.66, 0.15, FAR, "#2e2119");
+leg(-0.62, -1.0, -0.68, -0.5, -0.6, 0.26, FAR, "#2e2119");
+leg(0.6, -0.95, 0.66, -0.47, 0.68, 0.22, FAR, "#2e2119");
 
-// the body: the barrel, the haunch, the shoulder and the chest
+// the body: a short strong back, a deep round barrel, a broad haunch, a full chest
 g.fillStyle = COAT;
 g.beginPath();
-g.moveTo(0.42, -1.47);
-g.bezierCurveTo(0.2, -1.42, 0.05, -1.38, -0.2, -1.4);
-g.bezierCurveTo(-0.45, -1.43, -0.6, -1.48, -0.78, -1.42);
-g.bezierCurveTo(-0.95, -1.36, -0.98, -1.15, -0.9, -0.98);
-g.bezierCurveTo(-0.85, -0.85, -0.75, -0.8, -0.6, -0.88);
-g.bezierCurveTo(-0.3, -0.84, 0.1, -0.8, 0.42, -0.84);
-g.bezierCurveTo(0.62, -0.86, 0.76, -0.96, 0.78, -1.12);
-g.bezierCurveTo(0.8, -1.3, 0.62, -1.46, 0.42, -1.47);
+g.moveTo(0.46, -1.52);
+g.bezierCurveTo(0.22, -1.44, 0.0, -1.4, -0.22, -1.42);
+g.bezierCurveTo(-0.45, -1.46, -0.62, -1.52, -0.8, -1.47);
+g.bezierCurveTo(-1.0, -1.4, -1.06, -1.16, -1.0, -0.96);
+g.bezierCurveTo(-0.95, -0.8, -0.8, -0.74, -0.62, -0.8);
+g.bezierCurveTo(-0.3, -0.72, 0.1, -0.7, 0.44, -0.76);
+g.bezierCurveTo(0.7, -0.8, 0.88, -0.94, 0.9, -1.14);
+g.bezierCurveTo(0.92, -1.34, 0.72, -1.52, 0.46, -1.52);
 g.closePath();
 g.fill();
-// (the tan of the flank and the belly, soft-edged)
-const flank = g.createRadialGradient(-0.05, -0.9, 0.05, -0.05, -0.9, 0.45);
-flank.addColorStop(0, "rgba(168,120,79,0.75)");
+// (the tan of the flank and the belly, soft-edged; a darker shade along the back and the barrel's underside, so the
+// body is round in its colour, not flat)
+const flank = g.createRadialGradient(-0.05, -0.88, 0.05, -0.05, -0.88, 0.5);
+flank.addColorStop(0, "rgba(168,120,79,0.7)");
 flank.addColorStop(1, "rgba(168,120,79,0)");
 g.fillStyle = flank;
 g.beginPath();
-g.ellipse(-0.05, -0.92, 0.55, 0.14, 0, 0, Math.PI * 2);
+g.ellipse(-0.05, -0.88, 0.6, 0.16, 0, 0, Math.PI * 2);
+g.fill();
+g.fillStyle = "rgba(52,38,29,0.45)";
+g.beginPath();
+g.moveTo(0.46, -1.52);
+g.bezierCurveTo(0.22, -1.44, 0.0, -1.4, -0.22, -1.42);
+g.bezierCurveTo(-0.45, -1.46, -0.62, -1.52, -0.8, -1.47);
+g.lineTo(-0.78, -1.38);
+g.bezierCurveTo(-0.5, -1.38, -0.2, -1.32, 0.42, -1.42);
+g.closePath();
 g.fill();
 // the near hind leg: the thigh's big curve, the gaskin, the hock
 g.fillStyle = COAT;
 g.beginPath();
-g.moveTo(-0.9, -1.3);
-g.bezierCurveTo(-1.0, -1.05, -0.95, -0.8, -0.82, -0.62);
-g.lineTo(-0.82, -0.5);
+g.moveTo(-0.94, -1.34);
+g.bezierCurveTo(-1.06, -1.06, -1.0, -0.8, -0.86, -0.62);
+g.lineTo(-0.86, -0.5);
 g.lineTo(-0.66, -0.5);
-g.bezierCurveTo(-0.62, -0.72, -0.5, -0.9, -0.48, -1.15);
+g.bezierCurveTo(-0.6, -0.74, -0.46, -0.92, -0.44, -1.2);
 g.closePath();
 g.fill();
-leg(-0.74, -0.62, -0.75, -0.46, -0.7, 0.17, COAT, LEG);
-// the near foreleg
-leg(0.5, -0.95, 0.52, -0.46, 0.5, 0.16, COAT, LEG);
+leg(-0.76, -0.64, -0.78, -0.47, -0.72, 0.24, COAT, LEG);
+// the near foreleg: the forearm's muscle down from the chest, a broad knee
+leg(0.52, -1.0, 0.55, -0.48, 0.52, 0.26, COAT, LEG);
 // (the tan inside of the forearm)
 g.fillStyle = "rgba(151,128,106,0.6)";
 g.beginPath();
-g.ellipse(0.46, -0.66, 0.03, 0.14, 0, 0, Math.PI * 2);
+g.ellipse(0.47, -0.7, 0.04, 0.15, 0, 0, Math.PI * 2);
 g.fill();
 
-// the neck: the crest up to the poll, the throat down to the chest
+// the neck: thick and arched, the crest up to the poll, the throat down to the chest
 g.fillStyle = COAT;
 g.beginPath();
-g.moveTo(0.4, -1.46);
-g.bezierCurveTo(0.6, -1.62, 0.8, -1.8, 0.96, -1.86);
-g.lineTo(1.04, -1.6);
-g.bezierCurveTo(0.95, -1.42, 0.85, -1.25, 0.78, -1.08);
-g.lineTo(0.66, -1.2);
+g.moveTo(0.38, -1.5);
+g.bezierCurveTo(0.56, -1.7, 0.76, -1.86, 0.96, -1.9);
+g.lineTo(1.06, -1.58);
+g.bezierCurveTo(0.98, -1.4, 0.92, -1.22, 0.88, -1.02);
+g.lineTo(0.66, -1.12);
 g.closePath();
 g.fill();
 
 // the frost on his back and croup: a dusting of white along the top line
 g.fillStyle = "rgba(240,244,248,0.85)";
 for (let i = 0; i < 40; i++) {
-  const x = -0.82 + e.rnd() * 1.2;
-  const top = x < -0.2 ? -1.42 - 0.04 * Math.sin((x + 0.8) * 5) : -1.4;
+  const x = -0.86 + e.rnd() * 1.26;
+  const top = x < -0.22 ? -1.46 - 0.03 * Math.sin((x + 0.8) * 5) : -1.42 - 0.08 * Math.max(0, x - 0.1);
   g.beginPath();
   g.ellipse(x, top + 0.015 + e.rnd() * 0.03, 0.02 + e.rnd() * 0.03, 0.008, 0, 0, Math.PI * 2);
   g.fill();
@@ -132,7 +145,7 @@ g.strokeStyle = "#3a302a";
 g.lineWidth = 0.035;
 g.beginPath();
 g.moveTo(0.13, -1.34);
-g.lineTo(0.16, -0.83);
+g.lineTo(0.16, -0.74);
 g.stroke();
 g.lineWidth = 0.025;
 g.beginPath();
@@ -216,18 +229,18 @@ e.layer("harness", {}, c => {
 });
 
 // the tail: long, thick, hanging from the croup, its end swinging in the wind
-e.layer("tail", { pivot: [0.9, -1.36], wind: { strength: 0.5, gust: 0.7, scale: 0.8 } }, c => {
+e.layer("tail", { pivot: [1.02, -1.42], wind: { strength: 0.5, gust: 0.7, scale: 0.8 } }, c => {
   c.save();
   c.scale(-1, 1);
   c.fillStyle = HAIR;
   c.beginPath();
-  c.moveTo(-0.86, -1.4);
-  c.bezierCurveTo(-1.02, -1.3, -1.06, -1.0, -1.02, -0.72);
-  c.bezierCurveTo(-1.0, -0.6, -1.08, -0.5, -1.06, -0.42);
-  c.lineTo(-0.98, -0.5);
-  c.lineTo(-0.94, -0.44);
-  c.bezierCurveTo(-0.9, -0.62, -0.92, -0.9, -0.88, -1.12);
-  c.bezierCurveTo(-0.86, -1.25, -0.82, -1.32, -0.86, -1.4);
+  c.moveTo(-0.98, -1.44);
+  c.bezierCurveTo(-1.14, -1.34, -1.18, -1.04, -1.14, -0.76);
+  c.bezierCurveTo(-1.12, -0.64, -1.20, -0.54, -1.18, -0.46);
+  c.lineTo(-1.10, -0.54);
+  c.lineTo(-1.06, -0.48);
+  c.bezierCurveTo(-1.02, -0.66, -1.04, -0.94, -1.00, -1.16);
+  c.bezierCurveTo(-0.98, -1.29, -0.94, -1.36, -0.98, -1.44);
   c.closePath();
   c.fill();
   c.restore();

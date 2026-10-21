@@ -1,22 +1,23 @@
 // The front of Brekhunov's house, toward the yard: a log house on a boarded base, its floor 0.85 m up (the porch's
 // level), the door open onto the porch — the passage behind it warm with a lamp's light, a far doorway lit —, the
-// shop's window to the right of it in a carved white frame (its lit panes are the element `window`), a second, unlit
-// window far to the left with frost on its panes, the log ends of the corner at the right, the carved consoles that
-// hold the porch's canopy, a carved board under the eaves. Painted solid to its edges.
-// (x −4.95…4.95 m: across −9.05…0.85; the door x 1.8…2.7 (across −2.3…−1.4), the shop window x 3.48…4.72 (its
-// panes x 3.72…4.48: across −0.38…0.38); its foot at 0)
+// shop's window to the left of it in a carved white frame (its lit panes are the element `window`), a second, unlit
+// window further left with frost on its panes, the log ends of the corner at the right, the carved consoles that
+// hold the porch's canopy, a carved board under the eaves with icicles. Painted solid to its edges. The logs weathered silver-brown, each
+// its own shade, cracked, the moss in the seams.
+// (x −4.95…4.6 m: across −9.95…−0.4, the corner's log ends to −0.27; the door x 2.85…3.75 (across −2.15…−1.25), the
+// shop window x 0.83…2.07 (its panes x 1.07…1.83: across −3.93…−3.17); its foot at 0)
 const L = e.lib;
 const C = L.C;
 const rnd = () => e.rnd();
 const X0 = -4.95;
-const X1 = 4.95;
+const X1 = 4.6;
 const FLOOR = 0.85;
 const EAVES = 4.2;
-const DOOR0 = 1.8;
-const DOOR1 = 2.7;
+const DOOR0 = 2.85;
+const DOOR1 = 3.75;
 const DOOR_TOP = 3.02;
-const WIN = 4.1;
-const WIN2 = 0.4;
+const WIN = 1.45;
+const WIN2 = -1.9;
 
 // the base: upright boards, grey
 g.fillStyle = "#7f7870";
@@ -39,6 +40,17 @@ g.fillRect(X0, -EAVES - 0.12, X1 - X0 + 0.15, 0.2);
 for (let x = X0 + 0.1; x < X1 + 0.1; x += 0.2) {
   g.beginPath();
   g.arc(x, -EAVES + 0.08, 0.07, 0, Math.PI);
+  g.fill();
+}
+// (icicles under it, long and short)
+g.fillStyle = "#eef3fa";
+for (let x = X0 + 0.15; x < X1; x += 0.23) {
+  const len = 0.06 + rnd() * 0.32;
+  g.beginPath();
+  g.moveTo(x - 0.02, -EAVES + 0.12);
+  g.lineTo(x + 0.02, -EAVES + 0.12);
+  g.lineTo(x + 0.004, -EAVES + 0.12 + len);
+  g.closePath();
   g.fill();
 }
 
@@ -124,7 +136,7 @@ g.fillRect(WIN2 - 0.38, -2.02, 0.76, 0.04);
 
 // the carved consoles under the canopy's ends (the canopy is the element `canopy`, before them): a bracket of planed
 // wood curling down from under the canopy into the wall
-for (const x of [1.25, 3.45]) {
+for (const x of [2.15, 4.45]) {
   g.fillStyle = C.woodLight;
   g.beginPath();
   g.moveTo(x - 0.08, -3.08);
@@ -140,12 +152,17 @@ for (const x of [1.25, 3.45]) {
   g.fill();
 }
 
-// the snow banked against the base right of the porch, and hoarfrost along the lowest log's seam
+// the snow banked against the base under the shop window, and hoarfrost along the lowest log's seam
+g.fillStyle = C.snowShade;
+g.beginPath();
+g.moveTo(-0.9, 0.05);
+g.quadraticCurveTo(0.6, -0.62, 2.3, 0.05);
+g.closePath();
+g.fill();
 g.fillStyle = C.snow;
 g.beginPath();
-g.moveTo(3.7, 0.05);
-g.quadraticCurveTo(4.3, -0.45, X1 + 0.15, -0.3);
-g.lineTo(X1 + 0.15, 0.05);
+g.moveTo(-0.8, 0.05);
+g.quadraticCurveTo(0.6, -0.55, 2.2, 0.05);
 g.closePath();
 g.fill();
 g.fillStyle = "rgba(236,242,250,0.7)";

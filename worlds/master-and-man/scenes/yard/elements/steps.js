@@ -1,7 +1,7 @@
 // The porch's steps going down to the right from the landing (its edge at x −0.3, 0.85 m up) to the yard, seen from
 // their near side: the stringer's board in two steps, each tread's nosing lighter with trodden snow on it, the snow
 // heaped at their foot. The treads' tops are the plane `treads`.
-// (x −0.3…0.45 m: across −0.2…0.55; its foot at 0)
+// (x −0.3…0.45 m: across −0.6…0.15; its foot at 0)
 const L = e.lib;
 const C = L.C;
 const RISE = 0.85 / 3;

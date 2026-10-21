@@ -38,22 +38,37 @@ function snowCap(g, x0, x1, y, thick, seed) {
   g.fillRect(x0, y + thick * 0.02, x1 - x0, thick * 0.1);
 }
 
-// a wall of horizontal logs from x0 to x1, from y0 (top) to y1 (bottom), each `log` metres high: each log a band with
-// a darker seam under it and a few cracks along it
+// a wall of horizontal logs from x0 to x1, from y0 (top) to y1 (bottom), each `log` metres high: each log its own
+// weathered shade (silver-grey to brown), lighter along its round top, a dark seam of moss and shadow under it, long
+// cracks along it and here and there a knot
+const LOG_SHADES = ["#8e8170", "#9a8c79", "#857868", "#a39582", "#7f7466", "#958673"];
 function logs(g, x0, x1, y0, y1, log, rnd) {
   g.fillStyle = C.wood;
   g.fillRect(x0, y0, x1 - x0, y1 - y0);
   for (let y = y1; y > y0 + 0.01; y -= log) {
     const top = Math.max(y0, y - log);
-    // a log: lighter along its upper middle, a dark seam of moss and shadow at its foot
-    g.fillStyle = rnd() < 0.5 ? C.woodLight : "#968d82";
-    g.fillRect(x0, top + log * 0.18, x1 - x0, log * 0.32);
+    // the log's body, its own shade; its round top lighter, its belly darker
+    g.fillStyle = LOG_SHADES[Math.floor(rnd() * LOG_SHADES.length)];
+    g.fillRect(x0, top, x1 - x0, y - top);
+    g.fillStyle = "rgba(196,186,170,0.45)";
+    g.fillRect(x0, top + log * 0.14, x1 - x0, log * 0.22);
+    g.fillStyle = "rgba(70,58,48,0.22)";
+    g.fillRect(x0, top + log * 0.62, x1 - x0, log * 0.26);
+    // the seam: moss and shadow
     g.fillStyle = C.seam;
     g.fillRect(x0, y - log * 0.12, x1 - x0, log * 0.12);
+    g.fillStyle = "rgba(98,104,78,0.6)";
+    for (let k = 0; k < (x1 - x0) / 0.9; k++) g.fillRect(x0 + rnd() * (x1 - x0), y - log * 0.13, 0.15 + rnd() * 0.4, log * 0.05);
+    // the cracks along it, a knot now and then
     g.fillStyle = C.woodDark;
-    for (let k = 0; k < (x1 - x0) / 1.4; k++) {
-      const cx = x0 + rnd() * (x1 - x0), w = Math.min(0.4 + rnd() * 0.9, x1 - cx);
-      g.fillRect(cx, top + log * (0.4 + rnd() * 0.3), w, 0.012);
+    for (let k = 0; k < (x1 - x0) / 1.0; k++) {
+      const cx = x0 + rnd() * (x1 - x0), w = Math.min(0.4 + rnd() * 1.1, x1 - cx);
+      g.fillRect(cx, top + log * (0.35 + rnd() * 0.3), w, 0.014);
+    }
+    for (let k = 0; k < (x1 - x0) / 3; k++) {
+      g.beginPath();
+      g.ellipse(x0 + rnd() * (x1 - x0), top + log * 0.5, 0.035, 0.025, 0, 0, Math.PI * 2);
+      g.fill();
     }
   }
 }
