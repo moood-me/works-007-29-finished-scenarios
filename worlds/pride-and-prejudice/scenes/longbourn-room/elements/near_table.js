@@ -3,10 +3,10 @@
 const L = e.kit.brush, px = L.px(e), r = L.rand(149);
 const top = new Path2D();
 top.ellipse(0, -0.72, 0.42, 0.09, 0, 0, Math.PI * 2);
-L.wash(g, top, '#86553a', [-0.42, -0.81, 0.42, -0.63], r, 2);
+L.wash(g, top, '#a7795a', [-0.42, -0.81, 0.42, -0.63], r, 2);
 const rim = new Path2D();
 rim.rect(-0.42, -0.72, 0.84, 0.04);
-g.fillStyle = '#6e432d';
+g.fillStyle = '#8c6047';
 g.fill(rim);
 const pillar = new Path2D();
 pillar.moveTo(-0.03, -0.68);

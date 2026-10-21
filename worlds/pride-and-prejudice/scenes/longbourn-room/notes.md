@@ -8,11 +8,14 @@ the candles and the fire flicker, motes drift in the window's light.
 
 ## What is where (from the start: x across, metres; the room 6 m wide, 4.2 m high, its far wall 6 m off)
 
-- **Jane** (`jane`, cast `jane`) — seated (`seated`, on `jane_on` [-1.04, 3.5, 0.46]: her chair's seat) at her
-  embroidery frame (`tambour`), turned to Elizabeth (205°), looking up at her (`jane_look`), a small smile.
-- **Elizabeth** (`elizabeth`) — standing by her at −0.17 m, 3.25 m off, turned to her (140°), laughing.
-- **Lydia** (`lydia`, cast `lydia`: her scarlet ribbon — the world's rare scarlet, hers alone) — at the window's right
-  side, 5.1 m off, half turned into the room (150°), laughing, looking at Elizabeth.
+- **Jane** (`jane`, cast `jane`) — seated (`seated`, on `jane_on` [-1.0, 3.4, 0.46]: her chair's seat) at her
+  embroidery frame (`tambour`, before her to the right), turned to it (210°), looking down at her work
+  (`jane_look`), a small smile.
+- **Elizabeth** (`elizabeth`) — standing behind her right shoulder at −0.2 m, 3.95 m off, turned to her (160°; under
+  180 is toward the screen's left), looking down at her and laughing — both faces three-quarter to the eye.
+- **Lydia** (`lydia`, cast `lydia`: her scarlet ribbon — the world's rare scarlet, hers alone) — by the window's right
+  side, 4.4 m off, half turned into the room (150°), laughing toward someone at the door on our side
+  (`lydia_look`).
 - The room: `floor` (oak boards, a cream rug with a sage border), `back_wall` (the window cut in it, a small oval
   portrait over the `sofa`), `left_wall` (the chimneypiece at 5 m: the grate `coals`, the fire's particles `fire`, two
   candles on the mantel `mantel_candles` / `mantel_flames`, a landscape over it), `right_wall` (a shut door). The walls'
@@ -25,7 +28,7 @@ the candles and the fire flicker, motes drift in the window's light.
 
 ## Light
 
-The engine's: the window's daylight (`window_light`, `daylight` 1.3) into the room (`inside` 0.62), the near candle,
+The engine's: the window's daylight (`window_light`, `daylight` 1.9) into the room (`inside` 0.62), the near candle,
 the two mantel candles and the hearth (`hearth`, of the coals' glow), each flickering a little; a warm ambient.
 `dusk` (0…1) is a look: the window dimmer (`window_light` at half), the room warmer — the candles and the fire take it
 over; the showcase moves it.

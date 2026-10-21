@@ -27,7 +27,7 @@ const wall = (g, x0, x1, holes, r, px) => {
   // the frieze and the cornice
   const frieze = new Path2D();
   frieze.rect(x0, -HIGH, x1 - x0, HIGH - FRIEZE);
-  B.wash(g, frieze, '#6b8063', [x0, -HIGH, x1, -FRIEZE], r, 5);
+  B.wash(g, frieze, '#7a8f6f', [x0, -HIGH, x1, -FRIEZE], r, 5);
   g.fillStyle = '#ede5d0';
   g.fillRect(x0, -FRIEZE - 0.09, x1 - x0, 0.09);
   g.fillRect(x0, -HIGH, x1 - x0, 0.12);

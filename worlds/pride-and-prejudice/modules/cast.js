@@ -13,9 +13,9 @@ const CROWN = F => ({ radii: F.head.egg.map(e => e * F.head.r * F.head.out) });
 // (the ribbon's band round the head and its two ends: their points, profiles, colour)
 const BAND = 14;
 const RIBBON = F => ({ band: new Array(BAND + 1), ends: [[null, null, null], [null, null, null]],
-  profile: [[0, 0.11 * F.head.r], [BAND, 0.11 * F.head.r]], end: [[0, 0.1 * F.head.r], [2, 0.08 * F.head.r]], colors: [[0, SCARLET]] });
+  profile: [[0, 0.16 * F.head.r], [BAND, 0.16 * F.head.r]], end: [[0, 0.15 * F.head.r], [2, 0.12 * F.head.r]], colors: [[0, SCARLET]] });
 // (the waistcoat's sizes)
-const VEST = F => ({ radii: [0.06 * F.k, 0.115 * F.fit.h, 0.016 * F.k] });
+const VEST = F => ({ radii: [0.042 * F.k, 0.095 * F.fit.h, 0.006 * F.k] });
 
 // the trunk's depth behind (along bk, from the hips) at a height y: its sections', between them
 const trunkBack = (F, secs, bk, y) => {
@@ -69,7 +69,7 @@ return {
     // arms with a little flesh to them, a slender wrist and a small hand; legs that taper to a slim ankle and a pointed
     // slipper or boot
     arms: { regency: [[0, 0.05], [0.55, 0.045], [1, 0.036], [1.45, 0.034], [2, 0.022], [2.5, 0.026], [3, 0.013]] },
-    legs: { regency: [[0, 0.088], [0.45, 0.072], [1, 0.048], [1.35, 0.056], [2, 0.03], [2.4, 0.03], [3, 0.006]] },
+    legs: { regency: [[0, 0.088], [0.45, 0.072], [1, 0.048], [1.35, 0.056], [2, 0.03], [2.4, 0.033], [2.8, 0.027], [3, 0.014]] },
     hair: {
       // a man's hair cut short and brushed forward over the brow (the Brutus of the day): a cap off the brow, locks
       // over the forehead and the temples, side-whiskers down to the ear's lobe
@@ -131,7 +131,7 @@ return {
         }
         F.tube(K.band, K.profile, K.colors, 6, hu, 0.35);
         const knot = h.on([-0.9, 0.42, -0.25], 1.13), side = h.axes[0];
-        F.ball(knot, h.axes, [h.r * 0.12, h.r * 0.16, h.r * 0.1], SCARLET, 10);
+        F.ball(knot, h.axes, [h.r * 0.17, h.r * 0.22, h.r * 0.13], SCARLET, 10);
         for (let e = 0; e < 2; e++) {
           const p = K.ends[e], s = e === 0 ? -1 : 1;
           p[0] = knot;
@@ -140,14 +140,14 @@ return {
           F.tube(p, K.end, K.colors, 6, side, 0.3);
         }
       } },
-      // a pale waistcoat showing between the coat's fronts, from the cravat down to the waist
+      // a pale waistcoat showing in a narrow band between the coat's fronts, under the cravat
       waistcoat: { name: 'waistcoat', draw: F => {
         const on = F.worn;
         if (!on) return;
         const { add, sub, mul, dot } = V(), fw = F.fwd('Chest'), o = F.P('Chest'), K = F.keep(VEST);
         let front = on[1][0];
         for (const p of on[1]) if (dot(sub(p, o), fw) > dot(sub(front, o), fw)) front = p;
-        const c = add(add(front, mul(fw, 0.004 * F.k)), mul(F.up('Chest'), 0.01 * F.fit.h));
+        const c = add(add(front, mul(fw, 0.002 * F.k)), mul(F.up('Chest'), 0.05 * F.fit.h));
         F.ball(c, [F.side('Chest'), F.up('Chest'), fw], K.radii, F.colors.top, 14);
       } },
       // a white cravat at the throat: its knot before the neck, its folds below it on the chest
