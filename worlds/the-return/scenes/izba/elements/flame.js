@@ -13,4 +13,4 @@ e.layer("tongue", { flicker: 0.12, pivot: [0, -0.235] }, (p) => {
   p.ellipse(0, -0.25, 0.006, 0.014, 0, 0, Math.PI * 2);
   p.fill();
 });
-e.light(0, -0.27, 0.12, "#ffcf80", 1.0, "flame");
+e.light(0, -0.27, 0.22, "#ffcf80", 1.2, "flame");

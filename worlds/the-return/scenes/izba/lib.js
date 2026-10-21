@@ -7,9 +7,13 @@ const rnd = (n, seed) => anim.hash(n, seed);
 
 // a field of dry strokes over the rectangle x, y, w, h: `n` of them, each `len` long and `wid` wide, mostly along
 // `angle` (radians), in the colours given (picked at random), each laid at `alpha` — each a ragged-edged dab, thicker
-// where the brush came down, dry and broken where it lifted
+// where the brush came down, dry and broken where it lifted; kept inside the rectangle (here, unlike the yard's: a dab
+// at the edge does not run past the thing it paints)
 function strokes(g, seed, x, y, w, h, colors, n, len, wid, angle = 0, alpha = 0.35) {
-  const was = g.globalAlpha;
+  g.save();
+  g.beginPath();
+  g.rect(x, y, w, h);
+  g.clip();
   g.globalAlpha = alpha;
   for (let i = 0; i < n; i++) {
     const cx = x + w * rnd(i, seed), cy = y + h * rnd(i, seed + 1), a = angle + (rnd(i, seed + 2) - 0.5) * 0.4;
@@ -27,7 +31,7 @@ function strokes(g, seed, x, y, w, h, colors, n, len, wid, angle = 0, alpha = 0.
     g.closePath();
     g.fill();
   }
-  g.globalAlpha = was;
+  g.restore();
 }
 
 // the tooth of rough paper: a tile of 128 × 128 of its grain — pale specks where the dry paint skipped the paper's tops,

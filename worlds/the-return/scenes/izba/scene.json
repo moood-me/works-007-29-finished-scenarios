@@ -1,7 +1,7 @@
 {
   "engine": 3,
   "title": "The Ivanovs' Izba",
-  "horizon": 0.42,
+  "horizon": 0.36,
   "camera": {
     "mode": "picture"
   },
@@ -68,8 +68,8 @@
     "nastya_mood": "afraid",
     "nastya_reach": {
       "l": [
-        1.9,
-        3.85,
+        1.72,
+        3.6,
         0.8
       ]
     }
@@ -180,7 +180,7 @@
       "height": 1.85,
       "box": [
         -0.78,
-        -1.9,
+        -2.14,
         0.78,
         0.02
       ],
@@ -209,11 +209,11 @@
       "distance": 4.375,
       "elevation": 0.78,
       "facing": 90,
-      "height": 0.55,
+      "height": 0.62,
       "box": [
-        -0.33,
-        -0.57,
-        0.33,
+        -0.36,
+        -0.64,
+        0.36,
         0.03
       ],
       "glows": true,
@@ -232,7 +232,7 @@
         ],
         "source": [
           0.04,
-          0.36,
+          0.5,
           0
         ],
         "size": [
@@ -413,8 +413,8 @@
     {
       "id": "sack",
       "name": "Kit bag by the door",
-      "across": 2.45,
-      "distance": 3.9,
+      "across": 2.3,
+      "distance": 3.6,
       "height": 0.45,
       "box": [
         -0.28,
@@ -456,8 +456,8 @@
         "who": "lyuba",
         "turn": 140
       },
-      "across": -1.2,
-      "distance": 3.9,
+      "across": -0.85,
+      "distance": 3.75,
       "shadow": true,
       "inside": true
     },
@@ -469,8 +469,8 @@
         "who": "ivanov",
         "turn": 150
       },
-      "across": 0.6,
-      "distance": 4.3,
+      "across": 0.55,
+      "distance": 3.9,
       "shadow": true,
       "inside": true
     },
@@ -482,8 +482,8 @@
         "who": "semyon",
         "turn": 230
       },
-      "across": 2.05,
-      "distance": 3.7,
+      "across": 1.85,
+      "distance": 3.45,
       "shadow": true,
       "inside": true
     },
@@ -495,8 +495,8 @@
         "who": "nastya",
         "turn": 230
       },
-      "across": 1.6,
-      "distance": 3.95,
+      "across": 1.4,
+      "distance": 3.65,
       "shadow": true,
       "inside": true
     }
