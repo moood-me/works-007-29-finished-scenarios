@@ -7,7 +7,7 @@
 // cinders, swept, the tread worn pale along it and a path across it to the station house's door, dark cinders and
 // dropped straws. Nothing written anywhere.
 const L = e.lib, K = L.LINE;
-g.fillStyle = "#c8bb9b";
+g.fillStyle = "#c8b28a";
 g.fillRect(-50, -35, 100, 70);
 g.save();
 g.translate(K.p0[0] + 10, 35 - K.p0[1]);
@@ -22,7 +22,7 @@ g.fillStyle = "#bfb491";
 g.fillRect(X0, -6.2, W, 2.8);
 // each track: ballast, sleepers every 0.55 m, the ballast darker under the rails, the rails
 const track = (mid, seed, rails) => {
-  g.fillStyle = "#a49d8f";
+  g.fillStyle = "#968e80";
   g.fillRect(X0, mid - 1.75, W, 3.5);
   L.strokes(g, seed, X0, mid - 1.75, 42, 3.5, ["#8e897f", "#bab3a3", "#7d776c", "#c9bfa8"], 700, 0.22, 0.08, 0, 0.5);
   for (let i = 0, x = X0; x < X1; i++, x += 0.55) {
@@ -30,7 +30,7 @@ const track = (mid, seed, rails) => {
     g.fillRect(x + 0.06 * (L.rnd(i, seed + 2) - 0.5), mid - 1.35, 0.24, 2.7);
   }
   for (const r of [mid - 0.76, mid + 0.76]) {
-    g.fillStyle = "rgba(92,72,58,0.35)";
+    g.fillStyle = "rgba(128,70,42,0.42)";
     g.fillRect(X0, r - 0.14, W, 0.28);
     g.fillStyle = rails;
     g.fillRect(X0, r - 0.05, W, 0.1);
@@ -38,8 +38,8 @@ const track = (mid, seed, rails) => {
     g.fillRect(X0, r - 0.035, W, 0.05);
   }
 };
-track(-4.6, 81, "#6e4a3a");
-track(0, 91, "#6c4c3c");
+track(-4.6, 81, "#8a4a2c");
+track(0, 91, "#96512e");
 // the kerb: old sleepers end to end along the platform's edge, 2 m to the right of the line
 for (let i = 0, x = X0; x < X1; i++, x += 2.7) {
   g.fillStyle = ["#7b6f60", "#857867", "#71665a"][i % 3];
@@ -49,10 +49,10 @@ for (let i = 0, x = X0; x < X1; i++, x += 2.7) {
 }
 // the platform: the tread along it, cinders, straws (the brush, as on the ballast, only up to 30 m along: farther it is seen small, in the fog)
 g.globalAlpha = 0.35;
-g.fillStyle = "#ded4bb";
+g.fillStyle = "#e2d4b2";
 g.fillRect(X0, 2.6, W, 1.8);
 g.globalAlpha = 1;
-L.strokes(g, 101, X0, 2.2, 42, 14, ["#b6a888", "#d6cbad", "#a99a7c", "#dcd2b8"], 1600, 0.35, 0.06, 0, 0.4);
+L.strokes(g, 101, X0, 2.2, 42, 14, ["#b4a07a", "#d6c7a2", "#a5916c", "#dccdaa"], 1600, 0.35, 0.06, 0, 0.4);
 L.strokes(g, 103, X0, 2.6, W, 1.8, ["#e4dbc4", "#c2b493"], 700, 0.6, 0.05, 0, 0.35);
 for (let i = 0; i < 200; i++) {
   const x = X0 + 30 * L.rnd(i, 105), yy = 2.3 + 8 * L.rnd(i, 106);

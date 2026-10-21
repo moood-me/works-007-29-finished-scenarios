@@ -1,18 +1,18 @@
-// The high whitish sky of a misty late-August morning, the fog not yet lifted off the fields: a pale grey-blue high up
-// where the mist thins, a pearly white lower, the whitest band at the horizon (0.36 of the frame) where the fog lies on
+// The high whitish sky of a misty late-August morning, the fog not yet lifted off the fields: a denser grey-blue high
+// up where the mist thins (so that the sky is not the sand's tone), a pearly white lower, the whitest band at the horizon (0.36 of the frame) where the fog lies on
 // the land, dry brush over it and the paper's tooth through it; a high thin veil of cloud drifting slowly (a layer, its
 // ends meeting) and the fog's soft upper edge over the fields drifting slower.
 const A = e.aspect, L = e.lib, W = A + 0.6;
 const sky = g.createLinearGradient(0, -0.35, 0, 1.25);
-sky.addColorStop(0, "#bfcad0");
-sky.addColorStop(0.12, "#d0d7d8");
-sky.addColorStop(0.26, "#e2e4df");
-sky.addColorStop(0.34, "#eeede6");
-sky.addColorStop(0.37, "#f3f1ea");
-sky.addColorStop(1, "#eeebe2");
+sky.addColorStop(0, "#9caebb");
+sky.addColorStop(0.12, "#b3c1c9");
+sky.addColorStop(0.26, "#d0d6d5");
+sky.addColorStop(0.34, "#e6e5dc");
+sky.addColorStop(0.37, "#eeebe0");
+sky.addColorStop(1, "#e9e3d4");
 g.fillStyle = sky;
 g.fillRect(-0.3, -0.35, W, 1.6);
-L.strokes(g, 11, -0.3, -0.35, W, 0.7, ["#e9ebe6", "#c7d0d3", "#f2efe6"], 500, 0.09, 0.01, 0, 0.2);
+L.strokes(g, 11, -0.3, -0.35, W, 0.7, ["#dfe3e2", "#a9b8c1", "#eeebe2"], 500, 0.09, 0.01, 0, 0.2);
 L.paper(g, -0.3, -0.35, W, 1.6, 0.05, 0.35);
 // (a soft streak at x, y: a long thin oval and a few strokes along it — drawn again one width to the left, so the
 // layer's ends meet as it drifts round)

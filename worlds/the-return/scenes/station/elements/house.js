@@ -4,7 +4,8 @@
 // frieze, two windows each side of the door in white frames, the door's two leaves painted a dark green, a little
 // iron canopy over it; by the door on the left the station's bell on its iron bracket, rung for a train (its rope's
 // tail stirring in the air), on the right a lantern on a bracket, unlit by day; a bench along the wall by the near
-// windows. No signs.
+// windows; in the window right of the door the stationmaster's lamp still burning in the fog (its flame a glow of the
+// engine's, flickering a little: the element's `flicker`). No signs.
 const L = e.lib;
 // the plinth
 g.fillStyle = "#94735f";
@@ -23,6 +24,12 @@ g.fillRect(5.94, -3.0, 0.16, 2.6);
 g.fillRect(-6.15, -3.22, 12.3, 0.24);
 // the windows
 for (const x of [-4.3, -2.3, 2.4, 4.4]) L.windowFrame(g, x, 1.05, 2.3, 0.86);
+// the lamp on the sill inside the window right of the door: its base and glass chimney, its flame
+g.fillStyle = "#5b4a36";
+g.fillRect(2.5, -1.18, 0.14, 0.08);
+g.fillStyle = "#d9c9a0";
+g.fillRect(2.535, -1.38, 0.07, 0.2);
+e.light(2.57, -1.32, 0.16, "#ffc47a", 1.4, "lamp");
 // the door: its frame, two dark green leaves with their panels, the step, the canopy
 g.fillStyle = "#e6e2d6";
 g.fillRect(-0.78, -2.48, 1.56, 2.48);
