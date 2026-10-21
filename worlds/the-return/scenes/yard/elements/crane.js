@@ -1,16 +1,16 @@
-// The well's sweep (zhuravl): a forked post 4.3 m tall, the long sweep pole across its fork — its heavy end low on the
+// The well's sweep (zhuravl): a forked post 3.6 m tall, the long sweep pole across its fork — its heavy end low on the
 // right with a stone tied to it, its thin end high over the well — and, hanging from that end (a layer: it sways a
 // little in the wind about the tip), the bucket's pole down to the bucket over the well's mouth.
-const TIP = [-2.0, -6.8], PIVOT = [0, -4.3], HEAVY = [1.375, -2.58];
+const TIP = [-2.2, -4.95], PIVOT = [0, -3.6], HEAVY = [1.3, -2.8];
 g.fillStyle = "#6a5d4c";
 g.beginPath();
 g.moveTo(-0.14, 0);
-g.lineTo(-0.1, -4.25);
-g.lineTo(0.1, -4.25);
+g.lineTo(-0.1, -3.55);
+g.lineTo(0.1, -3.55);
 g.lineTo(0.14, 0);
 g.closePath();
 g.fill();
-for (const s of [-1, 1]) g.fillRect(s * 0.1 - 0.04, -4.55, 0.08, 0.32);
+for (const s of [-1, 1]) g.fillRect(s * 0.1 - 0.04, -3.85, 0.08, 0.32);
 // the sweep: a tapered pole from the heavy end to the tip
 const dx = TIP[0] - HEAVY[0], dy = TIP[1] - HEAVY[1], len = Math.hypot(dx, dy), nx = -dy / len, ny = dx / len;
 g.fillStyle = "#76684f";
@@ -30,9 +30,9 @@ g.beginPath();
 g.ellipse(HEAVY[0] + 0.05, HEAVY[1] + 0.14, 0.2, 0.15, 0.3, 0, Math.PI * 2);
 g.fill();
 // the bucket's pole and the bucket, hanging from the tip
-e.layer("bucket", { pivot: TIP, wind: { strength: 0.1, gust: 0.4 }, box: [-2.3, -6.9, -1.7, -1.0] }, (g) => {
+e.layer("bucket", { pivot: TIP, wind: { strength: 0.1, gust: 0.4 }, box: [-2.5, -5.05, -1.9, -1.0] }, (g) => {
   g.fillStyle = "#7d6f58";
-  g.fillRect(TIP[0] - 0.02, TIP[1], 0.04, 6.8 - 1.55);
+  g.fillRect(TIP[0] - 0.02, TIP[1], 0.04, -TIP[1] - 1.55);
   g.fillStyle = "#3d3a36";
   g.fillRect(TIP[0] - 0.13, -1.56, 0.26, 0.025);
   g.fillStyle = "#7d7c78";
