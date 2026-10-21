@@ -4,6 +4,10 @@
 // man's 1.76 m).
 const V = () => MooodShapes.V;
 const CLOTH = [0.6, 0.55, 0.46, 1], LEATHER = [0.24, 0.18, 0.13, 1], STEEL = [0.66, 0.67, 0.68, 1], BRASS = [0.6, 0.5, 0.3, 1];
+// the hood's edge round the face: high over the brow in front, down past the cheeks at the sides, to the nape behind
+const EDGE = x => 0.5 - 1.5 * Math.min(1, Math.max(0, (Math.abs(x) - 0.75) / 0.8));
+const COWL = F => ({ pts: [null, null, null], profile: [[0, F.head.r * 1.0], [2, 0.16 * F.k]], colors: [[0, F.colors.garment]] });
+const OAR = [0.55, 0.45, 0.33, 1], IRON = [0.2, 0.19, 0.18, 1], FLAME = [1, 0.8, 0.45, 2];
 // the face's expressions (<id>_mood): brows' inner and outer ends up, the eyes' openness, the mouth's width, its
 // corners up or down — as the engine's simple face has them
 const MOODS = {
@@ -37,6 +41,11 @@ return {
     wistan: { kind: 'shapes', style: 'giant', who: 'man', garment: 'coat', hair: 'short', parts: ['sword'],
       body: { height: 1.05, shoulders: 1.1, thick: 1.02 },
       colors: { skin: '#c49474', hair: '#3a2b21', garment: '#414b3d', top: '#7c7462', bottom: '#3b362f', shoes: '#2a241f' } },
+    // the boatman: tall, in a long hooded robe of weathered grey-blue, the oar on his right shoulder (his right hand
+    // on its loom — the scene's `<id>_reach` puts it there), a lantern hanging from his left hand
+    boatman: { kind: 'shapes', style: 'giant', who: 'man', garment: 'robe', hair: 'none', parts: ['cowl', 'oar', 'lantern'],
+      body: { height: 1.08, shoulders: 1.02, thick: 0.92 },
+      colors: { skin: '#c7a084', hair: '#5a5049', garment: '#6d7681', top: '#6d7681', bottom: '#33363a', shoes: '#26282b' } },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, plain colours lit by the scene, a fine line,
@@ -90,6 +99,35 @@ return {
         F.bar(add(guard, mul(right, -0.08 * m)), add(guard, mul(right, 0.08 * m)), 0.012 * m, 0.012 * m, [[0, BRASS]], 5, fwd);
         F.bar(guard, pommel, 0.014 * m, 0.014 * m, [[0, LEATHER]], 5, right);
         F.ball(pommel, [right, down, fwd], [0.025 * m, 0.025 * m, 0.025 * m], STEEL, 8);
+      } },
+      // a hood thrown up over the head that leaves the face open: it frames the face at the sides, covers the brow,
+      // and falls behind onto the shoulders
+      cowl: { name: 'hood', draw: F => {
+        const { add, mul, mix } = V(), h = F.head, a = h.axes, r = h.r * h.out, K = F.keep(COWL);
+        const c = add(h.at, add(mul(a[1], r * 0.06), mul(a[2], -r * 0.08)));
+        F.shell(c, a, [h.egg[0] * r * 1.22, h.egg[1] * r * 1.18, h.egg[2] * r * 1.2], EDGE, 0.2, F.colors.garment, h.sides);
+        const back = add(F.P('Chest'), mul(F.fwd('Chest'), -0.06 * F.k));
+        K.pts[0] = add(c, mul(a[2], -r * 0.5)); K.pts[1] = mix(K.pts[0], back, 0.5); K.pts[2] = back;
+        F.tube(K.pts, K.profile, K.colors, F.sides, a[2]);
+      } },
+      // an oar on the right shoulder: from the hand on its loom up over the shoulder, the blade high behind him
+      oar: { name: 'oar', draw: F => {
+        const { add, sub, mul, unit, cross } = V(), m = F.fit.h, hand = F.P('RightHand'), right = rightOf(F);
+        const top = add(F.P('RightArm'), [0, 0.07 * m, 0]), dir = unit(sub(top, hand));
+        const grip = add(hand, mul(dir, -0.16 * m)), root = add(top, mul(dir, 1.25 * m)), tip = add(root, mul(dir, 0.62 * m));
+        const flat = unit(cross(dir, right));
+        F.bar(grip, root, 0.022 * m, 0.026 * m, [[0, OAR]], 6, right);
+        F.ball(add(root, mul(dir, 0.3 * m)), [right, dir, flat], [0.08 * m, 0.34 * m, 0.016 * m], OAR, 10);
+      } },
+      // a small iron lantern hanging from the left hand, its glass lit (its point `flame`: the scene's light there)
+      lantern: { name: 'lantern', draw: F => {
+        const { add } = V(), m = F.fit.h, hand = F.P('LeftHand');
+        const axes = [F.side('Hips'), [0, 1, 0], F.fwd('Hips')], c = F.swing('lantern', add(hand, [0, -0.2 * m, 0]), 60);
+        F.bar(add(hand, [0, -0.02 * m, 0]), add(c, [0, 0.1 * m, 0]), 0.008 * m, 0.008 * m, [[0, IRON]], 5, axes[0]);
+        F.ball(add(c, [0, 0.09 * m, 0]), axes, [0.05 * m, 0.03 * m, 0.05 * m], IRON, 8);
+        F.ball(c, axes, [0.055 * m, 0.08 * m, 0.055 * m], FLAME, 10, 2.6);
+        F.ball(add(c, [0, -0.085 * m, 0]), axes, [0.06 * m, 0.02 * m, 0.06 * m], IRON, 8);
+        F.point('flame', c);
       } },
     },
   },
