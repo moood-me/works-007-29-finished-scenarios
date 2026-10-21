@@ -1,7 +1,7 @@
 {
   "engine": 3,
   "title": "The Station",
-  "horizon": 0.36,
+  "horizon": 0.32,
   "camera": {
     "mode": "picture"
   },
@@ -54,12 +54,12 @@
     "lyuba_reach": {
       "r": [
         -0.084,
-        2.862,
+        2.512,
         0.95
       ],
       "l": [
         0.014,
-        2.844,
+        2.494,
         0.95
       ]
     },
@@ -72,11 +72,15 @@
     "nastya_reach": {
       "l": [
         0.995,
-        3.471,
+        3.121,
         0.72
       ]
     },
-    "semyon_look": "nastya",
+    "semyon_look": [
+      0.35,
+      1.6,
+      0.9
+    ],
     "semyon_mood": "neutral"
   },
   "objects": [
@@ -134,8 +138,8 @@
     {
       "id": "tower",
       "name": "Water tower",
-      "across": -11.6,
-      "distance": 40,
+      "across": -13.05,
+      "distance": 43.9,
       "facing": 180,
       "height": 15,
       "box": [
@@ -238,8 +242,8 @@
     {
       "id": "chimney",
       "name": "Station house: chimney",
-      "across": 3.184,
-      "distance": 9.624,
+      "across": 1.14,
+      "distance": 15.26,
       "elevation": 4.46,
       "facing": 250,
       "height": 1.2,
@@ -355,7 +359,7 @@
         "does": "hands_behind"
       },
       "across": -0.75,
-      "distance": 3.35,
+      "distance": 3.0,
       "shadow": true
     },
     {
@@ -367,7 +371,7 @@
         "turn": 190
       },
       "across": 0.0,
-      "distance": 3.05,
+      "distance": 2.7,
       "shadow": true
     },
     {
@@ -379,7 +383,7 @@
         "turn": 175
       },
       "across": 0.8,
-      "distance": 3.25,
+      "distance": 2.9,
       "shadow": true
     },
     {
@@ -391,7 +395,7 @@
         "turn": 200
       },
       "across": 1.2,
-      "distance": 3.45,
+      "distance": 3.1,
       "shadow": true
     }
   ]
