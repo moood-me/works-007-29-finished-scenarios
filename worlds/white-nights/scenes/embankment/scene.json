@@ -16,9 +16,9 @@
     "brightness": 1.08,
     "saturation": 0.92,
     "tint": "#efe1cf",
-    "tintStrength": 0.05,
+    "tintStrength": 0.08,
     "vignette": 0.28,
-    "grain": 0.16,
+    "grain": 0.24,
     "wind": [
       1,
       0.3,
@@ -77,8 +77,8 @@
     ],
     "nastya_reach": {
       "r": [
-        -2.47,
-        4.45,
+        -2.5,
+        4.42,
         1.07
       ]
     },
@@ -131,10 +131,10 @@
       "width": 21.7,
       "depth": 320,
       "reflect": {
-        "strength": 0.55,
+        "strength": 0.7,
         "fade": 0,
-        "rough": 0.35,
-        "ripple": 0.5
+        "rough": 0.28,
+        "ripple": 0.4
       },
       "glows": true
     },
@@ -196,6 +196,22 @@
       "elevation": 0,
       "width": 7.8,
       "depth": 320
+    },
+    {
+      "id": "puddle",
+      "name": "Puddle on the setts",
+      "plane": true,
+      "across": 1.7,
+      "distance": 3.0,
+      "elevation": 0.01,
+      "width": 1.8,
+      "depth": 1.2,
+      "reflect": {
+        "strength": 0.6,
+        "fade": 0,
+        "rough": 0.06,
+        "ripple": 0.12
+      }
     },
     {
       "id": "house_a",
@@ -574,6 +590,20 @@
       "shadow": true
     },
     {
+      "id": "bollard",
+      "name": "Granite bollard",
+      "across": 2.7,
+      "distance": 4.2,
+      "height": 0.95,
+      "box": [
+        -0.57,
+        -0.95,
+        0.57,
+        0
+      ],
+      "shadow": true
+    },
+    {
       "id": "lamps",
       "name": "Lamps along both banks",
       "across": -1.95,
@@ -720,11 +750,11 @@
         "who": "nastenka",
         "turn": 160
       },
-      "across": -2,
+      "across": -2.12,
       "distance": 4.5,
       "shadow": {
         "light": "lamp",
-        "strength": 0.6
+        "strength": 0.75
       }
     },
     {
@@ -739,7 +769,7 @@
       "distance": 5.1,
       "shadow": {
         "light": "lamp",
-        "strength": 0.6
+        "strength": 0.75
       }
     },
     {
@@ -754,7 +784,7 @@
       "distance": 10.6,
       "shadow": {
         "light": "lamp_far",
-        "strength": 0.6
+        "strength": 0.75
       }
     }
   ],

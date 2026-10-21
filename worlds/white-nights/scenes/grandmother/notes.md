@@ -43,8 +43,8 @@ The room: across −2.65…2.75, 0…6 deep, the ceiling 2.8 (`floor`, `ceiling`
 - `babushka` — Grandmother in the armchair (`babushka_on` the seat, the cast's `seated` loop: still, the hands on her knees),
   facing the room and us, her blind eyes straight ahead (`babushka_look: null`) — she listens, her face to the viewer.
 - `nastya` — Nastenka on the low bench at Grandmother's side, a hand's breadth from the armchair so the two dresses
-  stand apart (across −0.7), at home (her look over the character: the dress without the mantle, no bonnet, her hair
-  up), turned mostly to us (160°), the book open in her hands (the cast's `read` loop, the part `book`) but looking up
+  stand apart (across −0.7), at home (her look over the character: the dress without the mantle; her hair the cast's
+  `bands`, as everywhere), turned mostly to us (160°), the book open in her hands (the cast's `read` loop, the part `book`) but looking up
   from it toward the guest, her face kept to us (`nastya_look` a point between him and the viewer), a small smile.
 - `dreamer` — the Dreamer by the door, 4 m in, turned nearly to us (160°), his head bent a little down toward Nastenka
   on her low bench, his face kept to us (`dreamer_look` a point between her and the viewer), a shy smile; his top hat held low at his side by the brim in his left hand

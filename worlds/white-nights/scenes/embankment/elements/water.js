@@ -1,15 +1,17 @@
 // The canal from above (x across it, −10.85 at the far bank's wall … 10.85 at the near one; y toward the viewer, its
-// far end 320 m off at −160): the white night's water is lighter than the sky — it holds the whole pale sky, so it
-// keeps its own light ("glows") and is painted as that sky's mirror: pearl near, warming far off toward the rose of
-// the afterglow down the canal, a little deeper along the walls. The mirror (reflect) lays the houses, the lamps'
-// paths and the afterglow's on it. Over it the slow ripple: short level strokes, dense far off and sparse near,
-// drifting down the canal toward the viewer (a layer the engine moves)
+// far end 320 m off at −160). The white night's water holds the whole light sky (it keeps its own light, "glows"), so
+// it is painted as that sky mirrored: far down the canal, where it mirrors the low sky, pearl warming to the rose of
+// the afterglow; nearer, where it mirrors the sky higher up, its cool lilac — a little deeper along the walls. The
+// mirror (reflect) lays the houses, the bridge, the lamps' paths and the afterglow's on it. Over it the slow ripple:
+// short level strokes, dense far off and sparse near, drifting down the canal toward the viewer (a layer the engine
+// moves)
 const W = 21.7, D = 320;
 const along = g.createLinearGradient(0, -D / 2, 0, D / 2);
-along.addColorStop(0, '#f6e6dc');
-along.addColorStop(0.25, '#f4ece8');
-along.addColorStop(0.7, '#eeeef4');
-along.addColorStop(1, '#e9e9f2');
+along.addColorStop(0, '#f3e2d6');
+along.addColorStop(0.5, '#efe6e6');
+along.addColorStop(0.8, '#e2dce4');
+along.addColorStop(0.93, '#cfcadb');
+along.addColorStop(1, '#bab7cf');
 g.fillStyle = along;
 g.fillRect(-W / 2, -D / 2, W, D);
 const walls = g.createLinearGradient(-W / 2, 0, W / 2, 0);

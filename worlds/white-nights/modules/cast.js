@@ -56,23 +56,61 @@ function coatFront(F) {
   for (const sx of [-1, 1]) F.tube([front(shoulders, sx * 0.38), front(chest, sx * 0.3), front(waist, sx * 0.04)], K.lapel, [[0, shade]], 6, fw);
   for (const u of [0.25, 0.6, 0.95]) F.ball(mix(front(chest, 0.12), front(waist, 0.1), u), axes, K.button, BUTTON, 6);
 }
+// (eased 0…1 as x goes from a to b)
+const smooth = (a, b, x) => {
+  const u = Math.max(0, Math.min(1, (x - a) / (b - a)));
+  return u * u * (3 - 2 * u);
+};
+// her bands: how low the hair comes round the head (a: 0 before, ±π behind; the height on it, 1 its top): high at the
+// brow, down over the temples and the ears, low at the nape
+const BANDS_EDGE = a => {
+  const t = Math.abs(a);
+  return 0.56 - 0.08 * smooth(0, 0.7, t) - 0.74 * smooth(0.8, 1.35, t) - 0.22 * smooth(2.0, 2.8, t);
+};
+const BANDS = F => {
+  const r = F.head.r, skin = F.colors.skin;
+  return { radii: F.head.egg.map(e => e * r * F.head.out * 1.02), part: [[0, r * 0.028], [2, r * 0.018]],
+    skin: [[0, [skin[0] * 0.95, skin[1] * 0.9, skin[2] * 0.88, skin[3]]]], knot: [r * 0.38, r * 0.32, r * 0.3] };
+};
+// a man's hair, standing off the head by `swell`, down to `nape` behind: brushed up from a high brow, over the tops of
+// the ears; side-whiskers before the ears; a soft wave over the brow
+function mane(swell, nape) {
+  const edge = a => {
+    const t = Math.abs(a);
+    return 0.62 - 0.1 * smooth(0.35, 0.8, t) - 0.55 * smooth(1.0, 1.5, t) - (nape + 0.03) * -smooth(2.1, 2.9, t);
+  };
+  const KEEP = F => {
+    const r = F.head.r;
+    return { radii: F.head.egg.map(e => e * r * F.head.out * swell), colors: [[0, F.colors.hair]],
+      whisker: [[0, r * 0.1], [1, r * 0.085], [2, r * 0.035]], wave: [[0, r * 0.05], [1, r * 0.13], [2, r * 0.04]] };
+  };
+  return F => {
+    const h = F.head, K = F.keep(KEEP), o = h.out * swell;
+    F.shell(h.at, h.axes, K.radii, edge, 0.1, F.colors.hair, h.sides, h.square);
+    for (const sx of [-1, 1]) {
+      F.tube([h.on([sx * 0.9, 0.22, 0.4], o), h.on([sx * 0.9, -0.1, 0.42], o), h.on([sx * 0.85, -0.36, 0.48], o)], K.whisker, K.colors, 8, h.axes[2], 0.45);
+    }
+    F.tube([h.on([-0.44, 0.6, 0.66], o * 1.01), h.on([0.02, 0.74, 0.67], o * 1.03), h.on([0.42, 0.62, 0.66], o * 1.01)], K.wave, K.colors, 8, h.axes[1], 0.5);
+  };
+}
 return {
   ...data,
   characters: {
     // the Dreamer, twenty-six: thin, a little stooped, a clerk's worn frock coat of faded bottle green, grey trousers,
     // brown hair (not the Lodger's black), bare-headed: his hat is in his hands (the parts hat_held, hat_hands, hat_hand,
     // hat_low), his knotty stick in the right (cane)
-    dreamer: { kind: 'shapes', style: 'litho', who: 'man', garment: 'frockcoat', hair: 'short',
+    dreamer: { kind: 'shapes', style: 'litho', who: 'man', garment: 'frockcoat', hair: 'swept',
       body: { height: 1.0, thick: 0.84, shoulders: 0.94, neck: 1.05 },
       colors: { skin: '#e2c0a4', hair: '#6a4a32', top: '#e8e2d6', garment: '#66765b', bottom: '#77736c', shoes: '#2a2522', hat: '#5e5249' } },
     // Nastenka, seventeen: small and quick, a pale lilac-grey dress with a dark short cape over the shoulders, a light
-    // straw bonnet with a ribbon tied under the chin, dark hair parted smooth
-    nastenka: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'caped', hair: 'short', hat: 'bonnet',
+    // bare-headed, her dark hair parted in the middle and smoothed in bands over the temples and the ears, gathered in a
+    // knot low at the nape
+    nastenka: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'caped', hair: 'bands', hat: 'none',
       body: { height: 0.93, thick: 0.8, shoulders: 0.86, head: 1.03 },
       colors: { skin: '#efd2bb', hair: '#3b2a22', top: '#5a6482', garment: '#b9adc4', hat: '#e4d6b4', accent: '#8e3f4e', shoes: '#2c2628' } },
     // the Lodger, about twenty-eight: tall, upright, a well-brushed long slate-blue frock coat, black hair under a tall
     // black top hat (tophat; at his chest instead: "_wear": {"hat": "none"} and the part hat_hand)
-    lodger: { kind: 'shapes', style: 'litho', who: 'man', garment: 'longcoat', hair: 'short', hat: 'tophat',
+    lodger: { kind: 'shapes', style: 'litho', who: 'man', garment: 'longcoat', hair: 'neat', hat: 'tophat',
       body: { height: 1.05, thick: 0.92, shoulders: 1.02 },
       colors: { skin: '#dcb898', hair: '#2a211d', top: '#ece8e0', garment: '#4a5a78', bottom: '#4a4c55', shoes: '#211f22', hat: '#2b2b31' } },
     // Grandmother, past seventy and blind: small, a dark plum silk dress of long ago to the floor, a faded mustard shawl
@@ -96,24 +134,23 @@ return {
     // lithograph hatches it; the face `litho`
     styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.6, egg: [0.9, 1.07, 0.99], neck: 0.72, legs: 1.0, limb: 1.2, feet: 'wedge', sides: 24,
       trunk: { w: [0.88, 0.94, 0.8, 0.92, 0.98], d: [0.96, 1.0, 0.92, 0.94, 0.86] }, arms: 'litho', paint: 'toned', line: 2.2, tinted: false,
-      face: 'litho', ragged: 0, folds: { n: 11, depth: 0.1 }, ground: 'litho' } },
+      face: 'litho', ragged: 0, folds: { n: 11, depth: 0.1 }, ground: 'litho', fingers: false } },
     // the arms of the style: a sleeve full at the shoulder, the forearm tapering to a real wrist, a hand with a palm as
-    // wide as a hand is (its fingers the style's own) — a hand on the granite or round a hat's brim reads as a hand
+    // wide as a hand is, its fingers closed in it (the style has no separate fingers: a quiet hand, never splayed) — a
+    // hand on the granite or round a hat's brim reads as a hand
     arms: { litho: [[0, 0.05], [0.5, 0.046], [1, 0.037], [1.5, 0.034], [1.9, 0.027], [2, 0.022], [2.35, 0.03], [2.75, 0.029], [3, 0.021]] },
     // the paper and the ink of the scenes' lithograph: the line is the houses' sepia (their lib's INK)
     grounds: { litho: { name: 'lithograph', bg: '#ece5d6', ink: '#4a3f3a', grid: '#dcd4c4', rim: '#e9b97c' } },
     // a face that reads at a few metres: eyes with their whites, a dark iris and the upper lid drawn in ink, brows of the
-    // hair's colour, a nose, rosy lips, a little colour in the cheeks — as the person's <id>_mood has it (MOODS: the
+    // hair's colour, a nose, soft lips (no painted cheeks: the light rounds the face) — as the person's <id>_mood has it (MOODS: the
     // same solids for every expression, only where they are changes, so one goes over into another)
     faces: { litho: { name: 'lithograph', draw: F => {
       const { axes, r: rh, on } = F.head, [, hu] = axes, x = MOODS[F.look.expression] ?? MOODS.neutral;
       const skin = F.colors.skin, brow = F.colors.hair.map(v => v * 0.62), crease = [skin[0] * 0.78, skin[1] * 0.64, skin[2] * 0.62];
-      const cheek = [skin[0], skin[1] * 0.93, skin[2] * 0.92], lips = [skin[0] * 0.78, skin[1] * 0.44, skin[2] * 0.46];
-      const lower = [skin[0] * 0.84, skin[1] * 0.54, skin[2] * 0.55], open = Math.min(1, x.eye), up = 1.8;
+      const lips = [skin[0] * 0.84, skin[1] * 0.56, skin[2] * 0.56];
+      const lower = [skin[0] * 0.9, skin[1] * 0.66, skin[2] * 0.65], open = Math.min(1, x.eye), up = 1.8;
       for (const sx of [-1, 1]) {
         // (on the head's drawn surface, which stands a little out of its radius: the features a little out of it too)
-        // a warmth in the cheek, wide and faint
-        F.ball(on([sx * 0.52, -0.25, 0.82], 1.0), axes, [rh * 0.19, rh * 0.12, rh * 0.03], cheek, 12);
         // the eye, large enough to read across the street: its white, the iris a little under the lid (its top hidden:
         // a living look), a glint in it, the upper lid a heavy ink line drawn out at its outer end, the lower lid's crease
         F.ball(on([sx * 0.34, 0.06, 0.94], 1.02), axes, [rh * 0.205, rh * 0.14 * x.eye, rh * 0.05], WHITE, 14);
@@ -147,21 +184,29 @@ return {
       // a dress to the ankles from the waist, its bodice and sleeves in its colour, a mantle over the shoulders down
       // to the hips (the top's colour)
       caped: { name: 'dress with a mantle', hang: [{ to: 1.95, from: 'waist', flare: 0.5, off: 0.94 },
-        { to: 0.02, from: 'shoulders', flare: 0.28, color: 'top', folds: false }], sleeves: 'garment', bare: true, bodice: true },
+        { to: 0.02, from: 'shoulders', flare: 0.28, color: 'top' }], sleeves: 'garment', bare: true, bodice: true },
       // the same dress at home, without the mantle
       frock: { name: 'dress', hang: [{ to: 1.85, from: 'waist', flare: 0.38, off: 0.94, folds: false }], sleeves: 'garment', bare: true, bodice: true },
       // an old woman's dress to the floor, fuller, a shawl over the shoulders down to the hips (the top's colour)
       shawled: { name: 'dress with a shawl', hang: [{ to: 2.0, from: 'waist', flare: 0.5, off: 0.96 },
         { to: 0.01, from: 'shoulders', flare: 0.34, color: 'top', folds: false }], sleeves: 'garment', bare: true, bodice: true },
     },
-    hats: {
-      // a bonnet: a deep straw cap over the crown and the back of the head, standing off it, framing the face; a
-      // ribbon bow under the chin (the accent)
-      bonnet: { name: 'bonnet', draw: F => {
-        const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
-        F.cap(at, axes, egg.map(e => e * r * out * 1.22), [0, 0.5, -0.86], -0.3, F.colors.hat, sides, square);
-        F.ball(add(at, add(mul(hu, -r * 1.02), mul(hf, r * 0.32))), axes, [r * 0.2, r * 0.11, r * 0.12], F.colors.accent, 10);
+    // hair: hers parted and smoothed in bands down over the temples and the ears to a knot at the nape; the men's brushed
+    // up from the brow in a soft wave, over the tops of the ears, with side-whiskers (the Dreamer's fuller and longer at
+    // the collar, the Lodger's close and neat) — so a head reads as a head of hair, never a bare ball or a cap
+    hair: {
+      bands: { name: 'smooth bands', draw: F => {
+        const { add, mul } = V(), h = F.head, K = F.keep(BANDS), o = h.out * 1.03;
+        F.shell(h.at, h.axes, K.radii, BANDS_EDGE, 0.06, F.colors.hair, h.sides, h.square);
+        // the parting, a fine line of the skin from the brow back over the crown
+        F.tube([h.on([0, 0.6, 0.8], o), h.on([0, 0.88, 0.47], o), h.on([0, 1, 0.02], o)], K.part, K.skin, 6, h.axes[0]);
+        // the knot of hair low at the nape
+        F.ball(add(h.at, add(mul(h.axes[1], -h.r * 0.22), mul(h.axes[2], -h.r * 1.05))), h.axes, K.knot, F.colors.hair, h.sides);
       } },
+      swept: { name: 'swept, full', draw: mane(1.08, -0.62) },
+      neat: { name: 'swept, neat', draw: mane(1.035, -0.42) },
+    },
+    hats: {
       // a tall top hat worn a little back on the head: a narrow brim at the brow, the crown a little wider at the top,
       // a silk band round its foot
       tophat: { name: 'top hat', draw: F => {

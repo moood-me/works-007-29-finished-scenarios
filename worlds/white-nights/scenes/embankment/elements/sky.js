@@ -1,7 +1,7 @@
 // The white night's sky, in stage heights: lilac-grey above, paling to pearl, a warm rose-peach band low over the
 // horizon where the evening glow lingers into the dawn (the north-west, over the far bank, to the left: a soft warm
 // glow there, the point sky#afterglow); below the horizon the same pale air. High thin streaks of cloud drift slowly across (a layer the engine moves).
-const A = e.aspect, H = 0.43; // (H: the horizon on the stage, as the scene's "horizon" says)
+const A = e.aspect, H = 0.56; // (H: the horizon on the stage, as the scene's "horizon" says)
 const air = g.createLinearGradient(0, -0.35, 0, 1.25);
 air.addColorStop(0, '#a7a5c3');
 air.addColorStop(H - 0.24, '#c6c0d7');
@@ -12,6 +12,9 @@ air.addColorStop(H + 0.12, '#e8e2e1');
 air.addColorStop(1, '#dbd8df');
 g.fillStyle = air;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);
+// (the watercolour's own unevenness over the sky: broad soft blotches of lilac, lighter and deeper, as a wash dries on
+// the paper)
+e.lib.wash(g, -0.3, -0.35, A + 0.6, H + 0.3, [196, 190, 214], 21, 0.025, 0.35, 0);
 // (the glow over the north-west, low and wide)
 g.save();
 g.translate(A * 0.28, H + 0.01);
