@@ -129,8 +129,7 @@
         "fade": 0,
         "rough": 0.2,
         "ripple": 0.4
-      },
-      "glows": true
+      }
     },
     {
       "id": "far_wall",
