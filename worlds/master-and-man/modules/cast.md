@@ -1,7 +1,7 @@
 # cast — the people of «Master and Man»
 
 A module for scenes with people (elements with `person`: `{"cast": "cast", "who": …}` — people_guide). In the scene's
-`modules`. 5 looks, 7 motions of its own (besides the engine's `stand` and `walk`). A part's lengths are a man's metres
+`modules`. 5 looks, 9 motions of its own (besides the engine's `stand` and `walk`). A part's lengths are a man's metres
 times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
@@ -44,6 +44,9 @@ Indoors the master and Nikita take their hats off: `<id>_wear: {hat: "none"}`; N
 - `bench_sit` — seated upright on a bench, the hands resting in the lap, breathing calmly.
 - `arms_folded` — stands with the arms folded across the chest, waiting, shifting the weight now and then.
 - `lean_table` — stands bent forward, both hands resting on a table at waist height (`<id>_reach` puts the hands on it).
+- `huddle` — sits on the floor huddled, the knees drawn up, the arms round them, the legs crossed at the shins (on a
+  plane that says `walk`: the sleigh's straw).
+- `knees_sit` — sits on the floor, the knees bent up, the hands resting on them, looking ahead, still.
 
 The engine's `stand` (at rest, breathing) and `walk`. `<id>_reach` puts a hand where it is told, over any of them (Nikita's
 left hand holding the horse by the bit: `{"l": {"on": "horse", "at": [-1.41, -0.08, 1.32]}}`) and `<id>_look` turns the head.
