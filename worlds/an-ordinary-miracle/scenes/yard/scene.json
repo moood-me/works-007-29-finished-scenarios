@@ -1,0 +1,784 @@
+{
+  "engine": 3,
+  "title": "The Master's Yard",
+  "horizon": 0.45,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.68,
+    "ambientColor": "#c3cde2",
+    "bounce": 0.5,
+    "haze": 0.018,
+    "hazeColor": "#dfe2e4",
+    "hazeGlow": 0.4,
+    "shafts": 0.2,
+    "tint": "#ffd9a8",
+    "tintStrength": 0.1,
+    "vignette": 0.22,
+    "grain": 0.05,
+    "saturation": 1.05,
+    "wind": [
+      1,
+      0.2,
+      0.6
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        135,
+        13
+      ],
+      "color": "#ffcf94",
+      "strength": 1.35
+    },
+    {
+      "id": "hearth",
+      "of": "house_front#hearth",
+      "color": "#ffa452",
+      "strength": 1.0,
+      "reach": 4,
+      "flicker": 0.2
+    },
+    {
+      "id": "window",
+      "of": "house_front#window",
+      "color": "#ffc77a",
+      "strength": 0.5,
+      "reach": 3
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "medved_look": [
+      1.1,
+      1.5,
+      1.62
+    ],
+    "medved_mood": "smile",
+    "princess_look": [
+      -1.2,
+      1.5,
+      1.66
+    ],
+    "princess_mood": "smile",
+    "hozyain_look": [
+      -0.1,
+      2.8,
+      1.5
+    ],
+    "hozyain_mood": "smile"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "peaks",
+      "name": "The snowy peaks",
+      "across": 0,
+      "distance": 6000,
+      "height": 4000,
+      "box": [
+        -6300,
+        -4150,
+        6300,
+        20
+      ]
+    },
+    {
+      "id": "ridge",
+      "name": "The near mountains",
+      "across": 0,
+      "distance": 1800,
+      "elevation": 20,
+      "height": 360,
+      "box": [
+        -2000,
+        -500,
+        2000,
+        20
+      ]
+    },
+    {
+      "id": "hills",
+      "name": "The green hills",
+      "across": 0,
+      "distance": 600,
+      "elevation": 20,
+      "height": 80,
+      "box": [
+        -900,
+        -110,
+        900,
+        20
+      ]
+    },
+    {
+      "id": "meadow",
+      "name": "The meadow and the yard",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 110,
+      "width": 600,
+      "depth": 240
+    },
+    {
+      "id": "firs",
+      "name": "The forest edge",
+      "across": -14,
+      "distance": 22,
+      "shadow": true,
+      "copies": [
+        {
+          "across": -14,
+          "distance": 22,
+          "scale": 0.8,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -9,
+          "distance": 27,
+          "scale": 0.9,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": -19,
+          "distance": 30,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -6,
+          "distance": 35,
+          "scale": 0.75,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": -12,
+          "distance": 39,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -25,
+          "distance": 42,
+          "scale": 1.3,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": -4.5,
+          "distance": 50,
+          "scale": 0.85,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -17,
+          "distance": 55,
+          "scale": 1.2,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": -30,
+          "distance": 66,
+          "scale": 1.5,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -10,
+          "distance": 72,
+          "scale": 1.1,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": 12,
+          "distance": 25,
+          "scale": 0.85,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": 17,
+          "distance": 30,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 10.5,
+          "distance": 37,
+          "scale": 0.8,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": 22,
+          "distance": 36,
+          "scale": 1.2,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 28,
+          "distance": 46,
+          "scale": 1.3,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": 34,
+          "distance": 56,
+          "scale": 1.4,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 41,
+          "distance": 50,
+          "scale": 1.2,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": 8,
+          "distance": 60,
+          "scale": 0.9,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 50,
+          "distance": 82,
+          "scale": 1.6,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": 46,
+          "distance": 112,
+          "scale": 1.8,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -40,
+          "distance": 95,
+          "scale": 1.7,
+          "flip": true,
+          "tint": "#e6eadf"
+        },
+        {
+          "across": -22,
+          "distance": 110,
+          "scale": 1.6,
+          "flip": false,
+          "tint": "#ffffff"
+        }
+      ],
+      "height": 10,
+      "box": [
+        -3,
+        -10.3,
+        3,
+        0.2
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "The wattle fence",
+      "across": 0,
+      "distance": 12,
+      "facing": 180,
+      "shadow": true,
+      "height": 1.25,
+      "box": [
+        -1.5,
+        -1.35,
+        11.6,
+        0.05
+      ]
+    },
+    {
+      "id": "gate",
+      "name": "The gate, open",
+      "across": 2.25,
+      "distance": 12,
+      "facing": 110,
+      "shadow": true,
+      "height": 1.4,
+      "box": [
+        -1.6,
+        -1.45,
+        0.05,
+        0.05
+      ]
+    },
+    {
+      "id": "house_front",
+      "name": "The house, its front",
+      "across": -2.4,
+      "distance": 6.6,
+      "facing": 180,
+      "shadow": true,
+      "height": 2.7,
+      "box": [
+        -8.4,
+        -2.85,
+        0.4,
+        0.1
+      ]
+    },
+    {
+      "id": "house_gable",
+      "name": "The house, its gable end",
+      "across": -2.4,
+      "distance": 6.6,
+      "facing": 90,
+      "shadow": true,
+      "height": 4.9,
+      "box": [
+        -0.45,
+        -5.15,
+        5.85,
+        0.05
+      ]
+    },
+    {
+      "id": "roof",
+      "name": "The roof",
+      "plane": true,
+      "across": -6.2,
+      "distance": 7.8,
+      "elevation": 3.8,
+      "width": 8.4,
+      "depth": 3.72,
+      "tilt": 36,
+      "shadow": true
+    },
+    {
+      "id": "chimney",
+      "name": "The chimney",
+      "across": -6.0,
+      "distance": 8.6,
+      "elevation": 4.2,
+      "facing": 180,
+      "shadow": true,
+      "height": 1.2,
+      "box": [
+        -0.45,
+        -1.25,
+        0.45,
+        0.05
+      ]
+    },
+    {
+      "id": "smoke",
+      "name": "Smoke from the chimney",
+      "particles": {
+        "kind": "smoke",
+        "at": "chimney#mouth",
+        "rate": 3,
+        "life": [
+          6,
+          10
+        ],
+        "size": [
+          0.4,
+          3.4
+        ],
+        "color": "#ddd6cb",
+        "opacity": 0.5,
+        "wind": 1,
+        "gust": 0.5,
+        "speed": [
+          0.4,
+          0.7
+        ]
+      }
+    },
+    {
+      "id": "porch",
+      "name": "The porch floor",
+      "plane": true,
+      "across": -3.0,
+      "distance": 6.15,
+      "elevation": 0.45,
+      "width": 1.9,
+      "depth": 0.9,
+      "walk": true
+    },
+    {
+      "id": "porch_front",
+      "name": "The porch, its front",
+      "across": -3.0,
+      "distance": 5.7,
+      "facing": 180,
+      "height": 0.47,
+      "box": [
+        -1.0,
+        -0.5,
+        1.0,
+        0.02
+      ]
+    },
+    {
+      "id": "step",
+      "name": "The step",
+      "plane": true,
+      "across": -3.0,
+      "distance": 5.5,
+      "elevation": 0.22,
+      "width": 1.1,
+      "depth": 0.4,
+      "walk": true
+    },
+    {
+      "id": "step_front",
+      "name": "The step, its front",
+      "across": -3.0,
+      "distance": 5.3,
+      "facing": 180,
+      "height": 0.24,
+      "box": [
+        -0.6,
+        -0.26,
+        0.6,
+        0.02
+      ]
+    },
+    {
+      "id": "porch_roof",
+      "name": "The porch posts and gable",
+      "across": -3.0,
+      "distance": 5.75,
+      "elevation": 0.45,
+      "facing": 180,
+      "shadow": true,
+      "height": 3.1,
+      "box": [
+        -1.2,
+        -3.1,
+        1.2,
+        0.02
+      ]
+    },
+    {
+      "id": "woodpile",
+      "name": "The woodpile",
+      "across": -5.0,
+      "distance": 6.15,
+      "facing": 180,
+      "shadow": true,
+      "height": 1.45,
+      "box": [
+        -1.2,
+        -1.5,
+        1.2,
+        0.02
+      ]
+    },
+    {
+      "id": "block",
+      "name": "The chopping block",
+      "across": -2.05,
+      "distance": 4.5,
+      "shadow": true,
+      "height": 0.65,
+      "box": [
+        -0.65,
+        -1.0,
+        0.75,
+        0.05
+      ]
+    },
+    {
+      "id": "well_front",
+      "name": "The well, its front",
+      "across": 2.5,
+      "distance": 5.6,
+      "facing": 180,
+      "shadow": true,
+      "height": 0.85,
+      "box": [
+        -0.72,
+        -0.9,
+        0.8,
+        0.02
+      ]
+    },
+    {
+      "id": "well_side",
+      "name": "The well, its side",
+      "across": 1.9,
+      "distance": 5.6,
+      "facing": 270,
+      "height": 0.85,
+      "box": [
+        -1.45,
+        -0.9,
+        0.05,
+        0.02
+      ]
+    },
+    {
+      "id": "well_top",
+      "name": "The well, its top",
+      "plane": true,
+      "across": 2.5,
+      "distance": 6.2,
+      "elevation": 0.85,
+      "width": 1.24,
+      "depth": 1.24
+    },
+    {
+      "id": "well_frame",
+      "name": "The well posts, roof and bucket",
+      "across": 2.5,
+      "distance": 6.2,
+      "facing": 180,
+      "shadow": true,
+      "height": 2.5,
+      "box": [
+        -0.95,
+        -2.5,
+        0.95,
+        0.02
+      ]
+    },
+    {
+      "id": "apple",
+      "name": "The apple tree",
+      "across": 4.6,
+      "distance": 8.8,
+      "shadow": true,
+      "height": 5.6,
+      "box": [
+        -3.3,
+        -5.7,
+        3.3,
+        0.1
+      ]
+    },
+    {
+      "id": "tufts",
+      "name": "Tall grass",
+      "across": -2.9,
+      "distance": 2.6,
+      "copies": [
+        {
+          "across": -2.9,
+          "distance": 2.6,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": 2.6,
+          "distance": 2.5,
+          "scale": 1.3,
+          "flip": true
+        },
+        {
+          "across": -1.95,
+          "distance": 3.1,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": 3.3,
+          "distance": 3.4,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": 1.55,
+          "distance": 4.7,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": -4.4,
+          "distance": 4.8,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": 5.6,
+          "distance": 6.4,
+          "scale": 1.3,
+          "flip": false
+        },
+        {
+          "across": 3.7,
+          "distance": 11.4,
+          "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": -0.4,
+          "distance": 11.6,
+          "scale": 1.3,
+          "flip": false
+        },
+        {
+          "across": 6.6,
+          "distance": 11.5,
+          "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": 0.15,
+          "distance": 2.3,
+          "scale": 0.8,
+          "flip": false
+        },
+        {
+          "across": -3.6,
+          "distance": 3.6,
+          "scale": 1.0,
+          "flip": true
+        }
+      ],
+      "height": 0.6,
+      "box": [
+        -0.36,
+        -0.62,
+        0.36,
+        0.02
+      ]
+    },
+    {
+      "id": "medved",
+      "name": "The Bear",
+      "person": {
+        "cast": "cast",
+        "who": "medved",
+        "turn": 155
+      },
+      "across": -0.8,
+      "distance": 2.85,
+      "shadow": true
+    },
+    {
+      "id": "princess",
+      "name": "The Princess",
+      "person": {
+        "cast": "cast",
+        "who": "princess",
+        "turn": 205
+      },
+      "across": 0.6,
+      "distance": 2.7,
+      "shadow": true
+    },
+    {
+      "id": "hozyain",
+      "name": "The Master",
+      "person": {
+        "cast": "cast",
+        "who": "hozyain",
+        "turn": 165,
+        "does": "hands_behind"
+      },
+      "across": -3.0,
+      "distance": 6.4,
+      "shadow": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a tinkling antique music box playing a simple tender waltz, slow, a little out of tune, nostalgic fairy tale",
+        "weight": 1.3
+      },
+      {
+        "text": "chamber strings and celesta, a warm fairy-tale waltz, gentle and ironic, 1950s Soviet film score",
+        "weight": 1.0
+      },
+      {
+        "text": "solo violin playing a wistful folk waltz in a mountain tavern, intimate, warm room tone",
+        "weight": 0.6
+      },
+      {
+        "text": "soft felt piano and pizzicato strings, playful and tender, a storybook evening",
+        "weight": 0.5
+      },
+      {
+        "text": "woodwinds, flute, clarinet and bassoon, a light humorous march, a king's procession, comic",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios and glockenspiel, a moment of magic, sparkling, gentle",
+        "weight": 0
+      },
+      {
+        "text": "accordion and acoustic guitar, an old waltz, bittersweet, golden evening in the mountains",
+        "weight": 0
+      },
+      {
+        "text": "slow cello melody over soft strings, quiet longing, autumn light",
+        "weight": 0
+      },
+      {
+        "text": "pastoral oboe and strings, green mountain meadows, calm summer evening",
+        "weight": 0
+      },
+      {
+        "text": "music box and distant bells, winter night, snow falling, hush",
+        "weight": 0
+      },
+      {
+        "text": "dramatic strings tremolo and low brass, a thunderstorm gathering over the mountains",
+        "weight": 0
+      },
+      {
+        "text": "waltz for small orchestra in three-four time, warm and romantic, Soviet film music of the seventies",
+        "weight": 0
+      },
+      {
+        "text": "solo piano, sparse, gentle melancholy, the end of a fairy tale",
+        "weight": 0
+      },
+      {
+        "text": "bassoon and tuba comic theme, pompous and silly, a tyrant who blames his aunt",
+        "weight": 0
+      },
+      {
+        "text": "celesta, vibraphone and soft choir humming, a wizard's quiet wonder",
+        "weight": 0
+      },
+      {
+        "text": "folk fiddle and frame drum, a lively village dance",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, restrained, tender, love that knows its end",
+        "weight": 0
+      },
+      {
+        "text": "ticking clockwork, a music box winding up, a toy melody slowing down",
+        "weight": 0
+      }
+    ],
+    "bpm": 84,
+    "density": 0.35,
+    "brightness": 0.55,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}
