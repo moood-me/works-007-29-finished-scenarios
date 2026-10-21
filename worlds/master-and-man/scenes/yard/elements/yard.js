@@ -1,8 +1,8 @@
 // The snow on the ground, seen from above: the yard (the near 15 m: y 85…100) and the fields beyond the fence to the
-// horizon. In the yard: the sleigh's two runner tracks curving from the gate to where it stands at the porch, the
-// horse's hoofprints between them, the trodden grey round the steps, the post and where Nikita stands, a path of
-// footprints, hay scattered by the horse's head; everywhere else the soft blue ridges the wind lays in snow. Beyond the
-// gate the road, trodden pale, going off to the right across the fields.
+// horizon. In the yard: the sleigh's two runner tracks curving in from the gate to where it stands behind Mukhorty,
+// the grooves its runners have sunk, the horse's hoofprints between the tracks, the trodden grey at the steps' foot,
+// where Nikita stands and under the horse, paths of footprints, hay dropped by the horse's head; everywhere else the
+// soft blue ridges the wind lays in snow. Beyond the gate the road, trodden pale, going off to the right.
 // (x −150…150 m across, y −100…100: y 100 the viewer's feet, y = 100 − distance)
 const C = e.lib.C;
 const D = d => 100 - d;
@@ -34,55 +34,92 @@ g.quadraticCurveTo(14, D(40), 40, D(120));
 g.quadraticCurveTo(60, D(170), 90, D(200));
 g.stroke();
 
-// the trodden yard: grey-blue round the steps' foot, before the porch, by the post and where Nikita stands
-g.fillStyle = "rgba(196,206,219,0.85)";
-for (const [x, d, rx, ry] of [[-1.4, 6.4, 1.1, 0.7], [-2.6, 5.4, 1.6, 0.6], [4.1, 7.4, 1.0, 0.8], [2.5, 6.6, 1.5, 0.6], [0.6, 6.2, 1.4, 0.5]]) {
-  g.beginPath();
-  g.ellipse(x, D(d), rx, ry, 0.1, 0, Math.PI * 2);
-  g.fill();
-}
-// (footprints from the steps to the post and back: small blue ovals, two by two)
-g.fillStyle = "rgba(170,184,204,0.8)";
-for (let i = 0; i < 18; i++) {
-  const u = i / 17;
-  const x = -1.2 + u * 5.2;
-  const d = 6.3 + Math.sin(u * Math.PI) * -0.5;
-  const side = i % 2 ? 0.13 : -0.13;
-  g.beginPath();
-  g.ellipse(x, D(d) + side, 0.12, 0.06, 0, 0, Math.PI * 2);
-  g.fill();
-}
+// where things stand (metres: across, distance): the horse's anchor and its axis — his head toward the eye at the
+// left, his body away to the right —, the side toward the eye; the sleigh along it behind him
+const HA = [2.73, 5.3];
+const U = [0.819, 0.574];
+const NEAR = [0.574, -0.819];
+const along = (k, side) => [HA[0] + U[0] * k + NEAR[0] * side, HA[1] + U[1] * k + NEAR[1] * side];
 
-// the runner tracks: from the gate, round, to the sleigh at the porch (its runners 0.3 m each side of its line, d 7.25)
-g.strokeStyle = "rgba(160,174,196,0.9)";
-g.lineWidth = 0.07;
-for (const off of [-0.3, 0.3]) {
+// the trodden yard: grey-blue at the steps' foot, where Nikita stands, under the horse's hooves
+g.fillStyle = "rgba(196,206,222,0.85)";
+for (const [x, d, rx, ry, a] of [[0.35, 3.95, 0.7, 0.5, 0], [1.15, 4.85, 0.8, 0.45, 0.3], [2.25, 4.95, 0.6, 0.35, 0.6], [3.25, 5.65, 0.6, 0.35, 0.6], [0.8, 4.4, 0.9, 0.35, 0.5]]) {
   g.beginPath();
-  g.moveTo(-2.7, D(7.25 + off));
-  g.lineTo(-0.3, D(7.25 + off));
-  g.bezierCurveTo(4, D(7.25 + off * 1.2), 9, D(9.5 + off), 10.7 + off, D(15));
+  g.ellipse(x, D(d), rx, ry, a, 0, Math.PI * 2);
+  g.fill();
+}
+// (footprints: from the steps to Nikita, and from the steps toward the eye — the near yard trodden too)
+g.fillStyle = "rgba(160,176,200,0.85)";
+const prints = (x0, d0, x1, d1, n) => {
+  for (let i = 0; i < n; i++) {
+    const u = i / (n - 1);
+    const x = x0 + (x1 - x0) * u;
+    const d = d0 + (d1 - d0) * u;
+    const side = i % 2 ? 0.1 : -0.1;
+    const a = Math.atan2(-(d1 - d0), x1 - x0);
+    g.beginPath();
+    g.ellipse(x - Math.sin(a) * side, D(d) + Math.cos(a) * side, 0.13, 0.055, a, 0, Math.PI * 2);
+    g.fill();
+  }
+};
+prints(0.45, 3.85, 1.1, 4.75, 6);
+prints(0.5, 3.7, 1.4, 2.1, 9);
+prints(1.3, 4.7, 2.6, 3.3, 8);
+
+// the runner tracks: from the gate, round, to the sleigh's back (its runners 0.3 m each side of the horse's line)
+g.strokeStyle = "rgba(150,166,192,0.9)";
+g.lineWidth = 0.07;
+for (const side of [-0.3, 0.3]) {
+  const [bx, bd] = along(4.3, side);
+  g.beginPath();
+  g.moveTo(bx, D(bd));
+  g.bezierCurveTo(bx + U[0] * 3, D(bd + U[1] * 3), 10.4 + side, D(11), 10.7 + side, D(15));
   g.stroke();
 }
-// (the hoofprints between them, from the gate up to where the horse stands)
-g.fillStyle = "rgba(160,174,196,0.75)";
-for (let i = 0; i < 22; i++) {
-  const u = i / 21;
-  const x = 1.8 + u * 8.7 + (i % 2 ? 0.12 : -0.12);
-  const d = 7.25 + u * u * 7.6;
+// (the grooves the runners sank, darker, under the sleigh: from its curl to its back)
+g.strokeStyle = "rgba(128,146,176,0.9)";
+g.lineWidth = 0.1;
+for (const side of [-0.3, 0.3]) {
+  const [ax, ad] = along(1.95, side);
+  const [bx, bd] = along(4.35, side);
+  g.beginPath();
+  g.moveTo(ax, D(ad));
+  g.lineTo(bx, D(bd));
+  g.stroke();
+}
+// (the hoofprints between the tracks, from the gate up to where the horse stands)
+g.fillStyle = "rgba(150,166,192,0.8)";
+for (let i = 0; i < 26; i++) {
+  const u = i / 25;
+  const [hx, hd] = along(-0.6 + u * 7, i % 2 ? 0.12 : -0.12);
+  const x = u < 0.7 ? hx : hx + (10.7 - hx) * ((u - 0.7) / 0.3) ** 1.5;
+  const d = u < 0.7 ? hd : hd + (15 - hd) * ((u - 0.7) / 0.3) ** 1.5;
   g.beginPath();
   g.ellipse(x, D(d), 0.08, 0.07, 0, 0, Math.PI * 2);
   g.fill();
 }
 
-// hay dropped by the horse's head and by the post: thin pale yellow-grey straws
+// hay dropped by the horse's head: thin pale yellow-grey straws
 g.strokeStyle = "rgba(186,168,120,0.9)";
 g.lineWidth = 0.012;
 for (let i = 0; i < 90; i++) {
-  const x = 3.3 + e.rnd() * 1.6;
-  const d = 6.9 + e.rnd() * 0.8;
+  const x = 1.2 + e.rnd() * 1.0;
+  const d = 4.2 + e.rnd() * 0.6;
   const a = e.rnd() * Math.PI;
   g.beginPath();
   g.moveTo(x, D(d));
   g.lineTo(x + Math.cos(a) * 0.12, D(d) + Math.sin(a) * 0.12);
+  g.stroke();
+}
+// (blue hollows the wind has scooped in the near snow, and its sharp crests)
+for (const [x, d, rx, ry] of [[-0.6, 2.4, 1.6, 0.35], [2.4, 2.6, 1.2, 0.3], [-1.8, 3.0, 0.9, 0.25]]) {
+  g.fillStyle = "rgba(186,200,222,0.6)";
+  g.beginPath();
+  g.ellipse(x, D(d), rx, ry, 0.08, 0, Math.PI * 2);
+  g.fill();
+  g.strokeStyle = "rgba(250,252,255,0.9)";
+  g.lineWidth = 0.03;
+  g.beginPath();
+  g.ellipse(x, D(d) - ry * 0.2, rx * 0.95, ry * 0.8, 0.08, Math.PI * 1.1, Math.PI * 1.9);
   g.stroke();
 }

@@ -1,41 +1,38 @@
-// A drift in the near left corner, close to the viewer: a soft long mound of snow, its crest sharpened by the wind,
-// a few dry stalks of wormwood standing out of it — they shiver in the wind (a layer bent from its foot).
-// (x −2.6…2.4 m, its foot at 0)
+// A drift in the near right of the yard, close to the eye, below Nikita and the horse: a long soft mound of snow, its
+// crest sharpened by the wind into a curling lip with a blue shadow under it, rime glittering on its top.
+// (x −1.4…1.7 m, its foot at 0, up to 0.55)
 const C = e.lib.C;
-g.fillStyle = C.snowShade;
+// (the mound's body, bluer toward its foot)
+const body = g.createLinearGradient(0, -0.55, 0, 0.05);
+body.addColorStop(0, C.snow);
+body.addColorStop(1, C.snowShade);
+g.fillStyle = body;
 g.beginPath();
-g.moveTo(-2.6, 0.05);
-g.bezierCurveTo(-1.8, -0.2, -0.6, -0.5, 0.4, -0.42);
-g.bezierCurveTo(1.2, -0.36, 1.9, -0.12, 2.4, 0.05);
+g.moveTo(-1.4, 0.06);
+g.bezierCurveTo(-0.9, -0.2, -0.3, -0.5, 0.35, -0.52);
+g.bezierCurveTo(0.9, -0.5, 1.4, -0.22, 1.7, 0.06);
 g.closePath();
 g.fill();
-g.fillStyle = C.snow;
+// (the crest's lip, curling over toward the eye, and the blue shadow under it)
+g.fillStyle = C.snowDeep;
 g.beginPath();
-g.moveTo(-2.6, 0.05);
-g.bezierCurveTo(-1.8, -0.18, -0.7, -0.47, 0.38, -0.4);
-g.bezierCurveTo(0.9, -0.33, 1.2, -0.2, 1.5, -0.12);
-g.bezierCurveTo(1.0, -0.06, 0.2, 0.0, -0.2, 0.05);
+g.moveTo(-0.5, -0.38);
+g.quadraticCurveTo(0.3, -0.5, 1.0, -0.36);
+g.quadraticCurveTo(0.4, -0.36, -0.5, -0.32);
 g.closePath();
 g.fill();
+g.fillStyle = "#f4f7fb";
+g.beginPath();
+g.moveTo(-0.7, -0.4);
+g.quadraticCurveTo(0.2, -0.6, 1.1, -0.4);
+g.quadraticCurveTo(0.4, -0.47, -0.7, -0.4);
+g.closePath();
+g.fill();
+// (rime: tiny bright grains along the top)
+g.fillStyle = "rgba(255,255,255,0.95)";
+for (let i = 0; i < 30; i++) {
+  const x = -1.0 + e.rnd() * 2.4;
+  const top = -0.52 * Math.exp(-(((x - 0.35) / 1.0) ** 2));
+  g.fillRect(x, top + 0.01 + e.rnd() * 0.04, 0.012, 0.012);
+}
 
-e.layer("stalks", { pivot: [0, 0], wind: { strength: 0.6, gust: 0.8, scale: 0.4 } }, c => {
-  c.strokeStyle = "#5c5146";
-  c.lineCap = "round";
-  for (let i = 0; i < 7; i++) {
-    const x = -1.4 + i * 0.32 + e.rnd() * 0.15;
-    const base = -0.3 - 0.1 * Math.sin(i);
-    const h = 0.35 + e.rnd() * 0.45;
-    c.lineWidth = 0.012;
-    c.beginPath();
-    c.moveTo(x, base);
-    c.quadraticCurveTo(x + 0.05, base - h * 0.6, x + 0.1 * (e.rnd() - 0.3), base - h);
-    c.stroke();
-    // (its dry heads: small dark clusters along the top)
-    c.fillStyle = "#4e443b";
-    for (let k = 0; k < 4; k++) {
-      c.beginPath();
-      c.arc(x + 0.02 * k, base - h * (0.7 + k * 0.08), 0.018, 0, Math.PI * 2);
-      c.fill();
-    }
-  }
-});

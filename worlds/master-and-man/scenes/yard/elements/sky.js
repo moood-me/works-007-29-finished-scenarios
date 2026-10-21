@@ -1,26 +1,26 @@
-// A low winter sky before a snowfall: grey-blue overhead, paler and warmer toward the land, one soft band of light
-// low on the left where the sun is behind the clouds. Over it a layer of soft snow clouds drifting slowly left with
+// A low winter sky in a snowfall: a cold grey-blue overhead, paler toward the land, one soft brighter band low on the
+// right over the fields. Over it a layer of soft snow clouds drifting slowly left with
 // the wind (its ends meet: it wraps round its box).
 const A = e.aspect;
 const X0 = -0.3;
 const X1 = A + 0.3;
-const HZ = 0.46;
+const HZ = 0.43;
 
 const sky = g.createLinearGradient(0, -0.35, 0, HZ);
-sky.addColorStop(0, "#8c9db5");
-sky.addColorStop(0.45, "#aab8ca");
-sky.addColorStop(0.85, "#d3dbe4");
-sky.addColorStop(1, "#e2e6ea");
+sky.addColorStop(0, "#73879f");
+sky.addColorStop(0.45, "#97a9c1");
+sky.addColorStop(0.85, "#c8d4e3");
+sky.addColorStop(1, "#dbe3ed");
 g.fillStyle = sky;
 g.fillRect(X0, -0.35, X1 - X0, HZ + 0.35);
-g.fillStyle = "#e2e6ea";
+g.fillStyle = "#dbe3ed";
 g.fillRect(X0, HZ, X1 - X0, 1.25 - HZ);
 
-// the pale band low on the left: the sun behind the clouds
-const band = g.createRadialGradient(0.15, HZ - 0.05, 0.01, 0.15, HZ - 0.05, 0.75);
-band.addColorStop(0, "rgba(246,236,222,0.75)");
-band.addColorStop(0.5, "rgba(236,230,224,0.3)");
-band.addColorStop(1, "rgba(236,230,224,0)");
+// the pale band low on the right, over the fields
+const band = g.createRadialGradient(1.45, HZ - 0.04, 0.01, 1.45, HZ - 0.04, 0.7);
+band.addColorStop(0, "rgba(236,240,246,0.7)");
+band.addColorStop(0.5, "rgba(226,232,240,0.28)");
+band.addColorStop(1, "rgba(226,232,240,0)");
 g.fillStyle = band;
 g.fillRect(X0, -0.35, X1 - X0, HZ + 0.35);
 
