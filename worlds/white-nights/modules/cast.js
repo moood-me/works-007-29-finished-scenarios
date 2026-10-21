@@ -44,7 +44,7 @@ function topHat(F, c, out, colour) {
 // a little at the throat under a dark stock, the lapels turned back, a row of buttons down to the waist — on the coat's surface (the trunk's
 // sections a little out of the coat's own, which stands off them by 1.12)
 const STOCK = [0.14, 0.13, 0.14, 1], BUTTON = [0.2, 0.18, 0.17, 1];
-const FRONT = F => ({ axes: [null, null, null], vest: [0.055 * F.k, 0.075 * F.fit.h, 0.011 * F.k], shirt: [0.03 * F.k, 0.03 * F.fit.h, 0.013 * F.k], stock: [0.045 * F.k, 0.03 * F.fit.h, 0.02 * F.k],
+const FRONT = F => ({ axes: [null, null, null], vest: [0.055 * F.k, 0.075 * F.fit.h, 0.011 * F.k], shirt: [0.03 * F.k, 0.03 * F.fit.h, 0.013 * F.k], stock: [0.04 * F.k, 0.022 * F.fit.h, 0.008 * F.k],
   button: [0.012 * F.k, 0.012 * F.k, 0.006 * F.k], lapel: [[0, 0.016 * F.k], [1, 0.02 * F.k], [2, 0.008 * F.k]] });
 function coatFront(F) {
   const { add, mul, mix } = V(), K = F.keep(FRONT), secs = F.trunk(1.16), waist = secs[2], chest = secs[3], shoulders = secs[4];
@@ -98,7 +98,7 @@ return {
     // hat_low), his knotty stick in the right (cane)
     dreamer: { kind: 'shapes', style: 'litho', who: 'man', garment: 'frockcoat', hair: 'swept',
       body: { height: 1.0, thick: 0.84, shoulders: 0.94, neck: 1.05 },
-      colors: { skin: '#e2c0a4', hair: '#54392a', top: '#e8e2d6', garment: '#66765b', bottom: '#77736c', shoes: '#2a2522', hat: '#5e5249' } },
+      colors: { skin: '#e2c0a4', hair: '#54392a', top: '#e8e2d6', garment: '#66765b', bottom: '#77736c', shoes: '#2a2522', hat: '#3a3431' } },
     // Nastenka, seventeen: small and quick, a pale lilac-grey dress with a dark short cape over the shoulders, a light
     // bare-headed, her dark hair parted in the middle and smoothed in bands over the temples and the ears, gathered in a
     // knot low at the nape
@@ -129,7 +129,7 @@ return {
     // and rounder, so a face reads across the street; washed in colours under the scene's light and shaded (`toned`),
     // drawn round with the houses' own sepia ink line (the ground `litho`); its cloth folded in long strokes as a
     // lithograph hatches it; the face `litho`
-    styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.6, egg: [0.9, 1.07, 0.99], neck: 0.72, legs: 1.0, limb: 1.2, feet: 'litho', sides: 24,
+    styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.32, egg: [0.88, 1.08, 0.98], neck: 0.85, legs: 1.0, limb: 1.2, feet: 'litho', sides: 24,
       trunk: { w: [0.88, 0.94, 0.8, 0.92, 0.98], d: [0.96, 1.0, 0.92, 0.94, 0.86] }, arms: 'litho', paint: 'toned', line: 1.6, tinted: false,
       face: 'litho', ragged: 0, folds: { n: 6, depth: 0.035 }, ground: 'litho', fingers: false } },
     // the arms of the style: a sleeve full at the shoulder, the forearm tapering to a real wrist, a hand with a palm as
@@ -147,22 +147,22 @@ return {
     faces: { litho: { name: 'lithograph', draw: F => {
       const { axes, r: rh, on } = F.head, [, hu] = axes, x = MOODS[F.look.expression] ?? MOODS.neutral;
       const skin = F.colors.skin, brow = F.colors.hair.map(v => v * 0.62), crease = [skin[0] * 0.78, skin[1] * 0.64, skin[2] * 0.62];
-      const lips = [skin[0] * 0.84, skin[1] * 0.56, skin[2] * 0.56];
+      const lips = [skin[0] * 0.86, skin[1] * 0.64, skin[2] * 0.62];
       const lower = [skin[0] * 0.9, skin[1] * 0.66, skin[2] * 0.65], open = Math.min(1, x.eye), up = 1.8;
       for (const sx of [-1, 1]) {
         // (on the head's drawn surface, which stands a little out of its radius: the features a little out of it too)
         // the eye, large enough to read across the street: its white, the iris a little under the lid (its top hidden:
         // a living look), a glint in it, the upper lid a heavy ink line drawn out at its outer end, the lower lid's crease
-        F.ball(on([sx * 0.34, 0.06, 0.94], 1.02), axes, [rh * 0.205, rh * 0.14 * x.eye, rh * 0.05], WHITE, 14);
-        F.ball(on([sx * 0.33, 0.04, 0.955], 1.045), axes, [rh * 0.12, rh * 0.128 * open, rh * 0.045], IRIS, 12);
-        F.ball(on([sx * 0.3, 0.09, 0.96], 1.07), axes, [rh * 0.034, rh * 0.034, rh * 0.02], GLINT, 6);
-        F.tube([on([sx * 0.12, 0.07 + 0.12 * x.eye, 0.93], 1.07), on([sx * 0.34, 0.11 + 0.14 * x.eye, 0.945], 1.08), on([sx * 0.58, 0.07 + 0.1 * x.eye, 0.8], 1.07)],
-          [[0, rh * 0.035], [1, rh * 0.062], [2, rh * 0.04]], [[0, LID]], 6, hu);
-        F.tube([on([sx * 0.17, 0.05 - 0.11 * x.eye, 0.93], 1.035), on([sx * 0.34, 0.04 - 0.14 * x.eye, 0.94], 1.04), on([sx * 0.52, 0.05 - 0.08 * x.eye, 0.86], 1.035)],
+        F.ball(on([sx * 0.34, 0.06, 0.94], 1.02), axes, [rh * 0.165, rh * 0.112 * x.eye, rh * 0.045], WHITE, 14);
+        F.ball(on([sx * 0.33, 0.045, 0.955], 1.045), axes, [rh * 0.095, rh * 0.1 * open, rh * 0.04], IRIS, 12);
+        F.ball(on([sx * 0.305, 0.08, 0.96], 1.07), axes, [rh * 0.024, rh * 0.024, rh * 0.016], GLINT, 6);
+        F.tube([on([sx * 0.16, 0.07 + 0.09 * x.eye, 0.93], 1.07), on([sx * 0.34, 0.1 + 0.11 * x.eye, 0.945], 1.08), on([sx * 0.53, 0.07 + 0.08 * x.eye, 0.83], 1.07)],
+          [[0, rh * 0.025], [1, rh * 0.045], [2, rh * 0.03]], [[0, LID]], 6, hu);
+        F.tube([on([sx * 0.2, 0.05 - 0.09 * x.eye, 0.93], 1.035), on([sx * 0.34, 0.04 - 0.11 * x.eye, 0.94], 1.04), on([sx * 0.49, 0.05 - 0.07 * x.eye, 0.87], 1.035)],
           [[0, rh * 0.014], [1, rh * 0.022], [2, rh * 0.014]], [[0, crease]], 6, hu);
         // the brow, as the mood lifts or knits it
         F.tube([on([sx * 0.1, 0.36 + x.inner * up, 0.93], 1.05), on([sx * 0.33, 0.41 + ((x.inner + x.outer) * up) / 2, 0.9], 1.06), on([sx * 0.58, 0.34 + x.outer * up, 0.8], 1.05)],
-          [[0, rh * 0.05], [1, rh * 0.056], [2, rh * 0.03]], [[0, brow]], 6, hu);
+          [[0, rh * 0.036], [1, rh * 0.04], [2, rh * 0.022]], [[0, brow]], 6, hu);
       }
       // the nose, the shade under it
       F.ball(on([0, -0.1, 1], 1.0), axes, [rh * 0.085, rh * 0.15, rh * 0.1], skin.map(v => v * 0.94), 10);
@@ -184,7 +184,7 @@ return {
       // a dress to the ankles from the waist, its bodice and sleeves in its colour, a mantle over the shoulders down
       // to the hips (the top's colour)
       caped: { name: 'dress with a mantle', hang: [{ to: 1.95, from: 'waist', flare: 0.5, off: 0.94 },
-        { to: 0.02, from: 'shoulders', flare: 0.28, color: 'top', folds: false }], sleeves: 'garment', bare: true, bodice: true },
+        { to: 0.02, from: 'shoulders', flare: 0.13, color: 'top' }], sleeves: 'garment', bare: true, bodice: true },
       // the same dress at home, without the mantle
       frock: { name: 'dress', hang: [{ to: 1.85, from: 'waist', flare: 0.38, off: 0.94, folds: false }], sleeves: 'garment', bare: true, bodice: true },
       // an old woman's dress to the floor, fuller, a shawl over the shoulders down to the hips (the top's colour)
