@@ -271,7 +271,7 @@ return {
     garments: {
       // a soldier's greatcoat: fitted to the waist (the trunk in its cloth), from the belt a skirt of heavy cloth to the
       // calves, flaring only a little; long sleeves
-      greatcoat: { name: 'greatcoat', hang: [{ to: 1.62, from: 'waist', flare: 0.05, off: 1.0 }], sleeves: 'garment', bodice: true },
+      greatcoat: { name: 'greatcoat', hang: [{ to: 1.62, from: 'waist', flare: 0, off: 0.96 }], sleeves: 'garment', bodice: true },
     },
     hats: {
       // a white kerchief over the hair, tied at the nape

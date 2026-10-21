@@ -25,9 +25,9 @@ boarded over (no glass to be had).
 
 ## The frame
 
-A family portrait at its awkward moment, near: the four between 2.35 and 3.1 m (faces about a tenth of the frame's
+A family portrait at its awkward moment, near: the four between 2.45 and 3.1 m (faces about a tenth of the frame's
 height for the grown-ups), inside the 4:3 frame's middle (stage x 0.29…0.75), the horizon at 0.27 — so the people fill
-the lower half and no empty sand is left below them; Ivanov's boots touch the frame's bottom. Behind them the yard, the
+the lower half and no empty sand is left below them. Behind them the yard, the
 well and its sweep, the woodpile, the low paling and over it the line on its embankment rising to the right to the
 crossing, its barrier raised; the station's water tower far on the left. The buckets (stage x 0.19…0.29) and the block
 (0.76…0.84) inside the 4:3 frame.
@@ -54,12 +54,13 @@ crossing, its barrier raised; the station's water tower far on the left. The buc
 One moment of their meeting in the yard (the scenario's 2.1): the awkwardness and the warmth in where they look. Each
 looks at someone (`_look`), the bodies turned half to the eye so the faces are seen three-quarter:
 
-- `ivanov` (0.88, 2.35, turned 235) — nearest, on the right: in the greatcoat he will not take off until he decides to
+- `ivanov` (0.95, 2.6, turned 215) — nearest, on the right: in the greatcoat he will not take off until he decides to
   stay, the kit bag still in his left hand (`ivanov_reach` holds the hand a little out from the coat), tired
-  (`tired`), looking at his wife's face (`lyuba#head`).
-- `lyuba` (0.1, 2.65, turned 140) — before him, her hands folded before her apron (`lyuba_reach`, both hands to one
-  point at her waist), looking at him but not into his eyes — at his chest (`ivanov#chest`): shame and waiting (`sad`).
+  (`tired`), looking at his wife (`ivanov_look`: a point toward her face brought toward the eye, so that his face is
+  three-quarter, not turned away).
+- `lyuba` (0.05, 2.45, turned 145) — before him, her hands folded before her apron (`lyuba_reach`, both hands to one
+  point at her waist), looking at him but not into his eyes — down toward his chest (a point brought toward the eye, as all the looks are): shame and waiting (`sad`).
 - `petrushka` (−0.5, 2.8, turned 150) — the son, a step off: hands behind his back (`hands_behind`, his habit), serious
-  and wary (`thinking`), looking straight at his father (`ivanov#head`).
+  and wary (`thinking`), looking at his father.
 - `nastya` (−0.85, 3.1, turned 160) — the little one half behind her brother, holding his hand behind his back
-  (`nastya_reach` r: `petrushka#hand_l`), looking at the stranger who is her father (`ivanov#head`).
+  (`nastya_reach` r: `petrushka#hand_l`), looking at the stranger who is her father.

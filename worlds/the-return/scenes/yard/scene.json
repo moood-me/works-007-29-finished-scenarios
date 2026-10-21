@@ -45,32 +45,48 @@
     "cast"
   ],
   "state": {
-    "ivanov_look": "lyuba#head",
+    "ivanov_look": [
+      0.2,
+      1.4,
+      1.55
+    ],
     "ivanov_mood": "tired",
     "ivanov_reach": {
       "l": [
-        1.064,
-        2.11,
+        1.173,
+        2.395,
         0.74
       ]
     },
-    "lyuba_look": "ivanov#chest",
+    "lyuba_look": [
+      0.6,
+      1.6,
+      1.2
+    ],
     "lyuba_mood": "sad",
     "lyuba_reach": {
       "r": [
-        0.198,
-        2.471,
+        0.132,
+        2.263,
         0.85
       ],
       "l": [
-        0.26,
-        2.523,
+        0.198,
+        2.309,
         0.85
       ]
     },
-    "petrushka_look": "ivanov#head",
+    "petrushka_look": [
+      0.6,
+      1.8,
+      1.6
+    ],
     "petrushka_mood": "thinking",
-    "nastya_look": "ivanov#head",
+    "nastya_look": [
+      0.5,
+      2.0,
+      1.5
+    ],
     "nastya_reach": {
       "r": "petrushka#hand_l"
     }
@@ -505,10 +521,10 @@
       "person": {
         "cast": "cast",
         "who": "ivanov",
-        "turn": 235
+        "turn": 215
       },
-      "across": 0.88,
-      "distance": 2.35,
+      "across": 0.95,
+      "distance": 2.6,
       "shadow": true
     },
     {
@@ -517,10 +533,10 @@
       "person": {
         "cast": "cast",
         "who": "lyuba",
-        "turn": 140
+        "turn": 145
       },
-      "across": 0.1,
-      "distance": 2.65,
+      "across": 0.05,
+      "distance": 2.45,
       "shadow": true
     },
     {

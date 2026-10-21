@@ -20,7 +20,7 @@ sand, ochre, grey-green cloth.
 ## Who
 
 - `ivanov` — Captain Alexei Alexeyevich Ivanov, 36: lean but broad-shouldered, upright; a greatcoat (`greatcoat`: fitted
-  to the waist, the trunk in its cloth — `bodice` —, a skirt of heavy cloth from the belt to the calves, hanging nearly straight (a bell reads as a dress),
+  to the waist, the trunk in its cloth — `bodice` —, a skirt of heavy cloth from the belt to the calves, hanging straight (a bell reads as a dress),
   long sleeves) and its own (`coat_kit`: the leather belt and its brass buckle, two rows of four brass buttons, the
   shoulder boards, the collar), a side cap (`pilotka`: worn straight, its darker flap, the red star), high boots (`soldier`), the kit bag
   carried by its tied neck in his left hand (`sack`: it hangs from the hand, a little late as the hand moves).

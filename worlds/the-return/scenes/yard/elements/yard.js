@@ -47,8 +47,8 @@ for (let i = 0; i < 70; i++) {
   g.fillRect(-0.04, -0.012, 0.05 + 0.06 * L.rnd(i, 73), 0.025);
   g.restore();
 }
-// the boot prints of the one who came in: from the gate (across −0.5, 11.4) in a long curve to where he stands (0.88,
-// 2.35) — each a heel and a sole pressed darker into the sand, its rim a little lighter, left and right by turns
+// the boot prints of the one who came in: from the gate (across −0.5, 11.4) in a long curve to where he stands (0.95,
+// 2.6) — each a heel and a sole pressed darker into the sand, its rim a little lighter, left and right by turns
 const print = (x, y, a, side) => {
   g.save();
   g.translate(x + Math.cos(a) * side * 0.11, y + Math.sin(a) * side * 0.11);
@@ -66,7 +66,7 @@ const print = (x, y, a, side) => {
 const way = (u) => {
   const v = 1 - u;
   // (a cubic from the gate to where he stands)
-  const p = [[-0.5, 11.4], [-0.3, 8.2], [1.2, 5.4], [0.95, 2.75]];
+  const p = [[-0.5, 11.4], [-0.3, 8.2], [1.3, 5.6], [1.0, 3.0]];
   const ax = v * v * v * p[0][0] + 3 * v * v * u * p[1][0] + 3 * v * u * u * p[2][0] + u * u * u * p[3][0];
   const ad = v * v * v * p[0][1] + 3 * v * v * u * p[1][1] + 3 * v * u * u * p[2][1] + u * u * u * p[3][1];
   return [X(ax), Y(ad)];
