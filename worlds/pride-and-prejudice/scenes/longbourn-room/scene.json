@@ -7,15 +7,15 @@
     "mode": "picture"
   },
   "light": {
-    "vignette": 0.1,
+    "vignette": 0.16,
     "grain": 0.05,
     "haze": 0.02,
     "hazeColor": "#f1e6cf",
-    "hazeGlow": 0.45,
-    "ambient": 0.95,
+    "hazeGlow": 0.18,
+    "ambient": 0.8,
     "ambientColor": "#f6ecdb",
     "inside": 0.9,
-    "bounce": 0.7,
+    "bounce": 0.55,
     "looks": {
       "dusk": {
         "ambient": 0.74,
@@ -463,10 +463,11 @@
       "person": {
         "cast": "cast",
         "who": "elizabeth",
-        "turn": 150
+        "turn": 150,
+        "does": "hands_folded"
       },
-      "across": 0.6,
-      "distance": 3.85,
+      "across": 0.75,
+      "distance": 3.6,
       "shadow": true,
       "inside": true
     },
@@ -476,10 +477,11 @@
       "person": {
         "cast": "cast",
         "who": "lydia",
-        "turn": 160
+        "turn": 160,
+        "does": "hands_hips"
       },
-      "across": -1.4,
-      "distance": 2.75,
+      "across": -1.55,
+      "distance": 3.05,
       "shadow": true,
       "inside": true
     },
