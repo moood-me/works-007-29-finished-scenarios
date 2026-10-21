@@ -6,8 +6,6 @@
 const V = () => MooodShapes.V;
 const LINEN = [0.96, 0.95, 0.91, 1];
 const SCARLET = [0.74, 0.12, 0.13, 1];
-// the whites of the eyes (a little warm, never paper-white)
-const WHITES = [0.95, 0.93, 0.89, 1];
 // (the sash's two rings round the gown, kept from frame to frame)
 const SASH = F => ({ rows: [new Array(F.worn[1].length), new Array(F.worn[1].length)] });
 // (a cap of hair's sizes: the head's egg a little out)
@@ -103,15 +101,14 @@ return {
       colors: { skin: '#e4c09f', hair: '#3c2a1c', top: '#ece5d4', garment: '#4f4436', bottom: '#d9cdb1', shoes: '#262020', socks: '#ece6d8' } },
   },
   shapes: {
-    // the world's style: slender Regency figures, the neck short and the head big enough for a face to read (eyes with
-    // their whites and lids, brows, a nose, lips: the face `austen`), arms with flesh to them; colours with their shade
-    // (a wash, lit by the scene), the sepia pen round them and where their colours meet — a fine nib's line, as thin as
-    // the places' finer strokes, so that people and places are of one hand; cloth falling in many soft deep folds (the
-    // light lays their shade)
+    // the world's style: Hugh Thomson's people — slender and long-limbed (from `shadow`), a small head on a neck of
+    // natural length, the face a few strokes (the face `austen`); colours with their shade (a wash, lit by the scene),
+    // the sepia pen round them and where their colours meet — a fine nib's line, as thin as the places' finer strokes,
+    // so that people and places are of one hand; cloth falling in long soft folds (the light lays their shade)
     styles: {
-      austen: { from: 'soft', name: 'Pride and Prejudice', head: 1.26, egg: [0.88, 1.06, 0.96], neck: 0.5, legs: 1.0, limb: 1.12,
-        sides: 22, square: 2, trunk: { w: [0.88, 0.92, 0.78, 0.92, 1.0], d: [0.84, 0.86, 0.78, 0.84, 0.74] }, arms: 'regency', feet: 'regency',
-        paint: 'toned', line: 1.1, tinted: false, folds: { n: 13, depth: 0.13 }, face: 'austen', ground: 'sepia', drape: true },
+      austen: { from: 'shadow', name: 'Pride and Prejudice', head: 1.04, egg: [0.84, 1.08, 0.95], neck: 0.8, legs: 1.06, limb: 0.86,
+        sides: 20, square: 2, trunk: { w: [0.8, 0.84, 0.68, 0.84, 0.92], d: [0.8, 0.82, 0.72, 0.78, 0.7] }, arms: 'regency', feet: 'regency',
+        fingers: false, paint: 'toned', line: 1.1, tinted: false, folds: { n: 11, depth: 0.1 }, ragged: 0, face: 'austen', ground: 'sepia', drape: true },
     },
     // the pen's colour: a sepia ink, as the scenes' own pen line
     grounds: { sepia: { name: 'sepia ink on paper', bg: '#efe7d6', ink: '#3d2c1f', grid: '#ddd3c0', rim: '#e9b97c' } },
@@ -132,38 +129,34 @@ return {
       } },
     },
     faces: {
-      // a face as the drawings give it: almond eyes — their whites, a dark iris filling them top to bottom, a pen-dark
-      // upper lid —, brows of the hair's colour a shade darker, a straight nose, lips a shade rosier than the skin
-      // parted by a fine pen line; big enough on the head to read at the size people stand in a scene, the style's pen
-      // round each (where its colours meet). At rest, or as the person's <id>_mood has it (EXPR). The same solids for
-      // every expression (the engine goes from one to another on the GPU)
+      // a face as Thomson's pen gives it, a few strokes that read at the size people stand in a scene: dark almond eyes
+      // under a pen-dark lid, fine brows a shade darker than the hair, a straight nose (the skin's own colour, its form
+      // the light's), a small mouth a shade rosier than the skin. At rest, or as the person's <id>_mood has it (EXPR).
+      // The same solids for every expression (the engine goes from one to another on the GPU)
       austen: { name: 'Regency', draw: F => {
         const { axes, r: rh, on } = F.head, [, hu] = axes, x = EXPR[F.look.expression] ?? EXPR.neutral, sk = F.colors.skin;
-        const brow = shade(F.colors.hair, 0.55, 0.55, 0.55), lips = shade(sk, 0.8, 0.5, 0.48);
+        const brow = shade(F.colors.hair, 0.6, 0.6, 0.6), lips = shade(sk, 0.82, 0.55, 0.52), eye = shade(INK, 1.3, 1.25, 1.2);
         const lid = 0.05 * (x.eye - 1);
         for (const sx of [-1, 1]) {
-          F.ball(on([sx * 0.35, 0.07, 0.9], 0.975), axes, [rh * 0.19, rh * 0.105 * x.eye, rh * 0.045], WHITES, 12);
-          F.ball(on([sx * 0.34, 0.07, 0.93], 0.995), axes, [rh * 0.095, rh * 0.104 * x.eye, rh * 0.045], INK, 12);
-          F.tube([on([sx * 0.13, 0.15 + lid, 0.96], 1.0), on([sx * 0.35, 0.21 + lid * 1.3, 0.93], 1.01), on([sx * 0.58, 0.12 + lid, 0.82], 1.0)],
-            [[0, rh * 0.026], [1, rh * 0.044], [2, rh * 0.024]], [[0, INK]], 6, hu);
-          F.tube([on([sx * 0.13, 0.38 + x.inner, 0.93], 0.995), on([sx * 0.34, 0.43 + (x.inner + x.outer) / 2, 0.89], 1.0), on([sx * 0.57, 0.36 + x.outer, 0.8], 0.995)],
-            [[0, rh * 0.056], [1, rh * 0.054], [2, rh * 0.03]], [[0, brow]], 6, hu);
+          F.ball(on([sx * 0.33, 0.05, 0.93], 0.985), axes, [rh * 0.1, rh * 0.075 * x.eye, rh * 0.04], eye, 10);
+          F.tube([on([sx * 0.15, 0.11 + lid, 0.96], 1.0), on([sx * 0.33, 0.15 + lid * 1.3, 0.93], 1.008), on([sx * 0.52, 0.09 + lid, 0.84], 1.0)],
+            [[0, rh * 0.016], [1, rh * 0.03], [2, rh * 0.014]], [[0, INK]], 6, hu);
+          F.tube([on([sx * 0.14, 0.33 + x.inner, 0.93], 0.995), on([sx * 0.33, 0.38 + (x.inner + x.outer) / 2, 0.89], 1.0), on([sx * 0.55, 0.32 + x.outer, 0.8], 0.995)],
+            [[0, rh * 0.03], [1, rh * 0.032], [2, rh * 0.016]], [[0, brow]], 6, hu);
         }
         // (the nose the skin's own colour: the light gives its form, no pen round it)
-        F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.07, rh * 0.15, rh * 0.11], sk, 10);
-        const w = x.wide * 1.25, y = -0.42;
-        F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.75, rh * x.open, rh * 0.03], INK, 10);
-        F.ball(on([0, y - 0.07, 0.95], 0.975), axes, [rh * w * 0.62, rh * 0.06, rh * 0.035], lips, 10);
-        F.tube([on([-w, y + x.corners * 1.3, 0.92], 0.995), on([0, y + 0.02, 0.95], 1.0), on([w, y + x.corners * 1.3, 0.92], 0.995)],
-          [[0, rh * 0.028], [1, rh * 0.05], [2, rh * 0.028]], [[0, lips]], 6, hu);
-        F.tube([on([-w * 1.06, y + x.corners * 1.4, 0.92], 1.0), on([0, y - 0.015, 0.95], 1.008), on([w * 1.06, y + x.corners * 1.4, 0.92], 1.0)],
-          [[0, rh * 0.012], [1, rh * 0.02], [2, rh * 0.012]], [[0, INK]], 6, hu);
+        F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.06, rh * 0.14, rh * 0.1], sk, 10);
+        const w = x.wide, y = -0.42;
+        F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.7, rh * x.open * 0.8, rh * 0.03], INK, 10);
+        F.ball(on([0, y - 0.05, 0.95], 0.975), axes, [rh * w * 0.6, rh * 0.045, rh * 0.03], lips, 10);
+        F.tube([on([-w, y + x.corners, 0.92], 0.995), on([0, y + 0.015, 0.95], 1.0), on([w, y + x.corners, 0.92], 0.995)],
+          [[0, rh * 0.016], [1, rh * 0.026], [2, rh * 0.016]], [[0, shade(lips, 0.8, 0.8, 0.8)]], 6, hu);
       } },
     },
     garments: {
       // a high-waisted gown: hung from the shoulders, the skirt falling from under the bust in an A-line to the
       // instep, in soft folds; long sleeves (the short puffs over them: the part `puffs`)
-      gown: { name: 'high-waisted gown', hang: [{ to: 1.9, from: 'shoulders', flare: 0.5 }], sleeves: 'garment', bodice: true },
+      gown: { name: 'high-waisted gown', hang: [{ to: 1.97, from: 'shoulders', flare: 0.42 }], sleeves: 'garment', bodice: true },
       // a gentleman's tailcoat: close over the chest, its fronts cut away over the tops of the thighs (its tails behind:
       // the part `tails`), long sleeves
       tailcoat: { name: 'tailcoat', hang: [{ to: 0.2, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
@@ -189,7 +182,7 @@ return {
         const { sub, mix, unit, cross } = V(), k = F.k, m = F.fit.h;
         for (const s of ['Left', 'Right']) {
           const a = F.P(`${s}Arm`), b = F.P(`${s}ForeArm`), u = unit(sub(b, a)), e1 = unit(cross(u, F.fwd('Chest'))), e2 = cross(e1, u);
-          F.ball(mix(a, b, 0.15), [e1, u, e2], [0.076 * k, 0.088 * m, 0.076 * k], F.colors.garment, 14);
+          F.ball(mix(a, b, 0.15), [e1, u, e2], [0.052 * k, 0.068 * m, 0.052 * k], F.colors.garment, 14);
         }
       } },
       // curls at the temples, under the knot of hair (the hair's colour)
