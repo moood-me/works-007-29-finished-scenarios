@@ -1,7 +1,7 @@
 // The far shore, two miles of water off (here 900 m): a low line of hills, a strip of a village at the water — and
 // Nora's house, its window the glow `window` (her ten o'clock light); the lamp on the harbour's post, `post`. Metres;
-// the foot at the water.
-const top = x => 9 + 7 * Math.sin(x * 0.011 + 1.3) + 5 * Math.sin(x * 0.027 + 0.4) + 3 * Math.sin(x * 0.061);
+// the foot at the water; the village at x 0…115, her house at 127.
+const top = x => 15 + 11 * Math.sin(x * 0.011 + 1.3) + 8 * Math.sin(x * 0.027 + 0.4) + 4 * Math.sin(x * 0.061);
 const fall = x => Math.min(1, Math.max(0, (470 - x) / 140));
 g.fillStyle = '#7b8595';
 g.beginPath();
@@ -18,7 +18,7 @@ for (let x = -520; x <= 360; x += 8) g.lineTo(x, -(3 + 2.2 * Math.sin(x * 0.04) 
 g.lineTo(360, 0.5);
 g.closePath();
 g.fill();
-// the village: small pale houses with dark roofs, Nora's (at x -80) a little apart, nearer the water
+// the village: small pale houses with dark roofs, Nora's (at x 127) a little apart, nearer the water
 const house = (x, w, h) => {
   g.fillStyle = '#c9c3b9';
   g.fillRect(x - w / 2, -h, w, h);
@@ -30,13 +30,13 @@ const house = (x, w, h) => {
   g.closePath();
   g.fill();
 };
-for (let i = 0; i < 16; i++) house(-20 + i * 9 + e.rnd() * 5, 5 + e.rnd() * 3, 3.5 + e.rnd() * 2.5);
-house(-80, 7, 4.5);
+for (let i = 0; i < 16; i++) house(-10 + i * 7.5 + e.rnd() * 4, 5 + e.rnd() * 3, 3.5 + e.rnd() * 2.5);
+house(127, 7, 4.5);
 g.fillStyle = '#3d3a3e';
-g.fillRect(-81.2, -3.1, 2.4, 1.8);
-e.light(-80, -2.2, 7, '#ffc77e', 1.4, 'window');
-e.at(-80, -2.2, 'window');
+g.fillRect(125.8, -3.1, 2.4, 1.8);
+e.light(127, -2.2, 7, '#ffc77e', 1.4, 'window');
+e.at(127, -2.2, 'window');
 // the harbour's lamp on its post at the pier
 g.fillStyle = '#4a4648';
-g.fillRect(-36.3, -6, 0.6, 6);
-e.light(-36, -6.3, 4, '#ffd9a0', 0.8, 'post');
+g.fillRect(99.7, -6, 0.6, 6);
+e.light(100, -6.3, 4, '#ffd9a0', 0.8, 'post');

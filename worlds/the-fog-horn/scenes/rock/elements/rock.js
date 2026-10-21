@@ -13,7 +13,7 @@ for (let x = -20; x < 20; x += C) {
     if (h < -0.95) g.fillStyle = '#4c4b39';
     else if (h < -0.45) g.fillStyle = '#4a4f53';
     else if (h < -0.1) g.fillStyle = '#5f6367';
-    else g.fillStyle = e.rnd() < 0.5 ? '#7a7c7e' : '#6c6f72';
+    else g.fillStyle = e.rnd() < 0.5 ? '#76787b' : '#717376';
     g.fillRect(x, y, C + 0.02, C + 0.02);
   }
 }
@@ -36,12 +36,12 @@ for (let i = 0; i < 90; i++) {
   g.stroke();
 }
 // lichen on the dry stone
-for (let i = 0; i < 260; i++) {
+for (let i = 0; i < 140; i++) {
   const x = -20 + e.rnd() * 40;
   const y = -21.5 + e.rnd() * 43;
   if (e.ground(A0 + x, D0 - y) < 0) continue;
   g.fillStyle = e.rnd() < 0.6 ? '#9d9a7c' : '#a98f62';
   g.beginPath();
-  g.ellipse(x, y, 0.08 + e.rnd() * 0.2, 0.06 + e.rnd() * 0.14, e.rnd() * 3, 0, Math.PI * 2);
+  g.ellipse(x, y, 0.04 + e.rnd() * 0.08, 0.03 + e.rnd() * 0.06, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();
 }

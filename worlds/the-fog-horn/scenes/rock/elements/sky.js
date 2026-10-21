@@ -45,6 +45,7 @@ e.layer('sun', {}, g => {
   g.arc(SX, SY, 0.024, 0, Math.PI * 2);
   g.fill();
   e.at(SX, SY, 'sun');
+  e.light(SX, SY, 0.03, '#fff0d8', 1, 'sunglow');
 });
 e.layer('clouds', { drift: [0.003, 0], box: [X0, Y0, A + 0.3, H] }, g => {
   // long soft bands; each drawn again one width over, so the layer's two ends meet as it drifts
@@ -53,8 +54,8 @@ e.layer('clouds', { drift: [0.003, 0], box: [X0, Y0, A + 0.3, H] }, g => {
     const y = 0.05 + Math.pow(e.rnd(), 0.8) * 0.42;
     const w = 0.25 + e.rnd() * 0.45;
     const h = 0.012 + e.rnd() * 0.025;
-    const c = e.rnd() < 0.45 ? '#efdccc' : '#b8b9c7';
-    for (const k of [-W, 0, W]) glow(g, x + k, y, w, h, c, 0.5 + 0.3 * e.rnd());
+    const c = e.rnd() < 0.45 ? '#efdccc' : '#cacad3';
+    for (const k of [-W, 0, W]) glow(g, x + k, y, w, h, c, 0.35 + 0.25 * e.rnd());
   }
 });
 e.layer('night', {}, g => {
@@ -84,4 +85,5 @@ e.layer('moon', {}, g => {
   g.arc(MX, MY, 0.022, 0, Math.PI * 2);
   g.fill();
   e.at(MX, MY, 'moon');
+  e.light(MX, MY, 0.025, '#e8eeff', 0.8, 'moonglow');
 });

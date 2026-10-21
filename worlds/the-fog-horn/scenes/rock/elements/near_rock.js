@@ -1,5 +1,7 @@
 // The big rock at the left edge of the near stone, holding the corner of the picture: slabs of grey stone, a pale
 // dry top with lichen, wet and dark toward its foot.
+// (drawn smaller than the shape below is written: its top stays under the horizon)
+g.scale(0.68, 0.68);
 g.fillStyle = '#5a5d61';
 g.beginPath();
 g.moveTo(-1.9, 0.3);
@@ -42,9 +44,9 @@ g.lineTo(0.75, -0.7);
 g.moveTo(-1.5, -0.95);
 g.lineTo(1.3, -1.05);
 g.stroke();
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 25; i++) {
   g.fillStyle = e.rnd() < 0.6 ? '#9d9a7c' : '#a98f62';
   g.beginPath();
-  g.ellipse(-1.4 + e.rnd() * 2.6, -1.85 + e.rnd() * 0.6, 0.03 + e.rnd() * 0.06, 0.02 + e.rnd() * 0.04, 0, 0, Math.PI * 2);
+  g.ellipse(-1.4 + e.rnd() * 2.6, -1.85 + e.rnd() * 0.6, 0.02 + e.rnd() * 0.03, 0.015 + e.rnd() * 0.02, 0, 0, Math.PI * 2);
   g.fill();
 }
