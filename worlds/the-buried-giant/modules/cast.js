@@ -8,6 +8,18 @@ const CLOTH = [0.6, 0.55, 0.46, 1], LEATHER = [0.24, 0.18, 0.13, 1], STEEL = [0.
 const EDGE = x => 0.5 - 1.5 * Math.min(1, Math.max(0, (Math.abs(x) - 0.75) / 0.8));
 const COWL = F => ({ pts: [null, null, null], profile: [[0, F.head.r * 1.0], [2, 0.16 * F.k]], colors: [[0, F.colors.garment]] });
 const OAR = [0.55, 0.45, 0.33, 1], IRON = [0.2, 0.19, 0.18, 1], FLAME = [1, 0.8, 0.45, 2], RUST = [0.55, 0.53, 0.5, 1];
+// what Gawain's parts keep from one frame to the next (F.keep): their sizes, lists and fixed offsets
+const WHISKERS = F => {
+  const r = F.head.r * F.head.out;
+  return { radii: F.head.egg.map(e => e * r * 1.05), dir: [0, -0.95, 0.3], pts: [null, null, null], tips: [[null, null, null], [null, null, null]],
+    beard: [[0, r * 0.42], [1, r * 0.3], [2, r * 0.06]], tip: [[0, r * 0.08], [1, r * 0.075], [2, r * 0.03]], colors: [[0, F.colors.hair]] };
+};
+const PAULDRONS = F => ({ axes: [null, null, null], radii: [0.1 * F.fit.h, 0.075 * F.fit.h, 0.11 * F.fit.h] });
+const GREATSWORD = F => {
+  const m = F.fit.h;
+  return { up: [0, 1, 0], toGuard: [0, -0.08 * m, 0], toTop: [0, 0.07 * m, 0], toPommel: [0, 0.09 * m, 0], tip: [0, 0, 0],
+    axes: [null, [0, 1, 0], null], pommel: [0.03 * m, 0.03 * m, 0.03 * m], leather: [[0, LEATHER]], steel: [[0, STEEL]] };
+};
 // the face's expressions (<id>_mood): brows' inner and outer ends up, the eyes' openness, the mouth's width, its
 // corners up or down — as the engine's simple face has them
 const MOODS = {
@@ -143,32 +155,39 @@ return {
       } },
       // long drooping moustaches and a beard to the chest, in the hair's colour, the mouth left clear
       whiskers: { name: 'moustaches and beard', draw: F => {
-        const { add, mul } = V(), h = F.head, [hs, hu, hf] = h.axes, r = h.r * h.out;
-        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.95, 0.3], 0.72, F.colors.hair, h.sides, h.square);
-        const chin = add(h.at, add(mul(hu, -r * 0.95), mul(hf, r * 0.45)));
-        F.tube([chin, add(chin, add(mul(hu, -r * 0.7), mul(hf, r * 0.08))), add(chin, add(mul(hu, -r * 1.3), mul(hf, -r * 0.02)))],
-          [[0, r * 0.42], [1, r * 0.3], [2, r * 0.06]], [[0, F.colors.hair]], h.sides, hs);
-        for (const sx of [-1, 1]) {
-          const lip = add(h.at, add(add(mul(hs, sx * r * 0.18), mul(hu, -r * 0.28)), mul(hf, r * 0.9)));
-          F.tube([lip, add(lip, add(add(mul(hs, sx * r * 0.3), mul(hu, -r * 0.18)), mul(hf, -r * 0.02))), add(lip, add(add(mul(hs, sx * r * 0.42), mul(hu, -r * 0.75)), mul(hf, -r * 0.08)))],
-            [[0, r * 0.08], [1, r * 0.075], [2, r * 0.03]], [[0, F.colors.hair]], 6, hf);
+        const { add, mul } = V(), h = F.head, [hs, hu, hf] = h.axes, r = h.r * h.out, K = F.keep(WHISKERS), p = K.pts;
+        F.cap(h.at, h.axes, K.radii, K.dir, 0.72, F.colors.hair, h.sides, h.square);
+        p[0] = add(h.at, add(mul(hu, -r * 0.95), mul(hf, r * 0.45)));
+        p[1] = add(p[0], add(mul(hu, -r * 0.7), mul(hf, r * 0.08)));
+        p[2] = add(p[0], add(mul(hu, -r * 1.3), mul(hf, -r * 0.02)));
+        F.tube(p, K.beard, K.colors, h.sides, hs);
+        for (let i = 0; i < 2; i++) {
+          const sx = i * 2 - 1, q = K.tips[i];
+          q[0] = add(h.at, add(add(mul(hs, sx * r * 0.18), mul(hu, -r * 0.28)), mul(hf, r * 0.9)));
+          q[1] = add(q[0], add(add(mul(hs, sx * r * 0.3), mul(hu, -r * 0.18)), mul(hf, -r * 0.02)));
+          q[2] = add(q[0], add(add(mul(hs, sx * r * 0.42), mul(hu, -r * 0.75)), mul(hf, -r * 0.08)));
+          F.tube(q, K.tip, K.colors, 6, hf);
         }
       } },
       // rounded steel plates over both shoulders, dull with rust
       pauldrons: { name: 'pauldrons', draw: F => {
-        const m = F.fit.h, axes = [F.side('Chest'), F.up('Chest'), F.fwd('Chest')];
-        for (const j of ['LeftArm', 'RightArm']) F.ball(F.P(j), axes, [0.1 * m, 0.075 * m, 0.11 * m], RUST, 12);
+        const K = F.keep(PAULDRONS), a = K.axes;
+        a[0] = F.side('Chest'); a[1] = F.up('Chest'); a[2] = F.fwd('Chest');
+        F.ball(F.P('LeftArm'), a, K.radii, RUST, 12);
+        F.ball(F.P('RightArm'), a, K.radii, RUST, 12);
       } },
       // a great sword planted point down before him, both hands on its hilt: the pommel over the hands, the guard
       // under them, the blade straight down to the ground
       greatsword: { name: 'great sword', draw: F => {
-        const { add, mul, mix, sub, unit, cross } = V(), m = F.fit.h, grip = mix(F.P('RightHand'), F.P('LeftHand'), 0.5);
+        const { add, mul, mix, sub, unit, cross } = V(), m = F.fit.h, K = F.keep(GREATSWORD), grip = mix(F.P('RightHand'), F.P('LeftHand'), 0.5);
         const floor = Math.min(F.P('LeftFoot')[1], F.P('RightFoot')[1]) - 0.07 * m, side = unit(sub(F.P('RightHand'), F.P('LeftHand')));
-        const flat = unit(cross(side, [0, 1, 0])), guard = add(grip, [0, -0.08 * m, 0]), tip = [grip[0], floor, grip[2]];
-        F.bar(add(grip, [0, 0.07 * m, 0]), guard, 0.016 * m, 0.016 * m, [[0, LEATHER]], 6, side);
-        F.ball(add(grip, [0, 0.09 * m, 0]), [side, [0, 1, 0], flat], [0.03 * m, 0.03 * m, 0.03 * m], STEEL, 8);
-        F.bar(add(guard, mul(side, -0.13 * m)), add(guard, mul(side, 0.13 * m)), 0.016 * m, 0.016 * m, [[0, STEEL]], 5, flat);
-        F.bar(guard, tip, 0.028 * m, 0.006 * m, [[0, STEEL]], 4, side, true);
+        const flat = unit(cross(side, K.up)), guard = add(grip, K.toGuard), tip = K.tip;
+        tip[0] = grip[0]; tip[1] = floor; tip[2] = grip[2];
+        K.axes[0] = side; K.axes[2] = flat;
+        F.bar(add(grip, K.toTop), guard, 0.016 * m, 0.016 * m, K.leather, 6, side);
+        F.ball(add(grip, K.toPommel), K.axes, K.pommel, STEEL, 8);
+        F.bar(add(guard, mul(side, -0.13 * m)), add(guard, mul(side, 0.13 * m)), 0.016 * m, 0.016 * m, K.steel, 5, flat);
+        F.bar(guard, tip, 0.028 * m, 0.006 * m, K.steel, 4, side, true);
       } },
     },
   },
