@@ -15,19 +15,19 @@ const UP = [0, 1, 0];
 // in shares of the head's radius, larger than the engine's own so that they read at the distance people stand at
 const MOODS = {
   neutral: { inner: 0, outer: 0, eye: 1, wide: 0.17, corners: 0, open: 0 },
-  smile: { inner: 0.02, outer: 0.02, eye: 0.85, wide: 0.2, corners: 0.06, open: 0.015 },
+  smile: { inner: 0.03, outer: 0.02, eye: 0.82, wide: 0.2, corners: 0.075, open: 0.015 },
   laugh: { inner: 0.04, outer: 0.03, eye: 0.5, wide: 0.21, corners: 0.07, open: 0.09 },
   // grief held in: the brows' inner ends raised, the eyes open and waiting, the lips parted a little, their corners down
-  sad: { inner: 0.11, outer: -0.06, eye: 1.05, wide: 0.15, corners: -0.04, open: 0.025 },
+  sad: { inner: 0.14, outer: -0.07, eye: 1.05, wide: 0.15, corners: -0.045, open: 0.03 },
   // sullen, a boy's grown-up frown: the brows' inner ends hard down, the eyes level, the mouth set, its corners down
-  angry: { inner: -0.1, outer: 0.03, eye: 0.88, wide: 0.13, corners: -0.035, open: 0 },
+  angry: { inner: -0.12, outer: 0.04, eye: 0.86, wide: 0.13, corners: -0.04, open: 0 },
   surprised: { inner: 0.1, outer: 0.1, eye: 1.35, wide: 0.1, corners: 0, open: 0.09 },
-  afraid: { inner: 0.11, outer: 0.01, eye: 1.3, wide: 0.15, corners: -0.035, open: 0.05 },
+  afraid: { inner: 0.13, outer: 0.0, eye: 1.25, wide: 0.13, corners: -0.03, open: 0.03 },
   disgusted: { inner: -0.06, outer: -0.01, eye: 0.75, wide: 0.15, corners: -0.045, open: 0 },
   // wary: the brows drawn down and together, the eyes narrowed, the mouth shut tight
   thinking: { inner: -0.06, outer: 0.02, eye: 0.86, wide: 0.12, corners: -0.015, open: 0 },
   // worn out: the lids heavy, the brows' outer ends down, the mouth's corners down
-  tired: { inner: 0.04, outer: -0.07, eye: 0.62, wide: 0.15, corners: -0.035, open: 0 },
+  tired: { inner: 0.05, outer: -0.09, eye: 0.62, wide: 0.15, corners: -0.04, open: 0 },
 };
 // the apron's rows: from the waist down to the knees, each across the front (made once a figure: F.keep)
 const APRON_ROWS = 6, APRON_ACROSS = 7;
@@ -217,19 +217,20 @@ return {
     // tinted painted edge a little heavier than a pen's (a brush's contour), the colours lit by the scene's light (`lit`),
     // the body and the cloth smooth (no facets: lit flat, a cloth's quads read as square patches), limbs of some
     // thickness (cloth over them, not sticks), working hands, trousers and boots; `soldier` — the same in a soldier's
-    // high boots, the sleeves of a greatcoat thicker, the shoulders no wider than the arms under them
+    // high boots, the sleeves of a greatcoat a little thicker, its garments cut straight (a coat a long trapezoid)
     styles: {
       gouache: { from: 'soft', name: 'gouache', sides: 16, head: 1.22, egg: [0.92, 1.06, 0.98], neck: 0.8, legs: 1.02, limb: 1.12, arms: 'hand', feet: 'trouser',
-        trunk: { w: [0.94, 0.98, 0.88, 0.97, 0.9], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.8, tinted: true,
+        trunk: { w: [0.94, 0.98, 0.88, 0.97, 0.95], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.8, tinted: true,
         folds: { n: 6, depth: 0.07 }, face: 'gouache', ground: 'paper' },
       // a soldier: the same in high boots, the head a little longer and squarer in the jaw (a man's)
-      soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot', egg: [0.88, 1.09, 0.98], headSquare: 2.35, limb: 1.24,
-        trunk: { w: [0.94, 0.98, 0.88, 0.96, 0.84], d: [0.88, 0.88, 0.82, 0.86, 0.78] } },
+      soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot', egg: [0.88, 1.09, 0.98], headSquare: 2.35, limb: 1.14,
+        straight: true, folds: { n: 8, depth: 0.025 },
+        trunk: { w: [0.94, 0.98, 0.88, 0.96, 0.92], d: [0.88, 0.88, 0.82, 0.86, 0.78] } },
     },
     // an arm with a working hand (a broad palm, a long one, its fingers' ends not pinched); a leg in trousers; a leg in a
     // high boot from below the knee
     arms: {
-      hand: [[0, 0.045], [0.55, 0.041], [1, 0.034], [1.45, 0.032], [2, 0.025], [2.3, 0.037], [2.75, 0.035], [3, 0.02]],
+      hand: [[0, 0.036], [0.3, 0.043], [0.55, 0.041], [1, 0.034], [1.45, 0.032], [2, 0.025], [2.3, 0.037], [2.75, 0.035], [3, 0.02]],
     },
     legs: {
       trouser: [[0, 0.092], [0.5, 0.082], [1, 0.064], [1.4, 0.062], [2, 0.05], [2.3, 0.058], [2.8, 0.05], [3, 0]],
@@ -243,17 +244,17 @@ return {
         const { axes, r: rh, on } = F.head, hu = axes[1], x = MOODS[F.look.expression] ?? MOODS.neutral, skin = F.colors.skin;
         const under = shade(skin, 0.84), lips = [skin[0] * 0.74, skin[1] * 0.5, skin[2] * 0.46, 1];
         // the brows: the hair's colour a little toward the skin's (a dark heavy bar reads as a frown at any mood)
-        const brow = [0, 1, 2, 3].map(i => (i < 3 ? F.colors.hair[i] * 0.55 + skin[i] * 0.25 : 1));
+        const brow = [0, 1, 2, 3].map(i => (i < 3 ? F.colors.hair[i] * 0.62 + skin[i] * 0.18 : 1));
         const lid = 0.05 + 0.115 * x.eye;
         for (const sx of [-1, 1]) {
-          F.ball(on([sx * 0.34, 0.05, 0.94], 0.975), axes, [rh * 0.17, rh * 0.11 * x.eye, rh * 0.045], WHITES, 12);
-          F.ball(on([sx * 0.32, 0.04, 0.95], 0.99), axes, [rh * 0.088, rh * 0.094 * Math.min(1, x.eye), rh * 0.038], IRIS, 10);
+          F.ball(on([sx * 0.34, 0.05, 0.94], 0.975), axes, [rh * 0.19, rh * 0.122 * x.eye, rh * 0.045], WHITES, 12);
+          F.ball(on([sx * 0.32, 0.04, 0.95], 0.99), axes, [rh * 0.1, rh * 0.106 * Math.min(1, x.eye), rh * 0.038], IRIS, 10);
           F.tube([on([sx * 0.17, lid - 0.03, 0.93], 1.0), on([sx * 0.34, lid + 0.01, 0.95], 1.006), on([sx * 0.52, lid - 0.045, 0.85], 1.0)],
-            [[0, rh * 0.026], [1, rh * 0.038], [2, rh * 0.02]], [[0, LASH]], 6, hu);
+            [[0, rh * 0.032], [1, rh * 0.046], [2, rh * 0.024]], [[0, LASH]], 6, hu);
           F.tube([on([sx * 0.22, -0.09, 0.95], 0.99), on([sx * 0.36, -0.11, 0.95], 0.995), on([sx * 0.48, -0.07, 0.88], 0.99)],
             [[0, rh * 0.016], [2, rh * 0.012]], [[0, under]], 6, hu);
           F.tube([on([sx * 0.15, 0.32 + x.inner, 0.95], 1.0), on([sx * 0.32, 0.37 + (x.inner + x.outer) / 2, 0.92], 1.01), on([sx * 0.5, 0.3 + x.outer, 0.84], 1.0)],
-            [[0, rh * 0.036], [1, rh * 0.042], [2, rh * 0.024]], [[0, brow]], 6, hu);
+            [[0, rh * 0.046], [1, rh * 0.054], [2, rh * 0.03]], [[0, brow]], 6, hu);
         }
         // a man's: the shaved jaw's faint blue-grey shade along the chin and under the jaw
         if (F.look.who === 'man') {
@@ -270,7 +271,8 @@ return {
     },
     garments: {
       // a soldier's greatcoat: fitted to the waist (the trunk in its cloth), from the belt a skirt of heavy cloth to the
-      // calves, flaring only a little; long sleeves
+      // calves, its sides straight lines down to a hem round the legs (the soldier's style is straight-cut: a bell from
+      // the hips read as a dress); long sleeves
       greatcoat: { name: 'greatcoat', hang: [{ to: 1.62, from: 'waist', flare: 0, off: 0.96 }], sleeves: 'garment', bodice: true },
     },
     hats: {

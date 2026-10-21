@@ -13,21 +13,21 @@ const band = (d0, d1, color) => {
 band(0, 60, "#d2c29b");
 // the yard: pale sand, dry strokes of near tones over it
 band(0, 11.5, "#dccdaa");
-L.strokes(g, 61, -65, Y(11.5), 130, 11.5, ["#e7dabb", "#c7b48d", "#d9c9a3", "#bfa983", "#ece2c8"], 750, 0.4, 0.07, 0, 0.42);
-// the trodden path from the gate (across −1.0…0.1) to the porch's steps (across −1.7, 6.3…7.8 ahead), and the trodden
+L.strokes(g, 61, -65, Y(11.5), 130, 11.5, ["#e7dabb", "#c7b48d", "#d9c9a3", "#ece2c8"], 420, 0.5, 0.12, 0, 0.35);
+// the trodden path from the gate (across −1.0…0.1) to the porch's steps (across −1.1, 7.2…8.8 ahead), and the trodden
 // patch before the porch
 g.fillStyle = "#e6dabd";
 g.beginPath();
 g.moveTo(X(-1.05), Y(11.5));
-g.bezierCurveTo(X(-1.2), Y(9.8), X(-1.5), Y(8.6), X(-1.75), Y(7.9));
-g.lineTo(X(-1.75), Y(6.3));
-g.bezierCurveTo(X(-0.4), Y(6.6), X(0.1), Y(9.4), X(0.15), Y(11.5));
+g.bezierCurveTo(X(-1.1), Y(10.4), X(-1.0), Y(9.5), X(-1.15), Y(8.8));
+g.lineTo(X(-1.15), Y(7.2));
+g.bezierCurveTo(X(-0.2), Y(7.4), X(0.1), Y(9.6), X(0.15), Y(11.5));
 g.closePath();
 g.fill();
 g.beginPath();
 g.ellipse(X(-0.6), Y(4.6), 2.2, 1.8, 0, 0, Math.PI * 2);
 g.fill();
-L.strokes(g, 63, X(-2.4), Y(11.5), 3.6, 9.4, ["#efe5cc", "#d2c19c"], 200, 0.35, 0.06, 0, 0.4);
+L.strokes(g, 63, X(-2.4), Y(11.5), 3.6, 9.4, ["#efe5cc", "#d2c19c"], 120, 0.4, 0.1, 0, 0.35);
 // wet ground round the well (across 2.9, 10.2 ahead), a puddle's dark where the bucket drips
 g.fillStyle = "rgba(140,126,96,0.5)";
 g.beginPath();
@@ -47,8 +47,8 @@ for (let i = 0; i < 70; i++) {
   g.fillRect(-0.04, -0.012, 0.05 + 0.06 * L.rnd(i, 73), 0.025);
   g.restore();
 }
-// the boot prints of the one who came in: from the gate (across −0.5, 11.4) in a long curve to where he stands (0.95,
-// 2.6) — each a heel and a sole pressed darker into the sand, its rim a little lighter, left and right by turns
+// the boot prints of the one who came in: from the gate (across −0.5, 11.4) in a long curve to where he stands (0.6,
+// 2.0) — each a heel and a sole pressed darker into the sand, its rim a little lighter, left and right by turns
 const print = (x, y, a, side) => {
   g.save();
   g.translate(x + Math.cos(a) * side * 0.11, y + Math.sin(a) * side * 0.11);
@@ -66,7 +66,7 @@ const print = (x, y, a, side) => {
 const way = (u) => {
   const v = 1 - u;
   // (a cubic from the gate to where he stands)
-  const p = [[-0.5, 11.4], [-0.3, 8.2], [1.3, 5.6], [1.0, 3.0]];
+  const p = [[-0.5, 11.4], [-0.2, 8.2], [1.2, 5.2], [0.7, 2.4]];
   const ax = v * v * v * p[0][0] + 3 * v * v * u * p[1][0] + 3 * v * u * u * p[2][0] + u * u * u * p[3][0];
   const ad = v * v * v * p[0][1] + 3 * v * v * u * p[1][1] + 3 * v * u * u * p[2][1] + u * u * u * p[3][1];
   return [X(ax), Y(ad)];
@@ -87,10 +87,11 @@ for (let i = 0; i < 160; i++) {
   g.ellipse(X(a) - r * 0.25, Y(d) - r * 0.2, r * 0.5, r * 0.35, 0, 0, Math.PI * 2);
   g.fill();
 }
-// grass along the house's wall (across −3.6), the fence's foot (11.5 ahead), the woodpile's (across 4.4…6.8, 11) and the
-// yard's near edge
+// grass along the house's wall (across −3.0, 5.0…11.6 ahead) and its gable end (5.0 ahead), the fence's foot (11.5
+// ahead), the woodpile's (across 4.4…6.8, 11) and the yard's near edge
 const GRASS = ["#9d9b66", "#8c8c5c", "#aba674", "#7f8455"];
-L.strokes(g, 81, X(-3.6), Y(11.5), 0.7, 9.5, GRASS, 240, 0.14, 0.035, Math.PI / 2, 0.65);
+L.strokes(g, 81, X(-3.0), Y(11.5), 0.6, 6.5, GRASS, 170, 0.14, 0.035, Math.PI / 2, 0.65);
+L.strokes(g, 82, X(-8.4), Y(5.0), 5.4, 0.6, GRASS, 140, 0.14, 0.035, Math.PI / 2, 0.65);
 L.strokes(g, 83, X(-3.6), Y(11.5), 10.6, 0.55, GRASS, 300, 0.12, 0.035, Math.PI / 2, 0.65);
 L.strokes(g, 85, X(4.2), Y(11.2), 2.8, 0.6, GRASS, 80, 0.12, 0.035, Math.PI / 2, 0.55);
 L.strokes(g, 86, X(-4), Y(2.2), 12, 1.6, GRASS, 160, 0.1, 0.03, Math.PI / 2, 0.5);

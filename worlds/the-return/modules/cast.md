@@ -8,8 +8,8 @@ are a man's metres, multiplied by `F.fit.h` (the height as a share of 1.76 m).
 `gouache` — made from the engine's `soft`, with natural proportions (the head a little large, so the faces read; the
 shoulders not wider than a body's), the body and the cloth smooth (sixteen sides, no facets: lit flat, a cloth's quads read as square patches — Lyuba's apron did), limbs of some thickness (`limb` 1.12: cloth over them, not sticks), a tinted painted edge a little heavier than a pen's (`line` 1.8), flat colours lit by the scene's own light (`paint: lit`), working hands (`arms: hand`: a broad, long palm), legs in
 trousers of some thickness (`feet: trouser`); `soldier` — the same in a soldier's high boots (`feet: jackboot`), the head a little longer and squarer in the jaw (a
-man's), a greatcoat's sleeves thicker (`limb` 1.24), the shoulders no wider than the arms under them. The face
-`gouache`: large whites of the eyes and the irises (as open as the lids let them), the upper lids' dark line, the shade
+man's), a greatcoat's sleeves a little thicker (`limb` 1.14), garments cut straight (`straight`: a greatcoat's sides straight lines from the belt to a hem round the legs — a bell from the hips read as a dress), heavy cloth's shallow folds. In both, the arm's root is thinner than its upper arm (`arms: hand`), so that it does not stand up over the shoulder's line like a pad, and the shoulders' section is as wide as the arms' roots. The face
+`gouache`: large whites of the eyes (a fifth of the head's radius across) and the irises (as open as the lids let them), the upper lids' dark line, the shade
 under the eyes, brows of the hair's colour softened toward the skin (a dark heavy bar reads as a frown at any mood), the nose and the shade under it, the lips; a man's (`who: man`) also the shaved jaw's faint blue-grey shade under the chin. It takes `<id>_mood` by the engine's names, each
 bolder than the engine's own (`MOODS` in cast.js) so that it reads at three or four metres: `tired` — heavy lids, the
 brows' outer ends down; `sad` — grief held in and waiting: the brows' inner ends up, the eyes open, the lips parted;
@@ -20,7 +20,7 @@ sand, ochre, grey-green cloth.
 ## Who
 
 - `ivanov` — Captain Alexei Alexeyevich Ivanov, 36: lean but broad-shouldered, upright; a greatcoat (`greatcoat`: fitted
-  to the waist, the trunk in its cloth — `bodice` —, a skirt of heavy cloth from the belt to the calves, hanging straight (a bell reads as a dress),
+  to the waist, the trunk in its cloth — `bodice` —, a skirt of heavy cloth from the belt to the calves, cut straight (the soldier's style),
   long sleeves) and its own (`coat_kit`: the leather belt and its brass buckle, two rows of four brass buttons, the
   shoulder boards, the collar), a side cap (`pilotka`: worn straight, its darker flap, the red star), high boots (`soldier`), the kit bag
   carried by its tied neck in his left hand (`sack`: it hangs from the hand, a little late as the hand moves).
