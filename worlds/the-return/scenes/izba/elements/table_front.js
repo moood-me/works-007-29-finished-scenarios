@@ -1,20 +1,17 @@
-// The table's long side toward the eye (2.45 m ahead): the top's thick edge, the apron board under it, the two near
-// legs, and the far legs seen between them — the floor showing through.
+// The table's long side toward the eye (1.65 m ahead, across −0.95…0.45): the top's thick edge, the apron board under
+// it with a homespun cloth laid over the top and hanging down a hand's breadth, the two near legs — only its upper part is
+// in the frame.
 const L = e.lib;
-g.fillStyle = "#a58c66";
-g.fillRect(-0.6, -0.76, 1.2, 0.05);
 g.fillStyle = "#8d7556";
-g.fillRect(-0.55, -0.71, 1.1, 0.1);
-g.fillStyle = "rgba(60,46,32,0.4)";
-g.fillRect(-0.55, -0.62, 1.1, 0.012);
-g.fillStyle = "#7d6649";
-g.fillRect(-0.47, -0.62, 0.035, 0.62);
-g.fillRect(0.42, -0.62, 0.035, 0.62);
+g.fillRect(-0.68, -0.72, 1.36, 0.16);
 g.fillStyle = "#937a5a";
-g.fillRect(-0.56, -0.71, 0.07, 0.71);
-g.fillRect(0.49, -0.71, 0.07, 0.71);
-// a stretcher low between the near legs
-g.fillStyle = "#86704f";
-g.fillRect(-0.5, -0.2, 1.0, 0.04);
-L.strokes(g, 111, -0.6, -0.76, 1.2, 0.76, ["#b39a72", "#6f5a40"], 40, 0.2, 0.012, Math.PI / 2, 0.4);
-L.paper(g, -0.6, -0.76, 1.2, 0.76, 0.5);
+g.fillRect(-0.7, -0.72, 0.08, 0.72);
+g.fillRect(0.62, -0.72, 0.08, 0.72);
+// the cloth's hem over the edge: linen, a red woven band
+g.fillStyle = "#e3dccb";
+g.fillRect(-0.7, -0.77, 1.4, 0.12);
+g.fillStyle = "#a8463a";
+g.fillRect(-0.7, -0.68, 1.4, 0.018);
+g.fillRect(-0.7, -0.66, 1.4, 0.006);
+L.strokes(g, 111, -0.7, -0.77, 1.4, 0.12, ["#f0eadc", "#cfc6b2"], 24, 0.2, 0.012, 0, 0.35);
+L.paper(g, -0.7, -0.77, 1.4, 0.77, 0.8);

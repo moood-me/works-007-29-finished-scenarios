@@ -1,9 +1,12 @@
-// The izba's back wall, 5.8 m ahead (x to the right, as the eye sees it): hewn logs; the window with its pale frame and
-// a white half-curtain over its top, two little wooden horses on the sill (Semyon Yevseyevich carves them for Nastya);
-// to its right the father's photograph in a frame and the clock on the wall — its weights on their chains, its
-// pendulum a layer that swings (animate). The bed's corner on the left is behind the curtain (`curtain`, `bed`).
+// The izba's back wall, 4.6 m ahead (x to the right, as the eye sees it; x 0 is 0.275 m left of the eye's line): hewn
+// logs; the window to the right (across 0.85…1.55, between the son and the father as the eye sees them) with its pale
+// frame and a white half-curtain over its top, two little wooden horses on the sill (Semyon Yevseyevich carves them for
+// Nastya); the clock on the wall over the mother's and the son's heads — its weights on their chains, its pendulum a
+// layer that swings (animate) — and the father's photograph in a frame, high over the boy.
 const L = e.lib;
-L.hewn(g, 31, -3.0, 2.9, 2.4);
+L.hewn(g, 31, -2.02, 2.02, 2.4);
+g.save();
+g.translate(1.475, 0);
 // the window's opening, cut out: the outside (`outside`) is seen through it
 g.save();
 g.globalCompositeOperation = "destination-out";
@@ -58,63 +61,65 @@ const horse = (x, s, flip) => {
 };
 horse(-0.22, 1, false);
 horse(0.06, 0.85, true);
-e.at(-0.1, -0.95, "horses");
+g.restore();
+e.at(1.375, -0.95, "horses");
+// the photograph and the clock, moved over the heads (the wall's x: 0.775 the photograph, 0.075 the clock)
 // the father's photograph: a small sepia card in a dark frame — a young man in a cap
 g.fillStyle = "#4a3a2c";
-g.fillRect(0.66, -1.72, 0.2, 0.26);
+g.fillRect(0.675, -2.02, 0.2, 0.26);
 g.fillStyle = "#cdb794";
-g.fillRect(0.685, -1.695, 0.15, 0.21);
+g.fillRect(0.7, -1.995, 0.15, 0.21);
 g.fillStyle = "#7a6248";
 g.beginPath();
-g.ellipse(0.76, -1.6, 0.035, 0.045, 0, 0, Math.PI * 2);
+g.ellipse(0.775, -1.9, 0.035, 0.045, 0, 0, Math.PI * 2);
 g.fill();
-g.fillRect(0.715, -1.54, 0.09, 0.055);
+g.fillRect(0.73, -1.84, 0.09, 0.055);
 g.fillStyle = "#5c4836";
-g.fillRect(0.72, -1.655, 0.08, 0.02);
-e.at(0.76, -1.6, "photo");
+g.fillRect(0.735, -1.955, 0.08, 0.02);
+e.at(0.775, -1.9, "photo");
 // the clock: a little painted case, its face, the two weights hanging on their chains
 g.fillStyle = "#6c4f36";
-g.fillRect(1.18, -2.0, 0.24, 0.3);
+g.fillRect(-0.045, -2.0, 0.24, 0.3);
 g.beginPath();
-g.moveTo(1.16, -2.0);
-g.lineTo(1.3, -2.08);
-g.lineTo(1.44, -2.0);
+g.moveTo(-0.065, -2.0);
+g.lineTo(0.075, -2.08);
+g.lineTo(0.215, -2.0);
 g.closePath();
 g.fill();
 g.fillStyle = "#e9e1cc";
 g.beginPath();
-g.arc(1.3, -1.87, 0.085, 0, Math.PI * 2);
+g.arc(0.075, -1.87, 0.085, 0, Math.PI * 2);
 g.fill();
 g.strokeStyle = "#3b2f25";
 g.lineWidth = 0.008;
 g.beginPath();
-g.moveTo(1.3, -1.87);
-g.lineTo(1.3, -1.93);
-g.moveTo(1.3, -1.87);
-g.lineTo(1.345, -1.85);
+g.moveTo(0.075, -1.87);
+g.lineTo(0.075, -1.93);
+g.moveTo(0.075, -1.87);
+g.lineTo(0.12, -1.85);
 g.stroke();
 g.strokeStyle = "#5a554e";
 g.lineWidth = 0.006;
 g.beginPath();
-g.moveTo(1.25, -1.7);
-g.lineTo(1.25, -1.12);
-g.moveTo(1.35, -1.7);
-g.lineTo(1.35, -1.3);
+g.moveTo(0.025, -1.7);
+g.lineTo(0.025, -1.12);
+g.moveTo(0.125, -1.7);
+g.lineTo(0.125, -1.3);
 g.stroke();
 g.fillStyle = "#4e4a45";
-g.fillRect(1.235, -1.14, 0.03, 0.12);
-g.fillRect(1.335, -1.32, 0.03, 0.12);
-e.at(1.3, -1.87, "clock");
+g.fillRect(0.01, -1.14, 0.03, 0.12);
+g.fillRect(0.11, -1.32, 0.03, 0.12);
+e.at(0.075, -1.87, "clock");
 // the pendulum, hung under the case: it swings (animate)
-e.layer("pendulum", { pivot: [1.3, -1.7], box: [1.2, -1.72, 1.4, -1.36] }, (p) => {
+e.layer("pendulum", { pivot: [0.075, -1.7], box: [-0.025, -1.72, 0.175, -1.36] }, (p) => {
   p.strokeStyle = "#6a5a40";
   p.lineWidth = 0.008;
   p.beginPath();
-  p.moveTo(1.3, -1.7);
-  p.lineTo(1.3, -1.43);
+  p.moveTo(0.075, -1.7);
+  p.lineTo(0.075, -1.43);
   p.stroke();
   p.fillStyle = "#b8963e";
   p.beginPath();
-  p.arc(1.3, -1.42, 0.03, 0, Math.PI * 2);
+  p.arc(0.075, -1.42, 0.03, 0, Math.PI * 2);
   p.fill();
 });

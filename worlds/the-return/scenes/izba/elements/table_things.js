@@ -22,4 +22,4 @@ g.lineWidth = 0.012;
 g.beginPath();
 g.arc(0.2, -0.05, 0.03, -Math.PI / 2, Math.PI / 2);
 g.stroke();
-L.paper(g, -0.12, -0.26, 0.36, 0.27, 0.5);
+L.paper(g, -0.12, -0.26, 0.36, 0.27, 0.8);

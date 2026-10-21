@@ -34,23 +34,21 @@ function strokes(g, seed, x, y, w, h, colors, n, len, wid, angle = 0, alpha = 0.
   g.restore();
 }
 
-// the tooth of rough paper: a tile of 128 × 128 of its grain — pale specks where the dry paint skipped the paper's tops,
-// darker pits where it pooled, a faint fibre running through — the same every time (hashed, not random), in a canvas of
-// the painting's own
-const TILE = 128;
+// the tooth of rough paper: a small tile of soft mottling — paler patches where the dry paint skipped the paper's tops,
+// a little darker where it pooled, a faint fibre running through — laid large and smoothed, so that it reads as the
+// paper's grain under the gouache, never as specks or scratches on the screen (hashed, not random: the same every time)
+const TILE = 32;
 function paperOf() {
   const c = new OffscreenCanvas(TILE, TILE), t = c.getContext("2d"), img = t.createImageData(TILE, TILE), d = img.data;
   for (let yy = 0; yy < TILE; yy++) {
     for (let xx = 0; xx < TILE; xx++) {
       const i = (yy * TILE + xx) * 4;
-      // (a grain of two sizes, periodic across the tile's edges, and a fibre along it)
-      const big = anim.hash(((xx >> 2) % (TILE >> 2)) * 977 + ((yy >> 2) % (TILE >> 2)), 7);
-      const small = anim.hash(xx * 131 + yy * 7919, 11), fibre = anim.hash(((xx + (yy >> 3) * 5) % TILE) + (yy >> 1) * 313, 13);
-      const v = 0.5 * small + 0.35 * big + 0.15 * fibre;
-      if (v > 0.68) {
-        d[i] = 250; d[i + 1] = 246; d[i + 2] = 236; d[i + 3] = Math.round(255 * Math.min(0.55, (v - 0.68) * 2.2));
+      const blot = anim.hash(xx * 977 + yy * 31, 7), fibre = anim.hash(((xx + (yy >> 1)) % TILE) + yy * 313, 13);
+      const v = 0.75 * blot + 0.25 * fibre;
+      if (v > 0.64) {
+        d[i] = 248; d[i + 1] = 243; d[i + 2] = 232; d[i + 3] = Math.round(255 * Math.min(0.3, (v - 0.64) * 1.4));
       } else if (v < 0.3) {
-        d[i] = 70; d[i + 1] = 58; d[i + 2] = 44; d[i + 3] = Math.round(255 * Math.min(0.32, (0.3 - v) * 1.4));
+        d[i] = 84; d[i + 1] = 70; d[i + 2] = 54; d[i + 3] = Math.round(255 * Math.min(0.16, (0.3 - v) * 0.8));
       }
     }
   }
@@ -58,16 +56,17 @@ function paperOf() {
   return c;
 }
 // the paper's tooth laid over what is painted in the rectangle x, y, w, h (only over paint: nothing where it is clear),
-// one tile `size` units across, at `alpha` — a tile as big as the grain stays a pixel or so on the screen: about a fifth
-// of the distance it is seen from, in metres; 0.12 stage heights on the sky, faintly
+// one tile `size` × 2.5 units across (a cell of it some centimetres: soft blots, smoothed), at `alpha`
 function paper(g, x, y, w, h, size, alpha = 1) {
+  const s = size * 2.5;
   g.save();
   g.globalCompositeOperation = "source-atop";
-  g.globalAlpha = alpha;
+  g.globalAlpha = alpha * 0.8;
+  g.imageSmoothingEnabled = true;
   g.translate(x, y);
-  g.scale(size / TILE, size / TILE);
+  g.scale(s / TILE, s / TILE);
   g.fillStyle = g.createPattern(paperOf(), "repeat");
-  g.fillRect(0, 0, (w * TILE) / size, (h * TILE) / size);
+  g.fillRect(0, 0, (w * TILE) / s, (h * TILE) / s);
   g.restore();
 }
 
