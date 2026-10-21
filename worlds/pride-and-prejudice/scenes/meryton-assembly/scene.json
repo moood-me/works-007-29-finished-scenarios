@@ -1,0 +1,822 @@
+{
+  "engine": 3,
+  "title": "Meryton, the Assembly Room",
+  "caption": "The candles lit before dark, and the second dance begun.",
+  "horizon": 0.4,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "vignette": 0.12,
+    "grain": 0.05,
+    "haze": 0.02,
+    "hazeColor": "#ece4d2",
+    "hazeGlow": 0.35,
+    "ambient": 0.86,
+    "ambientColor": "#f2ece0",
+    "inside": 0.6,
+    "bounce": 0.65,
+    "looks": {
+      "later": {
+        "ambient": 0.84,
+        "ambientColor": "#f6dcb4",
+        "inside": 0.4,
+        "tint": "#f0b070",
+        "tintStrength": 0.05,
+        "hazeGlow": 0.55,
+        "lights": {
+          "window_a": 0.3,
+          "window_b": 0.3,
+          "window_c": 0.3,
+          "chandelier_near": 1.35,
+          "chandelier_far": 1.35,
+          "sconce_0": 1.6,
+          "sconce_6": 1.6,
+          "sconce_1": 1.3
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "window_a",
+      "of": "opening_a",
+      "daylight": 1.6,
+      "reach": 7
+    },
+    {
+      "id": "window_b",
+      "of": "opening_b",
+      "daylight": 1.6,
+      "reach": 7
+    },
+    {
+      "id": "window_c",
+      "of": "opening_c",
+      "daylight": 1.6,
+      "reach": 7
+    },
+    {
+      "id": "chandelier_near",
+      "across": 3.0,
+      "distance": 7.5,
+      "elevation": 4.3,
+      "color": "#ffe2b8",
+      "strength": 1.2,
+      "reach": 10,
+      "flicker": 0.05
+    },
+    {
+      "id": "chandelier_far",
+      "across": 0.6,
+      "distance": 12.5,
+      "elevation": 4.3,
+      "color": "#ffe2b8",
+      "strength": 1.2,
+      "reach": 10,
+      "flicker": 0.05
+    },
+    {
+      "id": "sconce_0",
+      "across": -2.47,
+      "distance": 2.0,
+      "elevation": 2.35,
+      "color": "#ffe2b8",
+      "strength": 0.9,
+      "reach": 5,
+      "flicker": 0.1
+    },
+    {
+      "id": "sconce_1",
+      "across": -2.47,
+      "distance": 4.5,
+      "elevation": 2.35,
+      "color": "#ffe2b8",
+      "strength": 0.9,
+      "reach": 5,
+      "flicker": 0.1
+    },
+    {
+      "id": "sconce_2",
+      "across": -2.47,
+      "distance": 9.5,
+      "elevation": 2.35,
+      "color": "#ffe2b8",
+      "strength": 0.9,
+      "reach": 5,
+      "flicker": 0.1
+    },
+    {
+      "id": "sconce_3",
+      "across": -2.47,
+      "distance": 14.5,
+      "elevation": 2.35,
+      "color": "#ffe2b8",
+      "strength": 0.9,
+      "reach": 5,
+      "flicker": 0.1
+    },
+    {
+      "id": "sconce_4",
+      "across": 4.07,
+      "distance": 8.25,
+      "elevation": 2.35,
+      "color": "#ffe2b8",
+      "strength": 0.9,
+      "reach": 5,
+      "flicker": 0.1
+    },
+    {
+      "id": "sconce_5",
+      "across": 4.07,
+      "distance": 11.75,
+      "elevation": 2.35,
+      "color": "#ffe2b8",
+      "strength": 0.9,
+      "reach": 5,
+      "flicker": 0.1
+    },
+    {
+      "id": "sconce_6",
+      "across": 4.1000000000000005,
+      "distance": 4.75,
+      "elevation": 2.35,
+      "color": "#ffe2b8",
+      "strength": 0.9,
+      "reach": 5,
+      "flicker": 0.1
+    }
+  ],
+  "modules": [
+    "cast",
+    "brush"
+  ],
+  "state": {
+    "later": 0,
+    "elizabeth_look": [
+      -0.4,
+      1.0,
+      1.45
+    ],
+    "elizabeth_mood": "smile",
+    "charlotte_look": "elizabeth",
+    "jane_look": "bingley",
+    "jane_mood": "smile",
+    "bingley_look": "jane",
+    "bingley_mood": "smile",
+    "darcy_look": "bingley",
+    "darcy_mood": "thinking",
+    "guest_a_lady_look": "guest_a_gent",
+    "guest_a_gent_look": "guest_a_lady",
+    "guest_b_lady_look": "guest_b_gent",
+    "guest_b_lady_mood": "smile",
+    "guest_b_gent_look": "guest_b_lady"
+  },
+  "states": {
+    "later": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the hour: 0 an early evening, the windows still light (by default); 1 later — the windows dimmer, the room warm with its candles"
+    }
+  },
+  "objects": [
+    {
+      "id": "evening",
+      "name": "The street beyond the windows",
+      "across": 8,
+      "distance": 18,
+      "facing": 270,
+      "height": 11,
+      "box": [
+        -12,
+        -12,
+        14.2,
+        1.1
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "Floor",
+      "plane": true,
+      "across": 0.8,
+      "distance": 8,
+      "width": 7.2,
+      "depth": 16,
+      "inside": true,
+      "reflect": {
+        "strength": 0.2,
+        "rough": 0.3,
+        "fade": 3
+      }
+    },
+    {
+      "id": "ceiling",
+      "name": "Ceiling",
+      "plane": true,
+      "across": 0.8,
+      "distance": 8,
+      "elevation": 6,
+      "width": 7.2,
+      "depth": 16,
+      "tilt": 180,
+      "inside": true
+    },
+    {
+      "id": "back_wall",
+      "name": "Far wall with the doors",
+      "across": 0.8,
+      "distance": 16,
+      "facing": 180,
+      "height": 6,
+      "box": [
+        -3.6,
+        -6,
+        3.6,
+        0.03
+      ],
+      "inside": true
+    },
+    {
+      "id": "left_wall",
+      "name": "Left wall",
+      "across": -2.8,
+      "distance": 8,
+      "facing": 90,
+      "height": 6,
+      "box": [
+        -8,
+        -6,
+        8,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "right_wall",
+      "name": "Right wall with the windows",
+      "across": 4.4,
+      "distance": 8,
+      "facing": 270,
+      "height": 6,
+      "box": [
+        -8,
+        -6,
+        8,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "opening_a",
+      "name": "Window opening a",
+      "unseen": true,
+      "across": 4.4,
+      "distance": 6.5,
+      "facing": 270,
+      "height": 4.6,
+      "box": [
+        -0.75,
+        -4.6,
+        0.75,
+        -0.9
+      ]
+    },
+    {
+      "id": "opening_b",
+      "name": "Window opening b",
+      "unseen": true,
+      "across": 4.4,
+      "distance": 10,
+      "facing": 270,
+      "height": 4.6,
+      "box": [
+        -0.75,
+        -4.6,
+        0.75,
+        -0.9
+      ]
+    },
+    {
+      "id": "opening_c",
+      "name": "Window opening c",
+      "unseen": true,
+      "across": 4.4,
+      "distance": 13.5,
+      "facing": 270,
+      "height": 4.6,
+      "box": [
+        -0.75,
+        -4.6,
+        0.75,
+        -0.9
+      ]
+    },
+    {
+      "id": "window",
+      "name": "Windows and their curtains",
+      "across": 4.37,
+      "distance": 6.5,
+      "facing": 270,
+      "height": 5.1,
+      "box": [
+        -1.2,
+        -5.1,
+        1.2,
+        0.02
+      ],
+      "inside": true,
+      "copies": [
+        {
+          "across": 4.37,
+          "distance": 6.5
+        },
+        {
+          "across": 4.37,
+          "distance": 10
+        },
+        {
+          "across": 4.37,
+          "distance": 13.5
+        }
+      ]
+    },
+    {
+      "id": "gallery",
+      "name": "The musicians' gallery",
+      "across": 0.8,
+      "distance": 15,
+      "facing": 180,
+      "height": 5,
+      "box": [
+        -3.6,
+        -5,
+        3.6,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "gallery_flames",
+      "name": "Candles on the music stands",
+      "across": 0.8,
+      "distance": 14.98,
+      "facing": 180,
+      "height": 4.7,
+      "box": [
+        -0.2,
+        -4.65,
+        1.2,
+        -4.45
+      ],
+      "glows": true,
+      "flicker": 0.3
+    },
+    {
+      "id": "chandelier",
+      "name": "Chandeliers",
+      "across": 3.0,
+      "distance": 7.5,
+      "elevation": 3.5,
+      "height": 2.3,
+      "box": [
+        -0.85,
+        -2.55,
+        0.85,
+        0.06
+      ],
+      "inside": true,
+      "copies": [
+        {
+          "across": 3.0,
+          "distance": 7.5
+        },
+        {
+          "across": 0.6,
+          "distance": 12.5
+        }
+      ]
+    },
+    {
+      "id": "chandelier_flames",
+      "name": "Chandelier flames",
+      "across": 3.0,
+      "distance": 7.49,
+      "elevation": 3.5,
+      "height": 1.6,
+      "box": [
+        -0.82,
+        -1.55,
+        0.82,
+        -0.6
+      ],
+      "glows": true,
+      "flicker": 0.3,
+      "copies": [
+        {
+          "across": 3.0,
+          "distance": 7.49
+        },
+        {
+          "across": 0.6,
+          "distance": 12.49
+        }
+      ]
+    },
+    {
+      "id": "sconce",
+      "name": "Girandoles on the pilasters",
+      "across": -2.77,
+      "distance": 2.0,
+      "elevation": 2.0,
+      "facing": 90,
+      "height": 0.6,
+      "box": [
+        -0.36,
+        -0.62,
+        0.36,
+        0.02
+      ],
+      "inside": true,
+      "copies": [
+        {
+          "across": -2.77,
+          "distance": 2.0,
+          "facing": 90
+        },
+        {
+          "across": -2.77,
+          "distance": 4.5,
+          "facing": 90
+        },
+        {
+          "across": -2.77,
+          "distance": 9.5,
+          "facing": 90
+        },
+        {
+          "across": -2.77,
+          "distance": 14.5,
+          "facing": 90
+        },
+        {
+          "across": 4.37,
+          "distance": 8.25,
+          "facing": 270
+        },
+        {
+          "across": 4.37,
+          "distance": 11.75,
+          "facing": 270
+        },
+        {
+          "across": 4.37,
+          "distance": 4.75,
+          "facing": 270
+        }
+      ]
+    },
+    {
+      "id": "sconce_flames",
+      "name": "Girandole flames",
+      "across": -2.7600000000000002,
+      "distance": 2.0,
+      "elevation": 2.0,
+      "facing": 90,
+      "height": 0.6,
+      "box": [
+        -0.32,
+        -0.56,
+        0.32,
+        -0.44
+      ],
+      "glows": true,
+      "flicker": 0.3,
+      "copies": [
+        {
+          "across": -2.7600000000000002,
+          "distance": 2.0,
+          "facing": 90
+        },
+        {
+          "across": -2.7600000000000002,
+          "distance": 4.5,
+          "facing": 90
+        },
+        {
+          "across": -2.7600000000000002,
+          "distance": 9.5,
+          "facing": 90
+        },
+        {
+          "across": -2.7600000000000002,
+          "distance": 14.5,
+          "facing": 90
+        },
+        {
+          "across": 4.36,
+          "distance": 8.25,
+          "facing": 270
+        },
+        {
+          "across": 4.36,
+          "distance": 11.75,
+          "facing": 270
+        },
+        {
+          "across": 4.36,
+          "distance": 4.75,
+          "facing": 270
+        }
+      ]
+    },
+    {
+      "id": "chairs",
+      "name": "Chairs",
+      "across": -2.45,
+      "distance": 6.2,
+      "height": 1,
+      "box": [
+        -0.3,
+        -1,
+        0.3,
+        0.02
+      ],
+      "inside": true,
+      "shadow": {
+        "onto": [
+          "floor",
+          "left_wall"
+        ]
+      },
+      "copies": [
+        {
+          "across": -2.45,
+          "distance": 6.2
+        },
+        {
+          "across": -2.45,
+          "distance": 6.9
+        },
+        {
+          "across": -2.45,
+          "distance": 10.8
+        },
+        {
+          "across": -2.45,
+          "distance": 11.5
+        },
+        {
+          "across": -2.45,
+          "distance": 12.2
+        }
+      ]
+    },
+    {
+      "id": "elizabeth",
+      "name": "Elizabeth Bennet",
+      "person": {
+        "cast": "cast",
+        "who": "elizabeth",
+        "turn": 195,
+        "does": "hands_folded"
+      },
+      "across": -1.0,
+      "distance": 3.25,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "charlotte",
+      "name": "Charlotte Lucas",
+      "person": {
+        "cast": "cast",
+        "who": "charlotte",
+        "turn": 215
+      },
+      "across": -1.65,
+      "distance": 3.55,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "jane",
+      "name": "Jane Bennet",
+      "person": {
+        "cast": "cast",
+        "who": "jane",
+        "turn": 240
+      },
+      "across": 0.15,
+      "distance": 4.9,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "bingley",
+      "name": "Mr Bingley",
+      "person": {
+        "cast": "cast",
+        "who": "bingley",
+        "turn": 120
+      },
+      "across": 0.95,
+      "distance": 5.0,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "darcy",
+      "name": "Mr Darcy",
+      "person": {
+        "cast": "cast",
+        "who": "darcy",
+        "turn": 145,
+        "does": "hands_behind"
+      },
+      "across": 2.2,
+      "distance": 5.6,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "guest_a_lady",
+      "name": "A lady of the neighbourhood",
+      "person": {
+        "cast": "cast",
+        "who": "guest_lady",
+        "turn": 250
+      },
+      "across": -1.2,
+      "distance": 8.5,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "guest_a_gent",
+      "name": "A gentleman of the neighbourhood",
+      "person": {
+        "cast": "cast",
+        "who": "guest_gent",
+        "turn": 110
+      },
+      "across": -0.25,
+      "distance": 8.6,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "guest_b_lady",
+      "name": "A lady by the window",
+      "person": {
+        "cast": "cast",
+        "who": "guest_lady",
+        "turn": 120,
+        "look": {
+          "colors": {
+            "skin": "#efcfb2",
+            "hair": "#8a6a45",
+            "top": "#cdd5b3",
+            "garment": "#cdd5b3",
+            "bottom": "#c4cdaa",
+            "accent": "#b49a6a",
+            "shoes": "#e4dccb"
+          }
+        }
+      },
+      "across": 3.2,
+      "distance": 11.0,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "guest_b_gent",
+      "name": "A gentleman by the window",
+      "person": {
+        "cast": "cast",
+        "who": "guest_gent",
+        "turn": 240,
+        "look": {
+          "colors": {
+            "skin": "#e2bd9c",
+            "hair": "#7a6a5c",
+            "top": "#ece5d4",
+            "garment": "#2f2d30",
+            "bottom": "#3a373a",
+            "shoes": "#262020",
+            "socks": "#ece6d8"
+          }
+        }
+      },
+      "across": 2.5,
+      "distance": 11.2,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "motes",
+      "name": "Motes in the windows' light",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          3.4,
+          8.5,
+          2.2
+        ],
+        "source": [
+          1.4,
+          6,
+          1.8
+        ],
+        "rate": 5,
+        "life": [
+          8,
+          12
+        ]
+      }
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a lively English country dance for violin, cello and harp in a provincial assembly room, Playford tunes, a light skipping 6/8",
+        "weight": 1.2
+      },
+      {
+        "text": "a solo square piano playing a gentle Regency-era country air, unhurried, intimate, slightly imperfect touch",
+        "weight": 0
+      },
+      {
+        "text": "English country dance tune from Playford's Dancing Master on a single violin, slow and wistful",
+        "weight": 1.4
+      },
+      {
+        "text": "chamber music for pianoforte and cello, late eighteenth century, warm and restrained",
+        "weight": 0
+      },
+      {
+        "text": "soft classical string quartet in the style of Haydn, a quiet andante on a summer afternoon",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios like water, light and clear, pastoral English summer",
+        "weight": 0
+      },
+      {
+        "text": "wooden flute melody over sustained strings, English parkland, gentle breeze",
+        "weight": 0
+      },
+      {
+        "text": "melancholy minor-key piano nocturne, hesitant pauses, unspoken feeling",
+        "weight": 0
+      },
+      {
+        "text": "bright Mozartian piano sonata movement, playful wit and lightness",
+        "weight": 0.3
+      },
+      {
+        "text": "slow pastoral oboe solo with chamber orchestra, morning mist over meadows",
+        "weight": 0
+      },
+      {
+        "text": "music box version of a country dance, delicate and nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "guitar-like plucked fortepiano, sparse notes, birdsong-like ornaments",
+        "weight": 0
+      },
+      {
+        "text": "warm viola and piano duet, tender restraint, Georgian drawing room",
+        "weight": 0
+      },
+      {
+        "text": "distant ballroom minuet heard through an open window, soft and muffled",
+        "weight": 0.4
+      },
+      {
+        "text": "romantic but restrained piano theme, period drama film score, gentle swell of strings",
+        "weight": 0
+      },
+      {
+        "text": "clavichord improvisation, intimate, quiet, introspective",
+        "weight": 0
+      },
+      {
+        "text": "light pizzicato strings, a walk through a garden, gentle humour",
+        "weight": 0
+      },
+      {
+        "text": "sustained soft string pads with solo piano phrases, calm water and stillness",
+        "weight": 0
+      }
+    ],
+    "bpm": 104,
+    "density": 0.5,
+    "brightness": 0.65,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}

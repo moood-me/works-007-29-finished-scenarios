@@ -1,0 +1,14 @@
+{
+  "strings": [
+    {
+      "text": "Meryton, the Assembly Room",
+      "translation": "Меритон, зал собраний",
+      "where": "scenes/meryton-assembly/scene.json title"
+    },
+    {
+      "text": "The candles lit before dark, and the second dance begun.",
+      "translation": "Свечи зажгли засветло, и начался второй танец.",
+      "where": "scenes/meryton-assembly/scene.json caption"
+    }
+  ]
+}

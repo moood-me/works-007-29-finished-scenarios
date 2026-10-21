@@ -80,6 +80,25 @@ return {
     darcy: { kind: 'shapes', style: 'austen', who: 'man', garment: 'tailcoat', hair: 'brutus', parts: ['waistcoat', 'cravat', 'tails'], socks: true,
       body: { height: 1.05, thick: 1.05, shoulders: 1.0, head: 0.98 },
       colors: { skin: '#e6c2a2', hair: '#2b1d15', top: '#e4d6b2', garment: '#2a3650', bottom: '#d3c19a', shoes: '#2e2520', socks: '#2e2520' } },
+    // Charles Bingley: a little shorter than Darcy, open-faced, sandy hair brushed forward; dressed for a ball — a warm
+    // brown tailcoat, a white waistcoat and cravat, cream knee breeches, white stockings, black pumps
+    bingley: { kind: 'shapes', style: 'austen', who: 'man', garment: 'tailcoat', hair: 'brutus', parts: ['waistcoat', 'cravat', 'tails'], socks: true,
+      body: { height: 1.0, thick: 1.02, shoulders: 0.98, head: 1.0 },
+      colors: { skin: '#efcfb0', hair: '#a5733f', top: '#efe9da', garment: '#6a4a32', bottom: '#e6dcc4', shoes: '#262020', socks: '#ece6d8' } },
+    // Charlotte Lucas, twenty-seven: plain and sensible, sitting straight; brown hair up without curls; her grey gown
+    // (the world's rare grey: hers alone) with a darker grey sash
+    charlotte: { kind: 'shapes', style: 'austen', who: 'woman', garment: 'gown', hair: 'bun', parts: ['sash', 'puffs'],
+      body: { height: 0.95, thick: 0.97, shoulders: 0.92, hips: 1.02, neck: 1.0, head: 1.0 },
+      colors: { skin: '#e8c8aa', hair: '#6a4a31', top: '#a7a59d', garment: '#a7a59d', bottom: '#9e9c94', accent: '#77756f', shoes: '#857f75' } },
+    // the neighbours at a ball, nobody in particular: a lady in a gown and a gentleman in a tailcoat — a scene gives each
+    // its own colours (the look's `colors`, whole) from the world's greens, creams, buffs and soft blues; never the rare
+    // three (scarlet, Charlotte's grey, the seal's blue)
+    guest_lady: { kind: 'shapes', style: 'austen', who: 'woman', garment: 'gown', hair: 'bun', parts: ['curls', 'sash', 'puffs'],
+      body: { height: 0.93, thick: 0.95, shoulders: 0.9, hips: 1.0 },
+      colors: { skin: '#eccbad', hair: '#5a3d26', top: '#c9d3dc', garment: '#c9d3dc', bottom: '#c0cad3', accent: '#8d9b7c', shoes: '#e4dccb' } },
+    guest_gent: { kind: 'shapes', style: 'austen', who: 'man', garment: 'tailcoat', hair: 'brutus', parts: ['waistcoat', 'cravat', 'tails'], socks: true,
+      body: { height: 1.0, thick: 1.04, shoulders: 1.0 },
+      colors: { skin: '#e4c09f', hair: '#3c2a1c', top: '#ece5d4', garment: '#4f4436', bottom: '#d9cdb1', shoes: '#262020', socks: '#ece6d8' } },
   },
   shapes: {
     // the world's style: Hugh Thomson's people — slender and long-limbed (from `shadow`), a small head on a neck of
