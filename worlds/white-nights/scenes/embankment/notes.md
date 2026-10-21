@@ -74,8 +74,8 @@ when she has stopped crying and he has dared to speak: standing quietly (the eng
 clear pose. Each casts the lamp's shadow toward the viewer (`shadow`, 0.75), the ground a little darker under their
 feet. Their faces three-quarters to us, each looking toward the other's side of the viewer, so both faces read.
 
-- `nastya` — Nastenka at the parapet, 3.6 m off, 0.3 m from its face, turned to us and to him (145°): her right hand on
-  the granite of the parapet's top (`nastya_reach.r`), her left hand held to her breast (`nastya_reach.l`), looking out
+- `nastya` — Nastenka at the parapet, 3.6 m off, 0.3 m from its face, turned to us and to him (145°): her hands clasped
+  at her breast (`nastya_reach`, both to points just before it), looking out
   past the viewer toward his side ([0, 1.6, 1.5]), her face still sad from the tears (`sad`).
 - `dreamer` — the Dreamer, 4 m off, a step farther from her than he need be (1.8 m): bare-headed, his brown hair, his
   faded green frock coat; turned half to her and half to us (215°), his top hat held before his chest in both hands
