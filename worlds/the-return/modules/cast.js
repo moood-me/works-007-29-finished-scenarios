@@ -64,6 +64,15 @@ return {
     petrushka: { kind: 'shapes', style: 'gouache', who: 'child', garment: 'tunic', hair: 'short', line: true,
       body: { height: 0.82, thick: 0.96, shoulders: 1.0, head: 1.04 },
       colors: { skin: '#cf9e78', hair: '#8b6a43', top: '#c9c1a6', bottom: '#4f4c44', shoes: '#3a3027' } },
+    // Semyon Yevseyevich, 50: a widower, the night watchman at the store by the station; a little stooped, grey and
+    // cropped, his cap off indoors; an old dark jacket over a grey collarless shirt, worn trousers, boots
+    semyon: { kind: 'shapes', style: 'gouache', who: 'man', garment: 'jacket', hair: 'short', line: true,
+      body: { height: 0.96, shoulders: 0.96, thick: 0.94, neck: 0.94 },
+      colors: { skin: '#c49a7c', hair: '#9d968a', top: '#a29d8b', garment: '#625a4c', bottom: '#3d3a34', shoes: '#2b251f' } },
+    // Nastya, 5: small, fair, round-faced; a faded rose cotton frock with short sleeves, her bare legs, little shoes
+    nastya: { kind: 'shapes', style: 'gouache', who: 'child', garment: 'dress', hair: 'bob', line: true,
+      body: { height: 0.62, head: 1.2, thick: 0.9, shoulders: 0.9 },
+      colors: { skin: '#e8c0a0', hair: '#c9a46c', top: '#c98e82', garment: '#c98e82', shoes: '#6b5444' } },
   },
   shapes: {
     // the world's style: gouache on rough paper — round, natural proportions with the head a little large (the faces
