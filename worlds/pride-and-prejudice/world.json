@@ -1,0 +1,10 @@
+{
+  "title": "Pride and Prejudice",
+  "description": "Jane Austen's England in light watercolour and fine pen: Longbourn, Meryton, Netherfield, Hunsford, Pemberley. Green and cream, warm candlelit ballrooms, bright early evenings.",
+  "themes": {
+    "regency": 50,
+    "romance": 30,
+    "countryside": 20
+  },
+  "main": ""
+}
