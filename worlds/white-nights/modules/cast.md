@@ -18,7 +18,7 @@ expressions, by name). Hems are even (no ragged edge).
 ## Who
 
 - `dreamer` — the Dreamer, 26: thin, a little stooped, a clerk's worn frock coat of faded bottle green to the knee,
-  grey trousers, brown hair grown to the jaw. Bare-headed: his hat is in his hands (`hat_held`, `hat_hands`, `hat_hand`,
+  grey trousers, brown hair. Bare-headed: his hat is in his hands (`hat_held`, `hat_hands`, `hat_hand`,
   `hat_low`); his knotty stick (`cane`).
 - `nastenka` — Nastenka, 17: small, a pale lilac-grey dress to the ankles, a dark blue-grey mantle over the shoulders
   to the hips, a straw bonnet with a dark rose ribbon bow under the chin.

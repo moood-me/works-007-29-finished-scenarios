@@ -57,7 +57,7 @@ stands differently, each face turned to us at least three-quarters.
   (150°), her right hand resting on the granite's top (`nastya_reach.r`, the elbow bent), her left at her breast
   holding her mantle (`.l`), looking toward the corner just past the viewer ([2.5, 0, 1.6]), waiting (`thinking`).
 - `dreamer` — the Dreamer on the right, a step farther than he need be (4.4 m off, 1.6 m from her): bare-headed, his
-  long brown hair, his faded green coat; turned half to her and half to us (225°), his knotty stick in the right hand
+  brown hair, his faded green coat; turned half to her and half to us (225°), his knotty stick in the right hand
   (`cane`), his top hat held low before him by its brim in the left (`hat_held`), looking at her with a shy smile.
 - `lodger` — the Lodger by the lamp, 5.9 m off: upright in his top hat and long slate-blue coat, his right hand on the
   lamp's post (`lodger_reach.r`), the left at his side, looking at her, reserved (`neutral`).

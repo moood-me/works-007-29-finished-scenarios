@@ -42,9 +42,9 @@ return {
   ...data,
   characters: {
     // the Dreamer, twenty-six: thin, a little stooped, a clerk's worn frock coat of faded bottle green, grey trousers,
-    // brown hair grown long to the jaw, bare-headed: his hat is in his hands (the parts hat_held, hat_hands, hat_hand,
+    // brown hair (not the Lodger's black), bare-headed: his hat is in his hands (the parts hat_held, hat_hands, hat_hand,
     // hat_low), his knotty stick in the right (cane)
-    dreamer: { kind: 'shapes', style: 'litho', who: 'man', garment: 'frockcoat', hair: 'bob',
+    dreamer: { kind: 'shapes', style: 'litho', who: 'man', garment: 'frockcoat', hair: 'short',
       body: { height: 1.0, thick: 0.84, shoulders: 0.94, neck: 1.05 },
       colors: { skin: '#e2c0a4', hair: '#6a4a32', top: '#e8e2d6', garment: '#66765b', bottom: '#77736c', shoes: '#2a2522', hat: '#5e5249' } },
     // Nastenka, seventeen: small and quick, a pale lilac-grey dress with a dark short cape over the shoulders, a light
@@ -141,11 +141,11 @@ return {
       // a silk band round its foot
       tophat: { name: 'top hat', draw: F => {
         const { add, mul, cross, unit } = V(), { at, axes: [hs, hu, hf], r } = F.head, tilt = unit(add(hu, mul(hf, -0.06))), ax = [hs, tilt, cross(hs, tilt)];
-        const foot = add(at, mul(hu, r * 0.5)), top = add(foot, mul(tilt, r * 1.35));
-        F.ball(add(foot, mul(tilt, r * 0.04)), ax, [r * 1.28, r * 0.05, r * 1.18], F.colors.hat, F.sides * 2);
-        F.bar(foot, top, r * 0.8, r * 0.88, [[0, F.colors.hat]], F.sides, hs);
-        F.bar(add(foot, mul(tilt, r * 0.06)), add(foot, mul(tilt, r * 0.3)), r * 0.815, r * 0.83, [[0, BAND]], F.sides, hs);
-        F.ball(top, ax, [r * 0.88, r * 0.04, r * 0.88], F.colors.hat, F.sides);
+        const foot = add(at, mul(hu, r * 0.5)), top = add(foot, mul(tilt, r * 1.0));
+        F.ball(add(foot, mul(tilt, r * 0.04)), ax, [r * 1.05, r * 0.045, r * 0.98], F.colors.hat, F.sides * 2);
+        F.bar(foot, top, r * 0.68, r * 0.74, [[0, F.colors.hat]], F.sides, hs);
+        F.bar(add(foot, mul(tilt, r * 0.06)), add(foot, mul(tilt, r * 0.3)), r * 0.69, r * 0.7, [[0, BAND]], F.sides, hs);
+        F.ball(top, ax, [r * 0.74, r * 0.035, r * 0.74], F.colors.hat, F.sides);
       } },
       // an old woman's cap: soft white linen puffed over the crown and the back of the head, its edge round the face
       // a little back from the brow; a ribbon bow under the chin (the accent)
