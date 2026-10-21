@@ -7,7 +7,11 @@ const V = () => MooodShapes.V;
 const SILK = [0.13, 0.12, 0.13, 1], BAND = [0.22, 0.2, 0.22, 1];
 // a book's: its boards (a worn brown calf) and its pages (old paper)
 // a face's: the eyes' whites, the iris (and an open mouth's dark), the upper lid's ink line
-const WHITE = [0.95, 0.92, 0.88, 1], IRIS = [0.24, 0.17, 0.14, 1], LID = [0.27, 0.21, 0.19, 1];
+const WHITE = [0.95, 0.92, 0.88, 1], IRIS = [0.24, 0.17, 0.14, 1], LID = [0.22, 0.17, 0.15, 1];
+// the glint in an eye: its own white whatever the light (a colour that glows)
+const GLINT = [1, 0.98, 0.95, 2];
+// a stick's: its wood (a dark knotty hazel) and its worn knob
+const WOOD = [0.33, 0.24, 0.17, 1], KNOB = [0.42, 0.31, 0.22, 1];
 // the expressions a face takes (<id>_mood), as the engine's simple face has them: the brows' inner and outer ends
 // raised, how open the eyes are, how wide the mouth, its corners up, how open
 const MOODS = {
@@ -38,19 +42,21 @@ return {
   ...data,
   characters: {
     // the Dreamer, twenty-six: thin, a little stooped, a clerk's worn frock coat of faded bottle green, grey trousers,
-    // dark brown hair; his hat is in his hands (the parts hat_hands, hat_hand)
-    dreamer: { kind: 'shapes', style: 'litho', who: 'man', garment: 'frockcoat', hair: 'short',
+    // brown hair grown long to the jaw, bare-headed: his hat is in his hands (the parts hat_held, hat_hands, hat_hand,
+    // hat_low), his knotty stick in the right (cane)
+    dreamer: { kind: 'shapes', style: 'litho', who: 'man', garment: 'frockcoat', hair: 'bob',
       body: { height: 1.0, thick: 0.84, shoulders: 0.94, neck: 1.05 },
-      colors: { skin: '#e2c0a4', hair: '#4a3427', top: '#e8e2d6', garment: '#4f5d4c', bottom: '#77736c', shoes: '#2a2522', hat: '#5e5249' } },
+      colors: { skin: '#e2c0a4', hair: '#6a4a32', top: '#e8e2d6', garment: '#66765b', bottom: '#77736c', shoes: '#2a2522', hat: '#5e5249' } },
     // Nastenka, seventeen: small and quick, a pale lilac-grey dress with a dark short cape over the shoulders, a light
     // straw bonnet with a ribbon tied under the chin, dark hair parted smooth
     nastenka: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'caped', hair: 'short', hat: 'bonnet',
       body: { height: 0.93, thick: 0.8, shoulders: 0.86, head: 1.03 },
       colors: { skin: '#efd2bb', hair: '#3b2a22', top: '#5a6482', garment: '#b9adc4', hat: '#e4d6b4', accent: '#8e3f4e', shoes: '#2c2628' } },
-    // the Lodger, about twenty-eight: tall, upright, a well-brushed dark frock coat, his top hat at his chest
-    lodger: { kind: 'shapes', style: 'litho', who: 'man', garment: 'longcoat', hair: 'short',
+    // the Lodger, about twenty-eight: tall, upright, a well-brushed long slate-blue frock coat, black hair under a tall
+    // black top hat (tophat; at his chest instead: "_wear": {"hat": "none"} and the part hat_hand)
+    lodger: { kind: 'shapes', style: 'litho', who: 'man', garment: 'longcoat', hair: 'short', hat: 'tophat',
       body: { height: 1.05, thick: 0.92, shoulders: 1.02 },
-      colors: { skin: '#dcb898', hair: '#2a211d', top: '#ece8e0', garment: '#3c475c', bottom: '#4a4c55', shoes: '#211f22', hat: '#4d5262' } },
+      colors: { skin: '#dcb898', hair: '#2a211d', top: '#ece8e0', garment: '#4a5a78', bottom: '#4a4c55', shoes: '#211f22', hat: '#2b2b31' } },
     // Grandmother, past seventy and blind: small, a dark plum silk dress of long ago to the floor, a faded mustard shawl
     // over the shoulders, white hair under a white cap tied with a lilac ribbon under the chin
     babushka: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'shawled', hair: 'bun', hat: 'mobcap',
@@ -66,8 +72,11 @@ return {
     // drawn round with the houses' own sepia ink line (the ground `litho`); its cloth folded in long strokes as a
     // lithograph hatches it; the face `litho`
     styles: { litho: { from: 'shadow', name: 'Lithograph', head: 1.55, egg: [0.94, 1.04, 0.99], neck: 0.72, legs: 1.0, limb: 1.2, feet: 'wedge', sides: 24,
-      trunk: { w: [0.88, 0.94, 0.8, 0.92, 0.98], d: [0.96, 1.0, 0.92, 0.94, 0.86] }, paint: 'toned', line: 1.9, tinted: false,
-      face: 'litho', ragged: 0, folds: { n: 9, depth: 0.07 }, ground: 'litho' } },
+      trunk: { w: [0.88, 0.94, 0.8, 0.92, 0.98], d: [0.96, 1.0, 0.92, 0.94, 0.86] }, arms: 'litho', paint: 'toned', line: 2.2, tinted: false,
+      face: 'litho', ragged: 0, folds: { n: 11, depth: 0.1 }, ground: 'litho' } },
+    // the arms of the style: a sleeve full at the shoulder, the forearm tapering to a real wrist, a hand with a palm as
+    // wide as a hand is (its fingers the style's own) — a hand on the granite or round a hat's brim reads as a hand
+    arms: { litho: [[0, 0.05], [0.5, 0.046], [1, 0.037], [1.5, 0.034], [1.9, 0.027], [2, 0.022], [2.35, 0.03], [2.75, 0.029], [3, 0.021]] },
     // the paper and the ink of the scenes' lithograph: the line is the houses' sepia (their lib's INK)
     grounds: { litho: { name: 'lithograph', bg: '#ece5d6', ink: '#4a3f3a', grid: '#dcd4c4', rim: '#e9b97c' } },
     // a face that reads at a few metres: eyes with their whites, a dark iris and the upper lid drawn in ink, brows of the
@@ -75,23 +84,35 @@ return {
     // same solids for every expression, only where they are changes, so one goes over into another)
     faces: { litho: { name: 'lithograph', draw: F => {
       const { axes, r: rh, on } = F.head, [, hu] = axes, x = MOODS[F.look.expression] ?? MOODS.neutral;
-      const skin = F.colors.skin, brow = F.colors.hair.map(v => v * 0.8), cheek = [skin[0], skin[1] * 0.93, skin[2] * 0.92];
-      const lips = [skin[0] * 0.8, skin[1] * 0.5, skin[2] * 0.5], open = Math.min(1, x.eye);
+      const skin = F.colors.skin, brow = F.colors.hair.map(v => v * 0.7), crease = [skin[0] * 0.8, skin[1] * 0.68, skin[2] * 0.66];
+      const cheek = [skin[0], skin[1] * 0.86, skin[2] * 0.86], lips = [skin[0] * 0.8, skin[1] * 0.46, skin[2] * 0.48];
+      const lower = [skin[0] * 0.86, skin[1] * 0.56, skin[2] * 0.57], open = Math.min(1, x.eye), up = 1.3;
       for (const sx of [-1, 1]) {
         // (on the head's drawn surface, which stands a little out of its radius: the features a little out of it too)
-        F.ball(on([sx * 0.5, -0.2, 0.84], 1.01), axes, [rh * 0.12, rh * 0.075, rh * 0.03], cheek, 10);
-        F.ball(on([sx * 0.34, 0.06, 0.94], 1.02), axes, [rh * 0.15, rh * 0.1 * x.eye, rh * 0.05], WHITE, 12);
-        F.ball(on([sx * 0.32, 0.05, 0.95], 1.04), axes, [rh * 0.08, rh * 0.09 * open, rh * 0.045], IRIS, 10);
-        F.tube([on([sx * 0.18, 0.08 + 0.09 * x.eye, 0.93], 1.06), on([sx * 0.34, 0.1 + 0.1 * x.eye, 0.94], 1.07), on([sx * 0.5, 0.07 + 0.07 * x.eye, 0.86], 1.06)],
-          [[0, rh * 0.022], [1, rh * 0.036], [2, rh * 0.026]], [[0, LID]], 6, hu);
-        F.tube([on([sx * 0.14, 0.34 + x.inner, 0.93], 1.04), on([sx * 0.31, 0.38 + (x.inner + x.outer) / 2, 0.9], 1.05), on([sx * 0.5, 0.32 + x.outer, 0.83], 1.04)],
-          [[0, rh * 0.045], [1, rh * 0.05], [2, rh * 0.03]], [[0, brow]], 6, hu);
+        F.ball(on([sx * 0.5, -0.22, 0.83], 1.01), axes, [rh * 0.14, rh * 0.085, rh * 0.03], cheek, 10);
+        // the eye: its white, the iris a little under the lid (its top hidden: a living look), a glint in it, the upper
+        // lid a heavy ink line drawn out at its outer end, the lower lid a fine crease
+        F.ball(on([sx * 0.34, 0.05, 0.94], 1.02), axes, [rh * 0.17, rh * 0.115 * x.eye, rh * 0.05], WHITE, 12);
+        F.ball(on([sx * 0.33, 0.035, 0.955], 1.045), axes, [rh * 0.095, rh * 0.105 * open, rh * 0.045], IRIS, 10);
+        F.ball(on([sx * 0.31, 0.075, 0.96], 1.07), axes, [rh * 0.026, rh * 0.026, rh * 0.02], GLINT, 6);
+        F.tube([on([sx * 0.16, 0.06 + 0.1 * x.eye, 0.93], 1.07), on([sx * 0.34, 0.1 + 0.115 * x.eye, 0.945], 1.08), on([sx * 0.54, 0.07 + 0.085 * x.eye, 0.84], 1.07)],
+          [[0, rh * 0.03], [1, rh * 0.05], [2, rh * 0.034]], [[0, LID]], 6, hu);
+        F.tube([on([sx * 0.2, 0.05 - 0.09 * x.eye, 0.93], 1.035), on([sx * 0.34, 0.04 - 0.115 * x.eye, 0.94], 1.04), on([sx * 0.5, 0.05 - 0.07 * x.eye, 0.87], 1.035)],
+          [[0, rh * 0.012], [1, rh * 0.018], [2, rh * 0.012]], [[0, crease]], 6, hu);
+        // the brow, as the mood lifts or knits it
+        F.tube([on([sx * 0.13, 0.33 + x.inner * up, 0.93], 1.05), on([sx * 0.32, 0.37 + ((x.inner + x.outer) * up) / 2, 0.9], 1.06), on([sx * 0.54, 0.31 + x.outer * up, 0.82], 1.05)],
+          [[0, rh * 0.055], [1, rh * 0.06], [2, rh * 0.03]], [[0, brow]], 6, hu);
       }
-      F.ball(on([0, -0.12, 1], 1.0), axes, [rh * 0.09, rh * 0.15, rh * 0.12], skin.map(v => v * 0.93), 10);
-      // (the mouth: its corners up or down, open — a dark oval within it — or closed: an open one no wider than nothing)
-      const w = x.wide * 1.15, y = -0.42;
+      // the nose, the shade under it
+      F.ball(on([0, -0.1, 1], 1.0), axes, [rh * 0.085, rh * 0.16, rh * 0.13], skin.map(v => v * 0.95), 10);
+      F.tube([on([-0.08, -0.25, 0.96], 1.04), on([0, -0.28, 0.99], 1.06), on([0.08, -0.25, 0.96], 1.04)], [[0, rh * 0.014], [1, rh * 0.02], [2, rh * 0.014]], [[0, crease]], 6, hu);
+      // (the mouth: its corners up or down, open — a dark oval within it — or closed: an open one no wider than nothing;
+      // the upper lip a line of the lips' colour, the lower a fuller curve under it)
+      const w = x.wide * 1.3, y = -0.44, c = x.corners * up;
       F.ball(on([0, y - x.open / 2, 0.95], 1.01), axes, [rh * w * 0.75, rh * x.open, rh * 0.03], IRIS, 10);
-      F.tube([on([-w, y + x.corners, 0.93], 1.03), on([0, y, 0.945], 1.045), on([w, y + x.corners, 0.93], 1.03)], [[0, rh * 0.026], [1, rh * 0.04], [2, rh * 0.026]], [[0, lips]], 6, hu);
+      F.tube([on([-w, y + c, 0.93], 1.04), on([0, y + 0.01, 0.945], 1.055), on([w, y + c, 0.93], 1.04)], [[0, rh * 0.028], [1, rh * 0.042], [2, rh * 0.028]], [[0, lips]], 6, hu);
+      F.tube([on([-w * 0.7, y + c * 0.6 - 0.04, 0.93], 1.035), on([0, y - 0.075 - x.open, 0.94], 1.045), on([w * 0.7, y + c * 0.6 - 0.04, 0.93], 1.035)],
+        [[0, rh * 0.02], [1, rh * 0.04], [2, rh * 0.02]], [[0, lower]], 6, hu);
     } } },
     garments: {
       // a frock coat: from the shoulders to the knee, long sleeves
@@ -116,6 +137,16 @@ return {
         F.cap(at, axes, egg.map(e => e * r * out * 1.22), [0, 0.5, -0.86], -0.3, F.colors.hat, sides, square);
         F.ball(add(at, add(mul(hu, -r * 1.02), mul(hf, r * 0.32))), axes, [r * 0.2, r * 0.11, r * 0.12], F.colors.accent, 10);
       } },
+      // a tall top hat worn a little back on the head: a narrow brim at the brow, the crown a little wider at the top,
+      // a silk band round its foot
+      tophat: { name: 'top hat', draw: F => {
+        const { add, mul, cross, unit } = V(), { at, axes: [hs, hu, hf], r } = F.head, tilt = unit(add(hu, mul(hf, -0.06))), ax = [hs, tilt, cross(hs, tilt)];
+        const foot = add(at, mul(hu, r * 0.5)), top = add(foot, mul(tilt, r * 1.35));
+        F.ball(add(foot, mul(tilt, r * 0.04)), ax, [r * 1.28, r * 0.05, r * 1.18], F.colors.hat, F.sides * 2);
+        F.bar(foot, top, r * 0.8, r * 0.88, [[0, F.colors.hat]], F.sides, hs);
+        F.bar(add(foot, mul(tilt, r * 0.06)), add(foot, mul(tilt, r * 0.3)), r * 0.815, r * 0.83, [[0, BAND]], F.sides, hs);
+        F.ball(top, ax, [r * 0.88, r * 0.04, r * 0.88], F.colors.hat, F.sides);
+      } },
       // an old woman's cap: soft white linen puffed over the crown and the back of the head, its edge round the face
       // a little back from the brow; a ribbon bow under the chin (the accent)
       mobcap: { name: 'cap', draw: F => {
@@ -134,6 +165,23 @@ return {
       hat_hand: { name: 'hat in the right hand', draw: F => {
         const { add, mul } = V(), m = F.fit.h;
         topHat(F, add(F.P('RightHand'), mul(F.fwd('Chest'), 0.02 * m)), F.fwd('Chest'), F.colors.hat ?? SILK);
+      } },
+      // the Dreamer's knotty stick in the right hand, its point on the ground a little before the foot, its worn knob
+      // over the hand; two knots along it
+      cane: { name: 'stick', draw: F => {
+        const { add, sub, unit, mix } = V(), m = F.fit.h, hand = F.P('RightHand'), f = F.fwd('Hips'), ahead = unit([f[0], 0, f[2]]);
+        const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.075 * m, top = add(hand, [0, 0.07 * m, 0]);
+        const tip = [hand[0] + ahead[0] * 0.1 * m, floor, hand[2] + ahead[2] * 0.1 * m], along = unit(sub(top, tip)), side = F.side('Hips');
+        const axes = [side, along, ahead];
+        F.bar(top, tip, 0.014 * m, 0.011 * m, [[0, WOOD]], 8, side);
+        F.ball(top, axes, [0.024 * m, 0.022 * m, 0.024 * m], KNOB, 10);
+        for (const u of [0.33, 0.6]) F.ball(mix(tip, top, u), axes, [0.019 * m, 0.024 * m, 0.019 * m], WOOD, 8);
+      } },
+      // a top hat held low before him by its brim in the left hand, shyly: hanging under the hand, its opening to his
+      // coat, its crown out before him and a little down
+      hat_held: { name: 'hat held before him', draw: F => {
+        const { add, unit } = V(), m = F.fit.h, f = F.fwd('Chest');
+        topHat(F, add(F.P('LeftHand'), [0, -0.1 * m, 0]), unit(add([f[0], 0, f[2]], [0, -0.3, 0])), F.colors.hat ?? SILK);
       } },
       // a top hat held low at the side by its brim in the left hand, the crown out away from the body and a little
       // down, so it stands clear of him as a hat

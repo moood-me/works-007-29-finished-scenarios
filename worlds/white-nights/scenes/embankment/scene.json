@@ -1,12 +1,14 @@
 {
   "engine": 3,
   "title": "The Canal Embankment",
-  "horizon": 0.52,
-  "camera": { "mode": "picture" },
+  "horizon": 0.43,
+  "camera": {
+    "mode": "picture"
+  },
   "light": {
-    "ambient": 0.7,
+    "ambient": 0.6,
     "ambientColor": "#dcd7ea",
-    "bounce": 0.5,
+    "bounce": 0.55,
     "haze": 0.14,
     "hazeColor": "#e3dce3",
     "hazeGlow": 0.9,
@@ -17,181 +19,795 @@
     "tintStrength": 0.05,
     "vignette": 0.28,
     "grain": 0.16,
-    "wind": [1, 0.3, 0.3]
+    "wind": [
+      1,
+      0.3,
+      0.3
+    ]
   },
   "lights": [
-    { "id": "glow", "from": [-21, 6], "color": "#ffdcc4", "strength": 0.55 },
-    { "id": "skylight", "from": [25, 60], "color": "#e4e0f2", "strength": 0.45 },
-    { "id": "lamp", "of": "lamp#flame", "color": "#ffc77e", "strength": 1.7, "reach": 7, "on": "lamp", "flicker": 0.12 }
+    {
+      "id": "glow",
+      "from": [
+        -21,
+        6
+      ],
+      "color": "#ffd9bf",
+      "strength": 0.6
+    },
+    {
+      "id": "skylight",
+      "from": [
+        165,
+        40
+      ],
+      "color": "#e6e2f2",
+      "strength": 0.62
+    },
+    {
+      "id": "lamp",
+      "of": "lamp#flame",
+      "color": "#ffc77e",
+      "strength": 2.3,
+      "reach": 8,
+      "on": "lamp",
+      "flicker": 0.12
+    }
   ],
-  "modules": ["cast"],
+  "modules": [
+    "cast"
+  ],
   "state": {
     "lamp": 1,
-    "nastya_look": [4.0, 1.5, 1.6],
-    "nastya_reach": { "r": [-1.83, 4.2, 1.07], "l": [-1.44, 4.2, 1.15] },
+    "nastya_look": [
+      2.5,
+      0,
+      1.6
+    ],
+    "nastya_reach": {
+      "r": [
+        -1,
+        3.45,
+        1.07
+      ],
+      "l": [
+        -0.494,
+        3.376,
+        1.18
+      ]
+    },
     "nastya_mood": "thinking",
-    "dreamer_with": ["hat_hands"],
-    "dreamer_reach": { "r": [0.247, 4.607, 1.08], "l": [0.381, 4.459, 1.08] },
-    "dreamer_look": "nastya#hand_r",
+    "dreamer_with": [
+      "cane",
+      "hat_held"
+    ],
+    "dreamer_reach": {
+      "r": [
+        0.538,
+        4.492,
+        0.85
+      ],
+      "l": [
+        0.729,
+        4.159,
+        0.95
+      ]
+    },
+    "dreamer_look": "nastya",
     "dreamer_mood": "smile",
-    "lodger_with": ["hat_hand"],
-    "lodger_reach": { "r": [-0.876, 6.186, 1.32] },
+    "lodger_reach": {
+      "r": [
+        -0.4,
+        5.82,
+        1.25
+      ]
+    },
     "lodger_look": "nastya",
     "lodger_mood": "neutral"
   },
   "states": {
-    "lamp": { "range": [0, 1], "smooth": true, "means": "the street lamp by the parapet: 0 out, 1 burning (its light and its glow)" }
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the street lamp by the parapet: 0 out, 1 burning (its light and its glow)"
+    }
   },
   "objects": [
-    { "id": "sky", "name": "Sky", "sky": true },
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
     {
       "id": "water",
       "name": "The canal",
       "plane": true,
-      "across": -13.15,
+      "across": -12.25,
       "distance": 160,
-      "elevation": -2.2,
+      "elevation": -1.6,
       "width": 21.7,
       "depth": 320,
-      "reflect": { "strength": 0.92, "fade": 0, "rough": 0.3, "ripple": 0.35 }
+      "reflect": {
+        "strength": 0.55,
+        "fade": 0,
+        "rough": 0.35,
+        "ripple": 0.5
+      },
+      "glows": true
     },
-    { "id": "far_wall", "name": "Far bank's wall", "across": -24, "distance": 0, "elevation": -2.2, "facing": 90, "height": 3.3, "box": [0, -3.35, 320, 0.05] },
-    { "id": "far_street", "name": "Far bank's street", "plane": true, "across": -27.25, "distance": 160, "elevation": 0, "width": 5.5, "depth": 320 },
-    { "id": "parapet", "name": "Granite parapet", "across": -1.8, "distance": 1, "facing": 90, "height": 1.05, "box": [0, -1.1, 319, 0.05] },
-    { "id": "parapet_top", "name": "Parapet's top", "plane": true, "across": -2.05, "distance": 160.5, "elevation": 1.05, "width": 0.5, "depth": 319 },
-    { "id": "pavement", "name": "Embankment street", "plane": true, "across": 2.1, "distance": 160, "elevation": 0, "width": 7.8, "depth": 320 },
+    {
+      "id": "far_wall",
+      "name": "Far bank's wall",
+      "across": -23.1,
+      "distance": 0,
+      "elevation": -1.6,
+      "facing": 90,
+      "height": 2.65,
+      "box": [
+        0,
+        -2.7,
+        320,
+        0.05
+      ]
+    },
+    {
+      "id": "far_street",
+      "name": "Far bank's street",
+      "plane": true,
+      "across": -26.35,
+      "distance": 160,
+      "elevation": 0,
+      "width": 5.5,
+      "depth": 320
+    },
+    {
+      "id": "parapet",
+      "name": "Granite parapet",
+      "across": -0.9,
+      "distance": 1,
+      "facing": 90,
+      "height": 1.05,
+      "box": [
+        0,
+        -1.1,
+        319,
+        0.05
+      ]
+    },
+    {
+      "id": "parapet_top",
+      "name": "Parapet's top",
+      "plane": true,
+      "across": -1.15,
+      "distance": 160.5,
+      "elevation": 1.05,
+      "width": 0.5,
+      "depth": 319
+    },
+    {
+      "id": "pavement",
+      "name": "Embankment street",
+      "plane": true,
+      "across": 3,
+      "distance": 160,
+      "elevation": 0,
+      "width": 7.8,
+      "depth": 320
+    },
     {
       "id": "house_a",
       "name": "Ochre house",
-      "across": -30,
+      "across": -29.1,
       "distance": -10,
       "facing": 90,
       "height": 19.8,
-      "box": [-0.3, -19.8, 24.3, 0.1],
+      "box": [
+        -0.3,
+        -19.8,
+        24.3,
+        0.1
+      ],
       "copies": [
-        { "across": -30, "distance": -10, "facing": 90 },
-        { "across": -30, "distance": 95, "facing": 90, "tint": "#f6f1ea" },
-        { "across": -30, "distance": 200, "facing": 90 },
-        { "across": 6, "distance": 108, "facing": 270, "tint": "#f4eef0" },
-        { "across": 6, "distance": 213, "facing": 270 }
+        {
+          "across": -29.1,
+          "distance": -10,
+          "facing": 90
+        },
+        {
+          "across": -29.1,
+          "distance": 95,
+          "facing": 90,
+          "tint": "#f6f1ea"
+        },
+        {
+          "across": -29.1,
+          "distance": 200,
+          "facing": 90
+        },
+        {
+          "across": 6.9,
+          "distance": 108,
+          "facing": 270,
+          "tint": "#f4eef0"
+        },
+        {
+          "across": 6.9,
+          "distance": 213,
+          "facing": 270
+        }
       ]
     },
     {
       "id": "house_b",
       "name": "Pink house",
-      "across": -30,
+      "across": -29.1,
       "distance": 14,
       "facing": 90,
       "height": 17.3,
-      "box": [-0.3, -17.3, 18.3, 0.1],
+      "box": [
+        -0.3,
+        -17.3,
+        18.3,
+        0.1
+      ],
       "copies": [
-        { "across": -30, "distance": 14, "facing": 90 },
-        { "across": -30, "distance": 119, "facing": 90, "tint": "#f2eef2" },
-        { "across": -30, "distance": 224, "facing": 90 },
-        { "across": 6, "distance": 63, "facing": 270 },
-        { "across": 6, "distance": 168, "facing": 270, "tint": "#f6f2ea" },
-        { "across": 6, "distance": 273, "facing": 270 }
+        {
+          "across": -29.1,
+          "distance": 14,
+          "facing": 90
+        },
+        {
+          "across": -29.1,
+          "distance": 119,
+          "facing": 90,
+          "tint": "#f2eef2"
+        },
+        {
+          "across": -29.1,
+          "distance": 224,
+          "facing": 90
+        },
+        {
+          "across": 6.9,
+          "distance": 63,
+          "facing": 270
+        },
+        {
+          "across": 6.9,
+          "distance": 168,
+          "facing": 270,
+          "tint": "#f6f2ea"
+        },
+        {
+          "across": 6.9,
+          "distance": 273,
+          "facing": 270
+        }
       ]
     },
     {
       "id": "house_c",
       "name": "Grey-green house",
-      "across": -30,
+      "across": -29.1,
       "distance": 32,
       "facing": 90,
       "height": 20.8,
-      "box": [-0.3, -20.8, 21.3, 0.1],
+      "box": [
+        -0.3,
+        -20.8,
+        21.3,
+        0.1
+      ],
       "copies": [
-        { "across": -30, "distance": 32, "facing": 90 },
-        { "across": -30, "distance": 137, "facing": 90 },
-        { "across": -30, "distance": 242, "facing": 90, "tint": "#f4f0ea" },
-        { "across": 6, "distance": 84, "facing": 270 },
-        { "across": 6, "distance": 189, "facing": 270, "tint": "#f2eef2" },
-        { "across": 6, "distance": 294, "facing": 270 }
+        {
+          "across": -29.1,
+          "distance": 32,
+          "facing": 90
+        },
+        {
+          "across": -29.1,
+          "distance": 137,
+          "facing": 90
+        },
+        {
+          "across": -29.1,
+          "distance": 242,
+          "facing": 90,
+          "tint": "#f4f0ea"
+        },
+        {
+          "across": 6.9,
+          "distance": 84,
+          "facing": 270
+        },
+        {
+          "across": 6.9,
+          "distance": 189,
+          "facing": 270,
+          "tint": "#f2eef2"
+        },
+        {
+          "across": 6.9,
+          "distance": 294,
+          "facing": 270
+        }
       ]
     },
     {
       "id": "house_d",
       "name": "Blue-grey house",
-      "across": -30,
+      "across": -29.1,
       "distance": 79,
       "facing": 90,
       "height": 16.8,
-      "box": [-0.3, -16.8, 16.3, 0.1],
+      "box": [
+        -0.3,
+        -16.8,
+        16.3,
+        0.1
+      ],
       "copies": [
-        { "across": -30, "distance": 79, "facing": 90 },
-        { "across": -30, "distance": 184, "facing": 90, "tint": "#f6f2ea" },
-        { "across": -30, "distance": 289, "facing": 90 },
-        { "across": 6, "distance": 45, "facing": 270 },
-        { "across": 6, "distance": 150, "facing": 270 },
-        { "across": 6, "distance": 255, "facing": 270, "tint": "#f2eef2" }
+        {
+          "across": -29.1,
+          "distance": 79,
+          "facing": 90
+        },
+        {
+          "across": -29.1,
+          "distance": 184,
+          "facing": 90,
+          "tint": "#f6f2ea"
+        },
+        {
+          "across": -29.1,
+          "distance": 289,
+          "facing": 90
+        },
+        {
+          "across": 6.9,
+          "distance": 45,
+          "facing": 270
+        },
+        {
+          "across": 6.9,
+          "distance": 150,
+          "facing": 270
+        },
+        {
+          "across": 6.9,
+          "distance": 255,
+          "facing": 270,
+          "tint": "#f2eef2"
+        }
       ]
     },
     {
       "id": "house_e",
       "name": "Cream house",
-      "across": -30,
+      "across": -29.1,
       "distance": 53,
       "facing": 90,
       "height": 18.3,
-      "box": [-0.3, -18.3, 26.3, 0.1],
+      "box": [
+        -0.3,
+        -18.3,
+        26.3,
+        0.1
+      ],
       "copies": [
-        { "across": -30, "distance": 53, "facing": 90 },
-        { "across": -30, "distance": 158, "facing": 90 },
-        { "across": -30, "distance": 263, "facing": 90, "tint": "#f2eef2" },
-        { "across": -30, "distance": 305, "facing": 90 },
-        { "across": 6, "distance": 134, "facing": 270, "tint": "#f6f2ea" },
-        { "across": 6, "distance": 239, "facing": 270 },
-        { "across": 6, "distance": 320, "facing": 270 }
+        {
+          "across": -29.1,
+          "distance": 53,
+          "facing": 90
+        },
+        {
+          "across": -29.1,
+          "distance": 158,
+          "facing": 90
+        },
+        {
+          "across": -29.1,
+          "distance": 263,
+          "facing": 90,
+          "tint": "#f2eef2"
+        },
+        {
+          "across": -29.1,
+          "distance": 305,
+          "facing": 90
+        },
+        {
+          "across": 6.9,
+          "distance": 134,
+          "facing": 270,
+          "tint": "#f6f2ea"
+        },
+        {
+          "across": 6.9,
+          "distance": 239,
+          "facing": 270
+        },
+        {
+          "across": 6.9,
+          "distance": 320,
+          "facing": 270
+        }
       ]
     },
-    { "id": "yellow_house", "name": "The yellow house", "across": 6, "distance": 29, "facing": 270, "height": 17.3, "box": [-0.3, -17.3, 26.3, 0.1] },
-    { "id": "porch", "name": "Porch step", "across": 5.3, "distance": 12, "facing": 270, "height": 0.36, "box": [-1.45, -0.4, 1.45, 0.02] },
-    { "id": "porch_side", "name": "Porch step's near end", "across": 5.65, "distance": 10.6, "facing": 180, "height": 0.36, "box": [-0.37, -0.4, 0.37, 0.02] },
-    { "id": "porch_top", "name": "Porch step's top", "plane": true, "across": 5.65, "distance": 12, "elevation": 0.36, "width": 0.7, "depth": 2.8 },
-    { "id": "awning", "name": "Awning", "across": 6, "distance": 12, "elevation": 3.25, "facing": 270, "tilt": -90, "height": 1.6, "box": [-1.55, -1.65, 1.55, 0.05] },
-    { "id": "awning_front", "name": "Awning's front edge", "across": 4.4, "distance": 12, "elevation": 2.95, "facing": 270, "height": 0.3, "box": [-1.55, -0.32, 1.55, 0.06] },
-    { "id": "awning_side", "name": "Awning's near edge", "across": 5.2, "distance": 10.5, "elevation": 2.95, "facing": 180, "height": 0.3, "box": [-0.85, -0.32, 0.85, 0.06] },
+    {
+      "id": "yellow_house",
+      "name": "The yellow house",
+      "across": 6.9,
+      "distance": 29,
+      "facing": 270,
+      "height": 17.3,
+      "box": [
+        -0.3,
+        -17.3,
+        26.3,
+        0.1
+      ]
+    },
+    {
+      "id": "porch",
+      "name": "Porch step",
+      "across": 6.2,
+      "distance": 12,
+      "facing": 270,
+      "height": 0.36,
+      "box": [
+        -1.45,
+        -0.4,
+        1.45,
+        0.02
+      ]
+    },
+    {
+      "id": "porch_side",
+      "name": "Porch step's near end",
+      "across": 6.55,
+      "distance": 10.6,
+      "facing": 180,
+      "height": 0.36,
+      "box": [
+        -0.37,
+        -0.4,
+        0.37,
+        0.02
+      ]
+    },
+    {
+      "id": "porch_top",
+      "name": "Porch step's top",
+      "plane": true,
+      "across": 6.55,
+      "distance": 12,
+      "elevation": 0.36,
+      "width": 0.7,
+      "depth": 2.8
+    },
+    {
+      "id": "awning",
+      "name": "Awning",
+      "across": 6.9,
+      "distance": 12,
+      "elevation": 3.25,
+      "facing": 270,
+      "tilt": -90,
+      "height": 1.6,
+      "box": [
+        -1.55,
+        -1.65,
+        1.55,
+        0.05
+      ]
+    },
+    {
+      "id": "awning_front",
+      "name": "Awning's front edge",
+      "across": 5.3,
+      "distance": 12,
+      "elevation": 2.95,
+      "facing": 270,
+      "height": 0.3,
+      "box": [
+        -1.55,
+        -0.32,
+        1.55,
+        0.06
+      ]
+    },
+    {
+      "id": "awning_side",
+      "name": "Awning's near edge",
+      "across": 6.1,
+      "distance": 10.5,
+      "elevation": 2.95,
+      "facing": 180,
+      "height": 0.3,
+      "box": [
+        -0.85,
+        -0.32,
+        0.85,
+        0.06
+      ]
+    },
     {
       "id": "awning_post",
       "name": "Awning's post",
-      "across": 4.5,
+      "across": 5.4,
       "distance": 10.6,
       "height": 2.97,
-      "box": [-0.24, -2.97, 0.24, 0],
+      "box": [
+        -0.24,
+        -2.97,
+        0.24,
+        0
+      ],
       "copies": [
-        { "across": 4.5, "distance": 10.6 },
-        { "across": 4.5, "distance": 13.4 }
+        {
+          "across": 5.4,
+          "distance": 10.6
+        },
+        {
+          "across": 5.4,
+          "distance": 13.4
+        }
       ]
     },
-    { "id": "lamp", "name": "Street lamp", "across": -1.35, "distance": 6.0, "height": 3.75, "box": [-0.35, -3.8, 0.35, 0.02], "flicker": 0.12, "shadow": true },
-    { "id": "bench", "name": "Bench", "across": -1.15, "distance": 13, "facing": 90, "height": 0.9, "box": [-0.05, -0.95, 1.85, 0.02], "shadow": true },
-    { "id": "bridge", "name": "Stone bridge", "across": -13.15, "distance": 45, "elevation": -2.2, "facing": 180, "height": 4.4, "box": [-12.6, -4.45, 12.6, 0.05] },
-    { "id": "mist", "name": "Mist on the water", "across": -13, "distance": 130, "elevation": -2.2, "height": 3, "box": [-10, -3, 10, 0.2] },
-    { "id": "vista", "name": "House at the canal's turn", "across": -12, "distance": 322, "facing": 180, "height": 19.3, "box": [-25.3, -19.3, 25.3, 0.1] },
-    { "id": "spire", "name": "Dome and spire far off", "across": -60, "distance": 900, "height": 100, "box": [-16.5, -101, 16.5, 0.1] },
-    { "id": "nastya", "name": "Nastenka", "person": { "cast": "cast", "who": "nastenka", "turn": 150 }, "across": -1.5, "distance": 4.3 },
-    { "id": "dreamer", "name": "The Dreamer", "person": { "cast": "cast", "who": "dreamer", "turn": 228 }, "across": 0.5, "distance": 4.7 },
-    { "id": "lodger", "name": "The Lodger", "person": { "cast": "cast", "who": "lodger", "turn": 200 }, "across": -0.75, "distance": 6.3 }
+    {
+      "id": "lamp",
+      "name": "Street lamp",
+      "across": -0.45,
+      "distance": 5.8,
+      "height": 3.75,
+      "box": [
+        -0.35,
+        -3.8,
+        0.35,
+        0.02
+      ],
+      "flicker": 0.12,
+      "shadow": true
+    },
+    {
+      "id": "lamps",
+      "name": "Lamps along both banks",
+      "across": -0.45,
+      "distance": 30,
+      "height": 3.75,
+      "box": [
+        -0.35,
+        -3.8,
+        0.35,
+        0.02
+      ],
+      "flicker": 0.12,
+      "copies": [
+        {
+          "across": -0.45,
+          "distance": 30
+        },
+        {
+          "across": -0.45,
+          "distance": 54
+        },
+        {
+          "across": -0.45,
+          "distance": 80
+        },
+        {
+          "across": -0.45,
+          "distance": 108
+        },
+        {
+          "across": -0.45,
+          "distance": 140
+        },
+        {
+          "across": -0.45,
+          "distance": 175
+        },
+        {
+          "across": -23.6,
+          "distance": 14
+        },
+        {
+          "across": -23.6,
+          "distance": 40
+        },
+        {
+          "across": -23.6,
+          "distance": 66
+        },
+        {
+          "across": -23.6,
+          "distance": 94
+        },
+        {
+          "across": -23.6,
+          "distance": 126
+        },
+        {
+          "across": -23.6,
+          "distance": 162
+        }
+      ]
+    },
+    {
+      "id": "bench",
+      "name": "Bench",
+      "across": -0.25,
+      "distance": 13,
+      "facing": 90,
+      "height": 0.9,
+      "box": [
+        -0.05,
+        -0.95,
+        1.85,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "bridge",
+      "name": "Stone bridge",
+      "across": -12.25,
+      "distance": 45,
+      "elevation": -2.2,
+      "facing": 180,
+      "height": 4.4,
+      "box": [
+        -12.6,
+        -4.45,
+        12.6,
+        0.05
+      ]
+    },
+    {
+      "id": "mist",
+      "name": "Mist on the water",
+      "across": -12.1,
+      "distance": 130,
+      "elevation": -1.6,
+      "height": 3,
+      "box": [
+        -10,
+        -3,
+        10,
+        0.2
+      ]
+    },
+    {
+      "id": "vista",
+      "name": "House at the canal's turn",
+      "across": -11.1,
+      "distance": 322,
+      "facing": 180,
+      "height": 19.3,
+      "box": [
+        -25.3,
+        -19.3,
+        25.3,
+        0.1
+      ]
+    },
+    {
+      "id": "spire",
+      "name": "Dome and spire far off",
+      "across": -59.1,
+      "distance": 900,
+      "height": 100,
+      "box": [
+        -16.5,
+        -101,
+        16.5,
+        0.1
+      ]
+    },
+    {
+      "id": "nastya",
+      "name": "Nastenka",
+      "person": {
+        "cast": "cast",
+        "who": "nastenka",
+        "turn": 150
+      },
+      "across": -0.6,
+      "distance": 3.5
+    },
+    {
+      "id": "dreamer",
+      "name": "The Dreamer",
+      "person": {
+        "cast": "cast",
+        "who": "dreamer",
+        "turn": 225
+      },
+      "across": 0.8,
+      "distance": 4.4
+    },
+    {
+      "id": "lodger",
+      "name": "The Lodger",
+      "person": {
+        "cast": "cast",
+        "who": "lodger",
+        "turn": 199
+      },
+      "across": 0.2,
+      "distance": 5.9
+    }
   ],
   "music": {
     "prompts": [
-      { "text": "a solo piano nocturne in the manner of Field and early Chopin, slow, tender, rubato, soft pedal", "weight": 1.2 },
-      { "text": "a string quartet playing a quiet romance, long held notes, muted violins, 1840s salon music", "weight": 0.8 },
-      { "text": "a lone cello singing a slow melancholy melody over soft pizzicato", "weight": 0.5 },
-      { "text": "a music box melody slowly unwinding, delicate and a little sad", "weight": 0 },
-      { "text": "a Russian romance on a seven-string guitar, gentle fingerpicking, wistful", "weight": 0 },
-      { "text": "an ambient drone of pale strings, like light on water at night", "weight": 0 },
-      { "text": "a harp playing slow broken chords, shimmering, calm", "weight": 0 },
-      { "text": "a clarinet melody over a soft string bed, a quiet reverie", "weight": 0 },
-      { "text": "a distant church bell striking, with a sustained organ pedal note", "weight": 0 },
-      { "text": "a waltz played very slowly on an old upright piano, dreamy and nostalgic", "weight": 0 },
-      { "text": "a chamber trio of piano, violin and cello, Tchaikovsky-like lyricism, hushed", "weight": 0 },
-      { "text": "a flute and harp duet, airy and transparent, a summer night", "weight": 0 },
-      { "text": "minimal piano with long silences, a few notes at a time, intimate", "weight": 0 },
-      { "text": "a romantic violin solo, singing and yearning, with a soft piano accompaniment", "weight": 0 },
-      { "text": "a balalaika tremolo playing a quiet folk tune far away", "weight": 0 },
-      { "text": "soft choir humming without words, slow, luminous", "weight": 0 }
+      {
+        "text": "a solo piano nocturne in the manner of Field and early Chopin, slow, tender, rubato, soft pedal",
+        "weight": 1.2
+      },
+      {
+        "text": "a string quartet playing a quiet romance, long held notes, muted violins, 1840s salon music",
+        "weight": 0.8
+      },
+      {
+        "text": "a lone cello singing a slow melancholy melody over soft pizzicato",
+        "weight": 0.5
+      },
+      {
+        "text": "a music box melody slowly unwinding, delicate and a little sad",
+        "weight": 0
+      },
+      {
+        "text": "a Russian romance on a seven-string guitar, gentle fingerpicking, wistful",
+        "weight": 0
+      },
+      {
+        "text": "an ambient drone of pale strings, like light on water at night",
+        "weight": 0
+      },
+      {
+        "text": "a harp playing slow broken chords, shimmering, calm",
+        "weight": 0
+      },
+      {
+        "text": "a clarinet melody over a soft string bed, a quiet reverie",
+        "weight": 0
+      },
+      {
+        "text": "a distant church bell striking, with a sustained organ pedal note",
+        "weight": 0
+      },
+      {
+        "text": "a waltz played very slowly on an old upright piano, dreamy and nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "a chamber trio of piano, violin and cello, Tchaikovsky-like lyricism, hushed",
+        "weight": 0
+      },
+      {
+        "text": "a flute and harp duet, airy and transparent, a summer night",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano with long silences, a few notes at a time, intimate",
+        "weight": 0
+      },
+      {
+        "text": "a romantic violin solo, singing and yearning, with a soft piano accompaniment",
+        "weight": 0
+      },
+      {
+        "text": "a balalaika tremolo playing a quiet folk tune far away",
+        "weight": 0
+      },
+      {
+        "text": "soft choir humming without words, slow, luminous",
+        "weight": 0
+      }
     ],
     "bpm": 66,
     "density": 0.3,
