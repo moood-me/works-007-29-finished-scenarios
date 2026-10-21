@@ -1,6 +1,6 @@
 // Jane's embroidery frame: a hoop of linen on a turned stand just before her knees, the hoop over her lap where her
-// hands hold it, its work half done — a spray of leaves and a rose in coloured silks (x across, y up negative; the hoop at 0.75 m). Its points:
-// `hoop` (the work), `left` and `right` (its rim's two sides, where Jane's hands are)
+// hands hold it, its work half done — a spray of leaves and a rose in coloured silks (x across, y up negative; the hoop
+// at 0.75 m). Its points: `hoop` (the work), `left` and `right` (its rim's two sides, where Jane's hands are)
 const L = e.kit.brush, px = L.px(e), r = L.rand(139);
 const stand = new Path2D();
 stand.moveTo(-0.012, -0.66);
