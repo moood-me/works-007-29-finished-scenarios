@@ -10,7 +10,7 @@ from pathlib import Path
 
 SCENE = Path(__file__).resolve().parent.parent / 'scenes' / 'cairn' / 'scene.json'
 CLEAR = [  # (across, distance, radius): nothing grows there
-    (-1.1, 5.8, 1.1), (1.35, 4.7, 0.8), (-4.6, 10.2, 2.4), (2.8, 10.5, 3.4), (-7.4, 12.5, 3.6), (-2.9, 2.6, 1.6), (2.5, 2.3, 1.0),
+    (-0.9, 4.6, 1.1), (1.2, 4.1, 0.8), (-4.6, 10.2, 2.4), (2.8, 10.5, 3.4), (-7.4, 12.5, 3.6), (-2.9, 2.6, 1.6), (2.5, 2.3, 1.0),
 ]
 
 

@@ -70,9 +70,6 @@
     "thick": 0,
     "clear": 0,
     "hearth": 1,
-    "axl_look": "wistan",
-    "beatrice_look": "wistan",
-    "wistan_look": "axl",
     "axl_reach": {
       "l": "beatrice#hand_r"
     },
@@ -629,15 +626,9 @@
           "tint": "#e9ebe0"
         },
         {
-          "across": 1.48,
-          "distance": 3.23,
-          "scale": 0.9,
-          "tint": "#f3f1e6"
-        },
-        {
-          "across": 6.76,
-          "distance": 12.02,
-          "scale": 0.77,
+          "across": 7.05,
+          "distance": 12.72,
+          "scale": 0.81,
           "tint": "#f3f1e6"
         },
         {
@@ -887,36 +878,36 @@
           "tint": "#e9ebe0"
         },
         {
-          "across": 1.51,
-          "distance": 3.49,
-          "scale": 0.89,
+          "across": -2.8,
+          "distance": 7.03,
+          "scale": 1.07,
           "flip": true,
-          "tint": "#e9ebe0"
-        },
-        {
-          "across": 5.02,
-          "distance": 5.55,
-          "scale": 0.89,
-          "flip": true,
-          "tint": "#e9ebe0"
-        },
-        {
-          "across": 1.96,
-          "distance": 29.86,
-          "scale": 0.95,
           "tint": "#f3f1e6"
         },
         {
-          "across": 10.28,
-          "distance": 22.26,
-          "scale": 0.93,
+          "across": -6.03,
+          "distance": 6.88,
+          "scale": 1.28,
+          "tint": "#f3f1e6"
+        },
+        {
+          "across": 13.07,
+          "distance": 20.37,
+          "scale": 1.09,
           "flip": true,
           "tint": "#e9ebe0"
         },
         {
-          "across": 8.76,
-          "distance": 19.41,
-          "scale": 0.72,
+          "across": 3.58,
+          "distance": 4.85,
+          "scale": 1.31,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 1.54,
+          "distance": 6.64,
+          "scale": 0.87,
           "tint": "#e9ebe0"
         },
         {
@@ -927,38 +918,36 @@
           "tint": "#f3f1e6"
         },
         {
-          "across": 5.79,
-          "distance": 4.72,
-          "scale": 1.01,
-          "tint": "#e9ebe0"
-        },
-        {
-          "across": 5.33,
-          "distance": 4.4,
-          "scale": 1.02,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -1.86,
-          "distance": 26.0,
-          "scale": 0.92,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 5.64,
-          "distance": 19.8,
-          "scale": 0.91,
-          "flip": true,
+          "across": 1.59,
+          "distance": 5.19,
+          "scale": 0.82,
           "tint": "#f3f1e6"
         },
         {
-          "across": 6.56,
-          "distance": 8.11,
-          "scale": 1.37,
+          "across": 9.45,
+          "distance": 15.37,
+          "scale": 0.8,
+          "tint": "#f3f1e6"
+        },
+        {
+          "across": 2.55,
+          "distance": 4.22,
+          "scale": 0.95,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -10.67,
+          "distance": 18.57,
+          "scale": 0.86,
           "flip": true,
-          "tint": "#e9ebe0"
+          "tint": "#ffffff"
+        },
+        {
+          "across": -15.23,
+          "distance": 28.3,
+          "scale": 1.27,
+          "flip": true,
+          "tint": "#ffffff"
         },
         {
           "across": 4.57,
@@ -1324,6 +1313,13 @@
           "scale": 1.09,
           "flip": true,
           "tint": "#e9ebe0"
+        },
+        {
+          "across": 13.13,
+          "distance": 20.58,
+          "scale": 1.18,
+          "flip": true,
+          "tint": "#e9ebe0"
         }
       ]
     },
@@ -1486,10 +1482,10 @@
       "person": {
         "cast": "cast",
         "who": "wistan",
-        "turn": 238
+        "turn": 212
       },
-      "across": 1.35,
-      "distance": 4.7,
+      "across": 1.2,
+      "distance": 4.1,
       "shadow": true
     },
     {
@@ -1498,10 +1494,10 @@
       "person": {
         "cast": "cast",
         "who": "beatrice",
-        "turn": 128
+        "turn": 152
       },
-      "across": -0.75,
-      "distance": 5.6,
+      "across": -0.55,
+      "distance": 4.45,
       "shadow": true
     },
     {
@@ -1510,10 +1506,10 @@
       "person": {
         "cast": "cast",
         "who": "axl",
-        "turn": 136
+        "turn": 160
       },
-      "across": -1.5,
-      "distance": 5.95,
+      "across": -1.25,
+      "distance": 4.8,
       "shadow": true
     },
     {

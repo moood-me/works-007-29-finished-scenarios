@@ -4,6 +4,16 @@
 // man's 1.76 m).
 const V = () => MooodShapes.V;
 const CLOTH = [0.6, 0.55, 0.46, 1], LEATHER = [0.24, 0.18, 0.13, 1], STEEL = [0.66, 0.67, 0.68, 1], BRASS = [0.6, 0.5, 0.3, 1];
+// the face's expressions (<id>_mood): brows' inner and outer ends up, the eyes' openness, the mouth's width, its
+// corners up or down — as the engine's simple face has them
+const MOODS = {
+  neutral: { inner: 0, outer: 0, eye: 1, wide: 0.15, corners: 0 },
+  smile: { inner: 0.01, outer: 0.01, eye: 0.85, wide: 0.17, corners: 0.05 },
+  sad: { inner: 0.07, outer: -0.05, eye: 0.85, wide: 0.14, corners: -0.045 },
+  thinking: { inner: -0.03, outer: 0.03, eye: 0.85, wide: 0.1, corners: -0.01 },
+  tired: { inner: 0.02, outer: -0.05, eye: 0.55, wide: 0.14, corners: -0.02 },
+  afraid: { inner: 0.09, outer: 0.01, eye: 1.3, wide: 0.13, corners: -0.03 },
+};
 // toward the person's right, level
 function rightOf(F) {
   const { sub, unit } = V(), d = sub(F.P('RightLeg'), F.P('LeftLeg'));
@@ -31,7 +41,24 @@ return {
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, plain colours lit by the scene, a fine line,
     // a simple face (eyes, brows, nose, mouth) so the faces read
-    styles: { giant: { from: 'flat', name: 'The Buried Giant', line: 0.8, face: 'simple' } },
+    styles: { giant: { from: 'flat', name: 'The Buried Giant', head: 1.2, line: 0.8, face: 'giant' } },
+    faces: {
+      // the simple face drawn bolder, so it reads at a few metres: larger dark eyes, thicker brows a shade darker than
+      // the hair, a nose, a mouth
+      giant: { name: 'bold simple', draw: F => {
+        const { axes, r: rh, on } = F.head, [, hu] = axes, dark = [0.15, 0.12, 0.11, 1];
+        const brow = [...F.colors.hair.slice(0, 3).map(v => v * 0.6), 1], lips = [...F.colors.skin.slice(0, 3).map(v => v * 0.68), 1];
+        const x = MOODS[F.look.expression] ?? MOODS.neutral;
+        for (const sx of [-1, 1]) {
+          F.ball(on([sx * 0.33, 0.06, 0.94], 0.985), axes, [rh * 0.1, rh * 0.12 * x.eye, rh * 0.05], dark, 10);
+          F.tube([on([sx * 0.15, 0.34 + x.inner, 0.93], 0.995), on([sx * 0.3, 0.37 + (x.inner + x.outer) / 2, 0.9], 1.0), on([sx * 0.47, 0.31 + x.outer, 0.84], 0.995)],
+            [[0, rh * 0.045], [1, rh * 0.05], [2, rh * 0.032]], [[0, brow]], 6, hu);
+        }
+        F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.1, rh * 0.14, rh * 0.13], [...F.colors.skin.slice(0, 3).map(v => v * 0.93), 1], 10);
+        const w = x.wide, y = -0.38;
+        F.tube([on([-w, y + x.corners, 0.93], 0.995), on([0, y, 0.94], 1.0), on([w, y + x.corners, 0.93], 0.995)], [[0, rh * 0.028], [2, rh * 0.028]], [[0, lips]], 6, hu);
+      } },
+    },
     garments: {
       // a long dress with long sleeves, and over the shoulders a short shawl in the accent colour
       shawl_dress: { name: 'dress and shawl', hang: [

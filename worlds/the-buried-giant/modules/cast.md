@@ -6,7 +6,7 @@ motions are the engine's (`stand`, `walk`).
 ## Style
 
 `giant` — the engine's flat geometry (`flat`): straight edges, muted plain colours, lit by the scene's own light, a
-fine line, a simple face (eyes, brows, nose, mouth) so the faces read at the distance the scenes keep them.
+fine line, a head a little large and a bold simple face (`giant`: eyes, brows, nose, mouth; `<id>_mood` — neutral, smile, sad, thinking, tired, afraid) so the faces read at a few metres.
 
 ## Who
 

@@ -14,4 +14,4 @@ looking at Axl — standing, breathing, no moves.
 - Mist: four drifting see-through bands (`mist_near`, `mist_mid`, `mist_far`, `mist_mount`) — the largest cost of
   the frame; keep them few. The mist's thickness is the light's looks `thick` and `clear` (the game's Mist ↔ Clear).
 - Copies (`boulders`, `heather`, `tufts`) are laid by `tools/cairn_copies.py`, which writes them into scene.json.
-- People: `axl`, `beatrice`, `wistan` of the cast; hands joined by `_reach`, looks by `_look`.
+- People: `axl`, `beatrice`, `wistan` of the cast; hands joined by `_reach`; standing three-quarter to the viewer, faces toward each other.
