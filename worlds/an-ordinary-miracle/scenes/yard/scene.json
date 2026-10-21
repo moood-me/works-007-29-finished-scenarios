@@ -9,7 +9,7 @@
     "ambient": 0.68,
     "ambientColor": "#c3cde2",
     "bounce": 0.5,
-    "haze": 0.035,
+    "haze": 0.018,
     "hazeColor": "#dfe2e4",
     "hazeGlow": 0.4,
     "shafts": 0.2,
@@ -55,15 +55,15 @@
   ],
   "state": {
     "medved_look": [
-      0.5,
-      1.0,
-      1.65
+      1.1,
+      1.5,
+      1.62
     ],
     "medved_mood": "smile",
     "princess_look": [
-      -0.6,
-      1.0,
-      1.6
+      -1.2,
+      1.5,
+      1.66
     ],
     "princess_mood": "smile",
     "hozyain_look": [
@@ -669,7 +669,7 @@
       "person": {
         "cast": "cast",
         "who": "medved",
-        "turn": 170
+        "turn": 155
       },
       "across": -0.8,
       "distance": 2.85,
@@ -681,7 +681,7 @@
       "person": {
         "cast": "cast",
         "who": "princess",
-        "turn": 190
+        "turn": 205
       },
       "across": 0.6,
       "distance": 2.7,
