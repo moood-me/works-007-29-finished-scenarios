@@ -97,7 +97,7 @@
     {
       "id": "nastya",
       "name": "Nastenka",
-      "person": { "cast": "cast", "who": "nastenka", "look": { "garment": "frock", "hat": "none", "hair": "bun" }, "turn": 160 },
+      "person": { "cast": "cast", "who": "nastenka", "look": { "garment": "frock" }, "turn": 160 },
       "across": -0.7,
       "distance": 4.32,
       "inside": true
