@@ -1,23 +1,23 @@
 {
   "engine": 3,
   "title": "The Ivanovs' Yard",
-  "caption": "Late August, 1945. Evening in a yard by the railway line.",
-  "horizon": 0.36,
+  "horizon": 0.32,
   "camera": {
     "mode": "picture"
   },
   "light": {
-    "vignette": 0.28,
-    "grain": 0.2,
-    "haze": 0.12,
-    "hazeColor": "#efd6b2",
-    "hazeGlow": 0.25,
-    "ambient": 0.5,
-    "ambientColor": "#a7b0c6",
-    "bounce": 0.5,
-    "tint": "#ffd9a6",
-    "tintStrength": 0.12,
-    "saturation": 0.95,
+    "vignette": 0.3,
+    "grain": 0.25,
+    "haze": 0.2,
+    "hazeColor": "#efe5d2",
+    "hazeGlow": 0.5,
+    "ambient": 0.48,
+    "ambientColor": "#9da8c4",
+    "bounce": 0.4,
+    "tint": "#ffdcae",
+    "tintStrength": 0.1,
+    "saturation": 0.92,
+    "brightness": 1.03,
     "wind": [
       1,
       0.2,
@@ -28,11 +28,17 @@
     {
       "id": "sun",
       "from": [
-        145,
-        13
+        128,
+        12
       ],
-      "color": "#ffbf80",
+      "color": "#ffbb78",
       "strength": 1.3
+    },
+    {
+      "id": "stove",
+      "of": "house_lights#door",
+      "reach": 7,
+      "strength": 1.2
     }
   ],
   "modules": [
@@ -40,33 +46,35 @@
   ],
   "state": {
     "ivanov_look": [
-      -0.35,
-      2.3,
-      1.35
+      -0.2,
+      1.6,
+      1.0
     ],
-    "ivanov_mood": "neutral",
+    "ivanov_mood": "tired",
+    "ivanov_reach": {
+      "l": [
+        1.04,
+        2.565,
+        0.74
+      ]
+    },
     "lyuba_look": [
-      0.3,
-      2.9,
-      1.42
+      0.6,
+      2.4,
+      1.6
     ],
     "lyuba_mood": "sad",
     "lyuba_reach": {
       "r": [
-        -0.89,
-        3.32,
-        0.9
-      ],
-      "l": [
-        -0.89,
-        3.32,
-        0.9
+        -0.3,
+        3.53,
+        1.18
       ]
     },
     "petrushka_look": [
-      0.35,
-      2.75,
-      1.3
+      0.4,
+      2.0,
+      1.4
     ],
     "petrushka_mood": "thinking"
   },
@@ -127,13 +135,13 @@
       "id": "rail_near",
       "name": "Near rail",
       "across": 0,
-      "distance": 15.24,
+      "distance": 16.2,
       "facing": 180,
       "onLand": false,
-      "height": 1.8,
+      "height": 2.2,
       "box": [
         -64,
-        -1.8,
+        -2.2,
         64,
         0.02
       ]
@@ -142,13 +150,13 @@
       "id": "rail_far",
       "name": "Far rail",
       "across": 0,
-      "distance": 16.76,
+      "distance": 17.2,
       "facing": 180,
       "onLand": false,
-      "height": 1.8,
+      "height": 2.2,
       "box": [
         -64,
-        -1.8,
+        -2.2,
         64,
         0.02
       ]
@@ -157,7 +165,7 @@
       "id": "poles",
       "name": "Telegraph poles",
       "across": -5.5,
-      "distance": 13.2,
+      "distance": 13.0,
       "facing": 180,
       "height": 7,
       "box": [
@@ -170,37 +178,37 @@
       "copies": [
         {
           "across": -45.5,
-          "distance": 13.2
+          "distance": 13.0
         },
         {
           "across": -25.5,
-          "distance": 13.2
+          "distance": 13.0
         },
         {
           "across": -5.5,
-          "distance": 13.2
+          "distance": 13.0
         },
         {
           "across": 14.5,
-          "distance": 13.2
+          "distance": 13.0
         },
         {
           "across": 34.5,
-          "distance": 13.2
+          "distance": 13.0
         }
       ]
     },
     {
       "id": "barrier",
       "name": "Crossing barrier",
-      "across": 10,
-      "distance": 14.3,
+      "across": 7.4,
+      "distance": 14.8,
       "facing": 180,
-      "height": 6,
+      "height": 5,
       "box": [
-        -1.2,
-        -6.3,
-        1.2,
+        -1.0,
+        -5.0,
+        1.6,
         0.05
       ],
       "shadow": true
@@ -360,11 +368,11 @@
       "across": -0.36,
       "distance": 11.5,
       "facing": 180,
-      "height": 1.62,
+      "height": 1.3,
       "box": [
         -5.6,
-        -1.65,
-        9.6,
+        -1.4,
+        6.9,
         0.05
       ],
       "shadow": true
@@ -375,10 +383,10 @@
       "across": -1.02,
       "distance": 11.5,
       "facing": 238,
-      "height": 1.4,
+      "height": 1.1,
       "box": [
         -0.02,
-        -1.42,
+        -1.12,
         1.0,
         0.05
       ],
@@ -402,8 +410,8 @@
     {
       "id": "block",
       "name": "Chopping block and axe",
-      "across": 1.3,
-      "distance": 3.75,
+      "across": 2.2,
+      "distance": 4.0,
       "height": 1.0,
       "box": [
         -0.32,
@@ -415,16 +423,28 @@
     },
     {
       "id": "buckets",
-      "name": "Buckets and yoke",
-      "across": -1.65,
-      "distance": 3.2,
+      "name": "Buckets",
+      "across": -2.75,
+      "distance": 4.3,
       "height": 0.65,
       "box": [
-        -0.5,
-        -0.66,
-        0.58,
+        -0.4,
+        -0.52,
+        0.4,
         0.03
       ],
+      "shadow": true
+    },
+    {
+      "id": "yoke",
+      "name": "Yoke on the ground",
+      "plane": true,
+      "across": -2.45,
+      "distance": 3.95,
+      "elevation": 0.01,
+      "width": 1.7,
+      "depth": 0.75,
+      "rotation": 12,
       "shadow": true
     },
     {
@@ -435,9 +455,9 @@
       "facing": 180,
       "height": 0.9,
       "box": [
-        -0.86,
-        -0.94,
-        0.82,
+        -0.95,
+        -0.97,
+        0.86,
         0.03
       ],
       "shadow": true
@@ -488,10 +508,10 @@
       "person": {
         "cast": "cast",
         "who": "ivanov",
-        "turn": 195
+        "turn": 205
       },
-      "across": 0.35,
-      "distance": 3.2,
+      "across": 0.75,
+      "distance": 2.7,
       "shadow": true
     },
     {
@@ -500,10 +520,10 @@
       "person": {
         "cast": "cast",
         "who": "lyuba",
-        "turn": 145
+        "turn": 150
       },
-      "across": -1.05,
-      "distance": 3.55,
+      "across": -0.4,
+      "distance": 3.7,
       "shadow": true
     },
     {
@@ -512,18 +532,18 @@
       "person": {
         "cast": "cast",
         "who": "petrushka",
-        "turn": 150,
+        "turn": 195,
         "does": "hands_behind"
       },
-      "across": -0.45,
-      "distance": 3.05,
+      "across": -1.75,
+      "distance": 3.9,
       "shadow": true
     },
     {
       "id": "tufts",
       "name": "Tufts of dry grass",
-      "across": -2.2,
-      "distance": 2.9,
+      "across": -2.5,
+      "distance": 2.6,
       "height": 0.42,
       "box": [
         -0.3,
@@ -533,34 +553,45 @@
       ],
       "copies": [
         {
-          "across": -2.2,
-          "distance": 2.9
+          "across": -2.5,
+          "distance": 2.6
         },
         {
           "across": -0.95,
-          "distance": 2.75,
+          "distance": 2.25,
           "scale": 0.8,
           "flip": true
         },
         {
-          "across": 1.95,
-          "distance": 2.95,
+          "across": 1.9,
+          "distance": 2.6,
           "scale": 1.1
         },
         {
-          "across": 2.5,
-          "distance": 3.5,
+          "across": 3.0,
+          "distance": 3.3,
           "flip": true
         },
         {
-          "across": 0.85,
-          "distance": 4.0,
+          "across": 1.5,
+          "distance": 3.6,
           "scale": 0.7
         },
         {
           "across": -3.35,
           "distance": 4.6,
           "scale": 1.2
+        },
+        {
+          "across": -1.3,
+          "distance": 5.8,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": 3.4,
+          "distance": 5.6,
+          "scale": 1.1
         },
         {
           "across": -3.35,

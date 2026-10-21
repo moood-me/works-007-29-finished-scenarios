@@ -1,5 +1,6 @@
-// Two zinc buckets set down on the sand by the porch side, water in them catching the sky, and the wooden yoke they
-// were carried on leaning across them — the boy's morning water.
+// Two zinc buckets set down on the sand by the porch side, full, the water in them catching the sky — the boy's morning
+// water (the yoke they were carried on lies on the ground before them: `yoke`).
+const L = e.lib;
 const bucket = (x) => {
   g.fillStyle = "#8e918f";
   g.beginPath();
@@ -9,7 +10,7 @@ const bucket = (x) => {
   g.lineTo(x - 0.12, 0);
   g.closePath();
   g.fill();
-  g.fillStyle = "#a9aca8";
+  g.fillStyle = "#adb0ac";
   g.fillRect(x - 0.06, -0.29, 0.05, 0.28);
   g.fillStyle = "#6f7371";
   for (const y of [-0.27, -0.12, -0.02]) g.fillRect(x - 0.15 + (y + 0.3) * 0.1, y, 0.3 - (y + 0.3) * 0.2, 0.018);
@@ -17,32 +18,17 @@ const bucket = (x) => {
   g.beginPath();
   g.ellipse(x, -0.3, 0.15, 0.045, 0, 0, Math.PI * 2);
   g.fill();
-  g.fillStyle = "#8fa2ab";
+  g.fillStyle = "#a3b4bb";
   g.beginPath();
   g.ellipse(x, -0.29, 0.13, 0.035, 0, 0, Math.PI * 2);
   g.fill();
   g.strokeStyle = "#4f524f";
-  g.lineWidth = 0.008;
+  g.lineWidth = 0.01;
   g.beginPath();
   g.ellipse(x, -0.3, 0.15, 0.2, 0, Math.PI * 1.05, Math.PI * 1.95);
   g.stroke();
 };
-bucket(-0.22);
+bucket(-0.18);
 bucket(0.2);
-// the yoke: a curved pole of pale wood leaning from the ground on the left over both buckets, its hooks hanging
-g.strokeStyle = "#a88a5e";
-g.lineWidth = 0.04;
-g.lineCap = "round";
-g.beginPath();
-g.moveTo(-0.45, -0.02);
-g.quadraticCurveTo(0.0, -0.6, 0.5, -0.36);
-g.stroke();
-g.strokeStyle = "#4f4a42";
-g.lineWidth = 0.012;
-for (const [x, y] of [[-0.36, -0.15], [0.4, -0.38]]) {
-  g.beginPath();
-  g.moveTo(x, y);
-  g.lineTo(x + 0.01, y + 0.1);
-  g.stroke();
-}
+L.paper(g, -0.4, -0.52, 0.8, 0.54, 0.8);
 e.at(0, -0.3, "buckets");
