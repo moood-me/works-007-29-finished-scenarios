@@ -215,7 +215,7 @@
     {
       "id": "barrier",
       "name": "Crossing barrier",
-      "across": 7.4,
+      "across": 10.7,
       "distance": 14.8,
       "facing": 180,
       "height": 5,
@@ -563,8 +563,8 @@
         "who": "nastya",
         "turn": 140
       },
-      "across": -1.65,
-      "distance": 3.05,
+      "across": -1.38,
+      "distance": 3.0,
       "shadow": true
     },
     {
