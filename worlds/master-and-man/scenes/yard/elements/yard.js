@@ -36,7 +36,7 @@ g.stroke();
 
 // where things stand (metres: across, distance): the horse's anchor and its axis — his head toward the eye at the
 // left, his body away to the right —, the side toward the eye; the sleigh along it behind him
-const HA = [2.3, 5.0];
+const HA = [2.2, 5.0];
 const U = [0.94, 0.342];
 const NEAR = [0.342, -0.94];
 const along = (k, side) => [HA[0] + U[0] * k + NEAR[0] * side, HA[1] + U[1] * k + NEAR[1] * side];
@@ -79,7 +79,7 @@ g.fill();
 g.strokeStyle = "rgba(150,166,192,0.9)";
 g.lineWidth = 0.07;
 for (const side of [-0.3, 0.3]) {
-  const [bx, bd] = along(3.8, side);
+  const [bx, bd] = along(3.65, side);
   g.beginPath();
   g.moveTo(bx, D(bd));
   g.bezierCurveTo(bx + U[0] * 3, D(bd + U[1] * 3), 10.4 + side, D(11), 10.7 + side, D(15));
@@ -89,8 +89,8 @@ for (const side of [-0.3, 0.3]) {
 g.strokeStyle = "rgba(128,146,176,0.9)";
 g.lineWidth = 0.1;
 for (const side of [-0.3, 0.3]) {
-  const [ax, ad] = along(1.4, side);
-  const [bx, bd] = along(3.85, side);
+  const [ax, ad] = along(1.25, side);
+  const [bx, bd] = along(3.7, side);
   g.beginPath();
   g.moveTo(ax, D(ad));
   g.lineTo(bx, D(bd));

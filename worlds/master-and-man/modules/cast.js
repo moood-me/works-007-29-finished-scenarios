@@ -148,7 +148,7 @@ return {
     // shade, hands with fingers, felt boots; painted toned, lit by the scene
     styles: { tolstoy: { from: 'soft', name: 'Tolstoy', head: 1.18, egg: [0.9, 1.08, 0.98], neck: 0.85, legs: 1.04, limb: 0.86,
       trunk: { w: [0.92, 0.96, 0.84, 0.96, 0.98], d: [0.92, 0.94, 0.86, 0.9, 0.82] }, line: 1.3,
-      folds: { n: 7, depth: 0.05 }, arms: 'palm', fingers: true, feet: 'boot', face: 'tolstoy' } },
+      folds: { n: 7, depth: 0.05 }, arms: 'palm', feet: 'boot', face: 'tolstoy' } },
     faces: {
       tolstoy: { name: "the world's face", draw: faceOf(FACE_ANY) },
       tolstoy_vasily: { name: "the master's face", draw: faceOf(FACE_VASILY) },
