@@ -1,0 +1,49 @@
+// The shepherd's dog lying by the door, its head up at the strangers; it breathes and moves its head a little (its
+// animate). Its head is the point `head`
+e.layer("body", { pivot: [0.05, 0] }, (g) => {
+  g.fillStyle = "#5e4a3c";
+  g.beginPath();
+  g.ellipse(0.08, -0.17, 0.42, 0.17, 0, 0, Math.PI * 2);
+  g.fill();
+  g.fillStyle = "#b9a68b";
+  g.beginPath();
+  g.ellipse(-0.24, -0.15, 0.13, 0.12, 0, 0, Math.PI * 2);
+  g.fill();
+  g.fillStyle = "#5e4a3c";
+  g.fillRect(-0.58, -0.07, 0.36, 0.06);
+  g.fillRect(-0.52, -0.035, 0.3, 0.035);
+  g.strokeStyle = "#4d3c31";
+  g.lineWidth = 0.07;
+  g.lineCap = "round";
+  g.beginPath();
+  g.moveTo(0.46, -0.16);
+  g.quadraticCurveTo(0.62, -0.12, 0.6, -0.03);
+  g.stroke();
+});
+e.layer("head", { pivot: [-0.28, -0.26] }, (g) => {
+  g.fillStyle = "#5e4a3c";
+  g.beginPath();
+  g.ellipse(-0.36, -0.4, 0.12, 0.1, -0.2, 0, Math.PI * 2);
+  g.fill();
+  g.beginPath();
+  g.moveTo(-0.42, -0.38);
+  g.lineTo(-0.58, -0.33);
+  g.lineTo(-0.56, -0.29);
+  g.lineTo(-0.38, -0.3);
+  g.closePath();
+  g.fill();
+  g.fillRect(-0.36, -0.36, 0.1, 0.14);
+  g.fillStyle = "#3c2f27";
+  g.beginPath();
+  g.moveTo(-0.32, -0.47);
+  g.lineTo(-0.26, -0.56);
+  g.lineTo(-0.25, -0.44);
+  g.closePath();
+  g.fill();
+  g.fillStyle = "#1c1714";
+  g.beginPath();
+  g.arc(-0.42, -0.42, 0.014, 0, Math.PI * 2);
+  g.arc(-0.575, -0.32, 0.016, 0, Math.PI * 2);
+  g.fill();
+  e.at(-0.4, -0.42, "head");
+});
