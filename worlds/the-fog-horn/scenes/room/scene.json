@@ -1,0 +1,719 @@
+{
+  "engine": 3,
+  "title": "The Room",
+  "caption": "The sun goes into the sea. Two cups on the table.",
+  "horizon": 0.4,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.66,
+    "ambientColor": "#eadfd4",
+    "inside": 0.5,
+    "bounce": 0.55,
+    "haze": 0.1,
+    "hazeColor": "#d9c6b4",
+    "hazeGlow": 0.9,
+    "shafts": 0.6,
+    "tint": "#f2cfa8",
+    "tintStrength": 0.07,
+    "vignette": 0.32,
+    "grain": 0.08,
+    "looks": {
+      "night": {
+        "ambient": 0.55,
+        "ambientColor": "#8a9acb",
+        "inside": 0.3,
+        "hazeColor": "#3e4c6c",
+        "hazeGlow": 1.1,
+        "shafts": 0.3,
+        "saturation": 0.88,
+        "tint": "#c9b7c8",
+        "tintStrength": 0.05,
+        "lights": {
+          "sun": 0,
+          "sky_in": 0.6
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": "sky#sun",
+      "color": "#ffc48a",
+      "strength": 1.3,
+      "through": [
+        "window"
+      ]
+    },
+    {
+      "id": "sky_in",
+      "of": "window",
+      "daylight": true,
+      "strength": 1
+    },
+    {
+      "id": "lamp",
+      "of": "table_lamp#flame",
+      "color": "#ffcf8a",
+      "strength": 1.6,
+      "reach": 5,
+      "on": "lamp",
+      "flicker": 0.04
+    },
+    {
+      "id": "stove",
+      "of": "stove_fire#fire",
+      "color": "#ff9a52",
+      "strength": 1.1,
+      "reach": 3.2,
+      "on": "stove",
+      "flicker": 0.35
+    },
+    {
+      "id": "lantern",
+      "at": "johnny#flame",
+      "color": "#ffc47e",
+      "strength": 1.3,
+      "reach": 4,
+      "on": "lantern",
+      "flicker": 0.12
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "night": 0,
+    "lamp": 1,
+    "stove": 1,
+    "beacon": 0,
+    "nora": 0,
+    "lantern": 0,
+    "johnny_with": [
+      "lantern"
+    ],
+    "johnny_look": "mcdunn",
+    "johnny_mood": "thinking",
+    "mcdunn_look": "johnny",
+    "mcdunn_mood": "neutral"
+  },
+  "states": {
+    "night": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — the sun going down into the sea in the window, its warm light in the room; 1 — the blue night in the window, the room lit by its lamp and the stove"
+    },
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the oil lamp on the table: 0 out, 1 lit"
+    },
+    "stove": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the fire in the stove: 0 out, 1 burning (its door's glow, its light flickering)"
+    },
+    "beacon": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the tower's great lamp overhead: 0 out, 1 lit — its warm light down the hatch in the ceiling"
+    },
+    "nora": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Nora's window on the far shore, seen through the room's window: 0 dark, 1 lit — one long blink is 1 held, then 0"
+    },
+    "lantern": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the hand lantern in Johnny's hand shining (set johnny_with to [\"lantern_lit\"] with it, [\"lantern\"] when out)"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "sea",
+      "name": "Sea",
+      "plane": true,
+      "across": 0,
+      "distance": 1500,
+      "elevation": -14,
+      "width": 8000,
+      "depth": 3000,
+      "reflect": {
+        "strength": 0.5,
+        "fade": 8,
+        "rough": 0.5,
+        "ripple": 0.4
+      }
+    },
+    {
+      "id": "far_shore",
+      "name": "The far shore",
+      "across": -40,
+      "distance": 900,
+      "elevation": -14,
+      "height": 40,
+      "box": [
+        -520,
+        -45,
+        120,
+        2
+      ]
+    },
+    {
+      "id": "fog_wall",
+      "name": "The fog on the horizon",
+      "across": 120,
+      "distance": 1500,
+      "elevation": -14,
+      "height": 50,
+      "box": [
+        -120,
+        -60,
+        900,
+        2
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 3.6,
+      "elevation": 0,
+      "width": 6.4,
+      "depth": 6.4
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 6.75,
+      "elevation": 2.9,
+      "facing": 180,
+      "tilt": -90,
+      "height": 6.5,
+      "box": [
+        -3.3,
+        -6.5,
+        3.3,
+        0.05
+      ]
+    },
+    {
+      "id": "hatch",
+      "name": "The hatch to the lantern room",
+      "inside": true,
+      "glows": true,
+      "across": 1.75,
+      "distance": 5.75,
+      "elevation": 2.885,
+      "facing": 180,
+      "tilt": -90,
+      "height": 0.75,
+      "box": [
+        -0.4,
+        -0.78,
+        0.4,
+        0.03
+      ]
+    },
+    {
+      "id": "wall",
+      "name": "The round wall",
+      "inside": true,
+      "across": -1.29,
+      "distance": 6.367,
+      "facing": 155,
+      "height": 2.9,
+      "box": [
+        -0.57,
+        -2.92,
+        0.57,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -1.29,
+          "distance": 6.367,
+          "facing": 155
+        },
+        {
+          "across": -2.159,
+          "distance": 5.759,
+          "facing": 135,
+          "flip": true
+        },
+        {
+          "across": -2.767,
+          "distance": 4.89,
+          "facing": 115
+        },
+        {
+          "across": -3.041,
+          "distance": 3.866,
+          "facing": 95,
+          "flip": true
+        },
+        {
+          "across": -2.949,
+          "distance": 2.81,
+          "facing": 75
+        },
+        {
+          "across": 1.29,
+          "distance": 6.367,
+          "facing": 205,
+          "flip": true
+        },
+        {
+          "across": 2.159,
+          "distance": 5.759,
+          "facing": 225
+        },
+        {
+          "across": 2.767,
+          "distance": 4.89,
+          "facing": 245,
+          "flip": true
+        },
+        {
+          "across": 3.041,
+          "distance": 3.866,
+          "facing": 265
+        },
+        {
+          "across": 2.949,
+          "distance": 2.81,
+          "facing": 285,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "window_wall",
+      "name": "The wall with the window",
+      "inside": true,
+      "across": 0,
+      "distance": 6.594,
+      "facing": 180,
+      "height": 2.9,
+      "box": [
+        -0.83,
+        -2.92,
+        0.83,
+        0.02
+      ]
+    },
+    {
+      "id": "reveal",
+      "name": "The sides of the window's deep embrasure",
+      "inside": true,
+      "across": -0.5,
+      "distance": 6.944,
+      "elevation": 0.8,
+      "facing": 90,
+      "height": 1.4,
+      "box": [
+        -0.36,
+        -1.41,
+        0.36,
+        0.01
+      ],
+      "copies": [
+        {
+          "across": -0.5,
+          "distance": 6.944,
+          "facing": 90
+        },
+        {
+          "across": 0.5,
+          "distance": 6.944,
+          "facing": 270,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "sill",
+      "name": "The window sill",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 6.944,
+      "elevation": 0.8,
+      "width": 1.02,
+      "depth": 0.72
+    },
+    {
+      "id": "soffit",
+      "name": "The embrasure's head",
+      "inside": true,
+      "across": 0,
+      "distance": 7.294,
+      "elevation": 2.2,
+      "facing": 180,
+      "tilt": -90,
+      "height": 0.7,
+      "box": [
+        -0.52,
+        -0.72,
+        0.52,
+        0.02
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The window",
+      "inside": true,
+      "across": 0,
+      "distance": 7.294,
+      "elevation": 0.8,
+      "facing": 180,
+      "height": 1.4,
+      "box": [
+        -0.5,
+        -1.4,
+        0.5,
+        0
+      ]
+    },
+    {
+      "id": "stove",
+      "name": "The stove",
+      "inside": true,
+      "across": -2.296,
+      "distance": 4.82,
+      "facing": 118,
+      "height": 2.9,
+      "box": [
+        -0.5,
+        -2.92,
+        0.5,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "stove_fire",
+      "name": "The fire behind the stove's door",
+      "glows": true,
+      "inside": true,
+      "across": -2.252,
+      "distance": 4.797,
+      "elevation": 0.2,
+      "facing": 118,
+      "height": 0.3,
+      "box": [
+        -0.2,
+        -0.32,
+        0.2,
+        0.02
+      ],
+      "inFront": [
+        "stove"
+      ]
+    },
+    {
+      "id": "steam",
+      "name": "Steam from the kettle",
+      "particles": {
+        "kind": "smoke",
+        "at": "stove#spout",
+        "amount": 0.25,
+        "size": [
+          0.05,
+          0.3
+        ],
+        "color": "#ece8e2",
+        "opacity": 0.35,
+        "life": [
+          1.5,
+          3
+        ]
+      },
+      "inside": true
+    },
+    {
+      "id": "lever",
+      "name": "The fog horn's lever, and the list beside it",
+      "inside": true,
+      "across": -1.273,
+      "distance": 6.3,
+      "facing": 155,
+      "height": 2.9,
+      "box": [
+        -0.5,
+        -2.92,
+        0.4,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "ladder",
+      "name": "The ladder to the hatch",
+      "inside": true,
+      "across": 1.98,
+      "distance": 5.58,
+      "facing": 225,
+      "height": 2.9,
+      "box": [
+        -0.3,
+        -2.92,
+        0.3,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "bunks",
+      "name": "The two bunks",
+      "inside": true,
+      "across": 2.463,
+      "distance": 4.26,
+      "facing": 255,
+      "height": 1.8,
+      "box": [
+        -1,
+        -1.82,
+        1,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "table",
+      "name": "The table",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 4.55,
+      "elevation": 0.75,
+      "width": 1.1,
+      "depth": 1.1,
+      "shadow": {
+        "light": "lamp",
+        "strength": 0.55
+      }
+    },
+    {
+      "id": "table_legs",
+      "name": "The table's legs",
+      "inside": true,
+      "across": 0,
+      "distance": 4.55,
+      "height": 0.75,
+      "box": [
+        -0.5,
+        -0.76,
+        0.5,
+        0.02
+      ]
+    },
+    {
+      "id": "stool",
+      "name": "Stools",
+      "inside": true,
+      "across": -0.7,
+      "distance": 4.45,
+      "height": 0.5,
+      "box": [
+        -0.22,
+        -0.52,
+        0.22,
+        0.02
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -0.7,
+          "distance": 4.45
+        },
+        {
+          "across": 0.68,
+          "distance": 4.8,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "table_things",
+      "name": "Two cups and the lamp's base",
+      "inside": true,
+      "across": 0,
+      "distance": 4.6,
+      "elevation": 0.75,
+      "height": 0.2,
+      "box": [
+        -0.42,
+        -0.2,
+        0.42,
+        0.01
+      ],
+      "shadow": true
+    },
+    {
+      "id": "table_lamp",
+      "name": "The oil lamp",
+      "glows": true,
+      "inside": true,
+      "across": 0,
+      "distance": 4.6,
+      "elevation": 0.75,
+      "height": 0.45,
+      "box": [
+        -0.1,
+        -0.46,
+        0.1,
+        -0.1
+      ]
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the air",
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0,
+          5.4,
+          1.5
+        ],
+        "source": [
+          2.4,
+          2.4,
+          1.4
+        ]
+      },
+      "inside": true
+    },
+    {
+      "id": "johnny",
+      "name": "Johnny",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "johnny",
+        "turn": 205
+      },
+      "across": 1.05,
+      "distance": 4.3
+    },
+    {
+      "id": "mcdunn",
+      "name": "McDunn",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "mcdunn",
+        "turn": 160,
+        "does": "hands_behind"
+      },
+      "across": -1.35,
+      "distance": 4.95
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "soft felt piano, a few notes, sea ambience, bittersweet, quiet evening",
+        "weight": 1.2
+      },
+      {
+        "text": "slow solo cello, long bowed low notes, sparse, mournful and tender, lots of silence",
+        "weight": 0.9
+      },
+      {
+        "text": "lonely harmonium, folk lullaby feeling, slow and plain",
+        "weight": 0.7
+      },
+      {
+        "text": "distant foghorn-like low brass drones, two tones, very slow, cinematic, melancholy",
+        "weight": 0.3
+      },
+      {
+        "text": "ambient synth pad like cold sea air, slow swells, minimal, grey and calm",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, restrained, longing, very soft dynamics",
+        "weight": 0
+      },
+      {
+        "text": "bowed double bass and low clarinet, dark and warm, slow",
+        "weight": 0
+      },
+      {
+        "text": "glassy celesta and music box, faraway, like a light across water",
+        "weight": 0
+      },
+      {
+        "text": "acoustic guitar fingerpicked, sparse, a seaside cabin at dusk",
+        "weight": 0
+      },
+      {
+        "text": "deep ocean drone, sub bass, slow tidal pulse, mysterious",
+        "weight": 0
+      },
+      {
+        "text": "solo violin, high and thin, sorrowful lament",
+        "weight": 0
+      },
+      {
+        "text": "minimalist piano ostinato, gentle repetition, waiting",
+        "weight": 0
+      },
+      {
+        "text": "warm accordion, slow waltz, nostalgic harbour",
+        "weight": 0
+      },
+      {
+        "text": "choir humming wordless, very low and soft, sacred calm",
+        "weight": 0
+      },
+      {
+        "text": "ethereal bowed vibraphone and reverb, fog and stillness",
+        "weight": 0
+      },
+      {
+        "text": "low horn chorale, slow, noble sadness",
+        "weight": 0
+      },
+      {
+        "text": "upright piano in a small warm room, slow chords, tender and plain",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
