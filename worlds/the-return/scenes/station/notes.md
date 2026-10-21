@@ -34,9 +34,9 @@ from there: from Masha's side) away to the far left into the fog: the main track
 platform's edge, a siding beyond it, the telegraph poles beyond that; it leads the eye to the water tower standing by
 it in the fog. The five stand as one group in the middle of the frame (x 0.36…0.70 of 16:9, inside 4:3), 3.35–4.35 m
 off, their feet at 0.78–0.89 of the frame: Ivanov on the left, Lyuba facing him, the three behind her stepped back in
-depth. Everyone is turned three-quarter toward the eye (cheated, as on a stage) and looks at whom they look at with the
-head: Ivanov turned 135 (toward the eye and to his right), the family 205–225 (toward the eye and to its left), so the
-meeting reads as faces. Behind them the station house's long ochre front (the door, the bell, the windows, the lamp),
+depth. Everyone is turned three-quarter toward the eye and looks, cheated as on a stage, at a point between the one they
+look at and the eye (`<id>_look` as points: looking at the head itself turned every face to profile): Ivanov turned 140
+(toward the eye and to his right), the family 210–225 (toward the eye and to its left), so the meeting reads as faces. Behind them the station house's long ochre front (the door, the bell, the windows, the lamp),
 its near gable end on the right.
 
 ## The space (metres: across to the right, distance ahead; the eye at 0, 0, 1.7 m)
@@ -62,18 +62,18 @@ laid by these numbers (worked out once, written into scene.json as across/distan
 ## The people (the world's `cast`)
 
 One moment of chapter 2.1 (c): the train has stopped at the water tower, Ivanov has come along the platform and stops
-before them; a breath before Lyuba runs to him. Everyone's look is on someone — the four on Ivanov's head, he on Lyuba's.
+before them; a breath before Lyuba runs to him. Everyone looks toward someone — the four toward Ivanov, he toward Lyuba — at points cheated toward the eye.
 
-- `ivanov` — the greatcoat, the side cap, the kit bag in his left hand (`ivanov`) — (−0.8, 3.5, turned 135), looking
+- `ivanov` — the greatcoat, the side cap, the kit bag in his left hand (`ivanov`) — (−0.8, 3.5, turned 140), looking
   at Lyuba, `tired` (worn out by the road and at a loss: heavy lids, the brows' inner ends raised).
 - `lyuba` — `lyuba_best`: the blue pre-war dress, no apron, the white kerchief (§2.1: «Люба в синем довоенном платье») —
-  (0.05, 3.35, turned 225), nearest to him, her hands clasped before her breast (`lyuba_reach`, 0.2 m before her at
+  (0.05, 3.35, turned 210), nearest to him, her hands clasped before her breast (`lyuba_reach`, 0.2 m before her at
   1.05 m), `sad` (waiting and holding it in).
-- `petrushka` (0.6, 3.85, turned 215) — a step behind his mother, standing plainly, his hands at his sides (`stand`),
+- `petrushka` (0.6, 3.85, turned 220) — a step behind his mother, standing plainly, his hands at his sides (`stand`),
   `thinking` (wary).
-- `semyon` — `semyon_out`: his clean jacket, the cap on — (1.45, 4.35, turned 215), looking at Ivanov, `smile` (kind,
+- `semyon` — `semyon_out`: his clean jacket, the cap on — (1.45, 4.35, turned 225), looking at Ivanov, `smile` (kind,
   ceremonious: «Я на минутку. Довёл только»).
-- `nastya` (1.1, 4.05, turned 205) — before the old man on his near side, holding his jacket's flap with her left hand
+- `nastya` (1.1, 4.05, turned 215) — before the old man on his near side, holding his jacket's flap with her left hand
   (`nastya_reach`, a point 0.18 m off his middle toward her, at 0.65 m), looking at the stranger, `afraid` (she does not
   remember her father: «Деда!»).
 
