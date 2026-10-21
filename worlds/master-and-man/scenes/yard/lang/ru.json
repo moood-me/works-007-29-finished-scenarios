@@ -1,0 +1,14 @@
+{
+ "strings": [
+  {
+   "text": "Brekhunov's Yard",
+   "translation": "Двор Брехунова",
+   "where": "scenes/yard/scene.json title"
+  },
+  {
+   "text": "The second day after the winter feast of St Nicholas.",
+   "translation": "Второй день после зимнего Николы.",
+   "where": "scenes/yard/scene.json caption"
+  }
+ ]
+}
