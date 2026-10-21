@@ -83,8 +83,8 @@ return {
       // a sword in its scabbard at the left hip, the hilt forward, the point down behind the leg
       sword: { name: 'sword', draw: F => {
         const { add, mul, cross, unit } = V(), m = F.fit.h, right = rightOf(F), fwd = cross([0, 1, 0], right);
-        const hip = add(F.P('Hips'), add(mul(right, -0.2 * m), [0, 0.02 * m, 0]));
-        const guard = add(hip, mul(fwd, 0.06 * m)), tip = add(hip, add(mul(fwd, -0.3 * m), [0, -0.82 * m, 0]));
+        const hip = add(F.P('Hips'), add(add(mul(right, -0.2 * m), mul(fwd, -0.04 * m)), [0, 0.04 * m, 0]));
+        const guard = add(hip, add(mul(fwd, 0.1 * m), [0, 0.04 * m, 0])), tip = add(hip, add(mul(fwd, -0.5 * m), [0, -0.72 * m, 0]));
         const down = unit([tip[0] - guard[0], tip[1] - guard[1], tip[2] - guard[2]]), pommel = add(guard, mul(down, -0.2 * m));
         F.bar(guard, tip, 0.03 * m, 0.022 * m, [[0, LEATHER]], 6, right);
         F.bar(add(guard, mul(right, -0.08 * m)), add(guard, mul(right, 0.08 * m)), 0.012 * m, 0.012 * m, [[0, BRASS]], 5, fwd);

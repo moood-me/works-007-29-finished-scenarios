@@ -1,8 +1,8 @@
 // A big rock close before the viewer, lower left: it frames the picture
 const r = e.lib.rnd(71);
-g.fillStyle = '#6a675f';
+g.fillStyle = '#7a776e';
 e.lib.stone(g, 0, -0.55, 1.3, 0.62, -0.08, r);
-g.fillStyle = '#7b786f';
+g.fillStyle = '#8c897f';
 e.lib.stone(g, 0.2, -0.78, 0.9, 0.34, -0.1, r);
 g.fillStyle = 'rgba(168,166,112,0.6)';
 for (let i = 0; i < 10; i++) {

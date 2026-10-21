@@ -23,13 +23,13 @@ function stone(g, x, y, rx, ry, turn, r) {
   g.fill();
   g.restore();
 }
-// a band of mist along a box [left, top, right, bottom]: soft white puffs, denser at its foot, thinning upward; the
-// puffs near either end painted again a box-width over so the band's ends meet as it drifts round
-function mist(g, box, seed, density, color) {
+// a band of mist along a box [left, top, right, bottom]: soft white puffs (`strength`: how white), denser at its foot,
+// thinning upward; the puffs near either end painted again a box-width over so the band's ends meet as it drifts round
+function mist(g, box, seed, density, color, strength = 1) {
   const [l, t, rr, b] = box, w = rr - l, h = b - t, r = rnd(seed), n = Math.round(density);
   for (let i = 0; i < n; i++) {
     const x = l + r() * w, up = Math.pow(r(), 1.6), y = b - up * h * 0.85, rx = (0.06 + 0.1 * r()) * w * (1 - 0.4 * up);
-    const ry = rx * (0.16 + 0.1 * r()), a = (0.16 + 0.22 * r()) * (1 - 0.6 * up);
+    const ry = rx * (0.16 + 0.1 * r()), a = Math.min(0.7, (0.16 + 0.22 * r()) * (1 - 0.6 * up) * strength);
     for (const dx of [-w, 0, w]) {
       const cx = x + dx;
       if (cx + rx < l || cx - rx > rr) continue;

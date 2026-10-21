@@ -78,7 +78,9 @@
     "beatrice_reach": {
       "r": "axl#hand_l"
     },
-    "beatrice_mood": "smile"
+    "beatrice_mood": "smile",
+    "axl_look": "wistan#head",
+    "beatrice_look": "wistan#head"
   },
   "states": {
     "thick": {
@@ -1484,7 +1486,7 @@
       "person": {
         "cast": "cast",
         "who": "wistan",
-        "turn": 220
+        "turn": 228
       },
       "across": 1.2,
       "distance": 4.1,
@@ -1517,8 +1519,8 @@
     {
       "id": "fg_rock",
       "name": "Rock",
-      "across": -3.1,
-      "distance": 2.4,
+      "across": -2.75,
+      "distance": 2.9,
       "height": 1.2,
       "box": [
         -1.45,
