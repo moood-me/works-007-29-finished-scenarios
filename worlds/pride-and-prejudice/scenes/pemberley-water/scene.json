@@ -7,14 +7,14 @@
     "mode": "picture"
   },
   "light": {
-    "vignette": 0.18,
+    "vignette": 0.22,
     "grain": 0.05,
-    "haze": 0.1,
-    "hazeColor": "#e2e6df",
-    "shafts": 0.08,
-    "ambient": 0.78,
-    "ambientColor": "#f4f2ea",
-    "bounce": 0.5,
+    "haze": 0.07,
+    "hazeColor": "#d9e2e5",
+    "shafts": 0.03,
+    "ambient": 0.64,
+    "ambientColor": "#e9edf0",
+    "bounce": 0.45,
     "wind": [
       1,
       0.3,
@@ -23,10 +23,10 @@
     "saturation": 1,
     "looks": {
       "evening": {
-        "ambientColor": "#f6e5cd",
+        "ambientColor": "#f0dcc4",
         "tint": "#f0c89c",
         "tintStrength": 0.1,
-        "haze": 0.15,
+        "haze": 0.11,
         "hazeColor": "#ecdcc4",
         "saturation": 0.96
       }
@@ -36,15 +36,15 @@
     {
       "id": "sun",
       "from": [
-        215,
-        30
+        242,
+        28
       ],
       "place": {
         "bearing": "sun_bearing",
         "height": "sun_height"
       },
       "color": "#fff3e2",
-      "strength": 0.95
+      "strength": 1.15
     }
   ],
   "modules": [
@@ -53,8 +53,8 @@
   ],
   "state": {
     "evening": 0,
-    "sun_bearing": 215,
-    "sun_height": 30,
+    "sun_bearing": 242,
+    "sun_height": 28,
     "elizabeth_look": [
       0.5,
       2.3,
@@ -75,11 +75,11 @@
     },
     "sun_bearing": {
       "type": "number",
-      "means": "where the sun is, degrees (180 behind the viewer, 270 to the left): 215 the afternoon, about 238 the early evening — it lights the faces from the front"
+      "means": "where the sun is, degrees (180 behind the viewer, 270 to the left): 242 the afternoon (by default) — from behind the viewer on the left, a soft side light that models the people against the walk; about 258 the early evening"
     },
     "sun_height": {
       "type": "number",
-      "means": "the sun's height, degrees: 30 the afternoon (by default; the people's shadows long enough to read), about 20 the early evening"
+      "means": "the sun's height, degrees: 28 the afternoon (by default; the people's shadows long enough to read), about 18 the early evening"
     }
   },
   "objects": [
@@ -240,14 +240,14 @@
     {
       "id": "bridge",
       "name": "Stone bridge",
-      "across": 33,
-      "distance": 92,
-      "elevation": 0.5,
+      "across": 38,
+      "distance": 106,
+      "elevation": 0.45,
       "height": 7,
       "box": [
-        -28,
+        -33,
         -9.6,
-        35,
+        39,
         0.6
       ]
     },
@@ -337,7 +337,7 @@
       "person": {
         "cast": "cast",
         "who": "darcy",
-        "turn": 135,
+        "turn": 150,
         "does": "hands_behind"
       },
       "across": 0.6,
@@ -349,13 +349,13 @@
     {
       "id": "tree_left",
       "name": "Beech",
-      "across": -4.7,
+      "across": -3.4,
       "distance": 5.6,
       "height": 10,
       "box": [
-        -1.4,
+        -2.4,
         -11,
-        4.2,
+        3.0,
         0.4
       ],
       "shadow": true

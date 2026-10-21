@@ -6,6 +6,8 @@
 const V = () => MooodShapes.V;
 const LINEN = [0.96, 0.95, 0.91, 1];
 const SCARLET = [0.74, 0.12, 0.13, 1];
+// the whites of the eyes (a little warm, never paper-white)
+const WHITES = [0.95, 0.93, 0.89, 1];
 // (the sash's two rings round the gown, kept from frame to frame)
 const SASH = F => ({ rows: [new Array(F.worn[1].length), new Array(F.worn[1].length)] });
 // (a cap of hair's sizes: the head's egg a little out)
@@ -27,15 +29,17 @@ const shade = (c, kr, kg, kb) => [c[0] * kr, c[1] * kg, c[2] * kb, c[3]];
 // its eyes opened (1 at rest) or narrowed, its mouth's half-width, its corners up (+) or down, how open it is. A laugh
 // narrows the eyes only a little: they must still read
 const EXPR = {
-  neutral: { inner: 0, outer: 0, eye: 1, wide: 0.13, corners: 0, open: 0 },
-  smile: { inner: 0.01, outer: 0.01, eye: 0.92, wide: 0.15, corners: 0.045, open: 0 },
-  laugh: { inner: 0.03, outer: 0.02, eye: 0.74, wide: 0.17, corners: 0.055, open: 0.06 },
+  neutral: { inner: 0, outer: 0, eye: 1, wide: 0.14, corners: 0, open: 0 },
+  // (a smile that knows something: the corners well up, the eyes a little narrowed, the brows' outer ends lifted)
+  smile: { inner: 0.0, outer: 0.035, eye: 0.86, wide: 0.17, corners: 0.08, open: 0 },
+  laugh: { inner: 0.03, outer: 0.03, eye: 0.74, wide: 0.19, corners: 0.09, open: 0.07 },
   sad: { inner: 0.07, outer: -0.05, eye: 0.88, wide: 0.12, corners: -0.04, open: 0 },
   angry: { inner: -0.08, outer: 0.03, eye: 0.85, wide: 0.11, corners: -0.025, open: 0 },
   surprised: { inner: 0.08, outer: 0.08, eye: 1.25, wide: 0.08, corners: 0, open: 0.07 },
   afraid: { inner: 0.09, outer: 0.01, eye: 1.2, wide: 0.12, corners: -0.025, open: 0.04 },
   disgusted: { inner: -0.05, outer: -0.01, eye: 0.8, wide: 0.12, corners: -0.035, open: 0 },
-  thinking: { inner: -0.045, outer: 0.025, eye: 0.92, wide: 0.1, corners: -0.012, open: 0 },
+  // (grave and intent: the brows drawn down and together, the mouth closed and level)
+  thinking: { inner: -0.07, outer: 0.02, eye: 0.94, wide: 0.12, corners: -0.012, open: 0 },
   tired: { inner: 0.02, outer: -0.05, eye: 0.62, wide: 0.12, corners: -0.015, open: 0 },
 };
 const INK = [0.2, 0.13, 0.09];
@@ -60,7 +64,7 @@ return {
     // under the bust
     elizabeth: { kind: 'shapes', style: 'austen', who: 'woman', garment: 'gown', hair: 'bun', parts: ['curls', 'sash', 'puffs'],
       body: { height: 0.92, thick: 0.92, shoulders: 0.9, hips: 1.0, neck: 1.0, head: 1.0 },
-      colors: { skin: '#eccaa9', hair: '#4a2c1c', top: '#f4efe2', garment: '#f4efe2', bottom: '#ece4d2', accent: '#7f9a6c', shoes: '#6e5a46' } },
+      colors: { skin: '#eccaa9', hair: '#4a2c1c', top: '#f1e8d6', garment: '#f1e8d6', bottom: '#e9dfca', accent: '#6f8c5e', shoes: '#6e5a46' } },
     // Jane Bennet, twenty-two: the beauty of the family, a little taller than Elizabeth, fair hair up, a primrose
     // gown with a dusty-rose sash
     jane: { kind: 'shapes', style: 'austen', who: 'woman', garment: 'gown', hair: 'bun', parts: ['curls', 'sash', 'puffs'],
@@ -76,18 +80,19 @@ return {
     // square at the waist with tails to the knee behind, a pale waistcoat, a white cravat high at the throat, buff
     // breeches, black top boots
     darcy: { kind: 'shapes', style: 'austen', who: 'man', garment: 'tailcoat', hair: 'brutus', parts: ['waistcoat', 'cravat', 'tails'], socks: true,
-      body: { height: 1.05, thick: 1.0, shoulders: 1.08, head: 0.98 },
-      colors: { skin: '#e6c2a2', hair: '#2b1d15', top: '#efe5cc', garment: '#27324a', bottom: '#d3c19a', shoes: '#1d1a18', socks: '#1d1a18' } },
+      body: { height: 1.05, thick: 1.05, shoulders: 1.0, head: 0.98 },
+      colors: { skin: '#e6c2a2', hair: '#2b1d15', top: '#e4d6b2', garment: '#2a3650', bottom: '#d3c19a', shoes: '#2e2520', socks: '#2e2520' } },
   },
   shapes: {
     // the world's style: slender Regency figures, the neck short and the head big enough for a face to read (eyes with
-    // their lids, brows, a nose, lips, a little colour in the cheeks: the face `austen`), arms with flesh to them;
-    // colours with their shade (a wash), the sepia pen round them and where their colours meet — a line as strong as the
-    // places' own pen, so that people and places are of one hand; cloth in many soft folds, each edged by the pen
+    // their whites and lids, brows, a nose, lips: the face `austen`), arms with flesh to them; colours with their shade
+    // (a wash, lit by the scene), the sepia pen round them and where their colours meet — a fine nib's line, as thin as
+    // the places' finer strokes, so that people and places are of one hand; cloth falling in many soft deep folds (the
+    // light lays their shade)
     styles: {
       austen: { from: 'soft', name: 'Pride and Prejudice', head: 1.26, egg: [0.88, 1.06, 0.96], neck: 0.5, legs: 1.0, limb: 1.12,
         sides: 22, square: 2, trunk: { w: [0.88, 0.92, 0.78, 0.92, 1.0], d: [0.84, 0.86, 0.78, 0.84, 0.74] }, arms: 'regency', feet: 'regency',
-        paint: 'toned', line: 2.3, tinted: false, folds: { n: 11, depth: 0.07 }, face: 'austen', ground: 'sepia', drape: true },
+        paint: 'toned', line: 1.1, tinted: false, folds: { n: 13, depth: 0.13 }, face: 'austen', ground: 'sepia', drape: true },
     },
     // the pen's colour: a sepia ink, as the scenes' own pen line
     grounds: { sepia: { name: 'sepia ink on paper', bg: '#efe7d6', ink: '#3d2c1f', grid: '#ddd3c0', rim: '#e9b97c' } },
@@ -108,34 +113,40 @@ return {
       } },
     },
     faces: {
-      // a face as the drawings give it: dark almond eyes under a pen-dark upper lid, brows of the hair's colour, a
-      // straight nose, lips a shade rosier than the skin — big enough on the head to read
-      // at the size people stand in a scene; at rest, or as the person's <id>_mood has it (EXPR). The same solids for
+      // a face as the drawings give it: almond eyes — their whites, a dark iris filling them top to bottom, a pen-dark
+      // upper lid —, brows of the hair's colour a shade darker, a straight nose, lips a shade rosier than the skin
+      // parted by a fine pen line; big enough on the head to read at the size people stand in a scene, the style's pen
+      // round each (where its colours meet). At rest, or as the person's <id>_mood has it (EXPR). The same solids for
       // every expression (the engine goes from one to another on the GPU)
       austen: { name: 'Regency', draw: F => {
         const { axes, r: rh, on } = F.head, [, hu] = axes, x = EXPR[F.look.expression] ?? EXPR.neutral, sk = F.colors.skin;
-        const brow = shade(F.colors.hair, 0.7, 0.7, 0.7), lips = shade(sk, 0.86, 0.6, 0.6), nose = shade(sk, 0.96, 0.94, 0.93);
+        const brow = shade(F.colors.hair, 0.55, 0.55, 0.55), lips = shade(sk, 0.82, 0.52, 0.5), nose = shade(sk, 0.96, 0.93, 0.91);
         const lid = 0.05 * (x.eye - 1);
         for (const sx of [-1, 1]) {
-          F.ball(on([sx * 0.33, 0.07, 0.93], 0.985), axes, [rh * 0.1, rh * 0.115 * x.eye, rh * 0.045], INK, 12);
-          F.tube([on([sx * 0.18, 0.14 + lid, 0.96], 1.0), on([sx * 0.33, 0.2 + lid * 1.3, 0.94], 1.006), on([sx * 0.5, 0.13 + lid, 0.86], 1.0)],
-            [[0, rh * 0.018], [1, rh * 0.028], [2, rh * 0.016]], [[0, INK]], 6, hu);
-          F.tube([on([sx * 0.15, 0.36 + x.inner, 0.93], 0.995), on([sx * 0.31, 0.39 + (x.inner + x.outer) / 2, 0.9], 1.0), on([sx * 0.48, 0.33 + x.outer, 0.83], 0.995)],
-            [[0, rh * 0.034], [1, rh * 0.036], [2, rh * 0.022]], [[0, brow]], 6, hu);
+          F.ball(on([sx * 0.32, 0.06, 0.92], 0.975), axes, [rh * 0.15, rh * 0.085 * x.eye, rh * 0.04], WHITES, 12);
+          F.ball(on([sx * 0.31, 0.06, 0.94], 0.99), axes, [rh * 0.072, rh * 0.084 * x.eye, rh * 0.04], INK, 12);
+          F.tube([on([sx * 0.15, 0.12 + lid, 0.96], 1.0), on([sx * 0.32, 0.17 + lid * 1.3, 0.94], 1.008), on([sx * 0.5, 0.1 + lid, 0.86], 1.0)],
+            [[0, rh * 0.022], [1, rh * 0.036], [2, rh * 0.02]], [[0, INK]], 6, hu);
+          F.tube([on([sx * 0.14, 0.34 + x.inner, 0.93], 0.995), on([sx * 0.31, 0.38 + (x.inner + x.outer) / 2, 0.9], 1.0), on([sx * 0.5, 0.32 + x.outer, 0.83], 0.995)],
+            [[0, rh * 0.046], [1, rh * 0.044], [2, rh * 0.026]], [[0, brow]], 6, hu);
         }
-        F.ball(on([0, -0.08, 1], 0.97), axes, [rh * 0.075, rh * 0.15, rh * 0.11], nose, 10);
-        const w = x.wide, y = -0.4;
+        F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.075, rh * 0.15, rh * 0.11], nose, 10);
+        const w = x.wide, y = -0.42;
         F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.75, rh * x.open, rh * 0.03], INK, 10);
-        F.tube([on([-w, y + x.corners, 0.93], 0.995), on([0, y, 0.95], 1.0), on([w, y + x.corners, 0.93], 0.995)], [[0, rh * 0.02], [1, rh * 0.03], [2, rh * 0.02]], [[0, lips]], 6, hu);
+        F.ball(on([0, y - 0.065, 0.95], 0.975), axes, [rh * w * 0.62, rh * 0.05, rh * 0.03], lips, 10);
+        F.tube([on([-w, y + x.corners, 0.93], 0.995), on([0, y + 0.015, 0.95], 1.0), on([w, y + x.corners, 0.93], 0.995)],
+          [[0, rh * 0.024], [1, rh * 0.042], [2, rh * 0.024]], [[0, lips]], 6, hu);
+        F.tube([on([-w * 1.05, y + x.corners * 1.1, 0.93], 1.0), on([0, y - 0.01, 0.95], 1.006), on([w * 1.05, y + x.corners * 1.1, 0.93], 1.0)],
+          [[0, rh * 0.008], [1, rh * 0.014], [2, rh * 0.008]], [[0, INK]], 6, hu);
       } },
     },
     garments: {
       // a high-waisted gown: hung from the shoulders, the skirt falling from under the bust in an A-line to the
       // instep, in soft folds; long sleeves (the short puffs over them: the part `puffs`)
-      gown: { name: 'high-waisted gown', hang: [{ to: 1.97, from: 'shoulders', flare: 0.32 }], sleeves: 'garment', bodice: true },
-      // a gentleman's tailcoat: close over the chest and cut square at the waist in front (its tails behind: the part
-      // `tails`), long sleeves
-      tailcoat: { name: 'tailcoat', hang: [{ to: 0.14, from: 'shoulders', flare: 0.03, folds: false }], sleeves: 'garment' },
+      gown: { name: 'high-waisted gown', hang: [{ to: 1.9, from: 'shoulders', flare: 0.5 }], sleeves: 'garment', bodice: true },
+      // a gentleman's tailcoat: close over the chest, its fronts cut away over the tops of the thighs (its tails behind:
+      // the part `tails`), long sleeves
+      tailcoat: { name: 'tailcoat', hang: [{ to: 0.3, from: 'shoulders', flare: 0.07, folds: false }], sleeves: 'garment' },
     },
     parts: {
       // a sash round the gown just under the bust (the look's accent colour): a band between the gown's chest ring and
@@ -145,7 +156,7 @@ return {
         if (!on) return;
         const { add, sub, mul, mix, unit, mean } = V(), K = F.keep(SASH), off = 0.006 * F.k, m1 = mean(on[1]), m2 = mean(on[2]);
         for (let r = 0; r < 2; r++) {
-          const u = r === 0 ? 0.16 : 0.3, c = mix(m1, m2, u), row = K.rows[r];
+          const u = r === 0 ? 0.12 : 0.34, c = mix(m1, m2, u), row = K.rows[r];
           for (let q = 0; q < row.length; q++) {
             const p = mix(on[1][q], on[2][q], u);
             row[q] = add(p, mul(unit(sub(p, c)), off));
@@ -158,7 +169,7 @@ return {
         const { sub, mix, unit, cross } = V(), k = F.k, m = F.fit.h;
         for (const s of ['Left', 'Right']) {
           const a = F.P(`${s}Arm`), b = F.P(`${s}ForeArm`), u = unit(sub(b, a)), e1 = unit(cross(u, F.fwd('Chest'))), e2 = cross(e1, u);
-          F.ball(mix(a, b, 0.17), [e1, u, e2], [0.064 * k, 0.085 * m, 0.064 * k], F.colors.garment, 14);
+          F.ball(mix(a, b, 0.15), [e1, u, e2], [0.076 * k, 0.088 * m, 0.076 * k], F.colors.garment, 14);
         }
       } },
       // curls at the temples, under the knot of hair (the hair's colour)
@@ -211,10 +222,10 @@ return {
             row[q] = add(p, mul(unit(sub(p, c)), off));
           }
         };
-        for (let q = 0; q < K.low.length; q++) K.low[q] = mix(on[1][q], on[2][q], 0.45);
-        rowOf(on[0], 0.07, K.rows[0]);
-        rowOf(on[1], 0.04, K.rows[1]);
-        rowOf(K.low, 0.008, K.rows[2]);
+        for (let q = 0; q < K.low.length; q++) K.low[q] = mix(on[1][q], on[2][q], 0.38);
+        rowOf(on[0], 0.06, K.rows[0]);
+        rowOf(on[1], 0.035, K.rows[1]);
+        rowOf(K.low, 0.006, K.rows[2]);
         F.rings(K.rows, F.colors.top, null, null);
       } },
       // a white cravat: a high stock wound round the neck where it meets the shoulders, and its fall — the linen
