@@ -7,7 +7,7 @@ const CLOTH = [0.6, 0.55, 0.46, 1], LEATHER = [0.24, 0.18, 0.13, 1], STEEL = [0.
 // the hood's edge round the face: high over the brow in front, down past the cheeks at the sides, to the nape behind
 const EDGE = x => 0.5 - 1.5 * Math.min(1, Math.max(0, (Math.abs(x) - 0.75) / 0.8));
 const COWL = F => ({ pts: [null, null, null], profile: [[0, F.head.r * 1.0], [2, 0.16 * F.k]], colors: [[0, F.colors.garment]] });
-const OAR = [0.55, 0.45, 0.33, 1], IRON = [0.2, 0.19, 0.18, 1], FLAME = [1, 0.8, 0.45, 2];
+const OAR = [0.55, 0.45, 0.33, 1], IRON = [0.2, 0.19, 0.18, 1], FLAME = [1, 0.8, 0.45, 2], RUST = [0.5, 0.44, 0.38, 1];
 // the face's expressions (<id>_mood): brows' inner and outer ends up, the eyes' openness, the mouth's width, its
 // corners up or down — as the engine's simple face has them
 const MOODS = {
@@ -46,6 +46,12 @@ return {
     boatman: { kind: 'shapes', style: 'giant', who: 'man', garment: 'robe', hair: 'none', parts: ['cowl', 'oar', 'lantern'],
       body: { height: 1.08, shoulders: 1.02, thick: 0.92 },
       colors: { skin: '#c7a084', hair: '#5a5049', garment: '#6d7681', top: '#6d7681', bottom: '#33363a', shoes: '#26282b' } },
+    // Sir Gawain, very old: tall but stooping, long white hair, long drooping white moustaches and beard, a rusted
+    // mail coat to below the knee under a faded ochre surcoat, dented pauldrons; leaning on his great sword planted
+    // point down before him (both hands on its hilt — the scene's `<id>_reach` puts them there)
+    gawain: { kind: 'shapes', style: 'giant', who: 'old', garment: 'hauberk', hair: 'long', parts: ['whiskers', 'pauldrons', 'greatsword'],
+      body: { height: 1.0, shoulders: 1.04, thick: 0.98 },
+      colors: { skin: '#d3a68a', hair: '#e4e0d8', garment: '#77706a', top: '#8f7f57', bottom: '#4a443c', shoes: '#3a3029' } },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, plain colours lit by the scene, a fine line,
@@ -73,6 +79,12 @@ return {
       shawl_dress: { name: 'dress and shawl', hang: [
         { to: 1.95, from: 'shoulders', flare: 0.32 },
         { to: 0.05, from: 'shoulders', flare: 0.55, off: 1.3, color: 'accent' },
+      ], sleeves: 'garment' },
+      // a knight's mail coat to below the knee, mail sleeves, and over it a sleeveless surcoat to the knee in the
+      // `top` colour
+      hauberk: { name: 'mail and surcoat', hang: [
+        { to: 1.25, from: 'shoulders', flare: 0.2 },
+        { to: 0.95, from: 'shoulders', flare: 0.16, off: 1.22, color: 'top' },
       ], sleeves: 'garment' },
     },
     parts: {
@@ -128,6 +140,35 @@ return {
         F.ball(c, axes, [0.055 * m, 0.08 * m, 0.055 * m], FLAME, 10, 2.6);
         F.ball(add(c, [0, -0.085 * m, 0]), axes, [0.06 * m, 0.02 * m, 0.06 * m], IRON, 8);
         F.point('flame', c);
+      } },
+      // long drooping moustaches and a beard to the chest, in the hair's colour, the mouth left clear
+      whiskers: { name: 'moustaches and beard', draw: F => {
+        const { add, mul } = V(), h = F.head, [hs, hu, hf] = h.axes, r = h.r * h.out;
+        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.95, 0.3], 0.72, F.colors.hair, h.sides, h.square);
+        const chin = add(h.at, add(mul(hu, -r * 0.95), mul(hf, r * 0.45)));
+        F.tube([chin, add(chin, add(mul(hu, -r * 0.7), mul(hf, r * 0.08))), add(chin, add(mul(hu, -r * 1.3), mul(hf, -r * 0.02)))],
+          [[0, r * 0.42], [1, r * 0.3], [2, r * 0.06]], [[0, F.colors.hair]], h.sides, hs);
+        for (const sx of [-1, 1]) {
+          const lip = add(h.at, add(add(mul(hs, sx * r * 0.18), mul(hu, -r * 0.28)), mul(hf, r * 0.9)));
+          F.tube([lip, add(lip, add(add(mul(hs, sx * r * 0.3), mul(hu, -r * 0.18)), mul(hf, -r * 0.02))), add(lip, add(add(mul(hs, sx * r * 0.42), mul(hu, -r * 0.75)), mul(hf, -r * 0.08)))],
+            [[0, r * 0.08], [1, r * 0.075], [2, r * 0.03]], [[0, F.colors.hair]], 6, hf);
+        }
+      } },
+      // rounded steel plates over both shoulders, dull with rust
+      pauldrons: { name: 'pauldrons', draw: F => {
+        const m = F.fit.h, axes = [F.side('Chest'), F.up('Chest'), F.fwd('Chest')];
+        for (const j of ['LeftArm', 'RightArm']) F.ball(F.P(j), axes, [0.1 * m, 0.075 * m, 0.11 * m], RUST, 12);
+      } },
+      // a great sword planted point down before him, both hands on its hilt: the pommel over the hands, the guard
+      // under them, the blade straight down to the ground
+      greatsword: { name: 'great sword', draw: F => {
+        const { add, mul, mix, sub, unit, cross } = V(), m = F.fit.h, grip = mix(F.P('RightHand'), F.P('LeftHand'), 0.5);
+        const floor = Math.min(F.P('LeftFoot')[1], F.P('RightFoot')[1]) - 0.07 * m, side = unit(sub(F.P('RightHand'), F.P('LeftHand')));
+        const flat = unit(cross(side, [0, 1, 0])), guard = add(grip, [0, -0.08 * m, 0]), tip = [grip[0], floor, grip[2]];
+        F.bar(add(grip, [0, 0.07 * m, 0]), guard, 0.016 * m, 0.016 * m, [[0, LEATHER]], 6, side);
+        F.ball(add(grip, [0, 0.09 * m, 0]), [side, [0, 1, 0], flat], [0.03 * m, 0.03 * m, 0.03 * m], STEEL, 8);
+        F.bar(add(guard, mul(side, -0.13 * m)), add(guard, mul(side, 0.13 * m)), 0.016 * m, 0.016 * m, [[0, STEEL]], 5, flat);
+        F.bar(guard, tip, 0.028 * m, 0.006 * m, [[0, STEEL]], 4, side, true);
       } },
     },
   },
