@@ -70,8 +70,8 @@
    "id": "lantern_light",
    "at": "boatman#flame",
    "color": "#ffbf70",
-   "strength": 1.5,
-   "reach": 6,
+   "strength": 1.2,
+   "reach": 8,
    "flicker": 0.2,
    "on": "lantern",
    "glow": 0.4
