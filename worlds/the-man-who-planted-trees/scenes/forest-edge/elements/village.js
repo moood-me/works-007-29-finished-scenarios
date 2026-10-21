@@ -2,7 +2,7 @@
 // standing at its own depth on the land (parts), some roofs old grey slate, some new pale shingle — people have come
 // back — and round fruit trees in the gardens. Three chimneys smoke (the particles `smoke_1…3`, from the tops these
 // houses paint; their places are in scene.json).
-const WALLS = ["#d3c7ab", "#c4b697", "#dcd1b6", "#bfb196"], OLD = "#77716a", NEW = "#c09a68", DOOR = "#5a4a3a", WIN = "#4a4640";
+const WALLS = ["#d3c7ab", "#c4b697", "#dcd1b6", "#bfb196"], OLD = "#77716a", NEW = "#b09a7c", DOOR = "#5a4a3a", WIN = "#4a4640";
 // a house, its foot's middle at 0: a gable end (`gable`) or a long side (`eave`) toward the slope above
 const house = (g, o) => {
   const { w, wall, roof, kind, colour, chimney } = o;

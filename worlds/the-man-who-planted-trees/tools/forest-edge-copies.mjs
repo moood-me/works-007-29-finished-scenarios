@@ -20,7 +20,7 @@ const r2 = (v) => Math.round(v * 100) / 100;
 const pick = (list) => list[Math.floor(rnd() * list.length)];
 const TINTS = ['#ffffff', '#f2f4ea', '#e8ecdf', '#f6f1e4'];
 // the people and the stone, kept clear of what stands at their feet; the path's line near
-const PEOPLE = [[0.4, 5.6], [2.0, 6.6], [-1.2, 7.6], [0.3, 16.2]];
+const PEOPLE = [[0.2, 6.2], [2.3, 6.4], [-1.2, 7.4], [0.3, 16.2]];
 const clear = (a, d, r) => PEOPLE.every(([pa, pd]) => Math.hypot(a - pa, d - pd) > r);
 const offStream = (a, d, gap) => Math.abs(a - lib.streamX(d)) > lib.streamW(d) / 2 + gap;
 // the left edge of what the view can see at d (a little past the frame's 21:9 edge)

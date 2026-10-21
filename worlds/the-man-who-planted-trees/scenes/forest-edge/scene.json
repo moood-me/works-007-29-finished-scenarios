@@ -42,18 +42,18 @@
     "bread": true,
     "smoke": 1,
     "traveller_look": [
-      2,
-      6.6,
+      2.3,
+      6.4,
       1.62
     ],
     "jan_look": [
-      0.4,
-      5.6,
+      0.2,
+      6.2,
       1.58
     ],
     "lina_look": [
-      0.4,
-      5.6,
+      0.2,
+      6.2,
       1.58
     ],
     "traveller_mood": "smile"
@@ -157,515 +157,431 @@
       ],
       "copies": [
         {
-          "across": 447.42,
-          "distance": 599.99,
-          "scale": 0.84,
-          "flip": true,
+          "across": 286.24,
+          "distance": 187.77,
+          "scale": 1,
+          "flip": false,
           "tint": "#f2f4ea"
         },
         {
-          "across": 442.99,
-          "distance": 622.97,
-          "scale": 0.95,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 439.38,
-          "distance": 643.21,
-          "scale": 1.01,
-          "flip": true,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 434.27,
-          "distance": 662.34,
-          "scale": 1.14,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 429.52,
-          "distance": 680,
-          "scale": 1.15,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 425.84,
-          "distance": 700.88,
-          "scale": 0.87,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 422.04,
-          "distance": 721.41,
-          "scale": 1.1,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 371.81,
-          "distance": 245.34,
+          "across": 269.75,
+          "distance": 197.74,
           "scale": 0.92,
           "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 355.08,
-          "distance": 249.83,
-          "scale": 0.97,
-          "flip": true,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 336.35,
-          "distance": 253.68,
-          "scale": 0.98,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 311.8,
-          "distance": 257.21,
-          "scale": 0.8,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 286.37,
-          "distance": 260.06,
-          "scale": 0.87,
-          "flip": false,
           "tint": "#e8ecdf"
         },
         {
-          "across": 265.35,
-          "distance": 263.18,
-          "scale": 0.84,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 248.77,
-          "distance": 266.46,
-          "scale": 1.16,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 324.24,
-          "distance": 274.43,
+          "across": 254.03,
+          "distance": 205.95,
           "scale": 1.11,
-          "flip": true,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 313.19,
-          "distance": 289.28,
-          "scale": 1.09,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 304.75,
-          "distance": 303.74,
-          "scale": 1.03,
           "flip": false,
           "tint": "#ffffff"
         },
         {
-          "across": 293.47,
-          "distance": 318.18,
-          "scale": 0.97,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 282.24,
-          "distance": 335.52,
-          "scale": 0.8,
-          "flip": true,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 272.04,
-          "distance": 351.46,
-          "scale": 0.89,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 263.55,
-          "distance": 371.86,
-          "scale": 1.05,
+          "across": 230.75,
+          "distance": 214.73,
+          "scale": 0.93,
           "flip": false,
           "tint": "#f2f4ea"
         },
         {
-          "across": 385.98,
-          "distance": 250.87,
+          "across": 210.73,
+          "distance": 223.63,
+          "scale": 1,
+          "flip": true,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 192.42,
+          "distance": 230.58,
+          "scale": 1.09,
+          "flip": true,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 177.61,
+          "distance": 238.21,
+          "scale": 1.19,
+          "flip": false,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 114.06,
+          "distance": 147.33,
+          "scale": 0.92,
+          "flip": false,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 95.58,
+          "distance": 158.05,
+          "scale": 0.93,
+          "flip": false,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 80.65,
+          "distance": 169.74,
+          "scale": 0.98,
+          "flip": false,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 66.02,
+          "distance": 181.13,
+          "scale": 1.2,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 51.79,
+          "distance": 191.84,
+          "scale": 1.12,
+          "flip": true,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 466.21,
+          "distance": 276.43,
+          "scale": 1.04,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 490.96,
+          "distance": 276.66,
+          "scale": 0.89,
+          "flip": false,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 516.46,
+          "distance": 276.84,
+          "scale": 1.08,
+          "flip": true,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 539.07,
+          "distance": 277.01,
           "scale": 0.95,
           "flip": true,
           "tint": "#f2f4ea"
         },
         {
-          "across": 380.84,
-          "distance": 273.49,
+          "across": 555.33,
+          "distance": 277.23,
           "scale": 1.18,
           "flip": false,
           "tint": "#f6f1e4"
         },
         {
-          "across": 374.4,
-          "distance": 295.38,
+          "across": 575.71,
+          "distance": 277.44,
           "scale": 1.02,
           "flip": false,
           "tint": "#f6f1e4"
         },
         {
-          "across": 366.85,
-          "distance": 317.38,
+          "across": 599.58,
+          "distance": 277.66,
           "scale": 0.95,
           "flip": false,
           "tint": "#ffffff"
         },
         {
-          "across": 360.01,
-          "distance": 340.19,
-          "scale": 1.01,
-          "flip": true,
-          "tint": "#f2f4ea"
-        },
-        {
-          "across": 352.03,
-          "distance": 361.69,
-          "scale": 0.97,
+          "across": 319.84,
+          "distance": 527.11,
+          "scale": 1.17,
           "flip": false,
           "tint": "#f2f4ea"
         },
         {
-          "across": 344.2,
-          "distance": 385.35,
-          "scale": 1,
-          "flip": true,
-          "tint": "#f2f4ea"
+          "across": 318.87,
+          "distance": 547.3,
+          "scale": 1.15,
+          "flip": false,
+          "tint": "#e8ecdf"
         },
         {
-          "across": 135.35,
-          "distance": 384.17,
+          "across": 318.23,
+          "distance": 567.2,
+          "scale": 0.89,
+          "flip": false,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 317.21,
+          "distance": 586.01,
           "scale": 1.13,
           "flip": true,
           "tint": "#f2f4ea"
         },
         {
-          "across": 115.89,
-          "distance": 395.61,
+          "across": 316.29,
+          "distance": 607.46,
           "scale": 1.01,
           "flip": true,
           "tint": "#ffffff"
         },
         {
-          "across": 94.92,
-          "distance": 407.43,
+          "across": 315.3,
+          "distance": 629.65,
           "scale": 1.03,
           "flip": false,
           "tint": "#ffffff"
         },
         {
-          "across": 78.17,
-          "distance": 419.97,
+          "across": 314.51,
+          "distance": 653.16,
           "scale": 0.82,
           "flip": false,
           "tint": "#f2f4ea"
         },
         {
-          "across": 118.87,
-          "distance": 163.99,
-          "scale": 0.8,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 122.53,
-          "distance": 180.39,
-          "scale": 1.03,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 145.78,
-          "distance": 277.35,
-          "scale": 1.05,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 422.45,
-          "distance": 400.35,
-          "scale": 0.89,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 429.34,
-          "distance": 422.32,
-          "scale": 0.88,
-          "flip": true,
-          "tint": "#f2f4ea"
-        },
-        {
-          "across": 439.7,
-          "distance": 439.04,
-          "scale": 0.9,
+          "across": 96.36,
+          "distance": 270.38,
+          "scale": 0.84,
           "flip": true,
           "tint": "#e8ecdf"
         },
         {
-          "across": 447.39,
-          "distance": 456.35,
-          "scale": 1.1,
-          "flip": true,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 454.65,
-          "distance": 478.89,
+          "across": 77.27,
+          "distance": 280.2,
           "scale": 1.11,
           "flip": true,
           "tint": "#ffffff"
         },
         {
-          "across": 462.29,
-          "distance": 500.71,
-          "scale": 0.99,
+          "across": 64.03,
+          "distance": 293.61,
+          "scale": 1.04,
           "flip": false,
-          "tint": "#f6f1e4"
+          "tint": "#e8ecdf"
         },
         {
-          "across": 469.64,
-          "distance": 516.43,
-          "scale": 1.01,
-          "flip": false,
-          "tint": "#ffffff"
+          "across": 150.89,
+          "distance": 531.84,
+          "scale": 0.86,
+          "flip": true,
+          "tint": "#e8ecdf"
         },
         {
-          "across": 131.59,
-          "distance": 116.24,
+          "across": 153.21,
+          "distance": 547.77,
+          "scale": 0.87,
+          "flip": true,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 155.15,
+          "distance": 567.97,
           "scale": 0.88,
           "flip": true,
           "tint": "#f6f1e4"
         },
         {
-          "across": 135.59,
-          "distance": 134.54,
+          "across": 157.67,
+          "distance": 586.45,
           "scale": 0.98,
           "flip": true,
           "tint": "#e8ecdf"
         },
         {
-          "across": 139.13,
-          "distance": 154.14,
+          "across": 159.91,
+          "distance": 606.23,
           "scale": 1.19,
           "flip": false,
           "tint": "#f6f1e4"
         },
         {
-          "across": 143.59,
-          "distance": 175.41,
+          "across": 162.73,
+          "distance": 627.7,
           "scale": 1.17,
           "flip": true,
           "tint": "#f6f1e4"
         },
         {
-          "across": 147.86,
-          "distance": 193.47,
+          "across": 165.42,
+          "distance": 645.92,
           "scale": 0.92,
           "flip": false,
           "tint": "#f2f4ea"
         },
         {
-          "across": 77.25,
-          "distance": 169.77,
-          "scale": 1.14,
-          "flip": true,
+          "across": 73.47,
+          "distance": 188.33,
+          "scale": 0.85,
+          "flip": false,
           "tint": "#ffffff"
         },
         {
-          "across": 72.88,
-          "distance": 194.52,
-          "scale": 0.87,
+          "across": 80.13,
+          "distance": 211.19,
+          "scale": 0.96,
+          "flip": true,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 113.86,
+          "distance": 289.33,
+          "scale": 1.09,
           "flip": false,
           "tint": "#f2f4ea"
         },
         {
-          "across": 67.72,
-          "distance": 219.95,
-          "scale": 0.89,
+          "across": 121.83,
+          "distance": 310.27,
+          "scale": 0.91,
           "flip": false,
           "tint": "#e8ecdf"
         },
         {
-          "across": 62.63,
-          "distance": 240.19,
-          "scale": 1.03,
+          "across": 481.02,
+          "distance": 176.13,
+          "scale": 1.02,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 471.77,
+          "distance": 191.3,
+          "scale": 0.81,
+          "flip": true,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 460.39,
+          "distance": 213.04,
+          "scale": 1.19,
           "flip": false,
           "tint": "#f2f4ea"
         },
         {
-          "across": 57.3,
-          "distance": 262.69,
+          "across": 452.24,
+          "distance": 229.35,
           "scale": 1.16,
           "flip": true,
           "tint": "#e8ecdf"
         },
         {
-          "across": 68.72,
-          "distance": 316.51,
+          "across": 442.33,
+          "distance": 251.82,
+          "scale": 1.08,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 433.57,
+          "distance": 267.78,
+          "scale": 1.09,
+          "flip": true,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 422.77,
+          "distance": 290.64,
+          "scale": 0.98,
+          "flip": true,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 483.09,
+          "distance": 509.4,
+          "scale": 1.19,
+          "flip": false,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 499.94,
+          "distance": 522.64,
+          "scale": 1.04,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 514.86,
+          "distance": 532.73,
+          "scale": 1.15,
+          "flip": false,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 533.79,
+          "distance": 542.21,
+          "scale": 0.94,
+          "flip": false,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 552.41,
+          "distance": 555.03,
           "scale": 0.95,
           "flip": false,
           "tint": "#f6f1e4"
         },
         {
-          "across": 93.06,
-          "distance": 324.06,
-          "scale": 0.93,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 116.77,
-          "distance": 330.81,
-          "scale": 1.08,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 138.39,
-          "distance": 338.72,
-          "scale": 0.84,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 160.37,
-          "distance": 344.19,
-          "scale": 1.03,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 179.86,
-          "distance": 350.69,
-          "scale": 0.97,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 196.69,
-          "distance": 359.05,
+          "across": 571.19,
+          "distance": 566.86,
           "scale": 0.99,
-          "flip": false,
+          "flip": true,
           "tint": "#f6f1e4"
         },
         {
-          "across": 493.37,
-          "distance": 304.56,
-          "scale": 0.83,
+          "across": 588.02,
+          "distance": 578.24,
+          "scale": 0.86,
+          "flip": true,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 296.45,
+          "distance": 542.6,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 282.17,
+          "distance": 554.57,
+          "scale": 0.96,
           "flip": true,
           "tint": "#f2f4ea"
         },
         {
-          "across": 470.84,
-          "distance": 314.29,
-          "scale": 1.1,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 452.93,
-          "distance": 323.28,
-          "scale": 1.2,
-          "flip": false,
+          "across": 264.76,
+          "distance": 566.39,
+          "scale": 1.03,
+          "flip": true,
           "tint": "#f6f1e4"
         },
         {
-          "across": 434.75,
-          "distance": 332.25,
-          "scale": 1.17,
+          "across": 252.61,
+          "distance": 577.78,
+          "scale": 1.13,
           "flip": false,
           "tint": "#e8ecdf"
         },
         {
-          "across": 415.72,
-          "distance": 339.49,
+          "across": 235.56,
+          "distance": 593.7,
+          "scale": 0.9,
+          "flip": false,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 221.61,
+          "distance": 609.48,
+          "scale": 1.19,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 204.77,
+          "distance": 626.74,
           "scale": 1.12,
           "flip": true,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 399.73,
-          "distance": 347.41,
-          "scale": 1.16,
-          "flip": false,
           "tint": "#f6f1e4"
-        },
-        {
-          "across": 378.2,
-          "distance": 354.97,
-          "scale": 0.94,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 383.59,
-          "distance": 304.12,
-          "scale": 0.96,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 404.13,
-          "distance": 310.74,
-          "scale": 1.13,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 426.89,
-          "distance": 319.26,
-          "scale": 1.03,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 444.41,
-          "distance": 327.94,
-          "scale": 1.06,
-          "flip": true,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 468.71,
-          "distance": 335.74,
-          "scale": 0.87,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": 491.2,
-          "distance": 342.62,
-          "scale": 1.11,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 506.46,
-          "distance": 350.84,
-          "scale": 1.05,
-          "flip": false,
-          "tint": "#e8ecdf"
         }
       ]
     },
@@ -5086,172 +5002,160 @@
           "flip": false
         },
         {
-          "across": -1.75,
-          "distance": 7.03,
-          "scale": 0.97,
-          "flip": false
-        },
-        {
-          "across": -5.07,
-          "distance": 8.02,
-          "scale": 0.8,
-          "flip": false
-        },
-        {
-          "across": -1.64,
-          "distance": 8.78,
-          "scale": 0.86,
-          "flip": false
-        },
-        {
-          "across": -5.01,
-          "distance": 9.81,
-          "scale": 1.17,
-          "flip": false
-        },
-        {
-          "across": -5.24,
-          "distance": 10.86,
-          "scale": 1.05,
-          "flip": false
-        },
-        {
-          "across": -4.96,
-          "distance": 11.78,
-          "scale": 0.71,
-          "flip": false
-        },
-        {
-          "across": -1.79,
-          "distance": 12.72,
-          "scale": 0.73,
-          "flip": true
-        },
-        {
-          "across": -2.52,
-          "distance": 13.76,
+          "across": -5.56,
+          "distance": 7.81,
           "scale": 1.11,
           "flip": true
         },
         {
-          "across": -5.21,
-          "distance": 14.37,
-          "scale": 1.09,
-          "flip": false
-        },
-        {
-          "across": -4.98,
-          "distance": 14.88,
-          "scale": 1.11,
+          "across": -1.35,
+          "distance": 8.38,
+          "scale": 0.85,
           "flip": true
         },
         {
-          "across": -5.53,
-          "distance": 15.47,
-          "scale": 0.97,
+          "across": -5.58,
+          "distance": 9.02,
+          "scale": 1.19,
           "flip": true
         },
         {
-          "across": -5.42,
-          "distance": 16.46,
-          "scale": 1.17,
-          "flip": false
-        },
-        {
-          "across": -4.33,
-          "distance": 17.15,
-          "scale": 0.75,
-          "flip": false
-        },
-        {
-          "across": -4.65,
-          "distance": 17.62,
-          "scale": 1.12,
-          "flip": false
-        },
-        {
-          "across": -4.03,
-          "distance": 18.39,
-          "scale": 0.89,
-          "flip": false
-        },
-        {
-          "across": -3.69,
-          "distance": 19.35,
+          "across": -5.65,
+          "distance": 10.03,
           "scale": 1.01,
+          "flip": false
+        },
+        {
+          "across": -5.47,
+          "distance": 10.91,
+          "scale": 1.09,
           "flip": true
         },
         {
-          "across": -0.97,
-          "distance": 20.1,
-          "scale": 0.96,
+          "across": -5.55,
+          "distance": 11.37,
+          "scale": 0.84,
           "flip": false
         },
         {
-          "across": -3.2,
-          "distance": 20.82,
-          "scale": 1.15,
-          "flip": false
-        },
-        {
-          "across": 0.38,
-          "distance": 21.55,
+          "across": -1.46,
+          "distance": 11.85,
           "scale": 0.73,
-          "flip": false
-        },
-        {
-          "across": -2.89,
-          "distance": 22.56,
-          "scale": 1.15,
           "flip": true
         },
         {
-          "across": -3.04,
-          "distance": 23.13,
-          "scale": 0.93,
-          "flip": false
-        },
-        {
-          "across": 1.17,
-          "distance": 23.62,
-          "scale": 0.82,
+          "across": -2.31,
+          "distance": 12.79,
+          "scale": 1.02,
           "flip": true
         },
         {
-          "across": 1.65,
-          "distance": 24.38,
+          "across": -4.86,
+          "distance": 13.71,
+          "scale": 1.06,
+          "flip": true
+        },
+        {
+          "across": -2.42,
+          "distance": 14.65,
+          "scale": 1.07,
+          "flip": false
+        },
+        {
+          "across": -1.71,
+          "distance": 15.42,
+          "scale": 1.04,
+          "flip": false
+        },
+        {
+          "across": -4.85,
+          "distance": 16.44,
+          "scale": 1,
+          "flip": true
+        },
+        {
+          "across": -4.37,
+          "distance": 16.96,
+          "scale": 0.98,
+          "flip": false
+        },
+        {
+          "across": -4.57,
+          "distance": 17.91,
+          "scale": 1.09,
+          "flip": true
+        },
+        {
+          "across": -4.68,
+          "distance": 18.59,
           "scale": 1.05,
           "flip": true
         },
         {
-          "across": 1.8,
-          "distance": 24.84,
-          "scale": 0.89,
-          "flip": false
+          "across": -0.86,
+          "distance": 19.41,
+          "scale": 0.78,
+          "flip": true
         },
         {
-          "across": 1.61,
-          "distance": 25.32,
+          "across": -3.68,
+          "distance": 20.17,
+          "scale": 1.04,
+          "flip": true
+        },
+        {
+          "across": -3.32,
+          "distance": 21.17,
           "scale": 0.83,
           "flip": false
         },
         {
-          "across": -1.73,
-          "distance": 26.09,
-          "scale": 1.17,
+          "across": -3.61,
+          "distance": 21.66,
+          "scale": 0.98,
+          "flip": false
+        },
+        {
+          "across": 0.29,
+          "distance": 22.65,
+          "scale": 1.18,
+          "flip": false
+        },
+        {
+          "across": -2.15,
+          "distance": 23.38,
+          "scale": 0.96,
+          "flip": false
+        },
+        {
+          "across": 1.12,
+          "distance": 23.97,
+          "scale": 0.96,
+          "flip": false
+        },
+        {
+          "across": 0.88,
+          "distance": 24.84,
+          "scale": 0.77,
+          "flip": false
+        },
+        {
+          "across": -1.52,
+          "distance": 25.51,
+          "scale": 0.86,
+          "flip": false
+        },
+        {
+          "across": -1.89,
+          "distance": 26.11,
+          "scale": 1.1,
           "flip": true
         },
         {
-          "across": 1.87,
-          "distance": 26.76,
-          "scale": 1.07,
-          "flip": true
-        },
-        {
-          "across": -2,
-          "distance": 27.67,
-          "scale": 0.75,
-          "flip": true
+          "across": 1.59,
+          "distance": 27.13,
+          "scale": 0.83,
+          "flip": false
         }
       ]
     },
@@ -5269,364 +5173,364 @@
       ],
       "copies": [
         {
-          "across": 1.27,
-          "distance": 20.14,
-          "scale": 0.85,
-          "flip": false
-        },
-        {
-          "across": -0.18,
-          "distance": 14.49,
-          "scale": 0.82,
-          "flip": true
-        },
-        {
-          "across": 2.26,
-          "distance": 16.42,
-          "scale": 0.85,
-          "flip": true
-        },
-        {
-          "across": 2.9,
-          "distance": 20.91,
-          "scale": 1.05,
-          "flip": false
-        },
-        {
-          "across": 5.26,
-          "distance": 16.41,
-          "scale": 0.82,
-          "flip": false
-        },
-        {
-          "across": 3.28,
-          "distance": 18.29,
-          "scale": 0.93,
-          "flip": true
-        },
-        {
-          "across": 4.46,
-          "distance": 24.17,
-          "scale": 0.92,
-          "flip": false
-        },
-        {
-          "across": 4.28,
-          "distance": 20.34,
-          "scale": 0.73,
-          "flip": false
-        },
-        {
-          "across": -0.35,
-          "distance": 12.28,
-          "scale": 0.84,
-          "flip": false
-        },
-        {
-          "across": 6.74,
-          "distance": 19.93,
-          "scale": 0.94,
-          "flip": false
-        },
-        {
-          "across": 2.93,
-          "distance": 23,
-          "scale": 0.81,
-          "flip": true
-        },
-        {
-          "across": -1.35,
-          "distance": 13.08,
-          "scale": 0.8,
-          "flip": true
-        },
-        {
-          "across": 5.33,
-          "distance": 19.48,
-          "scale": 0.89,
-          "flip": true
-        },
-        {
-          "across": -0.94,
-          "distance": 14.01,
-          "scale": 0.86,
-          "flip": true
-        },
-        {
           "across": 4.58,
-          "distance": 4.96,
-          "scale": 1.09,
-          "flip": false
-        },
-        {
-          "across": 2.17,
-          "distance": 21.77,
-          "scale": 0.75,
+          "distance": 18.24,
+          "scale": 0.74,
           "flip": true
         },
         {
-          "across": 2.25,
-          "distance": 20.43,
-          "scale": 0.95,
+          "across": 5.66,
+          "distance": 23.17,
+          "scale": 0.88,
           "flip": true
         },
         {
-          "across": 0.96,
-          "distance": 18.56,
-          "scale": 0.73,
+          "across": 6.12,
+          "distance": 22.69,
+          "scale": 0.74,
           "flip": true
         },
         {
-          "across": 4.72,
-          "distance": 5.05,
-          "scale": 0.84,
-          "flip": false
-        },
-        {
-          "across": 5.09,
-          "distance": 7.07,
-          "scale": 0.81,
-          "flip": false
-        },
-        {
-          "across": 3.57,
-          "distance": 18.45,
+          "across": 0.31,
+          "distance": 8.35,
           "scale": 1.08,
-          "flip": true
-        },
-        {
-          "across": 4.86,
-          "distance": 22.67,
-          "scale": 0.72,
-          "flip": true
-        },
-        {
-          "across": -1.35,
-          "distance": 4.58,
-          "scale": 1.07,
-          "flip": true
-        },
-        {
-          "across": 1.29,
-          "distance": 13.13,
-          "scale": 0.99,
           "flip": false
         },
         {
-          "across": 4.68,
-          "distance": 5.51,
-          "scale": 0.78,
-          "flip": false
-        },
-        {
-          "across": 1.05,
-          "distance": 18.41,
-          "scale": 0.79,
-          "flip": false
-        },
-        {
-          "across": 1.01,
-          "distance": 9.9,
-          "scale": 0.77,
-          "flip": false
-        },
-        {
-          "across": 3.56,
-          "distance": 24.15,
-          "scale": 0.81,
-          "flip": true
-        },
-        {
-          "across": 0.65,
-          "distance": 19.13,
-          "scale": 0.86,
-          "flip": true
-        },
-        {
-          "across": 4.48,
-          "distance": 24.09,
-          "scale": 0.79,
-          "flip": false
-        },
-        {
-          "across": 2.84,
-          "distance": 18.98,
-          "scale": 1.02,
-          "flip": false
-        },
-        {
-          "across": -0.22,
-          "distance": 10.74,
-          "scale": 0.71,
-          "flip": false
-        },
-        {
-          "across": 4.11,
-          "distance": 23.97,
-          "scale": 1.03,
-          "flip": true
-        },
-        {
-          "across": 2.3,
-          "distance": 19.48,
-          "scale": 1.07,
-          "flip": true
-        },
-        {
-          "across": 7.3,
-          "distance": 24.17,
-          "scale": 0.91,
-          "flip": false
-        },
-        {
-          "across": 0.68,
-          "distance": 11.25,
+          "across": 1.2,
+          "distance": 4.51,
           "scale": 0.96,
-          "flip": false
-        },
-        {
-          "across": 4.72,
-          "distance": 20.08,
-          "scale": 1.08,
-          "flip": false
-        },
-        {
-          "across": 1.32,
-          "distance": 21.56,
-          "scale": 1.02,
           "flip": true
         },
         {
-          "across": 1.6,
-          "distance": 17.58,
-          "scale": 1.04,
+          "across": 3.07,
+          "distance": 19.36,
+          "scale": 1.06,
           "flip": true
         },
         {
-          "across": 6.51,
-          "distance": 23.84,
-          "scale": 0.72,
-          "flip": false
-        },
-        {
-          "across": 3.26,
-          "distance": 11.95,
-          "scale": 0.83,
-          "flip": false
-        },
-        {
-          "across": 2.31,
-          "distance": 23.15,
-          "scale": 0.8,
-          "flip": false
-        },
-        {
-          "across": 1.45,
-          "distance": 22.87,
-          "scale": 1.1,
-          "flip": false
-        },
-        {
-          "across": 6.43,
-          "distance": 23.94,
-          "scale": 0.72,
-          "flip": true
-        },
-        {
-          "across": 0.13,
-          "distance": 10.59,
-          "scale": 0.75,
-          "flip": false
-        },
-        {
-          "across": 2.42,
-          "distance": 10.64,
-          "scale": 1.08,
-          "flip": false
-        },
-        {
-          "across": 1.77,
-          "distance": 15.87,
-          "scale": 0.85,
-          "flip": true
-        },
-        {
-          "across": 7.03,
-          "distance": 23.33,
-          "scale": 1.03,
-          "flip": true
-        },
-        {
-          "across": 5.42,
-          "distance": 18.22,
-          "scale": 1.08,
-          "flip": true
-        },
-        {
-          "across": 6.25,
-          "distance": 18.85,
-          "scale": 0.86,
-          "flip": false
-        },
-        {
-          "across": -1.26,
-          "distance": 5.09,
-          "scale": 1.09,
-          "flip": true
-        },
-        {
-          "across": 3.27,
-          "distance": 11.47,
-          "scale": 0.73,
-          "flip": true
-        },
-        {
-          "across": 3.44,
-          "distance": 16.26,
-          "scale": 0.95,
-          "flip": false
-        },
-        {
-          "across": 3.53,
-          "distance": 15.21,
-          "scale": 0.91,
-          "flip": false
-        },
-        {
-          "across": 2.72,
-          "distance": 22.59,
-          "scale": 0.71,
-          "flip": false
-        },
-        {
-          "across": 5.71,
-          "distance": 17.43,
-          "scale": 0.77,
-          "flip": true
-        },
-        {
-          "across": 3.69,
-          "distance": 19.7,
+          "across": 4.6,
+          "distance": 21.8,
           "scale": 0.98,
           "flip": false
         },
         {
-          "across": 6.17,
-          "distance": 22.21,
-          "scale": 1.03,
+          "across": 5.06,
+          "distance": 6.69,
+          "scale": 0.95,
+          "flip": false
+        },
+        {
+          "across": 4.88,
+          "distance": 19.35,
+          "scale": 1,
           "flip": true
         },
         {
-          "across": -0.24,
-          "distance": 18.48,
+          "across": 5.53,
+          "distance": 18.35,
+          "scale": 0.71,
+          "flip": true
+        },
+        {
+          "across": -0.21,
+          "distance": 4.6,
+          "scale": 0.81,
+          "flip": true
+        },
+        {
+          "across": -1.24,
+          "distance": 11.96,
+          "scale": 0.92,
+          "flip": false
+        },
+        {
+          "across": 4.38,
+          "distance": 24.39,
+          "scale": 0.98,
+          "flip": true
+        },
+        {
+          "across": 2.66,
+          "distance": 14.2,
+          "scale": 0.82,
+          "flip": false
+        },
+        {
+          "across": 1.6,
+          "distance": 9.08,
+          "scale": 0.79,
+          "flip": true
+        },
+        {
+          "across": 1.92,
+          "distance": 21.29,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": -0.64,
+          "distance": 10.86,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": 6.96,
+          "distance": 23.57,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": 1.68,
+          "distance": 13.91,
+          "scale": 0.74,
+          "flip": false
+        },
+        {
+          "across": 2.29,
+          "distance": 23.85,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": 1.85,
+          "distance": 24.13,
+          "scale": 1.03,
+          "flip": false
+        },
+        {
+          "across": 6.13,
+          "distance": 17.95,
+          "scale": 0.8,
+          "flip": false
+        },
+        {
+          "across": 0.28,
+          "distance": 12.08,
+          "scale": 0.93,
+          "flip": false
+        },
+        {
+          "across": 2.81,
+          "distance": 18.64,
+          "scale": 0.74,
+          "flip": true
+        },
+        {
+          "across": -0.93,
+          "distance": 17.56,
+          "scale": 0.75,
+          "flip": true
+        },
+        {
+          "across": 7.01,
+          "distance": 22.73,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": -0.85,
+          "distance": 9.22,
+          "scale": 0.7,
+          "flip": false
+        },
+        {
+          "across": -0.73,
+          "distance": 11.68,
+          "scale": 0.87,
+          "flip": false
+        },
+        {
+          "across": 3.54,
+          "distance": 15.42,
+          "scale": 0.96,
+          "flip": false
+        },
+        {
+          "across": -0.98,
+          "distance": 14.53,
+          "scale": 0.88,
+          "flip": true
+        },
+        {
+          "across": 4.12,
+          "distance": 15.12,
           "scale": 0.86,
           "flip": false
         },
         {
-          "across": 1.05,
-          "distance": 12.43,
-          "scale": 0.77,
+          "across": 3.84,
+          "distance": 24.49,
+          "scale": 1.06,
+          "flip": true
+        },
+        {
+          "across": -0.72,
+          "distance": 11.11,
+          "scale": 0.91,
           "flip": false
+        },
+        {
+          "across": 4.12,
+          "distance": 15.67,
+          "scale": 1.02,
+          "flip": false
+        },
+        {
+          "across": 1.21,
+          "distance": 19.25,
+          "scale": 0.81,
+          "flip": true
+        },
+        {
+          "across": 4.46,
+          "distance": 14.44,
+          "scale": 0.8,
+          "flip": false
+        },
+        {
+          "across": -1.03,
+          "distance": 4.59,
+          "scale": 1.01,
+          "flip": true
+        },
+        {
+          "across": 6.85,
+          "distance": 22.52,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": 6.29,
+          "distance": 20.41,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": 5.6,
+          "distance": 16.46,
+          "scale": 0.83,
+          "flip": false
+        },
+        {
+          "across": 6.7,
+          "distance": 21,
+          "scale": 1.06,
+          "flip": true
+        },
+        {
+          "across": 5.53,
+          "distance": 20.24,
+          "scale": 0.78,
+          "flip": true
+        },
+        {
+          "across": 6.05,
+          "distance": 17.45,
+          "scale": 1.01,
+          "flip": false
+        },
+        {
+          "across": 6.01,
+          "distance": 24.01,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": 6.65,
+          "distance": 21.96,
+          "scale": 0.72,
+          "flip": false
+        },
+        {
+          "across": 2.35,
+          "distance": 23.57,
+          "scale": 0.96,
+          "flip": true
+        },
+        {
+          "across": 1.61,
+          "distance": 10.66,
+          "scale": 0.86,
+          "flip": false
+        },
+        {
+          "across": 2.7,
+          "distance": 18.55,
+          "scale": 1.01,
+          "flip": false
+        },
+        {
+          "across": 1.65,
+          "distance": 19.01,
+          "scale": 0.95,
+          "flip": false
+        },
+        {
+          "across": 4.21,
+          "distance": 5.39,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 2.57,
+          "distance": 13.62,
+          "scale": 1.07,
+          "flip": true
+        },
+        {
+          "across": 3.85,
+          "distance": 15.01,
+          "scale": 0.98,
+          "flip": false
+        },
+        {
+          "across": 5.72,
+          "distance": 19.4,
+          "scale": 1.06,
+          "flip": false
+        },
+        {
+          "across": 1.63,
+          "distance": 7.75,
+          "scale": 0.71,
+          "flip": false
+        },
+        {
+          "across": -0.78,
+          "distance": 10.49,
+          "scale": 1.05,
+          "flip": true
+        },
+        {
+          "across": 4.86,
+          "distance": 19.22,
+          "scale": 1.08,
+          "flip": false
+        },
+        {
+          "across": -0.19,
+          "distance": 13.77,
+          "scale": 0.74,
+          "flip": true
+        },
+        {
+          "across": 0.97,
+          "distance": 12.63,
+          "scale": 1,
+          "flip": true
+        },
+        {
+          "across": 3.08,
+          "distance": 18.6,
+          "scale": 0.76,
+          "flip": true
+        },
+        {
+          "across": 3.15,
+          "distance": 21.74,
+          "scale": 0.92,
+          "flip": true
         }
       ]
     },
@@ -5663,9 +5567,11 @@
           11
         ],
         "size": [
-          1.2,
-          5
-        ]
+          1.6,
+          7
+        ],
+        "color": "#ece9e4",
+        "opacity": 0.6
       }
     },
     {
@@ -5687,9 +5593,11 @@
           11
         ],
         "size": [
-          1.2,
-          5
-        ]
+          1.6,
+          7
+        ],
+        "color": "#ece9e4",
+        "opacity": 0.6
       }
     },
     {
@@ -5711,9 +5619,11 @@
           11
         ],
         "size": [
-          1.2,
-          5
-        ]
+          1.6,
+          7
+        ],
+        "color": "#ece9e4",
+        "opacity": 0.6
       }
     },
     {
@@ -5722,10 +5632,10 @@
       "person": {
         "cast": "cast",
         "who": "traveller_40",
-        "turn": 115
+        "turn": 110
       },
-      "across": 0.4,
-      "distance": 5.6,
+      "across": 0.2,
+      "distance": 6.2,
       "shadow": true
     },
     {
@@ -5734,10 +5644,10 @@
       "person": {
         "cast": "cast",
         "who": "jan_40",
-        "turn": 235
+        "turn": 252
       },
-      "across": 2,
-      "distance": 6.6,
+      "across": 2.3,
+      "distance": 6.4,
       "shadow": true
     },
     {
@@ -5746,10 +5656,10 @@
       "person": {
         "cast": "cast",
         "who": "lina_37",
-        "turn": 150
+        "turn": 140
       },
       "across": -1.2,
-      "distance": 7.6,
+      "distance": 7.4,
       "shadow": true
     }
   ],

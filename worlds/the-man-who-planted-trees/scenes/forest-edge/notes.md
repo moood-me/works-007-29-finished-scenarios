@@ -6,8 +6,8 @@ path comes up from the village below. Jan (40), the district's forester, has jus
 (37), who led the town's people up, stands a step off the water with her pail, looking at the Traveller. On the flat
 stone where the path goes into the wood — bread left for Elzéard, untouched.
 
-- Camera `picture`, horizon 0.55; the frame is as tall as its distance (a 53° lens). The Traveller 5.6 m, Jan 6.6 m,
-  Lina 7.6 m; the stone 16.2 m. The village shows just over the valley's brow, right of Jan.
+- Camera `picture`, horizon 0.55; the frame is as tall as its distance (a 53° lens). The Traveller 6.2 m and Jan 6.4 m face each other side-on,
+  Lina 7.4 m; the stone 16.2 m. The village shows just over the valley's brow, right of Jan.
 - The land is one draped plane (`land`) over `relief.js`; `lib.js` has the shape (`streamX`, `streamW`, the forest's
   edge `edgeA`, `slope`, `channel`, `ground`) — shared by the relief, `land`, `water` and
   `tools/forest-edge-copies.mjs`. Near, the meadow shelf is level; the forest climbs to the left and back (30 m by
