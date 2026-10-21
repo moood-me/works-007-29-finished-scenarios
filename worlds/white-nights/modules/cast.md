@@ -1,7 +1,7 @@
 # cast — the people of «White Nights» as the engine's people
 
 A module for scenes with people (elements with `person`: `{"cast": "cast", "who": …}` — the engine's people.md). In
-the scene's `modules`. 4 looks, 3 parts, 2 motions of its own (below) besides the engine's `stand` and `walk`. The parts'
+the scene's `modules`. 4 looks, 4 parts, 2 motions of its own (below) besides the engine's `stand` and `walk`. The parts'
 lengths are a man's metres times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
@@ -17,7 +17,7 @@ expressions, by name). Hems are even (no ragged edge).
 ## Who
 
 - `dreamer` — the Dreamer, 26: thin, a little stooped, a clerk's worn frock coat of faded bottle green to the knee,
-  grey trousers, dark brown hair. Bare-headed: his hat is in his hands (`hat_hands`, `hat_hand`).
+  grey trousers, dark brown hair. Bare-headed: his hat is in his hands (`hat_hands`, `hat_hand`, `hat_low`).
 - `nastenka` — Nastenka, 17: small, a pale lilac-grey dress to the ankles, a dark blue-grey mantle over the shoulders
   to the hips, a straw bonnet with a dark rose ribbon bow under the chin.
 - `lodger` — the Lodger, about 28: tall and upright, a long slate-blue frock coat, black hair; his top hat at his chest
@@ -33,6 +33,8 @@ At home Nastenka is the same character with her look changed over it: `"look": {
 - `hat_hands` — a top hat held before the chest in both hands, between them, its crown out from the chest (where the
   hands are: put them there by `<id>_reach`).
 - `hat_hand` — a top hat in the right hand, its crown out from the chest.
+- `hat_low` — a top hat held low at the side by its brim in the left hand, its crown out away from the body and a
+  little down (the arm as the motion has it).
 - `book` — an open book held in both hands, between them, its pages turned to the reader's face; its point
   `<id>#book` (to look at it).
 
@@ -41,7 +43,7 @@ The hat's colour is the look's `colors.hat`.
 ## Garments, hats
 
 `frockcoat` (to the knee), `longcoat` (below the knee, fuller), `caped` (a dress to the ankles with a mantle over the
-shoulders to the hips), `frock` (the same dress without the mantle), `shawled` (an old woman's fuller dress to the floor,
+shoulders to the hips), `frock` (the same dress without the mantle, a little shorter and narrower, smooth — it is sat in), `shawled` (an old woman's fuller dress to the floor,
 a shawl over the shoulders to the hips, the top's colour); `bonnet` (a deep straw bonnet framing the face, a ribbon bow
 under the chin), `mobcap` (an old woman's white linen cap, a ribbon bow under the chin).
 

@@ -4,6 +4,12 @@
 const INK = e.lib.INK;
 g.fillStyle = '#ebe4d6';
 g.fillRect(-2.7, -3, 5.4, 6);
+// nearer the viewer, away from the windows, the whitewash goes into a warm shade
+const shade = g.createLinearGradient(0, -1, 0, 3);
+shade.addColorStop(0, 'rgba(120,96,74,0)');
+shade.addColorStop(1, 'rgba(120,96,74,0.5)');
+g.fillStyle = shade;
+g.fillRect(-2.7, -3, 5.4, 6);
 g.beginPath();
 for (let x = -2.7; x <= 2.7; x += 0.3) {
   g.moveTo(x, -3);

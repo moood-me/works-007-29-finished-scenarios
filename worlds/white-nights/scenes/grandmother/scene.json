@@ -1,7 +1,6 @@
 {
   "engine": 3,
   "title": "Grandmother's Room",
-  "caption": "Sunday, after mass. Grandmother in her armchair, Nastenka pinned to her dress, a guest at the door with his hat in his hands.",
   "horizon": 0.4,
   "camera": { "mode": "picture" },
   "light": {
@@ -39,17 +38,16 @@
     "babushka_on": [0.25, 4.6, 0.42],
     "babushka_turn": 180,
     "babushka_do": { "motion": "seated", "loop": true },
-    "babushka_look": "dreamer",
+    "babushka_look": null,
     "babushka_mood": "neutral",
-    "nastya_on": [-0.52, 4.32, 0.34],
-    "nastya_turn": 145,
+    "nastya_on": [-0.7, 4.32, 0.34],
+    "nastya_turn": 160,
     "nastya_do": { "motion": "read", "loop": true },
     "nastya_with": ["book"],
-    "nastya_look": "nastya#book",
-    "nastya_mood": "neutral",
-    "dreamer_with": ["hat_hands"],
-    "dreamer_reach": { "r": [-1.746, 3.88, 1.25], "l": [-1.684, 4.049, 1.25] },
-    "dreamer_look": "nastya",
+    "nastya_look": [-1.4, 2.6, 1.3],
+    "nastya_mood": "smile",
+    "dreamer_with": ["hat_low"],
+    "dreamer_look": [-1.1, 3.0, 0.9],
     "dreamer_mood": "smile"
   },
   "states": {
@@ -93,19 +91,19 @@
       "shadow": true
     },
     { "id": "chair_front", "name": "Armchair's front", "across": 0.25, "distance": 4.28, "facing": 180, "height": 0.72, "box": [-0.47, -0.72, 0.47, 0.01], "inside": true, "shadow": true },
-    { "id": "stool", "name": "Low bench", "across": -0.52, "distance": 4.32, "facing": 180, "height": 0.35, "box": [-0.25, -0.36, 0.25, 0.01], "inside": true, "shadow": true },
-    { "id": "stool_top", "name": "Low bench's seat", "plane": true, "across": -0.52, "distance": 4.32, "elevation": 0.34, "width": 0.46, "depth": 0.3, "inside": true },
+    { "id": "stool", "name": "Low bench", "across": -0.7, "distance": 4.32, "facing": 180, "height": 0.35, "box": [-0.25, -0.36, 0.25, 0.01], "inside": true, "shadow": true },
+    { "id": "stool_top", "name": "Low bench's seat", "plane": true, "across": -0.7, "distance": 4.32, "elevation": 0.34, "width": 0.46, "depth": 0.3, "inside": true },
     { "id": "babushka", "name": "Grandmother", "person": { "cast": "cast", "who": "babushka", "turn": 180 }, "across": 0.25, "distance": 4.6, "inside": true },
     {
       "id": "nastya",
       "name": "Nastenka",
-      "person": { "cast": "cast", "who": "nastenka", "look": { "garment": "frock", "hat": "none", "hair": "bun" }, "turn": 145 },
-      "across": -0.52,
+      "person": { "cast": "cast", "who": "nastenka", "look": { "garment": "frock", "hat": "none", "hair": "bun" }, "turn": 160 },
+      "across": -0.7,
       "distance": 4.32,
       "inside": true
     },
-    { "id": "dreamer", "name": "The Dreamer", "person": { "cast": "cast", "who": "dreamer", "turn": 110 }, "across": -1.95, "distance": 4.05, "inside": true },
-    { "id": "pin", "name": "Grandmother's pin", "across": -0.12, "distance": 4.38, "height": 1.5, "box": [-1.2, -1.2, 1.2, 0.3], "inside": true },
+    { "id": "dreamer", "name": "The Dreamer", "person": { "cast": "cast", "who": "dreamer", "turn": 160 }, "across": -1.8, "distance": 4.05, "inside": true },
+    { "id": "pin", "name": "Grandmother's pin", "across": -0.2, "distance": 4.0, "height": 1.5, "box": [-1.2, -1.2, 1.2, 0.3], "inside": true },
     { "id": "dust", "name": "Dust in the sun", "across": -0.8, "distance": 3.4, "elevation": 1.2, "inside": true, "particles": { "kind": "dust", "source": [2.6, 2.4, 2.0] } }
   ],
   "music": {
