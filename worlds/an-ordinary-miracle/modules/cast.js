@@ -72,6 +72,28 @@ return {
       body: { height: 0.9, thick: 1.32, shoulders: 0.98, hips: 1.15 },
       colors: { skin: '#efc3a2', hair: '#9a5a2c', top: '#e1c27a', garment: '#9b2436', bottom: '#5a1c26', shoes: '#3a1e1a', accent: '#f1ece2' },
     },
+    // Emil, the innkeeper: past fifty, broad and solid, greying hair cut short, a bushy moustache, a dark brown
+    // waistcoat over a white shirt with the sleeves showing, a mug and a cloth in his hands (he rubs the same mug longer
+    // than he needs to)
+    emil: {
+      kind: 'shapes', style: 'tale', who: 'man', garment: 'waistcoat', hair: 'short', parts: ['moustache', 'mug'],
+      body: { height: 1.0, thick: 1.2, shoulders: 1.04 },
+      colors: { skin: '#e6b591', hair: '#5a5049', top: '#eee6d4', garment: '#6b3d24', bottom: '#3d3029', shoes: '#2b211b', accent: '#f1ebdc' },
+    },
+    // Emilia, the lady of the court: past forty and still handsome, upright, auburn hair in a bun under a wide plum
+    // travelling hat with a cream plume, a long plum-violet gown, a cream lace kerchief at the throat
+    emilia: {
+      kind: 'shapes', style: 'tale', who: 'woman', garment: 'dress_long', hair: 'bun', hat: 'hat', scarf: true, parts: ['plume'],
+      body: { height: 0.95, thick: 0.86, shoulders: 0.88, hips: 1.04 },
+      colors: { skin: '#efc8aa', hair: '#7a3a22', top: '#5a2f63', garment: '#5a2f63', hat: '#3e2347', shoes: '#2a1e22', accent: '#f0e6d2' },
+    },
+    // the Hunter: stout, grey, a ruddy face, a huge grey moustache, a loden-green jacket and leather breeches, a green
+    // hunter's hat with a tawny feather, his long gun held upright between his knees (he has not fired it in ten years)
+    okhotnik: {
+      kind: 'shapes', style: 'tale', who: 'man', garment: 'jacket', hair: 'short', hat: 'hat', parts: ['moustache', 'plume', 'gun'],
+      body: { height: 0.99, thick: 1.25, shoulders: 1.02 },
+      colors: { skin: '#e8ac86', hair: '#a29c92', top: '#ddd2b6', garment: '#4f5c33', bottom: '#6a4f33', shoes: '#2e2219', hat: '#3c4728', accent: '#c4893c' },
+    },
   },
   shapes: {
     // the world's style: a storybook figure — made from the engine's `soft` with the head a little large (the faces
@@ -88,6 +110,8 @@ return {
     // a homespun dress to the ankles with long sleeves, all of the garment's colour
     garments: {
       dress_long: { name: 'long-sleeved dress', hang: [{ to: 1.9, from: 'waist', flare: 0.42, off: 0.94 }], bodice: true, bare: true, sleeves: 'garment' },
+      // a waistcoat to the hips over the shirt: the shirt's sleeves show
+      waistcoat: { name: 'waistcoat', hang: [{ to: 0.42, from: 'shoulders', flare: 0.08, folds: false }] },
     },
     // hair in a bun, one grey lock from the brow's parting back over the crown
     hair: {
@@ -133,6 +157,42 @@ return {
       } },
     },
     parts: {
+      // a bushy moustache drooping at its ends, in the hair's colour
+      moustache: { name: 'moustache', draw: F => {
+        const { axes, r: rh, on } = F.head, hu = axes[1], c = F.colors.hair;
+        for (const sx of [-1, 1]) {
+          F.tube([on([sx * 0.03, -0.27, 0.99], 1.0), on([sx * 0.26, -0.31, 0.95], 1.04), on([sx * 0.42, -0.45, 0.85], 1.03)],
+            [[0, rh * 0.1], [1, rh * 0.1], [2, rh * 0.04]], [[0, c]], 8, hu);
+        }
+      } },
+      // a feather stuck in the hat's band at the left side, sweeping up and back, in the look's accent colour
+      plume: { name: 'feather', draw: F => {
+        const { axes, r, on } = F.head, c = F.colors.accent;
+        for (const sx of [-1, 1]) {
+          F.tube([on([sx * 0.85, 0.62, 0.3], 1.02), on([sx * 1.15, 1.15, -0.1], 1.0), on([sx * 1.0, 1.6, -0.8], 1.0), on([sx * 0.6, 1.5, -1.6], 1.0)],
+            [[0, r * 0.08], [1, r * 0.22], [2, r * 0.17], [3, r * 0.03]], [[0, c]], 8, axes[0], 0.35);
+        }
+      } },
+      // a clay mug held between the hands, a white cloth bunched in the right hand
+      mug: { name: 'mug and cloth', draw: F => {
+        const { add, mul, mean } = V();
+        const m = F.fit.h, mid = mean([F.P('LeftHand'), F.P('RightHand')]), fw = F.fwd('Hips');
+        const at = add(mid, mul(fw, 0.04 * m)), up = [0, 1, 0];
+        F.bar(add(at, mul(up, -0.06 * m)), add(at, mul(up, 0.06 * m)), 0.045 * m, 0.042 * m, [[0, [0.66, 0.46, 0.3, 1]]], 12, fw);
+        F.ball(add(at, mul(up, 0.058 * m)), [F.side('Hips'), up, fw], [0.04 * m, 0.008 * m, 0.04 * m], [0.36, 0.22, 0.14, 1], 10);
+        F.ball(add(F.P('RightHand'), mul(fw, 0.03 * m)), [F.side('RightHand'), F.up('RightHand'), F.fwd('RightHand')], [0.05 * m, 0.04 * m, 0.045 * m], F.colors.accent, 10);
+      } },
+      // the Hunter's long gun held upright between the knees: the butt on the floor, the hands round the barrel
+      gun: { name: 'long gun', draw: F => {
+        const { add, mul, mean } = V();
+        const m = F.fit.h, mid = mean([F.P('LeftHand'), F.P('RightHand')]), up = [0, 1, 0], fw = F.fwd('Hips');
+        // (leaning on his right shoulder: the barrel clear of the face)
+        const lean = add(mul(up, 0.5 * m), mul(F.side('Hips'), -0.2 * m));
+        const butt = add(mid, mul(up, -0.62 * m)), lock = add(mid, mul(up, -0.2 * m)), muzzle = add(mid, lean);
+        F.bar(butt, lock, 0.05 * m, 0.028 * m, [[0, [0.42, 0.26, 0.14, 1]]], 10, fw, 0.55);
+        F.bar(lock, muzzle, 0.016 * m, 0.012 * m, [[0, [0.2, 0.2, 0.22, 1]]], 8, fw);
+        F.ball(lock, [F.side('Hips'), up, fw], [0.022 * m, 0.035 * m, 0.03 * m], [0.62, 0.5, 0.3, 1], 8);
+      } },
       // a woven belt round the waist in the look's accent colour, its knot at the left hip and the two ends hanging
       sash: { name: 'woven belt', draw: F => {
         const { add, mul } = V();

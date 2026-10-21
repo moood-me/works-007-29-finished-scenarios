@@ -1,0 +1,9 @@
+{
+  "strings": [
+    {
+      "text": "The Inn «Emilia»",
+      "translation": "Трактир «Эмилия»",
+      "where": "scenes/inn/scene.json title"
+    }
+  ]
+}
