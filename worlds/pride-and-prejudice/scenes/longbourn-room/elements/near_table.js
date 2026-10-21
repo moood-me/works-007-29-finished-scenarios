@@ -1,5 +1,5 @@
-// A small round table near the eye at the left, a brass candlestick on it with a lit candle (the flame: `near_flame`)
-// — the light that falls on the faces from before them — and a book (x across, y up negative; its top at 0.72 m)
+// A small round table at the right of the group, wholly in the frame: a brass candlestick on it with a lit candle (the
+// flame: `near_flame`) — its warmth on the faces from the right — and a book (x across, y up negative; its top at 0.72 m)
 const L = e.kit.brush, px = L.px(e), r = L.rand(149);
 const top = new Path2D();
 top.ellipse(0, -0.72, 0.42, 0.09, 0, 0, Math.PI * 2);

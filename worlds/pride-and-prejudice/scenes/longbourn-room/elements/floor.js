@@ -12,23 +12,23 @@ for (let x = -3; x <= 3; x += 0.17) {
   seams.moveTo(x, cut); seams.lineTo(x + 0.17, cut);
 }
 L.pen(g, seams, 1.0 * px, 0.35);
-// the rug: under Jane, Elizabeth and the frame (across −2.2…1.2, 2.4…4.6 m off)
+// the rug: under the three sisters and the frame (across −2.2…1.2, 3.0…5.2 m off)
 const rug = new Path2D();
-rug.rect(-2.4, -1.2, 3.4, 2.2);
-L.wash(g, rug, '#ebe1c8', [-2.4, -1.2, 1, 1], r, 4);
+rug.rect(-2.4, -1.8, 3.4, 2.2);
+L.wash(g, rug, '#ebe1c8', [-2.4, -1.8, 1, 0.4], r, 4);
 const border = new Path2D();
-border.rect(-2.4, -1.2, 3.4, 2.2);
-border.rect(-2.22, -1.04, 3.04, 1.88);
+border.rect(-2.4, -1.8, 3.4, 2.2);
+border.rect(-2.22, -1.64, 3.04, 1.88);
 g.fillStyle = '#93a47e';
 g.fill(border, 'evenodd');
 const medallion = new Path2D();
-medallion.ellipse(-0.7, -0.1, 0.8, 0.55, 0, 0, Math.PI * 2);
-L.wash(g, medallion, '#d9cfae', [-1.5, -0.65, 0.1, 0.45], r, 2);
+medallion.ellipse(-0.7, -0.7, 0.8, 0.55, 0, 0, Math.PI * 2);
+L.wash(g, medallion, '#d9cfae', [-1.5, -1.25, 0.1, -0.15], r, 2);
 const pattern = new Path2D();
 for (let k = 0; k < 12; k++) {
   const a = (k / 12) * Math.PI * 2;
-  pattern.moveTo(-0.7 + Math.cos(a) * 0.25, -0.1 + Math.sin(a) * 0.18);
-  pattern.lineTo(-0.7 + Math.cos(a) * 0.62, -0.1 + Math.sin(a) * 0.42);
+  pattern.moveTo(-0.7 + Math.cos(a) * 0.25, -0.7 + Math.sin(a) * 0.18);
+  pattern.lineTo(-0.7 + Math.cos(a) * 0.62, -0.7 + Math.sin(a) * 0.42);
 }
 L.pen(g, pattern, 1.0 * px, 0.35);
 L.pen(g, medallion, 1.1 * px, 0.5);

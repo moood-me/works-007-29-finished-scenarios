@@ -5,7 +5,7 @@ const L = e.kit.brush, px = L.px(e), r = L.rand(83);
 const all = new Path2D();
 all.rect(-30, -3.95, 60, 7.9);
 L.wash(g, all, '#a2b37c', [-30, -3.95, 30, 3.95], r, 9);
-// the walk: a band 1.7 m wide along a smooth curve
+// the walk: a band 2.3 m wide along a smooth curve, both of them standing well inside it
 const way = [[-14, 3.95], [-6, 3.35], [-2.6, 2.6], [-0.6, 2.05], [0.6, 1.35], [3, 0.4], [8, -0.9], [16, -2.2], [30, -2.9]];
 const pts = [];
 for (let i = 0; i + 1 < way.length; i++) {
@@ -19,7 +19,7 @@ for (let pass = 0; pass < 2; pass++) {
 }
 const side = s => pts.map((p, i) => {
   const a = pts[Math.max(0, i - 1)], b = pts[Math.min(pts.length - 1, i + 1)], dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1;
-  return [p[0] - (dy / l) * 0.95 * s, p[1] + (dx / l) * 0.95 * s];
+  return [p[0] - (dy / l) * 1.15 * s, p[1] + (dx / l) * 1.15 * s];
 });
 const left = side(1), right = side(-1), walk = new Path2D();
 walk.moveTo(...left[0]);
@@ -39,7 +39,7 @@ for (const line of [left, right]) {
 L.pen(g, edges, 1.6 * px, 0.55);
 const gravel = new Path2D();
 for (let i = 0; i < 420; i++) {
-  const p = pts[Math.floor(r() * pts.length)], ox = (r() - 0.5) * 1.5, oy = (r() - 0.5) * 1.5, s = 0.012 + 0.012 * r();
+  const p = pts[Math.floor(r() * pts.length)], ox = (r() - 0.5) * 1.9, oy = (r() - 0.5) * 1.9, s = 0.012 + 0.012 * r();
   gravel.moveTo(p[0] + ox + s, p[1] + oy);
   gravel.arc(p[0] + ox, p[1] + oy, s, 0, Math.PI * 2);
 }
@@ -49,7 +49,7 @@ g.fill(gravel);
 const daisies = new Path2D();
 for (let i = 0; i < 160; i++) {
   const x = -14 + 28 * r(), y = -3.5 + 7.4 * r() ** 0.6;
-  if (Math.abs(y - (2.05 - (x + 0.6) * 0.3)) < 1.2) continue;
+  if (Math.abs(y - (2.05 - (x + 0.6) * 0.3)) < 1.4) continue;
   daisies.moveTo(x + 0.02, y);
   daisies.arc(x, y, 0.02, 0, Math.PI * 2);
 }
@@ -59,7 +59,7 @@ g.fill(daisies);
 const tufts = [];
 for (let i = 0; i < 70; i++) {
   const x = -14 + 28 * r(), y = -3.6 + 7.4 * r() ** 0.7;
-  if (Math.abs(y - (2.05 - (x + 0.6) * 0.3)) < 1.3) continue;
+  if (Math.abs(y - (2.05 - (x + 0.6) * 0.3)) < 1.5) continue;
   tufts.push([x, y, 6 + Math.round(6 * r())]);
 }
 L.grass(g, tufts, 0.05, r, 1.3 * px, 0.4);

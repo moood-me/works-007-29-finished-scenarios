@@ -9,7 +9,7 @@ const holed = (x0, y0, x1, y1, holes) => {
   for (const [hx0, hy0, hx1, hy1] of holes) { p.moveTo(hx0, hy0); p.lineTo(hx0, hy1); p.lineTo(hx1, hy1); p.lineTo(hx1, hy0); p.closePath(); }
   return p;
 };
-// a wall from x0 to x1, the holes left open: a cream panelled wainscot to the dado rail, a sage paper with fine cream
+// a wall from x0 to x1, the holes left open: a cream panelled wainscot to the dado rail, a pale sage paper with fine cream
 // stripes above it, a deeper green frieze under the cornice (the page's title is read over it), the pen along every
 // rail; px: the pen's pixel at the wall's distance
 const wall = (g, x0, x1, holes, r, px) => {
@@ -19,7 +19,7 @@ const wall = (g, x0, x1, holes, r, px) => {
   // the paper
   const paper = new Path2D();
   paper.rect(x0, -FRIEZE, x1 - x0, FRIEZE - DADO);
-  B.wash(g, paper, '#b3bf9d', [x0, -FRIEZE, x1, -DADO], r, 6);
+  B.wash(g, paper, '#c6cfae', [x0, -FRIEZE, x1, -DADO], r, 6);
   const stripes = new Path2D();
   for (let x = x0 + 0.06; x < x1; x += 0.24) { stripes.rect(x, -FRIEZE, 0.035, FRIEZE - DADO); stripes.rect(x + 0.07, -FRIEZE, 0.012, FRIEZE - DADO); }
   g.fillStyle = 'rgba(244,238,220,0.55)';
@@ -27,7 +27,7 @@ const wall = (g, x0, x1, holes, r, px) => {
   // the frieze and the cornice
   const frieze = new Path2D();
   frieze.rect(x0, -HIGH, x1 - x0, HIGH - FRIEZE);
-  B.wash(g, frieze, '#7a8f6f', [x0, -HIGH, x1, -FRIEZE], r, 5);
+  B.wash(g, frieze, '#8a9d7b', [x0, -HIGH, x1, -FRIEZE], r, 5);
   g.fillStyle = '#ede5d0';
   g.fillRect(x0, -FRIEZE - 0.09, x1 - x0, 0.09);
   g.fillRect(x0, -HIGH, x1 - x0, 0.12);

@@ -5,23 +5,27 @@ scene's `modules`. The parts' lengths are a man's metres times `F.fit.h`, their 
 
 ## Style
 
-`austen` — slender, long-legged Regency figures (from `soft`) with heads big enough for a face to read: colours with
-their shade (`paint: toned`), a fine sepia pen line round them and where their colours meet (`line` 1.6, the ground
-`sepia`'s ink — the same ink as the world's `brush` pen), cloth in soft folds. Arms and legs (`regency` profiles) with a
-little flesh to them, slim wrists and ankles. Faces `simple` (eyes, brows, a mouth: `<id>_mood` shows on them). The
-light is the scene's.
+`austen` — slender Regency figures (from `soft`) with a short neck and a head big enough for a face to read: colours with
+their shade (`paint: toned`), the sepia pen round them and where their colours meet (`line` 2.3 — as strong as the
+places' own pen of the world's `brush`, the same ink, so people and places are of one hand), cloth in many soft folds.
+Arms and legs (`regency` profiles) with flesh to them, slim wrists and ankles. Faces `austen` (the cast's own): dark
+almond eyes under a pen-dark upper lid, brows of the hair's colour, a straight nose, lips a shade rosier than the skin —
+each expression of `<id>_mood` (a laugh narrows the eyes only a little, so they still read). Gowns fall straight and
+slim from under the bust (`gown`, flare 0.32). The light is the scene's.
 
 ## Who
 
 - `elizabeth` — Elizabeth Bennet, twenty: not tall, light; dark hair up in a knot, curls at the temples (`curls`),
-  bareheaded; a white high-waisted gown (`gown`, an A-line from under the bust), short puffed sleeves over long ones
-  (`puffs`), a sage-green sash under the bust (`sash`, the look's `accent`).
-- `jane` — Jane Bennet, twenty-two: a little taller, fair hair up, a primrose gown, a dusty-rose sash.
-- `lydia` — Lydia Bennet, fifteen: round-faced, dark-blonde, a pale pink gown and her scarlet ribbon round her hair
-  (`ribbon`: a band above the brow, tied at the left, its two ends swinging).
-- `darcy` — Fitzwilliam Darcy, twenty-eight: tall, straight, dark hair brushed forward (`brutus`); a dark blue
-  tailcoat cut square at the waist (`tailcoat`) with its tails to the knee behind (`tails`, a sheet of cloth), a pale
-  waistcoat between its fronts (`waistcoat`), a white cravat (`cravat`), buff breeches, black top boots (`socks`).
+  bareheaded; a white high-waisted gown (`gown`), short puffed sleeves over long ones (`puffs`), a sage-green sash
+  under the bust (`sash`, the look's `accent`).
+- `jane` — Jane Bennet, twenty-two: a little taller, fair hair up, a primrose gown, a dusty-rose sash, pale slippers.
+- `lydia` — Lydia Bennet, fifteen: round-faced, dark-blonde, a bright coral-pink gown (the liveliest of the sisters,
+  never grey) and her scarlet ribbon round her hair (`ribbon`: a band above the brow, tied at the left, its two ends
+  swinging).
+- `darcy` — Fitzwilliam Darcy, twenty-eight: tall, straight, dark hair brushed forward (`brutus`); a whole dark blue
+  tailcoat, close over the chest and down over the hips (`tailcoat`), its tails to the knee behind (`tails`, a sheet of
+  cloth kept to the back), the pale waistcoat as a V between its open fronts (`waistcoat`), a white cravat — a high
+  stock round the neck and its fall under the chin (`cravat`) —, buff breeches, black top boots (`socks`).
 
 The world's three rare colours — Lydia's scarlet ribbon, Charlotte's grey gown, the blue seal of Darcy's letter — are
 kept for those three; nobody else wears them.
