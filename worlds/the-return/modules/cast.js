@@ -220,7 +220,7 @@ return {
     // thickness (cloth over them, not sticks), working hands, trousers and boots; `soldier` — the same in a soldier's
     // high boots, the sleeves of a greatcoat a little thicker, its garments cut straight (a coat a long trapezoid)
     styles: {
-      gouache: { from: 'soft', name: 'gouache', sides: 16, head: 1.3, egg: [0.92, 1.06, 0.98], neck: 0.55, legs: 1.02, limb: 1.12, arms: 'hand', fingers: true, feet: 'trouser',
+      gouache: { from: 'soft', name: 'gouache', sides: 16, head: 1.3, egg: [0.92, 1.06, 0.98], neck: 0.38, legs: 1.02, limb: 1.12, arms: 'hand', fingers: true, feet: 'trouser',
         trunk: { w: [0.94, 0.98, 0.88, 0.97, 0.95], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.8, tinted: true,
         folds: { n: 6, depth: 0.07 }, face: 'gouache', ground: 'paper' },
       // a soldier: the same in high boots, the head a little longer and squarer in the jaw (a man's)
@@ -279,7 +279,7 @@ return {
       // a white kerchief over the hair, tied at the nape
       kerchief: { name: 'kerchief', draw: F => {
         const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
-        F.cap(at, axes, egg.map(e => e * r * out * 1.08), [0, 0.7, -0.72], -0.05, F.colors.hat, sides, square);
+        F.cap(at, axes, egg.map(e => e * r * out * 1.08), [0, 0.78, -0.62], -0.24, F.colors.hat, sides, square);
         F.ball(add(at, add(mul(hu, -r * 0.45), mul(hf, -r * 1.02))), axes, [r * 0.22, r * 0.16, r * 0.14], F.colors.hat, 10);
       } },
       // a soldier's side cap: a narrow boat of cloth along the crown, worn straight (tipped a hair to the right), its
