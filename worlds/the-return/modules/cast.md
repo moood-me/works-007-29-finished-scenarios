@@ -26,6 +26,10 @@ sand, ochre, grey-green cloth.
   (`kerchief`).
 - `petrushka` — Petrushka, the son, 11: thin but square-shouldered; a cut-down man's shirt, patched trousers, a man's old
   boots.
+- `semyon` — Semyon Yevseyevich, 50: a widower, the night watchman at the store by the station; a little stooped, grey
+  and cropped, his cap off indoors; an old dark jacket (`jacket`) over a grey collarless shirt, worn trousers, boots.
+- `nastya` — Nastya, the daughter, 5: small, fair, round-faced; a faded rose cotton frock (`dress`), bare legs, little
+  shoes.
 
 ## Motions
 
