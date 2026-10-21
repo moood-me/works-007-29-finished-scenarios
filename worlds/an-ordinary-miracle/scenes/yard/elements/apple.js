@@ -32,8 +32,8 @@ e.layer('crown', { pivot: [0, -2.0], wind: { strength: 0.16, gust: 0.5, scale: 8
     }
   }
   // the leaves' broken colour over the round masses: small dabs, darker in the crown's lower half, sunlit above
-  L.dabs(g, 125, -2.9, -5.6, 5.8, 2.4, ['#a9c763', '#8fb257', '#5f8d45'], 260, 0.12, 0.7, 0.8);
-  L.dabs(g, 127, -2.9, -3.4, 5.8, 2.1, ['#3f6b38', '#4a7840', '#6d9a4b'], 260, 0.12, 0.7, 0.8);
+  L.dabs(g, 125, -2.9, -5.6, 5.8, 2.4, ['#9cbd5e', '#7fa64f', '#5f8d45'], 220, 0.1, 0.7, 0.4);
+  L.dabs(g, 127, -2.9, -3.4, 5.8, 2.1, ['#3f6b38', '#4a7840', '#5a8743'], 220, 0.1, 0.7, 0.4);
   // apples
   for (let i = 0; i < 40; i++) {
     const a = 6.28 * L.rnd(i, 131), r = 2.1 * Math.sqrt(L.rnd(i, 132)), x = Math.cos(a) * r * 1.1, y = -3.5 + Math.sin(a) * r * 0.75;
