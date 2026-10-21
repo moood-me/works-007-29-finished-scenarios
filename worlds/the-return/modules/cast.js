@@ -19,7 +19,8 @@ const MOODS = {
   laugh: { inner: 0.04, outer: 0.03, eye: 0.5, wide: 0.21, corners: 0.07, open: 0.09 },
   // grief held in: the brows' inner ends raised, the eyes open and waiting, the lips parted a little, their corners down
   sad: { inner: 0.11, outer: -0.06, eye: 1.05, wide: 0.15, corners: -0.04, open: 0.025 },
-  angry: { inner: -0.1, outer: 0.04, eye: 0.8, wide: 0.15, corners: -0.035, open: 0 },
+  // sullen, a boy's grown-up frown: the brows' inner ends hard down, the eyes level, the mouth set, its corners down
+  angry: { inner: -0.1, outer: 0.03, eye: 0.88, wide: 0.13, corners: -0.035, open: 0 },
   surprised: { inner: 0.1, outer: 0.1, eye: 1.35, wide: 0.1, corners: 0, open: 0.09 },
   afraid: { inner: 0.11, outer: 0.01, eye: 1.3, wide: 0.15, corners: -0.035, open: 0.05 },
   disgusted: { inner: -0.06, outer: -0.01, eye: 0.75, wide: 0.15, corners: -0.045, open: 0 },
@@ -75,13 +76,14 @@ return {
       colors: { skin: '#e8c0a0', hair: '#c9a46c', top: '#c98e82', garment: '#c98e82', shoes: '#6b5444' } },
   },
   shapes: {
-    // the world's style: gouache on rough paper — round, natural proportions with the head a little large (the faces
-    // read), a tinted painted edge, the colours lit by the scene's light (`lit`), working hands, trousers and boots of
-    // some thickness; `soldier` — the same in a soldier's high boots
+    // the world's style: gouache on rough paper — natural proportions with the head a little large (the faces read), a
+    // tinted painted edge, the colours lit by the scene's light (`lit`), the body and the cloth in broad flat planes (a
+    // brush's facets: `facets`, few sides — the face's front kept round), working hands, trousers and boots of some
+    // thickness; `soldier` — the same in a soldier's high boots
     styles: {
-      gouache: { from: 'soft', name: 'gouache', head: 1.16, egg: [0.92, 1.06, 0.98], neck: 0.8, legs: 1.02, limb: 1.0, arms: 'hand', feet: 'trouser',
+      gouache: { from: 'soft', name: 'gouache', facets: true, sides: 10, head: 1.16, egg: [0.92, 1.06, 0.98], neck: 0.8, legs: 1.02, limb: 1.0, arms: 'hand', feet: 'trouser',
         trunk: { w: [0.94, 0.98, 0.88, 1.0, 0.98], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.4, tinted: true,
-        folds: { n: 6, depth: 0.05 }, face: 'gouache', ground: 'paper' },
+        folds: { n: 6, depth: 0.07 }, face: 'gouache', ground: 'paper' },
       soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot' },
     },
     // an arm with a working hand (a broad palm, not a tip); a leg in trousers; a leg in a high boot from below the knee

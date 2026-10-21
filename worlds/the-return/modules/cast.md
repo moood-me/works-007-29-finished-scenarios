@@ -5,14 +5,15 @@ are a man's metres, multiplied by `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
 
-`gouache` — made from the engine's `soft`, with natural proportions (the head a little large, so the faces read), round, a
-tinted painted edge, flat colours lit by the scene's own light (`paint: lit`), working hands (`arms: hand`), legs in
+`gouache` — made from the engine's `soft`, with natural proportions (the head a little large, so the faces read), the body
+and the cloth in broad flat planes like a brush's (`facets`, ten sides; the face's front kept round), a tinted painted edge, flat colours lit by the scene's own light (`paint: lit`), working hands (`arms: hand`), legs in
 trousers of some thickness (`feet: trouser`); `soldier` — the same in a soldier's high boots (`feet: jackboot`). The face
 `gouache`: the whites of the eyes and the irises (as open as the lids let them), the upper lids' dark line, the shade
 under the eyes, thick brows, the nose and the shade under it, the lips. It takes `<id>_mood` by the engine's names, each
 bolder than the engine's own (`MOODS` in cast.js) so that it reads at three or four metres: `tired` — heavy lids, the
 brows' outer ends down; `sad` — grief held in and waiting: the brows' inner ends up, the eyes open, the lips parted;
-`thinking` — wary: the brows drawn down and together, the eyes narrowed. Like the whole world: gouache on rough paper,
+`thinking` — wary: the brows drawn down and together, the eyes narrowed; `angry` — sullen, a boy's grown-up
+frown: the brows' inner ends hard down, the mouth set. Like the whole world: gouache on rough paper,
 sand, ochre, grey-green cloth.
 
 ## Who
