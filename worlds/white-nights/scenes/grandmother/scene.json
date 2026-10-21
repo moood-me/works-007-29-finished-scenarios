@@ -37,10 +37,12 @@
   "state": {
     "lampada": 1,
     "babushka_on": [0.25, 4.6, 0.42],
+    "babushka_turn": 180,
     "babushka_do": { "motion": "seated", "loop": true },
     "babushka_look": "dreamer",
     "babushka_mood": "neutral",
     "nastya_on": [-0.52, 4.32, 0.34],
+    "nastya_turn": 145,
     "nastya_do": { "motion": "read", "loop": true },
     "nastya_with": ["book"],
     "nastya_look": "nastya#book",
