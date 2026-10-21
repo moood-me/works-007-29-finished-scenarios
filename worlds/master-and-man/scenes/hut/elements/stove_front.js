@@ -45,9 +45,9 @@ for (const [x, y, dx, dy] of [[-0.6, -1.5, 0.12, 0.18], [0.85, -0.4, -0.1, 0.22]
   g.stroke();
 }
 // (soot over the mouth, up the stove's forehead, soft)
-const soot = g.createRadialGradient(MC, -MT - 0.05, 0.02, MC, -MT - 0.05, 0.42);
-soot.addColorStop(0, "rgba(50,44,40,0.75)");
-soot.addColorStop(0.6, "rgba(60,54,50,0.3)");
+const soot = g.createRadialGradient(MC, -MT + 0.02, 0.02, MC, -MT + 0.02, 0.3);
+soot.addColorStop(0, "rgba(50,44,40,0.6)");
+soot.addColorStop(0.6, "rgba(60,54,50,0.2)");
 soot.addColorStop(1, "rgba(60,54,50,0)");
 g.fillStyle = soot;
 g.fillRect(M0 - 0.4, -MT - 0.5, M1 - M0 + 0.8, 0.6);

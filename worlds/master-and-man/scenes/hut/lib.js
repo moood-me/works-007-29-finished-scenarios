@@ -27,6 +27,10 @@ const C = {
 // tow in the seams pale; long cracks along them, a knot here and there
 const LOG_SHADES = ["#9a7a58", "#8e6f4f", "#a3825e", "#93744f", "#87694a", "#9e7d5a"];
 function logs(g, x0, x1, y0, y1, log, rnd) {
+  g.save();
+  g.beginPath();
+  g.rect(x0, y0, x1 - x0, y1 - y0);
+  g.clip();
   g.fillStyle = C.log;
   g.fillRect(x0, y0, x1 - x0, y1 - y0);
   for (let y = y1; y > y0 + 0.01; y -= log) {
@@ -53,6 +57,7 @@ function logs(g, x0, x1, y0, y1, log, rnd) {
       g.fill();
     }
   }
+  g.restore();
 }
 
 // boards side by side from x0 to x1, each `w` wide, along y from y0 to y1: each its own shade, a dark line between,

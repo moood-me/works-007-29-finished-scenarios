@@ -1,19 +1,19 @@
 {
   "engine": 3,
   "title": "The Old Man's Hut",
-  "horizon": 0.42,
+  "horizon": 0.39,
   "camera": {
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.55,
-    "ambientColor": "#c4b8ac",
-    "bounce": 0.55,
+    "ambient": 0.6,
+    "ambientColor": "#a7afbf",
+    "bounce": 0.5,
     "haze": 0.12,
     "hazeColor": "#5e5248",
     "hazeGlow": 0.7,
     "tint": "#ffe2c0",
-    "tintStrength": 0.05,
+    "tintStrength": 0.03,
     "saturation": 1.0,
     "vignette": 0.4,
     "grain": 0.1
@@ -23,8 +23,8 @@
       "id": "lamp",
       "of": "lamp#flame",
       "color": "#ffc27a",
-      "strength": 1.6,
-      "reach": 5.5,
+      "strength": 2.1,
+      "reach": 6,
       "flicker": 0.05
     },
     {
@@ -93,12 +93,8 @@
         "sash"
       ]
     },
-    "nikita_look": [
-      -0.6,
-      3.4,
-      0.4
-    ],
-    "nikita_mood": "tired"
+    "nikita_look": "table_things#bottle",
+    "nikita_mood": "neutral"
   },
   "objects": [
     {
@@ -470,7 +466,7 @@
       "person": {
         "cast": "cast",
         "who": "old_man",
-        "turn": 255,
+        "turn": 232,
         "does": "lean_table"
       },
       "across": -0.72,
