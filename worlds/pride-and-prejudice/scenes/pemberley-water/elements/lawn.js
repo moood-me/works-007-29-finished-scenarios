@@ -6,7 +6,7 @@ const all = new Path2D();
 all.rect(-30, -3.95, 60, 7.9);
 L.wash(g, all, '#a2b37c', [-30, -3.95, 30, 3.95], r, 9);
 // the walk: a band 1.7 m wide along a smooth curve
-const way = [[-16, 3.95], [-9, 2.6], [-4, 1.2], [-1.3, 0.45], [1.5, -0.2], [5, -1.0], [10, -1.9], [20, -2.7], [30, -3.1]];
+const way = [[-16, 3.95], [-9, 3.2], [-4, 2.0], [-1.1, 1.35], [1.2, 0.75], [5, -0.2], [10, -1.3], [20, -2.4], [30, -2.9]];
 const pts = [];
 for (let i = 0; i + 1 < way.length; i++) {
   const [x0, y0] = way[i], [x1, y1] = way[i + 1];
@@ -39,7 +39,7 @@ g.fill(gravel);
 const daisies = new Path2D();
 for (let i = 0; i < 160; i++) {
   const x = -14 + 28 * r(), y = -3.5 + 7.4 * r() ** 0.6;
-  if (Math.abs(y - (0.45 - (x + 1.3) * 0.28)) < 1.1) continue;
+  if (Math.abs(y - (1.35 - (x + 1.1) * 0.26)) < 1.1) continue;
   daisies.moveTo(x + 0.02, y);
   daisies.arc(x, y, 0.02, 0, Math.PI * 2);
 }

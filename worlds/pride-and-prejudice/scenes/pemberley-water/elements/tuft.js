@@ -20,8 +20,8 @@ e.layer('blades', { wind: { strength: 0.06, gust: 0.5, scale: 2 }, pivot: [0, 0.
     const x = (r() - 0.5) * 0.3, h = 0.3 + 0.12 * r();
     stems.moveTo(x, 0.02);
     stems.quadraticCurveTo(x + 0.02, -h * 0.5, x + 0.03, -h);
-    cups.moveTo(x + 0.05, -h);
-    cups.arc(x + 0.03, -h, 0.02, 0, Math.PI * 2);
+    cups.moveTo(x + 0.044, -h);
+    cups.arc(x + 0.03, -h, 0.014, 0, Math.PI * 2);
   }
   g2.strokeStyle = '#6f8650';
   g2.lineWidth = 0.004;

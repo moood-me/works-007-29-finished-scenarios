@@ -19,7 +19,7 @@ L.pen(g, trunk, 1.2 * px, 0.55);
 e.layer('crown', { wind: { strength: 0.18, gust: 0.4, scale: 6 }, pivot: [0.1, -4.6] }, g2 => {
   const boughs = new Path2D();
   boughs.moveTo(0.1, -4.6);
-  boughs.bezierCurveTo(1.6, -4.9, 3.0, -3.9, 4.6, -3.25);
+  boughs.bezierCurveTo(1.2, -4.9, 2.2, -4.1, 3.3, -3.6);
   boughs.moveTo(0, -6.2);
   boughs.bezierCurveTo(1.2, -6.8, 2.4, -6.6, 3.4, -6.1);
   boughs.moveTo(-0.1, -7.5);
@@ -28,7 +28,7 @@ e.layer('crown', { wind: { strength: 0.18, gust: 0.4, scale: 6 }, pivot: [0.1, -
   g2.lineCap = 'round';
   g2.lineWidth = 0.16;
   g2.stroke(boughs);
-  L.foliage(g2, [[1.3, -4.75, 0.75], [2.3, -4.25, 0.85], [3.3, -3.75, 0.75], [4.2, -3.3, 0.6], [4.8, -3.05, 0.4],
+  L.foliage(g2, [[1.1, -4.8, 0.7], [1.9, -4.4, 0.75], [2.7, -4.0, 0.6], [3.3, -3.65, 0.4],
     [0.6, -6.5, 1.4], [2.0, -6.2, 1.2], [3.2, -6.0, 0.9], [-0.8, -7.0, 1.4], [0.2, -8.6, 1.7], [2.4, -7.7, 1.3], [-1.8, -9.0, 1.4], [1.2, -9.8, 1.3]],
-    ['#5c7752', '#77935f', '#9cb47d'], r, 0.1);
+    ['#5c7752', '#77935f', '#9cb47d'], r, 0.06);
 });

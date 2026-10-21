@@ -14,8 +14,8 @@ line a darker shade of what it edges (`tinted`) — a light wash and a pen line,
 - `elizabeth` — Elizabeth Bennet, twenty: not tall, light; dark hair up in a knot, curls at the temples (`curls`),
   bareheaded; a pale high-waisted gown (`gown`), long sleeves, a sage-green sash under the bust (`sash`, the look's
   `accent`).
-- `darcy` — Fitzwilliam Darcy, twenty-eight: tall, straight, dark-haired; a dark blue coat to above the knee
-  (`tailcoat`), a white cravat (`cravat`), buff breeches, black boots.
+- `darcy` — Fitzwilliam Darcy, twenty-eight: tall, straight, dark-haired; a dark blue coat to mid-thigh
+  (`tailcoat`), a white cravat (`cravat`), fawn breeches, black boots.
 
 The world's three rare colours — Lydia's scarlet ribbon, Charlotte's grey gown, the blue seal of Darcy's letter — are
 kept for those three; nobody else wears them.

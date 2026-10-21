@@ -7,7 +7,7 @@ const crowns = (x0, x1, top, size, seed) => {
   let x = x0;
   p.lineTo(x, top(x));
   while (x < x1) {
-    const w = size * (0.6 + 0.8 * rr()), h = size * (0.35 + 0.35 * rr());
+    const w = size * (0.4 + 1.2 * rr()), h = size * (0.2 + 0.5 * rr());
     p.quadraticCurveTo(x + w / 2, top(x + w / 2) - h * 2, x + w, top(x + w));
     x += w;
   }

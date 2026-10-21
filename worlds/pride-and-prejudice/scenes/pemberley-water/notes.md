@@ -8,10 +8,10 @@ laurel, the clouds drifting, the water's ripple and its mirror.
 
 ## What is where (from the start: x across the stage, metres)
 
-- **Elizabeth** (`elizabeth`, cast `elizabeth`) — on the gravel walk at −1.3 m, 5 m off, turned a little to the left
+- **Elizabeth** (`elizabeth`, cast `elizabeth`) — on the gravel walk at −1.1 m, 4 m off, turned a little to the left
   (190°), looking down aside at the walk (`elizabeth_look`), a small smile (`elizabeth_mood`). Bareheaded, as she
   walks out: a pale high-waisted gown, a sage sash.
-- **Mr Darcy** (`darcy`, cast `darcy`) — three steps from her, at 1.35 m, 5.7 m off, turned toward her (215°), hands
+- **Mr Darcy** (`darcy`, cast `darcy`) — three steps from her, at 1.15 m, 4.6 m off, turned toward her (215°), hands
   behind his back (`hands_behind`), looking at her (`darcy_look: "elizabeth"`) — "looks at her when she does not
   see". Dark blue coat, white cravat, buff breeches.
 - The house (`house`) is between them in the distance, 150 m off across the water, on the relief's rise; the woods

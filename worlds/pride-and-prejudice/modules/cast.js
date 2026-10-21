@@ -15,25 +15,25 @@ return {
     elizabeth: { kind: 'shapes', style: 'austen', who: 'woman', garment: 'gown', hair: 'bun', parts: ['curls', 'sash'],
       body: { height: 0.92, thick: 0.8, shoulders: 0.84, hips: 1.0, neck: 1.05 },
       colors: { skin: '#e8c6a8', hair: '#4a2f20', top: '#efe9db', garment: '#efe9db', bottom: '#e8e0cf', accent: '#8ea27c', shoes: '#7a6450' } },
-    // Fitzwilliam Darcy, twenty-eight: tall, straight, dark-haired; a dark blue coat to the knee, a white cravat high
-    // at the throat, buff breeches, black boots
+    // Fitzwilliam Darcy, twenty-eight: tall, straight, dark-haired; a dark blue coat to mid-thigh, a white cravat
+    // high at the throat, fawn breeches, black boots
     darcy: { kind: 'shapes', style: 'austen', who: 'man', garment: 'tailcoat', hair: 'short', parts: ['cravat'],
       body: { height: 1.06, thick: 0.9, shoulders: 1.04 },
-      colors: { skin: '#e2bea0', hair: '#2a1e17', top: '#f2efe6', garment: '#29334a', bottom: '#cdb892', shoes: '#1f1b19' } },
+      colors: { skin: '#e2bea0', hair: '#2a1e17', top: '#f2efe6', garment: '#29334a', bottom: '#a38f6c', shoes: '#1f1b19' } },
   },
   shapes: {
     // the world's style: slender, long-legged, small-headed figures; colours with their shade (a wash), a fine line a
     // darker shade of what it edges (the pen); faces with eyes, brows and a mouth, as the drawings have them
     styles: {
-      austen: { from: 'soft', name: 'Pride and Prejudice', head: 1.0, egg: [0.9, 1.08, 0.96], neck: 0.95, legs: 1.06, limb: 0.78,
+      austen: { from: 'soft', name: 'Pride and Prejudice', head: 1.15, egg: [0.9, 1.08, 0.96], neck: 0.95, legs: 1.06, limb: 0.78,
         sides: 20, square: 2, trunk: { w: [0.84, 0.88, 0.74, 0.88, 0.98], d: [0.82, 0.84, 0.74, 0.8, 0.72] }, arms: 'palm', feet: 'point',
         paint: 'toned', line: 1.1, tinted: true, folds: { n: 6, depth: 0.05 }, face: 'simple', ground: 'paper', drape: true },
     },
     garments: {
       // a high-waisted gown: hung from the shoulders, falling straight and a little wider to the ankle, long sleeves
       gown: { name: 'high-waisted gown', hang: [{ to: 1.95, from: 'shoulders', flare: 0.3 }], sleeves: 'garment', bodice: true },
-      // a gentleman's coat: from the shoulders to above the knee, long sleeves
-      tailcoat: { name: 'coat', hang: [{ to: 0.9, from: 'shoulders', flare: 0.12 }], sleeves: 'garment' },
+      // a gentleman's coat: from the shoulders to mid-thigh, close to the body, long sleeves
+      tailcoat: { name: 'coat', hang: [{ to: 0.6, from: 'shoulders', flare: 0.03, off: 1.0 }], sleeves: 'garment' },
     },
     parts: {
       // a sash round the gown just under the bust (the look's accent colour): a band between the gown's chest ring and
@@ -55,8 +55,8 @@ return {
       curls: { name: 'curls', draw: F => {
         const h = F.head, r = h.r;
         for (const sx of [-1, 1]) {
-          F.ball(h.on([sx * 0.66, 0.32, 0.66], 1.03), h.axes, [r * 0.17, r * 0.22, r * 0.15], F.colors.hair, 10);
-          F.ball(h.on([sx * 0.78, 0.08, 0.52], 1.02), h.axes, [r * 0.13, r * 0.2, r * 0.13], F.colors.hair, 10);
+          F.ball(h.on([sx * 0.86, 0.3, 0.2], 1.02), h.axes, [r * 0.17, r * 0.22, r * 0.15], F.colors.hair, 10);
+          F.ball(h.on([sx * 0.9, 0.02, 0.05], 1.01), h.axes, [r * 0.13, r * 0.2, r * 0.13], F.colors.hair, 10);
         }
       } },
       // a white cravat at the throat: its knot before the neck, its folds below it on the chest

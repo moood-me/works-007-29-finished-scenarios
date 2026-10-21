@@ -52,8 +52,8 @@ const wash = (g, path, color, box, r, blooms = 4, edge = 0) => {
 const foliage = (g, centres, greens, r, dab) => {
   const under = new Path2D();
   for (const [cx, cy, cr] of centres) {
-    under.moveTo(cx + cr * 0.85, cy + cr * 0.1);
-    under.ellipse(cx, cy + cr * 0.1, cr * 0.85, cr * 0.72, 0, 0, Math.PI * 2);
+    under.moveTo(cx + cr * 0.6, cy + cr * 0.12);
+    under.ellipse(cx, cy + cr * 0.12, cr * 0.6, cr * 0.5, 0, 0, Math.PI * 2);
   }
   g.fillStyle = greens[0];
   g.fill(under);

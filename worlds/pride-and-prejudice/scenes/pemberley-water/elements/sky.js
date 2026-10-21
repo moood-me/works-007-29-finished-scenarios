@@ -2,8 +2,8 @@
 // (stage heights; the horizon at 0.42)
 const L = e.lib, A = e.aspect, H = 0.42, r = L.rand(11);
 const blue = g.createLinearGradient(0, -0.35, 0, H + 0.1);
-blue.addColorStop(0, '#93b0c8');
-blue.addColorStop(0.4, '#b4c8d6');
+blue.addColorStop(0, '#86a8c6');
+blue.addColorStop(0.4, '#a9c3d8');
 blue.addColorStop(0.78, '#dfe3dc');
 blue.addColorStop(1, '#f0e9d6');
 g.fillStyle = blue;
