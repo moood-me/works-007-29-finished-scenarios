@@ -84,10 +84,10 @@
       "name": "The snowy peaks",
       "across": 0,
       "distance": 6000,
-      "height": 2400,
+      "height": 4000,
       "box": [
         -6300,
-        -2550,
+        -4150,
         6300,
         20
       ]
