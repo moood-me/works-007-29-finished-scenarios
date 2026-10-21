@@ -9,15 +9,22 @@ const INK = '#4a3f3a';
 // cracks in the plaster drawn in ink, a dark skirting board
 function greenWall(g, x0, x1, top, seed) {
   const w = x1 - x0;
+  g.save();
+  g.beginPath();
+  g.rect(x0, -top, w, top);
+  g.clip();
   g.fillStyle = '#93a084';
   g.fillRect(x0, -top, w, top);
-  const n = Math.ceil(w * 7);
+  // (the wash: soft patches, paler and darker, with no edge)
+  const n = Math.ceil(w * 5);
   for (let i = 0; i < n; i++) {
-    const x = x0 + hash(i, seed) * w, y = -top + hash(i, seed + 1) * top, r = 0.18 + 0.4 * hash(i, seed + 2);
-    g.fillStyle = hash(i, seed + 3) > 0.5 ? 'rgba(178,188,160,0.22)' : 'rgba(96,108,84,0.16)';
-    g.beginPath();
-    g.ellipse(x, y, r, r * 0.55, 0, 0, Math.PI * 2);
-    g.fill();
+    const x = x0 + hash(i, seed) * w, y = -top + hash(i, seed + 1) * top, r = 0.3 + 0.5 * hash(i, seed + 2);
+    const tone = hash(i, seed + 3) > 0.5 ? '178,188,160' : '100,112,88';
+    const blot = g.createRadialGradient(x, y, 0, x, y, r);
+    blot.addColorStop(0, `rgba(${tone},0.16)`);
+    blot.addColorStop(1, `rgba(${tone},0)`);
+    g.fillStyle = blot;
+    g.fillRect(x - r, y - r, 2 * r, 2 * r);
   }
   // (the soot of years of candles and the stove's smoke, thickest under the ceiling)
   const soot = g.createLinearGradient(0, -top, 0, -top + 1.0);
@@ -61,6 +68,7 @@ function greenWall(g, x0, x1, top, seed) {
   g.strokeStyle = INK;
   g.lineWidth = 0.01;
   g.stroke();
+  g.restore();
 }
 
 // A cut through a painting (an opening in a wall): what is painted there is taken away

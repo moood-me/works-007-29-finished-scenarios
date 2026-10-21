@@ -45,8 +45,9 @@ At home Nastenka is the same character with her look changed over it: `"look": {
   little down (the arm as the motion has it).
 - `book` — an open book held in both hands, between them, its pages turned to the reader's face; its point
   `<id>#book` (to look at it).
-- `letter` — a folded letter with a red wax seal held out in the right hand by its lower edge, standing up out of the
-  fingers so it shows its face (the hand put out by `<id>_reach`); its point `<id>#letter`.
+- `letter` — a folded letter with a red wax seal held out in the right hand, upright between the fingers, its long side
+  along the forearm beyond the hand, so held out across the body it shows its face (the hand put out by `<id>_reach`);
+  its point `<id>#letter`.
 
 The hat's colour is the look's `colors.hat`.
 

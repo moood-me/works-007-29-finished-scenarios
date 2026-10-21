@@ -215,15 +215,15 @@ return {
         F.ball(add(c, mul(s, 0.059 * m)), axes, [0.06 * m, 0.008 * m, 0.085 * m], PAGES, 10, 6);
         F.point('book', add(c, mul(n, 0.01 * m)));
       } },
-      // a folded letter held out in the right hand by its lower edge, standing up out of the fingers (tipped up from the
-      // forearm's line, so it shows its face, not its edge), a red wax seal on its face; its point `letter`
+      // a folded letter held out in the right hand, upright between the fingers: its long side along the forearm, beyond
+      // the hand, its face turned to the side the arm passes (so held out across the body it shows its face, not its
+      // edge), a red wax seal on it; its point `letter`
       letter: { name: 'letter', draw: F => {
         const { add, sub, mul, cross, unit } = V(), m = F.fit.h, hand = F.P('RightHand');
-        const fore = unit(sub(hand, F.P('RightForeArm'))), across = unit(cross(fore, [0, 1, 0]));
-        const along = unit(add(mul(fore, 0.55), mul(cross(across, fore), 0.83))), face = cross(across, along);
-        const c = add(hand, mul(along, 0.08 * m)), axes = [across, face, along];
-        F.ball(c, axes, [0.055 * m, 0.004 * m, 0.08 * m], PAPER, 10, 6);
-        F.ball(add(c, mul(face, 0.005 * m)), axes, [0.013 * m, 0.004 * m, 0.013 * m], SEAL, 8);
+        const fore = unit(sub(hand, F.P('RightForeArm'))), face = unit(cross(fore, [0, 1, 0])), up = cross(face, fore);
+        const c = add(add(hand, mul(fore, 0.07 * m)), mul(up, 0.02 * m)), axes = [fore, up, face];
+        F.ball(c, axes, [0.08 * m, 0.055 * m, 0.004 * m], PAPER, 10, 6);
+        for (const s of [-1, 1]) F.ball(add(c, mul(face, s * 0.005 * m)), axes, [0.013 * m, 0.013 * m, 0.004 * m], SEAL, 8);
         F.point('letter', c);
       } },
     },
