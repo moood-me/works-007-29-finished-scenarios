@@ -1,4 +1,3 @@
 {"strings": [
-  {"text":"The Canal Embankment","translation":"Набережная канала","where":"scenes/embankment/scene.json title"},
-  {"text":"Night on the canal, and it is light. The lamp burns, though there is no need of it.","translation":"Ночь на канале, а светло. Фонарь горит, хотя в нём нет нужды.","where":"scenes/embankment/scene.json caption"}
+  {"text":"The Canal Embankment","translation":"Набережная канала","where":"scenes/embankment/scene.json title"}
 ]}

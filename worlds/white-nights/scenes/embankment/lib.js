@@ -12,7 +12,7 @@ const HOUSES = {
   c: { w: 21, h: 16.5, floors: 4, bays: 7, wall: '#aab6a3', trim: '#ede9dd', roof: '#6f7a78', pediment: true, seed: 3 },
   d: { w: 16, h: 12.5, floors: 3, bays: 5, wall: '#b9bdc7', trim: '#edece7', roof: '#7c8088', seed: 4 },
   e: { w: 26, h: 14, floors: 4, bays: 10, wall: '#e4d9c5', trim: '#f4efe5', roof: '#858c8a', seed: 5 },
-  yellow: { w: 26, h: 13, floors: 3, bays: 10, wall: '#e3bf5c', trim: '#f5edd8', roof: '#78827e', seed: 6, line: 0.025 },
+  yellow: { w: 26, h: 13, floors: 3, bays: 10, wall: '#dcc68e', trim: '#f5edd8', roof: '#78827e', seed: 6, line: 0.025 },
 };
 
 // A facade as an elevation, x 0…w along it, y up negative from its foot (metres): the ground floor rusticated, belt

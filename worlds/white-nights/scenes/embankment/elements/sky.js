@@ -1,20 +1,20 @@
 // The white night's sky, in stage heights: lilac-grey above, paling to pearl, a warm rose-peach band low over the
-// horizon where the evening glow lingers into the dawn (the north-west, over the far bank, to the left); below the
-// horizon the same pale air. High thin streaks of cloud drift slowly across (a layer the engine moves).
+// horizon where the evening glow lingers into the dawn (the north-west, over the far bank, to the left: a soft warm
+// glow there, the point sky#afterglow); below the horizon the same pale air. High thin streaks of cloud drift slowly across (a layer the engine moves).
 const A = e.aspect;
 const air = g.createLinearGradient(0, -0.35, 0, 1.25);
 air.addColorStop(0, '#a7a5c3');
 air.addColorStop(0.28, '#c6c0d7');
 air.addColorStop(0.47, '#e2d8df');
-air.addColorStop(0.555, '#f1e1d6');
-air.addColorStop(0.575, '#f3e8df');
-air.addColorStop(0.68, '#e8e2e1');
+air.addColorStop(0.515, '#f1e1d6');
+air.addColorStop(0.535, '#f3e8df');
+air.addColorStop(0.64, '#e8e2e1');
 air.addColorStop(1, '#dbd8df');
 g.fillStyle = air;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);
 // (the glow over the north-west, low and wide)
 g.save();
-g.translate(A * 0.28, 0.57);
+g.translate(A * 0.28, 0.53);
 g.scale(1.1, 0.22);
 const glow = g.createRadialGradient(0, 0, 0, 0, 0, 1);
 glow.addColorStop(0, 'rgba(250,214,192,0.55)');
@@ -22,6 +22,9 @@ glow.addColorStop(1, 'rgba(250,214,192,0)');
 g.fillStyle = glow;
 g.fillRect(-1, -1, 2, 2);
 g.restore();
+// (the sun below the horizon there, its light lingering: a soft warm glow just over the far roofs — the engine's, so the
+// canal's mirror draws it out into a long warm path on the water)
+e.light(A * 0.28, 0.5, 0.05, '#ffd2b4', 0.55, 'afterglow');
 // the streaks of cloud: soft long ellipses, lilac-grey with a warm underside low down; each painted twice where it
 // runs past the box's end, so the drifting layer's ends meet
 const x0 = -0.3, W = A + 0.6;

@@ -4,10 +4,10 @@
 // far off and sparse near, drifting down the canal toward the viewer (a layer the engine moves)
 const W = 21.7, D = 320;
 const wash = g.createLinearGradient(-W / 2, 0, W / 2, 0);
-wash.addColorStop(0, '#cfcdd8');
-wash.addColorStop(0.12, '#e6e3ea');
-wash.addColorStop(0.88, '#e6e3ea');
-wash.addColorStop(1, '#cfcdd8');
+wash.addColorStop(0, '#d8d4e0');
+wash.addColorStop(0.12, '#efecf1');
+wash.addColorStop(0.88, '#efecf1');
+wash.addColorStop(1, '#d8d4e0');
 g.fillStyle = wash;
 g.fillRect(-W / 2, -D / 2, W, D);
 e.layer('ripple', { box: [-W / 2, -D / 2, W / 2, D / 2], drift: [0, 0.25] }, (g) => {

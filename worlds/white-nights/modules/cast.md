@@ -6,11 +6,13 @@ lengths are a man's metres times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
 
-`litho` — made from the engine's `shadow` (slender, hands with fingers, pointed shoes), its head larger and its limbs
-fuller so that faces read at a distance,
-painted in colours under the scene's light (`toned`), a fine line round every colour in a darker shade of it
-(`tinted`) — an old lithograph touched with watercolour; the face `simple` (eyes, brows, nose, mouth; `<id>_mood`).
-Hems are even (no ragged edge).
+`litho` — made from the engine's `shadow` (slender, hands with fingers, pointed shoes), rounder in the trunk so a person
+stands in the street as a body, not a cut-out; the head a little larger than life and rounder, so that a face reads
+across the street. Painted in colours under the scene's light and shaded (`toned`), the cloth in long folds, drawn round
+with the houses' own sepia ink (the cast's ground `litho`: its `ink` is the scenes' `INK`, #4a3f3a) — an old lithograph
+touched with watercolour. The face is the cast's `litho`: eyes with their whites, a dark iris and the upper lid in ink,
+brows of the hair's colour, a nose, rosy lips, a little colour in the cheeks; it takes `<id>_mood` (the engine's
+expressions, by name). Hems are even (no ragged edge).
 
 ## Who
 
@@ -18,7 +20,7 @@ Hems are even (no ragged edge).
   grey trousers, dark brown hair. Bare-headed: his hat is in his hands (`hat_hands`, `hat_hand`).
 - `nastenka` — Nastenka, 17: small, a pale lilac-grey dress to the ankles, a dark blue-grey mantle over the shoulders
   to the hips, a straw bonnet with a dark rose ribbon bow under the chin.
-- `lodger` — the Lodger, about 28: tall and upright, a long dark frock coat, black hair; his top hat at his chest
+- `lodger` — the Lodger, about 28: tall and upright, a long slate-blue frock coat, black hair; his top hat at his chest
   (`hat_hand`).
 - `babushka` — Grandmother, past seventy, blind: small, a dark plum silk dress to the floor, a faded mustard shawl over
   the shoulders, white hair under a white cap (`mobcap`) tied with a lilac ribbon.

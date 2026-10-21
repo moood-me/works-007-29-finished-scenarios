@@ -13,9 +13,12 @@ rose-peach glow over the far bank to the north-west where the evening lingers in
 than the sky. It is night and nothing is dark: people and faces read clearly. The lamp burns, though it is not
 needed — the one warm spot in the cool light.
 
-Light (all the engine's; everything is painted in daylight colours): a high ambient in lilac-white, a weak low warm
-far light from where the sky glows (`glow`, bearing −21°, 6° up — soft long shadows), a weak cool light from high up
-(`skylight`), the lamp (`lamp`, from `lamp#flame`, warm, a little flicker, its halo the haze's `hazeGlow`). Haze
+Light (all the engine's; everything is painted in daylight colours): an ambient in lilac-white (0.7: high enough that
+nothing is dark, low enough that the far lights model the people round), a low warm far light from where the sky
+glows (`glow`, bearing −21°, 6° up — soft long shadows, the people's warm side), a cool light from high up
+(`skylight`), the lamp (`lamp`, from `lamp#flame`, warm and strong enough to lay a warm pool on the three of them and
+the flagstones, a little flicker, its halo the haze's `hazeGlow`). The sky paints a soft warm glow just over the far
+roofs (`sky#afterglow`, an e.light): the canal's rough mirror draws it out into a long warm path on the water. Haze
 fades the far end of the canal and the dome; grain and vignette for the print's paper.
 
 ## What is where (metres; the viewer at 0, eyes 1.7 m up, looking down the canal)
@@ -26,10 +29,10 @@ fades the far end of the canal and the dome; grain and vignette for the print's 
   `parapet_top` at 1.05 m, 0.5 m wide), from a metre off into the distance: the leading line from the bottom-left.
 - The street (`pavement`): flagstones along the parapet, the cobbled roadway beyond, to the houses at across 6.
 - The yellow house on the near side, its front to the canal (`yellow_house`, d 3…29), its door 12 m off (point
-  `yellow_house#door`) under an awning on two iron posts (`awning`, `awning_front`, `awning_side`, `awning_post`;
-  the porch step `porch`, `porch_top`) — where they will wait out the rain.
-- The street lamp by the parapet, 10 m off (`lamp`, point `lamp#flame`) — where the Lodger will stand.
-- A bench along the parapet beyond it, 16 m off (`bench`, point `bench#seat`).
+  `yellow_house#door`) under an awning on two round cast-iron posts (`awning`, `awning_front`, `awning_side`, `awning_post` — a
+  form turned on a lathe; the porch step `porch`, its near end `porch_side`, its top `porch_top`) — where they will wait out the rain.
+- The street lamp by the parapet, 6 m off (`lamp`, point `lamp#flame`) — where the Lodger stands.
+- A bench along the parapet beyond it, 13 m off (`bench`, point `bench#seat`).
 - Across the canal the far bank's granite wall (`far_wall`) and its street (`far_street`); the houses on both banks
   are five kinds of facade (`house_a` … `house_e`, `lib.HOUSES`), each painted once and standing in many places
   (copies; facing 90 on the far bank, 270 on the near side beyond the yellow house).
@@ -41,18 +44,25 @@ fades the far end of the canal and the dome; grain and vignette for the print's 
 
 ## The people (the world's `cast`: modules/cast.md)
 
-- `nastya` — Nastenka by the parapet, 4.6 m off: turned toward the corner (150°), looking toward it ([3, 1, 1.55]),
-  waiting (`thinking`).
-- `dreamer` — the Dreamer a step farther from her than he need be (2.3 m, 6 m off), turned to her (232°), looking at her,
-  his top hat held before his chest in both hands (`dreamer_with: hat_hands`, his hands put there by
-  `dreamer_reach`), a shy smile.
-- `lodger` — the Lodger by the lamp, 9.8 m off, upright, turned toward her (189°), his top hat at his chest in the
-  right hand (`lodger_with: hat_hand`, `lodger_reach.r`), looking at her.
+The three stand close together near the viewer (4–6 m), so that faces and the clothes of the 1840s read: Nastenka at
+her parapet on the left, the Lodger by the lamp behind and between, the Dreamer on the right — a triangle round the lamp.
 
-They stand (the engine's `stand`: breathing). The cast has no motions of its own yet: the motion model's Space was
-paused when this was made, so the poses are `stand` with the hands put where they hold things by `reach`. Leaning on
-the parapet, holding a hat shyly, standing to attention are the first motions to make (make_motion → put_motion). (Her hand put on the parapet's top by `reach` came out as an
-  arm stuck out sideways: left for a leaning motion.)
+- `nastya` — Nastenka at the parapet, 4.3 m off, 0.3 m from its face: turned toward the corner (150°), her right hand
+  resting on the granite's top (`nastya_reach.r`), her left at her breast holding her mantle (`.l`), looking toward
+  the corner near on the right ([4, 1.5, 1.6]), waiting (`thinking`) — her face three-quarters to the viewer.
+- `dreamer` — the Dreamer 2 m from her, a step farther than he need be (4.7 m off), turned half to her and half to
+  the viewer (228°), his top hat held low before him in both hands (`dreamer_with: hat_hands`, the hands put there by
+  `dreamer_reach`), looking not into her eyes but at her hand on the granite (`dreamer_look: nastya#hand_r`: the head
+  bows toward her), a shy smile.
+- `lodger` — the Lodger by the lamp, 6.3 m off, 0.6 m from its post: upright, turned toward her (200°), his top hat at
+  his chest in the right hand (`lodger_with: hat_hand`, `lodger_reach.r`), looking at her, reserved (`neutral`).
+
+They stand (the engine's `stand`: breathing), their hands put where they rest and hold by `reach` (each target within
+the arm's length of the shoulder as it stands, so the elbow bends). The cast has no standing motions of its own yet:
+the motion model's Space was paused when this was made. Leaning on the parapet, holding a hat shyly, standing to
+attention are the first to make (make_motion → put_motion) — the asks are written (a person resting the right hand on
+a waist-high railing to their right; a shy person holding a hat before the chest in both hands; a person standing very
+straight, a hat at the chest in the right hand).
 
 ## State
 
