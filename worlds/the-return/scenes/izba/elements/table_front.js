@@ -1,4 +1,4 @@
-// The table's long side toward the eye (1.65 m ahead, across −0.95…0.45): the top's thick edge, the apron board under
+// The table's long side toward the eye (1.6 m ahead, across −0.75…0.65): the top's thick edge, the apron board under
 // it with a homespun cloth laid over the top and hanging down a hand's breadth, the two near legs — only its upper part is
 // in the frame.
 const L = e.lib;

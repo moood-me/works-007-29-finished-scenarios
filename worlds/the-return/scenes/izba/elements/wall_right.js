@@ -1,11 +1,11 @@
 // The right wall (facing left: x runs toward the eye, x 0 is 2.8 m ahead — a point d metres ahead is at x 2.8 − d):
-// hewn logs; the low plank door to the passage (2.6…3.5 ahead), shut, its iron latch — Ivanov stands just before it; by
+// hewn logs; the low plank door to the passage (2.96…3.9 ahead, inside the 4:3 frame), shut, its iron latch — Ivanov stands just before it; by
 // it, a step farther in and as high as his head, the nail where a coat would hang — empty: he keeps his greatcoat on; a
 // linen towel on a peg nearer the eye.
 const L = e.lib;
 L.hewn(g, 51, -1.8, 1.8, 2.4);
 // the door: its jambs and lintel, the planks, the latch
-const d0 = -0.72;
+const d0 = -1.1;
 g.fillStyle = "#6e5a44";
 g.fillRect(d0, -1.92, 0.94, 1.92);
 g.fillStyle = "#86705a";
@@ -25,11 +25,11 @@ L.paper(g, d0, -1.92, 0.94, 1.92, 0.8);
 e.at(d0 + 0.47, -1.0, "door");
 // the nail, empty, its head catching the light
 g.fillStyle = "#3d3833";
-g.fillRect(-0.87, -1.72, 0.05, 0.03);
-g.fillRect(-0.855, -1.745, 0.02, 0.075);
+g.fillRect(-1.27, -1.72, 0.05, 0.03);
+g.fillRect(-1.255, -1.745, 0.02, 0.075);
 g.fillStyle = "rgba(220,200,170,0.6)";
-g.fillRect(-0.85, -1.745, 0.008, 0.02);
-e.at(-0.85, -1.72, "nail");
+g.fillRect(-1.25, -1.745, 0.008, 0.02);
+e.at(-1.25, -1.72, "nail");
 // a towel on a peg nearer the eye: white linen, its ends worked in red
 g.fillStyle = "#5c4a38";
 g.fillRect(0.78, -1.72, 0.04, 0.03);

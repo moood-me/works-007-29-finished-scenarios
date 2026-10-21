@@ -1,12 +1,12 @@
-// The izba's back wall, 4.6 m ahead (x to the right, as the eye sees it; x 0 is 0.275 m left of the eye's line): hewn
-// logs; the window to the right (across 0.85…1.55, between the son and the father as the eye sees them) with its pale
+// The izba's back wall, 4.6 m ahead (x to the right, as the eye sees it; x 0 is 0.225 m left of the eye's line): hewn
+// logs; the window to the right (across 0.45…1.25, between the son and the father as the eye sees them) with its pale
 // frame and a white half-curtain over its top, two little wooden horses on the sill (Semyon Yevseyevich carves them for
 // Nastya); the clock on the wall over the mother's and the son's heads — its weights on their chains, its pendulum a
 // layer that swings (animate) — and the father's photograph in a frame, high over the boy.
 const L = e.lib;
-L.hewn(g, 31, -2.02, 2.02, 2.4);
+L.hewn(g, 31, -1.78, 1.78, 2.4);
 g.save();
-g.translate(1.475, 0);
+g.translate(1.075, 0);
 // the window's opening, cut out: the outside (`outside`) is seen through it
 g.save();
 g.globalCompositeOperation = "destination-out";
@@ -62,21 +62,21 @@ const horse = (x, s, flip) => {
 horse(-0.22, 1, false);
 horse(0.06, 0.85, true);
 g.restore();
-e.at(1.375, -0.95, "horses");
-// the photograph and the clock, moved over the heads (the wall's x: 0.775 the photograph, 0.075 the clock)
+e.at(0.975, -0.95, "horses");
+// the photograph and the clock, moved over the heads (the wall's x: 0.42 the photograph, 0.075 the clock)
 // the father's photograph: a small sepia card in a dark frame — a young man in a cap
 g.fillStyle = "#4a3a2c";
-g.fillRect(0.675, -2.02, 0.2, 0.26);
+g.fillRect(0.32, -2.02, 0.2, 0.26);
 g.fillStyle = "#cdb794";
-g.fillRect(0.7, -1.995, 0.15, 0.21);
+g.fillRect(0.345, -1.995, 0.15, 0.21);
 g.fillStyle = "#7a6248";
 g.beginPath();
-g.ellipse(0.775, -1.9, 0.035, 0.045, 0, 0, Math.PI * 2);
+g.ellipse(0.42, -1.9, 0.035, 0.045, 0, 0, Math.PI * 2);
 g.fill();
-g.fillRect(0.73, -1.84, 0.09, 0.055);
+g.fillRect(0.375, -1.84, 0.09, 0.055);
 g.fillStyle = "#5c4836";
-g.fillRect(0.735, -1.955, 0.08, 0.02);
-e.at(0.775, -1.9, "photo");
+g.fillRect(0.38, -1.955, 0.08, 0.02);
+e.at(0.42, -1.9, "photo");
 // the clock: a little painted case, its face, the two weights hanging on their chains
 g.fillStyle = "#6c4f36";
 g.fillRect(-0.045, -2.0, 0.24, 0.3);

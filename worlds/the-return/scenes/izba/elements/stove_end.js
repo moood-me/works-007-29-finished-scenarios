@@ -1,4 +1,4 @@
-// The Russian stove's face toward the eye (2.3 m ahead, across −2.3…−0.9, x 0 at −1.6): whitewashed, a little crooked
+// The Russian stove's face toward the eye (2.3 m ahead, across −2.0…−0.6, x 0 at −1.3): whitewashed, a little crooked
 // by hand; its mouth (x 0.1…0.6, 0.82…1.32 m up, its top arched) cut out and facing the eye — the fire inside
 // (`stove_inside`, `stove_fire`) is seen straight through it, its light on the faces by the table; the hearth ledge under
 // the mouth with the iron pot on it; the soot over the mouth; the dark niche under the hearth with firewood in it; the

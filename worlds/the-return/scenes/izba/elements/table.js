@@ -1,4 +1,4 @@
-// The table top, seen from above (x to the right, y toward the eye; 1.4 × 0.7 m, its middle 2.0 m ahead): scrubbed
+// The table top, seen from above (x to the right, y toward the eye; 1.4 × 0.7 m, its middle 1.95 m ahead): scrubbed
 // boards; on them a round loaf on a linen towel, a wooden salt cellar, two plates and their spoons — the second plate, at
 // the right end toward the door, set for him — and the ring the lamp stands on (`lamp` at x −0.45, y −0.1; the jug,
 // `table_things`, at x 0.4, y 0.15).

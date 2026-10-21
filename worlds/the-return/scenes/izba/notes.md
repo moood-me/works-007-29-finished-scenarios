@@ -19,8 +19,11 @@ near the eye as she is: its light on her face and the boy's). Ivanov, farther, b
 
 ## The frame
 
-The eye 1.7 m up, the horizon at 0.36, the people 2.5–3.05 m off (a head about 90 px in a 900 px frame). Left to right
-in 4:3: the stove's face with its mouth turned to the eye, the fire seen straight in; the lamp; Lyuba behind the table,
+The eye 1.7 m up, the horizon at 0.36, the people 2.45–3.25 m off (a head about 80–100 px in a 900 px frame). The frame's
+half-height at a distance d is 0.423 d (the engine's focal), so the 16:9 stage is 1.5 d wide there and 4:3 shows its
+middle 1.13 d: the room is laid narrow enough (across −2.0…1.55) that all of what matters stands in x 0.15…0.85 —
+the stove's mouth at 0.15…0.30, the lamp 0.34, Lyuba 0.42, Petrushka 0.55, the window 0.57…0.68, Ivanov 0.70, the door
+0.76…0.85. Left to right in 4:3: the stove's face with its mouth turned to the eye, the fire seen straight in; the lamp; Lyuba behind the table,
 her hands under her apron, looking down past everyone; Petrushka at her side, hands behind his back, a sidelong sullen
 look toward his father; the window between the boy and the father; Ivanov in the greatcoat just before the shut door,
 the kit bag on the floor by his boots, the empty nail by his head. The table runs along the bottom of the frame: its top
@@ -28,21 +31,21 @@ and its cloth's hem hide the mother and the son below the hips (nothing seen thr
 
 ## The space (metres: across to the right, distance ahead; the eye at 0, 0, 1.7 m)
 
-The room: across −2.3…1.75, distance 1.0…4.6, the ceiling 2.4.
+The room: across −2.0…1.55, distance 1.0…4.6, the ceiling 2.4.
 
 | Element | What, where |
 | --- | --- |
 | `outside` | what the window looks out on, 16 m off: dusk sky, the far forest, the embankment and rails, a telegraph pole, the yard's paling (not `inside`) |
 | `opening` | the window's opening (unseen): the window's light `window` comes in through it |
-| `wall_back` | the back wall (4.6): the window (across 0.8…1.6, 0.85…1.75 up) cut out, its frame and white half-curtain, two carved horses on the sill (point `horses`); the clock over the mother's and the son's heads (`clock`, across −0.2) — its pendulum the layer `pendulum`, swung by `wall_back.animate.js`; the father's photograph high over the boy (`photo`) |
-| `wall_left`, `wall_right` | the side walls; on the right one the shut door to the passage (2.6…3.5 ahead, point `door`), the empty nail by it (`nail`, 3.65, 1.72 up) where a greatcoat would hang, a towel on a peg nearer the eye |
-| `floor`, `ceiling` | boards; the rag runner across from the door to the stove (2.65…3.35 ahead); the ceiling's beam (3.6) |
-| `stove_end`, `stove_side` | the Russian stove (across −2.3…−0.9, distance 2.3…4.6, 1.85 high, its chimney to the ceiling): its face toward the eye with the mouth (across −1.5…−1.0, 0.82…1.32 up, point `mouth`) cut out, the hearth ledge and the pot, the firewood niche, the iron door leant by the plinth, the oven fork, mittens, felt boots on its top; its long side to the room. Neither casts shadows: the fire's light leaves through the mouth |
+| `wall_back` | the back wall (4.6): the window (across 0.45…1.25, 0.85…1.75 up) cut out, its frame and white half-curtain, two carved horses on the sill (point `horses`); the clock over the mother's and the son's heads (`clock`, across −0.15) — its pendulum the layer `pendulum`, swung by `wall_back.animate.js`; the father's photograph high over the boy (`photo`) |
+| `wall_left`, `wall_right` | the side walls; on the right one the shut door to the passage (2.96…3.9 ahead, point `door`), the empty nail by it (`nail`, 4.05, 1.72 up) where a greatcoat would hang, a towel on a peg nearer the eye |
+| `floor`, `ceiling` | boards; the rag runner across from the door to the stove (3.05…3.75 ahead); the ceiling's beam (3.6) |
+| `stove_end`, `stove_side` | the Russian stove (across −2.0…−0.6, distance 2.3…4.6, 1.85 high, its chimney to the ceiling): its face toward the eye with the mouth (across −1.2…−0.7, 0.82…1.32 up, point `mouth`) cut out, the hearth ledge and the pot, the firewood niche, the iron door leant by the plinth, the oven fork, mittens, felt boots on its top; its long side to the room. Neither casts shadows: the fire's light leaves through the mouth |
 | `stove_inside`, `stove_fire` | the oven's far wall half a metre in (2.8, facing the eye): the embers' bed and the vault (glowing; its glow `fire` is the light `stove`), and the flames (particles) |
 | `bench`, `bench_front` | the bench under the window (0.45 up) |
-| `table`, `table_front`, `table_side`, `table_things` | the table near the eye (across −0.95…0.45, 1.65…2.35, 0.76 up): bread on a towel, the salt, two plates (the second at the end toward the door, point `plate`, set for him), the jug and the mug, a linen cloth's hem over its edges |
-| `lamp`, `flame` | the kerosene lamp on the table (−0.7, 2.1) and its flame (a layer trembling, `flame.animate.js`); the flame's glow `flame` is the light `lamp` |
-| `sack` | Ivanov's kit bag on the floor by the door (1.55, 2.85) |
+| `table`, `table_front`, `table_side`, `table_things` | the table near the eye (across −0.75…0.65, 1.6…2.3, 0.76 up): bread on a towel, the salt, two plates (the second at the end toward the door, point `plate`, set for him), the jug and the mug, a linen cloth's hem over its edges |
+| `lamp`, `flame` | the kerosene lamp on the table (−0.5, 2.05) and its flame (a layer trembling, `flame.animate.js`); the flame's glow `flame` is the light `lamp` |
+| `sack` | Ivanov's kit bag on the floor by the door (1.3, 3.0) |
 | `motes` | dust in the air of the room, seen where the light falls |
 
 ## The people (the world's `cast`)
@@ -54,9 +57,9 @@ three-quarter, not in profile across the room.
 - `lyuba` (−0.3, 2.6, turned 190) — behind the table by the stove (§2: «стоит у печи; руки прячет под фартук»): her hands
   reach (`lyuba_reach`) under the apron's top in front of her, she looks down past everyone at the table's near corner,
   `sad` (shame held in).
-- `petrushka` (0.3, 2.5, turned 160) — at her side, by the table's end, `hands_behind` («руки за спиной»), a sidelong
+- `petrushka` (0.2, 2.45, turned 160) — at her side, by the table's end, `hands_behind` («руки за спиной»), a sidelong
   look toward his father, `angry` (the cast's sullen frown: the little master of the house).
-- `ivanov` (1.2, 3.05, turned 220) — standing just before the door (§2: «стоит, когда другие сидят; ближе к двери»), in
+- `ivanov` (1.0, 3.25, turned 220) — standing on the runner just before the door (§2: «стоит, когда другие сидят; ближе к двери»), in
   the greatcoat (his look's `parts`: the coat's kit only, not the bag in hand — it lies by his boots), `thinking` (wary),
   looking toward the two at the table.
 

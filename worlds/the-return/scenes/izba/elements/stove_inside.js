@@ -1,4 +1,4 @@
-// Inside the stove: the oven's far wall, half a metre in (facing the eye, 2.8 m ahead, across −1.92…−1.08: what the eye
+// Inside the stove: the oven's far wall, half a metre in (facing the eye, 2.8 m ahead, across −1.62…−0.78: what the eye
 // meets through the mouth), from 0.6 m up — its lower part is where the eye looks down onto the oven's floor, so the bed
 // of embers is painted there, glowing, a couple of half-burnt logs on it; over it the vault, red with the heat, darker
 // up. The fire's light is its glow (`fire`: the scene's light `stove`); the flames are `stove_fire`. It flickers (the
