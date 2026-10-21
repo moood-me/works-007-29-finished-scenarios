@@ -12,7 +12,7 @@ takes `<id>_mood`). Like the whole world: gouache on rough paper, sand, ochre, g
 ## Who
 
 - `ivanov` — Captain Alexei Alexeyevich Ivanov, 36: lean, upright; a greatcoat (`greatcoat`) to mid-shin, a side cap
-  (`pilotka`), boots, the kit bag on his back (`kitbag`), the belt over the coat (`belt`).
+  (`pilotka`), boots, the kit bag on his back (`kitbag`).
 - `lyuba` — Lyubov Vasilyevna, his wife, 33: slight; a faded blue dress, a grey linen apron (`apron`), a white kerchief
   (`kerchief`).
 - `petrushka` — Petrushka, the son, 11: thin; a cut-down man's shirt, patched trousers, barefoot.

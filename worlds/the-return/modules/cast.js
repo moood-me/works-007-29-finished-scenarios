@@ -5,7 +5,7 @@
 // person's height as a share of a man's 1.76 m).
 const V = () => MooodShapes.V;
 // the colours of the things the cast's parts are (each [r, g, b, 1])
-const SACK = [0.5, 0.47, 0.33, 1], STRAP = [0.36, 0.33, 0.23, 1], APRON = [0.74, 0.71, 0.64, 1], BELT = [0.3, 0.22, 0.16, 1];
+const SACK = [0.5, 0.47, 0.33, 1], STRAP = [0.36, 0.33, 0.23, 1], APRON = [0.74, 0.71, 0.64, 1];
 // the apron's rows: from the waist down to the knees, each across the front (made once a figure: F.keep)
 const APRON_ROWS = 6, APRON_ACROSS = 7;
 const apronRows = () => ({ rows: Array.from({ length: APRON_ROWS }, () => new Array(APRON_ACROSS)) });
@@ -14,7 +14,7 @@ return {
   characters: {
     // Alexei Alexeyevich Ivanov, a captain of 36: lean, upright, sunburnt; a soldier's greatcoat to mid-shin buttoned up, a
     // side cap, boots, the kit bag on his back
-    ivanov: { kind: 'shapes', style: 'gouache', who: 'man', garment: 'greatcoat', hair: 'short', hat: 'pilotka', parts: ['kitbag', 'belt'], line: true,
+    ivanov: { kind: 'shapes', style: 'gouache', who: 'man', garment: 'greatcoat', hair: 'short', hat: 'pilotka', parts: ['kitbag'], line: true,
       body: { height: 1.0, shoulders: 1.04, thick: 0.92 },
       colors: { skin: '#c4936f', hair: '#4a3a2e', top: '#8a8462', garment: '#78715b', bottom: '#4c4a3e', shoes: '#2a2420', hat: '#8a8560' } },
     // Lyubov Vasilyevna (Lyuba), his wife, 33: slight, tired; a faded blue cotton dress, a grey linen apron over it, a
@@ -49,9 +49,9 @@ return {
       } },
       // a soldier's side cap: a boat of cloth along the crown, tipped to the right
       pilotka: { name: 'side cap', draw: F => {
-        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r } = F.head, tip = unit(add(hu, mul(hs, 0.1)));
+        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r: rh, out } = F.head, r = rh * out, tip = unit(add(hu, mul(hs, 0.1)));
         const axes = [unit(cross(tip, hf)), tip, hf];
-        F.ball(add(at, mul(tip, r * 0.74)), axes, [r * 0.5, r * 0.26, r * 1.02], F.colors.hat, 12, 2.6);
+        F.ball(add(at, mul(tip, r * 0.9)), axes, [r * 0.58, r * 0.34, r * 1.1], F.colors.hat, 12, 2.6);
       } },
     },
     parts: {
@@ -61,11 +61,6 @@ return {
         const c = add(F.P('Chest'), add(mul(fwd, -0.21 * k), mul(up, -0.1 * m)));
         F.ball(c, [side, up, fwd], [0.15 * m, 0.19 * m, 0.08 * m], SACK, 12, 2.2);
         F.ball(add(c, mul(up, 0.2 * m)), [side, up, fwd], [0.05 * m, 0.03 * m, 0.04 * m], STRAP, 8);
-      } },
-      // the greatcoat's belt: a broad leather band round the waist, over the coat
-      belt: { name: 'belt', draw: F => {
-        const k = F.k, m = F.fit.h;
-        F.ball(F.P('Spine1'), [F.side('Spine1'), F.up('Spine1'), F.fwd('Spine1')], [0.21 * k, 0.03 * m, 0.16 * k], BELT, 16, 2.6);
       } },
       // a linen apron over the dress: from the waist to the knees, before the skirt, hanging as cloth
       apron: { name: 'apron', draw: F => {
