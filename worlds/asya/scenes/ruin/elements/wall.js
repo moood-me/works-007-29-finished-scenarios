@@ -31,14 +31,14 @@ rock.lineTo(1.5, 2.6);
 rock.lineTo(EDGE + 0.12, 2.6);
 for (let y = 2.6; y > 0; y -= 0.2) rock.lineTo(EDGE + 0.06 * e.anim.noise(y * 4, 9), y);
 rock.closePath();
-g.fillStyle = "#a6957c";
+g.fillStyle = "#857462";
 g.fill(rock);
 g.save();
 g.clip(rock);
 // the rock's strata and cracks
 for (let i = 0; i < 26; i++) {
   const y = -0.1 + 2.7 * L.rnd(i, 201);
-  g.fillStyle = i % 2 ? "rgba(84, 72, 60, 0.35)" : "rgba(196, 180, 154, 0.5)";
+  g.fillStyle = i % 2 ? "rgba(62, 52, 44, 0.45)" : "rgba(168, 150, 126, 0.45)";
   g.fillRect(EDGE + 1.2 * L.rnd(i, 203) - 0.3, y, 0.3 + 0.6 * L.rnd(i, 205), 0.03 + 0.04 * L.rnd(i, 207));
 }
 g.restore();
@@ -50,11 +50,11 @@ for (const [x, y, r] of [[1.05, 0.45, 0.14], [1.3, 1.2, 0.18], [1.1, 1.9, 0.14],
   g.fill();
 }
 // the masonry: courses of rough sandstone blocks, each its own warm grey
-g.fillStyle = "#b9a98d";
+g.fillStyle = "#a99a80";
 g.fill(face);
 g.save();
 g.clip(face);
-const tones = ["#cdbd9f", "#c3b294", "#d4c5a8", "#bba98a", "#c9b898"];
+const tones = ["#c9b99b", "#c2b193", "#cdbea0", "#bcab8c", "#c6b596"];
 let n = 0;
 for (let y = 0.05; y > -2.05; y -= 0.3) {
   for (let x = -2.45 + 0.35 * L.rnd(n, 209); x < 1.5; n++) {

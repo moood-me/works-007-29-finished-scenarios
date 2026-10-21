@@ -10,7 +10,7 @@ const AD = 9.55;
 const W = 9;
 const H = 6.95;
 // where the turf ends on the right, at a distance (the cliff's edge, a little ragged)
-const edgeAt = (d) => (d < 5 ? 0.9 : 1.4 - 0.04 * (d - 5)) + 0.05 * N(d * 3, 17);
+const edgeAt = (d) => (d < 5 ? 0.9 : d < 6.4 ? 1.55 : 1.55 - 0.05 * (d - 6.4)) + 0.05 * N(d * 3, 17);
 const kOf = (across, d) => Math.max(L.edge(across / d), L.foot(d));
 // the turf, band by band toward the viewer, going over to the paper toward the frame's foot and its left
 for (let y = -H; y < H; y += 0.1) {

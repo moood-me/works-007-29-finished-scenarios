@@ -14,12 +14,12 @@ const outline = [[-6.4, 0.05], [-6.4, -4.6], [-5.8, -5.0], [-5.3, -4.8], [-4.7, 
 const sil = new Path2D();
 outline.forEach(([x, y], i) => (i ? sil.lineTo(x, y) : sil.moveTo(x, y)));
 sil.closePath();
-g.fillStyle = "#b6a68c";
+g.fillStyle = "#a99a80";
 g.fill(sil);
 g.save();
 g.clip(sil);
 // the stones in courses, each its own warm grey
-const tones = ["#c3b398", "#b9a88c", "#ccbda2", "#ae9e84", "#c7b79a", "#bfae92"];
+const tones = ["#c1b196", "#bbaa8e", "#c6b79c", "#b6a589", "#c3b397", "#bdad91"];
 let n = 0;
 for (let y = 0; y > -10.4; y -= 0.34) {
   for (let x = -6.4 + 0.3 * L.rnd(n, 111); x < 3.6; n++) {
