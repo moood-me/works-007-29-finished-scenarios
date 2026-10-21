@@ -25,14 +25,23 @@ Six years on (the second chapter):
 - `lina_23` — Lina at 23: the rust-red kerchief, a slate-blue dress, shoes; a wooden pail in her right hand (of her
   look).
 
-Older ages (Elzéard 75/85, the Traveller 40/50, Lina 37/47), Jan and the others come with the scenes that need them.
+Fourteen years on (the third chapter):
+
+- `traveller_40` — the Traveller at 40: a short beard, greying brown hair, a faded blue-grey jacket again (as at 20), the
+  bag on its strap.
+- `lina_37` — Lina at 37: broader, the rust-red kerchief, a dark indigo dress, shoes; the pail in her right hand.
+- `jan_40` — Jan at 40, the district's forester, the Traveller's comrade from the regiment: solid, clean-shaven, a
+  bottle-green forester's coat to the knee, a peaked cap; his notebook in his left hand (of his look).
+
+Older ages (Elzéard 75/85, the Traveller 50, Lina 47), Jan at 26 and the others come with the scenes that need them.
 
 ## Things (the cast's parts: a look's `parts`, or `<id>_with`)
 
 `rod` — the iron rod, upright in the right hand from the ground to a hand's width over the fist; its top is the
 person's point `#rod`. `mug` — a tin mug upright in the right hand (`#mug`). `satchel` — the bag at the left hip
 (`#bag`). `flask` — the flask at the right hip (`#flask`). `pail` — a wooden pail hanging from the right hand by its
-bail (`#pail`).
+bail (`#pail`). `notebook` — a forester's notebook in the left hand (`#notebook`). `beard` — a short beard in the
+hair's colour (worn, not held).
 
 ## Motions
 
