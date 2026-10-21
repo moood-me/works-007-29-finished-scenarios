@@ -1,4 +1,5 @@
-// The bench's edge toward the eye (4.26 m ahead, across 0.2…1.75): the board's thick edge and the plank supports under it.
+// A bench's edge toward the eye (copies: the one under the window, 4.26 m ahead; the one before the table, 2.88 m —
+// across 0…1.55 both): the board's thick edge and the plank supports under it.
 const L = e.lib;
 g.fillStyle = "#9e8662";
 g.fillRect(-0.77, -0.45, 1.54, 0.06);

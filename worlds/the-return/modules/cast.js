@@ -46,6 +46,129 @@ const frontOf = (sec, x, out) => {
 const mix2 = (a, b, u) => [V().mix(a[0], b[0], u), b[1], b[2], a[3] + (b[3] - a[3]) * u, a[4] + (b[4] - a[4]) * u];
 // (a colour darkened to `k` of it)
 const shade = (c, k) => c.map((v, i) => (i < 3 ? v * k : v));
+// a soldier's leather belt round the waist (a band of four rings a little off the cloth) and its brass buckle
+const belt = F => {
+  const m = F.fit.h, sq = F.style.square, n = 24, waist = F.trunk(1)[2], upW = F.up('Spine1');
+  const rings = [
+    F.ringOf(sectionAt(waist, upW, -0.026 * m, 1.06), n, sq),
+    F.ringOf(sectionAt(waist, upW, -0.026 * m, 1.13), n, sq),
+    F.ringOf(sectionAt(waist, upW, 0.032 * m, 1.13), n, sq),
+    F.ringOf(sectionAt(waist, upW, 0.032 * m, 1.06), n, sq),
+  ];
+  F.rings(rings, LEATHER, null, null);
+  F.ball(frontOf(sectionAt(waist, upW, 0.003 * m, 1.13), 0, 0.004 * m), [F.side('Spine1'), upW, F.fwd('Spine1')], [0.036 * m, 0.032 * m, 0.01 * m], BRASS, 8, 3);
+};
+// the shoulder boards: flat along the top of each shoulder, from near the neck to just short of its edge
+const boards = F => {
+  const { add, mul, mix, sub, unit } = V(), m = F.fit.h, sh = F.trunk(1)[4], up = F.up('Chest'), fwd = F.fwd('Chest');
+  for (const s of [-1, 1]) {
+    const edge = add(sh[0], add(mul(sh[1], s * sh[3]), sh[5] ?? [0, 0, 0])), lift = mul(up, 0.008 * m);
+    const a = add(mix(F.P('Neck1'), edge, 0.32), lift), b = add(mix(F.P('Neck1'), edge, 0.8), lift);
+    F.bar(a, b, 0.026 * m, 0.024 * m, [[0, BOARD]], 6, fwd, 0.25, 3);
+    F.ball(add(a, mul(unit(sub(b, a)), 0.02 * m)), [F.side('Chest'), up, fwd], [0.01 * m, 0.008 * m, 0.01 * m], BRASS, 6);
+  }
+};
+// a collar: a band round the base of the neck — `drop` how much lower it is before (a greatcoat's, turned down; 0 a
+// tunic's, standing), `tall` how high it goes up the neck
+const collar = (F, drop, tall, color) => {
+  const { add, mul } = V(), m = F.fit.h, n = 24, up = F.up('Chest'), fwd = F.fwd('Chest'), sd = F.side('Chest');
+  const ring = (dy, rx, rz, low0) => Array.from({ length: n }, (_, q) => {
+    const a = (q / n) * Math.PI * 2, c = Math.cos(a), s2 = Math.sin(a), low = low0 * Math.max(0, s2) ** 3;
+    return add(F.P('Neck1'), add(add(mul(sd, rx * c), mul(fwd, rz * s2)), mul(up, dy - low)));
+  });
+  F.rings([ring(-0.012 * m, 0.08 * m, 0.072 * m, drop * 0.5), ring(tall * m, 0.066 * m, 0.06 * m, drop)], color, null, null);
+};
+// a greatcoat thrown over the shoulders, the arms inside it, unbelted and open before: from the collar over the
+// shoulders' slope, straight down over the arms to the middle of the calves, its two fronts hanging apart so that the
+// tunic, the belt and the breeches show between them. A shell of heavy cloth: its rings, top down, each from the right
+// front edge round the back to the other outside, and back inside (the lining, darker); as wide as the arms in the
+// pose need. On it, its own shoulder boards and its turned-down collar.
+const COAT_AROUND = 17;
+const coatOver = F => {
+  const { add, mul, sub, dot, level, mix } = V(), m = F.fit.h, k = F.k, secs = F.trunk(1), sh = secs[4];
+  const s = level(F.side('Chest')), f = level(F.fwd('Chest')), neck = F.P('Neck1'), hips = F.P('Hips');
+  const floor = Math.min(F.P('LeftFoot')[1], F.P('RightFoot')[1]), hem = floor + 0.36 * m, top = sh[0][1];
+  // the middle of the body at a height: the neck's over the shoulders, the hips' below them, between — mixed
+  const middle = y => {
+    const u = Math.max(0, Math.min(1, (y - hips[1]) / (neck[1] - hips[1])));
+    return [hips[0] + (neck[0] - hips[0]) * u, y, hips[2] + (neck[2] - hips[2]) * u];
+  };
+  // how far out to the side the arms reach (their joints, and the arm's own thickness), how deep the trunk is
+  let out = sh[3] * 1.1;
+  for (const j of ['LeftArm', 'LeftForeArm', 'LeftHand', 'RightArm', 'RightForeArm', 'RightHand']) {
+    const p = F.P(j);
+    out = Math.max(out, Math.abs(dot(sub(p, middle(p[1])), s)) + 0.065 * k);
+  }
+  const deep = Math.max(sh[4] * 1.3, secs[0][4] * 1.3, secs[2][4] * 1.3) + 0.03 * m;
+  // the shoulders: where the arms' joints are (their height, how far out), the cloth lying over the arm's top there
+  const armL = F.P('LeftArm'), armR = F.P('RightArm'), armY = (armL[1] + armR[1]) / 2;
+  const armOut = (Math.abs(dot(sub(armL, middle(armL[1])), s)) + Math.abs(dot(sub(armR, middle(armR[1])), s))) / 2;
+  const shoulderY = armY + 0.07 * m, collarY = Math.max(neck[1] + 0.03 * m, shoulderY + 0.02 * m), belowY = armY - 0.07 * m;
+  // the rings: [height, half-width, half-depth, how far round from the front the fronts' edges are (radians)]
+  const rows = [
+    [collarY, 0.09 * m, 0.085 * m, 0.42],
+    [shoulderY, Math.max(sh[3] * 1.05, armOut + 0.02 * m), Math.max(sh[4] * 1.2, deep * 0.9), 0.48],
+    [belowY, out, deep, 0.52],
+  ];
+  const H = 4;
+  for (let r = 1; r <= H; r++) {
+    const u = r / H, y = belowY + (hem - belowY) * u;
+    rows.push([y, out + 0.05 * m * u, deep + 0.04 * m * u, 0.52 + 0.08 * u]);
+  }
+  const cloth = F.colors.garment, lining = shade(cloth, 0.62), t = 0.022 * m;
+  const rings = [], colors = [];
+  for (const [y, w, d, a] of rows) {
+    const c = middle(y), ring = [], col = [];
+    // outside: from one front edge round the back to the other (so that its faces look out), then inside back
+    for (let q = 0; q < COAT_AROUND; q++) {
+      const th = 2 * Math.PI - a - ((2 * Math.PI - 2 * a) * q) / (COAT_AROUND - 1);
+      ring.push(add(c, add(mul(s, w * Math.sin(th)), mul(f, d * Math.cos(th)))));
+      col.push(cloth);
+    }
+    for (let q = COAT_AROUND - 1; q >= 0; q--) {
+      const th = 2 * Math.PI - a - ((2 * Math.PI - 2 * a) * q) / (COAT_AROUND - 1);
+      ring.push(add(c, add(mul(s, (w - t) * Math.sin(th)), mul(f, (d - t) * Math.cos(th)))));
+      col.push(lining);
+    }
+    rings.push(ring);
+    colors.push(col);
+  }
+  F.rings(rings, colors, null, null);
+  // its shoulder boards, on the slope between the collar and the shoulder's edge
+  const up = F.up('Chest');
+  for (const sx of [-1, 1]) {
+    const at = (row, share) => {
+      const [y, w, d] = rows[row], c = middle(y);
+      return add(c, add(mul(s, sx * w * share), mul(f, -0.1 * d)));
+    };
+    const a = add(mix(at(0, 1), at(1, 1), 0.3), mul(up, 0.012 * m)), b = add(mix(at(0, 1), at(1, 1), 0.85), mul(up, 0.012 * m));
+    F.bar(a, b, 0.028 * m, 0.026 * m, [[0, BOARD]], 6, f, 0.25, 3);
+  }
+  // the turned-down collar over it all: a band round the coat's top, from a little over it out and down over the
+  // shoulders' slope, lower before
+  const n = 24, ring = (dy, rx, rz, drop) => Array.from({ length: n }, (_, q) => {
+    const a = (q / n) * Math.PI * 2, low = drop * Math.max(0, Math.sin(a)) ** 3, c = middle(collarY);
+    return add(c, add(add(mul(s, rx * Math.cos(a)), mul(f, rz * Math.sin(a))), [0, dy - low, 0]));
+  });
+  F.rings([ring(0.035 * m, 0.088 * m, 0.082 * m, 0.02 * m), ring(-0.03 * m, 0.125 * m, 0.115 * m, 0.04 * m)], shade(cloth, 0.9), null, null);
+};
+// a soldier's tunic's own (the gymnastyorka): the belt and its buckle, the standing collar, the three buttons of its
+// placket, the two breast pockets with their flaps and buttons, the shoulder boards
+const tunicKit = F => {
+  const { add, mul } = V(), m = F.fit.h, secs = F.trunk(1), waist = secs[2], chest = secs[3], sh = secs[4];
+  const axes = [F.side('Chest'), F.up('Chest'), F.fwd('Chest')], top = F.colors.top, flap = shade(top, 0.88);
+  belt(F);
+  boards(F);
+  collar(F, 0, 0.045, shade(top, 0.95));
+  for (const u of [0.3, 0.6, 0.9]) F.ball(frontOf(mix2(chest, sh, u), 0, 0.006 * m), axes, [0.011 * m, 0.011 * m, 0.005 * m], shade(top, 0.75), 8);
+  for (const sx of [-1, 1]) {
+    const pocket = frontOf(mix2(waist, chest, 0.82), sx * 0.5, 0.003 * m);
+    F.ball(pocket, axes, [0.048 * m, 0.055 * m, 0.008 * m], shade(top, 0.95), 8, 3);
+    const lid = add(pocket, mul(axes[1], 0.045 * m));
+    F.ball(lid, axes, [0.05 * m, 0.016 * m, 0.011 * m], flap, 8, 3);
+    F.ball(add(lid, mul(axes[2], 0.008 * m)), axes, [0.009 * m, 0.009 * m, 0.004 * m], shade(top, 0.75), 6);
+  }
+};
 return {
   ...data,
   characters: {
@@ -53,8 +176,13 @@ return {
     // greatcoat to the calves, belted, its two rows of brass buttons, the shoulder boards, the collar; a side cap with its
     // star, high boots; the kit bag carried by its neck in his left hand
     ivanov: { kind: 'shapes', style: 'soldier', who: 'man', garment: 'greatcoat', hair: 'short', hat: 'pilotka', parts: ['coat_kit', 'sack'], line: true,
-      body: { height: 1.0, shoulders: 1.04, thick: 1.02 },
+      body: { height: 1.0, shoulders: 1.0, thick: 1.0 },
       colors: { skin: '#c08b66', hair: '#3e3027', top: '#5d604c', garment: '#5d604c', bottom: '#46463a', shoes: '#26201b', hat: '#6f7055' } },
+    // Ivanov at home, not yet decided to stay: the khaki tunic belted, the breeches in the high boots, the side cap
+    // still on, the greatcoat thrown over his shoulders, unbuttoned (not hung on the nail)
+    ivanov_home: { kind: 'shapes', style: 'soldier', who: 'man', garment: 'tunic', hair: 'short', hat: 'pilotka', parts: ['tunic_kit', 'coat_over'], line: true,
+      body: { height: 1.0, shoulders: 1.0, thick: 1.0 },
+      colors: { skin: '#c08b66', hair: '#3e3027', top: '#86825e', garment: '#5d604c', bottom: '#4c4b3c', shoes: '#26201b', hat: '#6f7055' } },
     // Lyubov Vasilyevna (Lyuba), his wife, 33: slight, tired; a faded blue cotton dress, a grey linen apron over it, a
     // white kerchief, her hair in a knot under it
     lyuba: { kind: 'shapes', style: 'gouache', who: 'woman', garment: 'dress', hair: 'bun', hat: 'kerchief', parts: ['apron'], line: true,
@@ -63,7 +191,7 @@ return {
     // Petrushka (Pyotr Alexeyevich), the son, 11: thin but square-shouldered, grown up too early; a man's shirt cut down
     // to him, patched dark trousers, a man's old boots too big for him
     petrushka: { kind: 'shapes', style: 'gouache', who: 'child', garment: 'tunic', hair: 'short', line: true,
-      body: { height: 0.82, thick: 0.96, shoulders: 1.0, head: 1.04 },
+      body: { height: 0.82, thick: 0.94, shoulders: 0.94, head: 1.04 },
       colors: { skin: '#cf9e78', hair: '#8b6a43', top: '#c9c1a6', bottom: '#4f4c44', shoes: '#3a3027' } },
     // Semyon Yevseyevich, 50: a widower, the night watchman at the store by the station; a little stooped, grey and
     // cropped, his cap off indoors; an old dark jacket over a grey collarless shirt, worn trousers, boots
@@ -81,14 +209,16 @@ return {
     // brush's facets: `facets`, few sides — the face's front kept round), working hands, trousers and boots of some
     // thickness; `soldier` — the same in a soldier's high boots
     styles: {
-      gouache: { from: 'soft', name: 'gouache', facets: true, sides: 10, head: 1.16, egg: [0.92, 1.06, 0.98], neck: 0.8, legs: 1.02, limb: 1.0, arms: 'hand', feet: 'trouser',
-        trunk: { w: [0.94, 0.98, 0.88, 1.0, 0.98], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.4, tinted: true,
+      gouache: { from: 'soft', name: 'gouache', facets: true, sides: 12, head: 1.22, egg: [0.92, 1.06, 0.98], neck: 0.8, legs: 1.02, limb: 1.0, arms: 'hand', feet: 'trouser',
+        trunk: { w: [0.94, 0.98, 0.88, 0.97, 0.92], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.4, tinted: true,
         folds: { n: 6, depth: 0.07 }, face: 'gouache', ground: 'paper' },
-      soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot' },
+      // a soldier: the same in high boots, the head a little longer and squarer in the jaw (a man's)
+      soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot', egg: [0.88, 1.09, 0.98], headSquare: 2.35 },
     },
-    // an arm with a working hand (a broad palm, not a tip); a leg in trousers; a leg in a high boot from below the knee
+    // an arm with a working hand (a broad palm, a long one, its fingers' ends not pinched); a leg in trousers; a leg in a
+    // high boot from below the knee
     arms: {
-      hand: [[0, 0.05], [0.55, 0.045], [1, 0.036], [1.45, 0.034], [2, 0.025], [2.35, 0.036], [2.75, 0.032], [3, 0.012]],
+      hand: [[0, 0.045], [0.55, 0.041], [1, 0.034], [1.45, 0.032], [2, 0.025], [2.3, 0.037], [2.75, 0.035], [3, 0.02]],
     },
     legs: {
       trouser: [[0, 0.092], [0.5, 0.082], [1, 0.064], [1.4, 0.062], [2, 0.05], [2.3, 0.058], [2.8, 0.05], [3, 0]],
@@ -100,7 +230,9 @@ return {
       // expression (MOODS) moving the same solids
       gouache: { name: 'gouache face', draw: F => {
         const { axes, r: rh, on } = F.head, hu = axes[1], x = MOODS[F.look.expression] ?? MOODS.neutral, skin = F.colors.skin;
-        const under = shade(skin, 0.84), brow = shade(F.colors.hair, 0.6), lips = [skin[0] * 0.74, skin[1] * 0.5, skin[2] * 0.46, 1];
+        const under = shade(skin, 0.84), lips = [skin[0] * 0.74, skin[1] * 0.5, skin[2] * 0.46, 1];
+        // the brows: the hair's colour a little toward the skin's (a dark heavy bar reads as a frown at any mood)
+        const brow = [0, 1, 2, 3].map(i => (i < 3 ? F.colors.hair[i] * 0.55 + skin[i] * 0.25 : 1));
         const lid = 0.04 + 0.1 * x.eye;
         for (const sx of [-1, 1]) {
           F.ball(on([sx * 0.34, 0.05, 0.94], 0.975), axes, [rh * 0.15, rh * 0.095 * x.eye, rh * 0.04], WHITES, 12);
@@ -109,8 +241,13 @@ return {
             [[0, rh * 0.022], [1, rh * 0.032], [2, rh * 0.018]], [[0, LASH]], 6, hu);
           F.tube([on([sx * 0.22, -0.09, 0.95], 0.99), on([sx * 0.36, -0.11, 0.95], 0.995), on([sx * 0.48, -0.07, 0.88], 0.99)],
             [[0, rh * 0.016], [2, rh * 0.012]], [[0, under]], 6, hu);
-          F.tube([on([sx * 0.14, 0.3 + x.inner, 0.95], 1.0), on([sx * 0.32, 0.35 + (x.inner + x.outer) / 2, 0.92], 1.01), on([sx * 0.5, 0.28 + x.outer, 0.84], 1.0)],
-            [[0, rh * 0.05], [1, rh * 0.055], [2, rh * 0.03]], [[0, brow]], 6, hu);
+          F.tube([on([sx * 0.15, 0.32 + x.inner, 0.95], 1.0), on([sx * 0.32, 0.37 + (x.inner + x.outer) / 2, 0.92], 1.01), on([sx * 0.5, 0.3 + x.outer, 0.84], 1.0)],
+            [[0, rh * 0.036], [1, rh * 0.042], [2, rh * 0.024]], [[0, brow]], 6, hu);
+        }
+        // a man's: the shaved jaw's faint blue-grey shade along the chin and under the jaw
+        if (F.look.who === 'man') {
+          const jaw = [skin[0] * 0.9, skin[1] * 0.87, skin[2] * 0.9, 1];
+          F.ball(on([0, -0.74, 0.66], 0.955), axes, [rh * 0.36, rh * 0.14, rh * 0.08], jaw, 12);
         }
         F.ball(on([0, -0.12, 1], 0.99), axes, [rh * 0.1, rh * 0.16, rh * 0.14], shade(skin, 0.97), 10);
         F.ball(on([0, -0.25, 0.98], 0.98), axes, [rh * 0.1, rh * 0.03, rh * 0.05], under, 8);
@@ -132,10 +269,10 @@ return {
         F.cap(at, axes, egg.map(e => e * r * out * 1.08), [0, 0.7, -0.72], -0.05, F.colors.hat, sides, square);
         F.ball(add(at, add(mul(hu, -r * 0.45), mul(hf, -r * 1.02))), axes, [r * 0.22, r * 0.16, r * 0.14], F.colors.hat, 10);
       } },
-      // a soldier's side cap: a narrow boat of cloth along the crown, tipped to the right, its turned-up flap a shade
-      // darker, the red star at its front
+      // a soldier's side cap: a narrow boat of cloth along the crown, worn straight (tipped a hair to the right), its
+      // turned-up flap a shade darker, the red star at its front
       pilotka: { name: 'side cap', draw: F => {
-        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r: rh, out } = F.head, r = rh * out, tip = unit(add(hu, mul(hs, 0.12)));
+        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r: rh, out } = F.head, r = rh * out, tip = unit(add(hu, mul(hs, 0.03)));
         const axes = [unit(cross(tip, hf)), tip, hf], flap = shade(F.colors.hat, 0.82);
         const crown = add(at, mul(tip, r * 0.86));
         F.ball(add(crown, mul(tip, r * 0.1)), axes, [r * 0.34, r * 0.3, r * 1.0], F.colors.hat, 12, 3);
@@ -158,36 +295,20 @@ return {
       // the greatcoat's own: the belt round the waist and its brass buckle, two rows of brass buttons up the chest, the
       // shoulder boards lying on the shoulders, the collar round the neck
       coat_kit: { name: 'greatcoat belt, buttons, boards, collar', draw: F => {
-        const { add, mul, mix, sub, unit } = V(), m = F.fit.h, sq = F.style.square, n = 24, secs = F.trunk(1);
-        const upW = F.up('Spine1'), waist = secs[2], up = F.up('Chest'), fwd = F.fwd('Chest'), chest = secs[3], sh = secs[4];
-        // the belt: a band of four rings (in, out below; out, in above) a little off the coat
-        const belt = [
-          F.ringOf(sectionAt(waist, upW, -0.026 * m, 1.06), n, sq),
-          F.ringOf(sectionAt(waist, upW, -0.026 * m, 1.13), n, sq),
-          F.ringOf(sectionAt(waist, upW, 0.032 * m, 1.13), n, sq),
-          F.ringOf(sectionAt(waist, upW, 0.032 * m, 1.06), n, sq),
-        ];
-        F.rings(belt, LEATHER, null, null);
-        F.ball(frontOf(sectionAt(waist, upW, 0.003 * m, 1.13), 0, 0.004 * m), [F.side('Spine1'), upW, F.fwd('Spine1')], [0.036 * m, 0.032 * m, 0.01 * m], BRASS, 8, 3);
+        const m = F.fit.h, secs = F.trunk(1), waist = secs[2], chest = secs[3], axes = [F.side('Chest'), F.up('Chest'), F.fwd('Chest')];
+        belt(F);
         // two rows of four buttons, from just over the belt up to the chest
         for (const u of [0.22, 0.48, 0.74, 1]) {
           const sec = mix2(waist, chest, u);
-          for (const s of [-1, 1]) F.ball(frontOf(sec, s * 0.36, 0.006 * m), [F.side('Chest'), up, fwd], [0.013 * m, 0.013 * m, 0.006 * m], BRASS, 8);
+          for (const s of [-1, 1]) F.ball(frontOf(sec, s * 0.36, 0.006 * m), axes, [0.013 * m, 0.013 * m, 0.006 * m], BRASS, 8);
         }
-        // the shoulder boards: flat along the top of each shoulder, from near the neck to just short of its edge
-        for (const s of [-1, 1]) {
-          const edge = add(sh[0], add(mul(sh[1], s * sh[3]), sh[5] ?? [0, 0, 0])), lift = mul(up, 0.008 * m);
-          const a = add(mix(F.P('Neck1'), edge, 0.32), lift), b = add(mix(F.P('Neck1'), edge, 0.8), lift);
-          F.bar(a, b, 0.026 * m, 0.024 * m, [[0, BOARD]], 6, fwd, 0.25, 3);
-          F.ball(add(a, mul(unit(sub(b, a)), 0.02 * m)), [F.side('Chest'), up, fwd], [0.01 * m, 0.008 * m, 0.01 * m], BRASS, 6);
-        }
-        // the collar: a band round the base of the neck, lower before (where it turns down)
-        const ring = (dy, rx, rz, drop) => Array.from({ length: n }, (_, q) => {
-          const a = (q / n) * Math.PI * 2, c = Math.cos(a), s2 = Math.sin(a), low = drop * Math.max(0, s2) ** 3;
-          return add(F.P('Neck1'), add(add(mul(F.side('Chest'), rx * c), mul(fwd, rz * s2)), mul(up, dy - low)));
-        });
-        F.rings([ring(-0.012 * m, 0.08 * m, 0.072 * m, 0.02 * m), ring(0.04 * m, 0.066 * m, 0.06 * m, 0.04 * m)], shade(F.colors.garment, 0.9), null, null);
+        boards(F);
+        // the collar, lower before (where it turns down)
+        collar(F, 0.04 * m, 0.04, shade(F.colors.garment, 0.9));
       } },
+      // at home: the tunic's own (belt, collar, placket, pockets, boards) and the greatcoat thrown over the shoulders
+      tunic_kit: { name: 'tunic belt, collar, buttons, pockets, boards', draw: tunicKit },
+      coat_over: { name: 'greatcoat over the shoulders', draw: coatOver },
       // a linen apron over the dress: from the waist to the knees, before the skirt, hanging as cloth
       apron: { name: 'apron', draw: F => {
         const { add, mul, mix, level } = V(), k = F.k, f = level(F.fwd('Hips')), s = level(F.side('Hips')), hips = F.P('Hips');

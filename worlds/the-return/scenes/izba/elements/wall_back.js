@@ -1,7 +1,7 @@
 // The izba's back wall, 4.6 m ahead (x to the right, as the eye sees it; x 0 is 0.225 m left of the eye's line): hewn
 // logs; the window to the right (across 0.45…1.25, between the son and the father as the eye sees them) with its pale
-// frame and a white half-curtain over its top, two little wooden horses on the sill (Semyon Yevseyevich carves them for
-// Nastya); the clock on the wall over the mother's and the son's heads — its weights on their chains, its pendulum a
+// frame and a white half-curtain over its top, two little wooden horses at the sill's left end (Semyon Yevseyevich
+// carves them for Nastya of pale lime wood: their silhouettes stand against the dusk in the panes, by the boy's head); the clock on the wall over the mother's and the son's heads — its weights on their chains, its pendulum a
 // layer that swings (animate) — and the father's photograph in a frame, high over the boy.
 const L = e.lib;
 L.hewn(g, 31, -1.78, 1.78, 2.4);
@@ -35,12 +35,12 @@ g.closePath();
 g.fill();
 g.fillStyle = "#d9d2c3";
 for (let x = -0.38; x < 0.42; x += 0.07) g.fillRect(x, -1.76, 0.012, 0.16);
-// two little horses on the sill, carved and left the wood's own colour, one a step behind the other
+// two little horses on the sill, carved and left the wood's own pale colour, one a step behind the other
 const horse = (x, s, flip) => {
   g.save();
   g.translate(x, -0.87);
   g.scale(flip ? -s : s, s);
-  g.fillStyle = "#c19a62";
+  g.fillStyle = "#d9b682";
   g.beginPath();
   g.moveTo(-0.07, -0.02);
   g.lineTo(-0.065, -0.07);
@@ -54,15 +54,15 @@ const horse = (x, s, flip) => {
   g.fill();
   g.fillRect(-0.065, -0.03, 0.015, 0.03);
   g.fillRect(0.04, -0.03, 0.015, 0.03);
-  g.fillStyle = "#8a6a40";
+  g.fillStyle = "#946f42";
   g.fillRect(0.05, -0.12, 0.012, 0.04);
   g.fillRect(-0.085, -0.07, 0.02, 0.04);
   g.restore();
 };
-horse(-0.22, 1, false);
-horse(0.06, 0.85, true);
+horse(-0.39, 1.55, false);
+horse(-0.2, 1.35, true);
 g.restore();
-e.at(0.975, -0.95, "horses");
+e.at(0.78, -1.0, "horses");
 // the photograph and the clock, moved over the heads (the wall's x: 0.42 the photograph, 0.075 the clock)
 // the father's photograph: a small sepia card in a dark frame — a young man in a cap
 g.fillStyle = "#4a3a2c";
