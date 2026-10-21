@@ -55,22 +55,17 @@ return {
       } },
     },
     parts: {
-      // the kit bag on his back: a soft sack between the shoulder blades, its two straps over the shoulders
+      // the kit bag on his back: a soft sack between the shoulder blades, tied at its neck
       kitbag: { name: 'kit bag', draw: F => {
         const { add, mul } = V(), m = F.fit.h, k = F.k, up = F.up('Chest'), fwd = F.fwd('Chest'), side = F.side('Chest');
         const c = add(F.P('Chest'), add(mul(fwd, -0.21 * k), mul(up, -0.1 * m)));
         F.ball(c, [side, up, fwd], [0.15 * m, 0.19 * m, 0.08 * m], SACK, 12, 2.2);
-        const neck = add(c, add(mul(up, 0.2 * m), mul(fwd, 0.03 * m)));
-        F.ball(neck, [side, up, fwd], [0.05 * m, 0.03 * m, 0.04 * m], STRAP, 8);
-        for (const s of [-1, 1]) {
-          const shoulder = add(F.P(s < 0 ? 'LeftArm' : 'RightArm'), add(mul(up, 0.05 * m), mul(side, -s * 0.03 * m)));
-          F.bar(neck, shoulder, 0.012 * m, 0.012 * m, [[0, STRAP]], 5, fwd, 0.5);
-        }
+        F.ball(add(c, mul(up, 0.2 * m)), [side, up, fwd], [0.05 * m, 0.03 * m, 0.04 * m], STRAP, 8);
       } },
       // the greatcoat's belt: a broad leather band round the waist, over the coat
       belt: { name: 'belt', draw: F => {
         const k = F.k, m = F.fit.h;
-        F.ball(F.P('Spine1'), [F.side('Spine1'), F.up('Spine1'), F.fwd('Spine1')], [0.175 * k, 0.03 * m, 0.13 * k], BELT, 16, 2.6);
+        F.ball(F.P('Spine1'), [F.side('Spine1'), F.up('Spine1'), F.fwd('Spine1')], [0.21 * k, 0.03 * m, 0.16 * k], BELT, 16, 2.6);
       } },
       // a linen apron over the dress: from the waist to the knees, before the skirt, hanging as cloth
       apron: { name: 'apron', draw: F => {
