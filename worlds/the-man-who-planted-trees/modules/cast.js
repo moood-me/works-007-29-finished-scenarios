@@ -5,7 +5,7 @@
 // points a part names (F.point) are the person's: "elzeard#rod".
 const V = () => MooodShapes.V;
 const IRON = [0.2, 0.2, 0.21, 1], TIN = [0.48, 0.48, 0.46, 1], LEATHER = [0.42, 0.31, 0.22, 1], CLOTH = [0.47, 0.5, 0.42, 1];
-const STRAP = [0.3, 0.22, 0.16, 1], WOOD = [0.5, 0.38, 0.26, 1], HOOP = [0.27, 0.25, 0.24, 1];
+const STRAP = [0.3, 0.22, 0.16, 1], WOOD = [0.5, 0.38, 0.26, 1], HOOP = [0.27, 0.25, 0.24, 1], BOOK = [0.2, 0.18, 0.16, 1];
 // toward the person's right, level
 function rightOf(F) {
   const { sub, unit } = V(), d = sub(F.P('RightLeg'), F.P('LeftLeg'));
@@ -48,6 +48,20 @@ return {
     lina_23: { kind: 'shapes', style: 'plateau', who: 'woman', garment: 'dress', hair: 'long', hat: 'kerchief', parts: ['pail'],
       body: { height: 0.92, thick: 0.9, shoulders: 0.9 },
       colors: { skin: '#c99a76', hair: '#2b211b', top: '#5d6670', garment: '#5d6670', hat: '#a4523c', shoes: '#3a2e26' } },
+    // fourteen years on (the third chapter): the Traveller at forty — a man now, a short beard, the brown hair greying;
+    // a faded blue-grey jacket again, as at twenty, the bag on its strap
+    traveller_40: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'jacket', hair: 'short', parts: ['satchel', 'beard'],
+      body: { height: 1.0, thick: 0.9, shoulders: 1.0 },
+      colors: { skin: '#c99c7b', hair: '#6a5848', top: '#ddd6c6', garment: '#55697a', bottom: '#4a463e', shoes: '#2e2822' } },
+    // Lina at thirty-seven: broader, the same rust-red kerchief, a dark indigo dress, the pail in her right hand
+    lina_37: { kind: 'shapes', style: 'plateau', who: 'woman', garment: 'dress', hair: 'long', hat: 'kerchief', parts: ['pail'],
+      body: { height: 0.92, thick: 0.97, shoulders: 0.93 },
+      colors: { skin: '#c49572', hair: '#2b211b', top: '#4d5670', garment: '#4d5670', hat: '#a4523c', shoes: '#3a2e26' } },
+    // Jan at forty, the district's forester: the Traveller's comrade from the regiment; solid, clean-shaven, in the
+    // forester's bottle-green coat to the knee and a peaked cap; his notebook in his left hand
+    jan_40: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'coat', hair: 'short', hat: 'cap', parts: ['notebook'],
+      body: { height: 1.02, thick: 0.98, shoulders: 1.06 },
+      colors: { skin: '#d2a685', hair: '#3a2c22', top: '#cdc6b2', garment: '#3f5a48', bottom: '#34352e', hat: '#2f4537', shoes: '#231e1a' } },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, clean colours, the scene's light; a simple face
@@ -84,6 +98,18 @@ return {
         F.tube([add(rim, mul(right, -0.13 * m)), add(hand, [0, -0.01 * m, 0]), add(rim, mul(right, 0.13 * m))],
           [[0, 0.006 * m], [2, 0.006 * m]], [[0, HOOP]], 5, fwd, 0.4);
         F.point('pail', add(foot, [0, 0.14 * m, 0]));
+      } },
+      // a short beard, the hair's colour, round the jaw and the chin under the mouth
+      beard: { name: 'beard', draw: F => {
+        const { add, mul } = V(), { at, axes, r } = F.head, [, hu, hf] = axes;
+        F.ball(add(at, add(mul(hu, -r * 0.72), mul(hf, r * 0.42))), axes, [r * 0.68, r * 0.34, r * 0.52], F.colors.hair, 12);
+      } },
+      // a forester's notebook, dark oilcloth covers, held in the left hand; its point is the person's `#notebook`
+      notebook: { name: 'notebook', draw: F => {
+        const { add, mul } = V(), m = F.fit.h, axes = [F.side('LeftHand'), F.up('LeftHand'), F.fwd('LeftHand')];
+        const c = add(F.P('LeftHand'), mul(axes[2], 0.05 * m));
+        F.ball(c, axes, [0.016 * m, 0.1 * m, 0.075 * m], BOOK, 6, 3);
+        F.point('notebook', c);
       } },
       // a canvas bag on a strap over the left shoulder, hanging at the left hip
       satchel: { name: 'bag', draw: F => {
