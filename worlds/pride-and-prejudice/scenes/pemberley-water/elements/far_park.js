@@ -1,7 +1,7 @@
 // The park rising beyond the water to the house and on up to the woods, seen from above (x across, y toward the
 // viewer; the near edge at y 120 is the far shore): grass in greens laid unevenly, paler and warmer down by the water,
 // the lawn before the house a lighter sweep, the shade of the tree clumps softly under them
-const L = e.lib, r = L.rand(29);
+const L = e.kit.brush, r = L.rand(29);
 const all = new Path2D();
 all.rect(-350, -120, 700, 240);
 const base = g.createLinearGradient(0, -120, 0, 120);

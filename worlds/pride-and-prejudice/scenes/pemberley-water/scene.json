@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "Pemberley, by the Water",
   "caption": "Across the water, the house stood well on rising ground.",
-  "horizon": 0.42,
+  "horizon": 0.36,
   "camera": {
     "mode": "picture"
   },
@@ -12,7 +12,7 @@
     "haze": 0.1,
     "hazeColor": "#e2e6df",
     "shafts": 0.08,
-    "ambient": 0.8,
+    "ambient": 0.78,
     "ambientColor": "#f4f2ea",
     "bounce": 0.5,
     "wind": [
@@ -44,24 +44,25 @@
         "height": "sun_height"
       },
       "color": "#fff3e2",
-      "strength": 0.85
+      "strength": 0.95
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "brush"
   ],
   "state": {
     "evening": 0,
     "sun_bearing": 215,
     "sun_height": 38,
     "elizabeth_look": [
-      -2.6,
-      2.6,
-      0.3
+      0.4,
+      2.4,
+      1.6
     ],
     "elizabeth_mood": "smile",
     "darcy_look": "elizabeth",
-    "darcy_mood": "neutral"
+    "darcy_mood": "thinking"
   },
   "states": {
     "evening": {
@@ -194,7 +195,7 @@
           "scale": 1.2
         },
         {
-          "across": -42,
+          "across": -68,
           "distance": 118,
           "scale": 0.7,
           "flip": true
@@ -210,7 +211,7 @@
     {
       "id": "house",
       "name": "Pemberley House",
-      "across": -2,
+      "across": -20,
       "distance": 150,
       "height": 25,
       "box": [
@@ -239,7 +240,7 @@
     {
       "id": "bridge",
       "name": "Stone bridge",
-      "across": 46,
+      "across": 33,
       "distance": 92,
       "elevation": 0.5,
       "height": 7,
@@ -322,10 +323,10 @@
       "person": {
         "cast": "cast",
         "who": "elizabeth",
-        "turn": 170
+        "turn": 175
       },
-      "across": -1.1,
-      "distance": 4.0,
+      "across": -0.55,
+      "distance": 3.3,
       "shadow": true
     },
     {
@@ -334,17 +335,17 @@
       "person": {
         "cast": "cast",
         "who": "darcy",
-        "turn": 145,
+        "turn": 135,
         "does": "hands_behind"
       },
-      "across": 1.15,
-      "distance": 4.6,
+      "across": 0.55,
+      "distance": 4.4,
       "shadow": true
     },
     {
       "id": "tree_left",
       "name": "Beech",
-      "across": -4.4,
+      "across": -3.6,
       "distance": 4.6,
       "height": 10,
       "box": [
@@ -358,8 +359,8 @@
     {
       "id": "shrub_right",
       "name": "Laurel",
-      "across": 4.0,
-      "distance": 4.4,
+      "across": 3.4,
+      "distance": 4.6,
       "height": 2.5,
       "box": [
         -2,
@@ -372,8 +373,8 @@
     {
       "id": "tuft",
       "name": "Grass tuft",
-      "across": -3.3,
-      "distance": 2.45,
+      "across": -2.6,
+      "distance": 2.75,
       "height": 0.5,
       "box": [
         -0.4,
@@ -383,138 +384,84 @@
       ],
       "copies": [
         {
-          "across": -3.4,
-          "distance": 2.45,
+          "across": -2.6,
+          "distance": 2.75,
           "scale": 0.8,
           "flip": false
         },
         {
-          "across": -3.06,
-          "distance": 2.65,
+          "across": -2.3,
+          "distance": 3.0,
           "scale": 1.1,
           "flip": true
         },
         {
-          "across": -2.7199999999999998,
-          "distance": 2.85,
+          "across": -2.0,
+          "distance": 2.92,
           "scale": 0.9,
           "flip": false
         },
         {
-          "across": -2.38,
-          "distance": 2.55,
-          "scale": 1.2000000000000002,
+          "across": -1.7,
+          "distance": 2.83,
+          "scale": 1.2,
           "flip": true
         },
         {
-          "across": -2.04,
+          "across": -1.35,
           "distance": 2.75,
           "scale": 1.0,
           "flip": false
         },
         {
-          "across": -1.6999999999999997,
-          "distance": 2.45,
+          "across": 0.35,
+          "distance": 3.0,
           "scale": 0.8,
           "flip": true
         },
         {
-          "across": -1.3599999999999999,
-          "distance": 2.65,
+          "across": 0.7,
+          "distance": 2.92,
           "scale": 1.1,
           "flip": false
         },
         {
-          "across": -1.0199999999999996,
-          "distance": 2.85,
+          "across": 1.05,
+          "distance": 2.83,
           "scale": 0.9,
           "flip": true
         },
         {
-          "across": -0.6799999999999997,
-          "distance": 2.55,
-          "scale": 1.2000000000000002,
+          "across": 1.4,
+          "distance": 2.75,
+          "scale": 1.2,
           "flip": false
         },
         {
-          "across": -0.33999999999999986,
-          "distance": 2.75,
+          "across": 1.75,
+          "distance": 3.0,
           "scale": 1.0,
           "flip": true
         },
         {
-          "across": 4.440892098500626e-16,
-          "distance": 2.45,
+          "across": 2.1,
+          "distance": 2.92,
           "scale": 0.8,
           "flip": false
         },
         {
-          "across": 0.3400000000000003,
-          "distance": 2.65,
+          "across": 2.45,
+          "distance": 2.83,
           "scale": 1.1,
           "flip": true
-        },
-        {
-          "across": 0.6800000000000002,
-          "distance": 2.85,
-          "scale": 0.9,
-          "flip": false
-        },
-        {
-          "across": 1.02,
-          "distance": 2.55,
-          "scale": 1.2000000000000002,
-          "flip": true
-        },
-        {
-          "across": 1.3600000000000008,
-          "distance": 2.75,
-          "scale": 1.0,
-          "flip": false
-        },
-        {
-          "across": 1.7000000000000006,
-          "distance": 2.45,
-          "scale": 0.8,
-          "flip": true
-        },
-        {
-          "across": 2.0400000000000005,
-          "distance": 2.65,
-          "scale": 1.1,
-          "flip": false
-        },
-        {
-          "across": 2.3800000000000003,
-          "distance": 2.85,
-          "scale": 0.9,
-          "flip": true
-        },
-        {
-          "across": 2.72,
-          "distance": 2.55,
-          "scale": 1.2000000000000002,
-          "flip": false
-        },
-        {
-          "across": 3.060000000000001,
-          "distance": 2.75,
-          "scale": 1.0,
-          "flip": true
-        },
-        {
-          "across": 3.400000000000001,
-          "distance": 2.45,
-          "scale": 0.8,
-          "flip": false
         }
       ]
     },
     {
       "id": "parsley",
       "name": "Cow parsley",
-      "across": -2.9,
-      "distance": 2.7,
+      "across": -2.4,
+      "distance": 2.8,
       "height": 0.9,
       "box": [
         -0.35,
@@ -524,35 +471,25 @@
       ],
       "copies": [
         {
-          "across": -2.9,
-          "distance": 2.7
+          "across": -2.4,
+          "distance": 2.8
         },
         {
-          "across": -2.4,
-          "distance": 2.9,
+          "across": -1.9,
+          "distance": 2.95,
           "scale": 0.85,
           "flip": true
         },
         {
-          "across": -0.1,
-          "distance": 2.8,
+          "across": 1.6,
+          "distance": 2.85,
           "scale": 0.9
         },
         {
-          "across": 1.6,
-          "distance": 2.65,
-          "flip": true
-        },
-        {
-          "across": 2.4,
-          "distance": 2.85,
+          "across": 2.2,
+          "distance": 2.75,
+          "flip": true,
           "scale": 1.1
-        },
-        {
-          "across": 3.0,
-          "distance": 2.6,
-          "scale": 0.8,
-          "flip": true
         }
       ]
     }

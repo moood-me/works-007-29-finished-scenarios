@@ -1,6 +1,6 @@
 // The near bank's edge, where the lawn ends and the water begins a hand's breadth below it: a strip of earth and
 // grass seen side-on (its top the lawn's level, its foot under the water), a fringe of uncut grass along its top
-const L = e.lib, px = L.px(e), r = L.rand(67);
+const L = e.kit.brush, px = L.px(e), r = L.rand(67);
 const face = new Path2D();
 face.moveTo(-30, -0.02);
 for (let x = -30; x <= 30; x += 1.5) face.lineTo(x, -0.02 + 0.03 * Math.sin(x * 1.7));
@@ -13,7 +13,7 @@ fg.addColorStop(0.35, '#6f7a52');
 fg.addColorStop(1, '#5a634a');
 g.fillStyle = fg;
 g.fill(face);
-L.pen(g, face, 1.0 * px, 0.3);
+L.pen(g, face, 1.9 * px, 0.6);
 const greens = ['#6e8452', '#86995f', '#a3b177'];
 for (let t = 0; t < 3; t++) {
   const p = new Path2D();

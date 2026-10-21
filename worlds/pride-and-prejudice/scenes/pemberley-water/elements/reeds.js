@@ -1,6 +1,6 @@
 // A clump of reeds at the water's edge: tall blades, a little bowed, some with brown heads; it sways about its foot
 // (its copies stand along the bank's left end, each swaying in its own time)
-const r = e.lib.rand(71);
+const r = e.kit.brush.rand(71);
 e.layer('reeds', { wind: { strength: 0.12, gust: 0.5, scale: 3 }, pivot: [0, 0.05] }, g2 => {
   const blades = new Path2D(), heads = new Path2D();
   for (let i = 0; i < 16; i++) {

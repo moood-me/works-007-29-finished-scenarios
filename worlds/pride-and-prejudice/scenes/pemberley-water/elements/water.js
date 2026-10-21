@@ -1,7 +1,7 @@
 // The water before the house, seen from above (x across, y toward the viewer; the far shore at y −49, the near bank at
 // y 49): a still green-grey, paler far off where it takes the sky, a few long light streaks; lily pads by the near bank
 // on the left. It mirrors the house, the bridge, the trees and the sky (its "reflect")
-const L = e.lib, r = L.rand(61);
+const L = e.kit.brush, r = L.rand(61);
 const base = g.createLinearGradient(0, -49, 0, 49);
 base.addColorStop(0, '#b7c7c2');
 base.addColorStop(0.5, '#a1b6b0');
