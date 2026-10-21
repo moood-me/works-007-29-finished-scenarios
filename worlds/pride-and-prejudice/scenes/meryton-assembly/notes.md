@@ -9,7 +9,8 @@ windows' light, the floor's wax gives back the room.
 
 ## What is where (from the start: x across, metres; the room 7.2 m wide — across −2.8…4.4 —, 6 m high, 16 m long)
 
-- **Elizabeth** (`elizabeth`) — nearest, left of the middle (−1.0, 3.25 m off), standing, turned a little to the
+- **Elizabeth** (`elizabeth`) — nearest, left of the middle (−1.0, 3.25 m off), standing with her hands folded
+  (`hands_folded`), turned a little to the
   screen's right (195°: under 180 is toward the screen's left), looking ahead and down (`elizabeth_look`), a knowing
   smile (`elizabeth_mood`; the showcase starts her neutral and lets it come).
 - **Charlotte Lucas** (`charlotte`, cast `charlotte`: the world's rare grey gown, hers alone) — at Elizabeth's

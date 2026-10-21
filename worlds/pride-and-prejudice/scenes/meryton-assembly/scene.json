@@ -577,7 +577,8 @@
       "person": {
         "cast": "cast",
         "who": "elizabeth",
-        "turn": 195
+        "turn": 195,
+        "does": "hands_folded"
       },
       "across": -1.0,
       "distance": 3.25,
