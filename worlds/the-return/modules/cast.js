@@ -177,12 +177,12 @@ return {
     // greatcoat to the calves, belted, its two rows of brass buttons, the shoulder boards, the collar; a side cap with its
     // star, high boots; the kit bag carried by its neck in his left hand
     ivanov: { kind: 'shapes', style: 'soldier', who: 'man', garment: 'greatcoat', hair: 'crop', hat: 'pilotka', parts: ['coat_kit', 'sack'], line: true,
-      body: { height: 1.0, shoulders: 0.97, thick: 1.0 },
+      body: { height: 1.0, shoulders: 0.97, thick: 1.0, head: 0.9 },
       colors: { skin: '#cf9a74', hair: '#4a3a2e', top: '#6d7059', garment: '#6d7059', bottom: '#4a4a3d', shoes: '#26201b', hat: '#787a5d' } },
     // Ivanov at home, not yet decided to stay: the khaki tunic belted, the breeches in the high boots, the side cap
     // still on, the greatcoat thrown over his shoulders, unbuttoned (not hung on the nail)
     ivanov_home: { kind: 'shapes', style: 'soldier', who: 'man', garment: 'tunic', hair: 'crop', hat: 'pilotka', parts: ['tunic_kit', 'coat_over'], line: true,
-      body: { height: 1.0, shoulders: 1.0, thick: 1.0 },
+      body: { height: 1.0, shoulders: 1.0, thick: 1.0, head: 0.9 },
       colors: { skin: '#cf9a74', hair: '#4a3a2e', top: '#86825e', garment: '#5d604c', bottom: '#4c4b3c', shoes: '#26201b', hat: '#6f7055' } },
     // Lyubov Vasilyevna (Lyuba), his wife, 33: slight, tired; a faded blue cotton dress, a grey linen apron over it, a
     // white kerchief, her hair in a knot under it
@@ -224,7 +224,7 @@ return {
         trunk: { w: [0.94, 0.98, 0.88, 0.97, 0.95], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.8, tinted: true,
         folds: { n: 6, depth: 0.07 }, face: 'gouache', ground: 'paper' },
       // a soldier: the same in high boots, the head a little longer and squarer in the jaw (a man's)
-      soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot', egg: [0.88, 1.09, 0.98], headSquare: 2.35, limb: 1.14,
+      soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot', egg: [0.9, 1.04, 0.98], headSquare: 2.35, limb: 1.14,
         // (heavy cloth's folds down the skirt, deep enough to catch the light; the sleeves a shade darker than the coat,
         // so that an arm hanging before it reads as an arm)
         straight: true, folds: { n: 9, depth: 0.06 }, sleeves: 0.86,
@@ -238,7 +238,7 @@ return {
     },
     legs: {
       trouser: [[0, 0.092], [0.5, 0.082], [1, 0.064], [1.4, 0.062], [2, 0.05], [2.3, 0.058], [2.8, 0.05], [3, 0]],
-      jackboot: [[0, 0.094], [0.5, 0.084], [1, 0.07], [1.3, 0.074], [1.9, 0.066], [2, 0.064], [2.3, 0.068], [2.8, 0.056], [3, 0]],
+      jackboot: [[0, 0.07], [0.5, 0.066], [1, 0.062], [1.3, 0.074], [1.9, 0.066], [2, 0.064], [2.3, 0.068], [2.8, 0.056], [3, 0]],
     },
     faces: {
       // a face that reads at a few metres and stays a painted face: dark almond eyes (no whites — every colour's edge
@@ -273,7 +273,7 @@ return {
       // a soldier's greatcoat: fitted to the waist (the trunk in its cloth), from the belt a skirt of heavy cloth to the
       // calves, its sides straight lines down to a hem round the legs (the soldier's style is straight-cut: a bell from
       // the hips read as a dress); long sleeves
-      greatcoat: { name: 'greatcoat', hang: [{ to: 1.62, from: 'waist', flare: 0.08, off: 1.0 }], sleeves: 'garment', bodice: true },
+      greatcoat: { name: 'greatcoat', hang: [{ to: 1.62, from: 'waist', flare: 0.08, off: 0.96 }], sleeves: 'garment', bodice: true },
     },
     hats: {
       // a white kerchief over the hair, tied at the nape
