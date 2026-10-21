@@ -40,7 +40,7 @@ for (let i = 0; i < 140; i++) {
   const x = -20 + e.rnd() * 40;
   const y = -21.5 + e.rnd() * 43;
   if (e.ground(A0 + x, D0 - y) < 0) continue;
-  g.fillStyle = e.rnd() < 0.6 ? '#9d9a7c' : '#a98f62';
+  g.fillStyle = e.rnd() < 0.6 ? '#87877a' : '#8f8676';
   g.beginPath();
   g.ellipse(x, y, 0.04 + e.rnd() * 0.08, 0.03 + e.rnd() * 0.06, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();

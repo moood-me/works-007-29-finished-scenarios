@@ -45,7 +45,7 @@ g.moveTo(-1.5, -0.95);
 g.lineTo(1.3, -1.05);
 g.stroke();
 for (let i = 0; i < 25; i++) {
-  g.fillStyle = e.rnd() < 0.6 ? '#9d9a7c' : '#a98f62';
+  g.fillStyle = e.rnd() < 0.6 ? '#87877a' : '#8f8676';
   g.beginPath();
   g.ellipse(-1.4 + e.rnd() * 2.6, -1.85 + e.rnd() * 0.6, 0.02 + e.rnd() * 0.03, 0.015 + e.rnd() * 0.02, 0, 0, Math.PI * 2);
   g.fill();

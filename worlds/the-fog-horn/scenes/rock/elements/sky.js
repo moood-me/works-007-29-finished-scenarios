@@ -37,8 +37,8 @@ e.layer('day', {}, g => {
   g.fillStyle = '#d6d1d0';
   g.fillRect(X0, H, W, 1.25 - H);
   // the warm haze round the low sun, wide along the horizon
-  glow(g, SX, SY + 0.02, 0.9, 0.16, '#f6dcbc', 0.75);
-  glow(g, SX, SY, 0.28, 0.2, '#fbe6c8', 0.7);
+  glow(g, SX, SY + 0.02, 0.9, 0.16, '#f6dcbc', 1);
+  glow(g, SX, SY, 0.28, 0.2, '#fbe6c8', 0.95);
 });
 e.layer('sun', {}, g => {
   g.fillStyle = '#fff3de';
@@ -56,7 +56,7 @@ e.layer('clouds', { drift: [0.003, 0], box: [X0, Y0, A + 0.3, H] }, g => {
     const w = 0.25 + e.rnd() * 0.45;
     const h = 0.012 + e.rnd() * 0.025;
     const c = e.rnd() < 0.45 ? '#f0e0d2' : '#d4d3db';
-    for (const k of [-W, 0, W]) glow(g, x + k, y, w, h, c, 0.35 + 0.25 * e.rnd());
+    for (const k of [-W, 0, W]) glow(g, x + k, y, w, h, c, 0.6 + 0.3 * e.rnd());
   }
 });
 e.layer('night', {}, g => {
