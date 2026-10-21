@@ -1,0 +1,636 @@
+{
+  "engine": 3,
+  "title": "Pemberley, by the Water",
+  "caption": "Across the water, the house stood well on rising ground.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "vignette": 0.18,
+    "grain": 0.05,
+    "haze": 0.1,
+    "hazeColor": "#e2e6df",
+    "shafts": 0.08,
+    "ambient": 0.8,
+    "ambientColor": "#f4f2ea",
+    "bounce": 0.5,
+    "wind": [
+      1,
+      0.3,
+      0.35
+    ],
+    "saturation": 1.0,
+    "looks": {
+      "evening": {
+        "ambientColor": "#f6e5cd",
+        "tint": "#f0c89c",
+        "tintStrength": 0.1,
+        "haze": 0.15,
+        "hazeColor": "#ecdcc4",
+        "saturation": 0.96
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        215,
+        38
+      ],
+      "place": {
+        "bearing": "sun_bearing",
+        "height": "sun_height"
+      },
+      "color": "#fff3e2",
+      "strength": 0.85
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "evening": 0,
+    "sun_bearing": 215,
+    "sun_height": 38,
+    "elizabeth_look": [
+      -2.6,
+      2.6,
+      0.3
+    ],
+    "elizabeth_mood": "smile",
+    "darcy_look": "elizabeth",
+    "darcy_mood": "neutral"
+  },
+  "states": {
+    "evening": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light: 0 a June afternoon (by default), 1 an early evening — warmer, still bright; the sun's keys go with it"
+    },
+    "sun_bearing": {
+      "type": "number",
+      "means": "where the sun is, degrees (180 behind the viewer, 270 to the left): 215 the afternoon, about 238 the early evening — it lights the faces from the front"
+    },
+    "sun_height": {
+      "type": "number",
+      "means": "the sun's height, degrees: 38 the afternoon, about 22 the early evening"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "hills",
+      "name": "Far hills",
+      "across": 0,
+      "distance": 900,
+      "height": 140,
+      "box": [
+        -1800,
+        -150,
+        1800,
+        6
+      ]
+    },
+    {
+      "id": "woods",
+      "name": "Woods behind the house",
+      "across": 0,
+      "distance": 320,
+      "height": 45,
+      "box": [
+        -900,
+        -60,
+        900,
+        4
+      ]
+    },
+    {
+      "id": "far_park",
+      "name": "Park beyond the water",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 220,
+      "width": 700,
+      "depth": 240
+    },
+    {
+      "id": "park_tree",
+      "name": "Park tree",
+      "across": -75,
+      "distance": 128,
+      "height": 18,
+      "box": [
+        -9.5,
+        -19.5,
+        9.5,
+        0.5
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -75,
+          "distance": 128
+        },
+        {
+          "across": -104,
+          "distance": 142,
+          "scale": 1.2,
+          "flip": true,
+          "tint": "#f2f5ea"
+        },
+        {
+          "across": -60,
+          "distance": 178,
+          "scale": 0.9
+        },
+        {
+          "across": -140,
+          "distance": 196,
+          "scale": 1.15,
+          "tint": "#eef2f2"
+        },
+        {
+          "across": -190,
+          "distance": 160,
+          "scale": 1.3,
+          "flip": true
+        },
+        {
+          "across": 66,
+          "distance": 132,
+          "flip": true,
+          "tint": "#f6f4e8"
+        },
+        {
+          "across": 94,
+          "distance": 152,
+          "scale": 1.25
+        },
+        {
+          "across": 122,
+          "distance": 126,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 60,
+          "distance": 205,
+          "scale": 1.05,
+          "tint": "#eef2f2"
+        },
+        {
+          "across": 175,
+          "distance": 172,
+          "scale": 1.2
+        },
+        {
+          "across": -42,
+          "distance": 118,
+          "scale": 0.7,
+          "flip": true
+        },
+        {
+          "across": 150,
+          "distance": 215,
+          "scale": 1.1,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "house",
+      "name": "Pemberley House",
+      "across": -2,
+      "distance": 150,
+      "height": 25,
+      "box": [
+        -47,
+        -25,
+        47,
+        0.5
+      ]
+    },
+    {
+      "id": "water",
+      "name": "The water",
+      "plane": true,
+      "across": 0,
+      "distance": 58,
+      "elevation": -0.2,
+      "width": 500,
+      "depth": 98,
+      "reflect": {
+        "strength": 0.55,
+        "fade": 0,
+        "rough": 0.1,
+        "ripple": 0.12
+      }
+    },
+    {
+      "id": "bridge",
+      "name": "Stone bridge",
+      "across": 46,
+      "distance": 92,
+      "elevation": 0.5,
+      "height": 7,
+      "box": [
+        -28,
+        -9.6,
+        35,
+        0.6
+      ]
+    },
+    {
+      "id": "near_edge",
+      "name": "Near bank",
+      "across": 0,
+      "distance": 9.42,
+      "elevation": 0,
+      "onLand": false,
+      "height": 0.8,
+      "box": [
+        -30,
+        -0.3,
+        30,
+        0.8
+      ]
+    },
+    {
+      "id": "reeds",
+      "name": "Reeds",
+      "across": -8.2,
+      "distance": 9.55,
+      "elevation": 0.55,
+      "height": 1.4,
+      "box": [
+        -0.6,
+        -1.5,
+        0.6,
+        0.1
+      ],
+      "copies": [
+        {
+          "across": -8.2,
+          "distance": 9.55
+        },
+        {
+          "across": -7.5,
+          "distance": 9.6,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": -6.8,
+          "distance": 9.52,
+          "scale": 0.9
+        },
+        {
+          "across": -6.0,
+          "distance": 9.62,
+          "flip": true
+        },
+        {
+          "across": -5.3,
+          "distance": 9.55,
+          "scale": 0.8
+        }
+      ]
+    },
+    {
+      "id": "lawn",
+      "name": "Lawn and walk",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 5.35,
+      "width": 60,
+      "depth": 7.9
+    },
+    {
+      "id": "elizabeth",
+      "name": "Elizabeth Bennet",
+      "person": {
+        "cast": "cast",
+        "who": "elizabeth",
+        "turn": 170
+      },
+      "across": -1.1,
+      "distance": 4.0,
+      "shadow": true
+    },
+    {
+      "id": "darcy",
+      "name": "Mr Darcy",
+      "person": {
+        "cast": "cast",
+        "who": "darcy",
+        "turn": 145,
+        "does": "hands_behind"
+      },
+      "across": 1.15,
+      "distance": 4.6,
+      "shadow": true
+    },
+    {
+      "id": "tree_left",
+      "name": "Beech",
+      "across": -4.4,
+      "distance": 4.6,
+      "height": 10,
+      "box": [
+        -2.8,
+        -11.5,
+        6,
+        0.4
+      ],
+      "shadow": true
+    },
+    {
+      "id": "shrub_right",
+      "name": "Laurel",
+      "across": 4.0,
+      "distance": 4.4,
+      "height": 2.5,
+      "box": [
+        -2,
+        -2.7,
+        2.4,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tuft",
+      "name": "Grass tuft",
+      "across": -3.3,
+      "distance": 2.45,
+      "height": 0.5,
+      "box": [
+        -0.4,
+        -0.55,
+        0.4,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -3.4,
+          "distance": 2.45,
+          "scale": 0.8,
+          "flip": false
+        },
+        {
+          "across": -3.06,
+          "distance": 2.65,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": -2.7199999999999998,
+          "distance": 2.85,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": -2.38,
+          "distance": 2.55,
+          "scale": 1.2000000000000002,
+          "flip": true
+        },
+        {
+          "across": -2.04,
+          "distance": 2.75,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": -1.6999999999999997,
+          "distance": 2.45,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": -1.3599999999999999,
+          "distance": 2.65,
+          "scale": 1.1,
+          "flip": false
+        },
+        {
+          "across": -1.0199999999999996,
+          "distance": 2.85,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": -0.6799999999999997,
+          "distance": 2.55,
+          "scale": 1.2000000000000002,
+          "flip": false
+        },
+        {
+          "across": -0.33999999999999986,
+          "distance": 2.75,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": 4.440892098500626e-16,
+          "distance": 2.45,
+          "scale": 0.8,
+          "flip": false
+        },
+        {
+          "across": 0.3400000000000003,
+          "distance": 2.65,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": 0.6800000000000002,
+          "distance": 2.85,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": 1.02,
+          "distance": 2.55,
+          "scale": 1.2000000000000002,
+          "flip": true
+        },
+        {
+          "across": 1.3600000000000008,
+          "distance": 2.75,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": 1.7000000000000006,
+          "distance": 2.45,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": 2.0400000000000005,
+          "distance": 2.65,
+          "scale": 1.1,
+          "flip": false
+        },
+        {
+          "across": 2.3800000000000003,
+          "distance": 2.85,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 2.72,
+          "distance": 2.55,
+          "scale": 1.2000000000000002,
+          "flip": false
+        },
+        {
+          "across": 3.060000000000001,
+          "distance": 2.75,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": 3.400000000000001,
+          "distance": 2.45,
+          "scale": 0.8,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "parsley",
+      "name": "Cow parsley",
+      "across": -2.9,
+      "distance": 2.7,
+      "height": 0.9,
+      "box": [
+        -0.35,
+        -0.95,
+        0.35,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -2.9,
+          "distance": 2.7
+        },
+        {
+          "across": -2.4,
+          "distance": 2.9,
+          "scale": 0.85,
+          "flip": true
+        },
+        {
+          "across": -0.1,
+          "distance": 2.8,
+          "scale": 0.9
+        },
+        {
+          "across": 1.6,
+          "distance": 2.65,
+          "flip": true
+        },
+        {
+          "across": 2.4,
+          "distance": 2.85,
+          "scale": 1.1
+        },
+        {
+          "across": 3.0,
+          "distance": 2.6,
+          "scale": 0.8,
+          "flip": true
+        }
+      ]
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a solo square piano playing a gentle Regency-era country air, unhurried, intimate, slightly imperfect touch",
+        "weight": 1.2
+      },
+      {
+        "text": "English country dance tune from Playford's Dancing Master on a single violin, slow and wistful",
+        "weight": 0.6
+      },
+      {
+        "text": "chamber music for pianoforte and cello, late eighteenth century, warm and restrained",
+        "weight": 0.8
+      },
+      {
+        "text": "soft classical string quartet in the style of Haydn, a quiet andante on a summer afternoon",
+        "weight": 0.5
+      },
+      {
+        "text": "harp arpeggios like water, light and clear, pastoral English summer",
+        "weight": 0
+      },
+      {
+        "text": "wooden flute melody over sustained strings, English parkland, gentle breeze",
+        "weight": 0
+      },
+      {
+        "text": "melancholy minor-key piano nocturne, hesitant pauses, unspoken feeling",
+        "weight": 0
+      },
+      {
+        "text": "bright Mozartian piano sonata movement, playful wit and lightness",
+        "weight": 0
+      },
+      {
+        "text": "slow pastoral oboe solo with chamber orchestra, morning mist over meadows",
+        "weight": 0
+      },
+      {
+        "text": "music box version of a country dance, delicate and nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "guitar-like plucked fortepiano, sparse notes, birdsong-like ornaments",
+        "weight": 0
+      },
+      {
+        "text": "warm viola and piano duet, tender restraint, Georgian drawing room",
+        "weight": 0
+      },
+      {
+        "text": "distant ballroom minuet heard through an open window, soft and muffled",
+        "weight": 0
+      },
+      {
+        "text": "romantic but restrained piano theme, period drama film score, gentle swell of strings",
+        "weight": 0
+      },
+      {
+        "text": "clavichord improvisation, intimate, quiet, introspective",
+        "weight": 0
+      },
+      {
+        "text": "light pizzicato strings, a walk through a garden, gentle humour",
+        "weight": 0
+      },
+      {
+        "text": "sustained soft string pads with solo piano phrases, calm water and stillness",
+        "weight": 0
+      }
+    ],
+    "bpm": 72,
+    "density": 0.35,
+    "brightness": 0.6,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}

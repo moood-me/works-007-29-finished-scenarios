@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Pemberley, by the Water","translation":"Пемберли, у воды","where":"scenes/pemberley-water/scene.json title"},
+  {"text":"Across the water, the house stood well on rising ground.","translation":"За водой, на пологом холме, стоял дом.","where":"scenes/pemberley-water/scene.json caption"}
+]}

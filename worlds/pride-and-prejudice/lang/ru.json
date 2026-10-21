@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Pride and Prejudice","translation":"Гордость и предубеждение","where":"world.json title"},
+  {"text":"Jane Austen's England in light watercolour and fine pen: Longbourn, Meryton, Netherfield, Hunsford, Pemberley. Green and cream, warm candlelit ballrooms, bright early evenings.","translation":"Англия Джейн Остин светлой акварелью и тонким пером: Лонгборн, Меритон, Незерфилд, Хансфорд, Пемберли. Зелень и сливочный тон, тёплые от свечей балы, светлые ранние вечера.","where":"world.json description"}
+]}
