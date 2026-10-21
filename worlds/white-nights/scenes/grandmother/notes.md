@@ -8,7 +8,7 @@ their poses (breathing, a page turned now and then); nobody walks, the camera do
 ## The look
 
 Warm and close after the cool embankment: old cream wallpaper with stripes and small sprigs, painted plank floor, a
-low whitewashed ceiling with two dark beams, a white tiled stove, a geranium in the window (the one bright red), a
+low whitewashed ceiling with two dark beams, going into a warm shade near the viewer, a white tiled stove, a geranium in the window (the one bright red), a
 claret wing armchair. Everything in daylight colours with the fine sepia ink line (`lib.INK`). It is day and the room is
 light; faces and hands read clearly.
 
@@ -41,14 +41,18 @@ The room: across −2.65…2.75, 0…6 deep, the ceiling 2.8 (`floor`, `ceiling`
 ## The people (the world's `cast`: modules/cast.md)
 
 - `babushka` — Grandmother in the armchair (`babushka_on` the seat, the cast's `seated` loop: still, the hands on her knees),
-  facing the room, her blind eyes turned straight at the guest (`babushka_look: "dreamer"`).
-- `nastya` — Nastenka on the low bench at Grandmother's side, at home (her look over the character: the dress without
-  the mantle, no bonnet, her hair up), turned half to Grandmother (145°), reading to her (the cast's `read` loop, the
-  part `book`, looking at it: `nastya#book`).
-- `dreamer` — the Dreamer by the door, 4 m in, turned to them (110°), his top hat held before his chest in both hands
-  (`dreamer_with: hat_hands`, his hands put there by `dreamer_reach`), looking at Nastenka, a shy smile.
-- `pin` — Grandmother's pin: a thin bright line from her dress to Nastenka's, laid each frame by `pin.animate.js` from
-  `babushka#hips` to `nastya#hips` (a little below), a glint on it (the engine's glow). It follows them as they breathe;
+  facing the room and us, her blind eyes straight ahead (`babushka_look: null`) — she listens, her face to the viewer.
+- `nastya` — Nastenka on the low bench at Grandmother's side, a hand's breadth from the armchair so the two dresses
+  stand apart (across −0.7), at home (her look over the character: the dress without the mantle, no bonnet, her hair
+  up), turned mostly to us (160°), the book open in her hands (the cast's `read` loop, the part `book`) but looking up
+  from it at the guest (`nastya_look: "dreamer"`), a small smile.
+- `dreamer` — the Dreamer by the door, 4 m in, turned three-quarters to us (150°), his head bent to Nastenka on her
+  low bench (`dreamer_look: "nastya"`), a shy smile; his top hat held low at his side by the brim in his left hand
+  (`dreamer_with: hat_low`), its shape clear against the white stove.
+- `pin` — Grandmother's pin: a thin bright steel line with an ink edge across the gap between the two dresses, laid each
+  frame by `pin.animate.js` along the way from `babushka#hips` to `nastya#hips` (a little below) and drawn over its
+  middle only (from one lap's edge to the other's); its head and a glint glow (the engine's). Its card stands in front
+  of both (distance 4.0), so no skirt hides it. It follows them as they breathe;
   if Nastenka stands, it stretches with her — when the game unpins her it will need a key to put it away.
 
 ## State

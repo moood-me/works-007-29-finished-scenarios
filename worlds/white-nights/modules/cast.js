@@ -103,7 +103,7 @@ return {
       caped: { name: 'dress with a mantle', hang: [{ to: 1.95, from: 'waist', flare: 0.5, off: 0.94 },
         { to: 0.02, from: 'shoulders', flare: 0.28, color: 'top', folds: false }], sleeves: 'garment', bare: true, bodice: true },
       // the same dress at home, without the mantle
-      frock: { name: 'dress', hang: [{ to: 1.95, from: 'waist', flare: 0.5, off: 0.94 }], sleeves: 'garment', bare: true, bodice: true },
+      frock: { name: 'dress', hang: [{ to: 1.85, from: 'waist', flare: 0.38, off: 0.94, folds: false }], sleeves: 'garment', bare: true, bodice: true },
       // an old woman's dress to the floor, fuller, a shawl over the shoulders down to the hips (the top's colour)
       shawled: { name: 'dress with a shawl', hang: [{ to: 2.0, from: 'waist', flare: 0.5, off: 0.96 },
         { to: 0.01, from: 'shoulders', flare: 0.34, color: 'top', folds: false }], sleeves: 'garment', bare: true, bodice: true },
@@ -134,6 +134,13 @@ return {
       hat_hand: { name: 'hat in the right hand', draw: F => {
         const { add, mul } = V(), m = F.fit.h;
         topHat(F, add(F.P('RightHand'), mul(F.fwd('Chest'), 0.02 * m)), F.fwd('Chest'), F.colors.hat ?? SILK);
+      } },
+      // a top hat held low at the side by its brim in the left hand, the crown out away from the body and a little
+      // down, so it stands clear of him as a hat
+      hat_low: { name: 'hat held low', draw: F => {
+        const { add, sub, mul, unit } = V(), m = F.fit.h, hand = F.P('LeftHand'), d = sub(hand, F.P('Hips'));
+        const out = unit(add(unit([d[0], 0, d[2]]), [0, -0.45, 0]));
+        topHat(F, add(hand, [0, -0.11 * m, 0]), out, F.colors.hat ?? SILK);
       } },
       // an open book held in both hands, between them, its pages turned to the reader's face; its point `book`
       book: { name: 'open book', draw: F => {
