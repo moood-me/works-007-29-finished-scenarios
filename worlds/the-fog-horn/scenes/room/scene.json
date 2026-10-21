@@ -176,7 +176,7 @@
       "name": "The far shore",
       "across": -40,
       "distance": 900,
-      "elevation": -14,
+      "elevation": 16,
       "height": 40,
       "box": [
         -520,
@@ -190,7 +190,7 @@
       "name": "The fog on the horizon",
       "across": 120,
       "distance": 1500,
-      "elevation": -14,
+      "elevation": 16,
       "height": 50,
       "box": [
         -120,

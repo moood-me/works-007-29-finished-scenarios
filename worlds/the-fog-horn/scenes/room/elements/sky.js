@@ -8,7 +8,7 @@ const X0 = -0.3;
 const W = A + 0.6;
 const Y0 = -0.35;
 const SX = A * 0.5 + 0.022;
-const SY = 0.372;
+const SY = 0.36;
 const MX = A * 0.5 - 0.035;
 const MY = 0.35;
 // a soft round glow, stretched (sx, sy: its half-widths), falling off smoothly — no edge to its disc

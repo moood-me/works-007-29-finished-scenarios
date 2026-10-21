@@ -9,7 +9,7 @@ second cup) — the place, its light and its two people standing. No motion of p
   of stone (`reveal` ×2, `sill`, `soffit`) to the window itself (`window`, six panes; its rectangle is where the sun
   and the sky come in: lights `sun` "through" it and `sky_in` "daylight" of it). The ceiling is a card laid face down
   (`tilt` −90, its foot at the back); the open hatch in it (`hatch`) over the ladder glows with `beacon`.
-- **Out of the window**, 14 m down (the sea plane at −14; `relief.js` drops the land under it past the wall): the sun
+- **Out of the window**, 14 m down (the sea plane at −14; `relief.js` drops the land to −30 past the wall, so the far shore and the fog stand at elevation 16 over it): the sun
   going down just in the window, the far shore's end with Nora's house (`far_shore#window`, key `nora`), the fog bank
   coming on the right (tomorrow's).
 - **Round the room**: left, McDunn's stove (`stove`, its fire `stove_fire`, key `stove`; the kettle's steam from
