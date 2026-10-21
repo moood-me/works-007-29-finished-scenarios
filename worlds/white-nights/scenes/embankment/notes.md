@@ -70,14 +70,12 @@ The view stands in the street 2.4 m off the parapet: the canal fills the left of
 Three, each apart and clear, standing quietly (the engine's `stand`: breathing), no gesture held mid-way: Nastenka by
 the railing, the Dreamer a step farther than he need be, the Lodger far off by the next lamp. Each a head of hair, not a
 bare ball: Nastenka bare-headed, her dark hair parted and smoothed in bands over the ears to a knot at the nape (the
-cast's `bands`); the men's hair brushed up in a wave with side-whiskers (`swept`, `neat`). Hands closed and quiet (the
+cast's `bands`); the men's hair brushed up in a wave, down to sideburns (`swept`, `neat`). Hands closed and quiet (the
 cast's style has no separate fingers). Each casts the lamp's shadow back over the street (`shadow`, 0.75), the ground
 a little darker under their feet.
 
-- `nastya` — Nastenka at the parapet, 4.5 m off, 0.28 m from its face (her hand on its top close at her side, the
-  arm bent, quiet), just beyond the near lamp: turned to us and toward
-  the corner (160°), her right hand resting on the granite's top (`nastya_reach.r`, the elbow bent), the left hanging,
-  looking toward the corner just past the viewer ([1.2, 0, 1.6]), waiting, a little sad (`sad`).
+- `nastya` — Nastenka at the parapet, 4.5 m off, 0.28 m from its face, both arms hanging quietly as she stands, just beyond the near lamp: turned to us and toward
+  the corner (160°), looking toward the corner just past the viewer ([1.2, 0, 1.6]), waiting, a little sad (`sad`).
 - `dreamer` — the Dreamer on the right, 5.1 m off, about 2 m from her: bare-headed, his brown hair, his faded green
   frock coat; turned half to her and half to us (215°), his knotty stick in the right hand (`cane`), his top hat held
   low at his side in the left (`hat_low`), both arms as the standing has them; looking at her with a shy smile.

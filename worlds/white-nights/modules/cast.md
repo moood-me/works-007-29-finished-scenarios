@@ -18,12 +18,12 @@ expressions, by name). Hems are even (no ragged edge).
 ## Who
 
 - `dreamer` — the Dreamer, 26: thin, a little stooped, a clerk's worn frock coat of faded bottle green to the knee,
-  grey trousers, brown hair brushed up in a soft wave, full at the collar, with side-whiskers (`swept`). Bare-headed: his hat is in his hands (`hat_held`, `hat_hands`, `hat_hand`,
+  grey trousers, brown hair brushed up in a soft wave, down to sideburns, full at the collar (`swept`). Bare-headed: his hat is in his hands (`hat_held`, `hat_hands`, `hat_hand`,
   `hat_low`); his knotty stick (`cane`).
 - `nastenka` — Nastenka, 17: small, a pale lilac-grey dress to the ankles, a dark blue-grey mantle over the shoulders
   to the hips, bare-headed: her dark hair parted in the middle, smoothed in bands over the temples and the ears to a
   knot low at the nape (`bands`).
-- `lodger` — the Lodger, about 28: tall and upright, a long slate-blue frock coat, black hair, close and neat, with side-whiskers (`neat`), under a tall black top hat
+- `lodger` — the Lodger, about 28: tall and upright, a long slate-blue frock coat, black hair, close and neat (`neat`), under a tall black top hat
   (`tophat`); at his chest instead: `"_wear": {"hat": "none"}` and `hat_hand`.
 - `babushka` — Grandmother, past seventy, blind: small, a dark plum silk dress to the floor, a faded mustard shawl over
   the shoulders, white hair under a white cap (`mobcap`) tied with a lilac ribbon.
@@ -55,8 +55,8 @@ The hat's colour is the look's `colors.hat`.
 ## Hair
 
 `bands` (a girl's: parted in the middle, smoothed down over the temples and the ears, a knot low at the nape),
-`swept` (a man's: brushed up from the brow in a soft wave, over the tops of the ears, side-whiskers, full and down to
-the collar), `neat` (the same, close to the head, short at the nape). The engine's own (`short`, `bun`…) are there too.
+`swept` (a man's: brushed up from the brow in a soft wave, down the temples to sideburns before the ears, behind them
+full and down to the collar), `neat` (the same, close to the head, short at the nape). The engine's own (`short`, `bun`…) are there too.
 
 ## Garments, hats
 
