@@ -137,7 +137,7 @@ return {
     garments: {
       // a high-waisted gown: hung from the shoulders, the skirt falling from under the bust in an A-line to the
       // instep, in soft folds; long sleeves (the short puffs over them: the part `puffs`)
-      gown: { name: 'high-waisted gown', hang: [{ to: 1.9, from: 'shoulders', flare: 0.5 }], sleeves: 'garment', bodice: true },
+      gown: { name: 'high-waisted gown', hang: [{ to: 1.97, from: 'shoulders', flare: 0.42 }], sleeves: 'garment', bodice: true },
       // a gentleman's tailcoat: close over the chest, its fronts cut away over the tops of the thighs (its tails behind:
       // the part `tails`), long sleeves
       tailcoat: { name: 'tailcoat', hang: [{ to: 0.2, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
