@@ -476,8 +476,8 @@
         "turn": 150,
         "does": "hands_folded"
       },
-      "across": 0.75,
-      "distance": 3.6,
+      "across": 0.62,
+      "distance": 3.3,
       "shadow": true,
       "inside": true
     },
