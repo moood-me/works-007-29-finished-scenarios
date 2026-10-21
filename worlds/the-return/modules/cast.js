@@ -198,6 +198,15 @@ return {
     semyon: { kind: 'shapes', style: 'gouache', who: 'man', garment: 'jacket', hair: 'short', line: true,
       body: { height: 0.96, shoulders: 0.96, thick: 0.94, neck: 0.94 },
       colors: { skin: '#c49a7c', hair: '#9d968a', top: '#a29d8b', garment: '#625a4c', bottom: '#3d3a34', shoes: '#2b251f' } },
+    // Semyon out of doors, in his clean jacket (the good one, kept for going out), the cap on: on the platform, on his
+    // way to his night shift at the store
+    semyon_out: { kind: 'shapes', style: 'gouache', who: 'man', garment: 'jacket', hair: 'short', hat: 'cap', line: true,
+      body: { height: 0.96, shoulders: 0.96, thick: 0.94, neck: 0.94 },
+      colors: { skin: '#c49a7c', hair: '#9d968a', top: '#b4b0a0', garment: '#4f4b42', bottom: '#3d3a34', shoes: '#2b251f', hat: '#45433d' } },
+    // Lyuba meeting the train: her blue pre-war dress, kept for this, no apron, the white kerchief
+    lyuba_best: { kind: 'shapes', style: 'gouache', who: 'woman', garment: 'dress', hair: 'bun', hat: 'kerchief', line: true,
+      body: { height: 0.93, thick: 0.88, shoulders: 0.88, neck: 1.04 },
+      colors: { skin: '#dcae8c', hair: '#5a4232', top: '#4a6fa6', garment: '#4a6fa6', hat: '#f2eee3', shoes: '#3e352e' } },
     // Nastya, 5: small, fair, round-faced; a faded rose cotton frock with short sleeves, her bare legs, little shoes
     nastya: { kind: 'shapes', style: 'gouache', who: 'child', garment: 'dress', hair: 'bob', line: true,
       body: { height: 0.62, head: 1.2, thick: 0.9, shoulders: 0.9 },
