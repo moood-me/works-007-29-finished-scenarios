@@ -221,8 +221,8 @@ return {
       letter: { name: 'letter', draw: F => {
         const { add, sub, mul, cross, unit } = V(), m = F.fit.h, hand = F.P('RightHand');
         const fore = unit(sub(hand, F.P('RightForeArm'))), face = unit(cross(fore, [0, 1, 0])), up = cross(face, fore);
-        const c = add(add(hand, mul(fore, 0.07 * m)), mul(up, 0.02 * m)), axes = [fore, up, face];
-        F.ball(c, axes, [0.08 * m, 0.055 * m, 0.004 * m], PAPER, 10, 6);
+        const c = add(add(hand, mul(fore, 0.08 * m)), mul(up, 0.03 * m)), axes = [fore, up, face];
+        F.ball(c, axes, [0.1 * m, 0.07 * m, 0.004 * m], PAPER, 10, 6);
         for (const s of [-1, 1]) F.ball(add(c, mul(face, s * 0.005 * m)), axes, [0.013 * m, 0.013 * m, 0.004 * m], SEAL, 8);
         F.point('letter', c);
       } },

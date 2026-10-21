@@ -37,11 +37,10 @@
   },
   "states": {
     "candle": { "range": [0, 1], "smooth": true, "means": "the candle-end left burning on the table: 0 out, 1 burning (its light and its glow)" },
-    "rain": { "range": [0, 1], "smooth": true, "means": "the rain outside the window, in the courtyard and running down the panes: 0 none, 1 a steady summer rain" }
+    "rain": { "range": [0, 1], "smooth": true, "means": "the rain running down the window's panes: 0 none, 1 a steady summer rain" }
   },
   "objects": [
     { "id": "yard", "name": "The house across the courtyard", "across": -6.5, "distance": 14.8, "elevation": -4.5, "facing": 90, "height": 9, "box": [-3.6, -9, 3.6, 0] },
-    { "id": "rain", "name": "Rain in the courtyard", "particles": { "kind": "rain", "area": [-8, -2.6, 5, 21], "amount": "rain", "ground": "pass" } },
     { "id": "floor", "name": "Floor", "plane": true, "across": 0.15, "distance": 2.75, "width": 3.5, "depth": 5.5, "inside": true },
     { "id": "ceiling", "name": "Ceiling", "plane": true, "across": 0.15, "distance": 2.4, "elevation": 2.45, "width": 3.5, "depth": 4.8, "inside": true },
     { "id": "passage", "name": "Stairwell beyond the door", "across": -1.07, "distance": 5.35, "facing": 180, "height": 2.3, "box": [-0.7, -2.3, 0.7, 0.01], "inside": true },
