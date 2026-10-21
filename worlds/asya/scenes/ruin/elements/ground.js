@@ -1,6 +1,6 @@
 // The crest and the spur, seen from above (a plane: x across, y toward the viewer, metres; its middle 3 m left and
 // 9.55 m ahead): the summer turf of the hilltop the ruin stands on, a trodden path across it to the low wall's broken
-// end; its right edge is the cliff's — 0.9 m right of the line of sight up to the wall, then the spur's edge going back
+// end; its right edge is the cliff's — 1.5 m right of the line of sight (the wall's right end) up to the wall, then the spur's edge going back
 // from the wall's right end to 16.4 m; beyond it nothing (the drop). Toward the frame's foot and its left it is only drawn —
 // pencil on paper.
 const L = e.lib;
@@ -10,7 +10,7 @@ const AD = 9.55;
 const W = 9;
 const H = 6.95;
 // where the turf ends on the right, at a distance (the cliff's edge, a little ragged)
-const edgeAt = (d) => (d < 5 ? 0.9 : d < 6.4 ? 1.55 : 1.55 - 0.05 * (d - 6.4)) + 0.05 * N(d * 3, 17);
+const edgeAt = (d) => (d < 5 ? 1.5 : d < 6.4 ? 1.55 : 1.55 - 0.05 * (d - 6.4)) + 0.05 * N(d * 3, 17);
 const kOf = (across, d) => Math.max(L.edge(across / d), L.foot(d));
 // the turf, band by band toward the viewer, going over to the paper toward the frame's foot and its left
 for (let y = -H; y < H; y += 0.1) {

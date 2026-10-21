@@ -1,13 +1,11 @@
 // The low wall over the cliff, 5 m ahead, its face toward us: what is left of the castle's outer wall, 1.9 m high,
-// from its broken left end (a step, a heap of fallen stones — the way up onto its broad crest) to its right end over
-// the drop, where Asya sits. Left of 0.9 m it stands on the crest's grass; right of it the crest ends and the wall
-// stands on the bare rock of the cliff, which goes on down out of the frame. Ivy on its left end and a festoon near
+// from its broken left end (a step, a heap of fallen stones — the way up onto its broad crest) to its right end at the
+// cliff's edge, where Asya sits over the drop. It stands on the crest's turf. Ivy on its left end and a festoon near
 // its right; grass on its top in the wind (its own layers).
 const L = e.lib;
 const ACROSS = 0;
 const D = 5;
-const box = [-2.45, -2.25, 1.5, 2.6];
-const EDGE = 0.9;
+const box = [-2.45, -2.25, 1.5, 0.1];
 // the top of the wall over x: the fallen left end, a step, the long level crest with its notches, the broken corner
 const topAt = (x) => {
   if (x < -2.0) return -0.5 - 0.15 * L.smooth(-2.45, -2.0, x);
@@ -15,40 +13,12 @@ const topAt = (x) => {
   if (x > 1.3) return -1.86 + 0.5 * L.smooth(1.3, 1.5, x);
   return -1.9 + 0.05 * e.anim.noise(x * 3, 7) + (x > -0.6 && x < -0.35 ? 0.12 : 0);
 };
-// the masonry's outline: along the top, down the right end to the rock, along the rock's top and the grass back
+// the masonry's outline: along the top, down the right end, back along the turf
 const face = new Path2D();
 face.moveTo(-2.45, 0.05);
 for (let x = -2.45; x <= 1.5; x += 0.05) face.lineTo(x, topAt(x));
-face.lineTo(1.5, -0.15);
-face.lineTo(EDGE, -0.12);
-face.lineTo(EDGE, 0.05);
+face.lineTo(1.5, 0.05);
 face.closePath();
-// the rock under the wall where the crest has ended: the cliff's top, going on down
-const rock = new Path2D();
-rock.moveTo(EDGE - 0.05, -0.15);
-rock.lineTo(1.5, -0.2);
-rock.lineTo(1.5, 2.6);
-rock.lineTo(EDGE + 0.12, 2.6);
-for (let y = 2.6; y > 0; y -= 0.2) rock.lineTo(EDGE + 0.06 * e.anim.noise(y * 4, 9), y);
-rock.closePath();
-g.fillStyle = "#857462";
-g.fill(rock);
-g.save();
-g.clip(rock);
-// the rock's strata and cracks
-for (let i = 0; i < 26; i++) {
-  const y = -0.1 + 2.7 * L.rnd(i, 201);
-  g.fillStyle = i % 2 ? "rgba(62, 52, 44, 0.45)" : "rgba(168, 150, 126, 0.45)";
-  g.fillRect(EDGE + 1.2 * L.rnd(i, 203) - 0.3, y, 0.3 + 0.6 * L.rnd(i, 205), 0.03 + 0.04 * L.rnd(i, 207));
-}
-g.restore();
-// tufts and a small bush clinging to the rock
-g.fillStyle = "#6f8a4c";
-for (const [x, y, r] of [[1.05, 0.45, 0.14], [1.3, 1.2, 0.18], [1.1, 1.9, 0.14], [1.42, 0.15, 0.08]]) {
-  g.beginPath();
-  g.ellipse(x, y, r * 1.3, r, 0, 0, Math.PI * 2);
-  g.fill();
-}
 // the masonry: courses of rough sandstone blocks, each its own warm grey
 g.fillStyle = "#a99a80";
 g.fill(face);
@@ -74,7 +44,7 @@ const damp = g.createLinearGradient(0, -0.5, 0, 0.05);
 damp.addColorStop(0, "rgba(90, 96, 70, 0)");
 damp.addColorStop(1, "rgba(90, 96, 70, 0.3)");
 g.fillStyle = damp;
-g.fillRect(-2.45, -0.5, 2.8, 0.55);
+g.fillRect(-2.45, -0.5, 3.95, 0.55);
 g.restore();
 // fallen stones heaped at the broken left end, on the grass
 const heap = ["#c6b597", "#b7a588", "#cfbfa2"];
@@ -90,7 +60,7 @@ for (let i = 0; i < 14; i++) {
 // grass at the wall's foot on the crest
 g.fillStyle = "#87a05a";
 for (let i = 0; i < 30; i++) {
-  const x = -2.4 + (EDGE + 2.35) * L.rnd(i, 231);
+  const x = -2.4 + 3.85 * L.rnd(i, 231);
   g.beginPath();
   g.ellipse(x, 0.02, 0.07 + 0.07 * L.rnd(i, 233), 0.05 + 0.05 * L.rnd(i, 235), 0, Math.PI, 0);
   g.fill();
