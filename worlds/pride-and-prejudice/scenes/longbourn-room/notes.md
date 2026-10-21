@@ -12,16 +12,19 @@ The daylight comes from before the sisters: a second window in the left wall nea
 front-left; the far window to the garden is the one seen, still light; candles and the fire only add warmth. Every face
 is turned three-quarter to the eye and toward that light.
 
-- **Jane** (`jane`, cast `jane`) — seated (`seated`, on `jane_on` [−0.5, 4.4, 0.46]: her chair's seat; `chair`
-  behind her) at her embroidery frame (`tambour`, just before her knees at −0.6, 3.93 m, the hoop over her lap), turned almost to
-  the eye (165°; under 180 is toward the screen's left), her hands on the hoop's rim (`jane_reach`:
-  `tambour#left`, `tambour#right`), looking up from her work at Lydia (`jane_look`), a small smile.
-- **Elizabeth** (`elizabeth`) — standing behind Jane's right shoulder at 0.3 m, 5.0 m off (her head against the wall
-  between the portrait and the window), turned 145°, looking at Lydia and laughing.
+The three stand near the eye (2.8–3.5 m off), so that they fill half the frame's height and their faces and poses
+read; all three are inside the 4:3 frame, the fire seen between Lydia and the side wall.
+
+- **Jane** (`jane`, cast `jane`) — seated (`seated`, on `jane_on` [−0.35, 3.45, 0.46]: her chair's seat; `chair`
+  behind her) at her embroidery frame (`tambour`, just before her knees at −0.45, 2.98 m, the hoop over her lap), turned
+  almost to the eye (165°; under 180 is toward the screen's left), her hands on the hoop's rim (`jane_reach`:
+  `tambour#left`, `tambour#right`) and her feet drawn in under her knees (`foot_r`, `foot_l`: so her gown falls over
+  her shins), looking up from her work at Lydia (`jane_look`), a small smile.
+- **Elizabeth** (`elizabeth`) — standing at the right before the far window (0.62 m, 3.3 m off), turned 150°, her
+  hands folded at her breast, her head a little on one side (`hands_folded`), looking at Lydia and laughing.
 - **Lydia** (`lydia`, cast `lydia`: a bright coral-pink gown, her scarlet ribbon — the world's rare scarlet, hers
-  alone) — nearest of the three, at the left by the side window (−1.5 m, 3.3 m off — placed so that the two sisters' looks at her
-  turn their faces three-quarter to the eye), turned almost to the eye (165°),
-  laughing, looking out of the window's near end toward the lane (`lydia_look`) — "always at the window".
+  alone) — nearest of the three, at the left (−1.12 m, 2.8 m off), her hands on her hips, shifting her weight
+  (`hands_hips`), laughing, looking out of the side window toward the lane (`lydia_look`) — "always at the window".
 - The room: `floor` (oak boards, a cream rug with a sage border under the three), `back_wall` (the window cut in it,
   a small oval portrait over the `sofa`), `left_wall` (the side window near the eye — 2.1…3.3 m off, seen at the 16:9
   frame's left edge; the chimneypiece at 5 m: the grate `coals`, the fire's particles `fire`, two candles on the mantel
@@ -33,12 +36,12 @@ is turned three-quarter to the eye and toward that light.
   16 m off behind the far window, 5.5 m to the left behind the side one) — a pale evening sky, elms, a yew hedge, the
   lawn, a rose bush.
 - At the right of the group, wholly in the frame, a small round table with a lit candle and a book (`near_table`,
-  `near_flame`).
+  `near_flame`, 1.5 m, 3.5 m off). The rug lies under the three (2.3…4.4 m off).
 
 ## Light
 
 The engine's: the side window's daylight (`side_light`, `daylight` 2.4) — the light on the faces —, the far window's
-(`window_light`, 1.7), into a bright room (`inside` 0.9, `ambient` 0.95, `bounce` 0.7); the candle on the table, the
+(`window_light`, 1.7), into a bright room (`inside` 0.9, `ambient` 0.8, `bounce` 0.55; the haze's glow low, 0.18, so the room is not milky); the candle on the table, the
 two mantel candles and the hearth (`hearth`, of the coals' glow), each flickering a little. `dusk` (0…1) is a look:
 both windows at about half, the room warmer — the candles and the fire take some of it over, the faces still lit; the
 showcase moves it.
