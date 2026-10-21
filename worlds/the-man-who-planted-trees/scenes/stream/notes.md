@@ -16,8 +16,8 @@ farther up by his hives at the wood's edge, the rod in his hand.
   wood's edge (19.5 m before the hives) to 80 m; `wood_far` — stretches of five, unmoving — to 260 m, where the ridge
   is. All of it, the willows, stones, grass and the hives, are copies laid out by `node tools/stream-copies.mjs`
   (it rewrites their `copies` in scene.json; it keeps them clear of the stream and of where the people stand).
-- Light: early morning, the sun low behind the viewer's left shoulder (`sun`, from [225, 14]) — faces turned to the
-  viewer are lit; the haze greys the wood up the slope. `mist`: two drifting bands low over the valley and the foot
+- Light: early morning, the sun low on the left, a little behind the viewer (`sun`, from [255, 12]): faces turned to
+  the viewer lit from the side, long shadows to the right; the haze greys the wood up the slope. `mist`: two drifting bands low over the valley and the foot
   of the slope, as thick as the state's `mist` (0…1).
 - People: the cast's `elzeard_61`, `traveller_26`, `lina_23` (`modules/cast`), standing; Lina and the Traveller look at
   each other, Elzéard at the Traveller; Lina smiles.

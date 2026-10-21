@@ -60,8 +60,8 @@ for (let d = 2.4; d < 30; d += 0.5 + rnd() * 0.7) {
 }
 // dry tufts away from the water
 while (copies.grass.length < 24) {
-  const d = 1.5 + rnd() * 16, a = (rnd() - 0.5) * (8 + d * 2.2);
-  if (offStream(a, d, 3.2) && clear(a, d, 0.8)) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.9 + rnd() * 0.5), flip: rnd() < 0.5 });
+  const d = 3 + rnd() * 15, a = (rnd() - 0.5) * (8 + d * 2.2);
+  if (offStream(a, d, 3.2) && clear(a, d, 0.8)) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.8 + rnd() * 0.35), flip: rnd() < 0.5 });
 }
 // the hives in a row at the wood's edge
 for (const a of [1.2, 2.6, 4.0, 5.4, 6.8]) copies.hives.push({ across: a, distance: r2(18.3 + rnd() * 0.6), flip: rnd() < 0.5 });
