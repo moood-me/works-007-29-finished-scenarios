@@ -54,18 +54,18 @@ return {
       // a short grey beard over the chin and the jaw, the mouth under it (the hair's colour)
       beard: { name: 'beard', draw: F => {
         const h = F.head;
-        F.cap(h.at, h.axes, h.egg.map(e => e * h.r * h.out * 1.05), [0, -0.78, 0.62], 0.42, F.colors.hair, h.sides, h.square);
+        F.cap(h.at, h.axes, h.egg.map(e => e * h.r * h.out * 1.03), [0, -0.86, 0.5], 0.68, F.colors.hair, h.sides, h.square);
       } },
       // a short briar pipe in the teeth at one corner of the mouth, its bowl ahead and low, a coal glowing in it; its
       // point `pipe` (the bowl's mouth) is where its smoke rises
       pipe: { name: 'pipe', draw: F => {
         const { add, mul } = V(), h = F.head, [hs, hu, hf] = h.axes, rh = h.r;
-        const lip = h.on([0.28, -0.36, 0.92], 1.06);
-        const bowl = add(lip, add(mul(hf, rh * 0.62), add(mul(hu, -rh * 0.22), mul(hs, rh * 0.12))));
-        F.bar(lip, bowl, rh * 0.045, rh * 0.05, [[0, BRIAR]], 6, hu);
-        const top = add(bowl, mul(hu, rh * 0.3));
-        F.bar(add(bowl, mul(hu, -rh * 0.04)), top, rh * 0.11, rh * 0.13, [[0, BRIAR]], 8, hf);
-        F.ball(add(top, mul(hu, -rh * 0.02)), [hs, hu, hf], [rh * 0.1, rh * 0.03, rh * 0.1], EMBER, 8);
+        const lip = h.on([0.2, -0.38, 0.95], 1.04);
+        const bowl = add(lip, add(mul(hf, rh * 0.4), add(mul(hu, -rh * 0.14), mul(hs, rh * 0.06))));
+        F.bar(lip, bowl, rh * 0.03, rh * 0.035, [[0, BRIAR]], 6, hu);
+        const top = add(bowl, mul(hu, rh * 0.2));
+        F.bar(add(bowl, mul(hu, -rh * 0.03)), top, rh * 0.07, rh * 0.085, [[0, BRIAR]], 8, hf);
+        F.ball(add(top, mul(hu, -rh * 0.015)), [hs, hu, hf], [rh * 0.065, rh * 0.02, rh * 0.065], EMBER, 8);
         F.point('pipe', top);
       } },
     },
