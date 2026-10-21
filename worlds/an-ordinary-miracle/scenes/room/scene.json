@@ -91,10 +91,10 @@
       "name": "The snowy mountains",
       "across": 0,
       "distance": 5000,
-      "height": 330,
+      "height": 600,
       "box": [
         -2600,
-        -330,
+        -600,
         2600,
         10
       ]

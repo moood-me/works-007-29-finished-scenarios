@@ -22,12 +22,25 @@ several reviews.)
   a blue stone (`circlet`).
 - `hozyain` — the Master, the wizard: ageless — dark hair with no grey in it, a long bottle-green coat over a white
   shirt, a crimson scarf.
+- `hozyayka` — the Mistress, his mortal wife: sturdy, past fifty, dark hair in a bun with one grey lock from the brow
+  back over the crown (`bun_grey`: she does not dye it, so that he sees it), a madder-red homespun dress to the ankles
+  with long sleeves (`dress_long`), a cream kerchief round the neck (the look's `scarf`).
+- `korol` — the King: short and round, a crimson robe to the floor, an ermine collar on the shoulders (`ermine`), a
+  small gold crown with red stones (`crown`), a ginger pointed beard and moustache (`beard`).
 
 ## Things (a look's `parts`, or `<id>_with`)
 
 `sash` — a woven belt in the look's accent colour, its knot and a hanging end at the left hip (the end swings a little
-late). `circlet` — a thin gold circlet round the brow, a small point at its front with a blue stone.
+late). `circlet` — a thin gold circlet round the brow, a small point at its front with a blue stone. `crown` — a
+small gold crown on the crown of the head, five teeth, a red stone at each tooth's foot. `ermine` — a white fur collar
+round the neck and on the shoulders, small black tail tips in it. `beard` — a pointed beard under the chin and a
+moustache with its ends turned up, in the hair's colour.
+
+Garments: `dress_long` — a dress to the ankles with long sleeves, all of the garment's colour. Hair: `bun_grey` — the
+engine's bun and one grey lock from the brow over the crown.
 
 ## Motions (Kimodo)
 
-The engine's `stand` and `walk`, and: `hands_behind` — stands with the hands clasped behind the back, a loop.
+The engine's `stand` and `walk`, and (taken from «Scarlet Sails»' cast): `hands_behind` — stands with the hands
+clasped behind the back, a loop; `hands_hips` — stands with the hands on the hips, a loop; `seated` — sits at rest on a
+chair, a loop (the seat through `<id>_on`: the pelvis at 0.57 m for a man, a little lower for the King).
