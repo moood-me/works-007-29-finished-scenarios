@@ -1,0 +1,317 @@
+{
+  "engine": 3,
+  "title": "The Ruin",
+  "caption": "Sunset over the Rhine.",
+  "horizon": 0.45,
+  "camera": {
+    "mode": "picture"
+  },
+  "modules": [
+    "cast"
+  ],
+  "light": {
+    "vignette": 0.08,
+    "grain": 0.06,
+    "haze": 0.05,
+    "hazeColor": "#d8c2c8",
+    "ambient": 0.6,
+    "ambientColor": "#aeb0d8",
+    "bounce": 0.55,
+    "brightness": 1.0,
+    "saturation": 1.1,
+    "tint": "#ff9c70",
+    "tintStrength": 0.05,
+    "wind": [
+      1,
+      0.3,
+      0.4
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        155,
+        5
+      ],
+      "color": "#ffb47e",
+      "strength": 1.7
+    }
+  ],
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sunset sky",
+      "sky": true
+    },
+    {
+      "id": "hills",
+      "name": "The far bank's hills",
+      "across": 0,
+      "distance": 2600,
+      "elevation": -104,
+      "onLand": false,
+      "box": [
+        -3650,
+        -420,
+        3650,
+        6
+      ]
+    },
+    {
+      "id": "town",
+      "name": "Z. across the river",
+      "across": 430,
+      "distance": 1300,
+      "elevation": -104,
+      "onLand": false,
+      "box": [
+        -330,
+        -46,
+        330,
+        2
+      ]
+    },
+    {
+      "id": "rhine",
+      "name": "The Rhine",
+      "plane": true,
+      "across": 600,
+      "distance": 860,
+      "elevation": -111,
+      "width": 7000,
+      "depth": 880,
+      "reflect": {
+        "strength": 0.5,
+        "fade": 0,
+        "rough": 0.3,
+        "ripple": 0.35
+      }
+    },
+    {
+      "id": "valley",
+      "name": "The valley's floor below the cliff",
+      "plane": true,
+      "across": 150,
+      "distance": 310,
+      "elevation": -110,
+      "width": 700,
+      "depth": 240
+    },
+    {
+      "id": "chapel",
+      "name": "The chapel by the road below",
+      "across": 125,
+      "distance": 268,
+      "elevation": -110,
+      "onLand": false,
+      "box": [
+        -42,
+        -30,
+        42,
+        1
+      ]
+    },
+    {
+      "id": "keep",
+      "name": "The old castle's high wall and tower",
+      "across": -4.4,
+      "distance": 11,
+      "facing": 180,
+      "box": [
+        -6.4,
+        -10.6,
+        3.6,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "spur_face",
+      "name": "The spur's cliff",
+      "across": 1.4,
+      "distance": 6.4,
+      "facing": 112,
+      "onLand": false,
+      "elevation": 0,
+      "box": [
+        0,
+        -0.5,
+        10.8,
+        12
+      ]
+    },
+    {
+      "id": "ground",
+      "name": "The crest and the spur",
+      "plane": true,
+      "walk": true,
+      "across": -3,
+      "distance": 9.55,
+      "elevation": 0,
+      "width": 18,
+      "depth": 13.9
+    },
+    {
+      "id": "wall",
+      "name": "The low wall over the cliff",
+      "across": 0,
+      "distance": 6.4,
+      "facing": 180,
+      "onLand": false,
+      "elevation": 0,
+      "box": [
+        -2.45,
+        -2.25,
+        1.5,
+        2.6
+      ],
+      "shadow": true
+    },
+    {
+      "id": "crest",
+      "name": "The wall's crest",
+      "plane": true,
+      "unseen": true,
+      "walk": true,
+      "across": -0.05,
+      "distance": 7.05,
+      "elevation": 1.9,
+      "width": 2.9,
+      "depth": 1.3
+    },
+    {
+      "id": "ash",
+      "name": "The ash at the ruin's edge",
+      "across": -4.3,
+      "distance": 6.8,
+      "translucent": 0.3,
+      "box": [
+        -3.4,
+        -10,
+        5.4,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "nn",
+      "name": "N. N.",
+      "person": {
+        "cast": "cast",
+        "who": "nn",
+        "turn": 110,
+        "does": "hands_behind"
+      },
+      "across": -1.65,
+      "distance": 3.9,
+      "shadow": true
+    },
+    {
+      "id": "gagin",
+      "name": "Gagin",
+      "person": {
+        "cast": "cast",
+        "who": "gagin",
+        "turn": 130
+      },
+      "across": -0.6,
+      "distance": 5.6,
+      "shadow": true
+    },
+    {
+      "id": "asya",
+      "name": "Asya",
+      "person": {
+        "cast": "cast",
+        "who": "asya",
+        "turn": 150,
+        "does": "seated"
+      },
+      "across": 1.3,
+      "distance": 6.95,
+      "shadow": true
+    }
+  ],
+  "state": {
+    "asya_on": [
+      1.3,
+      6.95,
+      1.9
+    ],
+    "asya_look": "nn",
+    "asya_mood": "laugh",
+    "nn_look": "asya",
+    "nn_mood": "smile",
+    "gagin_look": "asya",
+    "gagin_mood": "afraid"
+  },
+  "music": {
+    "prompts": [
+      {
+        "text": "Solo piano in the manner of Schubert, slow and tender, a summer evening, intimate, a little wistful",
+        "weight": 0.8
+      },
+      {
+        "text": "Gentle guitar and flute, a Rhine folk song half-remembered, pastoral, at sunset",
+        "weight": 1.0
+      },
+      {
+        "text": "Warm string quartet, slow, romantic, nineteenth-century chamber music, golden light",
+        "weight": 0.6
+      },
+      {
+        "text": "High solo violin over soft strings, suspended, a held breath on a height, wind",
+        "weight": 0.5
+      },
+      {
+        "text": "Solo cello melody, slow, singing, a quiet confession",
+        "weight": 0
+      },
+      {
+        "text": "A distant Viennese waltz by a small string band, heard from far below across water, soft and dreamy",
+        "weight": 0
+      },
+      {
+        "text": "Music box playing a simple waltz, delicate, childlike",
+        "weight": 0
+      },
+      {
+        "text": "Soft clarinet over sustained strings, evening river, calm and longing",
+        "weight": 0
+      },
+      {
+        "text": "Sparse piano notes with long pauses, an unfinished melody, hesitation",
+        "weight": 0
+      },
+      {
+        "text": "Lush romantic orchestra, slow swell, hopeful and bittersweet",
+        "weight": 0
+      },
+      {
+        "text": "Harp arpeggios like water, light and airy, summer",
+        "weight": 0
+      },
+      {
+        "text": "Village church bell far below in the valley, evening, with soft strings",
+        "weight": 0
+      },
+      {
+        "text": "Ambient pads like warm evening air, swifts and crickets implied, minimal",
+        "weight": 0
+      },
+      {
+        "text": "Solo oboe pastoral melody over a drone, hills and vineyards",
+        "weight": 0
+      },
+      {
+        "text": "Playful pizzicato strings, a girl's laughter in music, mischievous and light",
+        "weight": 0
+      }
+    ],
+    "bpm": 72,
+    "density": 0.35,
+    "brightness": 0.6,
+    "scale": "A_FLAT_MAJOR_F_MINOR"
+  }
+}
