@@ -13,8 +13,9 @@ farther up by his hives at the wood's edge, the rod in his hand.
   `tools/stream-copies.mjs`. The water is a mirroring plane at `WATER` (−0.32 m) in the channel, painted only where
   the stream is; past ~33 m the bed rises out of it up the slope and `land` paints the stream on among the oaks.
 - The wood: `oak_a`, `oak_b`, `oak_c` (young oaks, their crowns a layer in the wind — `lib.oak`) in rows from the
-  wood's edge (19.5 m before the hives) to 80 m; `wood_far` — stretches of five, unmoving — to 260 m, where the ridge
-  is. All of it, the willows, stones, grass and the hives, are copies laid out by `node tools/stream-copies.mjs`
+  wood's edge (19.5 m before the hives) to 56 m; `wood_far` — stretches of ten, unmoving — from 60 m to 260 m, where
+  the ridge is. Kept few (about 600 standing things): each is weighed for every view and again for the water's
+  mirror — the scene thread's cost is theirs. All of it, the willows, stones, grass and the hives, are copies laid out by `node tools/stream-copies.mjs`
   (it rewrites their `copies` in scene.json; it keeps them clear of the stream and of where the people stand).
 - Light: early morning, the sun low on the left, a little behind the viewer (`sun`, from [255, 12]): faces turned to
   the viewer lit from the side, long shadows to the right; the haze greys the wood up the slope. `mist`: two drifting bands low over the valley and the foot

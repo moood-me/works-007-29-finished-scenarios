@@ -27,7 +27,7 @@ const offStream = (a, d, gap) => Math.abs(a - lib.streamX(d)) > lib.streamW(d) /
 
 const copies = { oak_a: [], oak_b: [], oak_c: [], wood_far: [], willow: [], stones: [], sedge: [], grass: [], hives: [] };
 // the young oaks near, in rows across the slope, a little out of line as anything planted by hand
-for (let k = 0, d0 = 18; d0 <= 80; k++, d0 += 4.2) {
+for (let k = 0, d0 = 18; d0 <= 56; k++, d0 += 4.2) {
   const reach = 1.25 * d0 + 6;
   for (let a0 = -reach + (k % 2) * 1.9; a0 <= reach; a0 += 3.8) {
     const a = a0 + (rnd() - 0.5) * 1.0, d = d0 + (rnd() - 0.5) * 1.2;
@@ -36,11 +36,11 @@ for (let k = 0, d0 = 18; d0 <= 80; k++, d0 += 4.2) {
     copies[id].push({ across: r2(a), distance: r2(d), scale: r2(0.85 + rnd() * 0.3), flip: rnd() < 0.5, tint: pick(TINTS) });
   }
 }
-// farther up, stretches of five
-for (let d0 = 84; d0 <= 260; d0 += 10) {
-  const reach = 1.25 * d0 + 16;
-  for (let a0 = -reach + rnd() * 6; a0 <= reach; a0 += 13) {
-    const a = a0 + (rnd() - 0.5) * 3, d = d0 + (rnd() - 0.5) * 3;
+// farther up, stretches of ten
+for (let d0 = 60; d0 <= 260; d0 += 12) {
+  const reach = 1.25 * d0 + 20;
+  for (let a0 = -reach + rnd() * 10; a0 <= reach; a0 += 28) {
+    const a = a0 + (rnd() - 0.5) * 4, d = d0 + (rnd() - 0.5) * 4;
     copies.wood_far.push({ across: r2(a), distance: r2(d), scale: r2(1 + rnd() * 0.3), flip: rnd() < 0.5, tint: pick(TINTS) });
   }
 }
