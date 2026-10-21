@@ -80,7 +80,7 @@
  "state": {
   "night": 0,
   "candle": 1,
-  "lantern": 1,
+  "lantern": 0.35,
   "axl_reach": {
    "l": "beatrice#hand_r"
   },
@@ -89,14 +89,18 @@
   },
   "boatman_reach": {
    "r": [
-    2.01,
-    5.35,
+    1.73,
+    4.38,
     1.38
    ]
   },
   "axl_look": "boatman#head",
   "beatrice_look": "boatman#head",
-  "boatman_look": "beatrice#head",
+  "boatman_look": [
+   0.4,
+   2.6,
+   1.55
+  ],
   "beatrice_mood": "thinking",
   "axl_mood": "tired"
  },
@@ -123,7 +127,7 @@
     1
    ],
    "smooth": true,
-   "means": "the boatman's lantern in his left hand: 0 out, 1 lit"
+   "means": "the boatman's lantern in his left hand: 0 out, 0.35 lit but faint in the evening light, 1 full (at night)"
   }
  },
  "objects": [
@@ -135,35 +139,35 @@
   {
    "id": "headland_r",
    "name": "The bay's far arm",
-   "across": 330,
-   "distance": 700,
+   "across": 900,
+   "distance": 900,
    "box": [
-    -270,
-    -66,
-    270,
+    -320,
+    -70,
+    700,
     4
    ]
   },
   {
    "id": "island",
    "name": "The island",
-   "across": -110,
-   "distance": 1100,
+   "across": 200,
+   "distance": 1300,
    "box": [
-    -240,
-    -72,
-    240,
+    -250,
+    -75,
+    250,
     4
    ]
   },
   {
    "id": "sea_haze",
    "name": "Sea haze round the island",
-   "across": -60,
-   "distance": 1000,
+   "across": 150,
+   "distance": 1150,
    "box": [
     -700,
-    -26,
+    -22,
     700,
     2
    ]
@@ -683,10 +687,10 @@
    "person": {
     "cast": "cast",
     "who": "boatman",
-    "turn": 225
+    "turn": 210
    },
-   "across": 2.3,
-   "distance": 5.4,
+   "across": 2.0,
+   "distance": 4.5,
    "shadow": true
   },
   {
@@ -695,10 +699,10 @@
    "person": {
     "cast": "cast",
     "who": "beatrice",
-    "turn": 135
+    "turn": 140
    },
-   "across": -0.55,
-   "distance": 5.55,
+   "across": -0.5,
+   "distance": 4.6,
    "shadow": true
   },
   {
@@ -707,10 +711,10 @@
    "person": {
     "cast": "cast",
     "who": "axl",
-    "turn": 140
+    "turn": 145
    },
-   "across": -1.3,
-   "distance": 5.9,
+   "across": -1.25,
+   "distance": 4.95,
    "shadow": true
   }
  ],

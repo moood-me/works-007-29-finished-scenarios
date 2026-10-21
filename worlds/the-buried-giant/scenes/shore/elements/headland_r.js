@@ -1,19 +1,19 @@
-// Far off to the right, the other arm of the bay: a grey ridge of cliffs dropping to the sea
-g.fillStyle = '#8c8790';
+// Far off to the right, the other arm of the bay: a grey ridge of cliffs, its seaward end sloping low into the water
+g.fillStyle = '#9a8f98';
 g.beginPath();
-g.moveTo(-260, 3);
-g.lineTo(-240, -14);
-g.quadraticCurveTo(-180, -30, -90, -48);
-g.quadraticCurveTo(0, -62, 90, -52);
-g.quadraticCurveTo(180, -42, 260, -40);
-g.lineTo(260, 3);
+g.moveTo(-320, 3);
+g.quadraticCurveTo(-280, -4, -230, -10);
+g.quadraticCurveTo(-150, -22, -60, -40);
+g.quadraticCurveTo(80, -62, 260, -58);
+g.quadraticCurveTo(480, -52, 700, -60);
+g.lineTo(700, 3);
 g.closePath();
 g.fill();
-g.fillStyle = '#7a7680';
+g.fillStyle = '#8b818c';
 g.beginPath();
-g.moveTo(-250, 3);
-g.lineTo(-238, -10);
-g.lineTo(-200, -16);
-g.lineTo(-210, 3);
+g.moveTo(-300, 3);
+g.lineTo(-285, -6);
+g.lineTo(-250, -9);
+g.lineTo(-262, 3);
 g.closePath();
 g.fill();

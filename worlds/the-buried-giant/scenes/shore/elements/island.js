@@ -1,4 +1,5 @@
-// The island out in the sea: a long low land with one rounded hill and a fringe of trees, lilac-grey with distance
+// The island out in the sea, under the low sun: a long low land with one rounded hill and a fringe of trees,
+// lilac-grey with distance
 const r = e.lib.rnd(21);
 g.fillStyle = '#8a8296';
 g.beginPath();

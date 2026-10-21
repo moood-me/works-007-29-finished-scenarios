@@ -4,6 +4,9 @@
 // man's 1.76 m).
 const V = () => MooodShapes.V;
 const CLOTH = [0.6, 0.55, 0.46, 1], LEATHER = [0.24, 0.18, 0.13, 1], STEEL = [0.66, 0.67, 0.68, 1], BRASS = [0.6, 0.5, 0.3, 1];
+// the hood's edge round the face: high over the brow in front, down past the cheeks at the sides, to the nape behind
+const EDGE = x => 0.5 - 1.5 * Math.min(1, Math.max(0, (Math.abs(x) - 0.75) / 0.8));
+const COWL = F => ({ pts: [null, null, null], profile: [[0, F.head.r * 1.0], [2, 0.16 * F.k]], colors: [[0, F.colors.garment]] });
 const OAR = [0.55, 0.45, 0.33, 1], IRON = [0.2, 0.19, 0.18, 1], FLAME = [1, 0.8, 0.45, 2];
 // the face's expressions (<id>_mood): brows' inner and outer ends up, the eyes' openness, the mouth's width, its
 // corners up or down — as the engine's simple face has them
@@ -40,9 +43,9 @@ return {
       colors: { skin: '#c49474', hair: '#3a2b21', garment: '#414b3d', top: '#7c7462', bottom: '#3b362f', shoes: '#2a241f' } },
     // the boatman: tall, in a long hooded robe of weathered grey-blue, the oar on his right shoulder (his right hand
     // on its loom — the scene's `<id>_reach` puts it there), a lantern hanging from his left hand
-    boatman: { kind: 'shapes', style: 'giant', who: 'man', garment: 'robe', hood: true, hair: 'short', parts: ['oar', 'lantern'],
+    boatman: { kind: 'shapes', style: 'giant', who: 'man', garment: 'robe', hair: 'none', parts: ['cowl', 'oar', 'lantern'],
       body: { height: 1.08, shoulders: 1.02, thick: 0.92 },
-      colors: { skin: '#c7a084', hair: '#5a5049', garment: '#4f5863', top: '#4f5863', bottom: '#33363a', shoes: '#26282b' } },
+      colors: { skin: '#c7a084', hair: '#5a5049', garment: '#6d7681', top: '#6d7681', bottom: '#33363a', shoes: '#26282b' } },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, plain colours lit by the scene, a fine line,
@@ -96,6 +99,16 @@ return {
         F.bar(add(guard, mul(right, -0.08 * m)), add(guard, mul(right, 0.08 * m)), 0.012 * m, 0.012 * m, [[0, BRASS]], 5, fwd);
         F.bar(guard, pommel, 0.014 * m, 0.014 * m, [[0, LEATHER]], 5, right);
         F.ball(pommel, [right, down, fwd], [0.025 * m, 0.025 * m, 0.025 * m], STEEL, 8);
+      } },
+      // a hood thrown up over the head that leaves the face open: it frames the face at the sides, covers the brow,
+      // and falls behind onto the shoulders
+      cowl: { name: 'hood', draw: F => {
+        const { add, mul, mix } = V(), h = F.head, a = h.axes, r = h.r * h.out, K = F.keep(COWL);
+        const c = add(h.at, add(mul(a[1], r * 0.06), mul(a[2], -r * 0.08)));
+        F.shell(c, a, [h.egg[0] * r * 1.22, h.egg[1] * r * 1.18, h.egg[2] * r * 1.2], EDGE, 0.2, F.colors.garment, h.sides);
+        const back = add(F.P('Chest'), mul(F.fwd('Chest'), -0.06 * F.k));
+        K.pts[0] = add(c, mul(a[2], -r * 0.5)); K.pts[1] = mix(K.pts[0], back, 0.5); K.pts[2] = back;
+        F.tube(K.pts, K.profile, K.colors, F.sides, a[2]);
       } },
       // an oar on the right shoulder: from the hand on its loom up over the shoulder, the blade high behind him
       oar: { name: 'oar', draw: F => {
