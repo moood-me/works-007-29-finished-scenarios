@@ -1,18 +1,19 @@
-// The high sky of a late August evening: a warm apricot low over the fields where the sun is going down behind the
-// eye, a pale cream above it, a cool grey-blue up high, dry brush over it; high thin cirrus warmed by the low sun
-// drifting slowly (a layer, its ends meeting), a soft bank of cloud low over the fields drifting slower. The horizon is
-// at 0.36 of the frame.
+// The high whitish sky of a late August evening: a warm apricot low over the fields, a pale cream above it, a whitish
+// grey high up, dry brush over it and the paper's tooth through it; high thin cirrus warmed by the low sun drifting
+// slowly (a layer, its ends meeting), a soft bank of cloud low over the fields drifting slower. The horizon is at 0.32
+// of the frame.
 const A = e.aspect, L = e.lib, W = A + 0.6;
 const sky = g.createLinearGradient(0, -0.35, 0, 1.25);
-sky.addColorStop(0, "#9cb0c4");
-sky.addColorStop(0.2, "#b9c4cb");
-sky.addColorStop(0.34, "#e2d4bd");
-sky.addColorStop(0.43, "#f0cf9f");
-sky.addColorStop(0.5, "#efc58f");
-sky.addColorStop(1, "#e9c28f");
+sky.addColorStop(0, "#c6ced2");
+sky.addColorStop(0.22, "#dfe1dc");
+sky.addColorStop(0.33, "#eee7d8");
+sky.addColorStop(0.4, "#f4dcb6");
+sky.addColorStop(0.44, "#f0cf9f");
+sky.addColorStop(1, "#e9c592");
 g.fillStyle = sky;
 g.fillRect(-0.3, -0.35, W, 1.6);
-L.strokes(g, 11, -0.3, -0.35, W, 0.8, ["#dfe0da", "#bfc9cf", "#ecdcc4"], 700, 0.07, 0.006, 0, 0.16);
+L.strokes(g, 11, -0.3, -0.35, W, 0.75, ["#eceae2", "#c9d0d2", "#f1e4cc"], 600, 0.08, 0.008, 0, 0.22);
+L.paper(g, -0.3, -0.35, W, 1.6, 0.17, 0.8);
 // (a streak of cloud at x, y: a long thin oval and a few strokes along it — drawn again one width to the left, so the
 // layer's ends meet as it drifts round)
 const streak = (g, x, y, len, thick, color, alpha, seed) => {
@@ -32,9 +33,9 @@ e.layer("cirrus", { drift: [0.0025, 0], box: [-0.3, -0.35, A + 0.3, 0.3] }, (g) 
     streak(g, x, y, len, 0.004 + 0.008 * L.rnd(i, 24), "#fbe6cf", 0.45, 100 + i);
   }
 });
-e.layer("bank", { drift: [0.0008, 0], box: [-0.3, 0.24, A + 0.3, 0.38] }, (g) => {
+e.layer("bank", { drift: [0.0008, 0], box: [-0.3, 0.2, A + 0.3, 0.34] }, (g) => {
   for (let i = 0; i < 12; i++) {
-    const x = -0.3 + W * L.rnd(i, 31), y = 0.3 + 0.035 * L.rnd(i, 32), len = 0.3 + 0.5 * L.rnd(i, 33);
+    const x = -0.3 + W * L.rnd(i, 31), y = 0.26 + 0.035 * L.rnd(i, 32), len = 0.3 + 0.5 * L.rnd(i, 33);
     streak(g, x, y, len, 0.01 + 0.01 * L.rnd(i, 34), "#f5d9b4", 0.38, 200 + i);
   }
 });

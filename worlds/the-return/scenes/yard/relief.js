@@ -1,1 +1,1 @@
-return lib.rise(across) * lib.ridge(distance);
+return lib.top(across) * lib.ridge(across, distance);

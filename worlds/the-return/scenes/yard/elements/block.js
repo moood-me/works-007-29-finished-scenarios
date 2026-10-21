@@ -29,4 +29,5 @@ g.lineTo(0.05, -0.6);
 g.lineTo(-0.08, -0.6);
 g.closePath();
 g.fill();
+e.lib.paper(g, -0.32, -1.02, 0.66, 1.05, 0.8);
 e.at(0.3, -0.95, "axe");

@@ -29,6 +29,7 @@ g.fillStyle = "#5c564e";
 g.beginPath();
 g.ellipse(HEAVY[0] + 0.05, HEAVY[1] + 0.14, 0.2, 0.15, 0.3, 0, Math.PI * 2);
 g.fill();
+e.lib.paper(g, -2.5, -5.2, 4.2, 5.25, 2);
 // the bucket's pole and the bucket, hanging from the tip
 e.layer("bucket", { pivot: TIP, wind: { strength: 0.1, gust: 0.4 }, box: [-2.5, -5.05, -1.9, -1.0] }, (g) => {
   g.fillStyle = "#7d6f58";

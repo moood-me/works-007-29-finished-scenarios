@@ -13,3 +13,4 @@ g.fillStyle = "#77746b";
 g.fillRect(-4.8, -1.89, 9.6, 0.16);
 g.fillStyle = "#6f6b62";
 g.fillRect(-4.8, 1.8, 9.6, 0.09);
+L.paper(g, -4.8, -1.89, 9.6, 3.78, 1.6);
