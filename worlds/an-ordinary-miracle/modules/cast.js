@@ -78,7 +78,7 @@ return {
     emil: {
       kind: 'shapes', style: 'tale', who: 'man', garment: 'waistcoat', hair: 'short', parts: ['moustache', 'mug'],
       body: { height: 1.0, thick: 1.2, shoulders: 1.04 },
-      colors: { skin: '#e6b591', hair: '#7a7064', top: '#eee6d4', garment: '#6b3d24', bottom: '#3d3029', shoes: '#2b211b', accent: '#f1ebdc' },
+      colors: { skin: '#e6b591', hair: '#5a5049', top: '#eee6d4', garment: '#6b3d24', bottom: '#3d3029', shoes: '#2b211b', accent: '#f1ebdc' },
     },
     // Emilia, the lady of the court: past forty and still handsome, upright, auburn hair in a bun under a wide plum
     // travelling hat with a cream plume, a long plum-violet gown, a cream lace kerchief at the throat
