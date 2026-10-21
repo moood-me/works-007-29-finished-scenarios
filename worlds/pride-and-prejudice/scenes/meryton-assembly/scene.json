@@ -18,9 +18,9 @@
     "bounce": 0.65,
     "looks": {
       "later": {
-        "ambient": 0.78,
+        "ambient": 0.84,
         "ambientColor": "#f6dcb4",
-        "inside": 0.35,
+        "inside": 0.4,
         "tint": "#f0b070",
         "tintStrength": 0.05,
         "hazeGlow": 0.55,
@@ -29,7 +29,10 @@
           "window_b": 0.3,
           "window_c": 0.3,
           "chandelier_near": 1.35,
-          "chandelier_far": 1.35
+          "chandelier_far": 1.35,
+          "sconce_0": 1.6,
+          "sconce_6": 1.6,
+          "sconce_1": 1.3
         }
       }
     }
@@ -151,9 +154,9 @@
   "state": {
     "later": 0,
     "elizabeth_look": [
-      -0.5,
-      1.2,
-      1.0
+      -0.4,
+      1.0,
+      1.45
     ],
     "elizabeth_mood": "smile",
     "charlotte_look": "elizabeth",
