@@ -28,11 +28,11 @@
     {
       "id": "sun",
       "from": [
-        205,
-        18
+        118,
+        13
       ],
       "color": "#e4edff",
-      "strength": 0.85
+      "strength": 0.95
     },
     {
       "id": "window_lamp",
