@@ -13,3 +13,5 @@ g.lineWidth = 0.006;
 g.stroke();
 e.lib.box(g, -0.225, -2.5, 0.45, 0.15, '#e6dfd2', 0.01);
 e.lib.box(g, -0.225, -0.15, 0.45, 0.15, '#cfc6b6', 0.01);
+// (its side away from the window, in shade: hatched)
+e.lib.hatch(g, -0.225, -2.35, 0.45, 2.2, 0.04, 0.12, 0.004);

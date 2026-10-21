@@ -17,3 +17,5 @@ g.fillStyle = '#5e4130';
 g.fillRect(-0.28, -0.14, 0.56, 0.04);
 g.fillRect(-0.27, -0.1, 0.04, 0.1);
 g.fillRect(0.23, -0.1, 0.04, 0.1);
+// (the arm's side in its shade: the ink's hatching low down)
+e.lib.hatch(g, -0.27, -0.4, 0.55, 0.26, 0.025, 0.22, 0.004);
