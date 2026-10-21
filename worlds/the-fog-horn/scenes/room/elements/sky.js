@@ -38,14 +38,15 @@ e.layer('day', {}, c => {
   c.fillRect(X0, H, W, 1.25 - H);
   glow(c, SX, SY + 0.02, 0.7, 0.07, '#f9b77a', 1);
   glow(c, SX, SY, 0.16, 0.12, '#fdd6a4', 0.95);
+  glow(c, SX, SY, 0.045, 0.045, '#ffbf78', 0.9);
 });
 e.layer('sun', { box: [SX - 0.05, SY - 0.05, SX + 0.05, SY + 0.05] }, c => {
-  c.fillStyle = '#fff0d6';
+  c.fillStyle = '#fff6e4';
   c.beginPath();
-  c.arc(SX, SY, 0.013, 0, Math.PI * 2);
+  c.arc(SX, SY, 0.016, 0, Math.PI * 2);
   c.fill();
   e.at(SX, SY, 'sun');
-  e.light(SX, SY, 0.02, '#ffe2b8', 1, 'sunglow');
+  e.light(SX, SY, 0.03, '#ffe2b8', 1.4, 'sunglow');
 });
 e.layer('clouds', { drift: [0.002, 0], box: [A * 0.5 - 0.45, 0.15, A * 0.5 + 0.45, H] }, c => {
   // long thin bands lit from below; each drawn again one width over, so the layer's two ends meet as it drifts

@@ -37,6 +37,3 @@ const bunk = (y, blanket, fold) => {
 };
 bunk(-0.45, '#6f6a66', '#7c7672');
 bunk(-1.38, '#6a7078', '#767c84');
-// the top rails
-g.fillStyle = '#6c5440';
-g.fillRect(-0.99, -1.8, 1.98, 0.05);

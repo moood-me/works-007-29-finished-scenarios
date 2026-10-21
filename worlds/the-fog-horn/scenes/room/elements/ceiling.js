@@ -12,7 +12,7 @@ for (let x = -3.3; x < 3.3; x += 0.15) {
 }
 for (let i = 0; i < 30; i++) {
   g.fillStyle = 'rgba(150,134,112,0.25)';
-  g.fillRect(-3.2 + Math.floor(e.rnd() * 42) * 0.15, -6.4 + e.rnd() * 6.3, 0.15, 0.4 + e.rnd() * 0.8);
+  g.fillRect(-3.2 + Math.floor(e.rnd() * 42) * 0.15, -6.4 + e.rnd() * 5, 0.15, 0.4 + e.rnd() * 0.8);
 }
 g.fillStyle = '#5f4b3a';
 for (const y of [-1.1, -2.9, -4.7]) g.fillRect(-3.3, y - 0.09, 6.6, 0.18);
