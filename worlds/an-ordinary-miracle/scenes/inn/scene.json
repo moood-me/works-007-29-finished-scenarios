@@ -1,0 +1,752 @@
+{
+  "engine": 3,
+  "title": "The Inn «Emilia»",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.75,
+    "ambientColor": "#c8bfb8",
+    "bounce": 0.6,
+    "haze": 0.02,
+    "hazeColor": "#b6c0d4",
+    "hazeGlow": 0.35,
+    "tint": "#ffd2a0",
+    "tintStrength": 0.05,
+    "vignette": 0.3,
+    "grain": 0.05,
+    "saturation": 1.05,
+    "wind": [
+      1,
+      0.2,
+      0.6
+    ]
+  },
+  "lights": [
+    {
+      "id": "hearth",
+      "of": "firebox#fire",
+      "color": "#ff9a48",
+      "strength": 2.2,
+      "reach": 5,
+      "flicker": 0.3
+    },
+    {
+      "id": "candle",
+      "of": "counter_flame",
+      "color": "#ffc47a",
+      "strength": 0.8,
+      "reach": 2.5,
+      "flicker": 0.15
+    },
+    {
+      "id": "lantern",
+      "of": "lantern_hall#flame",
+      "color": "#ffc880",
+      "strength": 1.3,
+      "reach": 4.5,
+      "flicker": 0.08
+    },
+    {
+      "id": "door_lamp",
+      "of": "lantern_door#flame",
+      "color": "#ffc880",
+      "strength": 1.2,
+      "reach": 3.5,
+      "flicker": 0.08
+    },
+    {
+      "id": "window",
+      "across": -0.1,
+      "distance": 5.9,
+      "elevation": 1.6,
+      "color": "#a9badb",
+      "strength": 0.8,
+      "reach": 3.5
+    },
+    {
+      "id": "door_cold",
+      "across": 3.15,
+      "distance": 5.9,
+      "elevation": 1.3,
+      "color": "#a9badb",
+      "strength": 1.0,
+      "reach": 3.5
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "medved_on": [
+      -1.75,
+      4.45,
+      0.45
+    ],
+    "medved_look": [
+      -2.6,
+      3.6,
+      0.9
+    ],
+    "medved_mood": "thinking",
+    "princess_look": [
+      -1.4,
+      3.9,
+      1.2
+    ],
+    "princess_mood": "smile",
+    "emil_look": [
+      2.3,
+      4.6,
+      1.7
+    ],
+    "emil_mood": "surprised",
+    "emilia_look": [
+      1.8,
+      4.7,
+      1.7
+    ],
+    "emilia_mood": "thinking",
+    "okhotnik_on": [
+      0.55,
+      4.05,
+      0.45
+    ],
+    "okhotnik_look": [
+      -1.2,
+      3.6,
+      1.3
+    ],
+    "okhotnik_mood": "angry"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The blizzard sky",
+      "sky": true
+    },
+    {
+      "id": "snowfield",
+      "name": "The snow outside",
+      "plane": true,
+      "across": 0,
+      "distance": 70,
+      "width": 400,
+      "depth": 120
+    },
+    {
+      "id": "firs",
+      "name": "Firs in the snow across the road",
+      "across": -1.5,
+      "distance": 22,
+      "height": 11,
+      "box": [
+        -2.2,
+        -11.2,
+        2.2,
+        0.2
+      ],
+      "copies": [
+        {
+          "across": -1.5,
+          "distance": 22
+        },
+        {
+          "across": 1.4,
+          "distance": 28
+        },
+        {
+          "across": -3.8,
+          "distance": 31
+        },
+        {
+          "across": 11,
+          "distance": 24
+        },
+        {
+          "across": 14.5,
+          "distance": 31
+        },
+        {
+          "across": 12.6,
+          "distance": 40
+        }
+      ]
+    },
+    {
+      "id": "blizzard",
+      "name": "The blizzard outside",
+      "particles": {
+        "kind": "blizzard",
+        "count": 20000,
+        "area": [
+          -12,
+          18,
+          6.4,
+          40
+        ]
+      }
+    },
+    {
+      "id": "wall_back",
+      "name": "The back wall",
+      "across": 0,
+      "distance": 6.2,
+      "facing": 180,
+      "height": 4.5,
+      "box": [
+        -5,
+        -4.5,
+        5,
+        0.02
+      ]
+    },
+    {
+      "id": "wall_side",
+      "name": "The side walls",
+      "across": -5,
+      "distance": 4.55,
+      "facing": 90,
+      "height": 4.5,
+      "box": [
+        -1.8,
+        -4.5,
+        1.8,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -5,
+          "distance": 4.55,
+          "facing": 90
+        },
+        {
+          "across": 5,
+          "distance": 4.55,
+          "facing": 270
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "across": 0,
+      "distance": 4.55,
+      "width": 10,
+      "depth": 3.4
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "plane": true,
+      "across": 0,
+      "distance": 4.55,
+      "width": 10,
+      "depth": 3.4,
+      "elevation": 4.5
+    },
+    {
+      "id": "hearth",
+      "name": "The hearth",
+      "across": -2.7,
+      "distance": 5.0,
+      "facing": 180,
+      "height": 4.5,
+      "box": [
+        -1.1,
+        -4.5,
+        1.1,
+        0.02
+      ]
+    },
+    {
+      "id": "hearth_side",
+      "name": "The hearth's side",
+      "across": -1.6,
+      "distance": 5.6,
+      "facing": 90,
+      "height": 4.5,
+      "box": [
+        -0.6,
+        -4.5,
+        0.6,
+        0.02
+      ]
+    },
+    {
+      "id": "firebox",
+      "name": "The fire in the hearth",
+      "across": -2.7,
+      "distance": 5.35,
+      "facing": 180,
+      "height": 1.4,
+      "box": [
+        -0.75,
+        -1.4,
+        0.75,
+        0.02
+      ],
+      "glows": true
+    },
+    {
+      "id": "fire",
+      "name": "The fire's flames",
+      "particles": {
+        "kind": "fire",
+        "at": [
+          -2.7,
+          5.25,
+          0.32
+        ],
+        "source": [
+          0.6,
+          0.1,
+          0.02
+        ],
+        "size": [
+          0.24,
+          0.05
+        ],
+        "life": [
+          0.5,
+          0.9
+        ]
+      }
+    },
+    {
+      "id": "embers",
+      "name": "Embers rising in the hearth",
+      "particles": {
+        "kind": "embers",
+        "at": [
+          -2.7,
+          5.25,
+          0.4
+        ],
+        "source": [
+          0.5,
+          0.1,
+          0.05
+        ],
+        "rate": 4
+      }
+    },
+    {
+      "id": "window",
+      "name": "The frosted window",
+      "across": -0.1,
+      "distance": 6.17,
+      "facing": 180,
+      "height": 2.35,
+      "box": [
+        -0.85,
+        -2.35,
+        0.85,
+        -0.9
+      ]
+    },
+    {
+      "id": "bench_window",
+      "name": "The bench under the window with the coachman's cloak and hat",
+      "across": -0.1,
+      "distance": 5.95,
+      "facing": 180,
+      "height": 0.82,
+      "box": [
+        -0.85,
+        -0.82,
+        0.75,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "door",
+      "name": "The door to the yard, open",
+      "across": 3.15,
+      "distance": 6.17,
+      "facing": 180,
+      "height": 2.8,
+      "box": [
+        -0.55,
+        -2.8,
+        0.55,
+        0.02
+      ]
+    },
+    {
+      "id": "door_leaf",
+      "name": "The door's leaf",
+      "across": 3.65,
+      "distance": 5.7,
+      "facing": 270,
+      "height": 2.2,
+      "box": [
+        -0.47,
+        -2.2,
+        0.47,
+        0.02
+      ]
+    },
+    {
+      "id": "gallery",
+      "name": "The gallery",
+      "across": 1.65,
+      "distance": 5.25,
+      "facing": 180,
+      "height": 1.12,
+      "box": [
+        -3.35,
+        -1.12,
+        3.35,
+        0.6
+      ],
+      "elevation": 2.45
+    },
+    {
+      "id": "gallery_under",
+      "name": "The gallery's floor from below",
+      "plane": true,
+      "across": 1.65,
+      "distance": 5.72,
+      "width": 6.7,
+      "depth": 0.95,
+      "elevation": 2.45
+    },
+    {
+      "id": "stair",
+      "name": "The stair to the gallery",
+      "across": 4.5,
+      "distance": 4.5,
+      "facing": 270,
+      "height": 2.5,
+      "box": [
+        -0.8,
+        -2.5,
+        0.9,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "shelves",
+      "name": "The shelves behind the counter",
+      "across": 1.4,
+      "distance": 6.15,
+      "facing": 180,
+      "height": 2.32,
+      "box": [
+        -0.97,
+        -2.32,
+        0.95,
+        -0.95
+      ]
+    },
+    {
+      "id": "counter_front",
+      "name": "The counter",
+      "across": 1.4,
+      "distance": 5.0,
+      "facing": 180,
+      "height": 0.99,
+      "box": [
+        -0.86,
+        -0.99,
+        0.86,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "counter_top",
+      "name": "The counter's top",
+      "plane": true,
+      "across": 1.4,
+      "distance": 5.25,
+      "width": 1.64,
+      "depth": 0.5,
+      "elevation": 0.95
+    },
+    {
+      "id": "counter_side",
+      "name": "The counter's end",
+      "across": 0.58,
+      "distance": 5.25,
+      "facing": 90,
+      "height": 0.99,
+      "box": [
+        -0.27,
+        -0.99,
+        0.27,
+        0.02
+      ]
+    },
+    {
+      "id": "counter_things",
+      "name": "Candle, jug, mugs, bread and honey on the counter",
+      "across": 1.4,
+      "distance": 5.12,
+      "facing": 180,
+      "height": 0.36,
+      "box": [
+        -0.7,
+        -0.36,
+        0.85,
+        0.03
+      ],
+      "elevation": 0.95
+    },
+    {
+      "id": "counter_flame",
+      "name": "The candle's flame",
+      "across": 0.8,
+      "distance": 5.11,
+      "facing": 180,
+      "height": 0.45,
+      "box": [
+        -0.03,
+        -0.45,
+        0.03,
+        -0.33
+      ],
+      "elevation": 0.95,
+      "glows": true
+    },
+    {
+      "id": "lantern_hall",
+      "name": "The lantern over the hall",
+      "across": -0.7,
+      "distance": 3.9,
+      "elevation": 2.0,
+      "height": 2.6,
+      "box": [
+        -0.2,
+        -2.55,
+        0.2,
+        0.05
+      ]
+    },
+    {
+      "id": "lantern_door",
+      "name": "The lantern by the door",
+      "across": 2.35,
+      "distance": 5.55,
+      "elevation": 1.85,
+      "height": 0.67,
+      "box": [
+        -0.2,
+        -0.62,
+        0.2,
+        0.05
+      ]
+    },
+    {
+      "id": "bench",
+      "name": "The bench by the hearth",
+      "across": -1.75,
+      "distance": 4.3,
+      "facing": 180,
+      "height": 0.55,
+      "box": [
+        -0.75,
+        -0.55,
+        0.75,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "bench_top",
+      "name": "The bench's plank",
+      "plane": true,
+      "across": -1.75,
+      "distance": 4.45,
+      "width": 1.3,
+      "depth": 0.3,
+      "elevation": 0.45
+    },
+    {
+      "id": "stool",
+      "name": "The Hunter's stool and game bag",
+      "across": 0.55,
+      "distance": 3.95,
+      "facing": 180,
+      "height": 0.5,
+      "box": [
+        -0.25,
+        -0.5,
+        0.4,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "dog",
+      "name": "The Hunter's dog",
+      "across": -0.15,
+      "distance": 3.7,
+      "facing": 180,
+      "height": 0.5,
+      "box": [
+        -0.5,
+        -0.5,
+        0.8,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "medved",
+      "name": "The Bear",
+      "person": {
+        "cast": "cast",
+        "who": "medved",
+        "turn": 225,
+        "does": "seated"
+      },
+      "across": -1.75,
+      "distance": 4.45,
+      "shadow": true
+    },
+    {
+      "id": "princess",
+      "name": "The Princess",
+      "person": {
+        "cast": "cast",
+        "who": "princess",
+        "turn": 150
+      },
+      "across": -0.95,
+      "distance": 5.5,
+      "shadow": true
+    },
+    {
+      "id": "emil",
+      "name": "Emil",
+      "person": {
+        "cast": "cast",
+        "who": "emil",
+        "turn": 160,
+        "does": "wipe"
+      },
+      "across": 1.25,
+      "distance": 5.5,
+      "shadow": true
+    },
+    {
+      "id": "emilia",
+      "name": "Emilia",
+      "person": {
+        "cast": "cast",
+        "who": "emilia",
+        "turn": 205
+      },
+      "across": 2.95,
+      "distance": 5.6,
+      "shadow": true
+    },
+    {
+      "id": "okhotnik",
+      "name": "The Hunter",
+      "person": {
+        "cast": "cast",
+        "who": "okhotnik",
+        "turn": 215,
+        "does": "seated_gun"
+      },
+      "across": 0.55,
+      "distance": 4.05,
+      "shadow": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a tinkling antique music box playing a simple tender waltz, slow, a little out of tune, nostalgic fairy tale",
+        "weight": 0.5
+      },
+      {
+        "text": "bassoon and tuba comic theme, pompous and silly, a tyrant who blames his aunt",
+        "weight": 0.3
+      },
+      {
+        "text": "dramatic strings tremolo and low brass, a thunderstorm gathering over the mountains",
+        "weight": 0
+      },
+      {
+        "text": "chamber strings and celesta, a warm fairy-tale waltz, gentle and ironic, 1950s Soviet film score",
+        "weight": 0.6
+      },
+      {
+        "text": "woodwinds, flute, clarinet and bassoon, a light humorous march, a king's procession, comic",
+        "weight": 0
+      },
+      {
+        "text": "solo violin playing a wistful folk waltz in a mountain tavern, intimate, warm room tone",
+        "weight": 1.0
+      },
+      {
+        "text": "soft felt piano and pizzicato strings, playful and tender, a storybook evening",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios and glockenspiel, a moment of magic, sparkling, gentle",
+        "weight": 0
+      },
+      {
+        "text": "accordion and acoustic guitar, an old waltz, bittersweet, golden evening in the mountains",
+        "weight": 0
+      },
+      {
+        "text": "slow cello melody over soft strings, quiet longing, autumn light",
+        "weight": 0
+      },
+      {
+        "text": "pastoral oboe and strings, green mountain meadows, calm summer evening",
+        "weight": 0
+      },
+      {
+        "text": "music box and distant bells, winter night, snow falling, hush",
+        "weight": 0.5
+      },
+      {
+        "text": "waltz for small orchestra in three-four time, warm and romantic, Soviet film music of the seventies",
+        "weight": 0
+      },
+      {
+        "text": "solo piano, sparse, gentle melancholy, the end of a fairy tale",
+        "weight": 0
+      },
+      {
+        "text": "celesta, vibraphone and soft choir humming, a wizard's quiet wonder",
+        "weight": 0
+      },
+      {
+        "text": "folk fiddle and frame drum, a lively village dance",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, restrained, tender, love that knows its end",
+        "weight": 0
+      },
+      {
+        "text": "ticking clockwork, a music box winding up, a toy melody slowing down",
+        "weight": 0
+      },
+      {
+        "text": "rain on a wooden roof, a crackling hearth, low warm drone, cosy and tense",
+        "weight": 0
+      },
+      {
+        "text": "a howling blizzard outside a cosy tavern, wind moaning in the chimney, a crackling fire, low warm drone",
+        "weight": 0.6
+      }
+    ],
+    "bpm": 84,
+    "density": 0.35,
+    "brightness": 0.45,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}
