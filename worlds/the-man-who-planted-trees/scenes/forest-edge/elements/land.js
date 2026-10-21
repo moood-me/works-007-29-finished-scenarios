@@ -86,7 +86,7 @@ const along = (from, to, step, width, colour) => {
   }
 };
 along(-6, 34, 0.5, (d) => L.streamW(d) + 3.4, "rgba(112, 132, 76, 0.6)");
-along(-6, 34, 0.5, (d) => L.streamW(d) + 0.5, "#6e6550");
+along(-6, 34, 0.5, (d) => L.streamW(d) + 0.2, "#6e6550");
 along(34, 160, 1, (d) => L.streamW(d) + 0.5, "#6e6550");
 along(28, 160, 1, (d) => L.streamW(d) * 0.6, "#a7b6b6");
 // stones at the water's edges

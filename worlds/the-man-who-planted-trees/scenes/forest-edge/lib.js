@@ -32,10 +32,10 @@ function slope(across, d) {
   const fall = -44 * (1 - Math.exp(-q / 25)) * (1 - smooth(700, 1300, d));
   return rise + fall + 75 * smooth(700, 1400, d);
 }
-// the channel: 0.65 m deep in the middle, its banks easing up to the land
+// the channel: 0.6 m deep in the middle, its grassy banks easing up to the land
 function channel(across, d) {
   const w = streamW(d) / 2;
-  return 0.65 * (1 - smooth(w - 0.3, w + 0.8, Math.abs(across - streamX(d))));
+  return 0.6 * (1 - smooth(w - 0.6, w + 1.6, Math.abs(across - streamX(d))));
 }
 function ground(across, d) {
   return slope(across, d) - channel(across, d);
