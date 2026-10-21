@@ -22,7 +22,7 @@ return {
     // jacket buttoned over a pale shirt (the iron rod he plants acorns with — the part `rod`, through `<id>_with`)
     elzeard: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'jacket', hair: 'short', hat: 'hat',
       body: { height: 1.04, thick: 0.84, shoulders: 1.0, neck: 1.05 },
-      colors: { skin: '#b98a68', hair: '#aaa59c', top: '#d9d3c4', garment: '#5d4936', bottom: '#4a443b', hat: '#3b332b', shoes: '#2a241f' } },
+      colors: { skin: '#cf9e7a', hair: '#aaa59c', top: '#d9d3c4', garment: '#5d4936', bottom: '#4a443b', hat: '#3b332b', shoes: '#2a241f' } },
     // the Traveller at twenty: slight, bare-headed, brown hair, a faded blue-grey jacket, a bag on a strap over the left
     // shoulder, a tin flask at the right hip
     traveller: { kind: 'shapes', style: 'plateau', who: 'youth', garment: 'jacket', hair: 'short', parts: ['satchel', 'flask'],
