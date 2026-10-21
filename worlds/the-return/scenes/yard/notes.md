@@ -26,7 +26,7 @@ three faces are lit; light haze pales the distance. Grain 0.14 for the paper.
 | `house_wall`, `roof`, `chimney`, `chimney_smoke` | the izba on the left: its long log wall to the yard (−3.6, 2.5…11.5; door at 7 ahead, three windows in carved frames), the roof's slope (a plane, `rotation` 90, `tilt` 35, ridge at −6.3, 4.8 m), the brick chimney and its smoke |
 | `porch`, `steps`, `porch_front`, `risers` | the porch before the door (0.5 m up, −3.6…−2.3) and two steps down to the right; `porch` and `steps` are walked on |
 | `fence`, `gate` | the paling along the line at 11.5 ahead, the gate (1.4…2.4) standing open into the yard |
-| `woodpile`, `woodpile_end`, `block` | the woodpile on the right (4.6, 5.9…9.1), the chopping block with the axe stuck in it (3.3, 6.6) |
+| `woodpile`, `woodpile_end`, `block` | the woodpile on the right (4.6, 5.5…7.9), the chopping block with the axe stuck in it (3.3, 6.6) |
 | `well_front`, `well_side`, `well_top`, `crane` | the well (5.5, 10.15) and its sweep (`crane`, post at 7.4, 10.4; the layer `bucket` sways) |
 
 ## The people (the world's `cast`)

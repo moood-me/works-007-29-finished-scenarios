@@ -49,7 +49,7 @@ function logs(g, seed, x0, x1, top, log = 0.26) {
     g.fillRect(x0, y - 0.035, x1 - x0, 0.035);
     g.fillStyle = "rgba(120,118,80,0.5)";
     g.fillRect(x0, y - 0.012, x1 - x0, 0.012);
-    strokes(g, seed + i * 7, x0, y - log + 0.03, x1 - x0, log - 0.07, ["#b1a58c", "#7d725e", "#a0947c"], Math.round((x1 - x0) * 3), 0.5, 0.025, 0, 0.3);
+    strokes(g, seed + i * 7, x0, y - log + 0.03, x1 - x0, log - 0.07, ["#b1a58c", "#7d725e", "#a0947c", "#c2b69c"], Math.round((x1 - x0) * 5), 0.45, 0.03, 0, 0.42);
   }
 }
 

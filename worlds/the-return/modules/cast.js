@@ -5,7 +5,7 @@
 // person's height as a share of a man's 1.76 m).
 const V = () => MooodShapes.V;
 // the colours of the things the cast's parts are (each [r, g, b, 1])
-const SACK = [0.5, 0.47, 0.33, 1], STRAP = [0.36, 0.33, 0.23, 1], APRON = [0.74, 0.71, 0.64, 1];
+const SACK = [0.5, 0.47, 0.33, 1], STRAP = [0.36, 0.33, 0.23, 1], APRON = [0.74, 0.71, 0.64, 1], BELT = [0.3, 0.22, 0.16, 1];
 // the apron's rows: from the waist down to the knees, each across the front (made once a figure: F.keep)
 const APRON_ROWS = 6, APRON_ACROSS = 7;
 const apronRows = () => ({ rows: Array.from({ length: APRON_ROWS }, () => new Array(APRON_ACROSS)) });
@@ -14,9 +14,9 @@ return {
   characters: {
     // Alexei Alexeyevich Ivanov, a captain of 36: lean, upright, sunburnt; a soldier's greatcoat to mid-shin buttoned up, a
     // side cap, boots, the kit bag on his back
-    ivanov: { kind: 'shapes', style: 'gouache', who: 'man', garment: 'greatcoat', hair: 'short', hat: 'pilotka', parts: ['kitbag'], line: true,
+    ivanov: { kind: 'shapes', style: 'gouache', who: 'man', garment: 'greatcoat', hair: 'short', hat: 'pilotka', parts: ['kitbag', 'belt'], line: true,
       body: { height: 1.0, shoulders: 1.04, thick: 0.92 },
-      colors: { skin: '#c4936f', hair: '#4a3a2e', top: '#8a8462', garment: '#78715b', bottom: '#4c4a3e', shoes: '#2a2420', hat: '#7f7a56' } },
+      colors: { skin: '#c4936f', hair: '#4a3a2e', top: '#8a8462', garment: '#78715b', bottom: '#4c4a3e', shoes: '#2a2420', hat: '#8a8560' } },
     // Lyubov Vasilyevna (Lyuba), his wife, 33: slight, tired; a faded blue cotton dress, a grey linen apron over it, a
     // white kerchief, her hair in a knot under it
     lyuba: { kind: 'shapes', style: 'gouache', who: 'woman', garment: 'dress', hair: 'bun', hat: 'kerchief', parts: ['apron'], line: true,
@@ -49,9 +49,9 @@ return {
       } },
       // a soldier's side cap: a boat of cloth along the crown, tipped to the right
       pilotka: { name: 'side cap', draw: F => {
-        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r } = F.head, tip = unit(add(hu, mul(hs, 0.18)));
+        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r } = F.head, tip = unit(add(hu, mul(hs, 0.1)));
         const axes = [unit(cross(tip, hf)), tip, hf];
-        F.ball(add(at, add(mul(tip, r * 0.86), mul(hs, r * 0.12))), axes, [r * 0.42, r * 0.3, r * 0.98], F.colors.hat, 12, 2.6);
+        F.ball(add(at, mul(tip, r * 0.74)), axes, [r * 0.5, r * 0.26, r * 1.02], F.colors.hat, 12, 2.6);
       } },
     },
     parts: {
@@ -65,8 +65,12 @@ return {
         for (const s of [-1, 1]) {
           const shoulder = add(F.P(s < 0 ? 'LeftArm' : 'RightArm'), add(mul(up, 0.05 * m), mul(side, -s * 0.03 * m)));
           F.bar(neck, shoulder, 0.012 * m, 0.012 * m, [[0, STRAP]], 5, fwd, 0.5);
-          F.bar(shoulder, add(shoulder, add(mul(fwd, 0.1 * k), mul(up, -0.2 * m))), 0.012 * m, 0.012 * m, [[0, STRAP]], 5, side, 0.5);
         }
+      } },
+      // the greatcoat's belt: a broad leather band round the waist, over the coat
+      belt: { name: 'belt', draw: F => {
+        const k = F.k, m = F.fit.h;
+        F.ball(F.P('Spine1'), [F.side('Spine1'), F.up('Spine1'), F.fwd('Spine1')], [0.175 * k, 0.03 * m, 0.13 * k], BELT, 16, 2.6);
       } },
       // a linen apron over the dress: from the waist to the knees, before the skirt, hanging as cloth
       apron: { name: 'apron', draw: F => {

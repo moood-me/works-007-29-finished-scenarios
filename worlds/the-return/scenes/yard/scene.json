@@ -8,7 +8,7 @@
   },
   "light": {
     "vignette": 0.22,
-    "grain": 0.14,
+    "grain": 0.22,
     "haze": 0.1,
     "hazeColor": "#e8e3d6",
     "ambient": 0.72,
@@ -160,19 +160,24 @@
       "shadow": true,
       "copies": [
         {
-          "across": -45.5
+          "across": -45.5,
+          "distance": 13.2
         },
         {
-          "across": -25.5
+          "across": -25.5,
+          "distance": 13.2
         },
         {
-          "across": -5.5
+          "across": -5.5,
+          "distance": 13.2
         },
         {
-          "across": 14.5
+          "across": 14.5,
+          "distance": 13.2
         },
         {
-          "across": 34.5
+          "across": 34.5,
+          "distance": 13.2
         }
       ]
     },
@@ -199,9 +204,9 @@
       "facing": 90,
       "height": 2.75,
       "box": [
-        -4.5,
-        -2.8,
-        4.5,
+        -4.85,
+        -2.88,
+        4.9,
         0.05
       ]
     },
@@ -355,13 +360,13 @@
       "id": "woodpile",
       "name": "Woodpile",
       "across": 4.6,
-      "distance": 7.5,
+      "distance": 6.7,
       "facing": 270,
       "height": 1.7,
       "box": [
-        -1.6,
-        -1.75,
-        1.6,
+        -1.2,
+        -1.84,
+        1.2,
         0.05
       ],
       "shadow": true
@@ -370,7 +375,7 @@
       "id": "woodpile_end",
       "name": "Woodpile, near end",
       "across": 4.85,
-      "distance": 5.9,
+      "distance": 5.5,
       "facing": 180,
       "height": 1.7,
       "box": [
@@ -402,10 +407,10 @@
       "facing": 180,
       "height": 0.9,
       "box": [
-        -0.63,
-        -0.92,
-        0.63,
-        0.02
+        -0.86,
+        -0.94,
+        0.82,
+        0.03
       ],
       "shadow": true
     },
@@ -417,10 +422,10 @@
       "facing": 270,
       "height": 0.9,
       "box": [
-        -0.56,
-        -0.92,
-        0.56,
-        0.02
+        -0.78,
+        -0.94,
+        0.82,
+        0.03
       ],
       "shadow": true
     },

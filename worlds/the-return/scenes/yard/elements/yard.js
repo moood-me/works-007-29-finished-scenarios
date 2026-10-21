@@ -37,7 +37,7 @@ for (let i = 0; i < 90; i++) {
 const GRASS = ["#9d9b66", "#8c8c5c", "#aba674"];
 L.strokes(g, 81, X(-3.6), Y(11.5), 0.6, 9, GRASS, 260, 0.12, 0.03, Math.PI / 2, 0.6);
 L.strokes(g, 83, X(-3.6), Y(11.5), 11.4, 0.5, GRASS, 320, 0.1, 0.03, Math.PI / 2, 0.6);
-L.strokes(g, 85, X(4.6), Y(9.4), 2.8, 4, GRASS, 120, 0.1, 0.03, Math.PI / 2, 0.5);
+L.strokes(g, 85, X(4.6), Y(8.2), 2.8, 3, GRASS, 120, 0.1, 0.03, Math.PI / 2, 0.5);
 // beyond the fence: grass, the path along the line, grass, the embankment's slopes and top
 band(11.5, 13.4, "#b1aa78");
 band(12.05, 12.95, "#d6c79f");
