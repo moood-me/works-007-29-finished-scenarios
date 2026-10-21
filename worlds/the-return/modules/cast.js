@@ -225,7 +225,8 @@ return {
       // a soldier: the same in high boots, the head a little longer and squarer in the jaw (a man's)
       soldier: { from: 'gouache', name: 'gouache, in high boots', feet: 'jackboot', egg: [0.88, 1.09, 0.98], headSquare: 2.35, limb: 1.14,
         straight: true, folds: { n: 8, depth: 0.025 },
-        trunk: { w: [0.94, 0.98, 0.88, 0.96, 0.92], d: [0.88, 0.88, 0.82, 0.86, 0.78] } },
+        // (the waist as wide as the hips: a belted greatcoat's skirt begins at the belt, not as a shelf out from it)
+        trunk: { w: [0.94, 0.98, 1.0, 0.96, 0.92], d: [0.88, 0.88, 0.92, 0.86, 0.78] } },
     },
     // an arm with a working hand (a broad palm, a long one, its fingers' ends not pinched); a leg in trousers; a leg in a
     // high boot from below the knee

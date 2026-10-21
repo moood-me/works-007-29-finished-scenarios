@@ -96,7 +96,7 @@ function logs(g, seed, x0, x1, height, log = 0.26, tooth = 1.4) {
     g.fillRect(x0, y - 0.014, x1 - x0, 0.014);
     strokes(g, seed + i * 7, x0, y - log + 0.03, x1 - x0, log - 0.07, ["#b4a78d", "#867a64", "#a1957d"], Math.round((x1 - x0) * 1.6), 0.7, 0.12, 0, 0.3);
   }
-  paper(g, x0, -height, x1 - x0, height, tooth);
+  paper(g, x0, -height, x1 - x0, height, tooth, 0.6);
 }
 
 // a window in a log wall, its middle at x, its sill at `sill` and its top at `top` metres up: a carved white-blue frame

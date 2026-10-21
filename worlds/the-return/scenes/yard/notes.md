@@ -62,7 +62,7 @@ at the stranger who is their father. Each its own expression:
 
 - `ivanov` (0.6, 2.0, turned 235) — on the right: in the greatcoat he will not take off until he decides to stay, the
   kit bag still in his left hand (`ivanov_reach` l: the hand at his side, a little back), the right hand out from the
-  coat at his thigh (r); looking down at his wife with an awkward, held-in smile (`smile`).
+  coat's front at his thigh (r: 0.31 m to the side, a little forward — nearer, the straight skirt hides it); looking down at his wife with an awkward, held-in smile (`smile`).
 - `lyuba` (−0.1, 2.0, turned 125) — before him, her hands folded at her waist before the apron (`lyuba_reach`), looking
   up into his face: grief held in and waiting (`sad`).
 - `petrushka` (−0.95, 2.8, turned 125) — the son, a step behind his mother, facing his father: the grown-up frown
