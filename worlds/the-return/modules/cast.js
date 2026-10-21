@@ -285,12 +285,13 @@ return {
       // a soldier's side cap: a narrow boat of cloth along the crown, worn straight (tipped a hair to the right), its
       // turned-up flap a shade darker, the red star at its front
       pilotka: { name: 'side cap', draw: F => {
-        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r: rh, out } = F.head, r = rh * out, tip = unit(add(hu, mul(hs, 0.03)));
+        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r: rh, out } = F.head, r = rh * out, tip = unit(add(hu, mul(hs, 0.1)));
         const axes = [unit(cross(tip, hf)), tip, hf], flap = shade(F.colors.hat, 0.82);
-        const crown = add(at, mul(tip, r * 0.86));
-        F.ball(add(crown, mul(tip, r * 0.1)), axes, [r * 0.34, r * 0.3, r * 1.0], F.colors.hat, 12, 3);
-        F.ball(crown, axes, [r * 0.42, r * 0.16, r * 1.04], flap, 12, 3);
-        F.ball(add(crown, add(mul(hf, r * 0.98), mul(tip, r * 0.04))), axes, [r * 0.07, r * 0.07, r * 0.03], STAR, 8);
+        // (sat down on the head over the crown — as wide as the top of the skull, not perched on it)
+        const crown = add(at, mul(tip, r * 0.7));
+        F.ball(add(crown, mul(tip, r * 0.14)), axes, [r * 0.5, r * 0.36, r * 1.06], F.colors.hat, 12, 3);
+        F.ball(crown, axes, [r * 0.62, r * 0.2, r * 1.1], flap, 12, 3);
+        F.ball(add(crown, add(mul(hf, r * 1.06), mul(tip, r * 0.06))), axes, [r * 0.08, r * 0.08, r * 0.03], STAR, 8);
       } },
     },
     parts: {
