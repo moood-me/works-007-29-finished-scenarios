@@ -282,9 +282,9 @@
    "across": 11.5,
    "distance": 28,
    "box": [
-    -30,
-    -6,
-    30,
+    -34,
+    -7,
+    34,
     0.4
    ]
   },
@@ -308,7 +308,7 @@
     "kind": "smoke",
     "at": "querig#nostrils",
     "amount": "breath",
-    "rate": 1.4,
+    "rate": 2.5,
     "direction": [
      -1,
      0,
@@ -316,24 +316,24 @@
     ],
     "spread": 25,
     "speed": [
-     0.2,
-     0.4
+     0.3,
+     0.5
     ],
-    "gravity": -0.05,
+    "gravity": -0.08,
     "drag": 0.4,
     "wind": 0.4,
     "turbulence": 0.4,
     "size": [
-     0.35,
-     3.2
+     0.3,
+     2.6
     ],
     "life": [
-     7,
-     11
+     6,
+     9
     ],
-    "color": "#f1f1ec",
-    "opacity": 0.5,
-    "sheer": 0.6,
+    "color": "#fbfbf8",
+    "opacity": 0.75,
+    "sheer": 0.8,
     "shadow": 0
    }
   },
@@ -351,7 +351,7 @@
      9,
      0.4
     ],
-    "rate": 0.8,
+    "rate": 1.2,
     "direction": [
      0,
      0,
@@ -362,20 +362,20 @@
      0.05,
      0.15
     ],
-    "gravity": -0.06,
+    "gravity": -0.12,
     "drag": 0.5,
     "wind": 0.5,
     "turbulence": 0.6,
     "size": [
-     1.6,
-     5
+     2,
+     6
     ],
     "life": [
      10,
-     15
+     16
     ],
-    "color": "#f2f1ec",
-    "opacity": 0.16,
+    "color": "#fbf8f4",
+    "opacity": 0.3,
     "sheer": 0.7,
     "shadow": 0
    }
