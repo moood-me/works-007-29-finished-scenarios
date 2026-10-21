@@ -16,8 +16,12 @@ g.fillStyle = "#e2d9c4";
 g.fillRect(-0.56, -1.95, 1.12, 0.08);
 g.fillStyle = "rgba(120,104,82,0.35)";
 g.fillRect(-0.55, -1.87, 1.1, 0.02);
-// the soot over the mouth: a few smoky dabs licked up from its crown
-L.strokes(g, 92, 0.1, -1.42, 0.28, 0.24, ["#8a7e70", "#9d9284"], 7, 0.16, 0.05, -Math.PI / 2, 0.3);
+// the soot over the mouth: a soft smoky stain over its crown
+const soot = g.createRadialGradient(0.24, -1.2, 0.02, 0.24, -1.24, 0.24);
+soot.addColorStop(0, "rgba(96,84,72,0.35)");
+soot.addColorStop(1, "rgba(96,84,72,0)");
+g.fillStyle = soot;
+g.fillRect(0.0, -1.48, 0.48, 0.3);
 // the hearth ledge: a shelf standing out before the mouth, its edge and its shade
 g.fillStyle = "#e4dac6";
 g.fillRect(-0.2, -0.77, 0.75, 0.07);
