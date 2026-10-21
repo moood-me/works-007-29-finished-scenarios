@@ -34,7 +34,7 @@ for (let i = 0; i < 16; i++) house(-10 + i * 7.5 + e.rnd() * 4, 5 + e.rnd() * 3,
 house(127, 7, 4.5);
 g.fillStyle = '#3d3a3e';
 g.fillRect(125.8, -3.1, 2.4, 1.8);
-e.light(127, -2.2, 7, '#ffc77e', 1.4, 'window');
+e.light(127, -2.2, 14, '#ffc77e', 2, 'window');
 e.at(127, -2.2, 'window');
 // the harbour's lamp on its post at the pier
 g.fillStyle = '#4a4648';

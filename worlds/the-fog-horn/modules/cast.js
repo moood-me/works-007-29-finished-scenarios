@@ -39,7 +39,7 @@ return {
     mcdunn: {
       kind: 'shapes', style: 'fog', who: 'old', garment: 'jacket', hair: 'short', hat: 'cap', parts: ['beard'],
       body: { height: 0.99, shoulders: 1.1, thick: 1.16, arms: 1.02 },
-      colors: { skin: '#c4957a', hair: '#dcd8cf', top: '#8b8174', garment: '#2c3540', bottom: '#33312e', hat: '#272b31', shoes: '#211e1c' },
+      colors: { skin: '#c4957a', hair: '#cfcac1', top: '#8b8174', garment: '#2c3540', bottom: '#33312e', hat: '#272b31', shoes: '#211e1c' },
     },
   },
   shapes: {
@@ -47,7 +47,7 @@ return {
     // with a simple face (eyes, brows, nose, mouth) so the faces read
     styles: { fog: { from: 'flat', name: 'The Fog Horn', line: 0.8, face: 'simple' } },
     parts: {
-      // a full beard over the jaw and the chin (the colour of the hair)
+      // a full beard over the jaw, the mouth and the chin, the eyes and the nose clear (the colour of the hair)
       beard: {
         name: 'beard',
         draw: F => {
@@ -55,8 +55,8 @@ return {
           const h = F.head;
           const [, hu, hf] = h.axes;
           const r = h.r * h.out;
-          F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.55, 0.83], 0.25, F.colors.hair, h.sides, h.square);
-          F.ball(add(h.at, add(mul(hu, -r * 0.92), mul(hf, r * 0.5))), h.axes, [r * 0.6, r * 0.46, r * 0.4], F.colors.hair, h.sides);
+          F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.85, 0.53], 0.62, F.colors.hair, h.sides, h.square);
+          F.ball(add(h.at, add(mul(hu, -r * 1.0), mul(hf, r * 0.45))), h.axes, [r * 0.5, r * 0.36, r * 0.34], F.colors.hair, h.sides);
         },
       },
       // the hand lantern, out: grey glass
