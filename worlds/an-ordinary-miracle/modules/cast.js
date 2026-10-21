@@ -35,10 +35,10 @@ return {
   ...data,
   characters: {
     // the young man who was a bear: twenty-three to look at, big and broad, shaggy chestnut hair, an undyed linen
-    // shirt to the hips, a honey-coloured woven belt (the one warm colour on him — honey and amber are his), dark
+    // shirt, a honey-coloured woven belt (the one warm colour on him — honey and amber are his), dark
     // trousers, soft boots
     medved: {
-      kind: 'shapes', style: 'tale', who: 'youth', garment: 'tunic', hair: 'spiky', parts: ['sash'],
+      kind: 'shapes', style: 'tale', who: 'youth', garment: 'none', hair: 'spiky', parts: ['sash'],
       body: { height: 1.05, shoulders: 1.05, thick: 1.0, arms: 1.03 },
       colors: { skin: '#e2b48e', hair: '#5b3a20', top: '#ddd1b4', garment: '#ddd1b4', bottom: '#4e4134', shoes: '#3b2b20', accent: '#d39a32' },
     },
@@ -61,7 +61,7 @@ return {
     // read), natural shoulders, limbs with cloth on them, working hands, a tinted painted edge, the colours lit by the
     // scene's own light (`lit`), smooth cloth (no facets)
     styles: {
-      tale: { from: 'soft', name: 'storybook', sides: 16, head: 1.26, egg: [0.92, 1.05, 0.98], neck: 0.75, legs: 1.0, limb: 1.1, arms: 'hand', feet: 'trouser',
+      tale: { from: 'soft', name: 'storybook', sides: 16, head: 1.34, egg: [0.92, 1.05, 0.98], neck: 0.75, legs: 1.0, limb: 1.1, arms: 'hand', feet: 'trouser',
         trunk: { w: [0.94, 0.98, 0.88, 0.97, 0.95], d: [0.88, 0.88, 0.82, 0.86, 0.78] }, paint: 'lit', line: 1.7, tinted: true,
         folds: { n: 6, depth: 0.06 }, face: 'tale', ground: 'paper' },
       // the same with a long coat cut straight (its sides straight lines from the shoulders to the hem: a bell from the
@@ -83,23 +83,23 @@ return {
         const { axes, r: rh, on } = F.head, hu = axes[1], x = MOODS[F.look.expression] ?? MOODS.neutral, skin = F.colors.skin;
         const under = shade(skin, 0.85), lips = [skin[0] * 0.8, skin[1] * 0.5, skin[2] * 0.46, 1];
         const brow = [0, 1, 2, 3].map(i => (i < 3 ? F.colors.hair[i] * 0.66 + skin[i] * 0.16 : 1));
-        const lid = 0.05 + 0.115 * x.eye;
+        const lid = 0.06 + 0.14 * x.eye;
         for (const sx of [-1, 1]) {
-          F.ball(on([sx * 0.34, 0.05, 0.94], 0.975), axes, [rh * 0.19, rh * 0.122 * x.eye, rh * 0.045], WHITES, 12);
-          F.ball(on([sx * 0.32, 0.04, 0.95], 0.99), axes, [rh * 0.1, rh * 0.106 * Math.min(1, x.eye), rh * 0.038], IRIS, 10);
+          F.ball(on([sx * 0.34, 0.05, 0.94], 0.975), axes, [rh * 0.22, rh * 0.15 * x.eye, rh * 0.045], WHITES, 12);
+          F.ball(on([sx * 0.32, 0.04, 0.95], 0.99), axes, [rh * 0.125, rh * 0.135 * Math.min(1, x.eye), rh * 0.038], IRIS, 10);
           F.tube([on([sx * 0.17, lid - 0.03, 0.93], 1.0), on([sx * 0.34, lid + 0.01, 0.95], 1.006), on([sx * 0.52, lid - 0.045, 0.85], 1.0)],
-            [[0, rh * 0.032], [1, rh * 0.046], [2, rh * 0.024]], [[0, LASH]], 6, hu);
+            [[0, rh * 0.036], [1, rh * 0.054], [2, rh * 0.028]], [[0, LASH]], 6, hu);
           F.tube([on([sx * 0.22, -0.09, 0.95], 0.99), on([sx * 0.36, -0.11, 0.95], 0.995), on([sx * 0.48, -0.07, 0.88], 0.99)],
             [[0, rh * 0.016], [2, rh * 0.012]], [[0, under]], 6, hu);
           F.tube([on([sx * 0.15, 0.32 + x.inner, 0.95], 1.0), on([sx * 0.32, 0.37 + (x.inner + x.outer) / 2, 0.92], 1.01), on([sx * 0.5, 0.3 + x.outer, 0.84], 1.0)],
-            [[0, rh * 0.044], [1, rh * 0.052], [2, rh * 0.028]], [[0, brow]], 6, hu);
+            [[0, rh * 0.052], [1, rh * 0.062], [2, rh * 0.034]], [[0, brow]], 6, hu);
         }
         F.ball(on([0, -0.12, 1], 0.99), axes, [rh * 0.1, rh * 0.16, rh * 0.14], shade(skin, 0.97), 10);
         F.ball(on([0, -0.25, 0.98], 0.98), axes, [rh * 0.1, rh * 0.03, rh * 0.05], under, 8);
         const w = x.wide, y = -0.43;
         F.ball(on([0, y - x.open / 2, 0.93], 0.97), axes, [rh * w * 0.7, rh * x.open, rh * 0.03], MOUTH, 10);
         F.tube([on([-w, y + x.corners, 0.92], 0.995), on([0, y + 0.01, 0.94], 1.0), on([w, y + x.corners, 0.92], 0.995)],
-          [[0, rh * 0.02], [1, rh * 0.034], [2, rh * 0.02]], [[0, lips]], 6, hu);
+          [[0, rh * 0.026], [1, rh * 0.042], [2, rh * 0.026]], [[0, lips]], 6, hu);
       } },
     },
     parts: {

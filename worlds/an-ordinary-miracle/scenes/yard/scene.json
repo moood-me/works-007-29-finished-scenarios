@@ -54,9 +54,17 @@
     "cast"
   ],
   "state": {
-    "medved_look": "princess",
+    "medved_look": [
+      0.5,
+      1.0,
+      1.65
+    ],
     "medved_mood": "smile",
-    "princess_look": "medved",
+    "princess_look": [
+      -0.6,
+      1.0,
+      1.6
+    ],
     "princess_mood": "smile",
     "hozyain_look": [
       -0.1,
@@ -661,7 +669,7 @@
       "person": {
         "cast": "cast",
         "who": "medved",
-        "turn": 160
+        "turn": 170
       },
       "across": -0.8,
       "distance": 2.85,
@@ -673,7 +681,7 @@
       "person": {
         "cast": "cast",
         "who": "princess",
-        "turn": 200
+        "turn": 190
       },
       "across": 0.6,
       "distance": 2.7,
