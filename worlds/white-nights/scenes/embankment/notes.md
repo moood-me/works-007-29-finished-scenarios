@@ -47,7 +47,7 @@ fades the far end of the canal and the dome; grain and vignette for the print's 
 The three stand close together near the viewer (4–6 m), so that faces and the clothes of the 1840s read: Nastenka at
 her parapet on the left, the Lodger by the lamp behind and between, the Dreamer on the right — a triangle round the lamp.
 
-- `nastya` — Nastenka at the parapet, 4.3 m off, 0.35 m from its face: turned toward the corner (150°), her right hand
+- `nastya` — Nastenka at the parapet, 4.3 m off, 0.3 m from its face: turned toward the corner (150°), her right hand
   resting on the granite's top (`nastya_reach.r`), her left at her breast holding her mantle (`.l`), looking toward
   the corner near on the right ([4, 1.5, 1.6]), waiting (`thinking`) — her face three-quarters to the viewer.
 - `dreamer` — the Dreamer 2 m from her, a step farther than he need be (4.7 m off), turned half to her and half to
