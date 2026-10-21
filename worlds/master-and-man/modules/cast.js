@@ -62,6 +62,10 @@ const FACE_ANY = { lid: 0.2, brow: 0, browW: 1, eye: 1, iris: [0.2, 0.16, 0.14] 
 const FACE_VASILY = { lid: 0.42, brow: -0.04, browW: 1.25, eye: 1.0, iris: [0.16, 0.11, 0.08] };
 const FACE_NIKITA = { lid: 0.18, brow: 0.03, browW: 1.05, eye: 0.95, iris: [0.3, 0.36, 0.42] };
 const FACE_PRASKOVYA = { lid: 0.08, brow: 0.02, browW: 0.75, eye: 1.08, iris: [0.24, 0.22, 0.22] };
+// the old man of Grishkino: deep-set, a little narrowed by his years and his pride, the white brows heavy; his elder
+// son: the brows drawn down together, sullen, the eyes on whoever is master here
+const FACE_OLD = { lid: 0.32, brow: 0.0, browW: 1.35, eye: 0.9, iris: [0.32, 0.36, 0.42] };
+const FACE_SON = { lid: 0.22, brow: -0.07, browW: 1.15, eye: 1.0, iris: [0.18, 0.13, 0.1] };
 
 // a beard over the jaw and the chin — below the mouth's corners, the nose, the eyes and the cheeks above it bare (a
 // profile reads) —, in the colour of the hair, and a moustache over the mouth; `long` — how far it falls on the chest
@@ -141,6 +145,17 @@ return {
     praskovya: { kind: 'shapes', style: 'tolstoy', who: 'woman', garment: 'long_dress', hair: 'bun', hat: 'shawl', face: 'tolstoy_praskovya',
       body: { height: 0.93, thick: 0.9, shoulders: 0.9 },
       colors: { skin: '#eec5a8', hair: '#4b3a2e', top: '#4a5876', garment: '#4a5876', shoes: '#2a2624', hat: '#ece4d4' } },
+    // the old man of Grishkino, master of the rich household: past seventy, still broad, a long white beard; at home in
+    // a long linen shirt worn outside, belted with a narrow woven belt, dark trousers, felt boots; no hat
+    old_man: { kind: 'shapes', style: 'tolstoy', who: 'man', garment: 'shirt', hair: 'short', face: 'tolstoy_old',
+      parts: ['beard_long', 'sash'],
+      body: { height: 0.97, thick: 1.0, shoulders: 1.05 },
+      colors: { skin: '#d99a7c', hair: '#e8e4dc', top: '#e4dccb', garment: '#e4dccb', bottom: '#4e4a50', shoes: '#6c655d', accent: '#6a4636' } },
+    // his elder son: about thirty, tall, a short dark beard; a blue-grey shirt belted, dark trousers in black boots
+    son: { kind: 'shapes', style: 'tolstoy', who: 'man', garment: 'shirt', hair: 'short', face: 'tolstoy_son',
+      parts: ['beard_trim', 'sash'],
+      body: { height: 1.03, thick: 0.95, shoulders: 1.06 },
+      colors: { skin: '#dfa086', hair: '#3a2a20', top: '#5d728e', garment: '#5d728e', bottom: '#33302e', shoes: '#26211e', accent: '#2e2a2a' } },
   },
   shapes: {
     // the world's style: a painter's figure, not a toy's — true proportions (the head as a grown man's, the face longer
@@ -154,6 +169,8 @@ return {
       tolstoy_vasily: { name: "the master's face", draw: faceOf(FACE_VASILY) },
       tolstoy_nikita: { name: "Nikita's face", draw: faceOf(FACE_NIKITA) },
       tolstoy_praskovya: { name: "Praskovya's face", draw: faceOf(FACE_PRASKOVYA) },
+      tolstoy_old: { name: "the old man's face", draw: faceOf(FACE_OLD) },
+      tolstoy_son: { name: "the son's face", draw: faceOf(FACE_SON) },
     },
     garments: {
       // the fox-fur coat: from the shoulders to a hand below the knee, a little wider at the hem, the felt boots under it;
@@ -164,6 +181,8 @@ return {
       // the workman's coat of homespun, belted: its body the look's top (the same cloth), its skirt from the waist to the
       // knee, worn ragged at the hem — the sash round the waist over it
       armyak: { name: 'homespun coat', hang: [{ to: 1.12, from: 'waist', flare: 0.3, ragged: true }] },
+      // a peasant's shirt worn outside the trousers: its body the look's top, its skirt from the belt to the hip
+      shirt: { name: 'shirt', hang: [{ to: 0.5, from: 'waist', flare: 0.2 }] },
     },
     hats: {
       // a tall round fur hat: a band of fur over the crown (the brows and the forehead below it), a tall dome over it

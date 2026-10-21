@@ -1,0 +1,583 @@
+{
+  "engine": 3,
+  "title": "The Old Man's Hut",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.55,
+    "ambientColor": "#c4b8ac",
+    "bounce": 0.55,
+    "haze": 0.12,
+    "hazeColor": "#5e5248",
+    "hazeGlow": 0.7,
+    "tint": "#ffe2c0",
+    "tintStrength": 0.05,
+    "saturation": 1.0,
+    "vignette": 0.4,
+    "grain": 0.1
+  },
+  "lights": [
+    {
+      "id": "lamp",
+      "of": "lamp#flame",
+      "color": "#ffc27a",
+      "strength": 1.6,
+      "reach": 5.5,
+      "flicker": 0.05
+    },
+    {
+      "id": "stove",
+      "of": "embers#coals",
+      "color": "#ff8a3a",
+      "strength": 1.3,
+      "reach": 3.2,
+      "flicker": 0.4
+    },
+    {
+      "id": "lampada",
+      "of": "icons#lampada",
+      "color": "#ff6a3a",
+      "strength": 0.6,
+      "reach": 1.0,
+      "flicker": 0.3
+    },
+    {
+      "id": "dusk",
+      "of": "window#panes",
+      "color": "#8ea8dc",
+      "strength": 0.7,
+      "reach": 3
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "vasily_on": [
+      -2.3,
+      5.02,
+      0.45
+    ],
+    "vasily_wear": {
+      "hat": "none"
+    },
+    "vasily_look": "old_man",
+    "vasily_mood": "smile",
+    "old_man_reach": {
+      "l": [
+        -1.12,
+        4.25,
+        0.79
+      ],
+      "r": [
+        -1.12,
+        4.62,
+        0.79
+      ]
+    },
+    "old_man_look": "vasily",
+    "old_man_mood": "smile",
+    "son_look": "vasily",
+    "son_mood": "thinking",
+    "nikita_on": [
+      1.14,
+      3.5,
+      0.45
+    ],
+    "nikita_wear": {
+      "hat": "none",
+      "parts": [
+        "beard_long",
+        "sash"
+      ]
+    },
+    "nikita_look": [
+      -0.6,
+      3.4,
+      0.4
+    ],
+    "nikita_mood": "tired"
+  },
+  "objects": [
+    {
+      "id": "back_wall",
+      "name": "Back wall with the passage door",
+      "across": 0,
+      "distance": 5.2,
+      "facing": 180,
+      "height": 2.4,
+      "box": [
+        -3.45,
+        -2.42,
+        3.45,
+        0.02
+      ]
+    },
+    {
+      "id": "wall_left",
+      "name": "Left wall",
+      "across": -3.4,
+      "distance": 2.85,
+      "facing": 90,
+      "height": 2.4,
+      "box": [
+        -2.37,
+        -2.42,
+        2.37,
+        0.02
+      ]
+    },
+    {
+      "id": "wall_right",
+      "name": "Right wall",
+      "across": 3.4,
+      "distance": 2.85,
+      "facing": 270,
+      "height": 2.4,
+      "box": [
+        -2.37,
+        -2.42,
+        2.37,
+        0.02
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "Floor",
+      "plane": true,
+      "across": 0,
+      "distance": 2.85,
+      "width": 6.8,
+      "depth": 4.7,
+      "walk": true
+    },
+    {
+      "id": "ceiling",
+      "name": "Ceiling",
+      "plane": true,
+      "across": 0,
+      "distance": 2.85,
+      "width": 6.8,
+      "depth": 4.7,
+      "elevation": 2.4
+    },
+    {
+      "id": "window",
+      "name": "Window, the evening outside",
+      "across": -3.38,
+      "distance": 4.5,
+      "facing": 90,
+      "height": 1.7,
+      "box": [
+        -0.36,
+        -1.66,
+        0.36,
+        -0.86
+      ],
+      "glows": true
+    },
+    {
+      "id": "icons",
+      "name": "Icons' corner",
+      "across": -3.08,
+      "distance": 4.9,
+      "facing": 135,
+      "height": 0.9,
+      "box": [
+        -0.44,
+        -0.9,
+        0.44,
+        0.05
+      ],
+      "elevation": 1.5
+    },
+    {
+      "id": "clock",
+      "name": "Wall clock",
+      "across": -0.15,
+      "distance": 5.17,
+      "facing": 180,
+      "height": 1.05,
+      "box": [
+        -0.15,
+        -1.06,
+        0.15,
+        0.02
+      ],
+      "elevation": 0.95
+    },
+    {
+      "id": "bench",
+      "name": "Benches",
+      "across": -2.2,
+      "distance": 4.88,
+      "facing": 180,
+      "height": 0.45,
+      "box": [
+        -1.22,
+        -0.47,
+        1.22,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -2.2,
+          "distance": 4.88,
+          "facing": 180
+        },
+        {
+          "across": -3.08,
+          "distance": 3.95,
+          "facing": 90
+        },
+        {
+          "across": 0.98,
+          "distance": 4.0,
+          "facing": 270
+        }
+      ]
+    },
+    {
+      "id": "bench_top_back",
+      "name": "Bench behind the table",
+      "plane": true,
+      "across": -2.2,
+      "distance": 5.04,
+      "width": 2.4,
+      "depth": 0.32,
+      "elevation": 0.45
+    },
+    {
+      "id": "bench_top_left",
+      "name": "Bench under the window",
+      "plane": true,
+      "across": -3.24,
+      "distance": 3.95,
+      "width": 2.4,
+      "depth": 0.32,
+      "elevation": 0.45,
+      "rotation": 90
+    },
+    {
+      "id": "bench_top_stove",
+      "name": "Bench by the stove",
+      "plane": true,
+      "across": 1.14,
+      "distance": 4.0,
+      "width": 2.4,
+      "depth": 0.32,
+      "elevation": 0.45,
+      "rotation": 90
+    },
+    {
+      "id": "table_top",
+      "name": "Table",
+      "plane": true,
+      "across": -2.0,
+      "distance": 4.45,
+      "width": 1.9,
+      "depth": 0.9,
+      "elevation": 0.76,
+      "shadow": {
+        "light": "lamp",
+        "onto": [
+          "floor"
+        ],
+        "strength": 0.5
+      }
+    },
+    {
+      "id": "table_front",
+      "name": "Table's front",
+      "across": -2.0,
+      "distance": 4.0,
+      "facing": 180,
+      "height": 0.78,
+      "box": [
+        -0.98,
+        -0.8,
+        0.98,
+        0.02
+      ]
+    },
+    {
+      "id": "table_side",
+      "name": "Table's end",
+      "across": -1.05,
+      "distance": 4.45,
+      "facing": 90,
+      "height": 0.78,
+      "box": [
+        -0.48,
+        -0.8,
+        0.48,
+        0.02
+      ]
+    },
+    {
+      "id": "table_things",
+      "name": "Bread, glasses, the bottle",
+      "across": -2.0,
+      "distance": 4.4,
+      "height": 0.33,
+      "box": [
+        -0.9,
+        -0.33,
+        0.98,
+        0.02
+      ],
+      "elevation": 0.76
+    },
+    {
+      "id": "samovar",
+      "name": "Samovar",
+      "across": -1.4,
+      "distance": 4.68,
+      "height": 0.66,
+      "box": [
+        -0.24,
+        -0.68,
+        0.27,
+        0.02
+      ],
+      "elevation": 0.76,
+      "shadow": true
+    },
+    {
+      "id": "lamp",
+      "name": "Hanging lamp",
+      "across": -1.85,
+      "distance": 4.45,
+      "height": 0.8,
+      "box": [
+        -0.23,
+        -0.82,
+        0.23,
+        0.02
+      ],
+      "elevation": 1.6
+    },
+    {
+      "id": "stove_front",
+      "name": "Stove",
+      "across": 2.35,
+      "distance": 3.6,
+      "facing": 180,
+      "height": 2.4,
+      "box": [
+        -1.07,
+        -2.42,
+        1.07,
+        0.02
+      ]
+    },
+    {
+      "id": "stove_side",
+      "name": "Stove's side",
+      "across": 1.3,
+      "distance": 4.4,
+      "facing": 270,
+      "height": 1.85,
+      "box": [
+        -0.82,
+        -1.86,
+        0.82,
+        0.02
+      ]
+    },
+    {
+      "id": "embers",
+      "name": "Fire in the stove",
+      "across": 2.72,
+      "distance": 3.8,
+      "facing": 180,
+      "height": 1.25,
+      "box": [
+        -0.36,
+        -1.24,
+        0.36,
+        -0.58
+      ],
+      "glows": true,
+      "flicker": 0.4
+    },
+    {
+      "id": "stove_fire",
+      "name": "Flames in the stove",
+      "particles": {
+        "kind": "fire",
+        "at": [
+          2.72,
+          3.82,
+          0.72
+        ],
+        "source": [
+          0.28,
+          0.04,
+          0.02
+        ],
+        "size": [
+          0.09,
+          0.03
+        ]
+      }
+    },
+    {
+      "id": "steam",
+      "name": "Samovar's steam",
+      "particles": {
+        "kind": "smoke",
+        "at": "samovar#top",
+        "rate": 3,
+        "size": [
+          0.03,
+          0.22
+        ],
+        "life": [
+          1.5,
+          2.8
+        ],
+        "speed": [
+          0.08,
+          0.16
+        ],
+        "gravity": -0.12,
+        "drag": 1.2,
+        "wind": 0,
+        "turbulence": 0.04,
+        "color": "#f2eee8",
+        "opacity": 0.28
+      }
+    },
+    {
+      "id": "vasily",
+      "name": "Vasily Andreich",
+      "person": {
+        "cast": "cast",
+        "who": "vasily",
+        "turn": 180,
+        "does": "table_talk"
+      },
+      "across": -2.3,
+      "distance": 5.02,
+      "shadow": true
+    },
+    {
+      "id": "old_man",
+      "name": "The old man",
+      "person": {
+        "cast": "cast",
+        "who": "old_man",
+        "turn": 255,
+        "does": "lean_table"
+      },
+      "across": -0.72,
+      "distance": 4.45,
+      "shadow": true
+    },
+    {
+      "id": "son",
+      "name": "The elder son",
+      "person": {
+        "cast": "cast",
+        "who": "son",
+        "turn": 200,
+        "does": "arms_folded"
+      },
+      "across": 0.55,
+      "distance": 4.85,
+      "shadow": true
+    },
+    {
+      "id": "nikita",
+      "name": "Nikita",
+      "person": {
+        "cast": "cast",
+        "who": "nikita",
+        "turn": 245,
+        "does": "bench_sit"
+      },
+      "across": 1.14,
+      "distance": 3.5,
+      "shadow": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "Solo cello, slow and low, a Russian winter afternoon, long bowed notes with space between them",
+        "weight": 0.8
+      },
+      {
+        "text": "Sparse piano in a minor key, cold and clear, single notes like snow falling, unhurried",
+        "weight": 0
+      },
+      {
+        "text": "A distant church bell tolling once in a while over fields of snow, deep and soft",
+        "weight": 0
+      },
+      {
+        "text": "Quiet wind-like string harmonics and a soft drone, open fifths, empty white plain",
+        "weight": 0
+      },
+      {
+        "text": "Balalaika plucked softly and slowly, a sad Russian folk tune far away",
+        "weight": 0.6
+      },
+      {
+        "text": "Russian Orthodox choir humming without words, very far, low male voices",
+        "weight": 0
+      },
+      {
+        "text": "Bayan accordion playing a slow village waltz, warm and a little out of tune",
+        "weight": 0.3
+      },
+      {
+        "text": "Sleigh bells faint and slow, a horse's steady walk, winter road, gentle",
+        "weight": 0
+      },
+      {
+        "text": "Clarinet and bassoon in a dry, plain 19th-century chamber style, a merchant's sober tune",
+        "weight": 0
+      },
+      {
+        "text": "String quartet, Tchaikovsky-like winter melancholy, restrained and tender",
+        "weight": 0
+      },
+      {
+        "text": "Low brass chorale, heavy and calm, the weight of a cold sky",
+        "weight": 0
+      },
+      {
+        "text": "Gusli zither strummed slowly, modal, ancient and plain",
+        "weight": 0
+      },
+      {
+        "text": "Music box slowly winding down in a warm room with a lamp, outside the snow",
+        "weight": 1.0
+      },
+      {
+        "text": "Ambient textures of wind over snow, soft noise, a few glassy tones",
+        "weight": 0
+      },
+      {
+        "text": "Solo violin, folk mode, a simple tune sung under the breath while working with a horse",
+        "weight": 0
+      },
+      {
+        "text": "Slow marimba and soft mallets, icy, minimal, a grey northern light",
+        "weight": 0
+      },
+      {
+        "text": "Harmonium sustained chords, a village church at dusk, plain and devout",
+        "weight": 0
+      }
+    ],
+    "bpm": 64,
+    "density": 0.3,
+    "brightness": 0.4,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
