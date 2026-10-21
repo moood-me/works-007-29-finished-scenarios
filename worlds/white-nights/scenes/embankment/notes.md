@@ -46,7 +46,7 @@ The view stands in the street 2.4 m off the parapet: the canal fills the left of
 - The street (`pavement`, −2.4 … 5.4): granite flags along the parapet, each slab its own shade; the roadway beyond of
   rounded setts, each stone drawn near the viewer (0…20 m, four greys, darker joints), only the courses' lines farther
   (to 45 m), then the plain tone; to the houses at across 5.4.
-- Near on the right, on the setts: a shallow puddle (`puddle`, across 1.7, 3 m off: a small mirror, the light sky in
+- Near on the right, on the setts: a shallow puddle (`puddle`, across 1.6, 3.8 m off: a small mirror, the light sky in
   its own pale lilac, the yellow house and the lamps in it) and a granite bollard at the roadway's edge (`bollard`,
   across 2.7, 4.2 m: a form turned on a lathe, `e.kit.revolve`) — the frame's near right is a street, not an empty
   floor.
