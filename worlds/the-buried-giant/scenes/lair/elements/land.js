@@ -2,10 +2,10 @@
 // metres ahead and `a` across is at (a, 140 - d). Heath and scree on the slopes, the path along the pit's left and up
 // the slope, the pit: a worn lip, steep walls streaked down their fall, an ash-pale floor strewn with stones
 const r = e.lib.rnd(3), P = (a, d) => [a, 140 - d], pit = e.lib.PIT;
-g.fillStyle = '#8b8473';
+g.fillStyle = '#80806a';
 g.fillRect(-150, -170, 300, 340);
 // broad patches: heather, pale dry grass, dark turf, grey scree — small near, big far
-const colors = ['#877d78', '#999377', '#837f68', '#918b79', '#8d8a83', '#86796f'];
+const colors = ['#86757a', '#9b9576', '#76805f', '#8e8a74', '#8a8882', '#7f7470'];
 for (let i = 0; i < 520; i++) {
   const d = -6 + Math.pow(r(), 1.6) * 310, a = (r() - 0.5) * (30 + d * 1.7), s = 0.3 + d * 0.045;
   if (e.lib.pitQ(a, d) < 1.1) continue;

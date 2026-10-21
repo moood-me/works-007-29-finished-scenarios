@@ -3,19 +3,19 @@
 const r = e.lib.rnd(9);
 g.fillStyle = '#6f7686';
 g.beginPath();
-g.moveTo(-400, 6);
-g.lineTo(-400, -22);
-g.bezierCurveTo(-300, -30, -200, -44, -130, -58);
-g.bezierCurveTo(-100, -64, -80, -70, -60, -72);
-g.bezierCurveTo(-36, -68, -10, -56, 30, -46);
-g.bezierCurveTo(110, -32, 220, -30, 400, -18);
-g.lineTo(400, 6);
+g.moveTo(-400, 4.8);
+g.lineTo(-400, -17.6);
+g.bezierCurveTo(-300, -24, -200, -35.2, -130, -46.4);
+g.bezierCurveTo(-100, -51.2, -80, -56, -60, -57.6);
+g.bezierCurveTo(-36, -54.4, -10, -44.8, 30, -36.8);
+g.bezierCurveTo(110, -25.6, 220, -24, 400, -14.4);
+g.lineTo(400, 4.8);
 g.closePath();
 g.fill();
 // gullies: darker streaks down its face
 g.fillStyle = '#626979';
 for (let i = 0; i < 24; i++) {
-  const x = -200 + r() * 300, top = -70 + Math.abs(x + 60) * 0.28 + r() * 6, len = 10 + r() * 22, w = 1.5 + r() * 3;
+  const x = -200 + r() * 300, top = -56 + Math.abs(x + 60) * 0.22 + r() * 5, len = 10 + r() * 22, w = 1.5 + r() * 3;
   g.beginPath();
   g.moveTo(x - w, top);
   g.lineTo(x + w * 0.4, top - 1.5);
@@ -27,11 +27,11 @@ for (let i = 0; i < 24; i++) {
 // a lower shoulder before it
 g.fillStyle = '#7a7f8b';
 g.beginPath();
-g.moveTo(-400, 6);
-g.lineTo(-400, -10);
-g.bezierCurveTo(-260, -16, -150, -26, -80, -22);
-g.bezierCurveTo(-20, -18, 60, -28, 140, -24);
-g.bezierCurveTo(220, -20, 300, -12, 400, -10);
-g.lineTo(400, 6);
+g.moveTo(-400, 4.8);
+g.lineTo(-400, -8);
+g.bezierCurveTo(-260, -12.8, -150, -20.8, -80, -17.6);
+g.bezierCurveTo(-20, -14.4, 60, -22.4, 140, -19.2);
+g.bezierCurveTo(220, -16, 300, -9.6, 400, -8);
+g.lineTo(400, 4.8);
 g.closePath();
 g.fill();

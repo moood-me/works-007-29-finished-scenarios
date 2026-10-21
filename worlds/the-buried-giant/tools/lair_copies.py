@@ -12,7 +12,7 @@ from pathlib import Path
 
 SCENE = Path(__file__).resolve().parent.parent / 'scenes' / 'lair' / 'scene.json'
 PIT = (10.5, 18.5, 8.5)  # as the scene's lib.PIT: across, distance, radius
-PEOPLE = ((0.9, 6.5), (-1.3, 6.9), (-2.0, 6.1), (-2.6, 5.7))
+PEOPLE = ((0.9, 7.6), (-4.0, 9.6), (-1.92, 5.51), (-1.3, 5.0))
 
 
 def pit_q(a, d):
@@ -37,14 +37,10 @@ def main():
     # fallen on the floor behind her
     for a, d, s in ((6.5, 22.5, 0.5), (14.5, 22, 0.6)):
         crags.append({'across': a, 'distance': d, 'scale': s, 'flip': rng.random() < 0.5, 'tint': rng.choice(tints)})
-    # up the slope on the left, beyond the path, and far up either side
-    for _ in range(5):
+    # up the slope on the left, beyond the path
+    for _ in range(4):
         d = rng.uniform(11, 40)
         crags.append({'across': round(-9 - 0.25 * d - rng.uniform(0, 8), 2), 'distance': round(d, 2), 'scale': round(rng.uniform(0.7, 1.5), 2),
-                      'flip': rng.random() < 0.5, 'tint': rng.choice(tints)})
-    for _ in range(4):
-        d = rng.uniform(40, 80)
-        crags.append({'across': round(rng.uniform(-40, 50), 2), 'distance': round(d, 2), 'scale': round(rng.uniform(1.4, 2.6), 2),
                       'flip': rng.random() < 0.5, 'tint': rng.choice(tints)})
     boulders = [
         {'across': 3.0, 'distance': 2.5, 'scale': 1.1, 'flip': False, 'tint': '#f2eee8'},
