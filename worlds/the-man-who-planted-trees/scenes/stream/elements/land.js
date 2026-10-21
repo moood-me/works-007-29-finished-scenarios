@@ -26,8 +26,8 @@ for (let i = 0; i < 90; i++) {
   g.fill();
 }
 for (let i = 0; i < 240; i++) {
-  const d = 1 + Math.pow(R(), 1.3) * 26, x = (R() - 0.5) * (14 + d * 2.4), r = 0.25 + R() * (0.35 + d * 0.04);
-  g.fillStyle = R() < 0.55 ? "rgba(132, 118, 84, 0.55)" : "rgba(186, 168, 126, 0.5)";
+  const d = 1 + Math.pow(R(), 1.3) * 26, x = (R() - 0.5) * (14 + d * 2.4), r = 0.2 + R() * (0.25 + d * 0.03);
+  g.fillStyle = R() < 0.55 ? "rgba(132, 118, 84, 0.35)" : "rgba(186, 168, 126, 0.4)";
   g.beginPath();
   g.ellipse(x, Y(d), r * (1.2 + R()), r * (0.6 + R() * 0.5), R() * 3, 0, Math.PI * 2);
   g.fill();
@@ -52,10 +52,17 @@ const along = (from, to, step, width, colour) => {
     g.stroke();
   }
 };
-along(-4, 46, 0.5, (d) => L.streamW(d) + 7 - d * 0.08, "rgba(128, 146, 92, 0.4)");
-along(-4, 46, 0.5, (d) => L.streamW(d) + 3.4 - d * 0.03, "#829659");
-along(-4, 160, 0.5, (d) => L.streamW(d) + 0.9, "#6a5a43");
-along(30, 160, 0.5, (d) => L.streamW(d) * 0.8, "#b9c4cb");
+along(-4, 46, 0.5, (d) => L.streamW(d) + 4.5 - d * 0.05, "rgba(128, 140, 92, 0.25)");
+along(-4, 160, 0.5, (d) => L.streamW(d) + 0.5, "#7d6c52");
+along(30, 160, 0.5, (d) => L.streamW(d) * 0.6, "#a9b5ba");
+// the new green on the banks, in patches
+for (let i = 0; i < 700; i++) {
+  const d = -3 + Math.pow(R(), 1.2) * 46, side = R() < 0.5 ? -1 : 1, x = L.streamX(d) + side * (L.streamW(d) / 2 + 0.3 + Math.pow(R(), 1.6) * 2.6), r = 0.12 + R() * 0.35;
+  g.fillStyle = R() < 0.5 ? "rgba(122, 140, 86, 0.55)" : "rgba(146, 160, 104, 0.5)";
+  g.beginPath();
+  g.ellipse(x, Y(d), r * 1.6, r, R() * 3, 0, Math.PI * 2);
+  g.fill();
+}
 // white stones along the water's edges
 for (let i = 0; i < 260; i++) {
   const d = -2 + R() * 44, side = R() < 0.5 ? -1 : 1, x = L.streamX(d) + side * (L.streamW(d) / 2 + 0.1 + R() * 0.8), r = 0.04 + R() * 0.1;

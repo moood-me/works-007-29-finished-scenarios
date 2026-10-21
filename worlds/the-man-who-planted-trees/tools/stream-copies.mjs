@@ -31,7 +31,7 @@ for (let k = 0, d0 = 18; d0 <= 80; k++, d0 += 4.2) {
   const reach = 1.25 * d0 + 6;
   for (let a0 = -reach + (k % 2) * 1.9; a0 <= reach; a0 += 3.8) {
     const a = a0 + (rnd() - 0.5) * 1.0, d = d0 + (rnd() - 0.5) * 1.2;
-    if (d < edge(a) || !offStream(a, d, 1.6)) continue;
+    if (d < edge(a) || (d < 50 && !offStream(a, d, 1.6))) continue;
     const kind = rnd(), id = kind < 0.4 ? 'oak_a' : kind < 0.75 ? 'oak_b' : 'oak_c';
     copies[id].push({ across: r2(a), distance: r2(d), scale: r2(0.85 + rnd() * 0.3), flip: rnd() < 0.5, tint: pick(TINTS) });
   }
@@ -41,7 +41,6 @@ for (let d0 = 84; d0 <= 260; d0 += 10) {
   const reach = 1.25 * d0 + 16;
   for (let a0 = -reach + rnd() * 6; a0 <= reach; a0 += 13) {
     const a = a0 + (rnd() - 0.5) * 3, d = d0 + (rnd() - 0.5) * 3;
-    if (d < 150 && !offStream(a, d, 3)) continue;
     copies.wood_far.push({ across: r2(a), distance: r2(d), scale: r2(1 + rnd() * 0.3), flip: rnd() < 0.5, tint: pick(TINTS) });
   }
 }
@@ -55,9 +54,9 @@ for (let d = 1.6; d < 32; d += 1.1 + rnd() * 1.2) {
   const side = rnd() < 0.5 ? -1 : 1, a = lib.streamX(d) + side * (lib.streamW(d) / 2 + 0.15 + rnd() * 0.45);
   if (clear(a, d, 0.7)) copies.stones.push({ across: r2(a), distance: r2(d), scale: r2(0.35 + rnd() * 0.55), flip: rnd() < 0.5 });
 }
-for (let d = 1.2; d < 30; d += 0.5 + rnd() * 0.7) {
+for (let d = 2.4; d < 30; d += 0.5 + rnd() * 0.7) {
   const side = rnd() < 0.5 ? -1 : 1, a = lib.streamX(d) + side * (lib.streamW(d) / 2 + 0.4 + rnd() * 1.4);
-  if (clear(a, d, 0.7)) copies.sedge.push({ across: r2(a), distance: r2(d), scale: r2(0.8 + rnd() * 0.5), flip: rnd() < 0.5 });
+  if (clear(a, d, 0.7)) copies.sedge.push({ across: r2(a), distance: r2(d), scale: r2(0.6 + rnd() * 0.4), flip: rnd() < 0.5 });
 }
 // dry tufts away from the water
 while (copies.grass.length < 24) {
