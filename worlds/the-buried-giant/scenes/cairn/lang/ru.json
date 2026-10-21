@@ -1,0 +1,14 @@
+{
+ "strings": [
+  {
+   "text": "The Giant's Cairn",
+   "translation": "Курган великана",
+   "where": "scenes/cairn/scene.json title"
+  },
+  {
+   "text": "A stone on the cairn, so that the giant sleeps.",
+   "translation": "Камень на курган — чтобы великан спал.",
+   "where": "scenes/cairn/scene.json caption"
+  }
+ ]
+}
