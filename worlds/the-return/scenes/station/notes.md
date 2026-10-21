@@ -60,9 +60,8 @@ eye), so the faces are seen near full, a little turned.
   of it).
 - `nastya` (0.8, 2.9, turned 175) — by the old man, holding the flap of his jacket (`nastya_reach` l, a point at his
   right side), looking low toward the eye, `neutral` (she does not remember her father).
-- `semyon` — `semyon_out` (new in the cast): his clean jacket, the cap on — (1.2, 3.1, turned 200), looking down toward
-  the girl's side and the eye (`semyon_look`, a point low before her: looking at her head itself, so near, bows his
-  face away under the cap), `neutral` (he only brought her: «Я на минутку. Довёл только»).
+- `semyon` — `semyon_out` (new in the cast): his clean jacket, the cap on — (1.2, 3.1, turned 200), looking along the line
+  with the others, nearly level (`semyon_look`): looking down at the girl, the cap's peak hides his eyes, `neutral` (he only brought her: «Я на минутку. Довёл только»).
 
 Ivanov is not in the picture: he is on the train. Other lights of this place (the junction's night in rain, Masha's
 station at dawn — the scenario's §4) are for later scenes or looks.
