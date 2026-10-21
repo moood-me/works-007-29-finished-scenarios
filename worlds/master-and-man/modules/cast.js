@@ -37,13 +37,13 @@ function faceOf(o) {
     const { axes, r: rh, on } = F.head, [, hu] = axes;
     const x = EXPRESSIONS[F.look.expression] ?? EXPRESSIONS.neutral, skin = F.colors.skin;
     const brow = tint(F.colors.hair, [0.62, 0.6, 0.6]), lips = tint(skin, [0.8, 0.6, 0.6]), shade = tint(skin, [0.84, 0.74, 0.72]);
-    const socket = tint(skin, [0.92, 0.84, 0.82]), flush = tint(skin, [1.02, 0.9, 0.88]), lash = [0.2, 0.15, 0.13];
+    const socket = tint(skin, [0.92, 0.84, 0.82]), flush = tint(skin, [1.0, 0.94, 0.92]), lash = [0.2, 0.15, 0.13];
     const eye = x.eye * o.eye, ev = 0.07 * eye, inner = x.inner + o.brow, outer = x.outer;
     // (where the lid's edge comes: from the eye's top down over lid of its height)
     const edge = 0.08 + ev - 2 * ev * o.lid;
     for (const sx of [-1, 1]) {
       // (the cold's flush over the cheekbone: wide, faint, no round spot)
-      F.ball(on([sx * 0.44, -0.1, 0.86], 0.97), axes, [rh * 0.24, rh * 0.15, rh * 0.03], flush, 10);
+      F.ball(on([sx * 0.44, -0.1, 0.86], 0.965), axes, [rh * 0.26, rh * 0.16, rh * 0.02], flush, 10);
       // (the socket's shade under the brow, round the eye)
       F.ball(on([sx * 0.3, 0.12, 0.92], 0.975), axes, [rh * 0.18, rh * 0.12, rh * 0.03], socket, 10);
       // (the white, the iris)
@@ -103,12 +103,12 @@ const BROW_FROST = [[-0.34, 0.3, 0.88], [0.36, 0.3, 0.88]];
 const BEARD_FROST = [[-0.18, 0.08], [0.16, 0.0], [-0.04, -0.28], [0.12, -0.42]];
 function frost(F) {
   const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out, white = [0.95, 0.97, 1.0];
-  for (const d of FROST) F.ball(h.on(d, 1.1), h.axes, [r * 0.13, r * 0.08, r * 0.05], white, 8);
-  for (const d of BROW_FROST) F.ball(h.on(d, 1.04), h.axes, [r * 0.06, r * 0.03, r * 0.03], white, 8);
+  for (const d of FROST) F.ball(h.on(d, 1.03), h.axes, [r * 0.12, r * 0.05, r * 0.02], white, 8);
+  for (const d of BROW_FROST) F.ball(h.on(d, 1.02), h.axes, [r * 0.06, r * 0.025, r * 0.015], white, 8);
   // (on the long beard's fall, before the chest; and its tip, white, an icicle or two under it)
   const c = add(h.at, add(mul(hu, -r * 1.25), mul(hf, r * 0.38 + r * 0.33)));
   for (const [sx, sy] of BEARD_FROST) {
-    F.ball(add(c, add(mul(h.axes[0], r * sx), mul(hu, r * sy))), h.axes, [r * 0.14, r * 0.1, r * 0.05], white, 8);
+    F.ball(add(c, add(mul(h.axes[0], r * sx), mul(hu, r * sy * 0.8))), h.axes, [r * 0.13, r * 0.06, r * 0.02], white, 8);
   }
   for (const sx of [-0.12, 0.1]) {
     const top = add(c, add(mul(h.axes[0], r * sx), mul(hu, -r * 0.5)));
