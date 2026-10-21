@@ -1,26 +1,27 @@
 // The yoke the buckets were carried on, lying on the sand before them, seen from above (x across, y toward the eye): a
 // curved pole of pale wood, thicker in its middle where it lay on the shoulders, a short chain and hook at either end.
 const L = e.lib;
-g.strokeStyle = "#9c7e54";
 g.lineCap = "round";
-g.lineWidth = 0.07;
+g.strokeStyle = "#8a6c45";
+g.lineWidth = 0.11;
 g.beginPath();
-g.moveTo(-0.72, 0.06);
-g.quadraticCurveTo(0, -0.2, 0.72, 0.06);
+g.moveTo(-0.66, 0.12);
+g.quadraticCurveTo(0, -0.34, 0.66, 0.12);
 g.stroke();
-g.strokeStyle = "#b8996a";
-g.lineWidth = 0.025;
+g.strokeStyle = "#c2a374";
+g.lineWidth = 0.045;
 g.beginPath();
-g.moveTo(-0.6, 0.01);
-g.quadraticCurveTo(0, -0.21, 0.6, 0.01);
+g.moveTo(-0.56, 0.04);
+g.quadraticCurveTo(0, -0.36, 0.56, 0.04);
 g.stroke();
-g.strokeStyle = "#4b4740";
-g.lineWidth = 0.018;
+// (the chains and hooks at its ends, lying on the sand)
+g.strokeStyle = "#45413a";
+g.lineWidth = 0.03;
 for (const s of [-1, 1]) {
   g.beginPath();
-  g.moveTo(s * 0.72, 0.06);
-  g.lineTo(s * 0.8, 0.16);
-  g.lineTo(s * 0.76, 0.24);
+  g.moveTo(s * 0.66, 0.12);
+  g.lineTo(s * 0.74, 0.26);
+  g.arc(s * 0.71, 0.3, 0.045, -0.5, Math.PI + 0.5);
   g.stroke();
 }
-L.paper(g, -0.85, -0.25, 1.7, 0.55, 0.7);
+L.paper(g, -0.85, -0.3, 1.7, 0.7, 0.7);

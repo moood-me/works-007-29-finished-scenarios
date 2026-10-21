@@ -129,7 +129,7 @@ g.lineTo(X(7.8), Y(10));
 g.bezierCurveTo(X(7.8), Y(6.5), X(9.4), Y(3.5), X(10.8), Y(0));
 g.closePath();
 g.fill();
-for (const [off, color, w] of [[-0.62, "#a48e68", 0.24], [0.62, "#a48e68", 0.24], [0, "#a7a271", 0.3]]) {
+for (const [off, color, w] of [[-0.62, "#bba57e", 0.16], [0.62, "#bba57e", 0.16], [0, "#b9b07f", 0.22]]) {
   g.strokeStyle = color;
   g.lineWidth = w;
   g.beginPath();

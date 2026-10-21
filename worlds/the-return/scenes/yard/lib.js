@@ -2,14 +2,14 @@
 // the crossing at the top of the rise, and the dirt road climbs a long ramp up to it), and the gouache's touch — dry
 // strokes with ragged edges over a flat ground, and the tooth of rough paper showing through the paint.
 
-// the embankment's top over the yard at `across` (metres): 1.3 m on the left, by the station's side, rising to 2.6 m at
+// the embankment's top over the yard at `across` (metres): 1.0 m on the left, by the station's side, rising to 1.9 m at
 // the crossing (across 8.5) and level beyond it
-const top = (across) => 1.3 + 1.3 * anim.ease.smooth(anim.span(across, -16, 8.5));
+const top = (across) => 1.0 + 0.9 * anim.ease.smooth(anim.span(across, -16, 8.5));
 // how far the road's ramp reaches toward the eye at `across`: 0 off the road, 1 across it (7.8 … 10.2)
 const ramp = (across) => anim.span(across, 6.8, 7.8) - anim.span(across, 10.2, 11.2);
 // how much of the embankment's height stands at `distance` (and `across`): its near slope from 14 to 15.6 — where the
-// road climbs, from 9 — its top to 17.8, its far slope to 19.6
-const ridge = (across, distance) => anim.ease.smooth(anim.span(distance, 14 - 5 * ramp(across), 15.6)) - anim.span(distance, 17.8, 19.6);
+// road climbs, from 11.5 — its top to 17.8, its far slope to 19.6
+const ridge = (across, distance) => anim.ease.smooth(anim.span(distance, 14 - 2.5 * ramp(across), 15.6)) - anim.span(distance, 17.8, 19.6);
 // where the two rails lie (metres ahead), how high a rail stands over the ballast, where the crossing is (across)
 const RAILS = [16.2, 17.2];
 const RAIL = 0.15;
@@ -68,7 +68,7 @@ function paperOf() {
 }
 // the paper's tooth laid over what is painted in the rectangle x, y, w, h (only over paint: nothing where it is clear),
 // one tile `size` units across, at `alpha` — a tile as big as the grain stays a pixel or so on the screen: about a fifth
-// of the distance it is seen from, in metres; 0.17 stage heights on the sky
+// of the distance it is seen from, in metres; 0.12 stage heights on the sky, faintly
 function paper(g, x, y, w, h, size, alpha = 1) {
   g.save();
   g.globalCompositeOperation = "source-atop";
