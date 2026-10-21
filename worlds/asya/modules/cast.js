@@ -15,11 +15,11 @@ return {
     asya: { kind: 'shapes', style: 'etude', who: 'woman', garment: 'dress', hair: 'bob',
       body: { height: 0.9, thick: 0.78, shoulders: 0.84, head: 1.04 },
       colors: { skin: '#d9a982', hair: '#1d1613', top: '#eeebe3', garment: '#e6e8e6', shoes: '#5b4a3c' } },
-    // Gagin, about thirty: soft, a little heavy, kind; a painter's loose linen jacket, a light shirt, a short soft
-    // brown beard, bare-headed
-    gagin: { kind: 'shapes', style: 'etude', who: 'man', garment: 'jacket', hair: 'short', parts: ['beard'],
+    // Gagin, about thirty: soft, a little heavy, kind; a painter's loose olive-brown linen jacket over a white shirt,
+    // grey trousers, bare-headed, his brown hair
+    gagin: { kind: 'shapes', style: 'etude', who: 'man', garment: 'jacket', hair: 'short',
       body: { height: 1.0, thick: 1.08, shoulders: 1.02 },
-      colors: { skin: '#e0b896', hair: '#7a5636', top: '#f1ece1', garment: '#cdbb92', bottom: '#8d846f', shoes: '#4a3a2c' } },
+      colors: { skin: '#e0b896', hair: '#6e4a2e', top: '#f4f0e6', garment: '#8e7d58', bottom: '#77746c', shoes: '#4a3a2c' } },
     // N. N., twenty-five: slim, upright, a young gentleman abroad — a dark green-blue frock coat, a white shirt, a
     // dark cravat, light trousers, bare-headed
     nn: { kind: 'shapes', style: 'etude', who: 'man', garment: 'frockcoat', hair: 'short', scarf: true,
@@ -36,12 +36,6 @@ return {
       frockcoat: { name: 'frock coat', hang: [{ to: 0.85, from: 'shoulders', flare: 0.16 }], sleeves: 'garment' },
     },
     parts: {
-      // a short soft beard round the jaw and the chin
-      beard: { name: 'beard', draw: F => {
-        const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
-        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.03), [0, -0.82, 0.57], 0.62, F.colors.hair, h.sides, h.square);
-        F.ball(add(h.at, add(mul(hu, -r * 0.86), mul(hf, r * 0.5))), h.axes, [r * 0.36, r * 0.24, r * 0.24], F.colors.hair, h.sides);
-      } },
       // Gagin's brush in the right hand, dry: the handle along the fist, the tip a touch of ochre
       brush: { name: 'brush', draw: F => {
         const { add, mul } = V(), m = F.fit.h, h = F.P('RightHand'), [s, , f] = axesOf(F, 'RightHand');

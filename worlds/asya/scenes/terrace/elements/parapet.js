@@ -3,7 +3,7 @@
 const L = e.lib;
 const ACROSS = 2.7;
 const D = 4.1;
-const box = [-5.3, -0.62, 5.3, 0.02];
+const box = [-5.3, -0.8, 5.3, 0.02];
 g.fillStyle = "#c4b495";
 g.fillRect(box[0], -0.6, box[2] - box[0], 0.62);
 let n = 0;
@@ -21,7 +21,7 @@ g.fillRect(box[0], -0.62, box[2] - box[0], 0.1);
 // grass at its foot, and a vine creeping along it
 g.fillStyle = "#7f9c58";
 for (let i = 0; i < 40; i++) {
-  const x = box[0] + (box[2] - box[0]) * L.rnd(i, 83);
+  const x = box[0] + 0.15 + (box[2] - box[0] - 0.3) * L.rnd(i, 83);
   g.beginPath();
   g.ellipse(x, -0.02, 0.06 + 0.06 * L.rnd(i, 85), 0.03 + 0.03 * L.rnd(i, 87), 0, Math.PI, 0);
   g.fill();

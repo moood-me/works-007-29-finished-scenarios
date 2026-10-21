@@ -22,14 +22,14 @@ for (let y = -4, i = 0; y > -240; y -= 9 + 3 * L.rnd(i, 3), i++) {
   let x0 = -430;
   while (x0 < 520 && topAt(x0) > y - 2) x0 += 4;
   if (x0 >= 520) break;
-  g.fillStyle = ["#aebc78", "#a3b56f", "#b8c27f"][i % 3];
+  g.fillStyle = ["#a9b973", "#a4b56e", "#adbc76"][i % 3];
   g.fillRect(x0, y - 8, 520 - x0, 8);
   // the vines' rows along the terrace, a darker green line each
-  g.fillStyle = "rgba(96, 120, 70, 0.55)";
+  g.fillStyle = "rgba(96, 120, 70, 0.3)";
   g.fillRect(x0, y - 6.4, 520 - x0, 1.2);
   g.fillRect(x0, y - 3.6, 520 - x0, 1.2);
-  g.fillStyle = "#d8cdb2";
-  g.fillRect(x0, y - 1.3, 520 - x0, 1.3);
+  g.fillStyle = "rgba(216, 205, 178, 0.7)";
+  g.fillRect(x0, y - 0.9, 520 - x0, 0.9);
 }
 // the path zigzagging down
 g.strokeStyle = "#e3d6b8";

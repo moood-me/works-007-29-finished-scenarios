@@ -22,7 +22,7 @@ for (let s = 0; s < 8; s++) {
       const size = 0.17 + 0.1 * L.rnd(n, 139);
       L.leaf(v, x, y, size, -0.6 + 1.2 * L.rnd(n, 141));
       if (k < 0.95) {
-        v.fillStyle = L.toPaper(["#6e9a46", "#82ab52", "#5d8a3e", "#97b863"][n % 4], k);
+        v.fillStyle = L.toPaper(["#6a8c45", "#7d9c52", "#5a7a3c", "#8aa65c"][n % 4], k);
         v.fill();
       }
       if (k > 0.1) {

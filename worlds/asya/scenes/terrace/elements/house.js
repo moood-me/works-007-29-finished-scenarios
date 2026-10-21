@@ -4,7 +4,7 @@
 const L = e.lib;
 const ACROSS = -5.8;
 const D = 4.1;
-const box = [-3.2, -4.4, 3.2, 0.02];
+const box = [-3.2, -4.75, 3.2, 0.04];
 // the wall: whitewash with a little warm wash in it
 g.fillStyle = "#f2ede2";
 g.fillRect(-3.2, -4.4, 6.4, 4.42);

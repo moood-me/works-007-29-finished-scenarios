@@ -7,12 +7,12 @@ geometry softened (limbs taper, no bars), lit by the scene, a fine line, the fac
 ## Who
 
 - `asya` — Asya, seventeen: small, slight, a swarthy round face, black hair short like a boy's in curls, a white dress.
-- `gagin` — Gagin, about thirty: soft, a little heavy, a painter's linen jacket, a short brown beard (`beard`).
+- `gagin` — Gagin, about thirty: soft, a little heavy, a painter's olive-brown linen jacket over a white shirt.
 - `nn` — N. N., twenty-five: slim, a dark green-blue frock coat (`frockcoat`), a dark cravat, light trousers.
 
 ## Things (`<id>_with`, or a look's `parts`)
 
-`brush` — a dry brush in the right hand. `beard` — a short beard (a look's).
+`brush` — a dry brush in the right hand.
 
 ## Motions
 
