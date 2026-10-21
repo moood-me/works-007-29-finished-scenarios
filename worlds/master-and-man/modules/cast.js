@@ -25,62 +25,43 @@ const EXPRESSIONS = {
 const DARK = [0.16, 0.12, 0.11];
 const EYE_WHITE = [0.93, 0.92, 0.9];
 
-// the world's face, drawn after a painter's, not a doll's: the eye in its socket (a soft shade round it), its white, the
-// iris, and over it the upper lid — skin coming down over the eye, its edge a dark line of lashes —, a fold under it; a
-// heavy brow; a nose with its wings; the folds from the nose to the mouth's corners; the lips; the cold's flush wide and
-// faint over the cheekbones. Its own for each of them (`o`): how far the lid comes down (lid 0…1 of the eye — a heavy,
-// fixed gaze, or an open one), the brows drawn together or lifted (brow, over the expression's), how thick (browW), the
-// eye's size (eye), the iris's colour, the folds and the bags of age (folds, bags 0/1). An expression (<id>_mood) moves
-// the same solids: there are as many for every one of them.
+// the world's face: drawn bold and plain so it reads across the yard (six to nine metres off) — a white eye with a
+// dark iris, the upper lid's dark line over it (lowered over the eye: a heavy look), thick brows, a nose, a full line
+// of darker lips, the cold's flush faint over the cheeks. Its own for each of them (`o`): how far the lid comes down
+// (lid 0…1), the brows drawn together (−) or lifted (brow, over the expression's), how thick (browW), the eye's size
+// (eye). An expression (<id>_mood) moves the same solids: there are as many for every one of them.
 function faceOf(o) {
   return F => {
     const { axes, r: rh, on } = F.head, [, hu] = axes;
     const x = EXPRESSIONS[F.look.expression] ?? EXPRESSIONS.neutral, skin = F.colors.skin;
-    const brow = tint(F.colors.hair, [0.62, 0.6, 0.6]), lips = tint(skin, [0.8, 0.6, 0.6]), shade = tint(skin, [0.84, 0.74, 0.72]);
-    const socket = tint(skin, [0.92, 0.84, 0.82]), flush = tint(skin, [1.0, 0.94, 0.92]), lash = [0.2, 0.15, 0.13];
-    const eye = x.eye * o.eye, ev = 0.07 * eye, inner = x.inner + o.brow, outer = x.outer;
+    const brow = tint(F.colors.hair, [0.55, 0.52, 0.5]), lips = tint(skin, [0.7, 0.5, 0.48]), nose = tint(skin, [0.97, 0.93, 0.92]);
+    const flush = tint(skin, [1.0, 0.9, 0.88]), lash = [0.17, 0.12, 0.1];
+    const ev = 0.1 * x.eye * o.eye, inner = x.inner + o.brow, outer = x.outer;
     // (where the lid's edge comes: from the eye's top down over lid of its height)
-    const edge = 0.08 + ev - 2 * ev * o.lid;
+    const edge = 0.07 + ev - 2 * ev * o.lid;
     for (const sx of [-1, 1]) {
-      // (the cold's flush over the cheekbone: wide, faint, no round spot)
-      F.ball(on([sx * 0.44, -0.1, 0.86], 0.965), axes, [rh * 0.26, rh * 0.16, rh * 0.02], flush, 10);
-      // (the socket's shade under the brow, round the eye)
-      F.ball(on([sx * 0.3, 0.12, 0.92], 0.975), axes, [rh * 0.18, rh * 0.12, rh * 0.03], socket, 10);
-      // (the white, the iris)
-      F.ball(on([sx * 0.3, 0.08, 0.93], 0.985), axes, [rh * 0.12, rh * ev, rh * 0.035], EYE_WHITE, 10);
-      F.ball(on([sx * 0.29, 0.075, 0.95], 0.993), axes, [rh * 0.058, rh * Math.min(ev, 0.062), rh * 0.04], o.iris, 10);
-      // (the upper lid: skin down over the eye's top to its edge, and the line of lashes along that edge)
-      F.ball(on([sx * 0.3, edge + 0.075, 0.94], 1.0), axes, [rh * 0.135, rh * 0.075, rh * 0.04], skin, 10);
-      F.tube([on([sx * 0.18, edge + 0.012, 0.95], 1.004), on([sx * 0.3, edge, 0.95], 1.006), on([sx * 0.42, edge + 0.02, 0.9], 1.004)],
-        [[0, rh * 0.012], [1, rh * 0.017], [2, rh * 0.01]], [[0, lash]], 6, hu);
-      // (the fold under the eye: a bag, with age)
-      F.tube([on([sx * 0.2, 0.0, 0.95], 0.996), on([sx * 0.3, -0.03 - 0.02 * o.bags, 0.94], 0.998), on([sx * 0.41, 0.0, 0.9], 0.996)],
-        [[0, rh * 0.008], [1, rh * (0.01 + 0.006 * o.bags)], [2, rh * 0.008]], [[0, shade]], 6, hu);
-      // (the brow: heavy, its inner end drawn down and in, or lifted)
-      F.tube([on([sx * 0.1, 0.27 + inner, 0.96], 1.0), on([sx * 0.27, 0.31 + (inner + outer) / 2, 0.92], 1.006), on([sx * 0.46, 0.27 + outer, 0.84], 1.0)],
-        [[0, rh * 0.034 * o.browW], [1, rh * 0.04 * o.browW], [2, rh * 0.02 * o.browW]], [[0, brow]], 6, hu);
-      // (the nose's wing, and the fold from it down to the mouth's corner)
-      F.ball(on([sx * 0.1, -0.18, 0.98], 0.985), axes, [rh * 0.06, rh * 0.05, rh * 0.05], shade, 8);
-      F.tube([on([sx * 0.15, -0.17, 0.95], 0.995), on([sx * (x.wide + 0.1), -0.32, 0.92], 0.995), on([sx * (x.wide + 0.06), -0.43 + x.corners, 0.9], 0.993)],
-        [[0, rh * 0.01 * o.folds], [1, rh * 0.012 * o.folds], [2, rh * 0.006 * o.folds]], [[0, shade]], 6, hu);
+      F.ball(on([sx * 0.44, -0.12, 0.86], 0.97), axes, [rh * 0.2, rh * 0.13, rh * 0.02], flush, 10);
+      F.ball(on([sx * 0.33, 0.07, 0.93], 0.978), axes, [rh * 0.14, rh * ev, rh * 0.04], EYE_WHITE, 10);
+      F.ball(on([sx * 0.32, 0.065, 0.95], 0.99), axes, [rh * 0.082, rh * Math.min(0.088, ev * 0.96), rh * 0.035], o.iris, 10);
+      // (the upper lid: skin down over the eye's top to its edge, its edge a dark line)
+      F.ball(on([sx * 0.33, edge + 0.08, 0.94], 1.0), axes, [rh * 0.155, rh * 0.08, rh * 0.04], skin, 10);
+      F.tube([on([sx * 0.19, edge + 0.01, 0.95], 1.004), on([sx * 0.33, edge, 0.95], 1.006), on([sx * 0.47, edge + 0.025, 0.88], 1.004)],
+        [[0, rh * 0.018], [1, rh * 0.024], [2, rh * 0.014]], [[0, lash]], 6, hu);
+      F.tube([on([sx * 0.13, 0.31 + inner, 0.94], 0.998), on([sx * 0.31, 0.35 + (inner + outer) / 2, 0.9], 1.004), on([sx * 0.5, 0.3 + outer, 0.82], 0.998)],
+        [[0, rh * 0.05 * o.browW], [1, rh * 0.058 * o.browW], [2, rh * 0.036 * o.browW]], [[0, brow]], 6, hu);
     }
-    // (the nose: its bridge down from between the eyes, its tip a little redder in the cold)
-    F.tube([on([0, 0.12, 0.99], 0.985), on([0, -0.08, 1], 1.03)], [[0, rh * 0.05], [1, rh * 0.075]], [[0, skin]], 8, hu);
-    F.ball(on([0, -0.12, 1], 1.0), axes, [rh * 0.09, rh * 0.085, rh * 0.09], tint(skin, [1.02, 0.9, 0.88]), 10);
-    // (the mouth: open — a dark oval within it — or closed; the upper lip's line, its corners up or down; the lower
-    // lip's fullness under it)
-    const w = x.wide, y = -0.36;
+    F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.1, rh * 0.14, rh * 0.13], nose, 10);
+    const w = x.wide, y = -0.4;
     F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.75, rh * x.open, rh * 0.03], DARK, 10);
-    F.tube([on([-w, y + x.corners, 0.93], 0.995), on([0, y, 0.95], 1.0), on([w, y + x.corners, 0.93], 0.995)], [[0, rh * 0.018], [1, rh * 0.024], [2, rh * 0.014]], [[0, lips]], 6, hu);
-    F.ball(on([0, y - 0.06 - x.open, 0.95], 0.99), axes, [rh * w * 0.6, rh * 0.03, rh * 0.03], tint(skin, [0.92, 0.76, 0.74]), 8);
+    F.tube([on([-w, y + x.corners, 0.93], 0.995), on([0, y, 0.94], 1.0), on([w, y + x.corners, 0.93], 0.995)], [[0, rh * 0.036], [1, rh * 0.044], [2, rh * 0.034]], [[0, lips]], 6, hu);
   };
 }
-// the face of anyone else of the world, and each one's own: the master's heavy, half-lidded, reckoning gaze under drawn brows, the age in it; Nikita's open,
-// mild, creased eyes; Praskovya's wide eyes, light brows, a young face
-const FACE_ANY = { lid: 0.2, brow: 0, browW: 1, eye: 1, iris: [0.3, 0.27, 0.25], folds: 0.5, bags: 0 };
-const FACE_VASILY = { lid: 0.48, brow: -0.035, browW: 1.3, eye: 0.95, iris: [0.22, 0.15, 0.11], folds: 1, bags: 1 };
-const FACE_NIKITA = { lid: 0.22, brow: 0.025, browW: 1.15, eye: 0.95, iris: [0.36, 0.42, 0.48], folds: 1, bags: 1 };
-const FACE_PRASKOVYA = { lid: 0.12, brow: 0.01, browW: 0.75, eye: 1.08, iris: [0.32, 0.3, 0.3], folds: 0.3, bags: 0 };
+// the face of anyone else of the world, and each one's own: the master's heavy, half-lidded, reckoning gaze under
+// thick drawn brows; Nikita's open, mild eyes, his brows lifted a little; Praskovya's wide eyes, light brows
+const FACE_ANY = { lid: 0.2, brow: 0, browW: 1, eye: 1, iris: [0.2, 0.16, 0.14] };
+const FACE_VASILY = { lid: 0.42, brow: -0.04, browW: 1.25, eye: 1.0, iris: [0.16, 0.11, 0.08] };
+const FACE_NIKITA = { lid: 0.18, brow: 0.03, browW: 1.05, eye: 0.95, iris: [0.3, 0.36, 0.42] };
+const FACE_PRASKOVYA = { lid: 0.08, brow: 0.02, browW: 0.75, eye: 1.08, iris: [0.24, 0.22, 0.22] };
 
 // a beard over the jaw and the chin — below the mouth's corners, the nose, the eyes and the cheeks above it bare (a
 // profile reads) —, in the colour of the hair, and a moustache over the mouth; `long` — how far it falls on the chest
@@ -154,7 +135,7 @@ return {
     nikita: { kind: 'shapes', style: 'tolstoy', who: 'man', garment: 'armyak', hair: 'short', hat: 'sheepskin_hat', face: 'tolstoy_nikita',
       parts: ['beard_long', 'beard_frost', 'sash'],
       body: { height: 0.98, thick: 0.9, shoulders: 1.0 },
-      colors: { skin: '#d49274', hair: '#c4bfb8', top: '#a99d86', garment: '#7f725c', bottom: '#5b5349', shoes: '#6c655d', hat: '#6a5d4c', accent: '#c4262c' } },
+      colors: { skin: '#d49274', hair: '#c4bfb8', top: '#7f725c', garment: '#7f725c', bottom: '#5b5349', shoes: '#6c655d', hat: '#6a5d4c', accent: '#c4262c' } },
     // Praskovya Mikhailovna, his wife: slight, a dark blue dress with long sleeves down to the floor, a light woollen
     // shawl over her head
     praskovya: { kind: 'shapes', style: 'tolstoy', who: 'woman', garment: 'long_dress', hair: 'bun', hat: 'shawl', face: 'tolstoy_praskovya',
@@ -165,9 +146,9 @@ return {
     // the world's style: a painter's figure, not a toy's — true proportions (the head as a grown man's, the face longer
     // than wide, a neck, legs and arms of their length, a trunk as deep as a body is), rounded, a fine line of a darker
     // shade, hands with fingers, felt boots; painted toned, lit by the scene
-    styles: { tolstoy: { from: 'soft', name: 'Tolstoy', head: 1.12, egg: [0.9, 1.08, 0.98], neck: 0.85, legs: 1.04, limb: 0.86,
+    styles: { tolstoy: { from: 'soft', name: 'Tolstoy', head: 1.18, egg: [0.9, 1.08, 0.98], neck: 0.85, legs: 1.04, limb: 0.86,
       trunk: { w: [0.92, 0.96, 0.84, 0.96, 0.98], d: [0.92, 0.94, 0.86, 0.9, 0.82] }, line: 1.3,
-      folds: { n: 7, depth: 0.05 }, arms: 'palm', fingers: true, feet: 'boot', face: 'tolstoy' } },
+      folds: { n: 7, depth: 0.05 }, arms: 'palm', feet: 'boot', face: 'tolstoy' } },
     faces: {
       tolstoy: { name: "the world's face", draw: faceOf(FACE_ANY) },
       tolstoy_vasily: { name: "the master's face", draw: faceOf(FACE_VASILY) },
@@ -180,8 +161,9 @@ return {
       fox_coat: { name: 'fox-fur coat', hang: [{ to: 1.32, from: 'shoulders', flare: 0.16 }], sleeves: 'garment' },
       // the wife's dress: long sleeves, the skirt full from the waist down to the floor
       long_dress: { name: 'long dress', hang: [{ to: 2.02, from: 'waist', flare: 0.5, off: 0.94 }], bodice: true },
-      // the workman's coat of homespun: to the knee, worn ragged at the hem
-      armyak: { name: 'homespun coat', hang: [{ to: 1.12, from: 'shoulders', flare: 0.2, ragged: true }], sleeves: 'garment' },
+      // the workman's coat of homespun, belted: its body the look's top (the same cloth), its skirt from the waist to the
+      // knee, worn ragged at the hem — the sash round the waist over it
+      armyak: { name: 'homespun coat', hang: [{ to: 1.12, from: 'waist', flare: 0.3, ragged: true }] },
     },
     hats: {
       // a tall round fur hat: a band of fur over the crown (the brows and the forehead below it), a tall dome over it
@@ -231,7 +213,7 @@ return {
       fur_cuffs: { name: 'fur cuffs', draw: cuffs },
       // the red sash round the waist, over the coat, knotted at the left hip, its two ends hanging and swinging
       sash: { name: 'red sash', draw: F => {
-        const { add, mul } = V(), m = F.fit.h, waist = F.trunk(1.2)[2], [c, sd, fw, w, d] = waist, up = F.up('Spine1');
+        const { add, mul } = V(), m = F.fit.h, waist = F.trunk(1.24)[2], [c, sd, fw, w, d] = waist, up = F.up('Spine1');
         const K = F.keep(SASH);
         for (let j = 0; j < 2; j++) { K.sec[j][0] = add(c, mul(up, (j * 2 - 1) * 0.035 * m)); K.sec[j][1] = sd; K.sec[j][2] = fw; K.sec[j][3] = w; K.sec[j][4] = d; K.band[j] = F.ringOf(K.sec[j], 24, 2.4); }
         F.rings(K.band, F.colors.accent, null, null);

@@ -6,7 +6,7 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.82,
+    "ambient": 0.74,
     "ambientColor": "#c2d1ec",
     "bounce": 0.6,
     "haze": 0.46,
@@ -14,10 +14,10 @@
     "hazeGlow": 0.45,
     "shafts": 0.12,
     "tint": "#c6d6f0",
-    "tintStrength": 0.17,
-    "saturation": 0.92,
-    "vignette": 0.3,
-    "grain": 0.08,
+    "tintStrength": 0.12,
+    "saturation": 1.0,
+    "vignette": 0.32,
+    "grain": 0.1,
     "wind": [
       -2.4,
       0.15,
@@ -28,11 +28,11 @@
     {
       "id": "sun",
       "from": [
-        175,
-        14
+        118,
+        13
       ],
       "color": "#e4edff",
-      "strength": 0.55
+      "strength": 0.95
     },
     {
       "id": "window_lamp",
@@ -63,40 +63,21 @@
     "praskovya_look": "vasily",
     "praskovya_mood": "sad",
     "nikita_look": [
-      -0.2,
-      3.3,
-      1.75
+      -0.4,
+      3.2,
+      2.0
     ],
     "nikita_reach": {
       "l": {
         "on": "horse",
         "at": [
-          -1.36,
-          -0.06,
-          1.36
+          -1.41,
+          -0.08,
+          1.32
         ]
       }
     },
-    "nikita_mood": "smile",
-    "praskovya_reach": {
-      "r": [
-        -1.62,
-        5.12,
-        2.0
-      ],
-      "l": [
-        -1.3,
-        5.05,
-        1.9
-      ]
-    },
-    "vasily_reach": {
-      "r": [
-        -0.74,
-        4.46,
-        2.12
-      ]
-    }
+    "nikita_mood": "smile"
   },
   "states": {
     "snow": {
@@ -360,14 +341,14 @@
     {
       "id": "horse",
       "name": "Mukhorty",
-      "across": 2.04,
-      "distance": 5.17,
-      "facing": 137,
+      "across": 2.2,
+      "distance": 5.0,
+      "facing": 160,
       "height": 2.3,
       "box": [
-        -1.65,
-        -2.32,
-        2.3,
+        -1.7,
+        -2.35,
+        1.85,
         0.08
       ],
       "shadow": true
@@ -376,7 +357,7 @@
       "id": "sleigh",
       "name": "Sleigh",
       "on": "horse",
-      "across": 3.2,
+      "across": 2.5,
       "distance": 0.08,
       "facing": 180,
       "height": 1.25,
@@ -408,7 +389,7 @@
         "cast": "cast",
         "who": "praskovya",
         "turn": 140,
-        "does": "stand"
+        "does": "hands_breast"
       },
       "across": -1.7,
       "distance": 5.25,
@@ -420,11 +401,11 @@
       "person": {
         "cast": "cast",
         "who": "nikita",
-        "turn": 215,
+        "turn": 205,
         "does": "stand"
       },
-      "across": 0.6,
-      "distance": 4.0,
+      "across": 0.55,
+      "distance": 4.1,
       "shadow": true
     },
     {
@@ -444,11 +425,11 @@
       "id": "drift_near",
       "name": "Ground wind, near",
       "across": 3.6,
-      "distance": 5.6,
-      "height": 0.9,
+      "distance": 6.8,
+      "height": 0.6,
       "box": [
         -8,
-        -0.9,
+        -0.6,
         8,
         0.02
       ]
@@ -502,9 +483,9 @@
           "over": 0.4
         },
         "direction": [
-          -0.8,
-          -0.55,
-          -0.25
+          -0.85,
+          -0.35,
+          -0.3
         ],
         "spread": 25,
         "speed": [

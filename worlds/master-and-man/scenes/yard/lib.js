@@ -6,8 +6,8 @@ const C = {
   snow: "#eaf0f7",
   snowShade: "#c4d2e6",
   snowDeep: "#a9bcd8",
-  wood: "#837a70",
-  woodDark: "#5a5048",
+  wood: "#6f6459",
+  woodDark: "#4a4038",
   woodLight: "#a19a90",
   woodGrey: "#9a9188",
   seam: "#463e37",
@@ -41,7 +41,7 @@ function snowCap(g, x0, x1, y, thick, seed) {
 // a wall of horizontal logs from x0 to x1, from y0 (top) to y1 (bottom), each `log` metres high: each log its own
 // weathered shade (silver-grey to brown), lighter along its round top, a dark seam of moss and shadow under it, long
 // cracks along it and here and there a knot
-const LOG_SHADES = ["#8e8170", "#9a8c79", "#857868", "#a39582", "#7f7466", "#958673"];
+const LOG_SHADES = ["#76685a", "#817262", "#6d6053", "#8a7a68", "#665a4e", "#7c6d5d"];
 function logs(g, x0, x1, y0, y1, log, rnd) {
   g.fillStyle = C.wood;
   g.fillRect(x0, y0, x1 - x0, y1 - y0);
