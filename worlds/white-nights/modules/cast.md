@@ -1,7 +1,7 @@
 # cast — the people of «White Nights» as the engine's people
 
 A module for scenes with people (elements with `person`: `{"cast": "cast", "who": …}` — the engine's people.md). In
-the scene's `modules`. 4 looks, 6 parts, 2 motions of its own (below) besides the engine's `stand` and `walk`. The parts'
+the scene's `modules`. 5 looks, 7 parts, 2 motions of its own (below) besides the engine's `stand` and `walk`. The parts'
 lengths are a man's metres times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
@@ -26,6 +26,8 @@ expressions, by name). Hems are even (no ragged edge).
   (`tophat`); at his chest instead: `"_wear": {"hat": "none"}` and `hat_hand`.
 - `babushka` — Grandmother, past seventy, blind: small, a dark plum silk dress to the floor, a faded mustard shawl over
   the shoulders, white hair under a white cap (`mobcap`) tied with a lilac ribbon.
+- `matryona` — Matryona, the Dreamer's servant, past sixty: short and broad, a brown homespun dress to the floor, a
+  faded brick-red shawl over the shoulders, a washed linen kerchief (`kerchief`) tied under the chin over grey hair.
 
 At home Nastenka is the same character with her look changed over it: `"look": {"garment": "frock", "hat": "none",
 "hair": "bun"}` — her dress without the mantle, no bonnet, her hair up.
@@ -43,6 +45,9 @@ At home Nastenka is the same character with her look changed over it: `"look": {
   little down (the arm as the motion has it).
 - `book` — an open book held in both hands, between them, its pages turned to the reader's face; its point
   `<id>#book` (to look at it).
+- `letter` — a folded letter with a red wax seal held out in the right hand, upright between the fingers, its long side
+  along the forearm beyond the hand, so held out across the body it shows its face (the hand put out by `<id>_reach`);
+  its point `<id>#letter`.
 
 The hat's colour is the look's `colors.hat`.
 
@@ -51,7 +56,7 @@ The hat's colour is the look's `colors.hat`.
 `frockcoat` (to the knee), `longcoat` (below the knee, fuller), `caped` (a dress to the ankles with a mantle over the
 shoulders to the hips), `frock` (the same dress without the mantle, a little shorter and narrower, smooth — it is sat in), `shawled` (an old woman's fuller dress to the floor,
 a shawl over the shoulders to the hips, the top's colour); `bonnet` (a deep straw bonnet framing the face, a ribbon bow
-under the chin), `tophat` (a tall black top hat worn a little back, a narrow brim, a silk band), `mobcap` (an old woman's white linen cap, a ribbon bow under the chin).
+under the chin), `tophat` (a tall black top hat worn a little back, a narrow brim, a silk band), `mobcap` (an old woman's white linen cap, a ribbon bow under the chin), `kerchief` (a working woman's linen kerchief drawn close over the hair and the brow, knotted under the chin — the accent —, its corner at the nape).
 
 ## Motions
 
