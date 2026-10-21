@@ -1,20 +1,20 @@
 // What the lair's paintings share: the land's shape (the ground falling gently ahead to the pit, the pit itself, the
 // slopes rising on the left and beyond), a steady random, an uneven stone, a jagged crag, a band of mist that wraps
 // round its box, a clump of grass
-const PIT = { across: 9, distance: 22, radius: 10, depth: 3.6, floor: 0.55 };
+const PIT = { across: 10.5, distance: 18.5, radius: 8.5, depth: 3.4, floor: 0.62 };
 // how far a place is from the pit's middle, in its radii (1: its rim; below PIT.floor: its floor)
 function pitQ(a, d) {
   const x = (a - PIT.across) / PIT.radius, z = (d - PIT.distance) / PIT.radius;
   return Math.sqrt(x * x + z * z);
 }
-// the land: falling 15 cm a metre from where the viewer stands to the pit's rim, then climbing toward the mountain
+// the land: falling 20 cm a metre from where the viewer stands toward the pit's rim, then climbing toward the mountain
 // beyond it; rising on the left (the slope the path climbs) and on the far right; the pit sunk into it, its walls
 // steep, its floor flat
 function land(a, d) {
-  const fall = -0.15 * anim.clamp(d - 1, 0, 11);
-  const climb = Math.min(40, 0.12 * Math.max(0, d - 30));
-  const left = 0.3 * Math.pow(Math.max(0, -a - 4), 1.2) * anim.span(d, 1, 8);
-  const right = 0.2 * Math.max(0, a - 19) * anim.span(d, 4, 14);
+  const fall = -0.2 * anim.clamp(d - 1, 0, 9);
+  const climb = Math.min(14, 0.1 * Math.max(0, d - 26));
+  const left = Math.min(5, 0.25 * Math.pow(Math.max(0, -a - 5), 1.1)) * anim.span(d, 1, 8);
+  const right = Math.min(6, 0.2 * Math.max(0, a - 20)) * anim.span(d, 4, 12);
   const u = anim.span(pitQ(a, d), PIT.floor, 1);
   return fall + climb + left + right - PIT.depth * (1 - u * u * (3 - 2 * u));
 }

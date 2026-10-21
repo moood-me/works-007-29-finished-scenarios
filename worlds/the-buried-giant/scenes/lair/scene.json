@@ -18,16 +18,16 @@
  "light": {
   "vignette": 0.22,
   "grain": 0.06,
-  "haze": 0.33,
+  "haze": 0.3,
   "hazeColor": "#e7dcd9",
   "hazeGlow": 0.6,
   "shafts": 0.45,
-  "ambient": 0.84,
-  "ambientColor": "#e9e5ee",
+  "ambient": 0.8,
+  "ambientColor": "#e3e0ee",
   "bounce": 0.55,
   "saturation": 0.92,
   "tint": "#f4d9c8",
-  "tintStrength": 0.08,
+  "tintStrength": 0.1,
   "wind": [
    -1,
    0.1,
@@ -55,8 +55,8 @@
   {
    "id": "sun",
    "from": "sky#sun",
-   "color": "#ffd4b0",
-   "strength": 0.65
+   "color": "#ffcd9c",
+   "strength": 0.9
   }
  ],
  "state": {
@@ -66,13 +66,13 @@
   "querig_eye": 0,
   "gawain_reach": {
    "r": [
-    0.009,
-    5.057,
+    0.578,
+    6.465,
     0.92
    ],
    "l": [
-    0.067,
-    4.975,
+    0.604,
+    6.369,
     0.92
    ]
   },
@@ -137,7 +137,7 @@
    "distance": 320,
    "box": [
     -400,
-    -76,
+    -62,
     400,
     6
    ]
@@ -191,183 +191,134 @@
    "shadow": true,
    "copies": [
     {
-     "across": 18.94,
-     "distance": 17.25,
-     "scale": 1.54,
-     "flip": true,
-     "tint": "#f2eee8"
-    },
-    {
-     "across": 19.94,
-     "distance": 21.28,
-     "scale": 1.3,
-     "flip": false,
-     "tint": "#ffffff"
-    },
-    {
-     "across": 18.96,
-     "distance": 25.5,
-     "scale": 1.23,
-     "flip": false,
-     "tint": "#ffffff"
-    },
-    {
-     "across": 17.16,
-     "distance": 29.13,
-     "scale": 1.16,
-     "flip": false,
-     "tint": "#f2eee8"
-    },
-    {
-     "across": 14.75,
-     "distance": 31.75,
-     "scale": 0.85,
-     "flip": true,
-     "tint": "#f2eee8"
-    },
-    {
-     "across": 11.69,
-     "distance": 32.93,
-     "scale": 1.06,
-     "flip": false,
-     "tint": "#f2eee8"
-    },
-    {
-     "across": 8.57,
-     "distance": 33.1,
-     "scale": 1.2,
+     "across": 19.78,
+     "distance": 15.02,
+     "scale": 1.5,
      "flip": false,
      "tint": "#f6f0ea"
     },
     {
-     "across": 5.32,
-     "distance": 32.2,
-     "scale": 1.24,
+     "across": 19.07,
+     "distance": 24.37,
+     "scale": 0.7,
+     "flip": true,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": 15.08,
+     "distance": 27.71,
+     "scale": 1.8,
+     "flip": true,
+     "tint": "#e8e4de"
+    },
+    {
+     "across": 12.94,
+     "distance": 28.07,
+     "scale": 0.6,
      "flip": false,
      "tint": "#ffffff"
     },
     {
-     "across": 2.46,
-     "distance": 30.53,
-     "scale": 0.98,
+     "across": 5.8,
+     "distance": 26.93,
+     "scale": 1.2,
+     "flip": true,
+     "tint": "#f2eee8"
+    },
+    {
+     "across": 2.4,
+     "distance": 24.95,
+     "scale": 0.8,
      "flip": true,
      "tint": "#ffffff"
     },
     {
-     "across": 0.63,
-     "distance": 28.37,
-     "scale": 0.89,
+     "across": 6.5,
+     "distance": 22.5,
+     "scale": 0.5,
      "flip": true,
-     "tint": "#ffffff"
+     "tint": "#f2eee8"
     },
     {
-     "across": 4.5,
-     "distance": 26.5,
-     "scale": 0.55,
+     "across": 14.5,
+     "distance": 22,
+     "scale": 0.6,
      "flip": false,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": -18.84,
+     "distance": 20.46,
+     "scale": 0.86,
+     "flip": true,
+     "tint": "#e8e4de"
+    },
+    {
+     "across": -20.67,
+     "distance": 25.49,
+     "scale": 1.07,
+     "flip": true,
      "tint": "#ffffff"
     },
     {
-     "across": 13.5,
-     "distance": 26,
+     "across": -19.4,
+     "distance": 31.53,
+     "scale": 0.88,
+     "flip": true,
+     "tint": "#ffffff"
+    },
+    {
+     "across": -16.7,
+     "distance": 27.33,
+     "scale": 0.79,
+     "flip": true,
+     "tint": "#ffffff"
+    },
+    {
+     "across": -25.47,
+     "distance": 38.78,
      "scale": 0.7,
      "flip": true,
      "tint": "#ffffff"
     },
     {
-     "across": 9.5,
-     "distance": 28.5,
-     "scale": 0.5,
-     "flip": true,
-     "tint": "#f6f0ea"
-    },
-    {
-     "across": -19.32,
-     "distance": 23.17,
-     "scale": 0.86,
-     "flip": false,
-     "tint": "#e8e4de"
-    },
-    {
-     "across": -15.04,
-     "distance": 13.53,
-     "scale": 1.47,
-     "flip": false,
-     "tint": "#ffffff"
-    },
-    {
-     "across": -18.38,
-     "distance": 14.9,
-     "scale": 0.71,
-     "flip": true,
-     "tint": "#f6f0ea"
-    },
-    {
-     "across": -17.51,
-     "distance": 16.15,
-     "scale": 1.06,
+     "across": 48.23,
+     "distance": 58.8,
+     "scale": 1.88,
      "flip": true,
      "tint": "#f2eee8"
     },
     {
-     "across": -17.86,
-     "distance": 23.16,
-     "scale": 1.02,
-     "flip": false,
-     "tint": "#ffffff"
-    },
-    {
-     "across": -21.47,
-     "distance": 18.82,
-     "scale": 1.34,
-     "flip": true,
-     "tint": "#ffffff"
-    },
-    {
-     "across": -16.43,
-     "distance": 17.11,
-     "scale": 1.38,
-     "flip": false,
-     "tint": "#ffffff"
-    },
-    {
-     "across": -26.83,
-     "distance": 41.68,
-     "scale": 1.93,
-     "flip": true,
-     "tint": "#e8e4de"
-    },
-    {
-     "across": -5.24,
-     "distance": 73.21,
-     "scale": 1.49,
-     "flip": true,
-     "tint": "#f2eee8"
-    },
-    {
-     "across": -6.82,
-     "distance": 40.62,
-     "scale": 2.15,
+     "across": -15.72,
+     "distance": 71.14,
+     "scale": 1.5,
      "flip": true,
      "tint": "#f6f0ea"
     },
     {
-     "across": -27.78,
-     "distance": 73.29,
-     "scale": 1.86,
-     "flip": false,
-     "tint": "#e8e4de"
+     "across": -29.38,
+     "distance": 70.32,
+     "scale": 1.7,
+     "flip": true,
+     "tint": "#ffffff"
+    },
+    {
+     "across": 3.81,
+     "distance": 58.6,
+     "scale": 2.22,
+     "flip": true,
+     "tint": "#f2eee8"
     }
    ]
   },
   {
    "id": "mist_pit",
    "name": "Mist in the pit",
-   "across": 9,
-   "distance": 27,
+   "across": 10.5,
+   "distance": 23,
    "box": [
     -30,
-    -5,
+    -6,
     30,
     0.4
    ]
@@ -375,8 +326,8 @@
   {
    "id": "querig",
    "name": "Querig",
-   "across": 9.2,
-   "distance": 23,
+   "across": 10.7,
+   "distance": 18.5,
    "box": [
     -6.0,
     -3.3,
@@ -424,15 +375,15 @@
   {
    "id": "pit_mist",
    "name": "Mist welling up in the pit",
-   "across": 9,
-   "distance": 23,
+   "across": 10.5,
+   "distance": 18.5,
    "elevation": 0.4,
    "particles": {
     "kind": "smoke",
     "amount": "breath",
     "source": [
-     12,
-     7,
+     10,
+     6,
      0.4
     ],
     "rate": 0.8,
@@ -467,12 +418,12 @@
   {
    "id": "mist_low",
    "name": "Low mist about her feet",
-   "across": 9,
-   "distance": 19.5,
+   "across": 10.5,
+   "distance": 15.5,
    "box": [
-    -14,
+    -12,
     -1.4,
-    14,
+    12,
     0.2
    ]
   },
@@ -505,32 +456,81 @@
      "tint": "#ffffff"
     },
     {
-     "across": -4.72,
-     "distance": 6.24,
-     "scale": 0.51,
+     "across": -2.39,
+     "distance": 8.45,
+     "scale": 0.39,
      "flip": false,
-     "tint": "#f2eee8"
+     "tint": "#ffffff"
     },
     {
-     "across": -2.34,
-     "distance": 11.93,
-     "scale": 0.42,
+     "across": 4.65,
+     "distance": 6.51,
+     "scale": 0.53,
      "flip": true,
      "tint": "#ffffff"
     },
     {
-     "across": -6.54,
-     "distance": 4.35,
-     "scale": 0.59,
+     "across": 0.7,
+     "distance": 14.11,
+     "scale": 0.29,
+     "flip": false,
+     "tint": "#f2eee8"
+    },
+    {
+     "across": -6.89,
+     "distance": 8.74,
+     "scale": 0.46,
+     "flip": false,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": -5.92,
+     "distance": 3.95,
+     "scale": 0.45,
+     "flip": true,
+     "tint": "#e8e4de"
+    },
+    {
+     "across": -1.2,
+     "distance": 15.47,
+     "scale": 0.45,
+     "flip": false,
+     "tint": "#f2eee8"
+    },
+    {
+     "across": -3.27,
+     "distance": 11.15,
+     "scale": 0.33,
+     "flip": false,
+     "tint": "#f2eee8"
+    },
+    {
+     "across": 0.55,
+     "distance": 5.06,
+     "scale": 0.44,
+     "flip": false,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": 0.24,
+     "distance": 14.47,
+     "scale": 0.4,
+     "flip": true,
+     "tint": "#ffffff"
+    },
+    {
+     "across": -3.94,
+     "distance": 9.66,
+     "scale": 0.51,
      "flip": true,
      "tint": "#f6f0ea"
     },
     {
-     "across": 2.88,
-     "distance": 6.34,
-     "scale": 0.46,
+     "across": 0.16,
+     "distance": 13.71,
+     "scale": 0.35,
      "flip": true,
-     "tint": "#f2eee8"
+     "tint": "#ffffff"
     },
     {
      "across": -1.25,
@@ -538,55 +538,6 @@
      "scale": 0.48,
      "flip": false,
      "tint": "#ffffff"
-    },
-    {
-     "across": 4.01,
-     "distance": 6.64,
-     "scale": 0.32,
-     "flip": true,
-     "tint": "#e8e4de"
-    },
-    {
-     "across": -4.01,
-     "distance": 8.35,
-     "scale": 0.27,
-     "flip": true,
-     "tint": "#f2eee8"
-    },
-    {
-     "across": -5.34,
-     "distance": 4.2,
-     "scale": 0.41,
-     "flip": true,
-     "tint": "#f2eee8"
-    },
-    {
-     "across": 4.08,
-     "distance": 10.67,
-     "scale": 0.42,
-     "flip": true,
-     "tint": "#e8e4de"
-    },
-    {
-     "across": -6.74,
-     "distance": 15.52,
-     "scale": 0.47,
-     "flip": true,
-     "tint": "#e8e4de"
-    },
-    {
-     "across": 4.99,
-     "distance": 7.15,
-     "scale": 0.28,
-     "flip": false,
-     "tint": "#ffffff"
-    },
-    {
-     "across": 2.52,
-     "distance": 12.15,
-     "scale": 0.57,
-     "flip": true,
-     "tint": "#f6f0ea"
     }
    ]
   },
@@ -604,430 +555,430 @@
    ],
    "copies": [
     {
-     "across": 3.44,
-     "distance": 10.89,
-     "scale": 1.2,
-     "flip": false
+     "across": 5.6,
+     "distance": 7.8,
+     "scale": 0.74,
+     "flip": true
     },
     {
-     "across": -3.5,
-     "distance": 15.56,
-     "scale": 1.01,
-     "flip": false
+     "across": -2.42,
+     "distance": 7.56,
+     "scale": 0.64,
+     "flip": true
     },
     {
-     "across": 0.87,
-     "distance": 3.3,
-     "scale": 1.3,
-     "flip": false
+     "across": -0.27,
+     "distance": 9.8,
+     "scale": 0.69,
+     "flip": true
     },
     {
-     "across": -3.4,
-     "distance": 17.88,
+     "across": -7.61,
+     "distance": 14.65,
+     "scale": 0.62,
+     "flip": true
+    },
+    {
+     "across": 1.92,
+     "distance": 21.98,
+     "scale": 1.27,
+     "flip": true
+    },
+    {
+     "across": -1.8,
+     "distance": 15.81,
      "scale": 1.11,
-     "flip": false
-    },
-    {
-     "across": 4.25,
-     "distance": 11.41,
-     "scale": 0.66,
-     "flip": false
-    },
-    {
-     "across": 0.22,
-     "distance": 2.17,
-     "scale": 0.94,
      "flip": true
     },
     {
-     "across": -1.55,
-     "distance": 17.21,
-     "scale": 1.03,
+     "across": -8.72,
+     "distance": 23.99,
+     "scale": 0.98,
      "flip": false
     },
     {
-     "across": -9.81,
-     "distance": 7.26,
-     "scale": 0.81,
+     "across": -4.02,
+     "distance": 22.09,
+     "scale": 1.08,
      "flip": false
     },
     {
-     "across": -7.12,
-     "distance": 6.06,
-     "scale": 1.23,
+     "across": -2.91,
+     "distance": 21.1,
+     "scale": 1.15,
      "flip": false
     },
     {
-     "across": 5.16,
-     "distance": 11.44,
-     "scale": 0.83,
+     "across": 0.62,
+     "distance": 14.39,
+     "scale": 0.87,
      "flip": false
     },
     {
-     "across": -3.46,
-     "distance": 21.31,
-     "scale": 1.01,
-     "flip": true
-    },
-    {
-     "across": -1.56,
-     "distance": 4.56,
-     "scale": 1.19,
-     "flip": false
-    },
-    {
-     "across": -7.12,
-     "distance": 7.73,
-     "scale": 0.92,
-     "flip": true
-    },
-    {
-     "across": -1.6,
-     "distance": 15.58,
-     "scale": 0.82,
-     "flip": false
-    },
-    {
-     "across": -2.31,
-     "distance": 23.6,
-     "scale": 0.65,
-     "flip": true
-    },
-    {
-     "across": -9.29,
-     "distance": 21.14,
-     "scale": 1.1,
-     "flip": false
-    },
-    {
-     "across": 3.46,
-     "distance": 8.45,
-     "scale": 0.61,
-     "flip": true
-    },
-    {
-     "across": -9.58,
-     "distance": 11.73,
-     "scale": 1.18,
-     "flip": true
-    },
-    {
-     "across": -9.2,
-     "distance": 4.67,
-     "scale": 1.04,
-     "flip": true
-    },
-    {
-     "across": -6.61,
-     "distance": 16.9,
-     "scale": 0.93,
-     "flip": true
-    },
-    {
-     "across": -1.97,
-     "distance": 1.74,
-     "scale": 1.1,
-     "flip": true
-    },
-    {
-     "across": -4.12,
-     "distance": 7.63,
-     "scale": 1.09,
-     "flip": false
-    },
-    {
-     "across": 3.46,
-     "distance": 10.35,
-     "scale": 1.23,
-     "flip": true
-    },
-    {
-     "across": -2.29,
-     "distance": 4.42,
-     "scale": 1.04,
-     "flip": false
-    },
-    {
-     "across": -0.33,
-     "distance": 9.98,
-     "scale": 1.22,
-     "flip": false
-    },
-    {
-     "across": -2.12,
-     "distance": 22.75,
-     "scale": 1.06,
-     "flip": true
-    },
-    {
-     "across": 5.3,
-     "distance": 6.3,
-     "scale": 1.29,
-     "flip": false
-    },
-    {
-     "across": 5.47,
-     "distance": 8.71,
-     "scale": 1.2,
-     "flip": true
-    },
-    {
-     "across": -2.5,
-     "distance": 3.36,
-     "scale": 0.99,
-     "flip": false
-    },
-    {
-     "across": -9.52,
-     "distance": 12.47,
-     "scale": 1.17,
-     "flip": true
-    },
-    {
-     "across": -7.06,
-     "distance": 19.5,
-     "scale": 0.83,
-     "flip": false
-    },
-    {
-     "across": -7.47,
-     "distance": 4.66,
-     "scale": 0.96,
-     "flip": false
-    },
-    {
-     "across": -8.54,
-     "distance": 22.86,
-     "scale": 0.75,
-     "flip": false
-    },
-    {
-     "across": 2.39,
-     "distance": 8.03,
+     "across": -8.64,
+     "distance": 15.2,
      "scale": 1.05,
      "flip": false
     },
     {
-     "across": -3.52,
-     "distance": 8.51,
+     "across": 2.5,
+     "distance": 10.24,
+     "scale": 1.01,
+     "flip": true
+    },
+    {
+     "across": -8.58,
+     "distance": 20.36,
+     "scale": 1.13,
+     "flip": true
+    },
+    {
+     "across": -1.82,
+     "distance": 15.03,
+     "scale": 0.76,
+     "flip": false
+    },
+    {
+     "across": 0.45,
+     "distance": 12.69,
+     "scale": 1.24,
+     "flip": true
+    },
+    {
+     "across": -4.88,
+     "distance": 1.75,
+     "scale": 1.07,
+     "flip": true
+    },
+    {
+     "across": 5.4,
+     "distance": 5.32,
+     "scale": 1.06,
+     "flip": true
+    },
+    {
+     "across": -4.44,
+     "distance": 21.56,
+     "scale": 1.07,
+     "flip": true
+    },
+    {
+     "across": 3.7,
+     "distance": 11.2,
+     "scale": 1.24,
+     "flip": false
+    },
+    {
+     "across": -0.09,
+     "distance": 10.15,
+     "scale": 0.82,
+     "flip": true
+    },
+    {
+     "across": -5.29,
+     "distance": 22.88,
+     "scale": 0.72,
+     "flip": true
+    },
+    {
+     "across": -6.36,
+     "distance": 7.69,
+     "scale": 0.89,
+     "flip": false
+    },
+    {
+     "across": -4.64,
+     "distance": 12.61,
      "scale": 1.19,
      "flip": false
     },
     {
-     "across": 4.46,
-     "distance": 6.19,
-     "scale": 1.28,
+     "across": -8.73,
+     "distance": 11.68,
+     "scale": 0.62,
      "flip": false
     },
     {
-     "across": -6.58,
-     "distance": 14.39,
-     "scale": 0.98,
+     "across": 2.05,
+     "distance": 2.43,
+     "scale": 1.0,
+     "flip": true
+    },
+    {
+     "across": -9.68,
+     "distance": 19.31,
+     "scale": 0.7,
+     "flip": true
+    },
+    {
+     "across": 4.1,
+     "distance": 2.06,
+     "scale": 0.77,
+     "flip": true
+    },
+    {
+     "across": 0.7,
+     "distance": 2.56,
+     "scale": 0.91,
      "flip": false
     },
     {
-     "across": -9.53,
-     "distance": 15.12,
-     "scale": 1.28,
-     "flip": false
-    },
-    {
-     "across": 3.62,
-     "distance": 10.51,
-     "scale": 0.99,
-     "flip": true
-    },
-    {
-     "across": -8.88,
-     "distance": 17.05,
-     "scale": 0.98,
-     "flip": true
-    },
-    {
-     "across": -2.63,
-     "distance": 4.36,
-     "scale": 1.17,
-     "flip": false
-    },
-    {
-     "across": -4.61,
-     "distance": 12.22,
-     "scale": 0.73,
-     "flip": false
-    },
-    {
-     "across": -7.8,
-     "distance": 22.32,
-     "scale": 1.15,
-     "flip": true
-    },
-    {
-     "across": -6.14,
-     "distance": 5.87,
-     "scale": 1.08,
-     "flip": true
-    },
-    {
-     "across": 0.54,
-     "distance": 9.5,
-     "scale": 0.67,
-     "flip": false
-    },
-    {
-     "across": -1.32,
-     "distance": 4.26,
-     "scale": 0.78,
-     "flip": true
-    },
-    {
-     "across": -2.57,
-     "distance": 13.43,
-     "scale": 0.86,
-     "flip": true
-    },
-    {
-     "across": -7.28,
-     "distance": 13.41,
+     "across": 1.64,
+     "distance": 23.07,
      "scale": 0.74,
-     "flip": false
-    },
-    {
-     "across": -1.0,
-     "distance": 15.87,
-     "scale": 1.2,
-     "flip": false
-    },
-    {
-     "across": -6.04,
-     "distance": 20.78,
-     "scale": 1.12,
-     "flip": false
-    },
-    {
-     "across": -4.63,
-     "distance": 21.81,
-     "scale": 0.82,
-     "flip": false
-    },
-    {
-     "across": 6.97,
-     "distance": 6.41,
-     "scale": 1.22,
      "flip": true
     },
     {
-     "across": 2.35,
-     "distance": 6.89,
-     "scale": 0.78,
-     "flip": true
-    },
-    {
-     "across": -2.83,
-     "distance": 20.22,
-     "scale": 1.15,
-     "flip": true
-    },
-    {
-     "across": 1.65,
-     "distance": 10.56,
-     "scale": 0.61,
-     "flip": true
-    },
-    {
-     "across": -8.04,
-     "distance": 23.29,
-     "scale": 0.95,
+     "across": -9.82,
+     "distance": 5.52,
+     "scale": 0.93,
      "flip": false
     },
     {
-     "across": 1.66,
-     "distance": 12.81,
-     "scale": 0.73,
-     "flip": true
-    },
-    {
-     "across": -9.36,
-     "distance": 3.89,
-     "scale": 0.99,
+     "across": -5.37,
+     "distance": 5.53,
+     "scale": 0.84,
      "flip": false
     },
     {
-     "across": -7.51,
-     "distance": 14.3,
-     "scale": 0.73,
+     "across": 0.45,
+     "distance": 13.21,
+     "scale": 1.13,
      "flip": true
     },
     {
-     "across": -8.38,
-     "distance": 22.36,
-     "scale": 0.64,
-     "flip": false
-    },
-    {
-     "across": 3.0,
-     "distance": 11.9,
-     "scale": 0.83,
-     "flip": true
-    },
-    {
-     "across": -2.69,
-     "distance": 13.09,
-     "scale": 1.02,
-     "flip": true
-    },
-    {
-     "across": -2.28,
-     "distance": 5.58,
-     "scale": 1.12,
-     "flip": true
-    },
-    {
-     "across": -7.19,
-     "distance": 5.89,
-     "scale": 0.96,
-     "flip": true
-    },
-    {
-     "across": -3.12,
-     "distance": 15.66,
-     "scale": 1.02,
-     "flip": false
-    },
-    {
-     "across": 5.49,
-     "distance": 7.31,
-     "scale": 1.12,
-     "flip": false
-    },
-    {
-     "across": -3.1,
-     "distance": 19.83,
-     "scale": 1.23,
-     "flip": false
-    },
-    {
-     "across": -3.1,
-     "distance": 18.72,
+     "across": 5.85,
+     "distance": 3.46,
      "scale": 1.11,
      "flip": true
     },
     {
-     "across": -2.03,
-     "distance": 9.19,
-     "scale": 0.61,
+     "across": 0.63,
+     "distance": 11.7,
+     "scale": 1.24,
      "flip": true
     },
     {
-     "across": 6.06,
-     "distance": 6.72,
-     "scale": 1.07,
+     "across": 1.07,
+     "distance": 11.93,
+     "scale": 0.74,
+     "flip": false
+    },
+    {
+     "across": 0.91,
+     "distance": 19.91,
+     "scale": 1.1,
      "flip": true
+    },
+    {
+     "across": -0.87,
+     "distance": 23.49,
+     "scale": 1.15,
+     "flip": true
+    },
+    {
+     "across": -8.59,
+     "distance": 9.34,
+     "scale": 0.91,
+     "flip": false
+    },
+    {
+     "across": -1.71,
+     "distance": 18.79,
+     "scale": 0.62,
+     "flip": false
+    },
+    {
+     "across": 3.6,
+     "distance": 2.94,
+     "scale": 0.72,
+     "flip": true
+    },
+    {
+     "across": -7.61,
+     "distance": 19.23,
+     "scale": 0.7,
+     "flip": false
+    },
+    {
+     "across": -6.24,
+     "distance": 3.44,
+     "scale": 0.97,
+     "flip": true
+    },
+    {
+     "across": 0.86,
+     "distance": 17.9,
+     "scale": 0.97,
+     "flip": false
+    },
+    {
+     "across": -4.7,
+     "distance": 14.1,
+     "scale": 0.87,
+     "flip": false
+    },
+    {
+     "across": -6.46,
+     "distance": 21.76,
+     "scale": 1.2,
+     "flip": false
+    },
+    {
+     "across": -0.26,
+     "distance": 13.3,
+     "scale": 0.74,
+     "flip": false
+    },
+    {
+     "across": 0.29,
+     "distance": 12.82,
+     "scale": 0.62,
+     "flip": false
+    },
+    {
+     "across": -3.19,
+     "distance": 13.11,
+     "scale": 1.16,
+     "flip": false
+    },
+    {
+     "across": 1.75,
+     "distance": 12.55,
+     "scale": 0.65,
+     "flip": false
+    },
+    {
+     "across": -5.42,
+     "distance": 22.28,
+     "scale": 0.93,
+     "flip": true
+    },
+    {
+     "across": 3.87,
+     "distance": 11.26,
+     "scale": 1.23,
+     "flip": true
+    },
+    {
+     "across": -6.75,
+     "distance": 8.64,
+     "scale": 1.03,
+     "flip": false
+    },
+    {
+     "across": 3.25,
+     "distance": 4.41,
+     "scale": 0.62,
+     "flip": true
+    },
+    {
+     "across": -3.96,
+     "distance": 8.75,
+     "scale": 1.03,
+     "flip": true
+    },
+    {
+     "across": -7.91,
+     "distance": 17.95,
+     "scale": 0.96,
+     "flip": true
+    },
+    {
+     "across": -0.98,
+     "distance": 5.95,
+     "scale": 0.91,
+     "flip": true
+    },
+    {
+     "across": -1.0,
+     "distance": 10.8,
+     "scale": 0.71,
+     "flip": true
+    },
+    {
+     "across": 0.85,
+     "distance": 15.7,
+     "scale": 0.97,
+     "flip": false
+    },
+    {
+     "across": 2.59,
+     "distance": 6.73,
+     "scale": 1.17,
+     "flip": false
+    },
+    {
+     "across": -4.65,
+     "distance": 8.61,
+     "scale": 1.25,
+     "flip": true
+    },
+    {
+     "across": -5.93,
+     "distance": 4.51,
+     "scale": 1.11,
+     "flip": true
+    },
+    {
+     "across": 4.15,
+     "distance": 3.68,
+     "scale": 0.9,
+     "flip": false
+    },
+    {
+     "across": -3.15,
+     "distance": 4.34,
+     "scale": 1.08,
+     "flip": true
+    },
+    {
+     "across": 1.6,
+     "distance": 6.02,
+     "scale": 1.24,
+     "flip": false
+    },
+    {
+     "across": -1.4,
+     "distance": 4.1,
+     "scale": 1.13,
+     "flip": false
+    },
+    {
+     "across": -6.79,
+     "distance": 16.93,
+     "scale": 0.65,
+     "flip": true
+    },
+    {
+     "across": -0.62,
+     "distance": 2.34,
+     "scale": 0.96,
+     "flip": false
+    },
+    {
+     "across": -6.86,
+     "distance": 4.8,
+     "scale": 0.74,
+     "flip": false
+    },
+    {
+     "across": -8.95,
+     "distance": 3.64,
+     "scale": 1.27,
+     "flip": true
+    },
+    {
+     "across": -4.44,
+     "distance": 18.71,
+     "scale": 0.93,
+     "flip": false
     },
     {
      "across": -2.3,
      "distance": 1.9,
      "scale": 1.9,
-     "flip": false
+     "flip": true
     },
     {
      "across": -2.9,
@@ -1039,13 +990,13 @@
      "across": -1.9,
      "distance": 2.4,
      "scale": 1.3,
-     "flip": false
+     "flip": true
     },
     {
      "across": 2.2,
      "distance": 1.8,
      "scale": 1.7,
-     "flip": true
+     "flip": false
     },
     {
      "across": 3.6,
@@ -1061,9 +1012,9 @@
    "person": {
     "cast": "cast",
     "who": "wistan",
-    "turn": 125
+    "turn": 105
    },
-   "across": -1.5,
+   "across": -1.3,
    "distance": 6.9,
    "shadow": true
   },
@@ -1073,10 +1024,10 @@
    "person": {
     "cast": "cast",
     "who": "beatrice",
-    "turn": 135
+    "turn": 120
    },
-   "across": -2.5,
-   "distance": 7.1,
+   "across": -2.0,
+   "distance": 6.1,
    "shadow": true
   },
   {
@@ -1085,10 +1036,10 @@
    "person": {
     "cast": "cast",
     "who": "axl",
-    "turn": 130
+    "turn": 115
    },
-   "across": -3.0,
-   "distance": 6.5,
+   "across": -2.6,
+   "distance": 5.7,
    "shadow": true
   },
   {
@@ -1097,10 +1048,10 @@
    "person": {
     "cast": "cast",
     "who": "gawain",
-    "turn": 235
+    "turn": 255
    },
-   "across": 0.3,
-   "distance": 5.2,
+   "across": 0.9,
+   "distance": 6.5,
    "shadow": true
   }
  ],

@@ -5,9 +5,9 @@ const r = e.lib.rnd(3), P = (a, d) => [a, 140 - d], pit = e.lib.PIT;
 g.fillStyle = '#8b8473';
 g.fillRect(-150, -170, 300, 340);
 // broad patches: heather, pale dry grass, dark turf, grey scree — small near, big far
-const colors = ['#86787a', '#a29c80', '#7c7a63', '#938e7c', '#8e8c87', '#7f7470'];
+const colors = ['#877d78', '#999377', '#837f68', '#918b79', '#8d8a83', '#86796f'];
 for (let i = 0; i < 520; i++) {
-  const d = -6 + Math.pow(r(), 1.6) * 310, a = (r() - 0.5) * (30 + d * 1.7), s = 0.4 + d * 0.06;
+  const d = -6 + Math.pow(r(), 1.6) * 310, a = (r() - 0.5) * (30 + d * 1.7), s = 0.3 + d * 0.045;
   if (e.lib.pitQ(a, d) < 1.1) continue;
   const [x, y] = P(a, d);
   g.fillStyle = colors[Math.floor(r() * colors.length)];
@@ -32,13 +32,13 @@ g.fillStyle = '#8c877c';
 g.beginPath();
 g.arc(cx, cy, R * 1.08, 0, Math.PI * 2);
 g.fill();
-g.fillStyle = '#77736b';
+g.fillStyle = '#6c6963';
 g.beginPath();
 g.arc(cx, cy, R * 0.97, 0, Math.PI * 2);
 g.fill();
 for (let i = 0; i < 260; i++) {
   const t = r() * Math.PI * 2, from = R * (0.6 + 0.35 * r()), to = from - R * (0.08 + 0.2 * r());
-  g.strokeStyle = r() < 0.55 ? 'rgba(92,89,84,0.7)' : 'rgba(146,141,131,0.6)';
+  g.strokeStyle = r() < 0.6 ? 'rgba(84,81,77,0.7)' : 'rgba(128,124,116,0.45)';
   g.lineWidth = 0.08 + r() * 0.2;
   g.beginPath();
   g.moveTo(cx + Math.cos(t) * from, cy + Math.sin(t) * from);
