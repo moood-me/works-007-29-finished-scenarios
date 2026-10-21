@@ -1,26 +1,25 @@
 {
   "engine": 3,
   "title": "Brekhunov's Yard",
-  "caption": "Mukhorty is harnessed: the master is off to Goryachkino to buy the grove.",
-  "horizon": 0.43,
+  "horizon": 0.46,
   "camera": {
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.86,
-    "ambientColor": "#cfdcf0",
-    "bounce": 0.7,
-    "haze": 0.24,
-    "hazeColor": "#cdd8e6",
-    "hazeGlow": 0.6,
+    "ambient": 0.84,
+    "ambientColor": "#c9d6ea",
+    "bounce": 0.62,
+    "haze": 0.3,
+    "hazeColor": "#c2cee0",
+    "hazeGlow": 0.4,
     "shafts": 0.05,
-    "tint": "#dce6f4",
-    "tintStrength": 0.07,
-    "saturation": 1.05,
+    "tint": "#cfdbee",
+    "tintStrength": 0.12,
+    "saturation": 0.95,
     "vignette": 0.22,
     "grain": 0.07,
     "wind": [
-      -1,
+      -1.8,
       0.1,
       1.2
     ]
@@ -32,8 +31,8 @@
         205,
         18
       ],
-      "color": "#fff0dc",
-      "strength": 0.6
+      "color": "#eef2fa",
+      "strength": 0.45
     },
     {
       "id": "window_lamp",
@@ -45,8 +44,8 @@
     },
     {
       "id": "door_lamp",
-      "across": -1.85,
-      "distance": 5.4,
+      "across": -2.25,
+      "distance": 4.8,
       "elevation": 1.9,
       "color": "#ffb766",
       "strength": 0.9,
@@ -58,27 +57,43 @@
     "cast"
   ],
   "state": {
-    "snow": 0.7,
+    "snow": 0.8,
     "vasily_look": [
+      0.2,
       0.6,
-      1.2,
       1.1
     ],
-    "vasily_reach": {
-      "r": [
-        -0.64,
-        3.48,
-        2.12
-      ]
-    },
     "vasily_mood": "smile",
     "praskovya_look": "vasily",
     "praskovya_mood": "sad",
-    "nikita_look": "horse#head",
+    "nikita_look": [
+      0.9,
+      3.6,
+      1.1
+    ],
     "nikita_reach": {
-      "r": "horse#cheek"
+      "l": {
+        "on": "horse",
+        "at": [
+          -1.2,
+          -0.08,
+          1.5
+        ]
+      }
     },
-    "nikita_mood": "smile"
+    "nikita_mood": "smile",
+    "praskovya_reach": {
+      "r": [
+        -2.2,
+        3.81,
+        2.1
+      ],
+      "l": [
+        -2.13,
+        3.85,
+        2.1
+      ]
+    }
   },
   "states": {
     "snow": {
@@ -99,8 +114,8 @@
     {
       "id": "far_land",
       "name": "Fields and forest far off",
-      "across": 20,
-      "distance": 300,
+      "across": 19.6,
+      "distance": 299.4,
       "height": 30,
       "box": [
         -400,
@@ -112,8 +127,8 @@
     {
       "id": "church",
       "name": "Church",
-      "across": 40,
-      "distance": 85,
+      "across": 39.6,
+      "distance": 84.4,
       "height": 25,
       "box": [
         -9,
@@ -125,8 +140,8 @@
     {
       "id": "birch",
       "name": "Birch",
-      "across": 20,
-      "distance": 25,
+      "across": 19.6,
+      "distance": 24.4,
       "height": 13,
       "box": [
         -4.5,
@@ -136,12 +151,12 @@
       ],
       "copies": [
         {
-          "across": 20,
-          "distance": 25
+          "across": 19.6,
+          "distance": 24.4
         },
         {
-          "across": 10,
-          "distance": 33,
+          "across": 9.6,
+          "distance": 32.4,
           "scale": 0.85,
           "flip": true
         }
@@ -150,8 +165,8 @@
     {
       "id": "neighbour",
       "name": "Neighbour's hut",
-      "across": 14,
-      "distance": 24,
+      "across": 13.6,
+      "distance": 23.4,
       "height": 6.8,
       "box": [
         -3.8,
@@ -189,16 +204,16 @@
       "id": "yard",
       "name": "Snow on the ground",
       "plane": true,
-      "across": 0,
-      "distance": 100,
+      "across": -0.4,
+      "distance": 99.4,
       "width": 300,
       "depth": 200
     },
     {
       "id": "fence",
       "name": "Fence and gate",
-      "across": 6,
-      "distance": 15,
+      "across": 5.6,
+      "distance": 14.4,
       "height": 2.1,
       "box": [
         -12.2,
@@ -210,8 +225,8 @@
     {
       "id": "house_front",
       "name": "House front",
-      "across": -4.1,
-      "distance": 4.8,
+      "across": -4.5,
+      "distance": 4.2,
       "facing": 180,
       "height": 4.3,
       "box": [
@@ -226,8 +241,8 @@
       "id": "roof",
       "name": "Roof",
       "plane": true,
-      "across": -4.1,
-      "distance": 6.92,
+      "across": -4.5,
+      "distance": 6.32,
       "elevation": 5.4,
       "width": 10.6,
       "depth": 5.4,
@@ -236,8 +251,8 @@
     {
       "id": "window",
       "name": "Lit window",
-      "across": 0.0,
-      "distance": 4.78,
+      "across": -0.4,
+      "distance": 4.18,
       "facing": 180,
       "height": 2.5,
       "box": [
@@ -254,8 +269,8 @@
       "name": "Porch landing",
       "plane": true,
       "walk": true,
-      "across": -1.55,
-      "distance": 4.05,
+      "across": -1.95,
+      "distance": 3.45,
       "elevation": 0.85,
       "width": 2.7,
       "depth": 1.5
@@ -263,8 +278,8 @@
     {
       "id": "porch",
       "name": "Porch",
-      "across": -1.55,
-      "distance": 3.3,
+      "across": -1.95,
+      "distance": 2.7,
       "facing": 180,
       "height": 3.05,
       "box": [
@@ -278,8 +293,8 @@
     {
       "id": "porch_side",
       "name": "Porch side",
-      "across": -0.2,
-      "distance": 3.3,
+      "across": -0.6,
+      "distance": 2.7,
       "facing": 90,
       "height": 0.9,
       "box": [
@@ -292,8 +307,8 @@
     {
       "id": "canopy",
       "name": "Porch canopy",
-      "across": -1.75,
-      "distance": 3.25,
+      "across": -2.15,
+      "distance": 2.65,
       "facing": 180,
       "height": 4.2,
       "box": [
@@ -306,8 +321,8 @@
     {
       "id": "steps",
       "name": "Porch steps",
-      "across": 0.1,
-      "distance": 3.4,
+      "across": -0.3,
+      "distance": 2.8,
       "facing": 180,
       "height": 0.85,
       "box": [
@@ -321,20 +336,20 @@
       "id": "treads",
       "name": "Steps' treads",
       "plane": true,
-      "across": -0.09,
-      "distance": 4.0,
+      "across": -0.49,
+      "distance": 3.4,
       "elevation": 0.567,
       "width": 0.23,
       "depth": 1.2,
       "copies": [
         {
-          "across": -0.09,
-          "distance": 4.0,
+          "across": -0.49,
+          "distance": 3.4,
           "elevation": 0.567
         },
         {
-          "across": 0.13,
-          "distance": 4.0,
+          "across": -0.27,
+          "distance": 3.4,
           "elevation": 0.283
         }
       ]
@@ -342,9 +357,9 @@
     {
       "id": "horse",
       "name": "Mukhorty",
-      "across": 2.73,
-      "distance": 5.3,
-      "facing": 145,
+      "across": 1.8,
+      "distance": 5.0,
+      "facing": 135,
       "height": 2.3,
       "box": [
         -1.6,
@@ -376,11 +391,11 @@
       "person": {
         "cast": "cast",
         "who": "vasily",
-        "turn": 160,
-        "does": "stand"
+        "turn": 165,
+        "does": "hands_hips"
       },
-      "across": -0.8,
-      "distance": 3.68,
+      "across": -1.2,
+      "distance": 3.08,
       "shadow": true
     },
     {
@@ -390,10 +405,10 @@
         "cast": "cast",
         "who": "praskovya",
         "turn": 150,
-        "does": "hands_breast"
+        "does": "stand"
       },
-      "across": -1.85,
-      "distance": 4.58,
+      "across": -2.25,
+      "distance": 3.98,
       "shadow": true
     },
     {
@@ -402,18 +417,18 @@
       "person": {
         "cast": "cast",
         "who": "nikita",
-        "turn": 132,
+        "turn": 160,
         "does": "stand"
       },
-      "across": 1.2,
-      "distance": 4.9,
+      "across": 0.55,
+      "distance": 3.78,
       "shadow": true
     },
     {
       "id": "drift_far",
       "name": "Ground wind, far",
-      "across": 6,
-      "distance": 11,
+      "across": 5.6,
+      "distance": 10.4,
       "height": 0.7,
       "box": [
         -15,
@@ -425,21 +440,21 @@
     {
       "id": "drift_near",
       "name": "Ground wind, near",
-      "across": 4,
-      "distance": 4.3,
-      "height": 0.6,
+      "across": 3.6,
+      "distance": 6.0,
+      "height": 0.7,
       "box": [
-        -6,
-        -0.6,
-        6,
+        -8,
+        -0.7,
+        8,
         0.02
       ]
     },
     {
       "id": "wind_front",
       "name": "Ground wind before the eye",
-      "across": 1.6,
-      "distance": 3.05,
+      "across": 1.2,
+      "distance": 2.45,
       "height": 0.4,
       "box": [
         -3,
@@ -451,8 +466,8 @@
     {
       "id": "drift_front",
       "name": "Drift with wormwood",
-      "across": 1.0,
-      "distance": 3.15,
+      "across": 3.0,
+      "distance": 2.6,
       "height": 0.9,
       "box": [
         -1.4,
@@ -467,8 +482,8 @@
       "particles": {
         "kind": "snow",
         "amount": "snow",
-        "wind": 1.5,
-        "gust": 0.8,
+        "wind": 2.2,
+        "gust": 1.0,
         "turbulence": 0.3
       }
     },

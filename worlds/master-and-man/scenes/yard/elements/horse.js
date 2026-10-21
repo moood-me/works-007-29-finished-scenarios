@@ -10,12 +10,12 @@
 // (x −1.55…2.25 m: the muzzle x −1.47, the rump x 0.95, the shaft's end at the sleigh x 2.2; its foot at 0)
 const L = e.lib;
 const C = L.C;
-const COAT = "#6e4a33";
-const TAN = "#a8784f";
+const COAT = "#5b4536";
+const TAN = "#97806a";
 const LEG = "#3e2b20";
 const HAIR = "#2e211a";
 const HOOF = "#38322c";
-const FAR = "#553926";
+const FAR = "#47362b";
 g.save();
 g.scale(-1, 1);
 
@@ -93,7 +93,7 @@ leg(-0.74, -0.62, -0.75, -0.46, -0.7, 0.17, COAT, LEG);
 // the near foreleg
 leg(0.5, -0.95, 0.52, -0.46, 0.5, 0.16, COAT, LEG);
 // (the tan inside of the forearm)
-g.fillStyle = "rgba(168,120,79,0.6)";
+g.fillStyle = "rgba(151,128,106,0.6)";
 g.beginPath();
 g.ellipse(0.46, -0.66, 0.03, 0.14, 0, 0, Math.PI * 2);
 g.fill();

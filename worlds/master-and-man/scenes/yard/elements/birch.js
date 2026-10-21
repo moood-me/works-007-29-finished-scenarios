@@ -23,7 +23,7 @@ for (let i = 0; i < 26; i++) {
 }
 
 // the crown: limbs up and out from the trunk, twigs hanging from them
-e.layer("crown", { pivot: [0.1, -H * 0.45], wind: { strength: 0.35, gust: 0.5, scale: 1 } }, c => {
+e.layer("crown", { pivot: [0.1, -H * 0.45], wind: { strength: 0.6, gust: 0.9, scale: 1 } }, c => {
   c.lineCap = "round";
   for (let i = 0; i < 16; i++) {
     const u = 0.42 + e.rnd() * 0.5;

@@ -6,11 +6,11 @@ const C = {
   snow: "#eaf0f7",
   snowShade: "#c4d2e6",
   snowDeep: "#a9bcd8",
-  wood: "#8a7763",
-  woodDark: "#5f4f40",
-  woodLight: "#a8957e",
+  wood: "#837a70",
+  woodDark: "#5a5048",
+  woodLight: "#a19a90",
   woodGrey: "#9a9188",
-  seam: "#4a3d31",
+  seam: "#463e37",
   trim: "#e6e1d6",
   iron: "#3b3936",
 };
@@ -46,7 +46,7 @@ function logs(g, x0, x1, y0, y1, log, rnd) {
   for (let y = y1; y > y0 + 0.01; y -= log) {
     const top = Math.max(y0, y - log);
     // a log: lighter along its upper middle, a dark seam of moss and shadow at its foot
-    g.fillStyle = rnd() < 0.5 ? C.woodLight : "#9c8973";
+    g.fillStyle = rnd() < 0.5 ? C.woodLight : "#968d82";
     g.fillRect(x0, top + log * 0.18, x1 - x0, log * 0.32);
     g.fillStyle = C.seam;
     g.fillRect(x0, y - log * 0.12, x1 - x0, log * 0.12);
@@ -65,7 +65,7 @@ function logEnds(g, x, y0, y1, log, out) {
     g.beginPath();
     g.ellipse(x, y, out, log * 0.5, 0, 0, Math.PI * 2);
     g.fill();
-    g.fillStyle = "#b29c80";
+    g.fillStyle = "#aaa194";
     g.beginPath();
     g.ellipse(x, y, out * 0.72, log * 0.38, 0, 0, Math.PI * 2);
     g.fill();
