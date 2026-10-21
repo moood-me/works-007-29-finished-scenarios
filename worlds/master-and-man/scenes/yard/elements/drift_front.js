@@ -1,6 +1,5 @@
 // A drift in the near right of the yard, close to the eye, below Nikita and the horse: a long soft mound of snow, its
-// crest sharpened by the wind into a curling lip with a blue shadow under it, rime glittering on its top, dry stalks
-// of wormwood standing out of it — they shiver in the wind (a layer bent from its foot).
+// crest sharpened by the wind into a curling lip with a blue shadow under it, rime glittering on its top.
 // (x −1.4…1.7 m, its foot at 0, up to 0.55)
 const C = e.lib.C;
 // (the mound's body, bluer toward its foot)
@@ -37,24 +36,3 @@ for (let i = 0; i < 30; i++) {
   g.fillRect(x, top + 0.01 + e.rnd() * 0.04, 0.012, 0.012);
 }
 
-e.layer("stalks", { pivot: [0, 0], wind: { strength: 0.6, gust: 0.8, scale: 0.4 } }, c => {
-  c.strokeStyle = "#5c5146";
-  c.lineCap = "round";
-  for (let i = 0; i < 9; i++) {
-    const x = -1.1 + i * 0.3 + e.rnd() * 0.12;
-    const base = -0.4 * Math.exp(-(((x - 0.35) / 1.1) ** 2));
-    const h = 0.3 + e.rnd() * 0.4;
-    c.lineWidth = 0.012;
-    c.beginPath();
-    c.moveTo(x, base);
-    c.quadraticCurveTo(x + 0.05, base - h * 0.6, x + 0.1 * (e.rnd() - 0.3), base - h);
-    c.stroke();
-    // (its dry heads: small dark clusters along the top, rimed white)
-    for (let k = 0; k < 4; k++) {
-      c.fillStyle = k % 2 ? "#4e443b" : "#e9eef5";
-      c.beginPath();
-      c.arc(x + 0.02 * k, base - h * (0.7 + k * 0.08), 0.017, 0, Math.PI * 2);
-      c.fill();
-    }
-  }
-});
