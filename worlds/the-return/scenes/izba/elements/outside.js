@@ -1,4 +1,4 @@
-// What the window looks out on, 16 m off (its foot a metre under the ground, so y −2.7 is the eye's level): the late
+// What the window looks out on, 12 m off (near enough that the sill's sightline falls on its sand; its foot a metre under the ground, so y −2.7 is the eye's level): the late
 // August dusk over the line — a high pale sky going lilac, a warm band low over the far forest, the stubble, the
 // embankment with its two rails, a telegraph pole and its wires, the paling of the yard nearer. Painted in daylight
 // colours: the evening is the scene's light.

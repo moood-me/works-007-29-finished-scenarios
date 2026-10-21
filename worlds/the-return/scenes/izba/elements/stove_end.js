@@ -1,8 +1,9 @@
 // The Russian stove's face toward the eye (2.3 m ahead, across −2.0…−0.6, x 0 at −1.3): whitewashed, a little crooked
 // by hand; its mouth (x 0.1…0.6, 0.82…1.32 m up, its top arched) cut out and facing the eye — the fire inside
 // (`stove_inside`, `stove_fire`) is seen straight through it, its light on the faces by the table; the hearth ledge under
-// the mouth with the iron pot on it; the soot over the mouth; the dark niche under the hearth with firewood in it; the
-// iron door taken off and leant by the plinth; the oven fork leaning at the left; two little niches with mittens drying.
+// the mouth with the iron pot on it; the soot over the mouth; the niche under the hearth with firewood in it; the
+// oven fork leaning at the left (past the 4:3 frame: the face's left there plain whitewash, nothing dark cut by the
+// frame's edge); two little niches over the pot, grey mittens drying in one.
 const L = e.lib;
 L.whitewash(g, 91, -0.7, -1.85, 1.4, 1.85, 0.8);
 // the cornice at the top's edge, a line of shade under it
@@ -58,7 +59,7 @@ g.fill();
 g.fillStyle = "#4a4541";
 g.fillRect(-0.12, -1.01, 0.14, 0.02);
 // the niche under the hearth, the firewood in it
-g.fillStyle = "#4e4034";
+g.fillStyle = "#7a6650";
 g.beginPath();
 g.moveTo(0.12, -0.0);
 g.lineTo(0.12, -0.3);
@@ -84,17 +85,6 @@ g.fillRect(0.58, -0.22, 0.12, 0.22);
 g.fillStyle = "rgba(110,94,74,0.4)";
 g.fillRect(-0.7, -0.23, 0.82, 0.015);
 g.fillRect(0.58, -0.23, 0.12, 0.015);
-// the iron door, taken off and leant by the plinth
-g.fillStyle = "#3f3a36";
-g.beginPath();
-g.moveTo(-0.36, 0);
-g.lineTo(-0.38, -0.4);
-g.quadraticCurveTo(-0.29, -0.48, -0.2, -0.4);
-g.lineTo(-0.19, 0);
-g.closePath();
-g.fill();
-g.fillStyle = "#5c5550";
-g.fillRect(-0.32, -0.24, 0.08, 0.02);
 // the oven fork leant on the face at its left: a long pale pole, the iron horns at its foot
 g.strokeStyle = "#b39a72";
 g.lineWidth = 0.035;
@@ -111,7 +101,7 @@ g.moveTo(-0.55, -0.04);
 g.quadraticCurveTo(-0.45, -0.02, -0.47, -0.18);
 g.stroke();
 // two little niches for drying, grey mittens in one
-for (const x of [-0.42, -0.2]) {
+for (const x of [-0.17, 0.03]) {
   g.fillStyle = "#8f806b";
   g.beginPath();
   g.moveTo(x, -1.4);
@@ -122,8 +112,8 @@ for (const x of [-0.42, -0.2]) {
   g.fill();
 }
 g.fillStyle = "#a39d92";
-g.fillRect(-0.17, -1.52, 0.045, 0.1);
-g.fillRect(-0.115, -1.51, 0.045, 0.09);
+g.fillRect(0.06, -1.52, 0.045, 0.1);
+g.fillRect(0.115, -1.51, 0.045, 0.09);
 // the corner toward the room, a line of shade
 g.fillStyle = "rgba(150,134,110,0.4)";
 g.fillRect(0.65, -1.85, 0.05, 1.85);
