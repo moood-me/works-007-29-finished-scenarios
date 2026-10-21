@@ -1,0 +1,133 @@
+{
+  "engine": 3,
+  "title": "Grandmother's Room",
+  "caption": "Sunday, after mass. Grandmother in her armchair, Nastenka pinned to her dress, a guest at the door with his hat in his hands.",
+  "horizon": 0.4,
+  "camera": { "mode": "picture" },
+  "light": {
+    "ambient": 0.8,
+    "ambientColor": "#ece3d8",
+    "inside": 0.5,
+    "bounce": 0.6,
+    "haze": 0.06,
+    "hazeColor": "#efe6d8",
+    "hazeGlow": 0.4,
+    "shafts": 0.5,
+    "brightness": 1.05,
+    "saturation": 0.92,
+    "tint": "#f1e2cb",
+    "tintStrength": 0.05,
+    "vignette": 0.3,
+    "grain": 0.16
+  },
+  "lights": [
+    { "id": "side_window", "of": "window_left_glass", "daylight": 1.5, "reach": 7 },
+    { "id": "back_window", "of": "window_glass", "daylight": 0.9, "reach": 5 },
+    {
+      "id": "sun",
+      "from": [-125, 30],
+      "through": [[[-2.65, 1.4, 0.9], [-2.65, 2.4, 0.9], [-2.65, 2.4, 1.95], [-2.65, 1.4, 1.95]]],
+      "soft": 0.15,
+      "color": "#ffe6c2",
+      "strength": 0.85
+    },
+    { "id": "lampada", "of": "icon#flame", "color": "#ff8a52", "strength": 0.5, "reach": 1.4, "on": "lampada", "flicker": 0.15 }
+  ],
+  "modules": ["cast"],
+  "state": {
+    "lampada": 1,
+    "babushka_on": [0.25, 4.6, 0.42],
+    "babushka_do": { "motion": "seated", "loop": true },
+    "babushka_look": "dreamer",
+    "babushka_mood": "neutral",
+    "nastya_on": [-0.52, 4.32, 0.34],
+    "nastya_do": { "motion": "read", "loop": true },
+    "nastya_with": ["book"],
+    "nastya_look": "nastya#book",
+    "nastya_mood": "neutral",
+    "dreamer_with": ["hat_hands"],
+    "dreamer_reach": { "r": [-1.746, 3.88, 1.25], "l": [-1.684, 4.049, 1.25] },
+    "dreamer_look": "nastya",
+    "dreamer_mood": "smile"
+  },
+  "states": {
+    "lampada": { "range": [0, 1], "smooth": true, "means": "the lampada before the icon: 0 out, 1 burning (its light and its glow)" }
+  },
+  "objects": [
+    { "id": "floor", "name": "Floor", "plane": true, "across": 0.05, "distance": 3, "width": 5.4, "depth": 6, "inside": true },
+    { "id": "ceiling", "name": "Ceiling", "plane": true, "across": 0.05, "distance": 3, "elevation": 2.8, "width": 5.4, "depth": 6, "inside": true },
+    { "id": "wall_back", "name": "Back wall", "across": 0, "distance": 6, "facing": 180, "height": 2.8, "box": [-2.65, -2.8, 2.75, 0], "inside": true },
+    { "id": "wall_left", "name": "Left wall", "across": -2.65, "distance": 3, "facing": 90, "height": 2.8, "box": [-3, -2.8, 3, 0], "inside": true },
+    { "id": "wall_right", "name": "Right wall", "across": 2.75, "distance": 3, "facing": 270, "height": 2.8, "box": [-3, -2.8, 3, 0], "inside": true },
+    { "id": "window_glass", "name": "Back window's day", "across": -1.1, "distance": 6.04, "facing": 180, "height": 1.97, "box": [-0.45, -1.97, 0.45, -0.83], "glows": true },
+    { "id": "window", "name": "Back window", "across": -1.1, "distance": 5.97, "facing": 180, "height": 2.11, "box": [-0.63, -2.13, 0.63, -0.8], "inside": true },
+    { "id": "sill", "name": "Windowsill", "plane": true, "across": -1.1, "distance": 5.9, "elevation": 0.85, "width": 1, "depth": 0.2, "inside": true },
+    { "id": "geranium", "name": "Geranium", "across": -0.98, "distance": 5.9, "elevation": 0.85, "height": 0.45, "box": [-0.17, -0.45, 0.17, 0.01], "inside": true },
+    { "id": "window_left_glass", "name": "Left window's day", "across": -2.7, "distance": 1.9, "facing": 90, "height": 1.95, "box": [-0.5, -1.95, 0.5, -0.9], "glows": true },
+    { "id": "stove", "name": "Tiled stove", "across": -2.225, "distance": 5.55, "facing": 180, "height": 2.5, "box": [-0.48, -2.51, 0.48, 0.01], "inside": true },
+    { "id": "stove_side", "name": "Tiled stove's side", "across": -1.8, "distance": 5.775, "facing": 90, "height": 2.5, "box": [-0.23, -2.51, 0.23, 0.01], "inside": true },
+    { "id": "clock", "name": "Wall clock", "across": 1.35, "distance": 5.97, "facing": 180, "height": 2.47, "box": [-0.2, -2.5, 0.2, -0.95], "inside": true },
+    { "id": "table_top", "name": "Table's top", "plane": true, "across": 1.35, "distance": 5.7, "elevation": 0.74, "width": 1.1, "depth": 0.55, "inside": true, "shadow": true },
+    { "id": "table", "name": "Table", "across": 1.35, "distance": 5.43, "facing": 180, "height": 0.77, "box": [-0.58, -0.78, 0.58, 0.01], "inside": true, "shadow": true },
+    { "id": "table_things", "name": "Books, a cup, the knitting", "across": 1.35, "distance": 5.72, "elevation": 0.74, "height": 0.16, "box": [-0.42, -0.16, 0.45, 0.01], "inside": true },
+    { "id": "icon", "name": "Icon and lampada", "across": 2.5, "distance": 5.78, "facing": 225, "height": 2.56, "box": [-0.26, -2.56, 0.26, -1.78], "inside": true },
+    { "id": "stair", "name": "Stair to the mezzanine", "plane": true, "across": 2.4, "distance": 3.6, "elevation": 1.4, "width": 0.6, "depth": 3.44, "tilt": 54.5, "inside": true },
+    { "id": "stair_side", "name": "Stair's side", "across": 2.08, "distance": 3.6, "facing": 270, "height": 2.8, "box": [-1.05, -2.85, 1.05, 0.02], "inside": true, "shadow": true },
+    { "id": "chair_back", "name": "Armchair's back", "across": 0.25, "distance": 4.86, "facing": 180, "height": 1.22, "box": [-0.48, -1.23, 0.48, 0.01], "inside": true, "shadow": true },
+    { "id": "chair_seat", "name": "Armchair's seat", "plane": true, "across": 0.25, "distance": 4.57, "elevation": 0.42, "width": 0.7, "depth": 0.56, "inside": true },
+    {
+      "id": "chair_arms",
+      "name": "Armchair's arms",
+      "across": -0.13,
+      "distance": 4.57,
+      "facing": 90,
+      "height": 0.7,
+      "box": [-0.3, -0.71, 0.3, 0.01],
+      "copies": [
+        { "across": -0.13, "distance": 4.57, "facing": 90 },
+        { "across": 0.63, "distance": 4.57, "facing": 270, "flip": true }
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    { "id": "chair_front", "name": "Armchair's front", "across": 0.25, "distance": 4.28, "facing": 180, "height": 0.72, "box": [-0.47, -0.72, 0.47, 0.01], "inside": true, "shadow": true },
+    { "id": "stool", "name": "Low bench", "across": -0.52, "distance": 4.32, "facing": 180, "height": 0.35, "box": [-0.25, -0.36, 0.25, 0.01], "inside": true, "shadow": true },
+    { "id": "stool_top", "name": "Low bench's seat", "plane": true, "across": -0.52, "distance": 4.32, "elevation": 0.34, "width": 0.46, "depth": 0.3, "inside": true },
+    { "id": "babushka", "name": "Grandmother", "person": { "cast": "cast", "who": "babushka", "turn": 180 }, "across": 0.25, "distance": 4.6, "inside": true },
+    {
+      "id": "nastya",
+      "name": "Nastenka",
+      "person": { "cast": "cast", "who": "nastenka", "look": { "garment": "frock", "hat": "none", "hair": "bun" }, "turn": 145 },
+      "across": -0.52,
+      "distance": 4.32,
+      "inside": true
+    },
+    { "id": "dreamer", "name": "The Dreamer", "person": { "cast": "cast", "who": "dreamer", "turn": 110 }, "across": -1.95, "distance": 4.05, "inside": true },
+    { "id": "pin", "name": "Grandmother's pin", "across": -0.12, "distance": 4.38, "height": 1.5, "box": [-1.2, -1.2, 1.2, 0.3], "inside": true },
+    { "id": "dust", "name": "Dust in the sun", "across": -0.8, "distance": 3.4, "elevation": 1.2, "inside": true, "particles": { "kind": "dust", "source": [2.6, 2.4, 2.0] } }
+  ],
+  "music": {
+    "prompts": [
+      { "text": "a solo piano nocturne in the manner of Field and early Chopin, slow, tender, rubato, soft pedal", "weight": 0.6 },
+      { "text": "a string quartet playing a quiet romance, long held notes, muted violins, 1840s salon music", "weight": 0.4 },
+      { "text": "a lone cello singing a slow melancholy melody over soft pizzicato", "weight": 0 },
+      { "text": "a music box melody slowly unwinding, delicate and a little sad", "weight": 0.9 },
+      { "text": "a Russian romance on a seven-string guitar, gentle fingerpicking, wistful", "weight": 0 },
+      { "text": "an ambient drone of pale strings, like light on water at night", "weight": 0 },
+      { "text": "a harp playing slow broken chords, shimmering, calm", "weight": 0 },
+      { "text": "a clarinet melody over a soft string bed, a quiet reverie", "weight": 0 },
+      { "text": "a distant church bell striking, with a sustained organ pedal note", "weight": 0 },
+      { "text": "a waltz played very slowly on an old upright piano, dreamy and nostalgic", "weight": 0.5 },
+      { "text": "a chamber trio of piano, violin and cello, Tchaikovsky-like lyricism, hushed", "weight": 0 },
+      { "text": "a flute and harp duet, airy and transparent, a summer night", "weight": 0 },
+      { "text": "minimal piano with long silences, a few notes at a time, intimate", "weight": 0.6 },
+      { "text": "a romantic violin solo, singing and yearning, with a soft piano accompaniment", "weight": 0 },
+      { "text": "a balalaika tremolo playing a quiet folk tune far away", "weight": 0 },
+      { "text": "soft choir humming without words, slow, luminous", "weight": 0 }
+    ],
+    "bpm": 60,
+    "density": 0.25,
+    "brightness": 0.45,
+    "scale": "D_FLAT_MAJOR_B_FLAT_MINOR"
+  }
+}

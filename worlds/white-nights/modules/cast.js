@@ -5,6 +5,8 @@
 // metres times F.fit.h (the person's height as a share of a man's 1.76 m).
 const V = () => MooodShapes.V;
 const SILK = [0.13, 0.12, 0.13, 1], BAND = [0.22, 0.2, 0.22, 1];
+// a book's: its boards (a worn brown calf) and its pages (old paper)
+const BOARDS = [0.42, 0.27, 0.2, 1], PAGES = [0.93, 0.9, 0.81, 1];
 // a top hat held by its brim: the opening at `c` turned to the holder, the crown out along `out` (unit); a little
 // wider at the top, as hats of the time were; `colour` its felt
 function topHat(F, c, out, colour) {
@@ -33,6 +35,11 @@ return {
     lodger: { kind: 'shapes', style: 'litho', who: 'man', garment: 'longcoat', hair: 'short',
       body: { height: 1.05, thick: 0.92, shoulders: 1.02 },
       colors: { skin: '#dcb898', hair: '#2a211d', top: '#ece8e0', garment: '#2a2f3a', bottom: '#33353c', shoes: '#1c1b1d', hat: '#1f1e22' } },
+    // Grandmother, past seventy and blind: small, a dark plum silk dress of long ago to the floor, a faded mustard shawl
+    // over the shoulders, white hair under a white cap tied with a lilac ribbon under the chin
+    babushka: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'shawled', hair: 'bun', hat: 'mobcap',
+      body: { height: 0.88, thick: 0.96, shoulders: 0.86, head: 1.04 },
+      colors: { skin: '#e8d0bd', hair: '#ddd7cd', top: '#c4a568', garment: '#4c3f47', hat: '#f3efe6', accent: '#8a7598', shoes: '#2a2426' } },
   },
   shapes: {
     // the world's style: the slender figure of `shadow` (a small head, a long neck, hands with fingers, pointed shoes)
@@ -48,6 +55,11 @@ return {
       // to the hips (the top's colour)
       caped: { name: 'dress with a mantle', hang: [{ to: 1.95, from: 'waist', flare: 0.42, off: 0.94 },
         { to: 0.02, from: 'shoulders', flare: 0.28, color: 'top', folds: false }], sleeves: 'garment', bare: true, bodice: true },
+      // the same dress at home, without the mantle
+      frock: { name: 'dress', hang: [{ to: 1.95, from: 'waist', flare: 0.42, off: 0.94 }], sleeves: 'garment', bare: true, bodice: true },
+      // an old woman's dress to the floor, fuller, a shawl over the shoulders down to the hips (the top's colour)
+      shawled: { name: 'dress with a shawl', hang: [{ to: 2.0, from: 'waist', flare: 0.5, off: 0.96 },
+        { to: 0.01, from: 'shoulders', flare: 0.34, color: 'top', folds: false }], sleeves: 'garment', bare: true, bodice: true },
     },
     hats: {
       // a bonnet: a deep straw cap over the crown and the back of the head, standing off it, framing the face; a
@@ -56,6 +68,13 @@ return {
         const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
         F.cap(at, axes, egg.map(e => e * r * out * 1.22), [0, 0.5, -0.86], -0.3, F.colors.hat, sides, square);
         F.ball(add(at, add(mul(hu, -r * 1.02), mul(hf, r * 0.32))), axes, [r * 0.2, r * 0.11, r * 0.12], F.colors.accent, 10);
+      } },
+      // an old woman's cap: soft white linen puffed over the crown and the back of the head, its edge round the face
+      // a little back from the brow; a ribbon bow under the chin (the accent)
+      mobcap: { name: 'cap', draw: F => {
+        const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
+        F.cap(at, axes, egg.map(e => e * r * out * 1.17), [0, 0.66, -0.75], -0.18, F.colors.hat, sides, square);
+        F.ball(add(at, add(mul(hu, -r * 1.02), mul(hf, r * 0.3))), axes, [r * 0.17, r * 0.09, r * 0.1], F.colors.accent, 10);
       } },
     },
     parts: {
@@ -68,6 +87,16 @@ return {
       hat_hand: { name: 'hat in the right hand', draw: F => {
         const { add, mul } = V(), m = F.fit.h;
         topHat(F, add(F.P('RightHand'), mul(F.fwd('Chest'), 0.02 * m)), F.fwd('Chest'), F.colors.hat ?? SILK);
+      } },
+      // an open book held in both hands, between them, its pages turned to the reader's face; its point `book`
+      book: { name: 'open book', draw: F => {
+        const { add, sub, mul, dot, cross, unit, mix } = V(), m = F.fit.h;
+        const c = mix(F.P('LeftHand'), F.P('RightHand'), 0.5), s = unit(sub(F.P('RightHand'), F.P('LeftHand')));
+        const toFace = unit(sub(F.P('Head'), c)), n = unit(sub(toFace, mul(s, dot(toFace, s)))), axes = [s, n, cross(s, n)];
+        F.ball(add(c, mul(n, -0.008 * m)), axes, [0.125 * m, 0.006 * m, 0.09 * m], BOARDS, 10, 6);
+        F.ball(add(c, mul(s, -0.059 * m)), axes, [0.06 * m, 0.008 * m, 0.085 * m], PAGES, 10, 6);
+        F.ball(add(c, mul(s, 0.059 * m)), axes, [0.06 * m, 0.008 * m, 0.085 * m], PAGES, 10, 6);
+        F.point('book', add(c, mul(n, 0.01 * m)));
       } },
     },
   },
