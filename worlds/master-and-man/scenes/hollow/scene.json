@@ -376,6 +376,23 @@
       }
     },
     {
+      "id": "flurry",
+      "name": "Snow driving past close",
+      "particles": {
+        "kind": "snow",
+        "amount": "storm",
+        "count": 20000,
+        "reach": 6,
+        "size": [
+          0.008,
+          0.008
+        ],
+        "wind": 3.0,
+        "gust": 1.0,
+        "turbulence": 0.6
+      }
+    },
+    {
       "id": "breath",
       "name": "Horse's breath",
       "particles": {

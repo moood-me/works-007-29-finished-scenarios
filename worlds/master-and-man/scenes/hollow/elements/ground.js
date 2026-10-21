@@ -59,10 +59,10 @@ for (const off of [-0.45, 0.45]) {
 }
 
 // the trampled snow round the sleigh's front and under the horse: grey-blue, broken, footprints in it
-const tr = g.createRadialGradient(-0.9, D(4.1), 0, -0.9, D(4.1), 2.4);
-tr.addColorStop(0, "rgba(170,182,204,0.6)");
-tr.addColorStop(1, "rgba(170,182,204,0)");
-g.fillStyle = tr;
+const trod = g.createRadialGradient(-0.9, D(4.1), 0, -0.9, D(4.1), 2.4);
+trod.addColorStop(0, "rgba(170,182,204,0.6)");
+trod.addColorStop(1, "rgba(170,182,204,0)");
+g.fillStyle = trod;
 g.save();
 g.translate(-0.9, D(4.1));
 g.scale(1.5, 0.7);
