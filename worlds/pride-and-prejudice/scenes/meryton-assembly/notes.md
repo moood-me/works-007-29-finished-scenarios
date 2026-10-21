@@ -3,7 +3,7 @@
 A scene of the world for the owner's look at its style (stage 2 of writing the game: the look) — the third place
 after Pemberley and Longbourn, and the first in candlelight: the ball at Meryton (scenario: I.1, places — Meryton, the
 assembly room). The second dance: Jane and Bingley face each other in the set, Darcy stands apart, the only one in the
-room who is still, and watches them; Elizabeth, a few steps from him by the wall with Charlotte, has just heard what he
+room who is still, and looks out over the room; Elizabeth, a few steps from him by the wall with Charlotte, has just heard what he
 said of her — and smiles to herself. People stand; only the light lives — the candles flicker, motes drift in the
 windows' light, the floor's wax gives back the room.
 
@@ -17,16 +17,19 @@ windows' light, the floor's wax gives back the room.
   left, a little behind (−1.65, 3.55 m), turned to her (215°), looking at her.
 - **Jane** (`jane`) and **Bingley** (`bingley`, cast `bingley`: a warm brown tailcoat, white waistcoat, cream
   breeches, white stockings, pumps — dressed for the ball) — in the set in the middle (0.15 and 0.95, 4.9–5.0 m),
-  turned to each other three-quarter to the eye (240° and 120°), looking at each other and smiling.
-- **Darcy** (`darcy`) — apart at the right (2.2, 5.6 m), turned to the screen's left (145°), hands behind his back
-  (`hands_behind`), looking at Bingley (`darcy_look`), grave (`darcy_mood: thinking`) — he does not see her.
+  turned to each other three-quarter to the eye (240° and 140°), looking at each other and smiling.
+- **Darcy** (`darcy`, his ball look: the dark blue tailcoat over a white waistcoat, black knee breeches, white
+  stockings, pumps — by the look's `colors`, not his Pemberley boots) — apart at the right (2.0, 4.5 m), nearly to the
+  eye (165°), hands behind his back (`hands_behind`), looking out over the room toward Elizabeth's side
+  (`darcy_look`, a point before him at head height), grave (`darcy_mood: thinking`). His face takes the near
+  girandole's light (`sconce_1`, a little stronger than the rest); turned toward Bingley, it went into shadow.
 - The neighbours (cast `guest_lady`, `guest_gent`, each its own colours by the look's `colors`): a couple facing each
   other in the set behind, in the gap between Elizabeth and Jane (`guest_a_lady`, `guest_a_gent`, 8.5 m); a couple
   talking under the far windows, between Bingley and Darcy (`guest_b_lady`, `guest_b_gent`, 11 m). They stand where
   the heroes' heads leave the frame free — move them with care.
 - The room: `floor` (waxed boards, a mirror plane — strength 0.2, rough 0.3, fade 3 —, the chalked wreath of the night
-  in the middle, rubbed where the set has danced), `ceiling` (a plane face down: sage coffers in cream ribs — the
-  title reads white over it), `left_wall` (six fluted pilasters, celadon panels), `right_wall` (three tall
+  in the middle, rubbed where the set has danced), `ceiling` (a plane face down: deep sage coffers in narrow cream ribs — the
+  title and the caption read white over it), `left_wall` (six fluted pilasters, celadon panels), `right_wall` (three tall
   round-headed windows to the street, 6.5, 10 and 13.5 m off), `back_wall` (the double doors, a half-round lunette over
   the gallery). The dress of the walls is one, in `lib.js` (`wall`, `holed`).
 - `gallery` — the musicians' gallery across the far end (15 m), on two columns, a balustrade with the tops of a harp, a

@@ -2,10 +2,13 @@
 // y −2.5): a gilt chain and canopy, a glass stem of bulbs, two gilt rings seen from below — the upper of six candles,
 // the lower of eight (lib: RINGS, candles) —, festoons of crystal drops between them and drops hanging under the lower
 // ring. Its flames are `chandelier_flames`; its light the scene's `chandelier_near` / `_far`. A copy for each
-const L = e.kit.brush, W = e.lib, px = L.px(e);
-const GILT = '#b8913f', GLASS = '#dfe8ec';
+const L = e.kit.brush,
+  W = e.lib,
+  px = L.px(e);
+const GILT = "#b8913f",
+  GLASS = "#dfe8ec";
 const all = W.candles();
-const candlePath = near => {
+const candlePath = (near) => {
   const p = new Path2D();
   for (const [x, y, n] of all) {
     if (n !== near) continue;
@@ -13,7 +16,7 @@ const candlePath = near => {
   }
   return p;
 };
-const cups = near => {
+const cups = (near) => {
   const p = new Path2D();
   for (const [x, y, n] of all) {
     if (n !== near) continue;
@@ -37,14 +40,22 @@ g.fillStyle = GILT;
 g.fill(canopy);
 L.pen(g, canopy, 1.0 * px, 0.7);
 // the far candles (behind the stem and the rings)
-g.fillStyle = '#f4efe2';
+g.fillStyle = "#f4efe2";
 g.fill(candlePath(0));
 g.fillStyle = GILT;
 g.fill(cups(0));
 L.pen(g, candlePath(0), 0.8 * px, 0.5);
 // the stem: glass bulbs on a gilt rod, from the chain to the finial
 const stem = new Path2D();
-for (const [y, rr] of [[-1.55, 0.06], [-1.38, 0.09], [-1.05, 0.12], [-0.8, 0.08], [-0.42, 0.14], [-0.18, 0.08], [-0.04, 0.05]]) {
+for (const [y, rr] of [
+  [-1.55, 0.06],
+  [-1.38, 0.09],
+  [-1.05, 0.12],
+  [-0.8, 0.08],
+  [-0.42, 0.14],
+  [-0.18, 0.08],
+  [-0.04, 0.05],
+]) {
   stem.moveTo(rr, y);
   stem.ellipse(0, y, rr, rr * 0.8, 0, 0, Math.PI * 2);
 }
@@ -58,7 +69,7 @@ for (const ring of W.RINGS) {
   band.moveTo(ring.rx - 0.07, ring.y + 0.015);
   band.ellipse(0, ring.y + 0.015, ring.rx - 0.07, ring.ry - 0.04, 0, 0, Math.PI * 2);
   g.fillStyle = GILT;
-  g.fill(band, 'evenodd');
+  g.fill(band, "evenodd");
   L.pen(g, band, 1.2 * px, 0.8);
 }
 // the arms from the stem out to the lower ring, curving
@@ -76,16 +87,22 @@ L.pen(g, arms, 0.7 * px, 0.4);
 // festoons of crystal drops: from the upper ring sagging to the lower, and drops hanging under the lower ring
 const drops = new Path2D();
 for (let k = 0; k < 8; k++) {
-  const a0 = (k / 8) * Math.PI * 2, a1 = ((k + 1) / 8) * Math.PI * 2;
+  const a0 = (k / 8) * Math.PI * 2,
+    a1 = ((k + 1) / 8) * Math.PI * 2;
   for (let i = 0; i <= 8; i++) {
-    const u = i / 8, a = a0 + (a1 - a0) * u, sag = Math.sin(u * Math.PI) * 0.16;
-    const x = Math.cos(a) * 0.74, y = -0.6 + Math.sin(a) * 0.11 + sag;
+    const u = i / 8,
+      a = a0 + (a1 - a0) * u,
+      sag = Math.sin(u * Math.PI) * 0.16;
+    const x = Math.cos(a) * 0.74,
+      y = -0.6 + Math.sin(a) * 0.11 + sag;
     drops.moveTo(x + 0.02, y);
     drops.ellipse(x, y, 0.02, 0.026, 0, 0, Math.PI * 2);
   }
 }
 for (let k = 0; k < 16; k++) {
-  const a = (k / 16) * Math.PI * 2, x = Math.cos(a) * 0.7, y = -0.6 + Math.sin(a) * 0.11;
+  const a = (k / 16) * Math.PI * 2,
+    x = Math.cos(a) * 0.7,
+    y = -0.6 + Math.sin(a) * 0.11;
   drops.moveTo(x + 0.018, y + 0.2);
   drops.ellipse(x, y + 0.2, 0.018, 0.04, 0, 0, Math.PI * 2);
 }
@@ -93,7 +110,7 @@ g.fillStyle = GLASS;
 g.fill(drops);
 L.pen(g, drops, 0.6 * px, 0.35);
 // the near candles, over the rings
-g.fillStyle = '#f4efe2';
+g.fillStyle = "#f4efe2";
 g.fill(candlePath(1));
 g.fillStyle = GILT;
 g.fill(cups(1));

@@ -2,13 +2,17 @@
 // at 0.9 m to the arch's top at 4.6 m): a cream frame of slender bars — the sashes and the fanlight's radiating bars —,
 // a sill; and the curtains: a swag of pale gold damask over it, its tails falling either side to the floor, gathered
 // by a tasselled cord. A copy at each window
-const L = e.kit.brush, px = L.px(e), r = L.rand(241);
+const L = e.kit.brush,
+  px = L.px(e),
+  r = L.rand(241);
 // the frame: the bars, the meeting rails, the fanlight
 const bars = new Path2D();
 for (const x of [-0.25, 0.25]) bars.rect(x - 0.018, -3.85, 0.036, 2.95);
 for (const y of [-1.85, -2.85, -3.85]) bars.rect(-0.75, y - 0.02, 1.5, 0.04);
 for (let k = 1; k < 4; k++) {
-  const a = Math.PI + (k / 4) * Math.PI, c = Math.cos(a), s = Math.sin(a);
+  const a = Math.PI + (k / 4) * Math.PI,
+    c = Math.cos(a),
+    s = Math.sin(a);
   bars.moveTo(c * 0.2 - s * 0.015, -3.85 + s * 0.2 + c * 0.015);
   bars.lineTo(c * 0.75 - s * 0.015, -3.85 + s * 0.75 + c * 0.015);
   bars.lineTo(c * 0.75 + s * 0.015, -3.85 + s * 0.75 - c * 0.015);
@@ -21,17 +25,17 @@ hub.arc(0, -3.85, 0.22, 0, Math.PI, true);
 hub.lineTo(-0.18, -3.85);
 hub.arc(0, -3.85, 0.18, Math.PI, 0, false);
 hub.closePath();
-g.fillStyle = '#f1ebdc';
+g.fillStyle = "#f1ebdc";
 g.fill(bars);
 g.fill(hub);
 L.pen(g, bars, 0.8 * px, 0.45);
 L.pen(g, hub, 0.8 * px, 0.45);
 const sill = new Path2D();
 sill.rect(-0.9, -0.92, 1.8, 0.07);
-L.wash(g, sill, '#e9e1cc', [-0.9, -0.92, 0.9, -0.85], r, 1);
+L.wash(g, sill, "#e9e1cc", [-0.9, -0.92, 0.9, -0.85], r, 1);
 L.pen(g, sill, 1.3 * px, 0.75);
 // the curtains' tails: long folds from the swag's ends to the floor, gathered at the sill by a cord
-const silk = '#d8c596';
+const silk = "#d8c596";
 for (const s of [-1, 1]) {
   const tail = new Path2D();
   tail.moveTo(s * 0.62, -4.9);
@@ -55,7 +59,7 @@ for (const s of [-1, 1]) {
   cord.ellipse(s * 0.92, -1.3, 0.16, 0.05, 0, 0, Math.PI * 2);
   cord.moveTo(s * 1.06, -1.26);
   cord.lineTo(s * 1.08, -1.0);
-  g.fillStyle = '#b8954f';
+  g.fillStyle = "#b8954f";
   g.fill(cord);
   L.pen(g, cord, 0.9 * px, 0.6);
 }
@@ -76,6 +80,6 @@ L.pen(g, swagFolds, 0.9 * px, 0.35);
 L.pen(g, swag, 1.3 * px, 0.75);
 const pelmet = new Path2D();
 pelmet.rect(-1.2, -5.08, 2.4, 0.1);
-g.fillStyle = '#c2a462';
+g.fillStyle = "#c2a462";
 g.fill(pelmet);
 L.pen(g, pelmet, 1.1 * px, 0.7);

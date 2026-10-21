@@ -32,7 +32,7 @@
           "chandelier_far": 1.35,
           "sconce_0": 1.6,
           "sconce_6": 1.6,
-          "sconce_1": 1.9
+          "sconce_1": 1.5
         }
       }
     }
@@ -58,7 +58,7 @@
     },
     {
       "id": "chandelier_near",
-      "across": 3.0,
+      "across": 3,
       "distance": 7.5,
       "elevation": 4.3,
       "color": "#ffe2b8",
@@ -79,7 +79,7 @@
     {
       "id": "sconce_0",
       "across": -2.47,
-      "distance": 2.0,
+      "distance": 2,
       "elevation": 2.35,
       "color": "#ffe2b8",
       "strength": 0.9,
@@ -92,8 +92,8 @@
       "distance": 4.5,
       "elevation": 2.35,
       "color": "#ffe2b8",
-      "strength": 1.4,
-      "reach": 6.5,
+      "strength": 1.1,
+      "reach": 5.5,
       "flicker": 0.1
     },
     {
@@ -155,7 +155,7 @@
     "later": 0,
     "elizabeth_look": [
       -0.4,
-      1.0,
+      1,
       1.45
     ],
     "elizabeth_mood": "smile",
@@ -164,7 +164,11 @@
     "jane_mood": "smile",
     "bingley_look": "jane",
     "bingley_mood": "smile",
-    "darcy_look": "bingley",
+    "darcy_look": [
+      0.2,
+      1.55,
+      2
+    ],
     "darcy_mood": "thinking",
     "guest_a_lady_look": "guest_a_gent",
     "guest_a_gent_look": "guest_a_lady",
@@ -620,10 +624,10 @@
       "person": {
         "cast": "cast",
         "who": "bingley",
-        "turn": 120
+        "turn": 140
       },
       "across": 0.95,
-      "distance": 5.0,
+      "distance": 5,
       "shadow": true,
       "inside": true
     },
@@ -633,7 +637,7 @@
       "person": {
         "cast": "cast",
         "who": "darcy",
-        "turn": 145,
+        "turn": 165,
         "does": "hands_behind",
         "look": {
           "colors": {
@@ -647,7 +651,7 @@
           }
         }
       },
-      "across": 2.0,
+      "across": 2,
       "distance": 4.5,
       "shadow": true,
       "inside": true

@@ -2,9 +2,12 @@
 // negative): its floor at 3.0 m on two slim columns, a cream fascia, a balustrade of turned balusters to 4.0 m; behind
 // the rail the tops of what is played there — a harp's neck, a bass's scroll, two music stands with their candles (their
 // flames are `gallery_flames`). Open below and above: the far wall and its doors show through
-const L = e.kit.brush, px = L.px(e), r = L.rand(239);
+const L = e.kit.brush,
+  px = L.px(e),
+  r = L.rand(239);
 // the columns: slender, cream, a plain capital and base
-const cols = new Path2D(), capitals = new Path2D();
+const cols = new Path2D(),
+  capitals = new Path2D();
 for (const x of [-2.0, 2.0]) {
   cols.moveTo(x - 0.11, -0.2);
   cols.lineTo(x - 0.09, -2.72);
@@ -14,8 +17,8 @@ for (const x of [-2.0, 2.0]) {
   capitals.rect(x - 0.17, -2.86, 0.34, 0.14);
   capitals.rect(x - 0.16, -0.2, 0.32, 0.2);
 }
-L.wash(g, cols, '#efe8d6', [-2.2, -2.9, 2.2, 0], r, 2);
-g.fillStyle = '#f2ecdd';
+L.wash(g, cols, "#efe8d6", [-2.2, -2.9, 2.2, 0], r, 2);
+g.fillStyle = "#f2ecdd";
 g.fill(capitals);
 const flutes = new Path2D();
 for (const x of [-2.0, 2.0]) {
@@ -34,7 +37,7 @@ harp.lineTo(-1.2, -4.75);
 harp.quadraticCurveTo(-0.95, -4.9, -0.7, -4.55);
 harp.lineTo(-0.72, -3.9);
 harp.closePath();
-g.fillStyle = '#b48a4e';
+g.fillStyle = "#b48a4e";
 g.fill(harp);
 const strings = new Path2D();
 for (let k = 1; k < 6; k++) {
@@ -49,7 +52,7 @@ scroll.moveTo(1.36, -3.95);
 scroll.lineTo(1.34, -4.5);
 scroll.moveTo(1.4, -4.55);
 scroll.arc(1.34, -4.55, 0.06, 0, Math.PI * 2);
-g.strokeStyle = '#6a442c';
+g.strokeStyle = "#6a442c";
 g.lineWidth = 0.05;
 g.stroke(scroll);
 const stands = new Path2D();
@@ -60,7 +63,7 @@ for (const x of [0.15, 0.85]) {
   stands.rect(x - 0.27, -4.47, 0.03, 0.12);
   stands.rect(x + 0.24, -4.47, 0.03, 0.12);
 }
-g.fillStyle = '#e8dcc0';
+g.fillStyle = "#e8dcc0";
 g.fill(stands);
 L.pen(g, stands, 1.0 * px, 0.6);
 // the balustrade: a rail, a plinth, turned balusters between
@@ -77,7 +80,7 @@ for (let x = -3.5; x <= 3.5; x += 0.2) {
   balusters.quadraticCurveTo(x + 0.07, -3.6, x + 0.03, -3.42);
   balusters.closePath();
 }
-g.fillStyle = '#efe8d6';
+g.fillStyle = "#efe8d6";
 g.fill(balusters);
 g.fill(rail);
 L.pen(g, balusters, 0.8 * px, 0.5);
@@ -85,10 +88,10 @@ L.pen(g, rail, 1.3 * px, 0.8);
 // the fascia under it: a cream band with a sage panel and a garland drawn in the pen
 const fascia = new Path2D();
 fascia.rect(-3.6, -3.32, 7.2, 0.46);
-L.wash(g, fascia, '#ebe2cc', [-3.6, -3.32, 3.6, -2.86], r, 3);
+L.wash(g, fascia, "#ebe2cc", [-3.6, -3.32, 3.6, -2.86], r, 3);
 const panel = new Path2D();
 panel.rect(-3.3, -3.24, 6.6, 0.3);
-L.wash(g, panel, '#a9b597', [-3.3, -3.24, 3.3, -2.94], r, 3);
+L.wash(g, panel, "#a9b597", [-3.3, -3.24, 3.3, -2.94], r, 3);
 const garland = new Path2D();
 for (let x = -3.1; x < 3.1; x += 0.62) {
   garland.moveTo(x, -3.2);
@@ -97,4 +100,4 @@ for (let x = -3.1; x < 3.1; x += 0.62) {
 L.pen(g, garland, 1.0 * px, 0.5);
 L.pen(g, panel, 1.0 * px, 0.6);
 L.pen(g, fascia, 1.4 * px, 0.8);
-e.at(0.5, -4.3, 'musicians');
+e.at(0.5, -4.3, "musicians");
