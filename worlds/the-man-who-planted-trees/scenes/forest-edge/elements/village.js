@@ -1,4 +1,4 @@
-// The village on the valley floor, 225 m ahead and 108 m right, seen from the brink above: a dozen stone houses each
+// The village on the valley floor, 235 m ahead and 120 m right, seen from the brink above: a dozen stone houses each
 // standing at its own depth on the land (parts), some roofs old grey slate, some new pale shingle — people have come
 // back — and round fruit trees in the gardens. Three chimneys smoke (the particles `smoke_1…3`, from the tops these
 // houses paint; their places are in scene.json).

@@ -28,19 +28,19 @@ for (let i = 0; i < 50; i++) {
   g.lineTo(a + Math.cos(t) * l, Y(d) + Math.sin(t) * l);
   g.stroke();
 }
-// the village's gardens and lanes round its houses (the element `village`, 225 m ahead and 108 m right)
+// the village's gardens and lanes round its houses (the element `village`, 235 m ahead and 120 m right)
 for (let i = 0; i < 70; i++) {
-  const a = 78 + R() * 62, d = 196 + R() * 58, w = 3 + R() * 5, h = 2.5 + R() * 4;
+  const a = 90 + R() * 62, d = 206 + R() * 58, w = 3 + R() * 5, h = 2.5 + R() * 4;
   g.fillStyle = ["#7f9150", "#93a35d", "#6c7c46", "#a59a64"][Math.floor(R() * 4)];
   g.fillRect(a - w / 2, Y(d) - h / 2, w, h);
 }
 g.strokeStyle = "#c9b98e";
 g.lineWidth = 1.4;
 g.beginPath();
-g.moveTo(70, Y(190));
-g.bezierCurveTo(92, Y(210), 110, Y(222), 146, Y(240));
-g.moveTo(106, Y(196));
-g.lineTo(112, Y(256));
+g.moveTo(82, Y(200));
+g.bezierCurveTo(104, Y(220), 122, Y(232), 158, Y(250));
+g.moveTo(118, Y(206));
+g.lineTo(124, Y(266));
 g.stroke();
 // the forest's floor: dark, leaf-strewn, from its edge up the hill to the ridge
 g.fillStyle = "#5c5a40";
@@ -109,7 +109,7 @@ const path = (w, colour) => {
   g.moveTo(1.3, Y(7.6));
   g.bezierCurveTo(6, Y(10), 16, Y(18), 26, Y(34));
   g.bezierCurveTo(40, Y(60), 62, Y(110), 76, Y(160));
-  g.bezierCurveTo(84, Y(185), 92, Y(200), 104, Y(212));
+  g.bezierCurveTo(88, Y(190), 100, Y(208), 116, Y(222));
   g.stroke();
 };
 path(1.3, "rgba(196, 180, 136, 0.45)");

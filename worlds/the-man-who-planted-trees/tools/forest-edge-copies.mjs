@@ -20,13 +20,13 @@ const r2 = (v) => Math.round(v * 100) / 100;
 const pick = (list) => list[Math.floor(rnd() * list.length)];
 const TINTS = ['#ffffff', '#f2f4ea', '#e8ecdf', '#f6f1e4'];
 // the people and the stone, kept clear of what stands at their feet; the path's line near
-const PEOPLE = [[0.4, 5.6], [2.5, 6.4], [-1.2, 7.6], [0.3, 16.2]];
+const PEOPLE = [[0.4, 5.6], [2.0, 6.6], [-1.2, 7.6], [0.3, 16.2]];
 const clear = (a, d, r) => PEOPLE.every(([pa, pd]) => Math.hypot(a - pa, d - pd) > r);
 const offStream = (a, d, gap) => Math.abs(a - lib.streamX(d)) > lib.streamW(d) / 2 + gap;
 // the left edge of what the view can see at d (a little past the frame's 21:9 edge)
 const leftmost = (d) => -1.05 * d - 10;
 
-const copies = { oak_a: [], oak_b: [], oak_c: [], wood_far: [], willow: [], sedge: [], grass: [] };
+const copies = { oak_a: [], oak_b: [], oak_c: [], wood_far: [], willow: [], sedge: [], grass: [], valley_trees: [] };
 const oak = (a, d, s) => {
   const kind = rnd(), id = kind < 0.42 ? 'oak_a' : kind < 0.8 ? 'oak_b' : 'oak_c';
   copies[id].push({ across: r2(a), distance: r2(d), scale: r2(s * (0.88 + rnd() * 0.24)), flip: rnd() < 0.5, tint: pick(TINTS) });
@@ -64,9 +64,20 @@ for (let d = 1; d < 28; d += 0.45 + rnd() * 0.6) {
 }
 // tall grass over the meadow, thicker away from the path
 while (copies.grass.length < 60) {
-  const d = 3 + Math.pow(rnd(), 1.2) * 22, a = lib.edgeA(d) + 1 + rnd() * (lib.browA(d) + 0.5 - lib.edgeA(d));
+  const d = 4.5 + Math.pow(rnd(), 1.2) * 20, a = lib.edgeA(d) + 1 + rnd() * (lib.browA(d) + 0.5 - lib.edgeA(d));
   const toVillage = Math.atan2(a, d) > 0.3 && Math.atan2(a, d) < 0.6 && d < 16;
-  if (offStream(a, d, 1.2) && clear(a, d, 1.5) && !toVillage) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.8 + rnd() * 0.5), flip: rnd() < 0.5 });
+  if (offStream(a, d, 1.2) && clear(a, d, 1.5) && !toVillage) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.7 + rnd() * 0.4), flip: rnd() < 0.5 });
+}
+// clumps of trees along the valley's hedges: a dozen wandering lines over its floor, away from the village
+for (let k = 0; k < 12; k++) {
+  let a = 40 + rnd() * 500, d = 90 + rnd() * 520;
+  const t = rnd() * Math.PI;
+  for (let i = 0; i < 7; i++) {
+    a += Math.cos(t) * (16 + rnd() * 10);
+    d += Math.sin(t) * (16 + rnd() * 10);
+    if (a - lib.browA(d) < 20 || Math.hypot(a - 120, d - 235) < 40) continue;
+    copies.valley_trees.push({ across: r2(a), distance: r2(d), scale: r2(0.8 + rnd() * 0.4), flip: rnd() < 0.5, tint: pick(TINTS) });
+  }
 }
 
 const path = new URL('scene.json', folder), spec = JSON.parse(readFileSync(path, 'utf8'));
