@@ -25,7 +25,7 @@ both faces.
 | `lantern` | 4.3 m, the landing's right edge | post, arm, the lantern in layer `lamp` swinging a little (animate); its light `flame` = the scene's light `lamp` |
 | `boat` | unseen anchor, 5.35 m, on the water, facing 160 | the ferryman's skiff: `hull` (near side), `hull_in` (far side within), `transom`, planes `boat_floor` (`walk`, oars on it) and `thwarts` |
 | `nn` | on the landing, 5.2 m | N. N., hands behind his back, turned to us, smiling |
-| `ferryman` | in the boat | sitting on the after thwart (`ferryman_on`: a point in the boat's frame; his turn is within the boat's), looking up at N. N.; `pipe_smoke` rises from his pipe (`ferryman#pipe`) |
+| `ferryman` | in the boat | sitting on the after thwart (`ferryman_on`: a point in the boat's frame; his turn is within the boat's), looking up at N. N. (his chest: the head not thrown back); `pipe_smoke` rises from his pipe (`ferryman#pipe`) |
 
 The cast gained `ferryman` (the parts `beard`, `pipe`) — `modules/cast.md`.
 

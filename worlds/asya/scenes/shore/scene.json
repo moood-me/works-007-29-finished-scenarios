@@ -349,7 +349,7 @@
         0.42
       ]
     },
-    "ferryman_look": "nn",
+    "ferryman_look": "nn#chest",
     "ferryman_mood": "neutral"
   },
   "music": {
