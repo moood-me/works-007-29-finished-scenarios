@@ -44,22 +44,22 @@ function strokes(g, seed, x, y, w, h, colors, n, len, wid, angle = 0, alpha = 0.
 }
 
 // the tooth of rough paper: a tile of 128 × 128 of its grain — pale specks where the dry paint skipped the paper's tops,
-// darker pits where it pooled, a faint fibre running through — the same every time (hashed, not random), in a canvas of
-// the painting's own
+// darker pits where it pooled, in two sizes and no direction (a fibre hashed along the rows read as diagonal scratches)
+// — the same every time (hashed, not random), in a canvas of the painting's own
 const TILE = 128;
 function paperOf() {
   const c = new OffscreenCanvas(TILE, TILE), t = c.getContext("2d"), img = t.createImageData(TILE, TILE), d = img.data;
   for (let yy = 0; yy < TILE; yy++) {
     for (let xx = 0; xx < TILE; xx++) {
       const i = (yy * TILE + xx) * 4;
-      // (a grain of two sizes, periodic across the tile's edges, and a fibre along it)
+      // (a grain of two sizes, periodic across the tile's edges, no direction)
       const big = anim.hash(((xx >> 2) % (TILE >> 2)) * 977 + ((yy >> 2) % (TILE >> 2)), 7);
-      const small = anim.hash(xx * 131 + yy * 7919, 11), fibre = anim.hash(((xx + (yy >> 3) * 5) % TILE) + (yy >> 1) * 313, 13);
-      const v = 0.5 * small + 0.35 * big + 0.15 * fibre;
-      if (v > 0.68) {
-        d[i] = 250; d[i + 1] = 246; d[i + 2] = 236; d[i + 3] = Math.round(255 * Math.min(0.55, (v - 0.68) * 2.2));
-      } else if (v < 0.3) {
-        d[i] = 70; d[i + 1] = 58; d[i + 2] = 44; d[i + 3] = Math.round(255 * Math.min(0.32, (0.3 - v) * 1.4));
+      const small = anim.hash(xx * 131 + yy * 7919, 11);
+      const v = 0.55 * small + 0.45 * big;
+      if (v > 0.7) {
+        d[i] = 250; d[i + 1] = 246; d[i + 2] = 236; d[i + 3] = Math.round(255 * Math.min(0.4, (v - 0.7) * 1.8));
+      } else if (v < 0.28) {
+        d[i] = 70; d[i + 1] = 58; d[i + 2] = 44; d[i + 3] = Math.round(255 * Math.min(0.22, (0.28 - v) * 1.1));
       }
     }
   }
@@ -94,9 +94,9 @@ function logs(g, seed, x0, x1, height, log = 0.26, tooth = 1.4) {
     g.fillRect(x0, y - 0.04, x1 - x0, 0.04);
     g.fillStyle = "rgba(120,118,80,0.55)";
     g.fillRect(x0, y - 0.014, x1 - x0, 0.014);
-    strokes(g, seed + i * 7, x0, y - log + 0.03, x1 - x0, log - 0.07, ["#bcae93", "#7a6f5b", "#a1957d", "#cbbfa4"], Math.round((x1 - x0) * 4), 0.5, 0.04, 0, 0.5);
+    strokes(g, seed + i * 7, x0, y - log + 0.03, x1 - x0, log - 0.07, ["#b4a78d", "#867a64", "#a1957d"], Math.round((x1 - x0) * 1.6), 0.7, 0.12, 0, 0.3);
   }
-  paper(g, x0, -height, x1 - x0, height, tooth);
+  paper(g, x0, -height, x1 - x0, height, tooth, 0.6);
 }
 
 // a window in a log wall, its middle at x, its sill at `sill` and its top at `top` metres up: a carved white-blue frame

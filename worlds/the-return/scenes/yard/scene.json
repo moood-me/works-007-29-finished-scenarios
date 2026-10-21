@@ -1,27 +1,27 @@
 {
   "engine": 3,
   "title": "The Ivanovs' Yard",
-  "horizon": 0.27,
+  "horizon": 0.36,
   "camera": {
     "mode": "picture"
   },
   "light": {
     "vignette": 0.25,
-    "grain": 0.38,
+    "grain": 0.22,
     "haze": 0.22,
     "hazeColor": "#ebe7dc",
     "hazeGlow": 0.3,
     "ambient": 0.58,
     "ambientColor": "#b9bfc9",
     "bounce": 0.45,
-    "tint": "#efe6d2",
-    "tintStrength": 0.06,
-    "saturation": 0.86,
+    "tint": "#f1e2c4",
+    "tintStrength": 0.08,
+    "saturation": 0.9,
     "brightness": 1.02,
     "wind": [
       1,
       0.2,
-      0.4
+      0.7
     ]
   },
   "lights": [
@@ -31,14 +31,14 @@
         150,
         38
       ],
-      "color": "#fff0da",
+      "color": "#ffe8c4",
       "strength": 1.25
     },
     {
       "id": "stove",
       "of": "house_lights#door",
-      "reach": 4,
-      "strength": 0.5
+      "reach": 4.5,
+      "strength": 0.9
     }
   ],
   "modules": [
@@ -46,49 +46,50 @@
   ],
   "state": {
     "ivanov_look": [
-      0.2,
-      1.4,
-      1.55
+      -0.1,
+      1.65,
+      1.5
     ],
-    "ivanov_mood": "tired",
+    "ivanov_mood": "smile",
     "ivanov_reach": {
       "l": [
-        1.173,
-        2.395,
+        0.768,
+        1.812,
         0.74
+      ],
+      "r": [
+        0.373,
+        2.22,
+        0.8
       ]
     },
     "lyuba_look": [
       0.6,
-      1.6,
-      1.2
+      1.65,
+      1.68
     ],
     "lyuba_mood": "sad",
     "lyuba_reach": {
       "r": [
-        0.132,
-        2.263,
-        0.85
+        0.027,
+        1.868,
+        0.86
       ],
       "l": [
-        0.198,
-        2.309,
-        0.85
+        0.067,
+        1.926,
+        0.86
       ]
     },
-    "petrushka_look": [
-      0.6,
-      1.8,
-      1.6
-    ],
-    "petrushka_mood": "thinking",
-    "nastya_look": [
-      0.5,
-      2.0,
-      1.5
-    ],
+    "petrushka_look": "ivanov",
+    "petrushka_mood": "angry",
+    "petrushka_reach": {
+      "r": "nastya#hand_l"
+    },
+    "nastya_look": "ivanov",
+    "nastya_mood": "afraid",
     "nastya_reach": {
-      "r": "petrushka#hand_l"
+      "l": "petrushka#hand_r"
     }
   },
   "objects": [
@@ -178,12 +179,12 @@
       "id": "poles",
       "name": "Telegraph poles",
       "across": -5.5,
-      "distance": 13.0,
+      "distance": 13,
       "facing": 180,
       "height": 7,
       "box": [
         -0.7,
-        -7.0,
+        -7,
         20.7,
         0.05
       ],
@@ -191,23 +192,23 @@
       "copies": [
         {
           "across": -45.5,
-          "distance": 13.0
+          "distance": 13
         },
         {
           "across": -25.5,
-          "distance": 13.0
+          "distance": 13
         },
         {
           "across": -5.5,
-          "distance": 13.0
+          "distance": 13
         },
         {
           "across": 14.5,
-          "distance": 13.0
+          "distance": 13
         },
         {
           "across": 34.5,
-          "distance": 13.0
+          "distance": 13
         }
       ]
     },
@@ -219,38 +220,52 @@
       "facing": 180,
       "height": 5,
       "box": [
-        -1.0,
-        -5.0,
+        -1,
+        -5,
         1.6,
         0.05
       ],
       "shadow": true
     },
     {
+      "id": "house_end",
+      "name": "Izba: gable end",
+      "across": -5.7,
+      "distance": 5,
+      "facing": 180,
+      "height": 4.9,
+      "box": [
+        -3.25,
+        -4.95,
+        3.25,
+        0.05
+      ]
+    },
+    {
       "id": "house_wall",
       "name": "Izba: wall to the yard",
-      "across": -3.6,
-      "distance": 7,
+      "across": -3,
+      "distance": 8.3,
       "facing": 90,
       "height": 2.75,
       "box": [
-        -4.85,
-        -2.88,
-        4.9,
+        -3.62,
+        -2.92,
+        3.78,
         0.05
       ]
     },
     {
       "id": "house_lights",
       "name": "Izba: the stove's glow through the open door",
-      "across": -3.6,
-      "distance": 7,
+      "across": -3,
+      "distance": 8.3,
       "facing": 90,
       "height": 2.75,
       "box": [
-        -0.5,
+        -0.8,
         -2.45,
-        0.3,
+        0,
         -0.45
       ],
       "glows": true,
@@ -263,10 +278,10 @@
       "id": "roof",
       "name": "Izba: roof slope",
       "plane": true,
-      "across": -4.75,
-      "distance": 7,
+      "across": -4.15,
+      "distance": 8.3,
       "elevation": 3.735,
-      "width": 9.6,
+      "width": 7.2,
       "depth": 3.78,
       "rotation": 90,
       "tilt": 35,
@@ -275,8 +290,8 @@
     {
       "id": "chimney",
       "name": "Chimney",
-      "across": -5.0,
-      "distance": 10.5,
+      "across": -4.4,
+      "distance": 11,
       "elevation": 3.85,
       "facing": 180,
       "height": 1.05,
@@ -317,8 +332,8 @@
       "name": "Porch",
       "plane": true,
       "walk": true,
-      "across": -2.95,
-      "distance": 7,
+      "across": -2.35,
+      "distance": 8,
       "elevation": 0.5,
       "width": 1.3,
       "depth": 1.6
@@ -328,20 +343,20 @@
       "name": "Porch steps",
       "plane": true,
       "walk": true,
-      "across": -2.15,
-      "distance": 7,
+      "across": -1.55,
+      "distance": 8,
       "elevation": 0.33,
       "width": 0.3,
       "depth": 1.6,
       "copies": [
         {
-          "across": -2.15,
-          "distance": 7,
+          "across": -1.55,
+          "distance": 8,
           "elevation": 0.33
         },
         {
-          "across": -1.85,
-          "distance": 7,
+          "across": -1.25,
+          "distance": 8,
           "elevation": 0.17
         }
       ]
@@ -349,8 +364,8 @@
     {
       "id": "porch_front",
       "name": "Porch front",
-      "across": -2.95,
-      "distance": 6.2,
+      "across": -2.35,
+      "distance": 7.2,
       "facing": 180,
       "height": 0.52,
       "box": [
@@ -364,8 +379,8 @@
     {
       "id": "risers",
       "name": "Porch step risers",
-      "across": -1.7,
-      "distance": 7,
+      "across": -1.1,
+      "distance": 8,
       "facing": 90,
       "height": 0.5,
       "box": [
@@ -400,7 +415,7 @@
       "box": [
         -0.02,
         -1.12,
-        1.0,
+        1,
         0.05
       ],
       "shadow": true
@@ -409,7 +424,7 @@
       "id": "woodpile",
       "name": "Woodpile",
       "across": 5.6,
-      "distance": 11.0,
+      "distance": 11,
       "facing": 180,
       "height": 1.7,
       "box": [
@@ -425,7 +440,7 @@
       "name": "Chopping block and axe",
       "across": 2.56,
       "distance": 4.8,
-      "height": 1.0,
+      "height": 1,
       "box": [
         -0.32,
         -1.02,
@@ -436,9 +451,9 @@
     },
     {
       "id": "buckets",
-      "name": "Buckets",
-      "across": -2.0,
-      "distance": 4.3,
+      "name": "Buckets of water",
+      "across": -2.3,
+      "distance": 3.4,
       "height": 0.65,
       "box": [
         -0.4,
@@ -446,18 +461,6 @@
         0.4,
         0.03
       ],
-      "shadow": true
-    },
-    {
-      "id": "yoke",
-      "name": "Yoke on the ground",
-      "plane": true,
-      "across": -1.9,
-      "distance": 3.9,
-      "elevation": 0.01,
-      "width": 1.7,
-      "depth": 0.75,
-      "rotation": 55,
       "shadow": true
     },
     {
@@ -483,9 +486,9 @@
       "facing": 270,
       "height": 0.9,
       "box": [
-        -0.78,
+        -0.86,
         -0.94,
-        0.82,
+        0.86,
         0.03
       ],
       "shadow": true
@@ -521,10 +524,10 @@
       "person": {
         "cast": "cast",
         "who": "ivanov",
-        "turn": 215
+        "turn": 235
       },
-      "across": 0.95,
-      "distance": 2.6,
+      "across": 0.6,
+      "distance": 2,
       "shadow": true
     },
     {
@@ -533,10 +536,10 @@
       "person": {
         "cast": "cast",
         "who": "lyuba",
-        "turn": 145
+        "turn": 125
       },
-      "across": 0.05,
-      "distance": 2.45,
+      "across": -0.1,
+      "distance": 2,
       "shadow": true
     },
     {
@@ -545,10 +548,10 @@
       "person": {
         "cast": "cast",
         "who": "petrushka",
-        "turn": 150,
+        "turn": 125,
         "does": "hands_behind"
       },
-      "across": -0.5,
+      "across": -0.95,
       "distance": 2.8,
       "shadow": true
     },
@@ -558,39 +561,35 @@
       "person": {
         "cast": "cast",
         "who": "nastya",
-        "turn": 160
+        "turn": 140
       },
-      "across": -0.85,
-      "distance": 3.1,
+      "across": -1.65,
+      "distance": 3.05,
       "shadow": true
     },
     {
       "id": "tufts",
       "name": "Tufts of dry grass",
-      "across": -1.6,
-      "distance": 2.6,
-      "height": 0.42,
+      "across": -2.25,
+      "distance": 2.75,
+      "height": 0.46,
       "box": [
-        -0.3,
-        -0.42,
-        0.3,
+        -0.32,
+        -0.46,
+        0.32,
         0.02
       ],
       "copies": [
         {
-          "across": -1.6,
-          "distance": 2.6
+          "across": -2.25,
+          "distance": 2.75,
+          "scale": 1.2
         },
         {
-          "across": 1.4,
-          "distance": 2.6,
-          "scale": 0.9,
+          "across": 1.75,
+          "distance": 3,
+          "scale": 1.3,
           "flip": true
-        },
-        {
-          "across": -1.35,
-          "distance": 3.45,
-          "scale": 0.8
         },
         {
           "across": 2.15,
@@ -598,15 +597,19 @@
           "flip": true
         },
         {
-          "across": -3.35,
-          "distance": 4.6,
-          "scale": 1.2
+          "across": 2.6,
+          "distance": 3.9
         },
         {
-          "across": -1.3,
-          "distance": 5.8,
-          "scale": 0.8,
+          "across": -3,
+          "distance": 4.3,
+          "scale": 1.2,
           "flip": true
+        },
+        {
+          "across": -2.75,
+          "distance": 6.2,
+          "scale": 1.1
         },
         {
           "across": 3.4,
@@ -614,8 +617,8 @@
           "scale": 1.1
         },
         {
-          "across": -3.35,
-          "distance": 8.9,
+          "across": -2.75,
+          "distance": 10.4,
           "scale": 1.3,
           "flip": true
         },

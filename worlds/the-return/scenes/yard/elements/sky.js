@@ -12,8 +12,8 @@ sky.addColorStop(0.39, "#ece9df");
 sky.addColorStop(1, "#e6e1d3");
 g.fillStyle = sky;
 g.fillRect(-0.3, -0.35, W, 1.6);
-L.strokes(g, 11, -0.3, -0.35, W, 0.75, ["#eceae2", "#c9d0d2", "#e7e4da"], 600, 0.08, 0.008, 0, 0.22);
-L.paper(g, -0.3, -0.35, W, 1.6, 0.12, 0.3);
+L.strokes(g, 11, -0.3, -0.35, W, 0.75, ["#e6e6df", "#c4ccd0"], 70, 0.3, 0.06, 0, 0.12);
+L.paper(g, -0.3, -0.35, W, 1.6, 0.12, 0.18);
 // (a streak of cloud at x, y: a long thin oval and a few strokes along it — drawn again one width to the left, so the
 // layer's ends meet as it drifts round)
 const streak = (g, x, y, len, thick, color, alpha, seed) => {
