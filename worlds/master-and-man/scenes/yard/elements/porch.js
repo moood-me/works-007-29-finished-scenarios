@@ -61,14 +61,17 @@ for (const [y, ry] of [[-2.0, 0.16], [-2.55, 0.12]]) {
   g.fill();
 }
 
-// the snow drifted against the landing's face: soft mounds, bluer in their hollows
-for (const [x, w, h] of [[-0.9, 0.55, 0.3], [-0.3, 0.5, 0.22], [0.4, 0.6, 0.28], [0.95, 0.35, 0.2]]) {
-  g.fillStyle = C.snowShade;
-  g.beginPath();
-  g.ellipse(x, 0.04, w, h + 0.04, 0, Math.PI, 0);
-  g.fill();
-  g.fillStyle = C.snow;
-  g.beginPath();
-  g.ellipse(x - w * 0.08, 0.04, w * 0.92, h, 0, Math.PI, 0);
-  g.fill();
-}
+// the snow drifted against the landing's face: one low bank along it, higher at the left under the railing, its top
+// soft, a little bluer at its foot where it meets the yard
+const bank = g.createLinearGradient(0, -0.3, 0, 0.06);
+bank.addColorStop(0, C.snow);
+bank.addColorStop(1, "#dde6f1");
+g.fillStyle = bank;
+g.beginPath();
+g.moveTo(X0 - 0.1, 0.06);
+g.lineTo(X0 - 0.1, -0.26);
+g.bezierCurveTo(-0.7, -0.3, -0.3, -0.16, 0.1, -0.15);
+g.bezierCurveTo(0.5, -0.14, 0.85, -0.08, X1 + 0.1, -0.04);
+g.lineTo(X1 + 0.1, 0.06);
+g.closePath();
+g.fill();

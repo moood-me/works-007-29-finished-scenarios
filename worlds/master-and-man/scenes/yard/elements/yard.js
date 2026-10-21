@@ -36,14 +36,14 @@ g.stroke();
 
 // where things stand (metres: across, distance): the horse's anchor and its axis — his head toward the eye at the
 // left, his body away to the right —, the side toward the eye; the sleigh along it behind him
-const HA = [2.04, 5.17];
-const U = [0.731, 0.682];
-const NEAR = [0.682, -0.731];
+const HA = [2.3, 5.0];
+const U = [0.94, 0.342];
+const NEAR = [0.342, -0.94];
 const along = (k, side) => [HA[0] + U[0] * k + NEAR[0] * side, HA[1] + U[1] * k + NEAR[1] * side];
 
 // the trodden yard: grey-blue at the steps' foot, where Nikita stands, under the horse's hooves
 g.fillStyle = "rgba(196,206,222,0.85)";
-for (const [x, d, rx, ry, a] of [[0.25, 4.25, 0.55, 0.5, 0], [0.65, 4.0, 0.6, 0.35, 0.3], [1.4, 4.55, 0.75, 0.4, 0.7], [2.1, 5.2, 0.7, 0.4, 0.7], [2.9, 5.95, 0.6, 0.35, 0.7]]) {
+for (const [x, d, rx, ry, a] of [[0.25, 4.25, 0.55, 0.5, 0], [0.6, 4.1, 0.6, 0.35, 0.3], [1.3, 4.6, 0.75, 0.4, 0.35], [2.2, 5.0, 0.8, 0.4, 0.35], [3.1, 5.3, 0.7, 0.35, 0.35]]) {
   g.beginPath();
   g.ellipse(x, D(d), rx, ry, a, 0, Math.PI * 2);
   g.fill();
@@ -62,24 +62,24 @@ const prints = (x0, d0, x1, d1, n) => {
     g.fill();
   }
 };
-prints(0.3, 4.2, 0.6, 4.05, 3);
+prints(0.3, 4.2, 0.55, 4.1, 3);
 prints(0.25, 3.95, 0.8, 2.1, 9);
 prints(1.1, 4.1, 2.4, 2.8, 8);
 // (where Nikita stands: the snow pressed down under his felt boots, a soft blue-grey hollow — his feet stand in it)
-const under = g.createRadialGradient(0.6, D(4.0), 0.02, 0.6, D(4.0), 0.42);
+const under = g.createRadialGradient(0.55, D(4.1), 0.02, 0.55, D(4.1), 0.42);
 under.addColorStop(0, "rgba(92,108,136,0.75)");
 under.addColorStop(0.55, "rgba(120,136,164,0.45)");
 under.addColorStop(1, "rgba(150,166,192,0)");
 g.fillStyle = under;
 g.beginPath();
-g.ellipse(0.6, D(4.0), 0.42, 0.3, 0, 0, Math.PI * 2);
+g.ellipse(0.55, D(4.1), 0.42, 0.3, 0, 0, Math.PI * 2);
 g.fill();
 
 // the runner tracks: from the gate, round, to the sleigh's back (its runners 0.3 m each side of the horse's line)
 g.strokeStyle = "rgba(150,166,192,0.9)";
 g.lineWidth = 0.07;
 for (const side of [-0.3, 0.3]) {
-  const [bx, bd] = along(4.3, side);
+  const [bx, bd] = along(3.8, side);
   g.beginPath();
   g.moveTo(bx, D(bd));
   g.bezierCurveTo(bx + U[0] * 3, D(bd + U[1] * 3), 10.4 + side, D(11), 10.7 + side, D(15));
@@ -89,8 +89,8 @@ for (const side of [-0.3, 0.3]) {
 g.strokeStyle = "rgba(128,146,176,0.9)";
 g.lineWidth = 0.1;
 for (const side of [-0.3, 0.3]) {
-  const [ax, ad] = along(1.95, side);
-  const [bx, bd] = along(4.35, side);
+  const [ax, ad] = along(1.4, side);
+  const [bx, bd] = along(3.85, side);
   g.beginPath();
   g.moveTo(ax, D(ad));
   g.lineTo(bx, D(bd));
@@ -112,8 +112,8 @@ for (let i = 0; i < 26; i++) {
 g.strokeStyle = "rgba(186,168,120,0.9)";
 g.lineWidth = 0.012;
 for (let i = 0; i < 90; i++) {
-  const x = 0.9 + e.rnd() * 0.5;
-  const d = 4.05 + e.rnd() * 0.35;
+  const x = 0.75 + e.rnd() * 0.5;
+  const d = 4.3 + e.rnd() * 0.35;
   const a = e.rnd() * Math.PI;
   g.beginPath();
   g.moveTo(x, D(d));
