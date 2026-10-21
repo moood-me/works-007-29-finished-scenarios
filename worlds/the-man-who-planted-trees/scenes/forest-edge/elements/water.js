@@ -4,7 +4,7 @@
 // In the wood the land's painting carries the stream on.
 const L = e.lib, Y = (d) => 14 - d;
 const edgeAt = (d, side) => L.streamX(d) + side * (L.streamW(d) / 2 + 0.6);
-g.fillStyle = "#a9b9c2";
+g.fillStyle = "#9db3c7";
 g.beginPath();
 for (let d = -4; d <= 32; d += 0.25) g.lineTo(edgeAt(d, -1), Y(d));
 for (let d = 32; d >= -4; d -= 0.25) g.lineTo(edgeAt(d, 1), Y(d));

@@ -63,10 +63,10 @@ for (let d = 1; d < 28; d += 0.45 + rnd() * 0.6) {
   if (clear(a, d, 0.7)) copies.sedge.push({ across: r2(a), distance: r2(d), scale: r2(0.7 + rnd() * 0.5), flip: rnd() < 0.5 });
 }
 // tall grass over the meadow, thicker away from the path
-while (copies.grass.length < 60) {
+while (copies.grass.length < 44) {
   const d = 4.5 + Math.pow(rnd(), 1.2) * 20, a = lib.edgeA(d) + 1 + rnd() * (lib.browA(d) + 0.5 - lib.edgeA(d));
   const toVillage = Math.atan2(a, d) > 0.3 && Math.atan2(a, d) < 0.6 && d < 16;
-  if (offStream(a, d, 1.2) && clear(a, d, 1.5) && !toVillage) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.7 + rnd() * 0.4), flip: rnd() < 0.5 });
+  if (offStream(a, d, 1.2) && clear(a, d, 1.5) && !toVillage) copies.grass.push({ across: r2(a), distance: r2(d), scale: r2(0.55 + rnd() * 0.6), flip: rnd() < 0.5 });
 }
 // clumps of trees along the valley's hedges: a dozen wandering lines over its floor, away from the village
 for (let k = 0; k < 12; k++) {
