@@ -3,6 +3,10 @@
 // negative). `dim` darkens it (the dining room's, a shade browner). The caller clips holes (a window, an arch) itself.
 function wallpaper(g, e, x0, x1, dim) {
   const w = x1 - x0;
+  g.save();
+  g.beginPath();
+  g.rect(x0, -2.82, w, 2.84);
+  g.clip();
   g.fillStyle = dim ? '#b79b84' : '#cbb09c';
   g.fillRect(x0, -2.82, w, 2.84);
   // the sprigs: a small flower and two leaves, in staggered rows, here and there faded out
@@ -38,5 +42,6 @@ function wallpaper(g, e, x0, x1, dim) {
   g.fillRect(x0, -0.15, w, 0.17);
   g.fillStyle = '#4a3528';
   g.fillRect(x0, -0.165, w, 0.02);
+  g.restore();
 }
 return { wallpaper };

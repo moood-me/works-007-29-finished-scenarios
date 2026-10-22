@@ -85,16 +85,16 @@ g.lineTo(0.3, -0.79);
 g.closePath();
 g.fill();
 // shelf 3: two little horses — and the unicorn, apart from them, its horn catching the light
-creature(-0.22, -1.14, 1.0, glass[3], false);
-creature(-0.08, -1.14, 0.9, glass[1], true);
-creature(0.14, -1.14, 1.1, 'rgba(236,244,250,0.92)', false);
+creature(0.22, -1.14, 1.0, glass[3], true);
+creature(0.06, -1.14, 0.9, glass[1], false);
+creature(-0.2, -1.14, 1.1, 'rgba(236,244,250,0.92)', false);
 g.strokeStyle = 'rgba(250,250,255,0.95)';
 g.lineWidth = 0.007;
 g.beginPath();
-g.moveTo(0.14 + 0.085, -1.14 - 0.135);
-g.lineTo(0.14 + 0.115, -1.14 - 0.175);
+g.moveTo(-0.2 + 0.085, -1.14 - 0.135);
+g.lineTo(-0.2 + 0.115, -1.14 - 0.175);
 g.stroke();
-e.at(0.15, -1.22, 'unicorn');
+e.at(-0.19, -1.22, 'unicorn');
 // shelf 4 (top): a bowl, a tiny elephant, a bud vase
 g.fillStyle = glass[2];
 g.beginPath();
@@ -107,7 +107,7 @@ g.fillRect(0.2, -1.62, 0.025, 0.12);
 e.layer('glints', {}, c => {
   c.fillStyle = 'rgba(255,255,255,0.95)';
   const spots = [[-0.24, -0.47], [-0.17, -0.57], [-0.02, -0.5], [0.05, -0.47], [0.2, -0.5], [-0.17, -0.85], [0.03, -0.86],
-    [0.21, -0.83], [-0.2, -1.2], [-0.07, -1.19], [0.2, -1.2], [0.25, -1.3], [-0.2, -1.54], [0.04, -1.58], [0.21, -1.6]];
+    [0.21, -0.83], [0.2, -1.2], [0.07, -1.19], [-0.2, -1.2], [-0.09, -1.3], [-0.2, -1.54], [0.04, -1.58], [0.21, -1.6]];
   for (const [x, y] of spots) {
     c.beginPath();
     c.ellipse(x, y, 0.014, 0.009, 0.5, 0, Math.PI * 2);

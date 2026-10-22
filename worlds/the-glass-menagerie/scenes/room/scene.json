@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Flat",
   "caption": "An evening off the alley. The glass on the shelf catches the lamp.",
-  "horizon": 0.38,
+  "horizon": 0.35,
   "camera": {
     "mode": "picture"
   },
@@ -25,7 +25,7 @@
       "id": "lamp",
       "of": "floor_lamp#bulb",
       "color": "#ffcc88",
-      "strength": 1.7,
+      "strength": 1.4,
       "reach": 5,
       "on": "lamp",
       "flicker": 0.03
@@ -95,14 +95,15 @@
     "dining": 1,
     "neon": 1,
     "laura_look": "shelf#unicorn",
-    "amanda_look": "laura",
+    "amanda_look": "tom",
     "amanda_mood": "thinking",
     "tom_look": [
       0,
       0,
       1.7
     ],
-    "tom_mood": "tired"
+    "tom_mood": "tired",
+    "laura_mood": "sad"
   },
   "states": {
     "lamp": {
@@ -389,8 +390,8 @@
       "name": "The floor lamp",
       "inside": true,
       "shadow": true,
-      "across": -1.05,
-      "distance": 3.25,
+      "across": -0.55,
+      "distance": 3.35,
       "height": 1.65,
       "box": [
         -0.3,
@@ -404,9 +405,9 @@
       "name": "The glass menagerie",
       "inside": true,
       "shadow": true,
-      "across": -2.1,
-      "distance": 3.55,
-      "facing": 125,
+      "across": -2.15,
+      "distance": 3.5,
+      "facing": 135,
       "height": 1.86,
       "box": [
         -0.45,
@@ -459,10 +460,10 @@
       "person": {
         "cast": "cast",
         "who": "laura",
-        "turn": 205
+        "turn": 215
       },
-      "across": -1.55,
-      "distance": 4.0
+      "across": -1.45,
+      "distance": 3.85
     },
     {
       "id": "amanda",
@@ -471,11 +472,11 @@
       "person": {
         "cast": "cast",
         "who": "amanda",
-        "turn": 195,
+        "turn": 150,
         "does": "hands_clasped"
       },
-      "across": 0.4,
-      "distance": 4.3
+      "across": 0.3,
+      "distance": 4.75
     },
     {
       "id": "tom",
