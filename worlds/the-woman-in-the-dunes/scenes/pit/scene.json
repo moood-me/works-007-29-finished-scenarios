@@ -1,0 +1,418 @@
+{
+  "engine": 3,
+  "title": "The Pit",
+  "caption": "At the bottom of the pit the sea is only heard.",
+  "horizon": 0.6,
+  "camera": {
+    "mode": "walk",
+    "area": [
+      3,
+      3,
+      0,
+      5
+    ]
+  },
+  "light": {
+    "vignette": 0.3,
+    "grain": 0.08,
+    "haze": 0.06,
+    "hazeColor": "#e8d2b0",
+    "hazeGlow": 0.7,
+    "shafts": 0.25,
+    "ambient": 0.74,
+    "ambientColor": "#c3cbe0",
+    "tint": "#ffcf9a",
+    "tintStrength": 0.05,
+    "bounce": 0.5,
+    "wind": [
+      1,
+      0.2,
+      0.4
+    ],
+    "looks": {
+      "night": {
+        "ambient": 0.52,
+        "ambientColor": "#8a9ccc",
+        "haze": 0.12,
+        "hazeColor": "#34426a",
+        "hazeGlow": 1,
+        "tint": "#5d72a8",
+        "tintStrength": 0.08,
+        "saturation": 0.82,
+        "shafts": 0.2,
+        "bounce": 0.35,
+        "lights": {
+          "sun": 0
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        215,
+        13
+      ],
+      "color": "#ffc98c",
+      "strength": 1.1
+    },
+    {
+      "id": "moon",
+      "from": "sky#moon",
+      "color": "#c4d2f2",
+      "strength": 0.55,
+      "on": "night"
+    },
+    {
+      "id": "lantern",
+      "of": "lamp_post#flame",
+      "color": "#ffb766",
+      "strength": 1.5,
+      "reach": 9,
+      "flicker": 0.12,
+      "on": "lantern"
+    },
+    {
+      "id": "lip_lantern",
+      "of": "winch#flame",
+      "color": "#ffb766",
+      "strength": 0.8,
+      "reach": 4,
+      "flicker": 0.12,
+      "on": "lantern"
+    },
+    {
+      "id": "room_lamp",
+      "across": -2.4,
+      "distance": 6.45,
+      "elevation": 0.9,
+      "color": "#ff9d55",
+      "strength": 0.9,
+      "reach": 4.5,
+      "flicker": 0.1,
+      "on": "lamp_in"
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "night": 0,
+    "lantern": 1,
+    "lamp_in": 0,
+    "man_look": "woman",
+    "woman_look": "man",
+    "elder_look": "man",
+    "man_mood": "thinking",
+    "woman_mood": "neutral",
+    "elder_mood": "smile"
+  },
+  "states": {
+    "night": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — the evening: the low sun gilds the top of the far wall, the pit's floor in blue shade; 1 — the night: a blue moonlit pit under stars"
+    },
+    "lantern": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lantern on the post by the house and the one on the winch up on the lip: 0 out, 1 lit"
+    },
+    "lamp_in": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lamp in the house: 0 out, 1 lit — the open doorway warm, its light on the sand before it"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "sand",
+      "name": "Sand",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 8,
+      "width": 44,
+      "depth": 32
+    },
+    {
+      "id": "house",
+      "name": "House",
+      "unseen": true,
+      "across": -3.4,
+      "distance": 6.6,
+      "facing": 180
+    },
+    {
+      "id": "house_front",
+      "name": "House front",
+      "on": "house",
+      "facing": 180,
+      "height": 2.82,
+      "box": [
+        -2.75,
+        -3.1,
+        2.75,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "house_side",
+      "name": "House end",
+      "on": "house",
+      "across": 2.5,
+      "facing": 90,
+      "height": 3.6,
+      "box": [
+        -0.4,
+        -3.8,
+        4.0,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "roof",
+      "name": "Roof",
+      "plane": true,
+      "on": "house",
+      "across": 0,
+      "distance": 0.75,
+      "elevation": 3.2,
+      "width": 5.56,
+      "depth": 2.25,
+      "tilt": 20.85,
+      "shadow": true
+    },
+    {
+      "id": "doorway",
+      "name": "Lamplight in the doorway",
+      "on": "house",
+      "across": 1.0,
+      "distance": -0.02,
+      "facing": 180,
+      "height": 1.86,
+      "box": [
+        -0.45,
+        -1.86,
+        0.45,
+        0
+      ],
+      "glows": true,
+      "inFront": [
+        "house_front"
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "Shovels",
+      "on": "house",
+      "across": -0.75,
+      "distance": -0.12,
+      "facing": 180,
+      "height": 1.6,
+      "box": [
+        -0.5,
+        -1.75,
+        1.0,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "barrel",
+      "name": "Water barrel",
+      "across": -0.5,
+      "distance": 6.25,
+      "height": 1.0,
+      "box": [
+        -0.55,
+        -1.1,
+        0.55,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "lamp_post",
+      "name": "Lamp post",
+      "across": -0.7,
+      "distance": 5.3,
+      "height": 2.95,
+      "box": [
+        -0.4,
+        -3.0,
+        0.6,
+        0.1
+      ],
+      "flicker": 0.12,
+      "shadow": true
+    },
+    {
+      "id": "winch",
+      "name": "Winch",
+      "across": -0.9,
+      "distance": 13.8,
+      "facing": 180,
+      "height": 1.2,
+      "box": [
+        -1.7,
+        -1.3,
+        1.1,
+        0.1
+      ],
+      "flicker": 0.12,
+      "shadow": true
+    },
+    {
+      "id": "sand_fall",
+      "name": "Sand running off the eave",
+      "particles": {
+        "kind": "puff",
+        "at": "house_front#eave",
+        "source": [
+          0.3,
+          0.05,
+          0
+        ],
+        "rate": 45,
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "spread": 15,
+        "speed": [
+          0,
+          0.08
+        ],
+        "gravity": 7,
+        "drag": 0.2,
+        "wind": 0.05,
+        "turbulence": 0.01,
+        "life": [
+          0.55,
+          0.75
+        ],
+        "ground": "stop",
+        "settle": 0.4,
+        "shape": "dot",
+        "size": [
+          0.018,
+          0.014
+        ],
+        "color": "#dcc08e",
+        "opacity": 0.85,
+        "fade": [
+          0,
+          0.1
+        ],
+        "glow": 0,
+        "shadow": 0
+      }
+    },
+    {
+      "id": "lip_drift",
+      "name": "Sand blown off the lip",
+      "particles": {
+        "kind": "puff",
+        "at": [
+          0.5,
+          13.6,
+          0.3
+        ],
+        "source": [
+          16,
+          1,
+          0.3
+        ],
+        "rate": 3,
+        "direction": [
+          1,
+          0,
+          0.15
+        ],
+        "spread": 25,
+        "speed": [
+          0.3,
+          0.8
+        ],
+        "gravity": -0.02,
+        "drag": 0.4,
+        "wind": 1.2,
+        "turbulence": 0.3,
+        "swirl": 2,
+        "life": [
+          4,
+          6
+        ],
+        "ground": "pass",
+        "shape": "puff",
+        "size": [
+          0.8,
+          2.4
+        ],
+        "color": "#e6cfa4",
+        "opacity": 0.16,
+        "fade": [
+          0.3,
+          0.5
+        ],
+        "glow": 0,
+        "shadow": 0
+      }
+    },
+    {
+      "id": "man",
+      "name": "The man",
+      "person": {
+        "cast": "cast",
+        "who": "man",
+        "turn": 215
+      },
+      "across": 1.3,
+      "distance": 4.4,
+      "shadow": true
+    },
+    {
+      "id": "woman",
+      "name": "The woman",
+      "person": {
+        "cast": "cast",
+        "who": "woman",
+        "turn": 130
+      },
+      "across": -2.3,
+      "distance": 5.85,
+      "shadow": true
+    },
+    {
+      "id": "elder",
+      "name": "The old man",
+      "person": {
+        "cast": "cast",
+        "who": "elder",
+        "turn": 180
+      },
+      "across": 0.6,
+      "distance": 13.55,
+      "shadow": true
+    }
+  ]
+}

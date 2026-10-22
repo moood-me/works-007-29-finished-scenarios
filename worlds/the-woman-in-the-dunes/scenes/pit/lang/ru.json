@@ -1,0 +1,14 @@
+{
+  "strings": [
+    {
+      "text": "The Pit",
+      "translation": "Яма",
+      "where": "scenes/pit/scene.json title"
+    },
+    {
+      "text": "At the bottom of the pit the sea is only heard.",
+      "translation": "На дне ямы море только слышно.",
+      "where": "scenes/pit/scene.json caption"
+    }
+  ]
+}
