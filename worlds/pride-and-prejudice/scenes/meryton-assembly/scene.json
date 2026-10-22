@@ -661,6 +661,7 @@
         "turn": 165,
         "does": "hands_behind",
         "look": {
+          "parts": ["waistcoat", "cravat", "collar", "tails"],
           "colors": {
             "skin": "#e6c2a2",
             "hair": "#2b1d15",

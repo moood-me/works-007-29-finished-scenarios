@@ -40,17 +40,42 @@ shadeSide.bezierCurveTo(0.54, -0.3, 0.7, 0.05, 1.05, 0.3);
 shadeSide.lineTo(0.3, 0.3);
 shadeSide.bezierCurveTo(0.26, -3, 0.2, -6, 0.12, -8.5);
 shadeSide.closePath();
-L.hatch(g, shadeSide, [0, -8.5, 1.1, 0.3], 0.045, 1.2, 1.1 * px, 0.45);
+L.hatch(g, shadeSide, [0, -8.5, 1.1, 0.3], 0.03, 1.2, 1.1 * px, 0.55);
+// (its darkest edge cross-hatched, and the top of the trunk under the crown's shade hatched across)
+const edge = new Path2D();
+edge.moveTo(0.26, -8.5);
+edge.lineTo(0.34, -8.5);
+edge.bezierCurveTo(0.42, -5.5, 0.48, -3.0, 0.52, -1.0);
+edge.bezierCurveTo(0.54, -0.3, 0.7, 0.05, 1.05, 0.3);
+edge.lineTo(0.62, 0.3);
+edge.bezierCurveTo(0.4, -2, 0.34, -5.5, 0.26, -8.5);
+edge.closePath();
+L.hatch(g, edge, [0.2, -8.5, 1.1, 0.3], 0.032, -0.5, 1.0 * px, 0.45);
+const under = new Path2D();
+under.rect(-0.6, -8.5, 1.3, 3.2);
+g.save();
+g.clip(trunk);
+L.hatch(g, under, [-0.6, -8.5, 0.7, -5.3], 0.05, 0.25, 1.0 * px, 0.35);
+g.restore();
+// (the sunlit side: a warm wash down its left edge, where the light comes from)
+g.save();
+g.clip(trunk);
+const sunlit = g.createLinearGradient(-0.5, 0, 0.1, 0);
+sunlit.addColorStop(0, 'rgba(232,222,196,0.5)');
+sunlit.addColorStop(1, 'rgba(232,222,196,0)');
+g.fillStyle = sunlit;
+g.fillRect(-0.95, -5.2, 1.05, 5.5);
+g.restore();
 // the bark drawn: fine vertical lines, the dark horizontal "eyes" of a beech, the roots' creases
 const bark = new Path2D();
-for (let i = 0; i < 16; i++) {
-  const x = -0.38 + 0.76 * r(), y = -0.5 - 7.2 * r(), l = 0.4 + 0.8 * r();
+for (let i = 0; i < 34; i++) {
+  const x = -0.4 + 0.8 * r(), y = -0.5 - 7.4 * r(), l = 0.3 + 0.9 * r();
   bark.moveTo(x, y);
   bark.quadraticCurveTo(x + 0.02, y - l * 0.5, x + 0.01, y - l);
 }
 L.pen(g, bark, 1.0 * px, 0.4);
 const eyes = new Path2D();
-for (let i = 0; i < 9; i++) {
+for (let i = 0; i < 14; i++) {
   const x = -0.3 + 0.6 * r(), y = -0.8 - 6.5 * r(), w = 0.06 + 0.08 * r();
   eyes.moveTo(x - w, y);
   eyes.quadraticCurveTo(x, y + 0.03, x + w, y - 0.01);

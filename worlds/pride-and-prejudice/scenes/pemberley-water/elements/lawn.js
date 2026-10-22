@@ -1,12 +1,13 @@
 // The lawn on this side of the water, seen from above (x across, y toward the viewer; its far edge at y −3.95 is the
-// bank): grass in greens laid unevenly, a few daisies, and the gravel walk that comes in from the left and runs along
-// the water toward the bridge — Elizabeth and Mr Darcy both stand on it
+// bank): grass in greens laid unevenly, a few daisies, and the gravel walk that comes along the water from the left and
+// turns toward the eye, out at the near right — Mr Darcy stands on it a few steps behind, Elizabeth ahead, nearer
 const L = e.kit.brush, px = L.px(e), r = L.rand(83);
 const all = new Path2D();
 all.rect(-30, -3.95, 60, 7.9);
 L.wash(g, all, '#a2b37c', [-30, -3.95, 30, 3.95], r, 9);
-// the walk: a band 2.3 m wide along a smooth curve, both of them standing well inside it
-const way = [[-14, 3.95], [-6, 3.35], [-2.6, 2.6], [-0.6, 2.05], [0.6, 1.35], [3, 0.4], [8, -0.9], [16, -2.2], [30, -2.9]];
+// the walk: a band 2.3 m wide along a smooth curve, both of them standing well inside it (Darcy at −1.45, 0.65;
+// Elizabeth at 0.1, 2.5)
+const way = [[-30, -3.1], [-16, -2.5], [-8, -1.5], [-3.8, -0.55], [-1.6, 0.5], [0.1, 2.45], [1.4, 3.6], [2.2, 4.4]];
 const pts = [];
 for (let i = 0; i + 1 < way.length; i++) {
   const [x0, y0] = way[i], [x1, y1] = way[i + 1];
@@ -26,7 +27,7 @@ walk.moveTo(...left[0]);
 for (const p of left) walk.lineTo(...p);
 for (let i = right.length - 1; i >= 0; i--) walk.lineTo(...right[i]);
 walk.closePath();
-L.wash(g, walk, '#e2d5b4', [-14, -3.2, 30, 3.95], r, 5, 0.06);
+L.wash(g, walk, '#e2d5b4', [-30, -3.95, 4, 3.95], r, 5, 0.06);
 // (its edges in pen, broken here and there, as a quick hand leaves them)
 const edges = new Path2D();
 for (const line of [left, right]) {
@@ -45,11 +46,13 @@ for (let i = 0; i < 420; i++) {
 }
 g.fillStyle = 'rgba(176,160,124,0.55)';
 g.fill(gravel);
+// (how far a point of the lawn is from the walk's middle)
+const offWalk = (x, y) => pts.reduce((d, p) => Math.min(d, Math.hypot(p[0] - x, p[1] - y)), Infinity);
 // daisies in the grass, thicker nearer the eye
 const daisies = new Path2D();
 for (let i = 0; i < 160; i++) {
   const x = -14 + 28 * r(), y = -3.5 + 7.4 * r() ** 0.6;
-  if (Math.abs(y - (2.05 - (x + 0.6) * 0.3)) < 1.4) continue;
+  if (offWalk(x, y) < 1.4) continue;
   daisies.moveTo(x + 0.02, y);
   daisies.arc(x, y, 0.02, 0, Math.PI * 2);
 }
@@ -59,7 +62,7 @@ g.fill(daisies);
 const tufts = [];
 for (let i = 0; i < 70; i++) {
   const x = -14 + 28 * r(), y = -3.6 + 7.4 * r() ** 0.7;
-  if (Math.abs(y - (2.05 - (x + 0.6) * 0.3)) < 1.5) continue;
+  if (offWalk(x, y) < 1.5) continue;
   tufts.push([x, y, 6 + Math.round(6 * r())]);
 }
 L.grass(g, tufts, 0.05, r, 1.3 * px, 0.4);
