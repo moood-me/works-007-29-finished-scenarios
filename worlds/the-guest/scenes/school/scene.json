@@ -7,7 +7,7 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.55,
+    "ambient": 0.58,
     "ambientColor": "#bccdee",
     "bounce": 0.55,
     "haze": 0.06,
@@ -33,7 +33,7 @@
         28
       ],
       "color": "#fff4e6",
-      "strength": 1.25
+      "strength": 1.45
     }
   ],
   "modules": [
@@ -155,7 +155,7 @@
       "id": "chimney",
       "on": "school",
       "name": "The chimney",
-      "across": 3.2,
+      "across": -3.6,
       "distance": 1.6,
       "elevation": 4.1,
       "height": 1.0,
@@ -379,8 +379,8 @@
     {
       "id": "horse",
       "name": "Balducci's horse",
-      "across": -30,
-      "distance": 45,
+      "across": -20,
+      "distance": 34,
       "height": 1.75,
       "box": [
         -1.35,

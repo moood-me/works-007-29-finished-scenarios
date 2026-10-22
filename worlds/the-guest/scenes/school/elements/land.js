@@ -55,6 +55,32 @@ for (let i = 0; i < 260; i++) {
   g.fill();
 }
 g.globalAlpha = 1;
+// a dry riverbed (an oued) winding across the plain, pale gravel with a dark edge
+g.lineCap = 'round';
+g.lineJoin = 'round';
+for (const [w, c] of [[60, '#9d8f78'], [40, '#cbbfa6']]) {
+  g.strokeStyle = c;
+  g.lineWidth = w;
+  g.beginPath();
+  g.moveTo(X(-3900), Y(900));
+  for (let k = 1; k <= 20; k++) {
+    const a = -3900 + k * 160;
+    g.lineTo(X(a), Y(900 + 520 * k + 260 * Math.sin(k * 1.3)));
+  }
+  g.stroke();
+}
+// dark scrub scattered over the plain
+for (let i = 0; i < 300; i++) {
+  const d = 400 + e.rnd() * 5400;
+  const a = edge(d, 330 + e.rnd() * 3500);
+  if (a < -3990) continue;
+  g.fillStyle = e.rnd() < 0.5 ? '#8b7f69' : '#7c735f';
+  g.globalAlpha = 0.6;
+  g.beginPath();
+  g.ellipse(X(a), Y(d), 4 + e.rnd() * 14, 3 + e.rnd() * 8, e.rnd() * 3, 0, Math.PI * 2);
+  g.fill();
+}
+g.globalAlpha = 1;
 // the douar by its well on the plain: low earth houses round a yard, and its fields' stone walls
 const douar = [-640, 1450];
 for (let i = 0; i < 22; i++) {
@@ -76,7 +102,7 @@ for (let i = 0; i < 90; i++) {
   const a = -30 + e.rnd() * 60;
   const d = 1 + e.rnd() * 60;
   g.fillStyle = e.rnd() < 0.5 ? '#dde3ea' : '#e9ecef';
-  g.globalAlpha = 0.7;
+  g.globalAlpha = 0.3;
   g.beginPath();
   g.ellipse(X(a), Y(d), 1.5 + e.rnd() * 4, 0.6 + e.rnd() * 1.5, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();
@@ -100,23 +126,8 @@ function trace(width, color) {
   g.lineTo(X(path[path.length - 1][0]), Y(path[path.length - 1][1]));
   g.stroke();
 }
-trace(1.9, '#cdd0d2');
-trace(1.1, '#a59a89');
-trace(0.45, '#857868');
-// footprints and hoofprints along it
-g.fillStyle = '#7a6e60';
-for (let i = 1; i < path.length; i++) {
-  const [a0, d0] = path[i - 1];
-  const [a1, d1] = path[i];
-  const n = Math.ceil(Math.hypot(a1 - a0, d1 - d0) / 0.7);
-  for (let k = 0; k < n; k++) {
-    const u = k / n;
-    const s = k % 2 ? 0.22 : -0.22;
-    g.beginPath();
-    g.ellipse(X(a0 + (a1 - a0) * u) + s, Y(d0 + (d1 - d0) * u), 0.09, 0.15, 0, 0, Math.PI * 2);
-    g.fill();
-  }
-}
+trace(1.1, '#d3d2cd');
+trace(0.55, '#a89d8c');
 // near stones: limestone coming through the snow, each a grey top and a snow cap's edge
 for (let i = 0; i < 160; i++) {
   const a = -28 + e.rnd() * 50;
@@ -133,8 +144,8 @@ for (let i = 0; i < 160; i++) {
   g.fill();
 }
 // under the eaves and round the walls of the school the snow is trodden and grey
-g.fillStyle = '#cfd2d3';
-g.globalAlpha = 0.8;
+g.fillStyle = '#d6d8d8';
+g.globalAlpha = 0.5;
 g.beginPath();
 g.ellipse(X(0.2), Y(6.6), 3.0, 1.5, -0.35, 0, Math.PI * 2);
 g.fill();
