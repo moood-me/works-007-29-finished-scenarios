@@ -1,0 +1,593 @@
+{
+  "engine": 3,
+  "title": "The Judge's Garden",
+  "caption": "A July evening on the hill. The table under the chestnut is laid for one more.",
+  "horizon": 0.44,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.72,
+    "ambientColor": "#b7a9c9",
+    "bounce": 0.55,
+    "haze": 0.1,
+    "hazeColor": "#e9c3a2",
+    "hazeGlow": 0.6,
+    "shafts": 0.3,
+    "tint": "#ffb47a",
+    "tintStrength": 0.06,
+    "vignette": 0.38,
+    "grain": 0.08,
+    "wind": [
+      1,
+      0.3,
+      0.35
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        -125,
+        11
+      ],
+      "color": "#ffbd7c",
+      "strength": 1.3
+    },
+    {
+      "id": "lamp_0",
+      "of": "lampions#l0",
+      "reach": 3.5,
+      "strength": 0.5
+    },
+    {
+      "id": "lamp_1",
+      "of": "lampions#l1",
+      "reach": 3.5,
+      "strength": 0.5
+    },
+    {
+      "id": "lamp_2",
+      "of": "lampions#l2",
+      "reach": 3.5,
+      "strength": 0.5
+    },
+    {
+      "id": "lamp_3",
+      "of": "lampions#l3",
+      "reach": 3.5,
+      "strength": 0.5
+    },
+    {
+      "id": "lamp_4",
+      "of": "lampions#l4",
+      "reach": 3.5,
+      "strength": 0.5
+    },
+    {
+      "id": "lamp_5",
+      "of": "lampions#l5",
+      "reach": 3.5,
+      "strength": 0.5
+    },
+    {
+      "id": "lamp_6",
+      "of": "lampions#l6",
+      "reach": 3.5,
+      "strength": 0.5
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "traps_look": "judge",
+    "traps_mood": "smile",
+    "traps_reach": {
+      "r": [
+        -1.28,
+        4.12,
+        1.12
+      ],
+      "l": [
+        -1.1,
+        4.46,
+        0.88
+      ]
+    },
+    "judge_look": "traps",
+    "judge_mood": "smile",
+    "judge_reach": {
+      "r": [
+        1.76,
+        4.78,
+        0.86
+      ],
+      "l": [
+        1.82,
+        4.74,
+        0.86
+      ]
+    },
+    "zorn_look": "traps",
+    "zorn_mood": "thinking",
+    "zorn_reach": {
+      "r": [
+        0.82,
+        6.5,
+        0.94
+      ],
+      "l": [
+        1.18,
+        6.5,
+        0.94
+      ]
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The July evening sky to the east",
+      "sky": true
+    },
+    {
+      "id": "hills",
+      "name": "The far side of the valley: wooded hills, the village and its church",
+      "across": -60,
+      "distance": 320,
+      "height": 60,
+      "box": [
+        -420,
+        -62,
+        420,
+        0.5
+      ]
+    },
+    {
+      "id": "hedge",
+      "name": "The clipped hedge along the garden's left side",
+      "across": -12,
+      "distance": 15,
+      "facing": 180,
+      "height": 1.8,
+      "box": [
+        -10.2,
+        -2,
+        10.2,
+        0.05
+      ]
+    },
+    {
+      "id": "gate",
+      "name": "The garden gate in the hedge",
+      "across": -6.5,
+      "distance": 15.02,
+      "facing": 180,
+      "height": 2.3,
+      "box": [
+        -0.95,
+        -2.3,
+        0.95,
+        0.05
+      ]
+    },
+    {
+      "id": "villa",
+      "name": "The judge's villa",
+      "across": 3,
+      "distance": 24,
+      "facing": 180,
+      "height": 12.5,
+      "box": [
+        -7.3,
+        -12.6,
+        7.3,
+        0.1
+      ]
+    },
+    {
+      "id": "villa_lit",
+      "name": "The villa's lit windows and hall",
+      "across": 3,
+      "distance": 23.97,
+      "facing": 180,
+      "glows": true,
+      "height": 6,
+      "box": [
+        -3.4,
+        -6.4,
+        3.4,
+        0.05
+      ]
+    },
+    {
+      "id": "lawn",
+      "name": "The lawn",
+      "plane": true,
+      "across": 0,
+      "distance": 30,
+      "width": 90,
+      "depth": 56
+    },
+    {
+      "id": "gravel",
+      "name": "The gravel under the table and the path to the door",
+      "plane": true,
+      "across": 0.5,
+      "distance": 14,
+      "elevation": 0.005,
+      "width": 7.2,
+      "depth": 20
+    },
+    {
+      "id": "bush",
+      "name": "A rose bush",
+      "height": 1.1,
+      "box": [
+        -0.8,
+        -1.1,
+        0.8,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": 1.4,
+          "distance": 12.5
+        },
+        {
+          "across": 4.7,
+          "distance": 13.5,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 1.5,
+          "distance": 18,
+          "scale": 1.1
+        },
+        {
+          "across": 4.6,
+          "distance": 19
+        },
+        {
+          "across": -3.5,
+          "distance": 23.2,
+          "scale": 1.3
+        },
+        {
+          "across": 9.5,
+          "distance": 22.8,
+          "scale": 1.2,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "tree_left",
+      "name": "The old horse chestnut by the table",
+      "across": -4.6,
+      "distance": 6.4,
+      "height": 9.5,
+      "box": [
+        -5.6,
+        -10.2,
+        7.8,
+        0.2
+      ],
+      "shadow": true,
+      "translucent": 0.25
+    },
+    {
+      "id": "tree_right",
+      "name": "The second chestnut before the villa's corner",
+      "across": 5.4,
+      "distance": 8.2,
+      "height": 10.5,
+      "box": [
+        -5.6,
+        -11.2,
+        4.6,
+        0.2
+      ],
+      "shadow": true,
+      "translucent": 0.25
+    },
+    {
+      "id": "lampions",
+      "name": "The paper lanterns over the table",
+      "across": 0.25,
+      "distance": 7,
+      "height": 3.6,
+      "box": [
+        -5.2,
+        -3.6,
+        5.2,
+        -2.1
+      ],
+      "glows": true,
+      "flicker": 0.12
+    },
+    {
+      "id": "bench",
+      "name": "The garden bench under the chestnut",
+      "across": -5.6,
+      "distance": 9.6,
+      "facing": 170,
+      "height": 1,
+      "box": [
+        -0.9,
+        -1,
+        0.9,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "table_top",
+      "name": "The table's top, laid",
+      "plane": true,
+      "across": 0.55,
+      "distance": 5.8,
+      "elevation": 0.76,
+      "width": 2.6,
+      "depth": 1.1,
+      "shadow": true
+    },
+    {
+      "id": "table_front",
+      "name": "The table's near side, the cloth hanging",
+      "across": 0.55,
+      "distance": 5.25,
+      "facing": 180,
+      "height": 0.8,
+      "box": [
+        -1.32,
+        -0.82,
+        1.32,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "table_things",
+      "name": "Bottles, glasses, bread and cheese on the table",
+      "across": 0.55,
+      "distance": 5.8,
+      "elevation": 0.76,
+      "height": 0.36,
+      "box": [
+        -1.1,
+        -0.38,
+        1.15,
+        0.01
+      ]
+    },
+    {
+      "id": "chair",
+      "name": "A garden chair",
+      "height": 1,
+      "box": [
+        -0.3,
+        -1.05,
+        0.3,
+        0.03
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -0.2,
+          "distance": 6.5
+        },
+        {
+          "across": 1.0,
+          "distance": 6.5
+        },
+        {
+          "across": -0.35,
+          "distance": 4.75
+        }
+      ]
+    },
+    {
+      "id": "chair_side",
+      "name": "A garden chair pulled back at the table's end",
+      "height": 1,
+      "box": [
+        -0.32,
+        -1,
+        0.3,
+        0.03
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -0.95,
+          "distance": 5.8
+        },
+        {
+          "across": 2.2,
+          "distance": 5.85,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "cane",
+      "name": "Kummer's cane on the chair",
+      "across": -0.4,
+      "distance": 4.72,
+      "height": 0.95,
+      "box": [
+        -0.05,
+        -0.95,
+        0.32,
+        0.03
+      ]
+    },
+    {
+      "id": "case",
+      "name": "Traps's case of samples",
+      "across": -1.85,
+      "distance": 4.6,
+      "height": 0.45,
+      "box": [
+        -0.26,
+        -0.45,
+        0.26,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "pot",
+      "name": "A pot of geraniums",
+      "height": 0.8,
+      "box": [
+        -0.3,
+        -0.82,
+        0.3,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -2.9,
+          "distance": 3.9
+        },
+        {
+          "across": 3.3,
+          "distance": 4.3,
+          "flip": true,
+          "scale": 1.1
+        }
+      ]
+    },
+    {
+      "id": "midges",
+      "name": "Midges in the evening air",
+      "across": 0.3,
+      "distance": 6.8,
+      "elevation": 2.4,
+      "particles": {
+        "kind": "dust",
+        "source": [
+          5,
+          2,
+          1.6
+        ],
+        "rate": 6,
+        "life": [
+          6,
+          10
+        ]
+      }
+    },
+    {
+      "id": "traps",
+      "name": "Alfredo Traps",
+      "person": {
+        "cast": "cast",
+        "who": "traps",
+        "turn": 150
+      },
+      "across": -1.3,
+      "distance": 4.4,
+      "shadow": true
+    },
+    {
+      "id": "judge",
+      "name": "The judge",
+      "person": {
+        "cast": "cast",
+        "who": "judge",
+        "turn": 210
+      },
+      "across": 1.9,
+      "distance": 4.95,
+      "shadow": true
+    },
+    {
+      "id": "zorn",
+      "name": "Zorn, the prosecutor",
+      "person": {
+        "cast": "cast",
+        "who": "zorn",
+        "turn": 190
+      },
+      "across": 1.0,
+      "distance": 6.78,
+      "shadow": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a small café orchestra of the 1950s playing a slow, warm waltz on a summer evening, accordion and violin",
+        "weight": 1
+      },
+      {
+        "text": "gentle Swiss Ländler on a button accordion, unhurried, in a garden far off",
+        "weight": 0.6
+      },
+      {
+        "text": "pizzicato strings and a bassoon, sly and comic, a grotesque minuet",
+        "weight": 0.5
+      },
+      {
+        "text": "a clarinet melody over soft plucked double bass, playful but with something uneasy under it",
+        "weight": 0.4
+      },
+      {
+        "text": "late romantic chamber music, a piano trio, tender and slightly melancholic",
+        "weight": 0
+      },
+      {
+        "text": "a music box waltz slowing down",
+        "weight": 0
+      },
+      {
+        "text": "distant church bells over a valley, warm evening air",
+        "weight": 0
+      },
+      {
+        "text": "a slow tango on bandoneon and piano, theatrical",
+        "weight": 0
+      },
+      {
+        "text": "cool jazz trio, brushed drums, muted trumpet, 1956",
+        "weight": 0
+      },
+      {
+        "text": "a wind quintet playing a light pastoral serenade",
+        "weight": 0
+      },
+      {
+        "text": "solo harpsichord, a stately baroque dance with a mocking edge",
+        "weight": 0
+      },
+      {
+        "text": "string quartet tremolo, a cold, sudden chill",
+        "weight": 0
+      },
+      {
+        "text": "tavern piano, slightly out of tune, cheerful drinking song",
+        "weight": 0
+      },
+      {
+        "text": "low sustained cello and soft timpani, a trial about to begin",
+        "weight": 0
+      },
+      {
+        "text": "crickets and a faraway gramophone playing an old foxtrot",
+        "weight": 0
+      },
+      {
+        "text": "a small brass band playing a village march, heard across the fields",
+        "weight": 0
+      }
+    ],
+    "bpm": 84,
+    "density": 0.4,
+    "brightness": 0.55,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}
