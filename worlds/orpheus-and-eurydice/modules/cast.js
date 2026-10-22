@@ -82,7 +82,7 @@ return {
       colors: { skin: '#d6a681', hair: '#2a1c15', top: '#7a8ca6', garment: '#7a8ca6', bottom: '#4a4038', accent: '#5b4330', shoes: '#c79a78' } },
     // Eurydice, twenty and a little more: slight, light on her feet; long dark-brown hair loose down her back, a red
     // ribbon tied round it (the world's one red) — the hair round her face to the jaw, a flat mass down her back; a plain long dress of undyed linen, barefoot
-    eurydice: { kind: 'shapes', style: 'myth', who: 'woman', garment: 'shift', hair: 'straight', face: 'eurydice', parts: ['ribbon'],
+    eurydice: { kind: 'shapes', style: 'myth', who: 'woman', garment: 'shift', hair: 'straight', face: 'eurydice', parts: ['ribbon', 'cord'],
       barefoot: 'both',
       body: { height: 0.92, thick: 0.88, shoulders: 0.88, hips: 1.0, neck: 1.04, head: 1.0 },
       colors: { skin: '#ebc4a2', hair: '#3b2418', top: '#ece2cd', garment: '#ece2cd', bottom: '#e4d9c2', accent: '#b8171a', shoes: '#e2b597' } },
@@ -129,6 +129,11 @@ return {
       belt: { name: 'belt', draw: F => {
         const { mix } = V(), k = F.k, a = F.P('Spine1'), b = F.P('Hips');
         F.ball(mix(a, b, 0.55), [F.side('Hips'), F.up('Hips'), F.fwd('Hips')], [0.15 * k, 0.025 * F.fit.h, 0.115 * k], F.colors.accent, 16);
+      } },
+      // a thin cord of darker linen round her dress at the waist (so the dress has a front and a back)
+      cord: { name: 'cord', draw: F => {
+        const { mix } = V(), k = F.k, a = F.P('Spine1'), b = F.P('Hips');
+        F.ball(mix(a, b, 0.4), [F.side('Hips'), F.up('Hips'), F.fwd('Hips')], [0.135 * k, 0.012 * F.fit.h, 0.1 * k], shade(F.colors.garment, 0.7, 0.66, 0.6), 16);
       } },
       // Eurydice's red ribbon: a band round her hair above the brow, tied at the back, its two long ends hanging down
       // her hair and swinging a little late as she moves

@@ -22,7 +22,7 @@ The world's one red is Eurydice's ribbon: nobody and nothing else wears red.
   a long loose tunic of faded blue to the knee (`tunic`), a dark leather belt (`belt`), dark trousers; barefoot. His
   lyre is the scene's own element (in his hands by `<id>_reach` to its points), not a part of him.
 - `eurydice` — Eurydice, a little over twenty: slight; long dark-brown hair round her face and loose down her back (`straight`) with a red ribbon
-  tied round it, its two long ends hanging down her hair (`ribbon`); a plain long dress of undyed linen (`shift`);
+  tied round it, its two long ends hanging down her hair (`ribbon`); a plain long dress of undyed linen (`shift`) girded with a thin cord of darker linen (`cord`);
   barefoot.
 
 ## Motions
