@@ -8,11 +8,12 @@ const BRASS = [0.66, 0.52, 0.3, 1];
 return {
   ...data,
   characters: {
-    // the Khan, seventy-seven: a big frame gone heavy and slow, a white beard, white hair cropped short, a heavy dark
-    // robe to the floor over a pale under-robe, a stick at his knee
-    khan: { kind: 'shapes', style: 'cities', who: 'old', garment: 'robe', hair: 'short', parts: ['beard', 'stick'],
+    // the Khan, seventy-seven: a big frame gone heavy and slow, a white beard, white hair cropped short under a soft dark
+    // round cap, a heavy plum robe to the floor over a pale under-robe, a stick at his knee
+    khan: { kind: 'shapes', style: 'cities', who: 'old', garment: 'robe', hair: 'short', hat: 'round', parts: ['beard', 'stick'],
       body: { height: 0.98, shoulders: 1.12, thick: 1.22 },
-      colors: { skin: '#c99a7a', hair: '#e4dfd6', top: '#cfc4b0', garment: '#3b2f4a', bottom: '#3b2f4a', shoes: '#2a2220' } },
+      colors: { skin: '#c99a7a', hair: '#e4dfd6', top: '#d8ccb4', garment: '#553a5c', bottom: '#553a5c', shoes: '#2a2220',
+        hat: '#2e2836' } },
     // the Khan seventeen years before (the prologue): the same man, strong, his beard still dark
     khan_young: { kind: 'shapes', style: 'cities', who: 'man', garment: 'robe', hair: 'short', parts: ['beard'],
       body: { height: 1.02, shoulders: 1.16, thick: 1.24 },
@@ -39,12 +40,19 @@ return {
       // a long travelling coat: from the shoulders to the shin, long sleeves
       long_coat: { name: 'long coat', hang: [{ to: 1.45, from: 'shoulders', flare: 0.22 }], sleeves: 'garment' },
     },
+    hats: {
+      // a soft round cap over the crown, without a brim
+      round: { name: 'round cap', draw: F => {
+        const { at, axes, egg, r, out, sides, square } = F.head;
+        F.cap(at, axes, egg.map(e => e * r * out * 1.07), [0, 1, -0.12], 0.2, F.colors.hat, sides, square);
+      } },
+    },
     parts: {
-      // a full beard over the jaw and the chin (the colour of the hair)
+      // a beard round the jaw (the cheeks and the mouth left clear), falling long below the chin onto the chest
       beard: { name: 'beard', draw: F => {
         const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
-        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.8, 0.6], 0.5, F.colors.hair, h.sides, h.square);
-        F.ball(add(h.at, add(mul(hu, -r * 1.0), mul(hf, r * 0.45))), h.axes, [r * 0.55, r * 0.55, r * 0.4], F.colors.hair, h.sides);
+        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.04), [0, -1, 0.45], 0.72, F.colors.hair, h.sides, h.square);
+        F.ball(add(h.at, add(mul(hu, -r * 1.2), mul(hf, r * 0.5))), h.axes, [r * 0.48, r * 0.78, r * 0.36], F.colors.hair, h.sides);
       } },
       // a walking stick, its brass knob by the right knee, its foot on the floor beside the right foot: standing or
       // sitting, it leans there

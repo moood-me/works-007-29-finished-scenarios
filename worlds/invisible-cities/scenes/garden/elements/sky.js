@@ -3,7 +3,7 @@
 // glow — the point `sky#disc` the moonlight comes from and its path on the water is drawn from.
 const A = e.aspect;
 const H = 0.42;
-const MX = A * 0.38;
+const MX = A * 0.27;
 const MY = 0.14;
 e.layer('air', {}, (g) => {
   const sky = g.createLinearGradient(0, -0.35, 0, H);

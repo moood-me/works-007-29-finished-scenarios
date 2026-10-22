@@ -6,7 +6,7 @@ age: long plain clothes.
 
 ## Who
 
-- `khan` — the Khan at seventy-seven: big, gone heavy, white cropped hair and a white beard, a heavy dark-violet robe
+- `khan` — the Khan at seventy-seven: big, gone heavy, white cropped hair under a soft dark round cap (`round`), a white beard, a heavy plum robe
   to the floor over a pale under-robe, a walking stick leaning at his right knee (the part `stick`).
 - `khan_young` — the Khan seventeen years before: strong, the beard dark, a dark wine robe, no stick.
 - `marco` — Marco at thirty-seven: lean, grey at the temples, a long road-dust coat to the shin (`long_coat`), a muted
