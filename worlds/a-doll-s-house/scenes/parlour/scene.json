@@ -103,7 +103,6 @@
     "nora_with": [
       "parcel"
     ],
-    "nora_look": "torvald",
     "nora_mood": "smile",
     "torvald_look": "nora",
     "torvald_mood": "smile",
@@ -477,8 +476,8 @@
       "id": "tree",
       "name": "The Christmas tree",
       "inside": true,
-      "across": 2.2,
-      "distance": 7.6,
+      "across": 2.55,
+      "distance": 7.9,
       "height": 2.6,
       "box": [
         -0.9,
@@ -493,8 +492,8 @@
       "name": "The candles' flames on the tree",
       "glows": true,
       "inside": true,
-      "across": 2.2,
-      "distance": 7.6,
+      "across": 2.55,
+      "distance": 7.9,
       "height": 2.6,
       "box": [
         -0.8,
@@ -513,11 +512,11 @@
       "person": {
         "cast": "cast",
         "who": "nora",
-        "turn": 150,
+        "turn": 175,
         "does": "hold"
       },
-      "across": -0.15,
-      "distance": 6.0
+      "across": 0.0,
+      "distance": 5.3
     },
     {
       "id": "torvald",
@@ -526,11 +525,11 @@
       "person": {
         "cast": "cast",
         "who": "torvald",
-        "turn": 215,
+        "turn": 225,
         "does": "hands_behind"
       },
-      "across": 2.35,
-      "distance": 5.6
+      "across": 1.6,
+      "distance": 6.8
     },
     {
       "id": "krogstad",
@@ -539,9 +538,9 @@
       "person": {
         "cast": "cast",
         "who": "krogstad",
-        "turn": 190
+        "turn": 200
       },
-      "across": 0.55,
+      "across": 0.75,
       "distance": 9.3
     }
   ],

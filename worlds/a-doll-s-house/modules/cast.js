@@ -22,20 +22,20 @@ return {
     // colour in the room after the tree
     nora: {
       kind: 'shapes', style: 'doll', who: 'woman', garment: 'dress', hair: 'bun',
-      body: { height: 0.93, thick: 0.92 },
+      body: { height: 0.93, thick: 0.92, head: 1.12 },
       colors: { skin: '#f1d3bb', hair: '#bf8a48', top: '#2e6a78', garment: '#2e6a78', bottom: '#2e6a78', shoes: '#2a2220', accent: '#efe6d8' },
     },
     // Torvald Helmer: tall and upright, a black frock coat, a light waistcoat and shirt, brown hair and moustache
     torvald: {
       kind: 'shapes', style: 'doll', who: 'man', garment: 'coat', hair: 'short', parts: ['moustache'],
-      body: { height: 1.03, shoulders: 1.04 },
+      body: { height: 1.03, shoulders: 1.04, head: 1.1 },
       colors: { skin: '#e9c6a8', hair: '#7b5a3a', top: '#d9d2c3', garment: '#24252c', bottom: '#2e2f35', shoes: '#1c1a19' },
     },
     // Nils Krogstad: thin, in a worn grey-brown overcoat and a dark hat, a scarf the colour of old brick — come in from
     // the snow and not taken his things off
     krogstad: {
       kind: 'shapes', style: 'doll', who: 'man', garment: 'coat', hair: 'short', hat: 'hat', scarf: true,
-      body: { height: 1, thick: 0.88, shoulders: 0.96 },
+      body: { height: 1, thick: 0.88, shoulders: 0.96, head: 1.1 },
       colors: { skin: '#d8b399', hair: '#3b342e', top: '#5d574e', garment: '#4c4841', bottom: '#38352f', shoes: '#211e1c', hat: '#262321', accent: '#6a3f35' },
     },
   },
