@@ -144,12 +144,12 @@ function trace(width, color) {
 trace(0.9, '#d8d8d4');
 trace(0.4, '#ada392');
 // stones: limestone coming through the snow
-for (let i = 0; i < 160; i++) {
+for (let i = 0; i < 90; i++) {
   const a = -28 + e.rnd() * 50;
   const d = 6 + Math.pow(e.rnd(), 1.3) * 45;
   if (a > -4 && a < 4.5 && d < 9) continue;
   const r = 0.08 + Math.pow(e.rnd(), 2) * 0.5;
-  g.fillStyle = e.rnd() < 0.6 ? '#9f9b92' : '#b2ab9c';
+  g.fillStyle = e.rnd() < 0.6 ? '#b4afa4' : '#bfb8a9';
   g.beginPath();
   g.ellipse(X(a), Y(d), r * (1 + e.rnd()), r, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();

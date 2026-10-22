@@ -64,13 +64,13 @@ return {
           const { add, mul } = V();
           const { at: head, axes: [hs, hu, hf], egg, r: rh, out, sides, square } = F.head;
           F.cap(head, [hs, hu, hf], egg.map(e => e * rh * out * 1.1), [0, 0.9, -0.3], -0.2, F.colors.hat, sides, square);
-          const c = add(head, add(mul(hu, rh * 0.28), mul(hf, -rh * 0.04)));
+          const c = add(head, add(mul(hu, rh * 0.22), mul(hf, -rh * 0.04)));
           const ring = [];
           for (let i = 0; i <= 14; i++) {
             const a = (i / 14) * Math.PI * 2;
-            ring.push(add(c, add(mul(hs, Math.sin(a) * rh * 1.02), mul(hf, Math.cos(a) * rh * 1.04))));
+            ring.push(add(c, add(mul(hs, Math.sin(a) * rh * 1.05), mul(hf, Math.cos(a) * rh * 1.07))));
           }
-          F.tube(ring, [[0, rh * 0.17], [14, rh * 0.17]], [[0, F.colors.hat]], 8, hu, 0.8);
+          F.tube(ring, [[0, rh * 0.22], [7, rh * 0.26], [14, rh * 0.22]], [[0, F.colors.hat]], 8, hu, 0.75);
         },
       },
     },
