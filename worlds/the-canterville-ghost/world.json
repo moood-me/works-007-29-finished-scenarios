@@ -1,0 +1,9 @@
+{
+  "title": "The Canterville Ghost",
+  "description": "An old English manor, an American family, and a very tired ghost.",
+  "themes": {
+    "comedy": 60,
+    "gothic": 40
+  },
+  "main": ""
+}
