@@ -34,6 +34,15 @@
       "id": "dusk",
       "of": "window",
       "daylight": 0.7
+    },
+    {
+      "id": "afterglow",
+      "from": [
+        160,
+        20
+      ],
+      "color": "#f2c4b4",
+      "strength": 0.6
     }
   ],
   "modules": [
@@ -391,7 +400,6 @@
       "across": -0.58,
       "distance": 2.7,
       "elevation": 0.76,
-      "facing": 200,
       "height": 0.28,
       "box": [
         -0.28,
