@@ -48,12 +48,12 @@ return {
           const { add, mul, unit, cross } = V();
           const { at: head, axes: [hs, hu, hf], r: rh, out } = F.head;
           const up = unit(add(hu, mul(hf, 0.18)));
-          const foot = add(head, add(mul(hu, rh * 0.32), mul(hf, -rh * 0.05)));
-          const top = add(foot, mul(up, rh * 0.95));
+          const foot = add(head, add(mul(hu, rh * 0.52), mul(hf, -rh * 0.08)));
+          const top = add(foot, mul(up, rh * 0.85));
           F.tube([foot, top], [[0, rh * out * 1.04], [1, rh * out * 0.9]], [[0, F.colors.hat]], F.sides, hs, 1, 2, true);
           F.tube([add(foot, mul(up, -rh * 0.02)), add(foot, mul(up, rh * 0.14))], [[0, rh * out * 1.06], [1, rh * out * 1.05]], [[0, BAND]], F.sides, hs, 1, 2, true);
           const tilt = unit(add(hu, mul(hf, 0.45)));
-          F.ball(add(foot, mul(hf, rh * 0.95)), [hs, tilt, cross(hs, tilt)], [rh * 0.7, rh * 0.05, rh * 0.42], VISOR, F.sides);
+          F.ball(add(add(foot, mul(hf, rh * 0.92)), mul(hu, -rh * 0.04)), [hs, tilt, cross(hs, tilt)], [rh * 0.66, rh * 0.05, rh * 0.4], VISOR, F.sides);
         },
       },
       // a chèche: a cream cloth wound round the head — over the crown down to the brow, a thick turn of it round the head

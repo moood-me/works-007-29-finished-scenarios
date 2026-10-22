@@ -40,14 +40,18 @@
     "cast"
   ],
   "state": {
-    "daru_look": "arab",
+    "daru_look": [
+      -35,
+      -9,
+      0
+    ],
     "daru_mood": "thinking",
     "balducci_look": "daru",
     "balducci_mood": "neutral",
     "balducci_reach": {
       "r": [
-        0.04,
-        6.19,
+        0.05,
+        6.96,
         0.9
       ]
     },
@@ -102,8 +106,8 @@
       "id": "school",
       "name": "The school",
       "unseen": true,
-      "across": 6.47,
-      "distance": 6.25,
+      "across": 6.67,
+      "distance": 5.45,
       "facing": 200
     },
     {
@@ -424,11 +428,11 @@
       "person": {
         "cast": "cast",
         "who": "daru",
-        "turn": 215,
+        "turn": 225,
         "does": "hands_behind"
       },
-      "across": 2.4,
-      "distance": 5.6
+      "across": 2.6,
+      "distance": 4.8
     },
     {
       "id": "balducci",
@@ -436,11 +440,11 @@
       "person": {
         "cast": "cast",
         "who": "balducci",
-        "turn": 140,
+        "turn": 150,
         "does": "hands_on_hips"
       },
-      "across": 0.4,
-      "distance": 6.4
+      "across": 0.5,
+      "distance": 7.0
     },
     {
       "id": "arab",
@@ -448,17 +452,17 @@
       "person": {
         "cast": "cast",
         "who": "arab",
-        "turn": 140,
+        "turn": 130,
         "does": "hands_bound"
       },
-      "across": -1.6,
-      "distance": 5.4
+      "across": -1.4,
+      "distance": 7.6
     },
     {
       "id": "rope",
       "name": "The rope",
-      "across": -0.8,
-      "distance": 5.8,
+      "across": -0.45,
+      "distance": 7.3,
       "height": 1.0,
       "box": [
         -4,

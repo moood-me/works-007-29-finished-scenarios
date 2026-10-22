@@ -83,7 +83,7 @@ for (let i = 0; i < 90; i++) {
 }
 g.globalAlpha = 1;
 // the path: trodden snow and mud from the foot of the terrace down past the lip to the horse, and on down the slope
-const path = [[1.4, 6.0], [-0.6, 5.7], [-2.6, 6.0], [-4.8, 7.2], [-7.4, 9.5], [-10.5, 13], [-14.5, 18], [-19.5, 24], [-25.5, 31],
+const path = [[1.8, 4.5], [0.3, 5.6], [-1.2, 6.6], [-3.0, 7.4], [-5.0, 8.4], [-7.4, 9.8], [-10.5, 13], [-14.5, 18], [-19.5, 24], [-25.5, 31],
   [-32, 40], [-39, 50], [-45, 62], [-49, 74], [-55, 88], [-64, 105], [-79, 130], [-99, 165], [-124, 205]];
 function trace(width, color) {
   g.strokeStyle = color;
@@ -121,7 +121,7 @@ for (let i = 1; i < path.length; i++) {
 for (let i = 0; i < 160; i++) {
   const a = -28 + e.rnd() * 50;
   const d = 1.5 + Math.pow(e.rnd(), 1.3) * 45;
-  if (a > -4 && a < 4 && d < 8) continue;
+  if (a > -4 && a < 4.5 && d < 9) continue;
   const r = 0.08 + Math.pow(e.rnd(), 2) * 0.5;
   g.fillStyle = e.rnd() < 0.6 ? '#9f9b92' : '#b2ab9c';
   g.beginPath();
@@ -136,6 +136,6 @@ for (let i = 0; i < 160; i++) {
 g.fillStyle = '#cfd2d3';
 g.globalAlpha = 0.8;
 g.beginPath();
-g.ellipse(X(1.6), Y(6.4), 3.2, 1.4, -0.35, 0, Math.PI * 2);
+g.ellipse(X(0.2), Y(6.6), 3.0, 1.5, -0.35, 0, Math.PI * 2);
 g.fill();
 g.globalAlpha = 1;
