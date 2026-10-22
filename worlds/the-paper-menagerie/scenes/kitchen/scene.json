@@ -58,8 +58,8 @@
     "dad_mood": "smile",
     "jack_reach": {
       "r": [
-        -0.84,
-        2.6,
+        -0.86,
+        2.55,
         0.79
       ]
     }
@@ -419,9 +419,9 @@
       "person": {
         "cast": "cast",
         "who": "jack",
-        "turn": 100
+        "turn": 110
       },
-      "across": -1.2,
+      "across": -1.08,
       "distance": 2.7
     },
     {
@@ -431,7 +431,7 @@
       "person": {
         "cast": "cast",
         "who": "dad",
-        "turn": 235,
+        "turn": 220,
         "does": "arms_folded"
       },
       "across": 1.6,
