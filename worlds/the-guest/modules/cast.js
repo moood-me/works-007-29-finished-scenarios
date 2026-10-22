@@ -12,21 +12,21 @@ return {
   characters: {
     // Daru, the teacher: forty, lean, short dark hair, a sun-darkened face; a worn brown wool jacket over a grey jumper
     daru: {
-      kind: 'shapes', style: 'plateau', who: 'man', garment: 'jacket', hair: 'short',
+      kind: 'shapes', style: 'plateau', who: 'man', garment: 'jacket', hair: 'short', face: 'simple',
       body: { height: 1, thick: 0.9, shoulders: 1 },
       colors: { skin: '#cf9f7c', hair: '#2b221d', top: '#9a958c', garment: '#5a4a3c', bottom: '#3a3836', shoes: '#2a2420' },
     },
     // Balducci, the old Corsican gendarme: heavy, broad, a grey moustache, a dark blue kepi, the gendarme's dark blue
     // cape to the knees
     balducci: {
-      kind: 'shapes', style: 'plateau', who: 'old', garment: 'coat', hair: 'short', hat: 'kepi', parts: ['moustache'],
+      kind: 'shapes', style: 'plateau', who: 'old', garment: 'coat', hair: 'short', hat: 'kepi', face: 'simple', parts: ['moustache'],
       body: { height: 0.97, shoulders: 1.1, thick: 1.24, arms: 1.02 },
       colors: { skin: '#c78f74', hair: '#bdb8b0', top: '#3a3f4c', garment: '#2c3446', bottom: '#2b2e36', hat: '#252c3d', shoes: '#1d1b1a' },
     },
     // the Arab (Sliman): tall and thin, a faded blue jellaba to the ankles, a narrow cream chèche wound round the head,
     // raw-wool socks in sandals; his wrists tied together in front
     arab: {
-      kind: 'shapes', style: 'plateau', who: 'man', garment: 'jellaba', hair: 'short', hat: 'chech', parts: ['bonds'],
+      kind: 'shapes', style: 'plateau', who: 'man', garment: 'jellaba', hair: 'short', hat: 'chech', face: 'simple', parts: ['bonds'],
       body: { height: 1.04, thick: 0.8, shoulders: 0.94 },
       colors: { skin: '#a77356', hair: '#1f1a17', top: '#5d728c', garment: '#5d728c', bottom: '#5d728c', hat: '#d8cfbb', shoes: '#9a8a72' },
     },

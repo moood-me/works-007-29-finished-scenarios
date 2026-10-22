@@ -1,14 +1,19 @@
-// lay the rope from Balducci's hand to the Arab's wrists: from the left end to the right (so it always sags down)
+// lay the rope from Balducci's hand to the Arab's wrists: from the left end to the right (so it always sags down);
+// e.point gives one reused array — each end is read off before the other is asked
 const a = e.point('balducci#hand_r');
+if (!a) return;
+const ax = a[0];
+const ay = a[1];
 const b = e.point('arab#bonds');
-if (!a || !b) return;
-const left = a[0] <= b[0] ? a : b;
-const right = a[0] <= b[0] ? b : a;
-const dx = right[0] - left[0];
-const dy = right[1] - left[1];
+if (!b) return;
+const bx = b[0];
+const by = b[1];
+const lx = ax <= bx ? ax : bx;
+const ly = ax <= bx ? ay : by;
+const dx = Math.abs(bx - ax);
+const dy = (ax <= bx ? by : ay) - ly;
 const rope = e.layer('rope');
-rope.x = left[0];
-rope.y = left[1];
+rope.x = lx;
+rope.y = ly;
 rope.rotate = Math.atan2(dy, dx);
 rope.scale = Math.hypot(dx, dy) / 2;
-if (e.t > 2) e.warn(`rope t${e.t.toFixed(1)} ${a.map(v => v.toFixed(2))} ${b.map(v => v.toFixed(2))}`);

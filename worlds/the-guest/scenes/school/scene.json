@@ -7,10 +7,10 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.6,
-    "ambientColor": "#b4c8ec",
+    "ambient": 0.65,
+    "ambientColor": "#c6d6f0",
     "bounce": 0.55,
-    "haze": 0.03,
+    "haze": 0.06,
     "hazeColor": "#c6d6e8",
     "hazeGlow": 0.3,
     "shafts": 0,
@@ -30,10 +30,10 @@
       "id": "sun",
       "from": [
         140,
-        20
+        28
       ],
       "color": "#fff0da",
-      "strength": 1.5
+      "strength": 1.8
     }
   ],
   "modules": [
@@ -375,8 +375,8 @@
     {
       "id": "horse",
       "name": "Balducci's horse",
-      "across": -49,
-      "distance": 74,
+      "across": -30,
+      "distance": 45,
       "height": 1.75,
       "box": [
         -1.35,
@@ -424,7 +424,7 @@
       "person": {
         "cast": "cast",
         "who": "daru",
-        "turn": 235,
+        "turn": 215,
         "does": "hands_behind"
       },
       "across": 2.4,
@@ -448,7 +448,7 @@
       "person": {
         "cast": "cast",
         "who": "arab",
-        "turn": 125,
+        "turn": 140,
         "does": "hands_bound"
       },
       "across": -1.6,

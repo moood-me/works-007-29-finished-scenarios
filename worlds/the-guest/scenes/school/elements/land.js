@@ -24,9 +24,9 @@ function band(c0, c1, color) {
   g.fill();
 }
 // the slope: snow thinning as it steepens, the plain below dun earth
-band(40, 120, '#d9d9d6');
-band(120, 260, '#cbc5b8');
-band(260, 6000, '#bfb39b');
+band(60, 200, '#dcdedf');
+band(200, 320, '#cfcabe');
+band(320, 6000, '#bfb39b');
 // streaks of bare limestone and earth along the slope, following its contours
 for (let i = 0; i < 420; i++) {
   const c = 4 + Math.pow(e.rnd(), 1.4) * 300;
