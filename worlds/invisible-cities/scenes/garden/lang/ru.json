@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Khan’s Garden","translation":"Сад хана","where":"scenes/garden/scene.json title"},
+  {"text":"The last night. The ship sails at dawn.","translation":"Последняя ночь. На рассвете корабль уходит.","where":"scenes/garden/scene.json caption"}
+]}
