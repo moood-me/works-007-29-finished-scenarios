@@ -109,14 +109,6 @@ function shackles(F) {
   K.pts[2] = F.swing('chain', K.pts[2], 60);
   F.tube(K.pts, K.profile, K.colors, 6, F.side('Hips'), 1);
 }
-// side whiskers along the jaw (the colour of the hair)
-function whiskers(F) {
-  const { add, mul } = V();
-  const h = F.head;
-  const [hs, hu, hf] = h.axes;
-  const r = h.r * h.out;
-  for (const sx of [-1, 1]) F.ball(add(h.at, add(add(mul(hs, sx * r * 0.86), mul(hu, -r * 0.25)), mul(hf, r * 0.05))), h.axes, [r * 0.12, r * 0.3, r * 0.2], F.colors.hair, h.sides);
-}
 return {
   ...data,
   characters: {
@@ -135,11 +127,11 @@ return {
       colors: { skin: '#dcebe5', hair: '#f2f6f4', top: '#e8f0ec', garment: '#b4cec5', bottom: '#93ada4', shoes: '#6d8077' },
     },
     // Mr Hiram B. Otis, the American Minister: upright, a black frock coat, a grey waistcoat, a white shirt, brown
-    // hair going grey and side whiskers
+    // hair going grey
     otis: {
-      kind: 'shapes', style: 'canterville', who: 'man', garment: 'coat', hair: 'short', face: 'storybook', parts: ['whiskers'],
+      kind: 'shapes', style: 'canterville', who: 'man', garment: 'coat', hair: 'short', face: 'storybook',
       body: { height: 1.02, shoulders: 1.04, thick: 1.04 },
-      colors: { skin: '#ebc7a7', hair: '#6c5a48', top: '#8a8a88', garment: '#22242a', bottom: '#2b2c31', shoes: '#191818' },
+      colors: { skin: '#ebc7a7', hair: '#857560', top: '#8a8a88', garment: '#22242a', bottom: '#2b2c31', shoes: '#191818' },
     },
   },
   shapes: {
@@ -162,7 +154,6 @@ return {
       ruff: { name: 'ruff', draw: ruff },
       beard: { name: 'beard', draw: beard },
       shackles: { name: 'manacles and chain', draw: shackles },
-      whiskers: { name: 'side whiskers', draw: whiskers },
       // a sash round the waist in the look's accent colour
       sash: {
         name: 'sash',
