@@ -28,7 +28,9 @@ feet, the reeds in the wind, the flames and the glints.
 
 ## The showcase
 
-`the pier` (10 s) → `the two` (camera on `between`, full) → `eurydice` (medium; she looks at the nearest floating
-lantern, `lanterns:0`, so her face comes round to us) → `orpheus` (medium; he sings out over the lake, `[1.2, 2, 1.1]`)
+`the pier` (10 s) → `the two` (camera on `between`, full) → `eurydice` (medium; she sits turned to 185 and looks at the
+nearest floating lantern, `lanterns:0`, so her face comes round to us — a head turned far from the body shows the
+back of her `straight` hair under her chin) → `orpheus` (medium; he sings out over the lake, `[1.2, 2, 1.1]`)
 → `the lake` (the scene's own camera, he looks at her again). Close shots and shots turned far aside were tried: close,
 the faces read as too plain for this style; turned aside (`camera_yaw` 45°) the camera looks past the painted sky.
+`moon_path` is right from the start and near it; from the nearer shots it is a slanting streak of light.
