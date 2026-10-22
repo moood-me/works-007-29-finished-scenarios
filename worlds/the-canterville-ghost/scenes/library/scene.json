@@ -66,14 +66,10 @@
   "state": {
     "fire": 1,
     "lamp": 1,
-    "otis_with": [
-      "bottle"
-    ],
     "otis_look": "simon",
     "otis_mood": "smile",
     "virginia_look": "simon",
     "virginia_mood": "sad",
-    "simon_look": "virginia",
     "simon_mood": "angry"
   },
   "states": {
@@ -224,10 +220,6 @@
           0.55,
           0.02
         ],
-        "size": [
-          0.24,
-          0.04
-        ],
         "amount": "fire"
       }
     },
@@ -319,7 +311,7 @@
         "cast": "cast",
         "who": "virginia",
         "turn": 145,
-        "does": "stand"
+        "does": "clasped"
       },
       "across": -0.5,
       "distance": 5.2
@@ -330,8 +322,8 @@
       "person": {
         "cast": "cast",
         "who": "simon",
-        "turn": 250,
-        "does": "stand"
+        "turn": 200,
+        "does": "spread"
       },
       "across": 1.6,
       "distance": 4.3
@@ -343,7 +335,7 @@
         "cast": "cast",
         "who": "otis",
         "turn": 130,
-        "does": "stand"
+        "does": "hands_behind"
       },
       "across": -2.1,
       "distance": 5.8

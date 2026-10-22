@@ -6,9 +6,6 @@ const V = () => MooodShapes.V;
 // colours a part draws in ([r, g, b, tone]: 1 lit by the scene, 2 glowing — its own colour whatever the light)
 const EMBER = [1, 0.32, 0.12, 2];
 const RUST = [0.42, 0.26, 0.18, 1];
-const GLASS = [0.55, 0.42, 0.24, 1];
-const LABEL = [0.86, 0.78, 0.6, 1];
-const CORK = [0.6, 0.45, 0.3, 1];
 // the face's expressions (a person's <id>_mood; the engine's names): the brows' inner and outer ends up (+) or down,
 // the eyes opened (1 at rest) or narrowed, the mouth's half-width, its corners up (+) or down, how open
 const MOODS = {
@@ -52,11 +49,9 @@ function face(F, eyes) {
 function ruff(F) {
   const { add, mul } = V();
   const uc = F.up('Chest');
-  const c = add(F.P('Neck1'), mul(uc, 0.01 * F.fit.h));
-  const axes = [F.side('Chest'), uc, F.fwd('Chest')];
-  const w = 0.11 * F.k;
-  F.ball(c, axes, [w, 0.035 * F.fit.h, w * 0.92], F.colors.top, 20);
-  F.ball(add(c, mul(uc, 0.012 * F.fit.h)), axes, [w * 0.82, 0.03 * F.fit.h, w * 0.76], F.colors.top.map((v, i) => (i < 3 ? v * 0.9 : v)), 20);
+  const c = add(F.P('Neck1'), mul(uc, -0.02 * F.fit.h));
+  const w = 0.1 * F.k;
+  F.ball(c, [F.side('Chest'), uc, F.fwd('Chest')], [w, 0.026 * F.fit.h, w * 0.9], F.colors.top, 20);
 }
 // a long white beard from the chin down the chest, swinging a little
 const BEARD = F => ({ pts: [null, null, null], profile: [[0, F.head.r * 0.5], [1, F.head.r * 0.42], [2, F.head.r * 0.08]], colors: [[0, F.colors.hair]] });
@@ -92,20 +87,6 @@ function shackles(F) {
   }
   K.pts[2] = F.swing('chain', K.pts[2], 60);
   F.tube(K.pts, K.profile, K.colors, 6, F.side('Hips'), 1);
-}
-// a small square bottle of lubricator in the right hand, its label towards whom it is held out to
-function bottle(F) {
-  const { add, mul } = V();
-  const m = F.fit.h;
-  const up = [0, 1, 0];
-  const fwd = F.fwd('RightHand');
-  const side = F.side('RightHand');
-  const c = add(add(F.P('RightHand'), mul(fwd, 0.03 * m)), mul(up, 0.05 * m));
-  const axes = [side, up, fwd];
-  F.ball(c, axes, [0.03 * m, 0.07 * m, 0.03 * m], GLASS, 8, 4);
-  F.ball(add(c, mul(fwd, 0.004 * m)), axes, [0.031 * m, 0.03 * m, 0.031 * m], LABEL, 8, 4);
-  F.ball(add(c, mul(up, 0.085 * m)), axes, [0.012 * m, 0.022 * m, 0.012 * m], GLASS, 8);
-  F.ball(add(c, mul(up, 0.11 * m)), axes, [0.011 * m, 0.012 * m, 0.011 * m], CORK, 8);
 }
 // side whiskers along the jaw (the colour of the hair)
 function whiskers(F) {
@@ -160,7 +141,6 @@ return {
       beard: { name: 'beard', draw: beard },
       shackles: { name: 'manacles and chain', draw: shackles },
       whiskers: { name: 'side whiskers', draw: whiskers },
-      bottle: { name: 'bottle of lubricator', draw: bottle },
       // a sash round the waist in the look's accent colour
       sash: {
         name: 'sash',
