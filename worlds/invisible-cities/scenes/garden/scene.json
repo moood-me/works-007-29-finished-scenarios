@@ -545,7 +545,7 @@
       "person": {
         "cast": "cast",
         "who": "khan",
-        "turn": 225,
+        "turn": 205,
         "does": "seated"
       },
       "across": 1.62,
@@ -580,8 +580,8 @@
     {
       "id": "lantern",
       "name": "Lantern post",
-      "across": 0.3,
-      "distance": 4.25,
+      "across": 0.15,
+      "distance": 3.35,
       "height": 2.65,
       "box": [
         -0.2,
@@ -599,8 +599,8 @@
         "lantern"
       ],
       "flicker": 0.15,
-      "across": 0.3,
-      "distance": 4.25,
+      "across": 0.15,
+      "distance": 3.35,
       "height": 2.4,
       "box": [
         -0.13,
