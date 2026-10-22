@@ -9,7 +9,7 @@ grown-ups; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it),
 
 ## Who
 
-- `charlie` — Charlie Gordon, thirty-seven: broad and soft, a round face, sandy hair cut short; a brown work jacket a
+- `charlie` — Charlie Gordon, thirty-seven: broad and soft, a round face, sandy hair in a crew cut; a brown work jacket a
   little too big over a white shirt, dark trousers.
 - `kinnian` — Alice Kinnian, thirty-four: slight, upright, brown hair in a low bun, a plain dusty-rose day dress to below the knee (the garment `frock`).
 - `strauss` — Dr Strauss: tall, spare, greying, round spectacles (the part `spectacles`, its point `#spectacles`), a

@@ -26,12 +26,12 @@ const spectacles = F => {
 return {
   ...data,
   characters: {
-    // Charlie Gordon, thirty-seven: a broad, soft man with a round face and sandy hair cut short; a brown work jacket
+    // Charlie Gordon, thirty-seven: a broad, soft man with a round face and sandy hair in a crew cut; a brown work jacket
     // a little too big over a white shirt, dark trousers — the bakery's janitor in his best for the laboratory
     charlie: {
-      kind: 'shapes', style: 'lab', who: 'man', garment: 'jacket', hair: 'short',
+      kind: 'shapes', style: 'lab', who: 'man', garment: 'jacket', hair: 'spiky',
       body: { height: 0.97, thick: 1.04, shoulders: 1.0 },
-      colors: { skin: '#e8bf9c', hair: '#b48a55', top: '#ece6d8', garment: '#9a7552', bottom: '#3e3a37', shoes: '#2c241e' },
+      colors: { skin: '#e8bf9c', hair: '#c8a46a', top: '#ece6d8', garment: '#9a7552', bottom: '#3e3a37', shoes: '#2c241e' },
     },
     // Alice Kinnian, thirty-four: slight and upright, brown hair up in a low bun, a plain dress of dusty rose — the
     // evening class's teacher
