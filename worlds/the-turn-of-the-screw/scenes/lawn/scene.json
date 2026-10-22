@@ -1,0 +1,632 @@
+{
+  "engine": 3,
+  "title": "The Lawn at Bly",
+  "caption": "Bly, a June evening. Jackdaws over the old tower.",
+  "horizon": 0.5,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.62,
+    "ambientColor": "#aab3d2",
+    "bounce": 0.55,
+    "haze": 0.07,
+    "hazeColor": "#e2d3cc",
+    "hazeGlow": 0.2,
+    "shafts": 0.15,
+    "tint": "#ffd8ae",
+    "tintStrength": 0.08,
+    "saturation": 1,
+    "vignette": 0.28,
+    "grain": 0.07,
+    "wind": [
+      1,
+      0.3,
+      0.35
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        128,
+        9
+      ],
+      "color": "#ffc68c",
+      "strength": 1.6
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The evening sky",
+      "sky": true
+    },
+    {
+      "id": "far_land",
+      "name": "The low country beyond the park",
+      "across": 0,
+      "distance": 900,
+      "height": 30,
+      "box": [
+        -2500,
+        -40,
+        2500,
+        10
+      ]
+    },
+    {
+      "id": "land",
+      "name": "The lawn, the drive, the park and the fields",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 140,
+      "width": 600,
+      "depth": 300
+    },
+    {
+      "id": "woods",
+      "name": "The park's old trees",
+      "across": -62,
+      "distance": 120,
+      "height": 20,
+      "box": [
+        -13,
+        -21,
+        13,
+        0.3
+      ],
+      "copies": [
+        {
+          "across": -62,
+          "distance": 120,
+          "scale": 1.3,
+          "flip": false
+        },
+        {
+          "across": -40,
+          "distance": 104,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": -24,
+          "distance": 142,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": -8,
+          "distance": 120,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 28,
+          "distance": 128,
+          "scale": 1.1,
+          "flip": false
+        },
+        {
+          "across": 46,
+          "distance": 98,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": 68,
+          "distance": 122,
+          "scale": 1.3,
+          "flip": false
+        },
+        {
+          "across": -86,
+          "distance": 96,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": 92,
+          "distance": 108,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": 12,
+          "distance": 150,
+          "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": -110,
+          "distance": 130,
+          "scale": 1.5,
+          "flip": false
+        },
+        {
+          "across": 120,
+          "distance": 140,
+          "scale": 1.4,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "name": "The house",
+      "unseen": true,
+      "across": 9,
+      "distance": 58,
+      "facing": 182
+    },
+    {
+      "id": "front",
+      "on": "bly",
+      "name": "The house's front",
+      "facing": 180,
+      "height": 10.2,
+      "box": [
+        -18.6,
+        -10.5,
+        18.6,
+        0.15
+      ],
+      "shadow": true
+    },
+    {
+      "id": "roof",
+      "on": "bly",
+      "name": "The roof",
+      "plane": true,
+      "distance": 2.9,
+      "elevation": 10.0,
+      "width": 37.4,
+      "depth": 5.6,
+      "tilt": 36,
+      "shadow": true
+    },
+    {
+      "id": "chimneys",
+      "on": "bly",
+      "name": "The chimney stacks",
+      "distance": 3.4,
+      "elevation": 10.0,
+      "facing": 180,
+      "height": 6.1,
+      "box": [
+        -15,
+        -6.2,
+        15,
+        0.1
+      ]
+    },
+    {
+      "id": "porch",
+      "on": "bly",
+      "name": "The porch",
+      "distance": -2.3,
+      "facing": 180,
+      "height": 6.25,
+      "box": [
+        -2.65,
+        -6.35,
+        2.65,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "steps",
+      "on": "bly",
+      "name": "The porch's steps",
+      "distance": -2.9,
+      "facing": 180,
+      "height": 0.54,
+      "box": [
+        -2.7,
+        -0.6,
+        2.7,
+        0.05
+      ]
+    },
+    {
+      "id": "smoke",
+      "name": "Smoke from the kitchen chimney",
+      "particles": {
+        "kind": "smoke",
+        "at": "chimneys#pot",
+        "rate": 3,
+        "color": "#d8d4d0",
+        "size": [
+          0.4,
+          2.4
+        ],
+        "opacity": 0.45
+      }
+    },
+    {
+      "id": "tower",
+      "name": "The old tower",
+      "unseen": true,
+      "across": -11.4,
+      "distance": 55.5,
+      "facing": 182
+    },
+    {
+      "id": "tower_front",
+      "on": "tower",
+      "name": "The tower's front",
+      "facing": 180,
+      "height": 21.5,
+      "box": [
+        -3.2,
+        -21.6,
+        3.2,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tower_side",
+      "on": "tower",
+      "name": "The tower's right side",
+      "across": 3.1,
+      "facing": 90,
+      "height": 21.5,
+      "box": [
+        -0.1,
+        -21.6,
+        6.3,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tower_top",
+      "on": "tower",
+      "name": "The tower's leads",
+      "plane": true,
+      "unseen": true,
+      "walk": true,
+      "distance": 3.1,
+      "elevation": 19.9,
+      "width": 5.6,
+      "depth": 5.6
+    },
+    {
+      "id": "jackdaws",
+      "name": "Jackdaws",
+      "across": -11.4,
+      "distance": 55.5,
+      "elevation": 21.5,
+      "height": 8,
+      "box": [
+        -10,
+        -9,
+        10,
+        3
+      ]
+    },
+    {
+      "id": "limes",
+      "name": "The lime avenue",
+      "across": 9.5,
+      "distance": 17,
+      "height": 17,
+      "box": [
+        -5.2,
+        -18.2,
+        5.2,
+        0.3
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 9.5,
+          "distance": 17,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": 13.0,
+          "distance": 24,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": 16.5,
+          "distance": 31,
+          "scale": 1.08,
+          "flip": false
+        },
+        {
+          "across": 20.0,
+          "distance": 38,
+          "scale": 0.98,
+          "flip": true
+        },
+        {
+          "across": 23.5,
+          "distance": 45,
+          "scale": 1.04,
+          "flip": false
+        },
+        {
+          "across": 27.0,
+          "distance": 52,
+          "scale": 0.96,
+          "flip": true
+        },
+        {
+          "across": 17.0,
+          "distance": 14,
+          "scale": 1.05,
+          "flip": true
+        },
+        {
+          "across": 20.5,
+          "distance": 21,
+          "scale": 0.97,
+          "flip": false
+        },
+        {
+          "across": 24.0,
+          "distance": 28,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": 27.5,
+          "distance": 35,
+          "scale": 1.06,
+          "flip": false
+        },
+        {
+          "across": 31.0,
+          "distance": 42,
+          "scale": 0.94,
+          "flip": true
+        },
+        {
+          "across": 34.5,
+          "distance": 49,
+          "scale": 1.02,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "cedar",
+      "name": "The cedar",
+      "across": -21,
+      "distance": 21,
+      "height": 16,
+      "box": [
+        -11.4,
+        -17.5,
+        8.4,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tufts",
+      "name": "Longer grass near",
+      "across": -2.6,
+      "distance": 2.4,
+      "height": 0.45,
+      "box": [
+        -0.5,
+        -0.5,
+        0.5,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -2.6,
+          "distance": 2.4,
+          "scale": 1,
+          "flip": false
+        },
+        {
+          "across": -3.4,
+          "distance": 3.1,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": 2.2,
+          "distance": 2.1,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": 3.1,
+          "distance": 2.8,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": -1.2,
+          "distance": 1.9,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": 1.0,
+          "distance": 2.6,
+          "scale": 1,
+          "flip": false
+        },
+        {
+          "across": -4.6,
+          "distance": 4.2,
+          "scale": 1.3,
+          "flip": false
+        },
+        {
+          "across": 4.4,
+          "distance": 3.9,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": 0.2,
+          "distance": 1.7,
+          "scale": 0.7,
+          "flip": false
+        },
+        {
+          "across": -5.8,
+          "distance": 5.6,
+          "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": 5.6,
+          "distance": 5.2,
+          "scale": 1.3,
+          "flip": false
+        },
+        {
+          "across": -0.6,
+          "distance": 3.4,
+          "scale": 0.9,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "governess",
+      "name": "The governess",
+      "person": {
+        "cast": "cast",
+        "who": "governess",
+        "turn": 166
+      },
+      "across": -0.62,
+      "distance": 4.75
+    },
+    {
+      "id": "flora",
+      "name": "Flora",
+      "person": {
+        "cast": "cast",
+        "who": "flora",
+        "turn": 184
+      },
+      "across": -1.25,
+      "distance": 4.6
+    },
+    {
+      "id": "miles",
+      "name": "Miles",
+      "person": {
+        "cast": "cast",
+        "who": "miles",
+        "turn": 202,
+        "does": "hands_behind"
+      },
+      "across": 0.35,
+      "distance": 5.3
+    }
+  ],
+  "state": {
+    "governess_look": "miles",
+    "governess_mood": "thinking",
+    "governess_reach": {
+      "r": "flora#hand_l"
+    },
+    "flora_look": [
+      0,
+      0,
+      1.6
+    ],
+    "flora_mood": "smile",
+    "flora_reach": {
+      "l": "governess#hand_r"
+    },
+    "miles_look": "governess",
+    "miles_mood": "smile"
+  },
+  "music": {
+    "prompts": [
+      {
+        "text": "solo piano, a light quick Victorian parlour piece played far off in a house, slightly out of tune, summer evening",
+        "weight": 1.1
+      },
+      {
+        "text": "string quartet, quiet and pastoral, English country house, warm but uneasy, unresolved harmonies",
+        "weight": 0.9
+      },
+      {
+        "text": "music box melody, slow and innocent, a child's tune with one wrong note",
+        "weight": 0.6
+      },
+      {
+        "text": "solo viola, long sustained notes, gothic stillness, golden evening light",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, gentle, dreamlike, a nursery at dusk",
+        "weight": 0
+      },
+      {
+        "text": "Benjamin Britten-like chamber orchestra, sparse, eerie, glassy percussion",
+        "weight": 0
+      },
+      {
+        "text": "harmonium chord held softly, a country church far away",
+        "weight": 0
+      },
+      {
+        "text": "low cello drone with high violin harmonics, suspense held very quietly",
+        "weight": 0
+      },
+      {
+        "text": "solo flute, pastoral and thin, evening birdsong feel",
+        "weight": 0
+      },
+      {
+        "text": "piano left hand ostinato, two notes, patient, something waiting",
+        "weight": 0
+      },
+      {
+        "text": "distant church bell, slow, summer air, nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "English folk song melody on a solo violin, plain and tender",
+        "weight": 0
+      },
+      {
+        "text": "glass harmonica, fragile, ghostly shimmer",
+        "weight": 0
+      },
+      {
+        "text": "string orchestra swell, romantic and restrained, late Victorian",
+        "weight": 0
+      },
+      {
+        "text": "prepared piano plucks, quiet and uncanny, sparse",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and bassoon, a lullaby gone slightly strange",
+        "weight": 0
+      },
+      {
+        "text": "ambient pad, warm golden haze, very slow",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.25,
+    "brightness": 0.45,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
