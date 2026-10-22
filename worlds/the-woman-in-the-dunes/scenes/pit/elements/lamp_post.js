@@ -43,7 +43,7 @@ g.lineTo(0.46, -2.44);
 g.stroke();
 g.fillStyle = "#3b3833";
 g.fillRect(0.32, -2.46, 0.16, 0.05);
-e.light(0.4, -2.55, 0.16, "#ffc27a", 1, "flame");
+e.light(0.4, -2.55, 0.26, "#ffc27a", 1.4, "flame");
 e.at(0.4, -2.55, "lantern");
 // sand round its foot
 g.fillStyle = "#d8b680";

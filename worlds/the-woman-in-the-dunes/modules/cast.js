@@ -81,9 +81,12 @@ return {
           const a = (i / 12) * Math.PI * 2;
           hoop.push(add(c, add(mul(out, Math.cos(a) * 0.17 * m), mul(dir, Math.sin(a) * 0.17 * m))));
         }
-        F.tube(hoop, [[0, 0.006 * m], [12, 0.006 * m]], [[0, WIRE]], 5, face);
-        const end = F.swing('netbag', add(c, [0, -0.36 * m, 0]), 70);
-        F.tube([c, add(c, [0, -0.16 * m, 0]), end], [[0, 0.16 * m], [1, 0.12 * m], [2, 0.03 * m]], [[0, GAUZE]], 10, face);
+        // the hoop in two halves (a tube takes eight points at most)
+        F.tube(hoop.slice(0, 7), [[0, 0.006 * m], [6, 0.006 * m]], [[0, WIRE]], 5, face);
+        F.tube(hoop.slice(6, 13), [[0, 0.006 * m], [6, 0.006 * m]], [[0, WIRE]], 5, face);
+        // the gauze bag: hanging from the hoop's lower half, narrowing to a soft point
+        const lip = add(c, mul(dir, -0.08 * m)), end = F.swing('netbag', add(lip, [0, -0.34 * m, 0]), 70);
+        F.tube([lip, add(lip, [0, -0.14 * m, 0]), end], [[0, 0.12 * m], [1, 0.09 * m], [2, 0.02 * m]], [[0, GAUZE]], 10, face);
       } },
       // a tin collecting box at the left hip on a leather strap over the right shoulder
       box: { name: 'collecting box', draw: F => {

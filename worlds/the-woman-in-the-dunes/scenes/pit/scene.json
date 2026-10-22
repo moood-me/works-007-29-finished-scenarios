@@ -31,13 +31,13 @@
     ],
     "looks": {
       "night": {
-        "ambient": 0.52,
-        "ambientColor": "#8a9ccc",
+        "ambient": 0.55,
+        "ambientColor": "#7d93d2",
         "haze": 0.12,
         "hazeColor": "#34426a",
         "hazeGlow": 1,
         "tint": "#5d72a8",
-        "tintStrength": 0.08,
+        "tintStrength": 0.12,
         "saturation": 0.82,
         "shafts": 0.2,
         "bounce": 0.35,
@@ -51,8 +51,8 @@
     {
       "id": "sun",
       "from": [
-        215,
-        13
+        200,
+        9
       ],
       "color": "#ffc98c",
       "strength": 1.1
@@ -228,10 +228,10 @@
       "facing": 180,
       "height": 1.6,
       "box": [
-        -0.5,
-        -1.75,
+        -0.7,
+        -1.8,
         1.0,
-        0.1
+        0.12
       ],
       "shadow": true
     },
