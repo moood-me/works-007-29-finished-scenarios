@@ -5,6 +5,21 @@
 const V = () => MooodShapes.V;
 const UMBRELLA = [0.09, 0.085, 0.09, 1];
 const HANDLE = [0.3, 0.2, 0.13, 1];
+const UP = [0, 1, 0];
+// what the umbrella keeps from frame to frame (F.keep: once a figure) — its colours, its profiles at the figure's
+// size, the lists its points are put in
+const KEPT = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    rod: [[0, UMBRELLA]],
+    crook: [[0, HANDLE]],
+    cloth: [[0, 0.018 * h], [1, 0.03 * h], [2, 0.01 * h]],
+    hook: [[0, 0.011 * h], [3, 0.01 * h]],
+    spindle: [null, null, null],
+    curl: [null, null, null, null],
+  };
+};
 return {
   ...data,
   characters: {
@@ -42,35 +57,35 @@ return {
           );
         },
       },
-      // his old black umbrella, furled, held like a cane: the crook in the right hand, the ferrule on the floor
+      // his old black umbrella, furled, held like a cane: the crook in the right hand, the ferrule on the floor. Drawn
+      // each frame (it goes with the hand and the feet): what it needs is kept (F.keep), the vectors are the frame's own
       umbrella: {
         name: 'umbrella',
         draw: F => {
           const { add, mul, sub, unit } = V();
+          const K = F.keep(KEPT);
+          const h = K.h;
           const hand = F.P('RightHand');
-          const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.07 * F.fit.h;
-          const tip = [hand[0] + F.fwd('Hips')[0] * 0.06, floor, hand[2] + F.fwd('Hips')[2] * 0.06];
+          const fwd = F.fwd('Hips');
+          const across = F.side('Hips');
+          const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.07 * h;
+          const tip = sub(add(hand, mul(fwd, 0.06)), mul(UP, hand[1] - floor));
           const along = unit(sub(hand, tip));
-          const top = add(hand, mul(along, 0.06 * F.fit.h));
-          const shaft = sub(top, mul(along, 0.3 * F.fit.h));
-          F.bar(top, tip, 0.008 * F.fit.h, 0.006 * F.fit.h, [[0, UMBRELLA]], 6, F.side('Hips'));
+          const top = add(hand, mul(along, 0.06 * h));
+          const shaft = sub(top, mul(along, 0.3 * h));
+          F.bar(top, tip, 0.008 * h, 0.006 * h, K.rod, 6, across);
           // the furled cloth: a long spindle from under the hand to above the ferrule
-          F.tube(
-            [shaft, mul(add(shaft, tip), 0.5), add(tip, mul(along, 0.1 * F.fit.h))],
-            [[0, 0.018 * F.fit.h], [1, 0.03 * F.fit.h], [2, 0.01 * F.fit.h]],
-            [[0, UMBRELLA]],
-            8,
-            F.side('Hips'),
-          );
+          K.spindle[0] = shaft;
+          K.spindle[1] = mul(add(shaft, tip), 0.5);
+          K.spindle[2] = add(tip, mul(along, 0.1 * h));
+          F.tube(K.spindle, K.cloth, K.rod, 8, across);
           // the crook over the hand
-          const back = mul(F.fwd('Hips'), -1);
-          F.tube(
-            [top, add(top, mul(along, 0.05 * F.fit.h)), add(add(top, mul(along, 0.06 * F.fit.h)), mul(back, 0.05 * F.fit.h)), add(add(top, mul(along, 0.02 * F.fit.h)), mul(back, 0.08 * F.fit.h))],
-            [[0, 0.011 * F.fit.h], [3, 0.01 * F.fit.h]],
-            [[0, HANDLE]],
-            6,
-            F.side('Hips'),
-          );
+          const back = mul(fwd, -1);
+          K.curl[0] = top;
+          K.curl[1] = add(top, mul(along, 0.05 * h));
+          K.curl[2] = add(K.curl[1], add(mul(along, 0.01 * h), mul(back, 0.05 * h)));
+          K.curl[3] = add(top, add(mul(along, 0.02 * h), mul(back, 0.08 * h)));
+          F.tube(K.curl, K.hook, K.crook, 6, across);
         },
       },
     },
