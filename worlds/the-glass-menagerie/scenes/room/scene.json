@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Flat",
   "caption": "An evening off the alley. The glass on the shelf catches the lamp.",
-  "horizon": 0.35,
+  "horizon": 0.33,
   "camera": {
     "mode": "picture"
   },
@@ -96,8 +96,8 @@
     "neon": 1,
     "laura_look": [
       -1.75,
-      3.1,
-      0.6
+      2.8,
+      1.15
     ],
     "amanda_look": "tom",
     "amanda_mood": "thinking",

@@ -28,15 +28,22 @@ for (const s of [-1, 1]) {
   g.ellipse(s * 0.97, -0.62, 0.07, 0.22, 0, 0, Math.PI * 2);
   g.fill();
 }
-// the cushions and the afghan
-g.fillStyle = '#c4b49a';
-g.beginPath();
-g.ellipse(-0.62, -0.6, 0.22, 0.13, 0.1, 0, Math.PI * 2);
-g.fill();
-g.fillStyle = '#9c8c9e';
-g.beginPath();
-g.ellipse(-0.3, -0.58, 0.18, 0.11, -0.1, 0, Math.PI * 2);
-g.fill();
+// the cushions, propped against the back, and the afghan
+const cushion = (x, w, col) => {
+  g.fillStyle = col;
+  g.beginPath();
+  g.moveTo(x - w, -0.47);
+  g.quadraticCurveTo(x - w - 0.03, -0.62, x - w + 0.02, -0.74);
+  g.quadraticCurveTo(x, -0.79, x + w - 0.02, -0.74);
+  g.quadraticCurveTo(x + w + 0.03, -0.62, x + w, -0.47);
+  g.closePath();
+  g.fill();
+  g.strokeStyle = 'rgba(60,40,30,0.35)';
+  g.lineWidth = 0.01;
+  g.stroke();
+};
+cushion(-0.62, 0.2, '#b9a586');
+cushion(-0.25, 0.17, '#8e7e93');
 const stripes = ['#b0573f', '#d0a54c', '#5e7f6a', '#6a6a9a', '#b0573f'];
 stripes.forEach((c, i) => {
   g.fillStyle = c;

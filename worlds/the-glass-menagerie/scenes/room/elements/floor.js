@@ -29,7 +29,7 @@ g.fillStyle = '#5b3a40';
 g.beginPath();
 g.ellipse(0, 0, 0.62, 0.42, 0, 0, Math.PI * 2);
 g.fill();
-g.fillStyle = '#b48a5e';
+g.fillStyle = '#97694a';
 g.beginPath();
 g.ellipse(0, 0, 0.3, 0.2, 0, 0, Math.PI * 2);
 g.fill();
@@ -37,7 +37,7 @@ g.strokeStyle = '#c29a6a';
 g.lineWidth = 0.025;
 g.strokeRect(-1.4, -0.86, 2.8, 1.72);
 for (let i = 0; i < 26; i++) {
-  g.fillStyle = 'rgba(205,170,130,0.2)';
+  g.fillStyle = 'rgba(190,150,115,0.1)';
   g.beginPath();
   g.ellipse(-1.2 + e.rnd() * 2.4, -0.7 + e.rnd() * 1.4, 0.06 + e.rnd() * 0.15, 0.03 + e.rnd() * 0.06, 0, 0, Math.PI * 2);
   g.fill();

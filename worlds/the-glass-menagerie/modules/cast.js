@@ -15,7 +15,7 @@ return {
     laura: {
       kind: 'shapes', style: 'memory', who: 'woman', garment: 'dress', hair: 'bob',
       body: { height: 0.91, thick: 0.78, shoulders: 0.84, hips: 0.98 },
-      colors: { skin: '#efcdb2', hair: '#46302a', top: '#8ea5cc', garment: '#8ea5cc', shoes: '#4a3b36' },
+      colors: { skin: '#efcdb2', hair: '#46302a', top: '#7f9bd2', garment: '#7f9bd2', shoes: '#4a3b36' },
     },
     // Amanda Wingfield, past fifty: upright, fuller, greying hair in a bun, a faded plum house dress
     amanda: {
