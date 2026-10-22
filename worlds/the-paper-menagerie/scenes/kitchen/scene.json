@@ -7,17 +7,17 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.6,
-    "ambientColor": "#b4b0d0",
-    "inside": 0.45,
+    "ambient": 0.8,
+    "ambientColor": "#c4bedc",
+    "inside": 0.4,
     "bounce": 0.55,
     "haze": 0.04,
     "hazeColor": "#d6a99a",
-    "hazeGlow": 0.5,
+    "hazeGlow": 0.25,
     "tint": "#ffd9b4",
-    "tintStrength": 0.06,
+    "tintStrength": 0.03,
     "saturation": 0.96,
-    "vignette": 0.42,
+    "vignette": 0.38,
     "grain": 0.1
   },
   "lights": [
@@ -25,7 +25,7 @@
       "id": "lamp",
       "of": "lamp#bulb",
       "color": "#ffd29a",
-      "strength": 1.7,
+      "strength": 1.4,
       "reach": 5,
       "on": "lamp",
       "flicker": 0.02
@@ -388,7 +388,6 @@
       "name": "Laohu, the paper tiger",
       "inside": true,
       "shadow": true,
-      "translucent": 0.3,
       "across": -0.58,
       "distance": 2.7,
       "elevation": 0.76,
