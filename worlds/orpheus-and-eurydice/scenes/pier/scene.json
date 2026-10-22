@@ -1,0 +1,221 @@
+{
+  "engine": 3,
+  "title": "The Pier",
+  "horizon": 0.5,
+  "camera": { "mode": "picture" },
+  "light": {
+    "vignette": 0.3,
+    "grain": 0.05,
+    "haze": 0.1,
+    "hazeColor": "#2c3b68",
+    "hazeGlow": 0.8,
+    "shafts": 0.3,
+    "ambient": 0.42,
+    "ambientColor": "#7f90c4",
+    "bounce": 0.5,
+    "brightness": 1.05,
+    "saturation": 0.95,
+    "wind": [1, 0.2, 0.3]
+  },
+  "lights": [
+    { "id": "moon", "from": "sky#disc", "color": "#c9d5ff", "strength": 0.75 },
+    { "id": "night_sky", "from": [180, 35], "color": "#8ea2da", "strength": 0.35 },
+    { "id": "lantern", "of": "pier_lantern#flame", "color": "#ffc47e", "strength": 1.7, "reach": 5, "flicker": 0.2 }
+  ],
+  "modules": ["cast"],
+  "state": {
+    "orpheus_on": [0.15, 5.25, 0.55],
+    "orpheus_look": "eurydice",
+    "orpheus_mood": "smile",
+    "orpheus_wear": { "face": "orpheus_sing" },
+    "orpheus_reach": { "l": "lyre#arm", "r": "lyre#strings" },
+    "eurydice_on": [-1.3, 5.25, 0.55],
+    "eurydice_look": "orpheus",
+    "eurydice_mood": "smile",
+    "eurydice_reach": { "l": [-1.02, 5.38, 0.57], "r": [-1.6, 5.3, 0.57] }
+  },
+  "objects": [
+    { "id": "sky", "name": "Night sky", "sky": true },
+    {
+      "id": "far_shore",
+      "name": "Forest on the far shore",
+      "across": 40,
+      "distance": 330,
+      "height": 34,
+      "box": [-760, -42, 760, 0.6]
+    },
+    {
+      "id": "mist",
+      "name": "Mist along the far shore",
+      "across": 0,
+      "distance": 210,
+      "height": 7,
+      "box": [-640, -9, 640, 0.5]
+    },
+    {
+      "id": "water",
+      "name": "The lake",
+      "plane": true,
+      "across": 0,
+      "distance": 300,
+      "elevation": 0.05,
+      "width": 1600,
+      "depth": 600,
+      "reflect": { "strength": 0.62, "fade": 0, "rough": 0.3, "ripple": 0.22 }
+    },
+    {
+      "id": "reeds_far",
+      "name": "Reeds out in the water",
+      "across": 5.2,
+      "distance": 12,
+      "height": 1.9,
+      "box": [-0.5, -2.05, 0.5, 0.1],
+      "copies": [
+        { "across": 5.2, "distance": 12, "scale": 0.9 },
+        { "across": 5.9, "distance": 13.5, "flip": true },
+        { "across": 6.7, "distance": 12.6, "scale": 0.8 },
+        { "across": 7.6, "distance": 14.2, "scale": 1.05, "flip": true },
+        { "across": 8.9, "distance": 13.1, "scale": 0.85 }
+      ]
+    },
+    {
+      "id": "pier_deck",
+      "name": "Pier deck",
+      "plane": true,
+      "walk": true,
+      "across": -7,
+      "distance": 5.85,
+      "elevation": 0.55,
+      "width": 16,
+      "depth": 1.7
+    },
+    {
+      "id": "pier_side",
+      "name": "Pier, its near side",
+      "across": -7,
+      "distance": 4.98,
+      "height": 0.6,
+      "box": [-8.1, -0.6, 8.1, 0.15]
+    },
+    {
+      "id": "post",
+      "name": "Mooring post",
+      "across": 0.92,
+      "distance": 4.93,
+      "height": 1.3,
+      "box": [-0.14, -1.32, 0.14, 0.1],
+      "shadow": true
+    },
+    {
+      "id": "pier_lantern",
+      "name": "Wedding lantern",
+      "across": -0.58,
+      "distance": 5.12,
+      "elevation": 0.55,
+      "height": 0.42,
+      "box": [-0.14, -0.46, 0.14, 0.02],
+      "glows": true,
+      "flicker": 0.2
+    },
+    {
+      "id": "lyre",
+      "name": "Orpheus's lyre",
+      "across": 0.02,
+      "distance": 5.0,
+      "elevation": 0.62,
+      "facing": 150,
+      "height": 0.58,
+      "box": [-0.22, -0.62, 0.22, 0.03]
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "person": { "cast": "cast", "who": "orpheus", "turn": 150, "does": "seated" },
+      "across": 0.15,
+      "distance": 5.25,
+      "shadow": { "strength": 0.7 }
+    },
+    {
+      "id": "eurydice",
+      "name": "Eurydice",
+      "person": { "cast": "cast", "who": "eurydice", "turn": 205, "does": "seated" },
+      "across": -1.3,
+      "distance": 5.25,
+      "shadow": { "strength": 0.7 }
+    },
+    {
+      "id": "rings",
+      "name": "Rings round her feet",
+      "plane": true,
+      "across": -1.1,
+      "distance": 4.84,
+      "elevation": 0.07,
+      "width": 1.6,
+      "depth": 1.6
+    },
+    {
+      "id": "lanterns",
+      "name": "Lanterns on the water",
+      "across": -2.4,
+      "distance": 3.8,
+      "elevation": 0.05,
+      "height": 0.3,
+      "box": [-0.2, -0.34, 0.2, 0.04],
+      "glows": true,
+      "flicker": 0.25,
+      "copies": [
+        { "across": -2.4, "distance": 3.8 },
+        { "across": 1.5, "distance": 3.5, "scale": 0.95, "flip": true },
+        { "across": -0.6, "distance": 2.9, "scale": 1.05 },
+        { "across": 2.7, "distance": 6.6, "flip": true },
+        { "across": -3.6, "distance": 7.2, "scale": 0.9 },
+        { "across": 4.1, "distance": 9.6, "flip": true, "glow": 0.9 },
+        { "across": 0.9, "distance": 9.0 },
+        { "across": -1.9, "distance": 11.5, "scale": 1.1, "flip": true, "glow": 0.85 },
+        { "across": 6.3, "distance": 16, "glow": 0.8 },
+        { "across": -5.4, "distance": 14, "flip": true, "glow": 0.8 }
+      ]
+    },
+    {
+      "id": "reeds",
+      "name": "Reeds by the shore",
+      "across": -3.3,
+      "distance": 2.7,
+      "height": 1.9,
+      "box": [-0.5, -2.05, 0.5, 0.1],
+      "copies": [
+        { "across": -3.3, "distance": 2.7 },
+        { "across": -2.7, "distance": 3.5, "scale": 0.85, "flip": true },
+        { "across": -4.0, "distance": 3.1, "scale": 1.15 },
+        { "across": -2.5, "distance": 2.2, "scale": 0.95, "flip": true },
+        { "across": -4.6, "distance": 4.0, "scale": 1.05 },
+        { "across": -3.7, "distance": 2.0, "scale": 1.1, "flip": true }
+      ]
+    },
+    { "id": "between", "name": "Between the two", "unseen": true, "across": -0.58, "distance": 5.25, "elevation": 0.45, "height": 1.3 }
+  ],
+  "music": {
+    "prompts": [
+      { "text": "a solo lyre plucked slowly, ancient modes, intimate and warm, long silences between phrases", "weight": 1.3 },
+      { "text": "a quiet harp and a low hum of water, night by a still lake, unhurried", "weight": 0.8 },
+      { "text": "a single male voice humming wordlessly over a plucked lyre, tender, far away", "weight": 0.5 },
+      { "text": "soft ambient pads like moonlight on water, slow swells, no rhythm", "weight": 0.4 },
+      { "text": "a wooden flute playing a simple pastoral melody, airy, at dusk", "weight": 0 },
+      { "text": "an old folk lullaby on a kithara, gentle arpeggios", "weight": 0 },
+      { "text": "minimal piano notes falling like drops into still water", "weight": 0 },
+      { "text": "warm drone of a bowed psaltery under sparse plucked notes", "weight": 0 },
+      { "text": "a choir far off, wordless, mournful, like voices under water", "weight": 0 },
+      { "text": "a celesta and a glass harmonica, fragile, dreamlike", "weight": 0 },
+      { "text": "low strings holding long notes, dark, patient, a myth told quietly", "weight": 0 },
+      { "text": "an oud improvising slowly in a minor mode, intimate night music", "weight": 0 },
+      { "text": "frogs and crickets at a lake at night, very sparse marimba", "weight": 0 },
+      { "text": "a duduk sighing a slow lament over a soft drone", "weight": 0 },
+      { "text": "a music box tune slowing down, nostalgic and sad", "weight": 0 },
+      { "text": "light shimmering synth arpeggios like lanterns drifting on water", "weight": 0 }
+    ],
+    "bpm": 64,
+    "density": 0.25,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
