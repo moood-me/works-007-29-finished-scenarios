@@ -75,9 +75,9 @@
       "distance": 120,
       "height": 20,
       "box": [
-        -13,
-        -21,
-        13,
+        -14.5,
+        -22.5,
+        14.5,
         0.3
       ],
       "copies": [
@@ -151,6 +151,18 @@
           "across": 120,
           "distance": 140,
           "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": -150,
+          "distance": 150,
+          "scale": 1.6,
+          "flip": false
+        },
+        {
+          "across": -48,
+          "distance": 135,
+          "scale": 1.1,
           "flip": true
         }
       ]
@@ -508,8 +520,8 @@
         "who": "governess",
         "turn": 166
       },
-      "across": -0.62,
-      "distance": 4.75
+      "across": -0.55,
+      "distance": 4.3
     },
     {
       "id": "flora",
@@ -519,8 +531,8 @@
         "who": "flora",
         "turn": 184
       },
-      "across": -1.25,
-      "distance": 4.6
+      "across": -1.12,
+      "distance": 4.15
     },
     {
       "id": "miles",
@@ -532,7 +544,7 @@
         "does": "hands_behind"
       },
       "across": 0.35,
-      "distance": 5.3
+      "distance": 4.8
     }
   ],
   "state": {
