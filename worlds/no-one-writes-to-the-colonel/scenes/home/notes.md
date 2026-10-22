@@ -7,8 +7,8 @@ pot) and its people as they are in the story. No one moves but a look; no camera
 - **Where things are.** The viewer stands at the room's open side (camera `picture`). Earth floor at 0 (`floor`, the
   rooster's string and his corn painted on it), the zinc roof at 2.9 (`roof`, a card laid face down), the back wall at
   distance 5.0 (`back_wall`: the window x 1.25…2.25, the soot and the shelf over the stove, the hammock's hooks, a
-  calendar), the side walls at across ±3.0 from 1.24 to 5.0 (`left_wall` with the open doorway at distance 2.6 —
-  `door`, its frame — and the blue door leaf against the wall beyond; `right_wall`). Shared limewash and yard mud:
+  calendar), the side walls at across ±3.0 from 1.24 to 5.0 (`left_wall` with the open doorway at distance 3.2 —
+  `door`, its frame — and the blue door leaf against the wall nearer us; `right_wall`). Shared limewash and yard mud:
   `lib.js`.
 - **In the room**: the stove in the back-left corner (`stove`: the pot, the coffee tin with the knife — `stove#tin`;
   its fire the particles `fire`, its embers the light `stove`, key `fire`; `steam`), the hammock before the back wall
