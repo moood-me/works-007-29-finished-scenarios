@@ -9,6 +9,10 @@ const LEATHER = ['#5b2a22', '#3f3a2a', '#6b4a2a', '#2f3a33', '#4e2f3a', '#7a5a34
 // 1 m, the rail, the wall above in plain panels, the frieze under the ceiling
 function oak(g, x0, x1, top = 3.4) {
   const w = x1 - x0;
+  g.save();
+  g.beginPath();
+  g.rect(x0, -top - 0.02, w, top + 0.04);
+  g.clip();
   g.fillStyle = OAK;
   g.fillRect(x0, -top - 0.02, w, top + 0.04);
   // the upper panels: tall, framed by darker rails
@@ -32,6 +36,7 @@ function oak(g, x0, x1, top = 3.4) {
   g.fillStyle = OAK_DARK;
   g.fillRect(x0, -0.14, w, 0.16);
   g.fillRect(x0, -top - 0.02, w, 0.26);
+  g.restore();
 }
 
 // a bookcase from x0 to x1, its shelves from `bottom` up to `top` (metres over the floor): a dark frame, shelves of

@@ -22,18 +22,23 @@
   "lights": [
     {
       "id": "moon",
-      "from": [8, 28],
+      "from": [
+        8,
+        28
+      ],
       "color": "#a9bde6",
       "strength": 1.3,
-      "through": ["window"]
+      "through": [
+        "window"
+      ]
     },
     {
       "id": "fire",
-      "across": 3.7,
+      "across": 3.35,
       "distance": 6.6,
-      "elevation": 0.45,
+      "elevation": 0.4,
       "color": "#ff9548",
-      "strength": 2.0,
+      "strength": 1.5,
       "reach": 7,
       "on": "fire",
       "flicker": 0.35
@@ -49,17 +54,21 @@
     {
       "id": "ghost",
       "at": "simon#chest",
-      "color": "#cfeee3",
-      "strength": 1.1,
-      "reach": 3.4,
+      "color": "#bdf0df",
+      "strength": 1.6,
+      "reach": 3.2,
       "glow": 0.6
     }
   ],
-  "modules": ["cast"],
+  "modules": [
+    "cast"
+  ],
   "state": {
     "fire": 1,
     "lamp": 1,
-    "otis_with": ["bottle"],
+    "otis_with": [
+      "bottle"
+    ],
     "otis_look": "simon",
     "otis_mood": "smile",
     "virginia_look": "simon",
@@ -69,12 +78,18 @@
   },
   "states": {
     "fire": {
-      "range": [0, 1],
+      "range": [
+        0,
+        1
+      ],
       "smooth": true,
       "means": "the fire in the hearth: 0 out, 1 burning (its flames, embers and light)"
     },
     "lamp": {
-      "range": [0, 1],
+      "range": [
+        0,
+        1
+      ],
       "smooth": true,
       "means": "the oil lamp on Mr Otis's desk: 0 out, 1 lit"
     }
@@ -85,10 +100,10 @@
       "name": "The floor",
       "plane": true,
       "across": 0,
-      "distance": 6.5,
+      "distance": 5.5,
       "elevation": 0,
       "width": 8.1,
-      "depth": 7.1
+      "depth": 9.1
     },
     {
       "id": "rug",
@@ -114,8 +129,8 @@
       "id": "stain",
       "name": "The bloodstain",
       "plane": true,
-      "across": 2.75,
-      "distance": 6.45,
+      "across": 2.7,
+      "distance": 6.55,
       "elevation": 0.007,
       "width": 0.9,
       "depth": 0.7
@@ -128,8 +143,13 @@
       "elevation": 3.4,
       "facing": 180,
       "tilt": -90,
-      "height": 7.1,
-      "box": [-4.05, -7.1, 4.05, 0.05]
+      "height": 9.1,
+      "box": [
+        -4.05,
+        -9.1,
+        4.05,
+        0.05
+      ]
     },
     {
       "id": "back_wall",
@@ -138,7 +158,12 @@
       "distance": 10,
       "facing": 180,
       "height": 3.4,
-      "box": [-4.05, -3.42, 4.05, 0.02]
+      "box": [
+        -4.05,
+        -3.42,
+        4.05,
+        0.02
+      ]
     },
     {
       "id": "window",
@@ -148,7 +173,12 @@
       "distance": 10.04,
       "facing": 180,
       "height": 3.4,
-      "box": [-1.45, -3.05, 1.05, -0.95]
+      "box": [
+        -1.45,
+        -3.05,
+        1.05,
+        -0.95
+      ]
     },
     {
       "id": "left_wall",
@@ -157,7 +187,12 @@
       "distance": 6.5,
       "facing": 90,
       "height": 3.4,
-      "box": [-3.55, -3.42, 3.55, 0.02]
+      "box": [
+        -5.55,
+        -3.42,
+        3.55,
+        0.02
+      ]
     },
     {
       "id": "right_wall",
@@ -166,7 +201,12 @@
       "distance": 6.6,
       "facing": 270,
       "height": 3.4,
-      "box": [-3.45, -3.42, 3.65, 0.02],
+      "box": [
+        -3.45,
+        -3.42,
+        5.65,
+        0.02
+      ],
       "flicker": 0.15
     },
     {
@@ -174,9 +214,20 @@
       "name": "The fire in the hearth",
       "particles": {
         "kind": "fire",
-        "at": [3.85, 6.6, 0.16],
-        "source": [0.06, 0.55, 0.02],
-        "size": [0.32, 0.05],
+        "at": [
+          3.85,
+          6.6,
+          0.16
+        ],
+        "source": [
+          0.06,
+          0.55,
+          0.02
+        ],
+        "size": [
+          0.32,
+          0.05
+        ],
         "amount": "fire"
       }
     },
@@ -185,8 +236,16 @@
       "name": "Embers over the fire",
       "particles": {
         "kind": "embers",
-        "at": [3.85, 6.6, 0.3],
-        "source": [0.06, 0.5, 0.05],
+        "at": [
+          3.85,
+          6.6,
+          0.3
+        ],
+        "source": [
+          0.06,
+          0.5,
+          0.05
+        ],
         "amount": "fire"
       }
     },
@@ -195,39 +254,62 @@
       "name": "Dust in the moonlight",
       "particles": {
         "kind": "dust",
-        "at": [-0.4, 7.4, 1.4],
-        "source": [3, 3.5, 2.6]
+        "at": [
+          -0.4,
+          7.4,
+          1.4
+        ],
+        "source": [
+          3,
+          3.5,
+          2.6
+        ]
       }
     },
     {
       "id": "desk",
       "name": "Mr Otis's writing desk",
-      "across": -3.05,
-      "distance": 7.5,
+      "across": -3.0,
+      "distance": 6.5,
       "facing": 150,
       "height": 0.8,
-      "box": [-0.78, -0.86, 0.78, 0.02],
+      "box": [
+        -0.82,
+        -1.08,
+        0.82,
+        0.02
+      ],
       "shadow": true
     },
     {
       "id": "desk_lamp",
       "name": "The oil lamp on the desk",
       "glows": true,
-      "across": -3.05,
-      "distance": 7.5,
+      "across": -3.0,
+      "distance": 6.5,
       "elevation": 0.78,
       "facing": 150,
       "height": 0.62,
-      "box": [-0.16, -0.64, 0.4, 0.01]
+      "box": [
+        -0.16,
+        -0.64,
+        0.4,
+        0.01
+      ]
     },
     {
       "id": "armchair",
       "name": "A wing chair by the fire",
-      "across": 3.15,
-      "distance": 4.4,
-      "facing": 215,
+      "across": 3.3,
+      "distance": 8.6,
+      "facing": 250,
       "height": 1.2,
-      "box": [-0.55, -1.22, 0.55, 0.02],
+      "box": [
+        -0.55,
+        -1.22,
+        0.55,
+        0.02
+      ],
       "shadow": true
     },
     {
@@ -239,8 +321,8 @@
         "turn": 160,
         "does": "stand"
       },
-      "across": -0.85,
-      "distance": 5.3
+      "across": -0.7,
+      "distance": 4.4
     },
     {
       "id": "simon",
@@ -251,8 +333,8 @@
         "turn": 225,
         "does": "stand"
       },
-      "across": 2.2,
-      "distance": 7.3
+      "across": 1.9,
+      "distance": 6.2
     },
     {
       "id": "otis",
@@ -263,28 +345,76 @@
         "turn": 125,
         "does": "stand"
       },
-      "across": -2.45,
-      "distance": 6.5
+      "across": -2.2,
+      "distance": 5.4
     }
   ],
   "music": {
     "prompts": [
-      { "text": "chamber gothic comedy, pizzicato strings tiptoeing, a harpsichord, sly and dry, Victorian manor at night", "weight": 1.1 },
-      { "text": "solo cello, slow and tender, a lament for someone three hundred years tired", "weight": 0.7 },
-      { "text": "music box waltz, slightly out of tune, old English country house, moonlight", "weight": 0.6 },
-      { "text": "distant church organ, low and soft, through thick stone walls", "weight": 0.3 },
-      { "text": "bassoon and clarinet, comic and pompous, a theatrical villain's entrance", "weight": 0 },
-      { "text": "celesta and harp, a girl's quiet pity, glassy and clear", "weight": 0 },
-      { "text": "low string drone with clanking metallic percussion, chains in a corridor", "weight": 0 },
-      { "text": "Elizabethan lute galliard, faded, as if remembered", "weight": 0 },
-      { "text": "ragtime piano, American, cheerful, very far away in another wing", "weight": 0 },
-      { "text": "thunderstorm rumble under a slow minor piano", "weight": 0 },
-      { "text": "string quartet, Victorian, restrained melancholy", "weight": 0 },
-      { "text": "boys' choir, a single held note, a garden under the moon", "weight": 0 },
-      { "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom", "weight": 0 },
-      { "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense", "weight": 0 },
-      { "text": "mock-heroic brass fanfare, muted, slightly ridiculous", "weight": 0 },
-      { "text": "slow harpsichord pavane, dignified and dusty", "weight": 0 }
+      {
+        "text": "chamber gothic comedy, pizzicato strings tiptoeing, a harpsichord, sly and dry, Victorian manor at night",
+        "weight": 1.1
+      },
+      {
+        "text": "solo cello, slow and tender, a lament for someone three hundred years tired",
+        "weight": 0.7
+      },
+      {
+        "text": "music box waltz, slightly out of tune, old English country house, moonlight",
+        "weight": 0.6
+      },
+      {
+        "text": "distant church organ, low and soft, through thick stone walls",
+        "weight": 0.3
+      },
+      {
+        "text": "bassoon and clarinet, comic and pompous, a theatrical villain's entrance",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, a girl's quiet pity, glassy and clear",
+        "weight": 0
+      },
+      {
+        "text": "low string drone with clanking metallic percussion, chains in a corridor",
+        "weight": 0
+      },
+      {
+        "text": "Elizabethan lute galliard, faded, as if remembered",
+        "weight": 0
+      },
+      {
+        "text": "ragtime piano, American, cheerful, very far away in another wing",
+        "weight": 0
+      },
+      {
+        "text": "thunderstorm rumble under a slow minor piano",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, Victorian, restrained melancholy",
+        "weight": 0
+      },
+      {
+        "text": "boys' choir, a single held note, a garden under the moon",
+        "weight": 0
+      },
+      {
+        "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom",
+        "weight": 0
+      },
+      {
+        "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense",
+        "weight": 0
+      },
+      {
+        "text": "mock-heroic brass fanfare, muted, slightly ridiculous",
+        "weight": 0
+      },
+      {
+        "text": "slow harpsichord pavane, dignified and dusty",
+        "weight": 0
+      }
     ],
     "bpm": 76,
     "density": 0.3,

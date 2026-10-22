@@ -113,7 +113,7 @@ function whiskers(F) {
   const h = F.head;
   const [hs, hu, hf] = h.axes;
   const r = h.r * h.out;
-  for (const sx of [-1, 1]) F.ball(add(h.at, add(add(mul(hs, sx * r * 0.82), mul(hu, -r * 0.35)), mul(hf, r * 0.2))), h.axes, [r * 0.16, r * 0.42, r * 0.3], F.colors.hair, h.sides);
+  for (const sx of [-1, 1]) F.ball(add(h.at, add(add(mul(hs, sx * r * 0.86), mul(hu, -r * 0.25)), mul(hf, r * 0.05))), h.axes, [r * 0.12, r * 0.3, r * 0.2], F.colors.hair, h.sides);
 }
 return {
   ...data,
@@ -130,7 +130,7 @@ return {
     simon: {
       kind: 'shapes', style: 'canterville', who: 'old', garment: 'cloak', hair: 'long', face: 'ghost', parts: ['ruff', 'beard', 'shackles'],
       body: { height: 1.06, thick: 0.86, shoulders: 1.02, head: 1.02 },
-      colors: { skin: '#cddbd4', hair: '#eef2ef', top: '#dfe7e2', garment: '#8ea39b', bottom: '#74867f', shoes: '#56645f' },
+      colors: { skin: '#d6e6df', hair: '#f2f6f4', top: '#e8f0ec', garment: '#a9c4bb', bottom: '#8aa39b', shoes: '#66786f' },
     },
     // Mr Hiram B. Otis, the American Minister: upright, a black frock coat, a grey waistcoat, a white shirt, brown
     // hair going grey and side whiskers

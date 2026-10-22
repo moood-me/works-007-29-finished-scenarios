@@ -1,12 +1,13 @@
-// The library's right wall (7.1 m along the room, +x running toward the viewer): the great stone fireplace in its
+// The library's right wall (9.1 m along the room, from 10.05 m to 0.95 m away, +x running toward the viewer): the great stone fireplace in its
 // middle (x −1…1) — a Tudor arch over the hearth, andirons and logs in it (the fire is the flames' and the embers'),
 // a mantel with two candlesticks (their flames' lights right_wall#candle_far and #candle_near), the Canterville arms carved
 // above — and bookcases either side.
-e.lib.oak(g, -3.45, 3.65);
+e.lib.oak(g, -3.45, 5.65);
 e.lib.bookcase(g, e, -3.35, -1.3, 3.05);
 e.lib.bookcase(g, e, 1.3, 3.5, 3.05);
+e.lib.bookcase(g, e, 3.7, 5.6, 3.05);
 // the surround: dressed stone to the mantel
-g.fillStyle = '#857c70';
+g.fillStyle = '#6a635a';
 g.fillRect(-1.0, -1.5, 2.0, 1.5);
 g.strokeStyle = '#6a6258';
 g.lineWidth = 0.015;

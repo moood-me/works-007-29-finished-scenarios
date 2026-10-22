@@ -2,6 +2,10 @@
 // glass in lead; in the upper middle light the Canterville arms; across the foot of the lower lights the old prophecy
 // in black letters on amber glass. Painted where the lights are (x −1.45…1.05, y −3.05…−0.95; the stone between them is
 // the wall's).
+g.save();
+g.beginPath();
+g.rect(-1.45, -3.05, 2.5, 2.1);
+g.clip();
 g.fillStyle = '#5d6f91';
 g.fillRect(-1.45, -3.05, 2.5, 2.1);
 // the quarries: diamonds of slightly different pale greys and blues, leaded
@@ -92,3 +96,4 @@ for (let i = 0; i < 3; i++) {
     g.restore();
   }
 }
+g.restore();
