@@ -1,8 +1,8 @@
-// The tiled stove against the left wall: a tall white-glazed tower of two tiers on iron feet, a brass fire door (its
+// The tiled stove against the left wall: a tall tower glazed pale green of two tiers on iron feet, a brass fire door (its
 // small window glows with the fire — the layer `fire`, shown as much as `stove` by its animate; its light `fire` is the
 // scene's light "stove"), a cornice on top, and on it the mantel clock in gilt (the point `clock`).
-const TILE = '#d8d2c4';
-const SEAM = '#bdb4a3';
+const TILE = '#bcc6b2';
+const SEAM = '#a2ad98';
 // the body: lower tier wider, the upper narrower, cornices between
 g.fillStyle = TILE;
 g.fillRect(-0.42, -1.2, 0.84, 1.08);
