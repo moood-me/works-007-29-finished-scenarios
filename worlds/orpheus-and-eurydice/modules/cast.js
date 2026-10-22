@@ -120,11 +120,10 @@ return {
       } },
     },
     parts: {
-      // a short dark beard close along the jaw and the chin, the upper lip clear
+      // a short dark beard on the chin, the upper lip and the cheeks clear
       beard: { name: 'short beard', draw: F => {
         const h = F.head, r = h.r;
-        F.ball(h.on([0, -0.72, 0.6], 0.97), h.axes, [r * 0.34, r * 0.24, r * 0.24], F.colors.hair, 12);
-        for (const sx of [-1, 1]) F.ball(h.on([sx * 0.58, -0.48, 0.5], 0.97), h.axes, [r * 0.2, r * 0.24, r * 0.18], F.colors.hair, 10);
+        F.ball(h.on([0, -0.74, 0.58], 0.96), h.axes, [r * 0.4, r * 0.25, r * 0.26], F.colors.hair, 12);
       } },
       // a plain belt of dark leather round the tunic at the waist
       belt: { name: 'belt', draw: F => {
