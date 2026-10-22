@@ -33,7 +33,7 @@
         9
       ],
       "color": "#ffc68c",
-      "strength": 1.6
+      "strength": 1.35
     }
   ],
   "modules": [
@@ -548,8 +548,8 @@
     }
   ],
   "state": {
-    "governess_look": "miles",
-    "governess_mood": "thinking",
+    "governess_look": "flora",
+    "governess_mood": "smile",
     "governess_reach": {
       "r": "flora#hand_l"
     },

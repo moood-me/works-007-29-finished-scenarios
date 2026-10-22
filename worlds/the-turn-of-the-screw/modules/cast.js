@@ -7,15 +7,15 @@ const LINEN = [0.95, 0.93, 0.88, 1];
 // the face's expressions (a person's <id>_mood; the engine's names): the brows' inner and outer ends up (+) or down,
 // the eyes opened (1 at rest) or narrowed, the mouth's half-width, its corners up (+) or down, how open
 const MOODS = {
-  neutral: { inner: 0, outer: 0, eye: 1, wide: 0.15, corners: 0, open: 0 },
-  smile: { inner: 0.01, outer: 0.01, eye: 0.85, wide: 0.17, corners: 0.05, open: 0 },
+  neutral: { inner: 0, outer: 0, eye: 1, wide: 0.17, corners: 0, open: 0 },
+  smile: { inner: 0.01, outer: 0.01, eye: 0.85, wide: 0.2, corners: 0.07, open: 0 },
   laugh: { inner: 0.03, outer: 0.02, eye: 0.5, wide: 0.18, corners: 0.055, open: 0.08 },
   sad: { inner: 0.08, outer: -0.05, eye: 0.85, wide: 0.13, corners: -0.045, open: 0 },
   angry: { inner: -0.09, outer: 0.03, eye: 0.8, wide: 0.12, corners: -0.03, open: 0 },
   surprised: { inner: 0.09, outer: 0.09, eye: 1.3, wide: 0.08, corners: 0, open: 0.09 },
   afraid: { inner: 0.1, outer: 0.01, eye: 1.25, wide: 0.13, corners: -0.03, open: 0.05 },
   disgusted: { inner: -0.05, outer: -0.01, eye: 0.75, wide: 0.13, corners: -0.04, open: 0 },
-  thinking: { inner: -0.035, outer: 0.03, eye: 0.85, wide: 0.1, corners: -0.012, open: 0 },
+  thinking: { inner: -0.04, outer: 0.035, eye: 0.85, wide: 0.13, corners: -0.02, open: 0 },
   tired: { inner: 0.02, outer: -0.05, eye: 0.55, wide: 0.13, corners: -0.02, open: 0 },
 };
 return {
@@ -32,7 +32,7 @@ return {
     flora: {
       kind: 'shapes', style: 'bly', who: 'child', garment: 'frock', hair: 'long', face: 'bly', socks: true, parts: ['sash'],
       body: { height: 0.7, head: 1.12 },
-      colors: { skin: '#f3d3b8', hair: '#d8b46e', top: '#e6dccb', garment: '#e6dccb', bottom: '#e6dccb', socks: '#e2dacb', shoes: '#4a3a30', accent: '#9fb6cf' },
+      colors: { skin: '#f0cfb3', hair: '#d3ac62', top: '#d8cdba', garment: '#d8cdba', bottom: '#d8cdba', socks: '#d6cdbd', shoes: '#4a3a30', accent: '#9fb6cf' },
     },
     // Miles, ten: dark chestnut hair cut short, a navy Eton jacket, a wide white collar, grey knee breeches, dark
     // stockings
@@ -60,11 +60,11 @@ return {
           const lips = [0.72, 0.38, 0.38];
           const flush = F.colors.skin.map((v, i) => (i === 0 ? Math.min(1, v * 1.04) : i < 3 ? v * 0.86 : v));
           for (const sx of [-1, 1]) {
-            F.ball(on([sx * 0.52, -0.2, 0.83], 0.99), axes, [rh * 0.15, rh * 0.09, rh * 0.03], flush, 10);
-            F.ball(on([sx * 0.31, 0.06, 0.95], 0.985), axes, [rh * 0.1, rh * 0.125 * x.eye, rh * 0.05], dark, 12);
+            F.ball(on([sx * 0.55, -0.22, 0.81], 0.99), axes, [rh * 0.17, rh * 0.11, rh * 0.03], flush, 10);
+            F.ball(on([sx * 0.34, 0.06, 0.94], 0.985), axes, [rh * 0.15, rh * 0.18 * x.eye, rh * 0.06], dark, 12);
             F.tube(
-              [on([sx * 0.13, 0.36 + x.inner, 0.94], 0.995), on([sx * 0.3, 0.39 + (x.inner + x.outer) / 2, 0.91], 1.0), on([sx * 0.48, 0.33 + x.outer, 0.84], 0.995)],
-              [[0, rh * 0.04], [1, rh * 0.046], [2, rh * 0.03]],
+              [on([sx * 0.14, 0.4 + x.inner, 0.93], 0.995), on([sx * 0.33, 0.44 + (x.inner + x.outer) / 2, 0.9], 1.0), on([sx * 0.52, 0.37 + x.outer, 0.82], 0.995)],
+              [[0, rh * 0.06], [1, rh * 0.07], [2, rh * 0.045]],
               [[0, brow]],
               6,
               hu,
@@ -73,8 +73,8 @@ return {
           F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.09, rh * 0.13, rh * 0.13], F.colors.skin.map((v, i) => (i < 3 ? v * 0.93 : v)), 10);
           const w = x.wide;
           const y = -0.4;
-          F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.75, rh * x.open, rh * 0.03], dark, 10);
-          F.tube([on([-w, y + x.corners, 0.92], 0.995), on([0, y, 0.94], 1.0), on([w, y + x.corners, 0.92], 0.995)], [[0, rh * 0.026], [2, rh * 0.026]], [[0, lips]], 6, hu);
+          F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.8, rh * x.open * 1.3, rh * 0.03], dark, 10);
+          F.tube([on([-w, y + x.corners, 0.92], 0.995), on([0, y, 0.94], 1.0), on([w, y + x.corners, 0.92], 0.995)], [[0, rh * 0.04], [2, rh * 0.04]], [[0, lips]], 6, hu);
         },
       },
     },
