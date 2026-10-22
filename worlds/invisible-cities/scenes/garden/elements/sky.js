@@ -4,7 +4,7 @@
 const A = e.aspect;
 const H = 0.42;
 const MX = A * 0.27;
-const MY = 0.14;
+const MY = 0.27;
 e.layer('air', {}, (g) => {
   const sky = g.createLinearGradient(0, -0.35, 0, H);
   sky.addColorStop(0, '#0e1733');
@@ -64,6 +64,6 @@ e.layer('moon', {}, (g) => {
     g.arc(MX + dx, MY + dy, r, 0, Math.PI * 2);
     g.fill();
   }
-  e.light(MX, MY, 0.06, '#dfe6ff', 0.8);
+  e.light(MX, MY, 0.08, '#e4eaff', 1.2);
   e.at(MX, MY, 'disc');
 });
