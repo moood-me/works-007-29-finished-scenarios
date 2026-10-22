@@ -112,13 +112,13 @@ return {
     },
     hair: {
       // dark curling hair, short over the ears: a cap off the brow and small curls sunk half into it, close round the
-    // crown, the temples and the back — one dark mass, curly at its edge
-    curly: { name: 'curling hair', draw: F => {
-      const h = F.head, r = h.r, K = F.keep(CROWN);
-      F.cap(h.at, h.axes, K.radii, [0, 0.72, -0.69], -0.12, F.colors.hair, h.sides, h.square);
-      for (const [x, y, z, s] of CURLS) F.ball(h.on([x, y, z], 0.98), h.axes, [r * s, r * s * 0.8, r * s], F.colors.hair, 8);
-    } },
-      },
+      // crown, the temples and the back — one dark mass, curly at its edge
+      curly: { name: 'curling hair', draw: F => {
+        const h = F.head, r = h.r, K = F.keep(CROWN);
+        F.cap(h.at, h.axes, K.radii, [0, 0.72, -0.69], -0.12, F.colors.hair, h.sides, h.square);
+        for (const [x, y, z, s] of CURLS) F.ball(h.on([x, y, z], 0.98), h.axes, [r * s, r * s * 0.8, r * s], F.colors.hair, 8);
+      } },
+    },
     parts: {
       // a short dark beard close along the jaw and the chin, the upper lip clear
       beard: { name: 'short beard', draw: F => {
