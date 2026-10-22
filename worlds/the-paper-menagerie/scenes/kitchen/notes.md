@@ -19,6 +19,6 @@ stand in the story. No one moves but a look; no camera moves.
   its foot), the white fence and gate (12 m), the street, Mark's house across it with a lit window and the school bus
   stop (`street`, 26 m), the yard's grass (`yard`), the spring dusk (`sky`). The dusk comes in at the window (light
   `dusk`, daylight; the afterglow low behind the house, `afterglow`, lights the yard and what stands in it).
-- **People** (modules/cast, style `folded` — papercraft): Mom behind the table, folding a yellow square (part
-  `sheet`), her eyes on Jack; Jack at the table's left end leaning on it over Laohu; Dad in from the hall, hands in
-  his pockets, watching her. The showcase: Jack looks up at her and she at the tiger; back.
+- **People** (modules/cast, style `paper`): Mom behind the table, folding a yellow square (part `sheet`), her eyes
+  on Jack; Jack at the table's left end leaning over Laohu, his hands on its edge (`jack_reach`); Dad in from the hall,
+  arms folded, watching her. The showcase: Jack looks up at her and she at the tiger; back.

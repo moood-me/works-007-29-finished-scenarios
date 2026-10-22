@@ -55,7 +55,19 @@
     "jack_look": "laohu",
     "jack_mood": "surprised",
     "dad_look": "mom",
-    "dad_mood": "smile"
+    "dad_mood": "smile",
+    "jack_reach": {
+      "r": [
+        -0.86,
+        2.55,
+        0.79
+      ],
+      "l": [
+        -0.86,
+        2.85,
+        0.79
+      ]
+    }
   },
   "states": {
     "lamp": {
@@ -442,7 +454,7 @@
         "cast": "cast",
         "who": "dad",
         "turn": 235,
-        "does": "pockets"
+        "does": "arms_folded"
       },
       "across": 1.6,
       "distance": 3.15
