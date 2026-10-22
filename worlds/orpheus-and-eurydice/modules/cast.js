@@ -80,8 +80,9 @@ return {
       barefoot: 'both',
       body: { height: 1.02, thick: 0.95, shoulders: 1.0, head: 1.0 },
       colors: { skin: '#d6a681', hair: '#2a1c15', top: '#7a8ca6', garment: '#7a8ca6', bottom: '#4a4038', accent: '#5b4330', shoes: '#c79a78' } },
-    // Eurydice, twenty and a little more: slight, light on her feet; long dark-brown hair loose down her back, a red
-    // ribbon tied round it (the world's one red) — the hair round her face to the jaw, a flat mass down her back; a plain long dress of undyed linen, barefoot
+    // Eurydice, twenty and a little more: slight, light on her feet; long dark-brown hair round her face to the jaw and
+    // loose down her back, a red ribbon tied round it (the world's one red); a plain long dress of undyed linen girded
+    // with a cord, barefoot
     eurydice: { kind: 'shapes', style: 'myth', who: 'woman', garment: 'shift', hair: 'straight', face: 'eurydice', parts: ['ribbon', 'cord'],
       barefoot: 'both',
       body: { height: 0.92, thick: 0.88, shoulders: 0.88, hips: 1.0, neck: 1.04, head: 1.0 },
