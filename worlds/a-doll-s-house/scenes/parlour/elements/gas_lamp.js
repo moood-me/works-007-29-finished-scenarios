@@ -15,7 +15,7 @@ g.fill();
 g.fillStyle = '#dcd8cc';
 g.fillRect(-0.15, -4.35, 0.3, 0.36);
 e.layer('lit', {}, c => {
-  c.fillStyle = '#ffe2a8';
+  c.fillStyle = '#ffd47e';
   c.fillRect(-0.15, -4.35, 0.3, 0.36);
 });
 g.fillStyle = '#26272b';

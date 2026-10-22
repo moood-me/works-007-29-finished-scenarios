@@ -163,6 +163,23 @@
       ]
     },
     {
+      "id": "house_windows",
+      "name": "The lit windows across the street",
+      "glows": true,
+      "across": -2.2,
+      "distance": 18,
+      "height": 9.2,
+      "box": [
+        -6.1,
+        -9.2,
+        6.1,
+        0.1
+      ],
+      "inFront": [
+        "houses"
+      ]
+    },
+    {
       "id": "gas_lamp",
       "name": "The gas lamp in the street",
       "glows": true,
