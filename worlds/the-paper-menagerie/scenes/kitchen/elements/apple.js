@@ -31,7 +31,7 @@ g.fillRect(0.35, -0.35, 0.36, 0.03);
 e.layer('blossom', { pivot: [0, -1.9], wind: { strength: 0.25, gust: 0.4, scale: 3 } }, l => {
   for (let i = 0; i < 70; i++) {
     const a = e.rnd() * Math.PI * 2, r = Math.sqrt(e.rnd());
-    const x = Math.cos(a) * r * 2.3, y = -2.9 + Math.sin(a) * r * 1.05;
+    const x = Math.cos(a) * r * 2.3, y = -2.4 + Math.sin(a) * r * 1.05;
     const tone = e.rnd();
     l.fillStyle = tone < 0.4 ? '#f4e6e6' : tone < 0.75 ? '#f0cdd4' : '#e3b3bf';
     l.beginPath();
@@ -41,7 +41,7 @@ e.layer('blossom', { pivot: [0, -1.9], wind: { strength: 0.25, gust: 0.4, scale:
   l.fillStyle = 'rgba(132,160,108,0.6)';
   for (let i = 0; i < 26; i++) {
     l.beginPath();
-    l.ellipse(-2 + e.rnd() * 4, -3.6 + e.rnd() * 1.4, 0.08, 0.04, e.rnd() * 3, 0, Math.PI * 2);
+    l.ellipse(-2 + e.rnd() * 4, -3.1 + e.rnd() * 1.4, 0.08, 0.04, e.rnd() * 3, 0, Math.PI * 2);
     l.fill();
   }
 });

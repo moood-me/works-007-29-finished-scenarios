@@ -13,7 +13,7 @@
     "bounce": 0.55,
     "haze": 0.04,
     "hazeColor": "#d6a99a",
-    "hazeGlow": 0.7,
+    "hazeGlow": 0.5,
     "tint": "#ffd9b4",
     "tintStrength": 0.06,
     "saturation": 0.96,
@@ -69,9 +69,9 @@
       "name": "The back yard's grass and the street",
       "plane": true,
       "across": 0,
-      "distance": 22,
-      "width": 60,
-      "depth": 33
+      "distance": 60,
+      "width": 300,
+      "depth": 110
     },
     {
       "id": "street",
@@ -80,9 +80,9 @@
       "distance": 26,
       "height": 6,
       "box": [
-        -9,
-        -6.2,
-        9,
+        -11.5,
+        -6.4,
+        11.5,
         0.05
       ]
     },
@@ -193,9 +193,9 @@
       "facing": 270,
       "height": 2.6,
       "box": [
-        -1,
+        -2,
         -2.62,
-        1,
+        2,
         0.02
       ]
     },
@@ -287,7 +287,7 @@
         -0.55,
         -0.45,
         0.55,
-        0.03
+        0.15
       ]
     },
     {
@@ -408,11 +408,11 @@
       "distance": 3.5,
       "elevation": 0.76,
       "facing": 200,
-      "height": 0.2,
+      "height": 0.28,
       "box": [
-        -0.2,
-        -0.21,
-        0.2,
+        -0.28,
+        -0.3,
+        0.28,
         0.01
       ]
     },
@@ -452,8 +452,8 @@
         "turn": 235,
         "does": "pockets"
       },
-      "across": 1.75,
-      "distance": 3.35
+      "across": 1.6,
+      "distance": 3.95
     }
   ],
   "music": {

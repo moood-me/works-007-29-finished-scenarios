@@ -1,8 +1,8 @@
 // Laohu: a tiger folded from Christmas wrapping paper — red, with gold stars — the size of a kitten, standing on the
-// oilcloth with its head turned to the boy. Flat paper facets, each fold a shade lighter or darker, the creases
+// oilcloth with its head turned to the boy (drawn S times the sizes written). Flat paper facets, each fold a shade lighter or darker, the creases
 // drawn; the stars printed across folds as wrapping paper's are. Two layers: `tiger` (all of it but the tail — animate
 // swells it with breath) and `tail` (pivoting at its root, ticking from pose to pose). Its head is its point.
-const L = '#d8453a', M = '#c4362d', D = '#a2281f', CREASE = 'rgba(90,20,15,0.55)', GOLD = '#ecc65a';
+const S = 1.4, L = '#e8503f', M = '#d23a2e', D = '#b02a20', CREASE = 'rgba(90,20,15,0.55)', GOLD = '#ecc65a';
 const poly = (l, pts, fill) => {
   l.fillStyle = fill;
   l.beginPath();
@@ -29,13 +29,15 @@ const star = (l, x, y, r) => {
   l.closePath();
   l.fill();
 };
-e.layer('tail', { pivot: [0.085, -0.1] }, l => {
+e.layer('tail', { pivot: [0.085 * S, -0.1 * S] }, l => {
+  l.scale(S, S);
   poly(l, [[0.08, -0.1], [0.12, -0.115], [0.135, -0.15], [0.125, -0.152], [0.112, -0.122], [0.082, -0.09]], M);
   poly(l, [[0.135, -0.15], [0.155, -0.175], [0.148, -0.18], [0.125, -0.152]], D);
   crease(l, [[0.082, -0.095], [0.118, -0.118], [0.13, -0.151]]);
   star(l, 0.112, -0.128, 0.006);
 });
 e.layer('tiger', { pivot: [0, 0] }, l => {
+  l.scale(S, S);
   // the far legs (darker, behind), then the near ones
   poly(l, [[-0.07, -0.06], [-0.055, -0.06], [-0.06, 0], [-0.075, 0]], D);
   poly(l, [[0.055, -0.06], [0.072, -0.06], [0.068, 0], [0.052, 0]], D);
@@ -72,4 +74,4 @@ e.layer('tiger', { pivot: [0, 0] }, l => {
   l.fillRect(-0.1, -0.124, 0.007, 0.004);
   star(l, -0.07, -0.128, 0.006);
 });
-e.at(-0.095, -0.14);
+e.at(-0.095 * S, -0.14 * S);

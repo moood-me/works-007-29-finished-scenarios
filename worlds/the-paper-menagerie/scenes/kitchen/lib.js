@@ -3,6 +3,10 @@
 // moulding under the ceiling. The caller cuts its own openings (clip) before calling.
 function wallpaper(g, e, x0, x1) {
   const w = x1 - x0;
+  g.save();
+  g.beginPath();
+  g.rect(x0, -2.62, w, 2.64);
+  g.clip();
   g.fillStyle = '#ead9a8';
   g.fillRect(x0, -2.62, w, 2.64);
   for (let row = 0, y = -2.4; y < -0.2; y += 0.2, row++) {
@@ -29,6 +33,7 @@ function wallpaper(g, e, x0, x1) {
   g.fillRect(x0, -0.13, w, 0.15);
   g.fillStyle = '#d8cfbf';
   g.fillRect(x0, -0.135, w, 0.012);
+  g.restore();
 }
 // The backsplash: small square tiles, pale mint, white grout, over x0…x1 between heights y0 and y1 (y up negative).
 function tiles(g, x0, x1, y0, y1) {
