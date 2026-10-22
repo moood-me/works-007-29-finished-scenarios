@@ -4,7 +4,7 @@
 // The plane's origin is its centre at distance 1005; y toward the viewer.
 g.fillStyle = '#2b3d68';
 g.fillRect(-3000, -1000, 6000, 2000);
-e.layer('moon_path', { shimmer: 0.5, box: [-900, -1000, 120, 990] }, (g) => {
+{
   for (let k = 0; k < 70; k++) {
     const d = 18 * 1.07 ** k;
     if (d > 1990) break;
@@ -19,4 +19,4 @@ e.layer('moon_path', { shimmer: 0.5, box: [-900, -1000, 120, 990] }, (g) => {
       g.fillRect(x - w / 2, y - h / 2, w, h);
     }
   }
-});
+}
