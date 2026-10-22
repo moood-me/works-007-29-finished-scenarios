@@ -1,0 +1,31 @@
+// Under the round top: the cloth hanging down a hand's width, gold fringe along its hem, and the table's turned
+// pedestal on three claw feet.
+g.fillStyle = '#2f4a3c';
+g.beginPath();
+g.moveTo(-0.5, -0.76);
+g.lineTo(0.5, -0.76);
+g.lineTo(0.52, -0.6);
+g.quadraticCurveTo(0, -0.56, -0.52, -0.6);
+g.closePath();
+g.fill();
+g.fillStyle = '#b8924a';
+for (let x = -0.51; x < 0.52; x += 0.025) g.fillRect(x, -0.6, 0.01, 0.05);
+g.fillStyle = '#4a2c1e';
+g.beginPath();
+g.moveTo(-0.05, -0.58);
+g.lineTo(0.05, -0.58);
+g.quadraticCurveTo(0.11, -0.3, 0.06, -0.16);
+g.lineTo(-0.06, -0.16);
+g.quadraticCurveTo(-0.11, -0.3, -0.05, -0.58);
+g.closePath();
+g.fill();
+g.beginPath();
+g.moveTo(-0.06, -0.18);
+g.quadraticCurveTo(-0.22, -0.12, -0.3, 0);
+g.lineTo(-0.24, 0);
+g.quadraticCurveTo(-0.15, -0.08, 0, -0.1);
+g.quadraticCurveTo(0.15, -0.08, 0.24, 0);
+g.lineTo(0.3, 0);
+g.quadraticCurveTo(0.22, -0.12, 0.06, -0.18);
+g.closePath();
+g.fill();
