@@ -1,0 +1,573 @@
+{
+  "engine": 3,
+  "title": "The House",
+  "caption": "October. The rain on the roof, the last spoon of coffee, and the rooster tied to the bed.",
+  "horizon": 0.34,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.78,
+    "ambientColor": "#b9c2c8",
+    "inside": 0.55,
+    "bounce": 0.55,
+    "haze": 0.1,
+    "hazeColor": "#aeb6b4",
+    "hazeGlow": 0.3,
+    "tint": "#cfd8d2",
+    "tintStrength": 0.06,
+    "saturation": 0.95,
+    "vignette": 0.45,
+    "grain": 0.14,
+    "wind": [
+      1,
+      0.3,
+      0.4
+    ]
+  },
+  "lights": [
+    {
+      "id": "door_day",
+      "of": "door",
+      "daylight": 1.6
+    },
+    {
+      "id": "window_day",
+      "of": "window",
+      "daylight": 0.8
+    },
+    {
+      "id": "stove",
+      "color": "#ff9a4a",
+      "strength": 1.3,
+      "reach": 3.6,
+      "on": "fire",
+      "flicker": 0.35,
+      "of": "stove#embers"
+    },
+    {
+      "id": "dawn",
+      "from": [
+        300,
+        35
+      ],
+      "color": "#c9d3dc",
+      "strength": 0.55
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "fire": 1,
+    "rain": 1,
+    "colonel_look": [
+      0.7,
+      0.0,
+      1.55
+    ],
+    "colonel_mood": "thinking",
+    "colonel_with": [
+      "umbrella"
+    ],
+    "wife_look": "rooster#head",
+    "wife_mood": "tired",
+    "wife_on": [
+      1.6,
+      4.05,
+      0.5
+    ]
+  },
+  "states": {
+    "fire": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the stove's fire: 0 out, 1 burning — its warm light on the room's left side"
+    },
+    "rain": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the rain over the yard: 0 none, 1 the October rain"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The rain sky",
+      "sky": true
+    },
+    {
+      "id": "yard",
+      "name": "The yard in the rain",
+      "plane": true,
+      "across": 0.0,
+      "distance": 33.0,
+      "width": 80.0,
+      "depth": 54.6
+    },
+    {
+      "id": "yard_side",
+      "name": "The yard beside the house",
+      "plane": true,
+      "across": -9.5,
+      "distance": 1.85,
+      "width": 13.0,
+      "depth": 7.7
+    },
+    {
+      "id": "neighbours",
+      "name": "The neighbours' house across the yard",
+      "across": -8.5,
+      "distance": 9.0,
+      "facing": 110,
+      "height": 4.2,
+      "box": [
+        -5.0,
+        -4.3,
+        5.0,
+        0.05
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "The yard's fence behind the house",
+      "across": 1.0,
+      "distance": 11.0,
+      "height": 1.8,
+      "box": [
+        -7.0,
+        -1.9,
+        7.0,
+        0.05
+      ]
+    },
+    {
+      "id": "banana",
+      "name": "Banana plants",
+      "across": 1.4,
+      "distance": 7.8,
+      "height": 3.2,
+      "box": [
+        -1.8,
+        -3.3,
+        1.8,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": 1.4,
+          "distance": 7.8
+        },
+        {
+          "across": -5.0,
+          "distance": 4.5,
+          "scale": 1.15,
+          "flip": true
+        },
+        {
+          "across": -6.2,
+          "distance": 1.8,
+          "scale": 0.9
+        }
+      ]
+    },
+    {
+      "id": "rain_back",
+      "name": "Rain over the yard",
+      "particles": {
+        "kind": "rain",
+        "area": [
+          -2.6,
+          9.0,
+          5.15,
+          20.0
+        ],
+        "count": 5000,
+        "amount": "rain"
+      }
+    },
+    {
+      "id": "rain_side",
+      "name": "Rain beside the house",
+      "particles": {
+        "kind": "rain",
+        "area": [
+          -16.0,
+          -3.05,
+          -2.0,
+          20.0
+        ],
+        "count": 5000,
+        "amount": "rain"
+      }
+    },
+    {
+      "id": "floor",
+      "name": "The earth floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 3.15,
+      "width": 6.0,
+      "depth": 3.8
+    },
+    {
+      "id": "roof",
+      "name": "The roof seen from below",
+      "inside": true,
+      "across": 0,
+      "distance": 5.0,
+      "elevation": 2.9,
+      "facing": 180,
+      "tilt": -90,
+      "height": 3.8,
+      "box": [
+        -3.3,
+        -4.05,
+        3.0,
+        0.3
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall and the window",
+      "inside": true,
+      "across": 0,
+      "distance": 5.0,
+      "facing": 180,
+      "height": 2.9,
+      "box": [
+        -3.0,
+        -2.92,
+        3.0,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall and the open door",
+      "inside": true,
+      "across": -3.0,
+      "distance": 3.12,
+      "facing": 90,
+      "height": 2.9,
+      "box": [
+        -1.88,
+        -2.92,
+        1.88,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall",
+      "inside": true,
+      "across": 3.0,
+      "distance": 3.12,
+      "facing": 270,
+      "height": 2.9,
+      "box": [
+        -1.88,
+        -2.92,
+        1.88,
+        0.02
+      ]
+    },
+    {
+      "id": "door",
+      "name": "The doorway onto the yard",
+      "inside": true,
+      "across": -2.99,
+      "distance": 3.22,
+      "facing": 90,
+      "height": 2.15,
+      "box": [
+        -0.6,
+        -2.22,
+        0.6,
+        0.02
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The window's open shutters",
+      "inside": true,
+      "across": 1.75,
+      "distance": 4.98,
+      "elevation": 1.0,
+      "facing": 180,
+      "height": 1.1,
+      "box": [
+        -0.95,
+        -1.12,
+        0.95,
+        0.03
+      ]
+    },
+    {
+      "id": "clock",
+      "name": "The wall clock",
+      "inside": true,
+      "across": 0.1,
+      "distance": 4.97,
+      "elevation": 1.55,
+      "facing": 180,
+      "height": 0.7,
+      "box": [
+        -0.2,
+        -0.72,
+        0.2,
+        0.02
+      ]
+    },
+    {
+      "id": "stove",
+      "name": "The stove",
+      "inside": true,
+      "shadow": true,
+      "across": -2.15,
+      "distance": 4.35,
+      "facing": 160,
+      "height": 1.15,
+      "box": [
+        -0.75,
+        -1.16,
+        0.75,
+        0.03
+      ]
+    },
+    {
+      "id": "fire",
+      "name": "The fire under the pot",
+      "inside": true,
+      "particles": {
+        "kind": "fire",
+        "at": {
+          "on": "stove",
+          "at": [
+            -0.12,
+            0.08,
+            0.86
+          ]
+        },
+        "size": [
+          0.07,
+          0.015
+        ],
+        "amount": "fire"
+      }
+    },
+    {
+      "id": "steam",
+      "name": "Steam off the pot",
+      "inside": true,
+      "particles": {
+        "kind": "smoke",
+        "at": {
+          "on": "stove",
+          "at": [
+            -0.12,
+            0.08,
+            1.1
+          ]
+        },
+        "rate": 1.5,
+        "size": [
+          0.06,
+          0.4
+        ],
+        "color": "#dcd6cc",
+        "opacity": 0.22,
+        "amount": "fire"
+      }
+    },
+    {
+      "id": "hammock",
+      "name": "The hammock",
+      "inside": true,
+      "shadow": true,
+      "translucent": 0.2,
+      "across": -0.45,
+      "distance": 4.65,
+      "height": 1.9,
+      "box": [
+        -1.25,
+        -1.92,
+        1.25,
+        0.03
+      ]
+    },
+    {
+      "id": "bed",
+      "name": "The bed",
+      "inside": true,
+      "shadow": true,
+      "across": 1.85,
+      "distance": 3.85,
+      "facing": 180,
+      "height": 1.25,
+      "box": [
+        -1.0,
+        -1.27,
+        1.0,
+        0.02
+      ]
+    },
+    {
+      "id": "bed_top",
+      "name": "The bed's top",
+      "plane": true,
+      "inside": true,
+      "across": 1.85,
+      "distance": 4.35,
+      "elevation": 0.5,
+      "width": 1.9,
+      "depth": 1.0
+    },
+    {
+      "id": "bed_end",
+      "name": "The bed's iron ends",
+      "inside": true,
+      "shadow": true,
+      "across": 2.8,
+      "distance": 4.35,
+      "facing": 270,
+      "height": 1.2,
+      "box": [
+        -0.52,
+        -1.22,
+        0.52,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": 2.8,
+          "distance": 4.35
+        },
+        {
+          "across": 0.9,
+          "distance": 4.35,
+          "scale": 0.85
+        }
+      ]
+    },
+    {
+      "id": "rooster",
+      "name": "The rooster",
+      "inside": true,
+      "shadow": true,
+      "across": 0.75,
+      "distance": 3.0,
+      "height": 0.6,
+      "box": [
+        -0.35,
+        -0.62,
+        0.35,
+        0.02
+      ]
+    },
+    {
+      "id": "colonel",
+      "name": "The colonel",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "colonel",
+        "turn": 150
+      },
+      "across": -0.55,
+      "distance": 2.7
+    },
+    {
+      "id": "wife",
+      "name": "His wife",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "wife",
+        "turn": 200,
+        "does": "sit_upright"
+      },
+      "across": 1.6,
+      "distance": 4.02
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a lone nylon-string guitar in a small wet room, slow bolero phrases, bittersweet and dry",
+        "weight": 1.2
+      },
+      {
+        "text": "soft rain on a zinc roof, a few plucked tiple notes far apart, waiting",
+        "weight": 0.9
+      },
+      {
+        "text": "a slow Colombian pasillo on solo guitar, nostalgic, a little out of tune",
+        "weight": 0.7
+      },
+      {
+        "text": "a distant river boat's horn under quiet marimba, hazy and still",
+        "weight": 0.4
+      },
+      {
+        "text": "a brass funeral band heard from far away in the rain, out of step",
+        "weight": 0
+      },
+      {
+        "text": "solo accordion, vallenato played very slowly and sadly",
+        "weight": 0
+      },
+      {
+        "text": "muted trumpet bolero, late-night, lonely, Caribbean",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and tuba, a small-town band rehearsing a march, faint",
+        "weight": 0
+      },
+      {
+        "text": "maracas and soft hand drum, slow cumbia heartbeat, sparse",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, restrained and proud, slow, with long silences",
+        "weight": 0
+      },
+      {
+        "text": "upright piano in an empty dance hall, slow danzón, dusty",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios like dripping water, gentle, grey morning",
+        "weight": 0
+      },
+      {
+        "text": "ambient drone of humid heat, insects, a far rooster, minimal",
+        "weight": 0
+      },
+      {
+        "text": "cello alone, low and dignified, an old man's pride",
+        "weight": 0
+      },
+      {
+        "text": "music box waltz slowing down, tender and absurd",
+        "weight": 0
+      },
+      {
+        "text": "bandoneon tango, slow, resigned, warm",
+        "weight": 0
+      }
+    ],
+    "bpm": 76,
+    "density": 0.25,
+    "brightness": 0.4,
+    "scale": "E_MAJOR_D_FLAT_MINOR"
+  }
+}
