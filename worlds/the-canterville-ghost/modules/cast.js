@@ -88,7 +88,7 @@ function ghostHair(F) {
   F.tube(K.pts, K.profile, K.colors, F.sides, a[0], 0.65);
 }
 // rusty manacles on both wrists and the chain sagging from one to the other before the body
-const CHAIN = F => ({ pts: [null, null, null, null, null], profile: [[0, 0.016 * F.k], [4, 0.016 * F.k]], colors: [[0, RUST]] });
+const CHAIN = F => ({ pts: [null, null, null, null, null], profile: [[0, 0.022 * F.k], [4, 0.022 * F.k]], colors: [[0, RUST]] });
 function shackles(F) {
   const { add, mul, mix } = V();
   const k = F.k;

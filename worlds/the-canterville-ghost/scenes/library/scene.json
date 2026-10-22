@@ -125,11 +125,11 @@
       "id": "stain",
       "name": "The bloodstain",
       "plane": true,
-      "across": 2.7,
-      "distance": 6.55,
+      "across": 2.9,
+      "distance": 5.6,
       "elevation": 0.007,
-      "width": 0.9,
-      "depth": 0.7
+      "width": 1.0,
+      "depth": 0.8
     },
     {
       "id": "ceiling",
@@ -278,9 +278,9 @@
     {
       "id": "desk",
       "name": "Mr Otis's writing desk",
-      "across": -3.0,
-      "distance": 6.8,
-      "facing": 150,
+      "across": -3.15,
+      "distance": 5.0,
+      "facing": 120,
       "height": 0.8,
       "box": [
         -0.82,
@@ -294,10 +294,10 @@
       "id": "desk_lamp",
       "name": "The oil lamp on the desk",
       "glows": true,
-      "across": -3.0,
-      "distance": 6.8,
+      "across": -3.15,
+      "distance": 5.0,
       "elevation": 0.78,
-      "facing": 150,
+      "facing": 120,
       "height": 0.62,
       "box": [
         -0.16,
