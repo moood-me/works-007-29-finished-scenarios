@@ -32,7 +32,7 @@ return {
     flora: {
       kind: 'shapes', style: 'bly', who: 'child', garment: 'frock', hair: 'long', face: 'bly', socks: true, parts: ['sash'],
       body: { height: 0.7, head: 1.12 },
-      colors: { skin: '#f0cfb3', hair: '#d3ac62', top: '#d8cdba', garment: '#d8cdba', bottom: '#d8cdba', socks: '#d6cdbd', shoes: '#4a3a30', accent: '#9fb6cf' },
+      colors: { skin: '#f0cfb3', hair: '#d3ac62', top: '#dedcd6', garment: '#dedcd6', bottom: '#dedcd6', socks: '#d9d6cf', shoes: '#4a3a30', accent: '#9fb6cf' },
     },
     // Miles, ten: dark chestnut hair cut short, a navy Eton jacket, a wide white collar, grey knee breeches, dark
     // stockings
@@ -60,8 +60,8 @@ return {
           const lips = [0.72, 0.38, 0.38];
           const flush = F.colors.skin.map((v, i) => (i === 0 ? Math.min(1, v * 1.04) : i < 3 ? v * 0.86 : v));
           for (const sx of [-1, 1]) {
-            F.ball(on([sx * 0.55, -0.22, 0.81], 0.99), axes, [rh * 0.17, rh * 0.11, rh * 0.03], flush, 10);
-            F.ball(on([sx * 0.34, 0.06, 0.94], 0.985), axes, [rh * 0.15, rh * 0.18 * x.eye, rh * 0.06], dark, 12);
+            F.ball(on([sx * 0.55, -0.22, 0.81], 0.99), axes, [rh * 0.15, rh * 0.09, rh * 0.03], flush, 10);
+            F.ball(on([sx * 0.34, 0.06, 0.94], 0.985), axes, [rh * 0.13, rh * 0.16 * x.eye, rh * 0.06], dark, 12);
             F.tube(
               [on([sx * 0.14, 0.4 + x.inner, 0.93], 0.995), on([sx * 0.33, 0.44 + (x.inner + x.outer) / 2, 0.9], 1.0), on([sx * 0.52, 0.37 + x.outer, 0.82], 0.995)],
               [[0, rh * 0.06], [1, rh * 0.07], [2, rh * 0.045]],
@@ -83,8 +83,8 @@ return {
       gown: { name: 'gown', hang: [{ to: 2.15, from: 'waist', flare: 0.4, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
       // a boy's Eton jacket: short, cut off at the waist, long sleeves
       eton: { name: 'Eton jacket', hang: [{ to: 0.12, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment' },
-      // a child's frock: a skirt from the waist to the knees, short sleeves
-      frock: { name: 'frock', hang: [{ to: 1.05, from: 'waist', flare: 0.42, off: 0.96 }], short: true, bare: true, bodice: true },
+      // a child's frock: a skirt from the waist to the knees, long sleeves
+      frock: { name: 'frock', hang: [{ to: 1.05, from: 'waist', flare: 0.42, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
     },
     parts: {
       // a white collar lying round the neck where it meets the shoulders
@@ -104,7 +104,7 @@ return {
         draw: F => {
           const { add, mul } = V();
           const c = add(F.P('Spine1'), mul(F.up('Hips'), -0.01 * F.fit.h));
-          F.ball(c, [F.side('Hips'), F.up('Hips'), F.fwd('Hips')], [0.15 * F.k, 0.03 * F.fit.h, 0.115 * F.k], F.colors.accent, 16);
+          F.ball(c, [F.side('Hips'), F.up('Hips'), F.fwd('Hips')], [0.19 * F.k, 0.035 * F.fit.h, 0.15 * F.k], F.colors.accent, 16);
         },
       },
     },

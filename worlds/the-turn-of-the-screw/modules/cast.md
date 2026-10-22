@@ -19,7 +19,7 @@ mouth, a flush on the cheeks; `<id>_mood` shows on it), so faces read in a wide 
 
 ## Things (a look's `parts`, `garment`)
 
-Garments: `gown` (to the ground, long sleeves), `frock` (to the knees, short sleeves), `eton` (a boy's short jacket to
+Garments: `gown` (to the ground, long sleeves), `frock` (to the knees, long sleeves), `eton` (a boy's short jacket to
 the waist). Parts: `collar` — a white collar round the neck; `sash` — a sash round the waist in the look's `accent`.
 
 ## Motions (Kimodo)
