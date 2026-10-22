@@ -13,12 +13,12 @@ stand in the story. No one moves but a look; no camera moves.
 - **The menagerie**: two paper goats on the sill (`goats`; their heads layers that tick now and then), a kraft-paper
   buffalo in a flower pot (`buffalo`, breathing), a shark circling in the sink (`shark`, its fin a layer moved to and
   fro), and on the table Laohu (`laohu`: layers `tiger`, breathing, and `tail`; its head its point — `jack_look`).
-- **The table** (`table` — the top, a plane at 0.76 casting the lamp's shadow; `table_front`), a chair at its far end,
+- **The table** (`table` — the top, a plane at 0.76 casting the lamp's shadow; `table_front`),
   the lamp over it (`lamp`, key `lamp`: the room's warm light, its bulb `lamp#bulb`).
 - **Out of the window**: the apple tree in blossom (`apple`, 9 m; the blossom a layer in the wind; the tin bucket at
   its foot), the white fence and gate (12 m), the street, Mark's house across it with a lit window and the school bus
   stop (`street`, 26 m), the yard's grass (`yard`), the spring dusk (`sky`). The dusk comes in at the window (light
   `dusk`, daylight; the afterglow low behind the house, `afterglow`, lights the yard and what stands in it).
 - **People** (modules/cast, style `paper`): Mom behind the table, folding a yellow square (part `sheet`), her eyes
-  on Jack; Jack at the table's left end leaning over Laohu, his hands on its edge (`jack_reach`); Dad in from the hall,
+  on Jack; Jack standing at the table's left end over Laohu, his right hand on its edge (`jack_reach`); Dad in from the hall,
   arms folded, watching her. The showcase: Jack looks up at her and she at the tiger; back.

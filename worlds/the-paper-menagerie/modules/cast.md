@@ -23,5 +23,5 @@ the room.
 
 The engine's `stand` and `walk`, and: `folding` — stands at a table working with both hands on something small at
 waist height (a loop); `lean_table` — a child stands leaning forward over a low table, looking at what is on it (a
-loop; the hands set on the table by `<id>_reach`); `arms_folded` — stands with the arms folded, waiting, the weight
+loop); `arms_folded` — stands with the arms folded, waiting, the weight
 shifting now and then (a loop).
