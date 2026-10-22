@@ -21,5 +21,5 @@ story. No one moves but a look; no camera moves.
   `dust` motes in them) and the window's daylight (`day`).
 - **People** (modules/cast, style `lab`): Charlie behind the maze table, his hands on its edge (`charlie_reach`),
   looking down at Algernon, smiling; Miss Kinnian behind on the left, before the window, hands clasped, smiling at
-  him; Dr Strauss behind on the right, hands behind his back, watching Charlie. The showcase: Charlie looks round at
-  Miss Kinnian, then all three look down at Algernon, and back.
+  him; Dr Strauss behind on the right, hands behind his back, watching Charlie. The showcase: over Charlie's head Miss
+  Kinnian and Dr Strauss look at each other, then all three look down at Algernon.
