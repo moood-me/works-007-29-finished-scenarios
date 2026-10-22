@@ -14,6 +14,11 @@ const INK = [0.13, 0.09, 0.08, 1];
 const shade = (c, kr, kg, kb) => [c[0] * kr, c[1] * kg, c[2] * kb, c[3]];
 // (a cap of hair's sizes: the head's egg a little out)
 const CROWN = F => ({ radii: F.head.egg.map(e => e * F.head.r * F.head.out) });
+// (Orpheus's curls round the cap: where on the head, and how big)
+const CURLS = [[-0.45, 0.8, 0.42, 0.17], [-0.15, 0.88, 0.45, 0.17], [0.15, 0.88, 0.45, 0.17], [0.45, 0.8, 0.42, 0.17],
+  [-0.78, 0.5, 0.3, 0.16], [0.78, 0.5, 0.3, 0.16], [-0.86, 0.2, 0.05, 0.15], [0.86, 0.2, 0.05, 0.15],
+  [-0.6, 0.75, -0.3, 0.19], [0, 0.95, -0.1, 0.19], [0.6, 0.75, -0.3, 0.19], [-0.3, 0.55, -0.78, 0.2], [0.3, 0.55, -0.78, 0.2],
+  [-0.62, 0.2, -0.7, 0.18], [0.62, 0.2, -0.7, 0.18], [0, 0.1, -0.95, 0.18]];
 // (the ribbon's band round the head, its two long ends: points, profiles, colour)
 const BAND = 14;
 const RIBBON = F => ({
@@ -106,24 +111,22 @@ return {
       shift: { name: 'linen dress', hang: [{ to: 1.95, from: 'shoulders', flare: 0.3 }], sleeves: 'garment' },
     },
     hair: {
-      // dark curling hair, short over the ears: a cap off the brow and locks round it
-      curly: { name: 'curling hair', draw: F => {
-        const h = F.head, r = h.r, K = F.keep(CROWN);
-        F.cap(h.at, h.axes, K.radii, [0, 0.72, -0.69], -0.12, F.colors.hair, h.sides, h.square);
-        for (const [x, y, z, s] of [[-0.5, 0.72, 0.5, 0.24], [0, 0.86, 0.46, 0.26], [0.5, 0.72, 0.5, 0.24], [-0.82, 0.42, 0.2, 0.24],
-          [0.84, 0.4, 0.2, 0.23], [-0.7, 0.66, -0.3, 0.3], [0.7, 0.66, -0.3, 0.3], [0, 0.6, -0.8, 0.32], [-0.6, 0.15, -0.6, 0.28], [0.6, 0.15, -0.6, 0.28]]) {
-          F.ball(h.on([x, y, z], 1.02), h.axes, [r * s, r * s * 0.85, r * s], F.colors.hair, 10);
-        }
-      } },
-    },
+      // dark curling hair, short over the ears: a cap off the brow and small curls sunk half into it, close round the
+    // crown, the temples and the back — one dark mass, curly at its edge
+    curly: { name: 'curling hair', draw: F => {
+      const h = F.head, r = h.r, K = F.keep(CROWN);
+      F.cap(h.at, h.axes, K.radii, [0, 0.72, -0.69], -0.12, F.colors.hair, h.sides, h.square);
+      for (const [x, y, z, s] of CURLS) F.ball(h.on([x, y, z], 0.98), h.axes, [r * s, r * s * 0.8, r * s], F.colors.hair, 8);
+    } },
+      },
     parts: {
       // a short dark beard close along the jaw and the chin, the upper lip clear
       beard: { name: 'short beard', draw: F => {
         const h = F.head, r = h.r;
-        F.ball(h.on([0, -0.7, 0.62], 1.0), h.axes, [r * 0.42, r * 0.3, r * 0.3], F.colors.hair, 12);
+        F.ball(h.on([0, -0.72, 0.6], 0.97), h.axes, [r * 0.34, r * 0.24, r * 0.24], F.colors.hair, 12);
         for (const sx of [-1, 1]) {
-          F.ball(h.on([sx * 0.62, -0.42, 0.5], 0.99), h.axes, [r * 0.22, r * 0.32, r * 0.24], F.colors.hair, 10);
-          F.ball(h.on([sx * 0.8, -0.05, 0.25], 0.99), h.axes, [r * 0.12, r * 0.3, r * 0.18], F.colors.hair, 10);
+          F.ball(h.on([sx * 0.6, -0.45, 0.48], 0.97), h.axes, [r * 0.18, r * 0.26, r * 0.18], F.colors.hair, 10);
+          F.ball(h.on([sx * 0.82, -0.08, 0.22], 0.97), h.axes, [r * 0.1, r * 0.24, r * 0.14], F.colors.hair, 10);
         }
       } },
       // a plain belt of dark leather round the tunic at the waist

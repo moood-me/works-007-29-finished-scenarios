@@ -19,14 +19,14 @@ g.fillStyle = '#f3f0e4';
 g.beginPath();
 g.arc(mx, my, mr, 0, Math.PI * 2);
 g.fill();
-g.fillStyle = '#ddd8c8';
-for (const [dx, dy, r] of [[-0.009, -0.007, 0.008], [0.006, -0.01, 0.006], [0.004, 0.006, 0.009], [-0.011, 0.009, 0.005]]) {
+g.fillStyle = 'rgba(200,196,182,0.45)';
+for (const [dx, dy, r] of [[-0.008, -0.006, 0.009], [0.009, -0.004, 0.006], [0.002, 0.011, 0.008]]) {
   g.beginPath();
   g.arc(mx + dx, my + dy, r, 0, Math.PI * 2);
   g.fill();
 }
 e.at(mx, my, 'disc');
-e.light(mx, my, 0.07, '#dfe6ff', 0.85, 'glow');
+e.light(mx, my, 0.09, '#dfe6ff', 1.1, 'glow');
 // the stars: small and many high up, a few bright ones, thinning toward the far shore
 e.layer('stars', {}, g => {
   for (let i = 0; i < 320; i++) {
