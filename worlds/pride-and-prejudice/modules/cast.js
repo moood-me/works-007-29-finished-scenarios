@@ -206,12 +206,24 @@ return {
       tailcoat: { name: 'tailcoat', hang: [{ to: 0.03, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
     },
     hats: {
-      // a straw bonnet: a deep cap over the crown and the back of the head, standing off it, its brim framing the face;
-      // its ribbon (the look's accent) tied in a bow under the chin
+      // a straw bonnet: a deep cap over the crown and the back of the head, standing off it, its brim — a rolled edge
+      // of straw round the face, from cheek over the brow to cheek, a little before it — framing the face; its ribbon
+      // (the look's accent) from the brim's ends down the cheeks to a bow under the chin
       bonnet: { name: 'straw bonnet', draw: F => {
-        const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
+        const { at, axes, egg, r, out, sides, square, on } = F.head, [, , hf] = axes;
         F.cap(at, axes, egg.map(e => e * r * out * 1.22), [0, 0.5, -0.86], -0.3, F.colors.hat, sides, square);
-        F.ball(add(at, add(mul(hu, -r * 1.02), mul(hf, r * 0.32))), axes, [r * 0.2, r * 0.11, r * 0.12], F.colors.accent, 10);
+        const brim = [];
+        for (let q = 0; q <= 8; q++) {
+          const a = -1.75 + (3.5 * q) / 8;
+          brim.push(on([Math.sin(a), 0.15 + 0.95 * Math.cos(a), 0.55], 1.3));
+        }
+        F.tube(brim, [[0, r * 0.08], [4, r * 0.12], [8, r * 0.08]], [[0, F.colors.hat]], 8, hf);
+        const bow = on([0, -0.82, 0.58], 1.04);
+        for (const sx of [-1, 1]) {
+          F.tube([on([sx * 0.98, -0.05, 0.3], 1.06), on([sx * 0.62, -0.62, 0.48], 1.05), bow],
+            [[0, r * 0.03], [2, r * 0.03]], [[0, F.colors.accent]], 6, hf);
+        }
+        F.ball(bow, axes, [r * 0.17, r * 0.09, r * 0.08], F.colors.accent, 10);
       } },
     },
     parts: {
