@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Kitchen","translation":"Кухня","where":"scenes/kitchen/scene.json title"},
+  {"text":"An evening in spring. Wrapping paper on the oilcloth, and the goats on the sill are awake.","translation":"Весенний вечер. На клеёнке обёрточная бумага, и козы на подоконнике не спят.","where":"scenes/kitchen/scene.json caption"}
+]}
