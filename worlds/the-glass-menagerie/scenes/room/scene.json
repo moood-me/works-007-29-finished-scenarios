@@ -94,7 +94,11 @@
     "desk": 1,
     "dining": 1,
     "neon": 1,
-    "laura_look": "shelf#unicorn",
+    "laura_look": [
+      -1.75,
+      3.1,
+      0.6
+    ],
     "amanda_look": "tom",
     "amanda_mood": "thinking",
     "tom_look": [
@@ -424,9 +428,9 @@
       "name": "The typewriter table",
       "inside": true,
       "shadow": true,
-      "across": 2.3,
-      "distance": 2.95,
-      "facing": 205,
+      "across": 2.4,
+      "distance": 4.1,
+      "facing": 220,
       "height": 1.2,
       "box": [
         -0.5,
@@ -460,7 +464,7 @@
       "person": {
         "cast": "cast",
         "who": "laura",
-        "turn": 215
+        "turn": 200
       },
       "across": -1.45,
       "distance": 3.85
@@ -472,11 +476,11 @@
       "person": {
         "cast": "cast",
         "who": "amanda",
-        "turn": 150,
+        "turn": 160,
         "does": "hands_clasped"
       },
-      "across": 0.3,
-      "distance": 4.75
+      "across": 0.2,
+      "distance": 4.9
     },
     {
       "id": "tom",
@@ -485,11 +489,11 @@
       "person": {
         "cast": "cast",
         "who": "tom",
-        "turn": 170,
+        "turn": 185,
         "does": "arms_folded"
       },
-      "across": 1.85,
-      "distance": 3.75
+      "across": 1.7,
+      "distance": 3.2
     }
   ],
   "music": {
