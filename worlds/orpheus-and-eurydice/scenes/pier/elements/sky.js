@@ -13,18 +13,22 @@ air.addColorStop(at(H + 0.1), '#28355f');
 air.addColorStop(1, '#1d2747');
 g.fillStyle = air;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);
-// the moon: a full disc, its seas a shade greyer
+// the moon: a full disc, its seas faint soft shadows on it
 const mx = A * 0.76, my = 0.15, mr = 0.03;
 g.fillStyle = '#f3f0e4';
 g.beginPath();
 g.arc(mx, my, mr, 0, Math.PI * 2);
 g.fill();
-g.fillStyle = 'rgba(200,196,182,0.45)';
-for (const [dx, dy, r] of [[-0.008, -0.006, 0.009], [0.009, -0.004, 0.006], [0.002, 0.011, 0.008]]) {
-  g.beginPath();
-  g.arc(mx + dx, my + dy, r, 0, Math.PI * 2);
-  g.fill();
+g.save();
+g.clip();
+for (const [dx, dy, r] of [[-0.01, -0.006, 0.014], [0.011, 0.008, 0.012]]) {
+  const sea = g.createRadialGradient(mx + dx, my + dy, 0, mx + dx, my + dy, r);
+  sea.addColorStop(0, 'rgba(190,186,172,0.35)');
+  sea.addColorStop(1, 'rgba(190,186,172,0)');
+  g.fillStyle = sea;
+  g.fillRect(mx - mr, my - mr, mr * 2, mr * 2);
 }
+g.restore();
 e.at(mx, my, 'disc');
 e.light(mx, my, 0.09, '#dfe6ff', 1.1, 'glow');
 // the stars: small and many high up, a few bright ones, thinning toward the far shore
