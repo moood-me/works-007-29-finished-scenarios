@@ -82,20 +82,20 @@
   ],
   "state": {
     "traps_look": [
-      0.3,
-      2.6,
-      1.6
+      -0.6,
+      1.0,
+      1.55
     ],
     "traps_mood": "smile",
     "traps_reach": {
       "r": [
-        -1.8,
-        3.33,
+        -1.83,
+        3.13,
         1.12
       ],
       "l": [
         -1.54,
-        3.6,
+        3.39,
         0.88
       ]
     },
@@ -103,13 +103,13 @@
     "judge_mood": "smile",
     "judge_reach": {
       "r": [
-        2.0,
-        4.14,
+        2.02,
+        4.47,
         0.86
       ],
       "l": [
-        2.05,
-        4.1,
+        2.07,
+        4.42,
         0.86
       ]
     },
@@ -413,8 +413,8 @@
           "distance": 4.6
         },
         {
-          "across": 2.45,
-          "distance": 4.75,
+          "across": 2.5,
+          "distance": 5.0,
           "flip": true
         }
       ]
@@ -436,7 +436,7 @@
       "id": "case",
       "name": "Traps's case of samples",
       "across": -2.3,
-      "distance": 3.75,
+      "distance": 3.55,
       "height": 0.45,
       "box": [
         -0.26,
@@ -495,10 +495,10 @@
       "person": {
         "cast": "cast",
         "who": "traps",
-        "turn": 165
+        "turn": 170
       },
       "across": -1.75,
-      "distance": 3.6,
+      "distance": 3.4,
       "shadow": true
     },
     {
@@ -507,10 +507,10 @@
       "person": {
         "cast": "cast",
         "who": "judge",
-        "turn": 215
+        "turn": 225
       },
-      "across": 2.15,
-      "distance": 4.3,
+      "across": 2.2,
+      "distance": 4.6,
       "shadow": true
     },
     {

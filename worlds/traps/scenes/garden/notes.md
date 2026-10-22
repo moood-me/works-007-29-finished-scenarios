@@ -16,8 +16,8 @@ rises to meet his guest. No one moves but heads and faces; no camera moves.
 - **Light**: the sun low behind the viewer on the left (`sun`, from bearing −125°) lays gold on the faces and the
   villa; the eastern sky is blue over a rose belt (`sky`, its clouds drifting); lavender ambient in the shadows; the
   lanterns and the villa's windows already lit.
-- **People** (modules/cast, style `traps`): Traps (−1.3/4.4, turned 150) with a glass of red at his chest (reach r,
-  part `glass`), the left hand at the pocket, his case of samples (`case`) by his feet, looking at the judge; the
+- **People** (modules/cast, style `traps`): Traps (−1.75/3.4, turned 170) with a glass of red at his chest (reach r,
+  part `glass`), the left hand at the pocket, his case of samples (`case`) by his feet, looking past the viewer, smiling; the
   judge (1.9/4.95, turned 210) by his pulled-back chair, hands clasped on his belly, beaming at the guest; Zorn
   (1.0/6.78, turned 190) behind his chair, hands on its back, studying Traps. Kummer and Pile are not in the frame
   (Kummer's cane is).
