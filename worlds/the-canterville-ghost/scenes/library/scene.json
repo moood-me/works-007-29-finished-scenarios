@@ -55,8 +55,8 @@
       "id": "ghost",
       "at": "simon#chest",
       "color": "#bdf0df",
-      "strength": 1.6,
-      "reach": 3.2,
+      "strength": 2.2,
+      "reach": 3.6,
       "glow": 0.6
     }
   ],
@@ -220,7 +220,24 @@
           0.55,
           0.02
         ],
-        "amount": "fire"
+        "amount": "fire",
+        "size": [
+          0.13,
+          0.03
+        ],
+        "rate": 80,
+        "speed": [
+          0.5,
+          1.1
+        ],
+        "life": [
+          0.3,
+          0.7
+        ],
+        "glow": [
+          2.2,
+          0.5
+        ]
       }
     },
     {

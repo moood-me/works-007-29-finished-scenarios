@@ -5,6 +5,8 @@
 const V = () => MooodShapes.V;
 // colours a part draws in ([r, g, b, tone]: 1 lit by the scene, 2 glowing — its own colour whatever the light)
 const EMBER = [1, 0.32, 0.12, 2];
+// the ghost's own pale light: his hair, his beard, his ruff glow with it
+const GHOSTLY = [0.6, 0.74, 0.69, 2];
 const RUST = [0.42, 0.26, 0.18, 1];
 // the face's expressions (a person's <id>_mood; the engine's names): the brows' inner and outer ends up (+) or down,
 // the eyes opened (1 at rest) or narrowed, the mouth's half-width, its corners up (+) or down, how open
@@ -45,16 +47,16 @@ function face(F, eyes) {
   F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.8, rh * x.open * 1.3, rh * 0.03], dark, 10);
   F.tube([on([-w, y + x.corners, 0.92], 0.995), on([0, y, 0.94], 1.0), on([w, y + x.corners, 0.92], 0.995)], [[0, rh * 0.035], [2, rh * 0.035]], [[0, lips]], 6, hu);
 }
-// a ruff: a wide pleated ring round the neck, standing out over the shoulders
+// the ghost's ruff: a wide ring round the neck, standing out over the shoulders, glowing
 function ruff(F) {
   const { add, mul } = V();
   const uc = F.up('Chest');
   const c = add(F.P('Neck1'), mul(uc, -0.02 * F.fit.h));
   const w = 0.1 * F.k;
-  F.ball(c, [F.side('Chest'), uc, F.fwd('Chest')], [w, 0.026 * F.fit.h, w * 0.9], F.colors.top, 20);
+  F.ball(c, [F.side('Chest'), uc, F.fwd('Chest')], [w, 0.026 * F.fit.h, w * 0.9], GHOSTLY, 20);
 }
-// a long white beard from the chin down the chest, swinging a little
-const BEARD = F => ({ pts: [null, null, null], profile: [[0, F.head.r * 0.5], [1, F.head.r * 0.42], [2, F.head.r * 0.08]], colors: [[0, F.colors.hair]] });
+// the ghost's long white beard from the chin down the chest, glowing, swinging a little
+const BEARD = F => ({ pts: [null, null, null], profile: [[0, F.head.r * 0.5], [1, F.head.r * 0.42], [2, F.head.r * 0.08]], colors: [[0, GHOSTLY]] });
 function beard(F) {
   const { add, mul } = V();
   const h = F.head;
@@ -65,6 +67,25 @@ function beard(F) {
   K.pts[1] = F.clear(F.swing('beard1', add(K.pts[0], add([0, -0.12 * F.fit.h, 0], mul(F.fwd('Chest'), 0.02 * F.k))), 150), 1, r * 0.1);
   K.pts[2] = F.clear(F.swing('beard2', add(K.pts[1], [0, -0.11 * F.fit.h, 0]), 90), 1, r * 0.1);
   F.tube(K.pts, K.profile, K.colors, 10, hs, 0.55);
+}
+// the ghost's hair, glowing: a cap over the crown tipped back, and long locks down his back, swinging
+const LOCKS = F => ({
+  radii: F.head.egg.map(v => v * F.head.r * F.head.out * 1.03),
+  pts: [null, null, null],
+  profile: [[0, F.head.r * 0.85], [1, F.head.r * 0.7], [1.7, F.head.r * 0.45], [2, 0]],
+  colors: [[0, GHOSTLY]],
+});
+function ghostHair(F) {
+  const { add, mul } = V();
+  const h = F.head;
+  const a = h.axes;
+  const rh = h.r;
+  const K = F.keep(LOCKS);
+  F.cap(h.at, a, K.radii, [0, 0.62, -0.78], -0.12, GHOSTLY, h.sides, h.square);
+  K.pts[0] = add(h.at, add(mul(a[2], -rh * 0.55), mul(a[1], -rh * 0.1)));
+  K.pts[1] = F.swing('locks1', add(K.pts[0], add([0, -0.18 * F.fit.h, 0], mul(F.fwd('Chest'), -0.05 * F.k))), 160);
+  K.pts[2] = F.swing('locks2', add(K.pts[1], add([0, -0.16 * F.fit.h, 0], mul(F.fwd('Chest'), -0.02 * F.k))), 90);
+  F.tube(K.pts, K.profile, K.colors, F.sides, a[0], 0.65);
 }
 // rusty manacles on both wrists and the chain sagging from one to the other before the body
 const CHAIN = F => ({ pts: [null, null, null, null, null], profile: [[0, 0.016 * F.k], [4, 0.016 * F.k]], colors: [[0, RUST]] });
@@ -109,9 +130,9 @@ return {
     // Sir Simon de Canterville: a tall old man three hundred years dead — white hair and beard, a ruff, an old
     // doublet and cloak in rags gone the grey-green of the grave, eyes like red coals, rusty manacles and a chain
     simon: {
-      kind: 'shapes', style: 'canterville', who: 'old', garment: 'cloak', hair: 'long', face: 'ghost', parts: ['ruff', 'beard', 'shackles'],
+      kind: 'shapes', style: 'canterville', who: 'old', garment: 'cloak', hair: 'ghost', face: 'ghost', parts: ['ruff', 'beard', 'shackles'],
       body: { height: 1.06, thick: 0.86, shoulders: 1.02, head: 1.02 },
-      colors: { skin: '#d6e6df', hair: '#f2f6f4', top: '#e8f0ec', garment: '#a9c4bb', bottom: '#8aa39b', shoes: '#66786f' },
+      colors: { skin: '#dcebe5', hair: '#f2f6f4', top: '#e8f0ec', garment: '#b4cec5', bottom: '#93ada4', shoes: '#6d8077' },
     },
     // Mr Hiram B. Otis, the American Minister: upright, a black frock coat, a grey waistcoat, a white shirt, brown
     // hair going grey and side whiskers
@@ -130,6 +151,7 @@ return {
       // the ghost's: the same face, its eyes red coals that glow
       ghost: { name: 'ghost', draw: F => face(F, EMBER) },
     },
+    hair: { ghost: { name: 'ghost', draw: ghostHair } },
     garments: {
       // a girl's frock: a full skirt from the waist to the ankles, long sleeves, the bodice in its colour
       frock: { name: 'frock', hang: [{ to: 2.0, from: 'waist', flare: 0.4, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
