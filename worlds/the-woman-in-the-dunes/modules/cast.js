@@ -4,7 +4,7 @@
 // they carry. cast.md says who is who. A part's lengths are a man's metres times F.fit.h (the person's height as a share
 // of 1.76 m) or F.k (thickness).
 const V = () => MooodShapes.V;
-const BAMBOO = [0.71, 0.6, 0.4, 1], WIRE = [0.32, 0.31, 0.29, 1], GAUZE = [0.9, 0.89, 0.84, 1];
+const BAMBOO = [0.71, 0.6, 0.4, 1], WIRE = [0.32, 0.31, 0.29, 1], GAUZE = [0.8, 0.8, 0.76, 1];
 const TIN = [0.55, 0.56, 0.52, 1], STRAP = [0.4, 0.31, 0.22, 1];
 // the world's face's expressions (the engine's names): brows' inner and outer ends raised (+) or lowered, the eye's
 // opening, the mouth's half-width, its corners up (+) or down, how open
