@@ -81,7 +81,11 @@
     "cast"
   ],
   "state": {
-    "traps_look": "judge",
+    "traps_look": [
+      0.3,
+      2.6,
+      1.6
+    ],
     "traps_mood": "smile",
     "traps_reach": {
       "r": [
@@ -133,13 +137,13 @@
     {
       "id": "hills",
       "name": "The far side of the valley: wooded hills, the village and its church",
-      "across": -60,
+      "across": 0,
       "distance": 320,
       "height": 60,
       "box": [
-        -640,
+        -820,
         -80,
-        640,
+        820,
         0.5
       ]
     },
@@ -214,7 +218,7 @@
       "plane": true,
       "across": 0,
       "distance": 166,
-      "width": 900,
+      "width": 1600,
       "depth": 328
     },
     {
