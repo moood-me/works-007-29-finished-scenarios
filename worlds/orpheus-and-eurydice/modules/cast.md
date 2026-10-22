@@ -21,7 +21,7 @@ The world's one red is Eurydice's ribbon: nobody and nothing else wears red.
 - `orpheus` — Orpheus, about thirty: lean, straight-backed; dark curling hair (`curly`) and a short dark beard (`beard`);
   a long loose tunic of faded blue to the knee (`tunic`), a dark leather belt (`belt`), dark trousers; barefoot. His
   lyre is the scene's own element (in his hands by `<id>_reach` to its points), not a part of him.
-- `eurydice` — Eurydice, a little over twenty: slight; long dark-brown hair loose down her back (`long`) with a red ribbon
+- `eurydice` — Eurydice, a little over twenty: slight; long dark-brown hair round her face and loose down her back (`straight`) with a red ribbon
   tied round it, its two long ends hanging down her hair (`ribbon`); a plain long dress of undyed linen (`shift`);
   barefoot.
 
