@@ -61,11 +61,7 @@
   "state": {
     "fire": 1,
     "rain": 1,
-    "colonel_look": [
-      0.7,
-      0.0,
-      1.55
-    ],
+    "colonel_look": "rooster#head",
     "colonel_mood": "thinking",
     "colonel_with": [
       "umbrella"
@@ -462,8 +458,8 @@
       "name": "The rooster",
       "inside": true,
       "shadow": true,
-      "across": 0.7,
-      "distance": 3.15,
+      "across": 0.5,
+      "distance": 2.4,
       "height": 0.6,
       "box": [
         -0.35,
@@ -479,7 +475,7 @@
       "person": {
         "cast": "cast",
         "who": "colonel",
-        "turn": 168
+        "turn": 150
       },
       "across": -0.55,
       "distance": 2.7
