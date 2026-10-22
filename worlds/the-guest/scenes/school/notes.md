@@ -7,7 +7,7 @@ standing. No motion of people, no camera moves.
 - **Where things are.** The viewer stands on the plateau before the school (camera `picture`). The land is
   `relief.js` — flat round the school; its edge runs off to the left and past it the land falls 190 m to the plain;
   behind the school the plateau rises into a long hill — painted by one draped plane `land` (snow, the slope's bare
-  streaks, the dun plain with snow patches and a douar, the path down to the horse, stones near). Far: `ridges`,
+  streaks, the dun plain with snow patches and a douar, the path down to the horse, stones, the snow ridged by the wind near). Far: `ridges`,
   `ridges_far` (cards at 6 and 11 km, their foot at the plain's level).
 - **The school** is built of cards and planes on the unseen anchor `school` (across 6.67, distance 5.45, facing 200): its
   whitewashed `front` (the classroom's door at x −2.4, windows), the right `gable`, the snowy tiled `roof` (a plane,
@@ -20,5 +20,5 @@ standing. No motion of people, no camera moves.
   Daru. `rope`: one painted rope laid each frame by its animate from `balducci#hand_r` to `arab#bonds`.
 - **What moves.** The people breathing, the grass tufts (`tufts`, copies) in the wind, the chimney's smoke, the high
   cloud drifting, the horse's breath (`breath`: bursts from `horse#muzzle` by its animate).
-- **Light.** A low winter sun behind the viewer on the right (`sun`, from bearing 140, 20° up): long shadows away to the
+- **Light.** A low winter sun behind the viewer on the right (`sun`, from bearing 140, 28° up): long shadows away to the
   left; the snow's bounce fills the shade with a cool blue (ambientColor).
