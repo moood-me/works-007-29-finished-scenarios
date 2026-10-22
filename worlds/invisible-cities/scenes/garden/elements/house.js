@@ -2,8 +2,8 @@
 // toward the viewer (x 5.6). Near the water the garden wall (2.6 m) with its arched gate to the road along the
 // shore; then the house's wall, lime-washed, its tall double door behind the Khan's back (x 2.4…3.6) standing a little
 // open — the warm light in the gap is the door_glow's — a window above, the eaves and the tiles' edge at 5.2 m.
-const lime = '#bdb099';
-const lime2 = '#b2a58e';
+const lime = '#a69c8a';
+const lime2 = '#9c917f';
 const stoneBase = '#8e8574';
 // the garden wall, its coping, the gate
 g.fillStyle = lime2;

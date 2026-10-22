@@ -7,11 +7,11 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.62,
-    "ambientColor": "#93a6d4",
+    "ambient": 0.5,
+    "ambientColor": "#8197cc",
     "haze": 0.04,
     "hazeColor": "#3a4c78",
-    "hazeGlow": 0.7,
+    "hazeGlow": 0.35,
     "shafts": 0.3,
     "vignette": 0.3,
     "grain": 0.1,
@@ -34,8 +34,8 @@
       "id": "lamp",
       "of": "lantern_glass#flame",
       "color": "#ffc27a",
-      "strength": 2.2,
-      "reach": 8,
+      "strength": 1.3,
+      "reach": 6,
       "flicker": 0.1,
       "glow": 0.5
     },
@@ -43,8 +43,8 @@
       "id": "door",
       "of": "door_glow#gap",
       "color": "#ffbf78",
-      "strength": 0.9,
-      "reach": 5
+      "strength": 0.6,
+      "reach": 4
     },
     {
       "id": "pier_lamp",
@@ -112,7 +112,7 @@
       "plane": true,
       "across": 0,
       "distance": 1005,
-      "elevation": 0.4,
+      "elevation": -2.6,
       "width": 6000,
       "depth": 1995,
       "reflect": {
@@ -129,7 +129,7 @@
       "walk": true,
       "across": -2.6,
       "distance": 28,
-      "elevation": 0.65,
+      "elevation": -2.35,
       "width": 1.8,
       "depth": 33
     },
@@ -306,69 +306,69 @@
       "plane": true,
       "across": -2.6,
       "distance": 7.72,
-      "elevation": 2.78,
+      "elevation": -0.22,
       "width": 1.7,
       "depth": 0.34,
       "copies": [
         {
           "across": -2.6,
           "distance": 7.72,
-          "elevation": 2.78
+          "elevation": -0.22
         },
         {
           "across": -2.6,
           "distance": 8.06,
-          "elevation": 2.56
+          "elevation": -0.44
         },
         {
           "across": -2.6,
           "distance": 8.4,
-          "elevation": 2.34
+          "elevation": -0.66
         },
         {
           "across": -2.6,
           "distance": 8.74,
-          "elevation": 2.12
+          "elevation": -0.88
         },
         {
           "across": -2.6,
           "distance": 9.08,
-          "elevation": 1.9
+          "elevation": -1.1
         },
         {
           "across": -2.6,
           "distance": 9.42,
-          "elevation": 1.68
+          "elevation": -1.32
         },
         {
           "across": -2.6,
           "distance": 9.76,
-          "elevation": 1.46
+          "elevation": -1.54
         },
         {
           "across": -2.6,
           "distance": 10.1,
-          "elevation": 1.24
+          "elevation": -1.76
         },
         {
           "across": -2.6,
           "distance": 10.44,
-          "elevation": 1.02
+          "elevation": -1.98
         },
         {
           "across": -2.6,
           "distance": 10.78,
-          "elevation": 0.8
+          "elevation": -2.2
         },
         {
           "across": -2.6,
           "distance": 11.12,
-          "elevation": 0.58
+          "elevation": -2.42
         },
         {
           "across": -2.6,
           "distance": 11.46,
-          "elevation": 0.36
+          "elevation": -2.64
         }
       ]
     },
@@ -432,8 +432,8 @@
     {
       "id": "tree",
       "name": "Garden tree",
-      "across": 5.6,
-      "distance": 9.5,
+      "across": 6.8,
+      "distance": 12,
       "height": 8.6,
       "box": [
         -3.6,
@@ -462,9 +462,9 @@
     {
       "id": "branch",
       "name": "Branch overhead",
-      "across": -2.6,
+      "across": -3.6,
       "distance": 2.6,
-      "elevation": -0.3,
+      "elevation": 0,
       "height": 4.9,
       "box": [
         -1.8,
@@ -535,7 +535,7 @@
       "person": {
         "cast": "cast",
         "who": "khan",
-        "turn": 238,
+        "turn": 222,
         "does": "seated"
       },
       "across": 1.62,
@@ -593,7 +593,7 @@
       4.45,
       0.44
     ],
-    "khan_look": "marco",
+    "khan_look": "table_top#board",
     "marco_look": "khan"
   },
   "states": {
