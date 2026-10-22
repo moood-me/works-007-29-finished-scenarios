@@ -1,0 +1,571 @@
+{
+  "engine": 3,
+  "title": "The Flat",
+  "caption": "An evening off the alley. The glass on the shelf catches the lamp.",
+  "horizon": 0.33,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.62,
+    "ambientColor": "#c4b3b4",
+    "inside": 0.35,
+    "bounce": 0.5,
+    "haze": 0.05,
+    "hazeColor": "#c9a07e",
+    "hazeGlow": 0.9,
+    "tint": "#f0c8a0",
+    "tintStrength": 0.07,
+    "saturation": 0.92,
+    "vignette": 0.5,
+    "grain": 0.12
+  },
+  "lights": [
+    {
+      "id": "lamp",
+      "of": "floor_lamp#bulb",
+      "color": "#ffcc88",
+      "strength": 1.4,
+      "reach": 5,
+      "on": "lamp",
+      "flicker": 0.03
+    },
+    {
+      "id": "desk",
+      "of": "desk#bulb",
+      "color": "#ffd08f",
+      "strength": 1.0,
+      "reach": 3,
+      "on": "desk"
+    },
+    {
+      "id": "dining",
+      "of": "dining_lamp#bulb",
+      "color": "#ffc27a",
+      "strength": 1.4,
+      "reach": 4.5,
+      "on": "dining"
+    },
+    {
+      "id": "sign",
+      "of": "sign#neon",
+      "color": "#ff5aa0",
+      "strength": 1.2,
+      "reach": 6,
+      "on": "neon"
+    },
+    {
+      "id": "neon_pink",
+      "across": -1.9,
+      "distance": 5.9,
+      "elevation": 2.0,
+      "color": "#ff5aa0",
+      "strength": 0.7,
+      "reach": 4,
+      "on": "neon",
+      "flicker": 0.25
+    },
+    {
+      "id": "neon_green",
+      "across": -1.1,
+      "distance": 5.9,
+      "elevation": 1.2,
+      "color": "#3fdc9c",
+      "strength": 0.4,
+      "reach": 3,
+      "on": "neon",
+      "flicker": 0.2
+    },
+    {
+      "id": "night",
+      "across": -1.5,
+      "distance": 5.9,
+      "elevation": 1.6,
+      "color": "#7d8fd0",
+      "strength": 0.5,
+      "reach": 4.5
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "lamp": 1,
+    "desk": 1,
+    "dining": 1,
+    "neon": 1,
+    "laura_look": [
+      -1.75,
+      2.8,
+      1.15
+    ],
+    "amanda_look": "tom",
+    "amanda_mood": "thinking",
+    "tom_look": [
+      0,
+      0,
+      1.7
+    ],
+    "tom_mood": "tired",
+    "laura_mood": "sad"
+  },
+  "states": {
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the floor lamp by the daybed: 0 out, 1 lit — the room's main warm light, on Laura, the glass and Amanda"
+    },
+    "desk": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the little green-shaded lamp on the typewriter table by the door: 0 out, 1 lit — on Tom"
+    },
+    "dining": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lamp over the dining table beyond the portieres: 0 out, 1 lit"
+    },
+    "neon": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the Paradise Dance Hall's sign across the alley: 0 dark, 1 lit — its pink and green light in at the window"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The night sky over the alley",
+      "sky": true
+    },
+    {
+      "id": "facade",
+      "name": "The dance hall's building across the alley",
+      "across": -3.9,
+      "distance": 14,
+      "height": 10.5,
+      "box": [
+        -6.2,
+        -10.6,
+        6.2,
+        0.05
+      ]
+    },
+    {
+      "id": "sign",
+      "name": "The Paradise's neon sign",
+      "glows": true,
+      "across": -3.9,
+      "distance": 13.7,
+      "elevation": 10.5,
+      "height": 1,
+      "box": [
+        -1.4,
+        -1.0,
+        1.4,
+        0.05
+      ]
+    },
+    {
+      "id": "railing",
+      "name": "The fire escape's railing",
+      "across": -1.5,
+      "distance": 6.1,
+      "height": 1.1,
+      "box": [
+        -1.65,
+        -1.1,
+        1.65,
+        0.02
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 4.8,
+      "width": 6.0,
+      "depth": 5.8
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 5.4,
+      "elevation": 2.8,
+      "facing": 180,
+      "tilt": -90,
+      "height": 3.5,
+      "box": [
+        -3.0,
+        -3.55,
+        3.0,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall",
+      "inside": true,
+      "across": 0,
+      "distance": 5.4,
+      "facing": 180,
+      "height": 2.8,
+      "box": [
+        -2.95,
+        -2.82,
+        2.95,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall",
+      "inside": true,
+      "across": -2.9,
+      "distance": 3.65,
+      "facing": 90,
+      "height": 2.8,
+      "box": [
+        -1.8,
+        -2.82,
+        1.8,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall, the door and Tom's coat",
+      "inside": true,
+      "across": 2.9,
+      "distance": 3.65,
+      "facing": 270,
+      "height": 2.8,
+      "box": [
+        -1.8,
+        -2.82,
+        1.8,
+        0.02
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The window onto the fire escape",
+      "inside": true,
+      "translucent": 0.4,
+      "across": -1.5,
+      "distance": 5.38,
+      "elevation": 0.75,
+      "facing": 180,
+      "height": 1.5,
+      "box": [
+        -0.6,
+        -1.52,
+        0.6,
+        0.02
+      ]
+    },
+    {
+      "id": "dining_wall",
+      "name": "The dining room's wall and sideboard",
+      "inside": true,
+      "across": 1.75,
+      "distance": 7.6,
+      "facing": 180,
+      "height": 2.8,
+      "box": [
+        -2.25,
+        -2.82,
+        2.25,
+        0.02
+      ]
+    },
+    {
+      "id": "dining_table",
+      "name": "The dining table",
+      "inside": true,
+      "shadow": true,
+      "across": 1.7,
+      "distance": 6.6,
+      "facing": 180,
+      "height": 1.1,
+      "box": [
+        -0.95,
+        -1.2,
+        0.95,
+        0.03
+      ]
+    },
+    {
+      "id": "dining_lamp",
+      "name": "The lamp over the dining table",
+      "inside": true,
+      "across": 1.7,
+      "distance": 6.6,
+      "elevation": 1.65,
+      "height": 1.1,
+      "box": [
+        -0.3,
+        -1.15,
+        0.3,
+        0.06
+      ]
+    },
+    {
+      "id": "portiere",
+      "name": "The portieres",
+      "inside": true,
+      "translucent": 0.15,
+      "across": 1.75,
+      "distance": 5.33,
+      "facing": 180,
+      "height": 2.4,
+      "box": [
+        -0.92,
+        -2.42,
+        0.92,
+        0.02
+      ]
+    },
+    {
+      "id": "photo",
+      "name": "The father's photograph",
+      "inside": true,
+      "across": -0.25,
+      "distance": 5.37,
+      "elevation": 1.3,
+      "facing": 180,
+      "height": 0.78,
+      "box": [
+        -0.32,
+        -0.78,
+        0.32,
+        0.02
+      ]
+    },
+    {
+      "id": "sofa",
+      "name": "The daybed",
+      "inside": true,
+      "shadow": true,
+      "across": -0.15,
+      "distance": 5.0,
+      "facing": 180,
+      "height": 0.9,
+      "box": [
+        -1.06,
+        -0.92,
+        1.06,
+        0.02
+      ]
+    },
+    {
+      "id": "victrola",
+      "name": "The victrola",
+      "inside": true,
+      "shadow": true,
+      "across": -2.35,
+      "distance": 4.85,
+      "facing": 145,
+      "height": 1.7,
+      "box": [
+        -0.4,
+        -1.75,
+        0.45,
+        0.03
+      ]
+    },
+    {
+      "id": "floor_lamp",
+      "name": "The floor lamp",
+      "inside": true,
+      "shadow": true,
+      "across": -0.55,
+      "distance": 3.35,
+      "height": 1.65,
+      "box": [
+        -0.3,
+        -1.66,
+        0.3,
+        0.03
+      ]
+    },
+    {
+      "id": "shelf",
+      "name": "The glass menagerie",
+      "inside": true,
+      "shadow": true,
+      "across": -2.15,
+      "distance": 3.5,
+      "facing": 135,
+      "height": 1.86,
+      "box": [
+        -0.45,
+        -1.9,
+        0.45,
+        0.03
+      ],
+      "uniforms": {
+        "shine": 1
+      }
+    },
+    {
+      "id": "desk",
+      "name": "The typewriter table",
+      "inside": true,
+      "shadow": true,
+      "across": 2.4,
+      "distance": 4.1,
+      "facing": 220,
+      "height": 1.2,
+      "box": [
+        -0.5,
+        -1.2,
+        0.5,
+        0.02
+      ]
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the lamplight",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          -0.8,
+          4.0,
+          1.4
+        ],
+        "source": [
+          2.6,
+          1.6,
+          1.2
+        ]
+      }
+    },
+    {
+      "id": "laura",
+      "name": "Laura",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "laura",
+        "turn": 200
+      },
+      "across": -1.45,
+      "distance": 3.85
+    },
+    {
+      "id": "amanda",
+      "name": "Amanda",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "amanda",
+        "turn": 160,
+        "does": "hands_clasped"
+      },
+      "across": 0.2,
+      "distance": 4.9
+    },
+    {
+      "id": "tom",
+      "name": "Tom",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "tom",
+        "turn": 185,
+        "does": "arms_folded"
+      },
+      "across": 1.45,
+      "distance": 3.35
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a slow waltz played on a faraway dance-hall band, muffled through a window, 1930s, bittersweet",
+        "weight": 1.2
+      },
+      {
+        "text": "solo upright piano in a small room, tender and plain, slow, a little out of tune",
+        "weight": 0.9
+      },
+      {
+        "text": "glass celesta and music box, delicate, fragile, faraway memory",
+        "weight": 0.7
+      },
+      {
+        "text": "a lone clarinet, soft and wistful, slow, jazz-age ballad",
+        "weight": 0.4
+      },
+      {
+        "text": "scratchy old gramophone record of a sentimental 1920s song, crackle, warm",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, restrained, longing, very soft",
+        "weight": 0
+      },
+      {
+        "text": "muted trumpet in a distant alley at night, blue and lonely",
+        "weight": 0
+      },
+      {
+        "text": "soft brushed drums and double bass, slow, late-night",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios, gentle and luminous, dreamlike",
+        "weight": 0
+      },
+      {
+        "text": "accordion waltz, nostalgic, slow, small-town dance",
+        "weight": 0
+      },
+      {
+        "text": "ambient pad like dusty lamplight, slow swells, warm and hazy",
+        "weight": 0
+      },
+      {
+        "text": "solo violin, high and thin, tender lament",
+        "weight": 0
+      },
+      {
+        "text": "vibraphone and soft piano, gentle, dreamy, slow",
+        "weight": 0
+      },
+      {
+        "text": "rain on a window, soft piano chords under it, melancholy",
+        "weight": 0
+      },
+      {
+        "text": "wordless choir humming very softly, far away",
+        "weight": 0
+      },
+      {
+        "text": "toy piano and glockenspiel, small and breakable, slow",
+        "weight": 0
+      }
+    ],
+    "bpm": 84,
+    "density": 0.25,
+    "brightness": 0.4,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}
