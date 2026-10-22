@@ -11,7 +11,7 @@ little bigger than his, `head` 1.14, so a face reads at the size people stand in
 thin as the places' finer strokes of the world's `brush`, the same ink, so people and places are of one hand), cloth
 falling in long soft folds (`folds` 11, depth 0.1). Arms and legs (`regency` profiles) slim, small hands without
 fingers. The gentlemen's style `austen_man` (from `austen`): sleeves close from a natural shoulder (`gent` arms, no puff
-at the sleeve's head), thighs with flesh to them (`gent` legs), a chest a little deeper. Faces (the cast's own, one hand
+at the sleeve's head), thighs with flesh to them (the `gent` legs, its `feet`), a chest a little deeper. Faces (the cast's own, one hand
 — `faceOf`): almond eyes — their warm whites, a dark iris, a pen-dark upper lid and a fine lower one —, brows a shade
 darker than the hair, a straight nose (the skin's own colour, its form the light's), lips a shade rosier than the skin
 parted by a fine pen line — each expression of `<id>_mood` (`smile`: the corners well up, the eyes a little narrowed,

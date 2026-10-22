@@ -164,7 +164,7 @@ return {
         fingers: false, paint: 'toned', line: 1.1, tinted: false, folds: { n: 11, depth: 0.1 }, ragged: 0, face: 'austen', ground: 'sepia', drape: true },
       // the gentlemen's: the same hand, a man's build — sleeves close from a natural shoulder (no puff at its head),
       // thighs with flesh to them in close breeches, a chest a little deeper
-      austen_man: { from: 'austen', name: 'Pride and Prejudice, gentlemen', arms: 'gent', legs: 'gent',
+      austen_man: { from: 'austen', name: 'Pride and Prejudice, gentlemen', arms: 'gent', feet: 'gent',
         trunk: { w: [0.82, 0.84, 0.73, 0.86, 0.88], d: [0.82, 0.84, 0.78, 0.85, 0.76] } },
     },
     // the pen's colour: a sepia ink, as the scenes' own pen line
