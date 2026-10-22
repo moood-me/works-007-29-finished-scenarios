@@ -1,0 +1,682 @@
+{
+  "engine": 3,
+  "title": "The Khan’s Garden",
+  "caption": "The last night. The ship sails at dawn.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.62,
+    "ambientColor": "#93a6d4",
+    "haze": 0.04,
+    "hazeColor": "#3a4c78",
+    "hazeGlow": 0.7,
+    "shafts": 0.3,
+    "vignette": 0.3,
+    "grain": 0.1,
+    "bounce": 0.5,
+    "saturation": 0.92,
+    "wind": [
+      1,
+      0.3,
+      0.35
+    ]
+  },
+  "lights": [
+    {
+      "id": "moon",
+      "from": "sky#disc",
+      "color": "#b9c8ea",
+      "strength": 0.6
+    },
+    {
+      "id": "lamp",
+      "of": "lantern_glass#flame",
+      "color": "#ffc27a",
+      "strength": 2.2,
+      "reach": 8,
+      "flicker": 0.1,
+      "glow": 0.5
+    },
+    {
+      "id": "door",
+      "of": "door_glow#gap",
+      "color": "#ffbf78",
+      "strength": 0.9,
+      "reach": 5
+    },
+    {
+      "id": "pier_lamp",
+      "of": "pier_lamp#flame",
+      "color": "#ffc580",
+      "strength": 1.2,
+      "reach": 6
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "far_shore",
+      "name": "Far shore and lighthouse",
+      "across": 0,
+      "distance": 1500,
+      "elevation": 0.4,
+      "height": 50,
+      "box": [
+        70,
+        -50,
+        1510,
+        2
+      ]
+    },
+    {
+      "id": "ship",
+      "name": "The ship at anchor",
+      "across": 380,
+      "distance": 1250,
+      "elevation": 0.4,
+      "height": 52,
+      "box": [
+        -40,
+        -53,
+        45,
+        1
+      ]
+    },
+    {
+      "id": "city",
+      "name": "His city",
+      "glows": true,
+      "across": -900,
+      "distance": 1700,
+      "elevation": 0.4,
+      "height": 16,
+      "box": [
+        -300,
+        -16,
+        300,
+        1
+      ]
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "plane": true,
+      "across": 0,
+      "distance": 1005,
+      "elevation": 0.4,
+      "width": 6000,
+      "depth": 1995,
+      "reflect": {
+        "strength": 0.6,
+        "fade": 0,
+        "rough": 0.3,
+        "ripple": 0.35
+      }
+    },
+    {
+      "id": "pier",
+      "name": "Landing stage",
+      "plane": true,
+      "walk": true,
+      "across": -2.6,
+      "distance": 28,
+      "elevation": 0.65,
+      "width": 1.8,
+      "depth": 33
+    },
+    {
+      "id": "piles",
+      "name": "Piles",
+      "across": -3.45,
+      "distance": 12,
+      "elevation": 0.25,
+      "height": 0.6,
+      "box": [
+        -0.1,
+        -0.52,
+        0.1,
+        0.11
+      ],
+      "copies": [
+        {
+          "across": -3.45,
+          "distance": 12
+        },
+        {
+          "across": -3.45,
+          "distance": 15.2
+        },
+        {
+          "across": -3.45,
+          "distance": 18.4
+        },
+        {
+          "across": -3.45,
+          "distance": 21.6
+        },
+        {
+          "across": -3.45,
+          "distance": 24.8
+        },
+        {
+          "across": -3.45,
+          "distance": 28
+        },
+        {
+          "across": -3.45,
+          "distance": 31.2
+        },
+        {
+          "across": -3.45,
+          "distance": 34.4
+        },
+        {
+          "across": -3.45,
+          "distance": 37.6
+        },
+        {
+          "across": -3.45,
+          "distance": 40.8
+        },
+        {
+          "across": -1.75,
+          "distance": 12
+        },
+        {
+          "across": -1.75,
+          "distance": 15.2
+        },
+        {
+          "across": -1.75,
+          "distance": 18.4
+        },
+        {
+          "across": -1.75,
+          "distance": 21.6
+        },
+        {
+          "across": -1.75,
+          "distance": 24.8
+        },
+        {
+          "across": -1.75,
+          "distance": 28
+        },
+        {
+          "across": -1.75,
+          "distance": 31.2
+        },
+        {
+          "across": -1.75,
+          "distance": 34.4
+        },
+        {
+          "across": -1.75,
+          "distance": 37.6
+        },
+        {
+          "across": -1.75,
+          "distance": 40.8
+        }
+      ]
+    },
+    {
+      "id": "pier_lamp",
+      "name": "Lamp on the landing stage",
+      "glows": true,
+      "across": -1.8,
+      "distance": 44.2,
+      "elevation": 0.65,
+      "height": 2.5,
+      "box": [
+        -0.2,
+        -2.45,
+        0.2,
+        0.02
+      ]
+    },
+    {
+      "id": "boat",
+      "name": "Boat",
+      "across": -0.6,
+      "distance": 45.4,
+      "elevation": 0.4,
+      "height": 1.2,
+      "box": [
+        -2.5,
+        -1.3,
+        2.7,
+        0.35
+      ]
+    },
+    {
+      "id": "boatman",
+      "name": "Boatman",
+      "person": {
+        "cast": "cast",
+        "who": "boatman",
+        "turn": 180,
+        "does": "hands_behind"
+      },
+      "across": -2.2,
+      "distance": 43.6
+    },
+    {
+      "id": "stair_wall_l",
+      "name": "Steps, left wall",
+      "across": -3.5,
+      "distance": 7.55,
+      "elevation": -2.8,
+      "facing": 90,
+      "height": 3.5,
+      "box": [
+        0,
+        -3.5,
+        4.55,
+        0.02
+      ]
+    },
+    {
+      "id": "stair_wall_r",
+      "name": "Steps, right wall",
+      "across": -1.7,
+      "distance": 7.55,
+      "elevation": -2.8,
+      "facing": 90,
+      "height": 3.5,
+      "box": [
+        0,
+        -3.5,
+        4.55,
+        0.02
+      ]
+    },
+    {
+      "id": "steps",
+      "name": "Steps to the water",
+      "plane": true,
+      "across": -2.6,
+      "distance": 7.72,
+      "elevation": 2.78,
+      "width": 1.7,
+      "depth": 0.34,
+      "copies": [
+        {
+          "across": -2.6,
+          "distance": 7.72,
+          "elevation": 2.78
+        },
+        {
+          "across": -2.6,
+          "distance": 8.06,
+          "elevation": 2.56
+        },
+        {
+          "across": -2.6,
+          "distance": 8.4,
+          "elevation": 2.34
+        },
+        {
+          "across": -2.6,
+          "distance": 8.74,
+          "elevation": 2.12
+        },
+        {
+          "across": -2.6,
+          "distance": 9.08,
+          "elevation": 1.9
+        },
+        {
+          "across": -2.6,
+          "distance": 9.42,
+          "elevation": 1.68
+        },
+        {
+          "across": -2.6,
+          "distance": 9.76,
+          "elevation": 1.46
+        },
+        {
+          "across": -2.6,
+          "distance": 10.1,
+          "elevation": 1.24
+        },
+        {
+          "across": -2.6,
+          "distance": 10.44,
+          "elevation": 1.02
+        },
+        {
+          "across": -2.6,
+          "distance": 10.78,
+          "elevation": 0.8
+        },
+        {
+          "across": -2.6,
+          "distance": 11.12,
+          "elevation": 0.58
+        },
+        {
+          "across": -2.6,
+          "distance": 11.46,
+          "elevation": 0.36
+        }
+      ]
+    },
+    {
+      "id": "terrace",
+      "name": "Terrace",
+      "plane": true,
+      "across": 0,
+      "distance": 3.3,
+      "elevation": 0,
+      "width": 18,
+      "depth": 8.5
+    },
+    {
+      "id": "balustrade",
+      "name": "Balustrade",
+      "across": 0,
+      "distance": 7.55,
+      "facing": 180,
+      "height": 1.45,
+      "box": [
+        -9.1,
+        -1.46,
+        3.05,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "house",
+      "name": "House and garden wall",
+      "across": 3,
+      "distance": 7.55,
+      "facing": 270,
+      "height": 5.5,
+      "box": [
+        -0.1,
+        -5.5,
+        5.75,
+        0.02
+      ]
+    },
+    {
+      "id": "door_glow",
+      "name": "Light through the door",
+      "glows": true,
+      "inFront": [
+        "house"
+      ],
+      "across": 3,
+      "distance": 7.55,
+      "facing": 270,
+      "height": 3,
+      "box": [
+        2.4,
+        -2.9,
+        3.6,
+        0.02
+      ]
+    },
+    {
+      "id": "tree",
+      "name": "Garden tree",
+      "across": 5.6,
+      "distance": 9.5,
+      "height": 8.6,
+      "box": [
+        -3.6,
+        -8.8,
+        3.6,
+        0.02
+      ]
+    },
+    {
+      "id": "fireflies",
+      "particles": {
+        "kind": "fireflies",
+        "at": [
+          5.2,
+          8.6,
+          1.6
+        ],
+        "source": [
+          3,
+          3,
+          1.4
+        ],
+        "rate": 1.2
+      }
+    },
+    {
+      "id": "branch",
+      "name": "Branch overhead",
+      "across": -2.6,
+      "distance": 2.6,
+      "elevation": -0.3,
+      "height": 4.9,
+      "box": [
+        -1.8,
+        -4.95,
+        3.6,
+        -2
+      ]
+    },
+    {
+      "id": "table_top",
+      "name": "Table with the board",
+      "plane": true,
+      "across": 0.85,
+      "distance": 4.35,
+      "elevation": 0.42,
+      "width": 1,
+      "depth": 0.7,
+      "shadow": {
+        "light": "lamp"
+      }
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "across": 0.85,
+      "distance": 4,
+      "facing": 180,
+      "height": 0.45,
+      "box": [
+        -0.52,
+        -0.45,
+        0.52,
+        0.02
+      ]
+    },
+    {
+      "id": "pieces",
+      "name": "Chess pieces",
+      "on": "table_top",
+      "across": 0,
+      "distance": 0,
+      "elevation": 0,
+      "height": 0.1,
+      "box": [
+        -0.3,
+        -0.1,
+        0.3,
+        0.01
+      ]
+    },
+    {
+      "id": "stool",
+      "name": "Khan’s seat",
+      "across": 1.62,
+      "distance": 4.45,
+      "facing": 180,
+      "height": 0.5,
+      "box": [
+        -0.36,
+        -0.5,
+        0.36,
+        0.02
+      ]
+    },
+    {
+      "id": "khan",
+      "name": "Khan",
+      "person": {
+        "cast": "cast",
+        "who": "khan",
+        "turn": 238,
+        "does": "seated"
+      },
+      "across": 1.62,
+      "distance": 4.45
+    },
+    {
+      "id": "lantern",
+      "name": "Lantern post",
+      "across": 0.3,
+      "distance": 5,
+      "height": 2.65,
+      "box": [
+        -0.2,
+        -2.65,
+        0.2,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "lantern_glass",
+      "name": "Lantern",
+      "glows": true,
+      "inFront": [
+        "lantern"
+      ],
+      "flicker": 0.15,
+      "across": 0.3,
+      "distance": 5,
+      "height": 2.4,
+      "box": [
+        -0.13,
+        -2.4,
+        0.13,
+        -2
+      ]
+    },
+    {
+      "id": "marco",
+      "name": "Marco",
+      "person": {
+        "cast": "cast",
+        "who": "marco",
+        "turn": 118,
+        "does": "hands_behind"
+      },
+      "across": -0.9,
+      "distance": 5.5
+    }
+  ],
+  "state": {
+    "city": 3,
+    "khan_on": [
+      1.62,
+      4.45,
+      0.44
+    ],
+    "khan_look": "marco",
+    "marco_look": "khan"
+  },
+  "states": {
+    "city": {
+      "values": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "means": "his city as Marco sees it: how many groups of its lights still burn at the edge of the water on the left (3 all, 0 none)"
+    }
+  },
+  "music": {
+    "prompts": [
+      {
+        "text": "Slow solo oud, sparse and tender, long silences between phrases, night air, distant water",
+        "weight": 1.2
+      },
+      {
+        "text": "Soft sustained string pad under a hushed felt piano, very slow, a garden at night, timeless",
+        "weight": 1
+      },
+      {
+        "text": "Distant bells across water, softened by reverb, three slow notes fading, ambient and calm",
+        "weight": 0.6
+      },
+      {
+        "text": "Bowed psaltery drone with a quiet ney flute melody, meditative, no rhythm",
+        "weight": 0.4
+      },
+      {
+        "text": "Warm low cello holding long notes, restrained, an old man listening",
+        "weight": 0
+      },
+      {
+        "text": "Kalimba notes like water drops, slow and uneven, gentle, minimalist",
+        "weight": 0
+      },
+      {
+        "text": "Wordless distant choir, almost inaudible, cathedral reverb, the end of an empire",
+        "weight": 0
+      },
+      {
+        "text": "Glassy synth swells with long tails, cool blue night, modern indie game score",
+        "weight": 0
+      },
+      {
+        "text": "Hammered dulcimer, slow and delicate, a story told by lamplight",
+        "weight": 0
+      },
+      {
+        "text": "Low foghorn-like brass far away, misty harbour, a ship waiting for dawn",
+        "weight": 0
+      },
+      {
+        "text": "Music box slowed and drenched in reverb, fragile memory of a lost city",
+        "weight": 0
+      },
+      {
+        "text": "Solo clarinet, quiet and wandering, a traveller between towns",
+        "weight": 0
+      },
+      {
+        "text": "Granular textures of wind and water, slow breathing pads, almost silent",
+        "weight": 0
+      },
+      {
+        "text": "Plucked harp arpeggios, impressionistic, moonlight on a lake",
+        "weight": 0
+      },
+      {
+        "text": "Frame drum pulse very soft and slow, like a heartbeat under the night",
+        "weight": 0
+      },
+      {
+        "text": "Neo-classical string quartet, sustained harmonics, silvery and pale",
+        "weight": 0
+      }
+    ],
+    "bpm": 64,
+    "density": 0.25,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
