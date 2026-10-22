@@ -37,8 +37,8 @@ while (stack.length) {
   seen[a][b] = true;
   stack.push([a, b]);
 }
-// the corridor where Algernon is (row 4, from column 3 to 6) kept open along
-for (let c = 3; c < 6; c++) right[4][c] = false;
+// the corridor where Algernon is (row 5, from column 3 to 6) kept open along
+for (let c = 3; c < 6; c++) right[5][c] = false;
 const W = 0.014;
 const wall = (x, y, w, h) => {
   g.fillStyle = '#b9bdb6';

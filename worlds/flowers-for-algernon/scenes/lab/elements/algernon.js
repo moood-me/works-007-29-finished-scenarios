@@ -1,6 +1,7 @@
 // Algernon, the white mouse, in a corridor of the maze, side on, nose to the right: a white body, a long pink tail,
 // pink ears and feet, a red eye, whiskers. His head is the layer `head`, turning about his neck as he sniffs (his
-// animate). Metres from his feet.
+// animate). Metres from his feet; painted a half again as large as a mouse is, so he reads across the room.
+g.scale(1.45, 1.45);
 g.strokeStyle = '#e8b4b0';
 g.lineCap = 'round';
 g.lineWidth = 0.005;
@@ -22,7 +23,8 @@ g.fillStyle = 'rgba(200,200,205,0.35)';
 g.beginPath();
 g.ellipse(-0.006, -0.012, 0.034, 0.008, 0, 0, Math.PI * 2);
 g.fill();
-e.layer('head', { pivot: [0.028, -0.024] }, c => {
+e.layer('head', { pivot: [0.04, -0.035] }, c => {
+  c.scale(1.45, 1.45);
   c.fillStyle = '#fbfaf6';
   c.beginPath();
   c.moveTo(0.022, -0.04);
@@ -55,4 +57,4 @@ e.layer('head', { pivot: [0.028, -0.024] }, c => {
   }
   c.stroke();
 });
-e.at(0.055, -0.03);
+e.at(0.08, -0.044);

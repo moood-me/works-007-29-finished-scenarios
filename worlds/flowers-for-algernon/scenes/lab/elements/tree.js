@@ -25,11 +25,11 @@ const clumps = [[-2.4, -7.2, 1.6], [-0.8, -8.4, 1.8], [1.0, -7.8, 1.7], [2.3, -6
 const greens = ['#9cc06a', '#b3d17c', '#8bb35e', '#c4dc8e'];
 clumps.forEach(([cx, cy, r], i) => {
   e.layer(`leaves${i}`, { pivot: [cx * 0.4, cy + r], wind: { strength: 0.25, gust: 0.4 }, box: [cx - r * 1.4, cy - r * 1.3, cx + r * 1.4, cy + r * 1.2] }, c => {
-    for (let k = 0; k < 40; k++) {
+    for (let k = 0; k < 110; k++) {
       const a = e.rnd() * Math.PI * 2, d = Math.sqrt(e.rnd()) * r;
       c.fillStyle = greens[(k + i) % greens.length];
       c.beginPath();
-      c.ellipse(cx + Math.cos(a) * d, cy + Math.sin(a) * d * 0.8, 0.22 + e.rnd() * 0.2, 0.16 + e.rnd() * 0.12, e.rnd() * 3, 0, Math.PI * 2);
+      c.ellipse(cx + Math.cos(a) * d, cy + Math.sin(a) * d * 0.8, 0.1 + e.rnd() * 0.09, 0.07 + e.rnd() * 0.05, e.rnd() * 3, 0, Math.PI * 2);
       c.fill();
     }
   });

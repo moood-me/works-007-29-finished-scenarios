@@ -31,12 +31,12 @@ return {
     charlie: {
       kind: 'shapes', style: 'lab', who: 'man', garment: 'jacket', hair: 'short',
       body: { height: 0.97, thick: 1.04, shoulders: 1.0 },
-      colors: { skin: '#e8bf9c', hair: '#b48a55', top: '#ece6d8', garment: '#7a5a3c', bottom: '#3e3a37', shoes: '#2c241e' },
+      colors: { skin: '#e8bf9c', hair: '#b48a55', top: '#ece6d8', garment: '#9a7552', bottom: '#3e3a37', shoes: '#2c241e' },
     },
     // Alice Kinnian, thirty-four: slight and upright, brown hair up in a low bun, a plain dress of dusty rose — the
     // evening class's teacher
     kinnian: {
-      kind: 'shapes', style: 'lab', who: 'woman', garment: 'dress', hair: 'bun',
+      kind: 'shapes', style: 'lab', who: 'woman', garment: 'frock', hair: 'bun',
       body: { height: 0.92, thick: 0.8, shoulders: 0.86, hips: 1.0 },
       colors: { skin: '#f0cfb6', hair: '#5b3b2b', top: '#b9807a', garment: '#b9807a', shoes: '#3e302b' },
     },
@@ -50,9 +50,13 @@ return {
   shapes: {
     // the world's style: soft rounded shapes and tinted lines (soft), the head a little smaller so the grown-ups read
     // as grown-ups, a simple face (eyes, brows, nose, mouth — <id>_mood shows on it) so faces read across the room
-    styles: { lab: { from: 'soft', name: 'Flowers for Algernon', head: 1.18, neck: 0.55, legs: 0.92, line: 1.8 } },
+    styles: { lab: { from: 'soft', name: 'Flowers for Algernon', head: 1.3, neck: 0.55, legs: 0.92, line: 1.8 } },
     // a laboratory coat: white, from the shoulders to above the knee, straight, its sleeves white
-    garments: { labcoat: { name: 'laboratory coat', hang: [{ to: 0.75, from: 'shoulders', flare: 0.1 }], sleeves: 'garment' } },
+    garments: {
+      labcoat: { name: 'laboratory coat', hang: [{ to: 0.6, from: 'shoulders', flare: 0.03 }], sleeves: 'garment' },
+      // a plain day dress: fitted to the waist, the skirt falling straight to below the knee
+      frock: { name: 'day dress', hang: [{ to: 1.35, from: 'waist', flare: 0.16, off: 0.94 }], short: true, bare: true, bodice: true },
+    },
     parts: { spectacles: { name: 'spectacles', draw: spectacles } },
   },
 };

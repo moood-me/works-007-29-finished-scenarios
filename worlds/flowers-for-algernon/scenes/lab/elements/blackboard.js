@@ -6,12 +6,17 @@ g.fillRect(-1.12, -1.27, 2.24, 1.29);
 g.fillStyle = '#3f4d47';
 g.fillRect(-1.06, -1.21, 2.12, 1.17);
 // what was wiped off: soft pale clouds
+g.save();
+g.beginPath();
+g.rect(-1.06, -1.21, 2.12, 1.17);
+g.clip();
 for (let i = 0; i < 9; i++) {
   g.fillStyle = 'rgba(200,210,204,0.07)';
   g.beginPath();
   g.ellipse(-0.9 + e.rnd() * 1.8, -1.0 + e.rnd() * 0.8, 0.15 + e.rnd() * 0.25, 0.06 + e.rnd() * 0.1, e.rnd(), 0, Math.PI * 2);
   g.fill();
 }
+g.restore();
 g.strokeStyle = 'rgba(236,238,230,0.85)';
 g.lineCap = 'round';
 g.lineJoin = 'round';
