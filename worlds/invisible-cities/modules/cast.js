@@ -43,8 +43,8 @@ return {
       // a full beard over the jaw and the chin (the colour of the hair)
       beard: { name: 'beard', draw: F => {
         const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
-        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.55, 0.83], 0.25, F.colors.hair, h.sides, h.square);
-        F.ball(add(h.at, add(mul(hu, -r * 1.05), mul(hf, r * 0.5))), h.axes, [r * 0.62, r * 0.6, r * 0.42], F.colors.hair, h.sides);
+        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.8, 0.6], 0.5, F.colors.hair, h.sides, h.square);
+        F.ball(add(h.at, add(mul(hu, -r * 1.0), mul(hf, r * 0.45))), h.axes, [r * 0.55, r * 0.55, r * 0.4], F.colors.hair, h.sides);
       } },
       // a walking stick, its brass knob by the right knee, its foot on the floor beside the right foot: standing or
       // sitting, it leans there
