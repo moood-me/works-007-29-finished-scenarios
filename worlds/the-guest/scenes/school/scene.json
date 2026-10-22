@@ -158,11 +158,11 @@
       "across": -3.6,
       "distance": 1.6,
       "elevation": 4.1,
-      "height": 1.0,
+      "height": 0.75,
       "box": [
-        -0.35,
-        -1.1,
-        0.35,
+        -0.3,
+        -0.8,
+        0.3,
         0.05
       ],
       "shadow": true
@@ -230,8 +230,12 @@
       "particles": {
         "kind": "smoke",
         "at": "chimney#mouth",
-        "rate": 4,
-        "color": "#dfe2e6"
+        "rate": 6,
+        "color": "#dfe2e6",
+        "size": [
+          0.3,
+          1.6
+        ]
       }
     },
     {

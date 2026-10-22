@@ -97,6 +97,21 @@ for (let i = 0; i < 9; i++) {
   g.lineTo(X(douar[0] - 150 + e.rnd() * 300), Y(douar[1] - 150 + e.rnd() * 300));
   g.stroke();
 }
+// near: the snow's surface ridged by the wind — faint long ripples along it (the wind from the right)
+g.lineCap = 'round';
+for (let i = 0; i < 260; i++) {
+  const a = -25 + e.rnd() * 45;
+  const d = 0.5 + Math.pow(e.rnd(), 1.5) * 30;
+  const len = 0.8 + e.rnd() * 2.6;
+  g.strokeStyle = e.rnd() < 0.6 ? '#d3dbe4' : '#f2f5f8';
+  g.globalAlpha = 0.55;
+  g.lineWidth = 0.04 + e.rnd() * 0.06;
+  g.beginPath();
+  g.moveTo(X(a), Y(d));
+  g.quadraticCurveTo(X(a + len / 2), Y(d + 0.15), X(a + len), Y(d + 0.05));
+  g.stroke();
+}
+g.globalAlpha = 1;
 // near: soft drifts of snow, a little bluer or warmer
 for (let i = 0; i < 90; i++) {
   const a = -30 + e.rnd() * 60;
@@ -126,27 +141,16 @@ function trace(width, color) {
   g.lineTo(X(path[path.length - 1][0]), Y(path[path.length - 1][1]));
   g.stroke();
 }
-trace(1.1, '#d3d2cd');
-trace(0.55, '#a89d8c');
-// near stones: limestone coming through the snow, each a grey top and a snow cap's edge
+trace(0.9, '#d8d8d4');
+trace(0.4, '#ada392');
+// stones: limestone coming through the snow
 for (let i = 0; i < 160; i++) {
   const a = -28 + e.rnd() * 50;
-  const d = 1.5 + Math.pow(e.rnd(), 1.3) * 45;
+  const d = 6 + Math.pow(e.rnd(), 1.3) * 45;
   if (a > -4 && a < 4.5 && d < 9) continue;
   const r = 0.08 + Math.pow(e.rnd(), 2) * 0.5;
   g.fillStyle = e.rnd() < 0.6 ? '#9f9b92' : '#b2ab9c';
   g.beginPath();
   g.ellipse(X(a), Y(d), r * (1 + e.rnd()), r, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();
-  g.fillStyle = '#eef1f4';
-  g.beginPath();
-  g.ellipse(X(a) - r * 0.2, Y(d) - r * 0.25, r * 0.8, r * 0.5, 0, 0, Math.PI * 2);
-  g.fill();
 }
-// under the eaves and round the walls of the school the snow is trodden and grey
-g.fillStyle = '#d6d8d8';
-g.globalAlpha = 0.5;
-g.beginPath();
-g.ellipse(X(0.2), Y(6.6), 3.0, 1.5, -0.35, 0, Math.PI * 2);
-g.fill();
-g.globalAlpha = 1;
