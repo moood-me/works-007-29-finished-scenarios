@@ -20,5 +20,5 @@ pot) and its people as they are in the story. No one moves but a look; no camera
 - **Light**: the grey morning in at the door and the window (daylight lights `door_day`, `window_day`), a weak far
   `dawn`, and the stove's warm embers on the left.
 - **People** (modules/cast, style `macondo`): the colonel in his black suit before the hammock, the umbrella in his
-  hand like a cane, and his wife on the edge of the bed, both looking at the rooster between them. The showcase: she
-  looks up at him, he past us; back to the rooster.
+  hand like a cane, looking past us at nothing; his wife on the edge of the bed, looking at the rooster between them.
+  The showcase: he looks down at the rooster, she up at him; back.

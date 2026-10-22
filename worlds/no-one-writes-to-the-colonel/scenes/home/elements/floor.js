@@ -35,12 +35,12 @@ wet.addColorStop(0, 'rgba(70,52,38,0.75)');
 wet.addColorStop(1, 'rgba(70,52,38,0)');
 g.fillStyle = wet;
 g.fillRect(-3.0, -0.4, 1.0, 1.9);
-// the string from the foot of the bed (0.9, −0.76) to the rooster's leg (0.6, 0.77), slack on the earth
+// the string from the foot of the bed (0.9, −0.76) to the rooster's leg (0.85, 0.17), slack on the earth
 g.strokeStyle = '#d9cfb8';
 g.lineWidth = 0.012;
 g.beginPath();
 g.moveTo(0.9, -0.76);
-g.bezierCurveTo(1.15, -0.2, 0.35, 0.2, 0.6, 0.77);
+g.bezierCurveTo(1.15, -0.4, 0.6, -0.2, 0.85, 0.17);
 g.stroke();
 // the corn and the water tin
 g.fillStyle = '#e0b84a';
@@ -48,14 +48,14 @@ for (let i = 0; i < 40; i++) {
   const a = e.rnd() * 6.28;
   const r = 0.05 + e.rnd() * 0.3;
   g.beginPath();
-  g.ellipse(0.4 + Math.cos(a) * r, 0.88 + Math.sin(a) * r * 0.7, 0.009, 0.007, a, 0, Math.PI * 2);
+  g.ellipse(0.65 + Math.cos(a) * r, 0.28 + Math.sin(a) * r * 0.7, 0.009, 0.007, a, 0, Math.PI * 2);
   g.fill();
 }
 g.fillStyle = '#8f9290';
 g.beginPath();
-g.arc(0.05, 0.55, 0.1, 0, Math.PI * 2);
+g.arc(0.3, 0.02, 0.1, 0, Math.PI * 2);
 g.fill();
 g.fillStyle = '#a9b0b2';
 g.beginPath();
-g.arc(0.05, 0.55, 0.085, 0, Math.PI * 2);
+g.arc(0.3, 0.02, 0.085, 0, Math.PI * 2);
 g.fill();
