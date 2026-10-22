@@ -99,7 +99,11 @@
         0.88
       ]
     },
-    "judge_look": "traps",
+    "judge_look": [
+      -0.4,
+      2.2,
+      1.55
+    ],
     "judge_mood": "smile",
     "judge_reach": {
       "r": [

@@ -2,23 +2,28 @@
 
 Stage 2 of the game (the look): the garden of the judge's villa on the July evening Traps arrives (С2, «Сад виллы»,
 its evening) — the place that sets the world's mood — and the three main people standing as they stand when the judge
-rises to meet his guest. No one moves but heads and faces; no camera moves.
+has risen to meet his guest. No one moves but heads and faces; no camera moves.
 
 - **Where things are.** The viewer stands on the gravel before the table (camera `picture`). The table under the near
-  chestnut at distance 5.8 (`table_top` a plane at 0.76, `table_front` its hanging cloth, `table_things` the bottles
-  and glasses); chairs behind it (`chair` copies at 6.5 — Zorn's at across 1.0), one pulled out before it with
-  Kummer's `cane`, two pulled back at its ends (`chair_side`). The lanterns on a cord over the table (`lampions`,
-  distance 7: seven layers swinging in the wind, their lights `lamp_0…6` from `lampions#l0…l6`). The chestnuts
-  (`tree_left` −4.6/6.4 whose crown spreads over the table, `tree_right` 5.4/8.2; leaves from `lib.js`, three and
-  two layers stirring). The gravel path up to the villa's open door (`gravel`, `villa` at 24, its lit windows
-  `villa_lit`), rose bushes along it (`bush` copies). On the left the hedge with the gate (`hedge`, `gate` at 15), the
-  bench under the chestnut; over the hedge the valley's far side with the village and the church spire (`hills`).
+  chestnut at distance 4.1 (`table_top` a plane at 0.76, `table_front` its hanging cloth at 3.55, `table_things` the
+  bottles, glasses, bread and cheese); two chairs behind it (`chair` copies at 4.8 — Zorn's at across 0.9), two pulled
+  back at its ends, seen side-on (`chair_side`), Kummer's `cane` hooked on the left one. The lanterns on a cord over
+  the table (`lampions`, distance 5.5: seven layers swinging in the wind, their lights `lamp_0…6` from
+  `lampions#l0…l6`). The chestnuts (`tree_left` −4.6/6.4 whose crown spreads over the table, `tree_right` 5.4/8.2;
+  leaves from `lib.js`, three and two layers stirring). The gravel round the table and the path up to the villa's
+  open door (`gravel`), the villa at 24 (`villa`, its lit windows and hall `villa_lit`), rose bushes along the path
+  (`bush` copies), geraniums in pots framing the near corners (`pot`). On the left the hedge with the gate (`hedge`
+  copy 0 and `gate` at 15; copy 1 closes the garden on the right at 30), the bench under the chestnut; past the hedges
+  the valley's fields (the far part of `lawn`, a plane out to 330 m) and its far side with the village and the church
+  spire (`hills` at 320).
 - **Light**: the sun low behind the viewer on the left (`sun`, from bearing −125°) lays gold on the faces and the
-  villa; the eastern sky is blue over a rose belt (`sky`, its clouds drifting); lavender ambient in the shadows; the
-  lanterns and the villa's windows already lit.
-- **People** (modules/cast, style `traps`): Traps (−1.75/3.4, turned 170) with a glass of red at his chest (reach r,
-  part `glass`), the left hand at the pocket, his case of samples (`case`) by his feet, looking past the viewer, smiling; the
-  judge (1.9/4.95, turned 210) by his pulled-back chair, hands clasped on his belly, beaming at the guest; Zorn
-  (1.0/6.78, turned 190) behind his chair, hands on its back, studying Traps. Kummer and Pile are not in the frame
-  (Kummer's cane is).
-- **Not yet**: the night variant (lanterns burning down), the other people.
+  villa and long shadows to the right; the eastern sky blue over a rose belt (`sky`, its clouds drifting); lavender
+  ambient in the shadows; the lanterns and the villa's windows already lit.
+- **People** (modules/cast, style `traps`): Traps (−1.75/3.3, turned 170) with a glass of red at his chest
+  (`traps_reach` r, part `glass`), the left hand at the pocket, his case of samples (`case`) by his feet, smiling past
+  the viewer; the judge (2.35/3.8, turned 225) at the table's corner by his pulled-back chair, hands clasped on his
+  belly, beaming toward his guest; Zorn (0.9/5.08, turned 190) behind his chair, hands on its back, studying Traps.
+  Their looks are kept within ~45° of the viewer so the faces read (a look straight at someone beside them is a
+  profile). Kummer and Pile are not in the frame (Kummer's cane is). Hands are placed by `<id>_reach` over the
+  engine's `stand`: the world has no motions of its own yet.
+- **Not yet**: the night variant (the lanterns burning down), the other people, motions.

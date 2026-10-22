@@ -9,7 +9,7 @@ old men read as men; a simple face (eyes, brows, nose, mouth — `<id>_mood` sho
 
 ## Who
 
-- `traps` — Alfredo Traps, forty-five: well fed, dark hair, a new cream summer suit; a glass of red wine in the right
+- `traps` — Alfredo Traps, forty-five: well fed, dark hair, a new cream summer suit, a red tie (part `tie`); a glass of red wine in the right
   hand (part `glass`).
 - `judge` — the judge, the host: small, bald with a white fringe (hair `fringe`) and a white moustache (part
   `moustache`), a black suit, a dark red bow tie (part `bowtie`).
