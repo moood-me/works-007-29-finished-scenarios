@@ -38,9 +38,9 @@ g.fillStyle = '#ffd593';
 for (let i = 0; i < 7; i++) {
   const x = -26 + i * 8;
   g.fillRect(x, -4.2, 1.4, 1.2);
-  e.light(x + 0.7, -3.6, 1.6, '#ffcb80', 0.5);
+  e.light(x + 0.7, -3.6, 3, '#ffcb80', 0.8);
 }
-e.light(-37, -12, 2.4, '#ffd08a', 0.9);
-e.light(41, -11, 2, '#ffe0a8', 0.8);
-e.light(2, -50, 2, '#fff0d0', 0.7);
+e.light(-37, -12, 5, '#ffd08a', 1.2);
+e.light(41, -11, 4, '#ffe0a8', 1.1);
+e.light(2, -50, 4, '#fff0d0', 1.0);
 e.at(0, -12, 'lights');

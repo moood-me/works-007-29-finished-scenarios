@@ -37,5 +37,5 @@ g.lineTo(768, -47);
 g.lineTo(771.5, -44);
 g.closePath();
 g.fill();
-e.light(768, -42, 9, '#ffe2a8', 1.1, 'lamp');
+e.light(768, -42, 14, '#ffe2a8', 1.3, 'lamp');
 e.at(768, -42, 'lighthouse');
