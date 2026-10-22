@@ -4,6 +4,10 @@
 // running down from the roof. The caller clips its openings itself.
 function limewash(g, e, x0, x1, h) {
   const w = x1 - x0;
+  g.save();
+  g.beginPath();
+  g.rect(x0, -h - 0.02, w, h + 0.04);
+  g.clip();
   g.fillStyle = '#e4dfd2';
   g.fillRect(x0, -h - 0.02, w, h + 0.04);
   // the wash laid on unevenly: broad paler and greyer strokes
@@ -50,6 +54,7 @@ function limewash(g, e, x0, x1, h) {
   damp.addColorStop(1, 'rgba(84,72,58,0)');
   g.fillStyle = damp;
   g.fillRect(x0, -0.5, w, 0.52);
+  g.restore();
 }
 // mud(g, e, x0, y0, x1, y1): the yard's ground from above — wet dark earth, puddles holding the grey sky, tufts of
 // grass, fallen leaves.

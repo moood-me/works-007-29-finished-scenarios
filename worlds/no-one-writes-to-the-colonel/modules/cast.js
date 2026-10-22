@@ -13,7 +13,7 @@ return {
     colonel: {
       kind: 'shapes', style: 'macondo', who: 'old', garment: 'jacket', hair: 'short', face: 'simple', parts: ['moustache'],
       body: { height: 1.0, thick: 0.78, shoulders: 0.98, neck: 1.1 },
-      colors: { skin: '#b9845f', hair: '#cfc9bf', top: '#ece6d8', garment: '#1f1d22', bottom: '#1f1d22', shoes: '#141215' },
+      colors: { skin: '#b9845f', hair: '#cfc9bf', top: '#ece6d8', garment: '#2b2a31', bottom: '#2b2a31', shoes: '#141215' },
     },
     // his wife, about seventy: small and bony, grey hair drawn back in a knot, a faded dark-blue house dress gone grey
     // with washing, bare feet in slippers
@@ -25,8 +25,8 @@ return {
   },
   shapes: {
     // the world's style: the engine's graphic figures — flat colours, a narrow waist, long limbs — toned by the light,
-    // with a simple face (eyes, brows, nose, mouth: <id>_mood shows on it)
-    styles: { macondo: { from: 'graphic', name: 'No One Writes to the Colonel', paint: 'toned', face: 'simple', line: 1.4 } },
+    // a head big enough for a face to read, with a simple face (eyes, brows, nose, mouth: <id>_mood shows on it)
+    styles: { macondo: { from: 'graphic', name: 'No One Writes to the Colonel', head: 1.3, limb: 0.92, paint: 'toned', face: 'simple', line: 1.4 } },
     parts: {
       // a grey moustache under the nose, drooping a little at its ends (the colour of the hair)
       moustache: {

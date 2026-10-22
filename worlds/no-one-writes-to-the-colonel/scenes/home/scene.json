@@ -7,13 +7,13 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.62,
+    "ambient": 0.78,
     "ambientColor": "#b9c2c8",
-    "inside": 0.4,
+    "inside": 0.55,
     "bounce": 0.55,
     "haze": 0.1,
     "hazeColor": "#aeb6b4",
-    "hazeGlow": 0.6,
+    "hazeGlow": 0.3,
     "tint": "#cfd8d2",
     "tintStrength": 0.06,
     "saturation": 0.95,
@@ -29,7 +29,7 @@
     {
       "id": "door_day",
       "of": "door",
-      "daylight": 1.3
+      "daylight": 1.6
     },
     {
       "id": "window_day",
@@ -43,7 +43,6 @@
       "reach": 3.6,
       "on": "fire",
       "flicker": 0.35,
-      "glow": 0.25,
       "of": "stove#embers"
     },
     {
@@ -62,7 +61,11 @@
   "state": {
     "fire": 1,
     "rain": 1,
-    "colonel_look": "wife",
+    "colonel_look": [
+      0.7,
+      0.0,
+      1.55
+    ],
     "colonel_mood": "thinking",
     "colonel_with": [
       "umbrella"
@@ -98,10 +101,10 @@
       "id": "yard",
       "name": "The yard in the rain",
       "plane": true,
-      "across": -1.0,
-      "distance": 13.0,
-      "width": 30.0,
-      "depth": 14.6
+      "across": 0.0,
+      "distance": 33.0,
+      "width": 80.0,
+      "depth": 54.6
     },
     {
       "id": "yard_side",
@@ -177,7 +180,7 @@
         "area": [
           -2.6,
           9.0,
-          5.75,
+          5.15,
           20.0
         ],
         "count": 5000,
@@ -205,7 +208,7 @@
       "plane": true,
       "inside": true,
       "across": 0,
-      "distance": 3.75,
+      "distance": 3.15,
       "width": 6.0,
       "depth": 3.8
     },
@@ -214,16 +217,16 @@
       "name": "The roof seen from below",
       "inside": true,
       "across": 0,
-      "distance": 5.6,
+      "distance": 5.0,
       "elevation": 2.9,
       "facing": 180,
       "tilt": -90,
       "height": 3.8,
       "box": [
-        -3.0,
-        -3.85,
+        -3.3,
+        -4.05,
         3.0,
-        0.05
+        0.3
       ]
     },
     {
@@ -231,7 +234,7 @@
       "name": "The back wall and the window",
       "inside": true,
       "across": 0,
-      "distance": 5.6,
+      "distance": 5.0,
       "facing": 180,
       "height": 2.9,
       "box": [
@@ -246,7 +249,7 @@
       "name": "The left wall and the open door",
       "inside": true,
       "across": -3.0,
-      "distance": 3.72,
+      "distance": 3.12,
       "facing": 90,
       "height": 2.9,
       "box": [
@@ -261,7 +264,7 @@
       "name": "The right wall",
       "inside": true,
       "across": 3.0,
-      "distance": 3.72,
+      "distance": 3.12,
       "facing": 270,
       "height": 2.9,
       "box": [
@@ -276,7 +279,7 @@
       "name": "The doorway onto the yard",
       "inside": true,
       "across": -2.99,
-      "distance": 3.2,
+      "distance": 2.6,
       "facing": 90,
       "height": 2.15,
       "box": [
@@ -291,7 +294,7 @@
       "name": "The window's open shutters",
       "inside": true,
       "across": 1.75,
-      "distance": 5.58,
+      "distance": 4.98,
       "elevation": 1.0,
       "facing": 180,
       "height": 1.1,
@@ -307,7 +310,7 @@
       "name": "The wall clock",
       "inside": true,
       "across": 0.1,
-      "distance": 5.57,
+      "distance": 4.97,
       "elevation": 1.55,
       "facing": 180,
       "height": 0.7,
@@ -324,12 +327,12 @@
       "inside": true,
       "shadow": true,
       "across": -2.15,
-      "distance": 4.95,
+      "distance": 4.35,
       "facing": 160,
-      "height": 1.6,
+      "height": 1.0,
       "box": [
         -0.75,
-        -1.62,
+        -0.95,
         0.75,
         0.03
       ]
@@ -386,7 +389,7 @@
       "shadow": true,
       "translucent": 0.2,
       "across": -0.45,
-      "distance": 5.25,
+      "distance": 4.65,
       "height": 1.9,
       "box": [
         -1.25,
@@ -401,7 +404,7 @@
       "inside": true,
       "shadow": true,
       "across": 1.85,
-      "distance": 4.45,
+      "distance": 3.85,
       "facing": 180,
       "height": 1.25,
       "box": [
@@ -417,7 +420,7 @@
       "plane": true,
       "inside": true,
       "across": 1.85,
-      "distance": 4.95,
+      "distance": 4.35,
       "elevation": 0.5,
       "width": 1.9,
       "depth": 1.0
@@ -428,7 +431,7 @@
       "inside": true,
       "shadow": true,
       "across": 2.8,
-      "distance": 4.95,
+      "distance": 4.35,
       "facing": 270,
       "height": 1.2,
       "box": [
@@ -440,11 +443,11 @@
       "copies": [
         {
           "across": 2.8,
-          "distance": 4.95
+          "distance": 4.35
         },
         {
           "across": 0.9,
-          "distance": 4.95,
+          "distance": 4.35,
           "scale": 0.85
         }
       ]
@@ -455,7 +458,7 @@
       "inside": true,
       "shadow": true,
       "across": 0.7,
-      "distance": 3.75,
+      "distance": 3.15,
       "height": 0.6,
       "box": [
         -0.35,
@@ -471,10 +474,10 @@
       "person": {
         "cast": "cast",
         "who": "colonel",
-        "turn": 160
+        "turn": 168
       },
       "across": -0.55,
-      "distance": 3.3
+      "distance": 2.7
     },
     {
       "id": "wife",
@@ -483,10 +486,10 @@
       "person": {
         "cast": "cast",
         "who": "wife",
-        "turn": 195
+        "turn": 200
       },
       "across": 1.6,
-      "distance": 4.62
+      "distance": 4.02
     }
   ],
   "music": {

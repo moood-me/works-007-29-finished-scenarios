@@ -1,19 +1,6 @@
 // The stove (metres from its foot): a hearth of adobe built up waist-high and whitewashed long ago, gone smoky; on
 // it three stones round a small fire (the scene's particles; its embers the light "stove"), the blackened pot on the
 // stones, the coffee tin open beside it with the knife across it; under it the hollow where the kindling is kept.
-// a shelf on legs at the back with two tins and a gourd.
-g.fillStyle = '#4a3a2e';
-g.fillRect(-0.62, -1.6, 0.05, 0.8);
-g.fillRect(0.57, -1.6, 0.05, 0.8);
-g.fillRect(-0.66, -1.6, 1.32, 0.05);
-g.fillStyle = '#8a8a86';
-g.fillRect(-0.45, -1.78, 0.14, 0.18);
-g.fillStyle = '#a07a4a';
-g.fillRect(-0.25, -1.75, 0.12, 0.15);
-g.fillStyle = '#b08848';
-g.beginPath();
-g.ellipse(0.3, -1.72, 0.09, 0.12, 0, 0, Math.PI * 2);
-g.fill();
 // the hearth's body
 g.fillStyle = '#cfc4b0';
 g.beginPath();
