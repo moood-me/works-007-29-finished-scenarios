@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Laboratory","translation":"Лаборатория","where":"scenes/lab/scene.json title"},
+  {"text":"An April morning. Algernon is in the maze, and Charlie is next.","translation":"Апрельское утро. Элджернон в лабиринте, следующий — Чарли.","where":"scenes/lab/scene.json caption"}
+]}

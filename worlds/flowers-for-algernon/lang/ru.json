@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Flowers for Algernon","translation":"Цветы для Элджернона","where":"world.json title"},
+  {"text":"A bakery, a night class, a laboratory with a white mouse. A mind that rises, and falls.","translation":"Пекарня, вечерний класс, лаборатория с белой мышью. Ум, который поднимается — и уходит.","where":"world.json description"}
+]}
