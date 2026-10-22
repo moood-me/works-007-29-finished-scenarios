@@ -1,0 +1,555 @@
+{
+  "engine": 3,
+  "title": "The School",
+  "caption": "Three hours up from El Ameur, on foot, through the snow.",
+  "horizon": 0.48,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.58,
+    "ambientColor": "#bccdee",
+    "bounce": 0.55,
+    "haze": 0.06,
+    "hazeColor": "#c6d6e8",
+    "hazeGlow": 0.3,
+    "shafts": 0,
+    "tint": "#eaf1ff",
+    "tintStrength": 0.05,
+    "saturation": 0.95,
+    "vignette": 0.22,
+    "grain": 0.06,
+    "wind": [
+      -1,
+      0.25,
+      0.6
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        140,
+        28
+      ],
+      "color": "#fff4e6",
+      "strength": 1.45
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "daru_look": [
+      -3.9,
+      0.2,
+      0.4
+    ],
+    "daru_mood": "thinking",
+    "balducci_look": "daru",
+    "balducci_mood": "neutral",
+    "balducci_reach": {
+      "r": [
+        0.05,
+        6.96,
+        0.9
+      ]
+    },
+    "arab_look": "daru",
+    "arab_mood": "neutral"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "land",
+      "name": "The plateau and the plain below",
+      "plane": true,
+      "drape": true,
+      "across": -1000,
+      "distance": 2900,
+      "width": 6000,
+      "depth": 6000
+    },
+    {
+      "id": "ridges_far",
+      "name": "The farthest mountains",
+      "across": -3000,
+      "distance": 11000,
+      "elevation": -190,
+      "height": 700,
+      "box": [
+        -12000,
+        -720,
+        12000,
+        60
+      ]
+    },
+    {
+      "id": "ridges",
+      "name": "The far ridges across the plain",
+      "across": -2500,
+      "distance": 6000,
+      "elevation": -190,
+      "height": 560,
+      "box": [
+        -7000,
+        -580,
+        7000,
+        60
+      ]
+    },
+    {
+      "id": "school",
+      "name": "The school",
+      "unseen": true,
+      "across": 6.67,
+      "distance": 5.45,
+      "facing": 200
+    },
+    {
+      "id": "front",
+      "on": "school",
+      "name": "The school's front",
+      "facing": 180,
+      "height": 3.42,
+      "box": [
+        -6.8,
+        -3.55,
+        6.8,
+        0.15
+      ],
+      "shadow": true
+    },
+    {
+      "id": "gable",
+      "on": "school",
+      "name": "The school's right end",
+      "across": 6.2,
+      "facing": 90,
+      "height": 4.7,
+      "box": [
+        -0.4,
+        -4.85,
+        5.3,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "roof",
+      "on": "school",
+      "name": "The roof",
+      "plane": true,
+      "distance": 1.15,
+      "elevation": 4.0,
+      "width": 12.8,
+      "depth": 2.9,
+      "tilt": 24,
+      "shadow": true
+    },
+    {
+      "id": "chimney",
+      "on": "school",
+      "name": "The chimney",
+      "across": -3.6,
+      "distance": 1.6,
+      "elevation": 4.1,
+      "height": 0.75,
+      "box": [
+        -0.3,
+        -0.8,
+        0.3,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "terrace",
+      "on": "school",
+      "name": "The terrace",
+      "plane": true,
+      "walk": true,
+      "across": 0.2,
+      "distance": -1.2,
+      "elevation": 0.45,
+      "width": 8.4,
+      "depth": 2.4
+    },
+    {
+      "id": "terrace_edge",
+      "on": "school",
+      "name": "The terrace's front",
+      "across": 0.2,
+      "distance": -2.4,
+      "facing": 180,
+      "height": 0.5,
+      "box": [
+        -4.3,
+        -0.6,
+        4.7,
+        0.08
+      ],
+      "shadow": true
+    },
+    {
+      "id": "shed",
+      "on": "school",
+      "name": "The grain shed",
+      "across": -7.7,
+      "distance": 0.5,
+      "facing": 180,
+      "height": 2.45,
+      "box": [
+        -1.6,
+        -2.5,
+        1.75,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "shed_roof",
+      "on": "school",
+      "name": "The shed's roof",
+      "plane": true,
+      "across": -7.7,
+      "distance": 1.6,
+      "elevation": 2.7,
+      "width": 3.4,
+      "depth": 2.4,
+      "tilt": 12,
+      "shadow": true
+    },
+    {
+      "id": "smoke",
+      "name": "Smoke from the chimney",
+      "particles": {
+        "kind": "smoke",
+        "at": "chimney#mouth",
+        "rate": 6,
+        "color": "#dfe2e6",
+        "size": [
+          0.3,
+          1.6
+        ]
+      }
+    },
+    {
+      "id": "boulder",
+      "name": "Stones out of the snow",
+      "across": -6.5,
+      "distance": 4.2,
+      "height": 0.7,
+      "box": [
+        -0.9,
+        -0.8,
+        0.95,
+        0.1
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -6.5,
+          "distance": 4.2,
+          "scale": 1.1
+        },
+        {
+          "across": -9,
+          "distance": 9.5,
+          "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": -14,
+          "distance": 16,
+          "scale": 2.0
+        },
+        {
+          "across": -6,
+          "distance": 14,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": 12,
+          "distance": 15,
+          "scale": 1.6
+        }
+      ]
+    },
+    {
+      "id": "tufts",
+      "name": "Dry grass",
+      "across": -3,
+      "distance": 3,
+      "height": 0.45,
+      "box": [
+        -0.4,
+        -0.55,
+        0.4,
+        0.06
+      ],
+      "copies": [
+        {
+          "across": -3.2,
+          "distance": 2.6,
+          "scale": 1,
+          "flip": false
+        },
+        {
+          "across": -4.8,
+          "distance": 3.4,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": -2.2,
+          "distance": 4.4,
+          "scale": 0.8,
+          "flip": false
+        },
+        {
+          "across": 1.4,
+          "distance": 2.4,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": 3.1,
+          "distance": 3.2,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": -6.2,
+          "distance": 6.2,
+          "scale": 1.3,
+          "flip": false
+        },
+        {
+          "across": -7.8,
+          "distance": 5.0,
+          "scale": 1,
+          "flip": true
+        },
+        {
+          "across": 5.6,
+          "distance": 2.5,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": -1.2,
+          "distance": 3.0,
+          "scale": 0.7,
+          "flip": true
+        },
+        {
+          "across": -5.2,
+          "distance": 9.8,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": -10.5,
+          "distance": 8.0,
+          "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": 0.4,
+          "distance": 1.9,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": -8.5,
+          "distance": 12.5,
+          "scale": 1.5,
+          "flip": false
+        },
+        {
+          "across": 7.5,
+          "distance": 2.4,
+          "scale": 1,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "horse",
+      "name": "Balducci's horse",
+      "across": -20,
+      "distance": 34,
+      "height": 1.75,
+      "box": [
+        -1.35,
+        -1.85,
+        1.1,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "breath",
+      "name": "The horse's breath",
+      "particles": {
+        "kind": "smoke",
+        "at": "horse#muzzle",
+        "size": [
+          0.06,
+          0.4
+        ],
+        "life": [
+          1,
+          2.2
+        ],
+        "color": "#eef1f4",
+        "opacity": 0.5,
+        "gravity": -0.15,
+        "speed": [
+          0.2,
+          0.45
+        ],
+        "direction": [
+          -1,
+          0,
+          0.3
+        ],
+        "burst": {
+          "count": 14,
+          "over": 0.6
+        }
+      }
+    },
+    {
+      "id": "daru",
+      "name": "Daru",
+      "person": {
+        "cast": "cast",
+        "who": "daru",
+        "turn": 205,
+        "does": "hands_behind"
+      },
+      "across": 2.6,
+      "distance": 4.8
+    },
+    {
+      "id": "balducci",
+      "name": "Balducci",
+      "person": {
+        "cast": "cast",
+        "who": "balducci",
+        "turn": 150,
+        "does": "hands_on_hips"
+      },
+      "across": 0.5,
+      "distance": 7.0
+    },
+    {
+      "id": "arab",
+      "name": "The Arab",
+      "person": {
+        "cast": "cast",
+        "who": "arab",
+        "turn": 130,
+        "does": "hands_bound"
+      },
+      "across": -1.4,
+      "distance": 7.6
+    },
+    {
+      "id": "rope",
+      "name": "The rope",
+      "across": -0.45,
+      "distance": 7.3,
+      "height": 1.0,
+      "box": [
+        -4,
+        -3,
+        4,
+        1.5
+      ],
+      "inFront": [
+        "balducci",
+        "arab"
+      ]
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "solo oud, sparse slow phrases, long silences, cold dry wind, North African high plateau",
+        "weight": 1.2
+      },
+      {
+        "text": "low ney flute, breathy and lonely, slow, wide open space",
+        "weight": 0.9
+      },
+      {
+        "text": "sparse felt piano, a few cold notes, winter morning, restrained",
+        "weight": 0.7
+      },
+      {
+        "text": "bowed double bass drone, very slow, austere",
+        "weight": 0
+      },
+      {
+        "text": "distant frame drum, a slow heartbeat, desert silence",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, plain and grave, long notes",
+        "weight": 0
+      },
+      {
+        "text": "guitar harmonics, glassy and thin, snow light",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, quiet and dry, unresolved, 1950s French film",
+        "weight": 0
+      },
+      {
+        "text": "ambient wind pad, cold air, minimal",
+        "weight": 0
+      },
+      {
+        "text": "clarinet in the low register, slow and dignified, melancholy",
+        "weight": 0
+      },
+      {
+        "text": "qanun plucked softly, a few notes, distant",
+        "weight": 0
+      },
+      {
+        "text": "harmonium chord held, bare and austere",
+        "weight": 0
+      },
+      {
+        "text": "solo violin, high and thin, sorrow without tears",
+        "weight": 0
+      },
+      {
+        "text": "music box, faraway, a classroom memory",
+        "weight": 0
+      },
+      {
+        "text": "low brass chorale, slow, solemn",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano ostinato, waiting, tension held",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.4,
+    "scale": "E_FLAT_MAJOR_C_MINOR"
+  }
+}

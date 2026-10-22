@@ -1,0 +1,24 @@
+# The School
+
+Stage 2 of the game (the look): the school on the plateau the morning after the snow (С1), the moment Balducci has
+brought the Arab up to it on a rope and Daru stands on the terrace (П.3) — the place, its light and its three people
+standing. No motion of people, no camera moves.
+
+- **Where things are.** The viewer stands on the plateau before the school (camera `picture`). The land is
+  `relief.js` — flat round the school; its edge runs off to the left and past it the land falls 190 m to the plain;
+  behind the school the plateau rises into a long hill — painted by one draped plane `land` (snow, the slope's bare
+  streaks, the dun plain with snow patches and a douar, the path down to the horse, stones, the snow ridged by the wind near). Far: `ridges`,
+  `ridges_far` (cards at 6 and 11 km, their foot at the plain's level).
+- **The school** is built of cards and planes on the unseen anchor `school` (across 6.67, distance 5.45, facing 200): its
+  whitewashed `front` (the classroom's door at x −2.4, windows), the right `gable`, the snowy tiled `roof` (a plane,
+  tilt 24), the `chimney` (its smoke the particles `smoke`), the `terrace` (a walk plane at 0.45 m) and its front, the
+  grain `shed` with its sacks at the left end and its lean-to roof.
+- **People** (cast: modules/cast). Daru at the terrace's left end by the door, nearest the viewer, hands behind his
+  back (`hands_behind`), not looking at them — down the slope where the boy ran (`daru_look`: a point of the land); by
+  the shed Balducci, turned to Daru, his left hand on his hip (`hands_on_hips`), his right back holding the rope
+  (`balducci_reach`), and the Arab a step behind him, his wrists tied (`hands_bound`, the part `bonds`), staring at
+  Daru. `rope`: one painted rope laid each frame by its animate from `balducci#hand_r` to `arab#bonds`.
+- **What moves.** The people breathing, the grass tufts (`tufts`, copies) in the wind, the chimney's smoke, the high
+  cloud drifting, the horse's breath (`breath`: bursts from `horse#muzzle` by its animate).
+- **Light.** A low winter sun behind the viewer on the right (`sun`, from bearing 140, 28° up): long shadows away to the
+  left; the snow's bounce fills the shade with a cool blue (ambientColor).
