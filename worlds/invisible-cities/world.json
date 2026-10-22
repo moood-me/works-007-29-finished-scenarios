@@ -1,0 +1,10 @@
+{
+  "title": "Invisible Cities",
+  "description": "A garden over night water at the edge of an empire that is ending. An old khan at his chessboard, a traveller who tells him cities, a ship waiting for dawn.",
+  "themes": {
+    "dream": 50,
+    "night": 30,
+    "water": 20
+  },
+  "main": ""
+}
