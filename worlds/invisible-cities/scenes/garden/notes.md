@@ -12,7 +12,7 @@ Where things are (metres; the viewer at 0, 0, eyes 1.7 m over the terrace):
 - the landing stage from the foot of the steps (11.5) out to 44.5, the boat across its end, the boatman on it, its lamp;
 - the house and the garden wall on the right (across 3.0, facing the terrace), the door behind the Khan glowing through
   its gap (`door_glow`, a light `door`); the gate to the shore road in the garden wall near the water;
-- the low table (top 0.42) with the board and the reports, the Khan on his low seat beside it (`khan_on`), the lantern on
+- the low table (top 0.42) on a rug with the board and the reports, the Khan on his low seat beside it (`khan_on`), the lantern on
   its post between him and Marco (the light `lamp`), Marco standing near the steps;
 - far off: the ship at anchor (1250 m) by the lighthouse on the cape (1500 m), his city's lights at the water's edge on
   the left (`city` 3…0 — groups of lights going out).

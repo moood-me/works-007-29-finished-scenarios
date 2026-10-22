@@ -478,7 +478,7 @@
       "name": "Rug",
       "plane": true,
       "across": 1.15,
-      "distance": 4.4,
+      "distance": 3.65,
       "elevation": 0.005,
       "width": 2.6,
       "depth": 1.8
@@ -488,7 +488,7 @@
       "name": "Table with the board",
       "plane": true,
       "across": 0.85,
-      "distance": 4.35,
+      "distance": 3.6,
       "elevation": 0.42,
       "width": 1,
       "depth": 0.7,
@@ -500,7 +500,7 @@
       "id": "table",
       "name": "Table",
       "across": 0.85,
-      "distance": 4,
+      "distance": 3.25,
       "facing": 180,
       "height": 0.45,
       "box": [
@@ -529,7 +529,7 @@
       "id": "stool",
       "name": "Khan’s seat",
       "across": 1.62,
-      "distance": 4.45,
+      "distance": 3.7,
       "facing": 180,
       "height": 0.5,
       "box": [
@@ -545,11 +545,11 @@
       "person": {
         "cast": "cast",
         "who": "khan",
-        "turn": 222,
+        "turn": 212,
         "does": "seated"
       },
       "across": 1.62,
-      "distance": 4.45
+      "distance": 3.7
     },
     {
       "id": "pots",
@@ -581,7 +581,7 @@
       "id": "lantern",
       "name": "Lantern post",
       "across": 0.3,
-      "distance": 5,
+      "distance": 4.25,
       "height": 2.65,
       "box": [
         -0.2,
@@ -600,7 +600,7 @@
       ],
       "flicker": 0.15,
       "across": 0.3,
-      "distance": 5,
+      "distance": 4.25,
       "height": 2.4,
       "box": [
         -0.13,
@@ -619,14 +619,14 @@
         "does": "hands_behind"
       },
       "across": -0.9,
-      "distance": 5.5
+      "distance": 4.75
     }
   ],
   "state": {
     "city": 3,
     "khan_on": [
       1.62,
-      4.45,
+      3.7,
       0.44
     ],
     "khan_look": "table_top#board",

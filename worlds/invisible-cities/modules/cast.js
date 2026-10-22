@@ -48,11 +48,10 @@ return {
       } },
     },
     parts: {
-      // a beard round the jaw (the cheeks and the mouth left clear), falling long below the chin onto the chest
+      // a beard falling long from under the chin onto the chest (the face left clear)
       beard: { name: 'beard', draw: F => {
         const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
-        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.04), [0, -1, 0.45], 0.72, F.colors.hair, h.sides, h.square);
-        F.ball(add(h.at, add(mul(hu, -r * 1.2), mul(hf, r * 0.5))), h.axes, [r * 0.48, r * 0.78, r * 0.36], F.colors.hair, h.sides);
+        F.ball(add(h.at, add(mul(hu, -r * 1.3), mul(hf, r * 0.42))), h.axes, [r * 0.5, r * 0.8, r * 0.38], F.colors.hair, h.sides);
       } },
       // a walking stick, its brass knob by the right knee, its foot on the floor beside the right foot: standing or
       // sitting, it leans there
