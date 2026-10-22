@@ -68,11 +68,11 @@
       "name": "The moon's path on the lake",
       "plane": true,
       "glows": true,
-      "across": 76,
-      "distance": 165,
+      "across": 74,
+      "distance": 161.5,
       "elevation": 0.06,
-      "width": 172,
-      "depth": 310
+      "width": 166,
+      "depth": 317
     },
     {
       "id": "reeds_far",
