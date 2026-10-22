@@ -13,7 +13,7 @@ e.layer('moon_path', { shimmer: 0.5, box: [-900, -1000, 120, 990] }, (g) => {
       const spread = 0.02 + 0.03 * (1 - k / 70);
       const x = -0.409 * d + (e.rnd() - 0.5) * d * spread * 2;
       const w = d * (0.004 + e.rnd() * 0.01);
-      const h = Math.max(0.1, d * d * 0.0005);
+      const h = Math.min(d * 0.25, Math.max(0.1, d * d * 0.0005));
       const y = 1005 - d + (e.rnd() - 0.5) * d * 0.02;
       g.fillStyle = `rgba(214, 224, 255, ${0.55 + e.rnd() * 0.45})`;
       g.fillRect(x - w / 2, y - h / 2, w, h);
