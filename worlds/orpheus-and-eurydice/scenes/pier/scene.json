@@ -6,10 +6,10 @@
   "light": {
     "vignette": 0.3,
     "grain": 0.05,
-    "haze": 0.14,
+    "haze": 0.1,
     "hazeColor": "#2c3b68",
     "hazeGlow": 0.8,
-    "shafts": 0.7,
+    "shafts": 0.3,
     "ambient": 0.42,
     "ambientColor": "#7f90c4",
     "bounce": 0.5,
@@ -61,7 +61,18 @@
       "elevation": 0.05,
       "width": 1600,
       "depth": 600,
-      "reflect": { "strength": 0.62, "fade": 0, "rough": 0.6, "ripple": 0.3 }
+      "reflect": { "strength": 0.62, "fade": 0, "rough": 0.35, "ripple": 0.25 }
+    },
+    {
+      "id": "moon_path",
+      "name": "The moon's path on the lake",
+      "plane": true,
+      "glows": true,
+      "across": 76,
+      "distance": 165,
+      "elevation": 0.06,
+      "width": 172,
+      "depth": 310
     },
     {
       "id": "reeds_far",
