@@ -9,7 +9,7 @@
   "light": {
     "ambient": 0.62,
     "ambientColor": "#aab3d2",
-    "bounce": 0.3,
+    "bounce": 0,
     "haze": 0.07,
     "hazeColor": "#e2d3cc",
     "hazeGlow": 0.2,
