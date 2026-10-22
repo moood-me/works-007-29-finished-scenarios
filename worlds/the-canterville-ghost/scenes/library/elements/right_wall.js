@@ -7,7 +7,7 @@ e.lib.bookcase(g, e, -3.35, -1.3, 3.05);
 e.lib.bookcase(g, e, 1.3, 3.5, 3.05);
 e.lib.bookcase(g, e, 3.7, 5.6, 3.05);
 // the surround: dressed stone to the mantel
-g.fillStyle = '#6a635a';
+g.fillStyle = '#4f4842';
 g.fillRect(-1.0, -1.5, 2.0, 1.5);
 g.strokeStyle = '#6a6258';
 g.lineWidth = 0.015;

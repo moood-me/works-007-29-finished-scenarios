@@ -13,7 +13,7 @@
     "haze": 0.06,
     "hazeColor": "#2a3042",
     "hazeGlow": 0.55,
-    "shafts": 0.8,
+    "shafts": 1.2,
     "tint": "#c9d2ea",
     "tintStrength": 0.05,
     "vignette": 0.5,
@@ -27,18 +27,18 @@
         28
       ],
       "color": "#a9bde6",
-      "strength": 1.3,
+      "strength": 2.0,
       "through": [
         "window"
       ]
     },
     {
       "id": "fire",
-      "across": 3.35,
+      "across": 3.2,
       "distance": 6.6,
       "elevation": 0.4,
       "color": "#ff9548",
-      "strength": 1.5,
+      "strength": 1.2,
       "reach": 7,
       "on": "fire",
       "flicker": 0.35
@@ -109,8 +109,8 @@
       "id": "rug",
       "name": "The Turkey rug",
       "plane": true,
-      "across": -0.6,
-      "distance": 6.3,
+      "across": -0.4,
+      "distance": 5.6,
       "elevation": 0.004,
       "width": 3.4,
       "depth": 2.6
@@ -225,8 +225,8 @@
           0.02
         ],
         "size": [
-          0.32,
-          0.05
+          0.24,
+          0.04
         ],
         "amount": "fire"
       }
@@ -270,14 +270,14 @@
       "id": "desk",
       "name": "Mr Otis's writing desk",
       "across": -3.0,
-      "distance": 6.5,
+      "distance": 6.8,
       "facing": 150,
       "height": 0.8,
       "box": [
         -0.82,
         -1.08,
         0.82,
-        0.02
+        0.16
       ],
       "shadow": true
     },
@@ -286,7 +286,7 @@
       "name": "The oil lamp on the desk",
       "glows": true,
       "across": -3.0,
-      "distance": 6.5,
+      "distance": 6.8,
       "elevation": 0.78,
       "facing": 150,
       "height": 0.62,
@@ -318,11 +318,11 @@
       "person": {
         "cast": "cast",
         "who": "virginia",
-        "turn": 160,
+        "turn": 145,
         "does": "stand"
       },
-      "across": -0.7,
-      "distance": 4.4
+      "across": -0.5,
+      "distance": 5.2
     },
     {
       "id": "simon",
@@ -330,11 +330,11 @@
       "person": {
         "cast": "cast",
         "who": "simon",
-        "turn": 225,
+        "turn": 250,
         "does": "stand"
       },
-      "across": 1.9,
-      "distance": 6.2
+      "across": 1.6,
+      "distance": 4.3
     },
     {
       "id": "otis",
@@ -342,11 +342,11 @@
       "person": {
         "cast": "cast",
         "who": "otis",
-        "turn": 125,
+        "turn": 130,
         "does": "stand"
       },
-      "across": -2.2,
-      "distance": 5.4
+      "across": -2.1,
+      "distance": 5.8
     }
   ],
   "music": {
