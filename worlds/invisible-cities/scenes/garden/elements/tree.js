@@ -13,7 +13,7 @@ g.lineTo(0.2, -3.2);
 g.lineTo(0.32, 0);
 g.closePath();
 g.fill();
-const masses = [['left', -1.4, -5.1, 1.9], ['right', 1.3, -5.4, 2.0], ['top', 0, -6.6, 1.8]];
+const masses = [['left', -1.2, -5.1, 1.6], ['right', 1.1, -5.4, 1.7], ['top', 0, -6.4, 1.5]];
 for (const [name, cx, cy, r] of masses) {
   e.layer(name, { pivot: [cx * 0.4, -3.6], wind: { strength: 0.35, gust: 0.4 }, box: [cx - r * 1.4, cy - r * 1.2, cx + r * 1.4, cy + r * 1.1] }, (g) => {
     for (let i = 0; i < 40; i++) {
@@ -22,7 +22,7 @@ for (const [name, cx, cy, r] of masses) {
       const x = cx + Math.cos(a) * d * 1.15;
       const y = cy + Math.sin(a) * d * 0.8;
       const rr = r * (0.14 + e.rnd() * 0.14);
-      g.fillStyle = e.rnd() < 0.5 ? '#26392f' : '#2d4236';
+      g.fillStyle = e.rnd() < 0.5 ? '#2e4238' : '#36503f';
       g.beginPath();
       g.ellipse(x, y, rr * 1.2, rr * 0.9, 0, 0, Math.PI * 2);
       g.fill();
