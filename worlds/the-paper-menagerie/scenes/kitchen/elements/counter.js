@@ -1,4 +1,4 @@
-// The counter top from above (metres, its middle at across −0.55, distance 4.95; y toward the viewer): pale grey
+// The counter top from above (metres, its middle at across −0.55, distance 4.15; y toward the viewer): pale grey
 // laminate with a steel edge, the white sink under the window (x 0.0…0.5 from here, i.e. across −0.55…−0.05) with a
 // little water in it, a dish rack, a jar of chopsticks.
 g.fillStyle = '#d8d6cf';

@@ -4,10 +4,9 @@ Stage 2 of the game (the look): the kitchen on a spring evening — the place th
 the oilcloth, wrapping paper, the paper animals alive, the dusk in the window) and its three people standing as they
 stand in the story. No one moves but a look; no camera moves.
 
-- **Where things are.** The viewer stands at the room's open side (camera `picture`). Floor at 0 (linoleum, `floor`,
-  wide enough to show through the door), ceiling 2.6; the back wall at distance 5.2 (`back_wall`, the window opening
-  x −0.95…0.35, 1.0–2.1 m up), side walls at across ±2.85 (`left_wall` with the calendar and the telephone;
-  `right_wall` with the door to the hall at distance 3.55…4.45, `hall` beyond it). Wallpaper and tiles: `lib.js`.
+- **Where things are.** The viewer stands at the room's open side (camera `picture`). Floor at 0 (linoleum, `floor`), ceiling 2.6;
+  the back wall at distance 4.4 (`back_wall`, the window opening x −0.95…0.35, 1.0–2.1 m up), side walls at across ±2.85 (`left_wall` with the calendar and the telephone;
+  `right_wall` with the shut door to the hall). Wallpaper and tiles: `lib.js`.
 - **Along the back**: the fridge (left corner), the counter and its cupboards (`counter` — a plane at 0.9 m with the
   sink under the window; `cabinets`), the stove and its kettle (`stove`), the shelf over it with a sleeping newspaper
   crane (`shelf`).

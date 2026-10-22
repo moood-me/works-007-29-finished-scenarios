@@ -1,4 +1,4 @@
-// The table top from above (metres, its middle at across −0.25, distance 3.6; y toward the viewer): a pale yellow
+// The table top from above (metres, its middle at across −0.25, distance 2.8; y toward the viewer): a pale yellow
 // oilcloth with a small cherry pattern, and on it the evening's work — torn wrapping paper, red with gold stars, and
 // green with white dots; a stack of yellow squares; the roll of tape; Mom's teacup; the scissors.
 g.fillStyle = '#f1e6bf';
