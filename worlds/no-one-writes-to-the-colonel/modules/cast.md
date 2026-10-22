@@ -21,4 +21,5 @@ the floor). `moustache` — the colonel's (a look's).
 
 ## Motions (Kimodo)
 
-The engine's `stand` and `walk`, and the cast's (cast.data.json).
+The engine's `stand` and `walk`, and: `sit_upright` — sits upright on a bench (the edge of a bed), the hands resting
+in the lap, breathing calmly (a loop).
