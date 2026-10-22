@@ -13,7 +13,7 @@
     "haze": 0.07,
     "hazeColor": "#e2d3cc",
     "hazeGlow": 0.2,
-    "shafts": 0.15,
+    "shafts": 0,
     "tint": "#ffd8ae",
     "tintStrength": 0.08,
     "saturation": 1,
@@ -520,8 +520,8 @@
         "who": "governess",
         "turn": 166
       },
-      "across": -0.55,
-      "distance": 4.3
+      "across": -0.5,
+      "distance": 3.9
     },
     {
       "id": "flora",
@@ -531,8 +531,8 @@
         "who": "flora",
         "turn": 184
       },
-      "across": -1.12,
-      "distance": 4.15
+      "across": -1.02,
+      "distance": 3.75
     },
     {
       "id": "miles",
@@ -543,8 +543,8 @@
         "turn": 202,
         "does": "hands_behind"
       },
-      "across": 0.35,
-      "distance": 4.8
+      "across": 0.38,
+      "distance": 4.4
     }
   ],
   "state": {
