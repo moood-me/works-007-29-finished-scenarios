@@ -103,13 +103,13 @@
     "judge_mood": "smile",
     "judge_reach": {
       "r": [
-        1.92,
-        3.97,
+        2.169,
+        3.669,
         0.86
       ],
       "l": [
-        1.97,
-        3.92,
+        2.219,
+        3.619,
         0.86
       ]
     },
@@ -413,8 +413,8 @@
           "distance": 4.1
         },
         {
-          "across": 2.4,
-          "distance": 4.5,
+          "across": 2.6,
+          "distance": 4.35,
           "flip": true
         }
       ]
@@ -509,8 +509,8 @@
         "who": "judge",
         "turn": 225
       },
-      "across": 2.1,
-      "distance": 4.1,
+      "across": 2.35,
+      "distance": 3.8,
       "shadow": true
     },
     {

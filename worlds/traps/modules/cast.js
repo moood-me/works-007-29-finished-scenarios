@@ -6,6 +6,7 @@ const WHITE = [0.95, 0.94, 0.91, 1];
 // (what a part keeps from one frame to the next: the world's axes, its sizes at the person's size)
 const BOW = F => ({ axes: [null, null, null], wing: [0.022 * F.k, 0.015 * F.k, 0.01 * F.k], knot: [0.008 * F.k, 0.009 * F.k, 0.012 * F.k] });
 const FRINGE = F => ({ side: [F.head.r * 0.3, F.head.r * 0.36, F.head.r * 0.5], back: [F.head.r * 0.72, F.head.r * 0.36, F.head.r * 0.32] });
+const TIE = F => ({ pts: [null, null, null], profile: [[0, 0.014 * F.fit.h], [1, 0.022 * F.fit.h], [2, 0.026 * F.fit.h]], colors: [[0, F.colors.accent]] });
 const TASH = F => ({ r: [F.head.r * 0.17, F.head.r * 0.07, F.head.r * 0.07] });
 const GLASS_SIZES = F => ({
   axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
@@ -19,11 +20,11 @@ const GLASS_SIZES = F => ({
 return {
   characters: {
     // Alfredo Traps, forty-five, a travelling salesman lately risen: well fed, dark hair combed back, a new cream summer
-    // suit, a glass of the judge's wine held at his chest
+    // suit and a loud red tie, a glass of the judge's wine held at his chest
     traps: {
-      kind: 'shapes', style: 'traps', who: 'man', garment: 'jacket', hair: 'short', face: 'simple', parts: ['glass'],
+      kind: 'shapes', style: 'traps', who: 'man', garment: 'jacket', hair: 'short', face: 'simple', parts: ['glass', 'tie'],
       body: { height: 1, thick: 1.16, shoulders: 1.02, head: 1.02 },
-      colors: { skin: '#e9b58f', hair: '#2f231d', top: '#f4efe3', garment: '#d2bb92', bottom: '#c2aa82', shoes: '#6b4128' },
+      colors: { skin: '#e9b58f', hair: '#2f231d', top: '#f4efe3', garment: '#c8aa7c', bottom: '#b49870', shoes: '#6b4128', accent: '#a8322d' },
     },
     // the judge, the host: small, old, bald with a white fringe and a white moustache, a black suit, a dark red bow tie
     judge: {
@@ -71,6 +72,18 @@ return {
           F.ball(add(hand, K.low), K.axes, K.foot, GLASS, 12);
           F.bar(add(hand, K.low), add(hand, K.high), 0.005 * F.fit.h, 0.005 * F.fit.h, K.stem, 6, K.axes[0]);
           F.ball(add(hand, K.wineAt), K.axes, K.wine, WINE, 14);
+        },
+      },
+      // a tie from the collar down the shirt's front, kept before whatever is worn over it
+      tie: {
+        name: 'tie',
+        draw: F => {
+          const { add, mul } = MooodShapes.V;
+          const K = F.keep(TIE), k = F.k, fw = F.fwd('Chest'), up = F.up('Chest');
+          K.pts[0] = F.clear(add(F.P('Neck1'), add(mul(fw, 0.07 * k), mul(up, -0.03 * F.fit.h))), 1, 0.006 * k);
+          K.pts[1] = F.clear(add(F.P('Chest'), mul(fw, 0.13 * k)), 1, 0.006 * k);
+          K.pts[2] = F.clear(add(F.P('Spine1'), mul(fw, 0.13 * k)), 1, 0.006 * k);
+          F.tube(K.pts, K.profile, K.colors, 8, F.side('Chest'), 0.35);
         },
       },
       // a bow tie at the collar
