@@ -218,9 +218,9 @@ return {
           brim.push(on([Math.sin(a), 0.15 + 0.95 * Math.cos(a), 0.55], 1.3));
         }
         F.tube(brim, [[0, r * 0.08], [4, r * 0.12], [8, r * 0.08]], [[0, F.colors.hat]], 8, hf);
-        const bow = on([0, -0.82, 0.58], 1.04);
+        const bow = on([0, -0.92, 0.4], 1.04);
         for (const sx of [-1, 1]) {
-          F.tube([on([sx * 0.98, -0.05, 0.3], 1.06), on([sx * 0.62, -0.62, 0.48], 1.05), bow],
+          F.tube([on([sx * 0.98, -0.05, 0.25], 1.06), on([sx * 0.8, -0.6, 0.2], 1.05), bow],
             [[0, r * 0.03], [2, r * 0.03]], [[0, F.colors.accent]], 6, hf);
         }
         F.ball(bow, axes, [r * 0.17, r * 0.09, r * 0.08], F.colors.accent, 10);
