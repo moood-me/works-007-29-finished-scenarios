@@ -90,12 +90,12 @@
     "traps_reach": {
       "r": [
         -1.83,
-        3.13,
+        3.03,
         1.12
       ],
       "l": [
         -1.54,
-        3.39,
+        3.29,
         0.88
       ]
     },
@@ -103,13 +103,13 @@
     "judge_mood": "smile",
     "judge_reach": {
       "r": [
-        2.02,
-        4.47,
+        1.92,
+        3.97,
         0.86
       ],
       "l": [
-        2.07,
-        4.42,
+        1.97,
+        3.92,
         0.86
       ]
     },
@@ -118,12 +118,12 @@
     "zorn_reach": {
       "r": [
         0.72,
-        5.3,
+        4.8,
         0.94
       ],
       "l": [
         1.08,
-        5.3,
+        4.8,
         0.94
       ]
     }
@@ -308,7 +308,7 @@
       "id": "lampions",
       "name": "The paper lanterns over the table",
       "across": 0.25,
-      "distance": 6.0,
+      "distance": 5.5,
       "height": 3.6,
       "box": [
         -5.2,
@@ -339,7 +339,7 @@
       "name": "The table's top, laid",
       "plane": true,
       "across": 0.55,
-      "distance": 4.6,
+      "distance": 4.1,
       "elevation": 0.76,
       "width": 2.6,
       "depth": 1.1,
@@ -349,7 +349,7 @@
       "id": "table_front",
       "name": "The table's near side, the cloth hanging",
       "across": 0.55,
-      "distance": 4.05,
+      "distance": 3.55,
       "facing": 180,
       "height": 0.8,
       "box": [
@@ -364,7 +364,7 @@
       "id": "table_things",
       "name": "Bottles, glasses, bread and cheese on the table",
       "across": 0.55,
-      "distance": 4.6,
+      "distance": 4.1,
       "elevation": 0.76,
       "height": 0.36,
       "box": [
@@ -388,11 +388,11 @@
       "copies": [
         {
           "across": -0.2,
-          "distance": 5.3
+          "distance": 4.8
         },
         {
           "across": 0.9,
-          "distance": 5.3
+          "distance": 4.8
         }
       ]
     },
@@ -410,11 +410,11 @@
       "copies": [
         {
           "across": -0.95,
-          "distance": 4.6
+          "distance": 4.1
         },
         {
-          "across": 2.5,
-          "distance": 5.0,
+          "across": 2.4,
+          "distance": 4.5,
           "flip": true
         }
       ]
@@ -423,7 +423,7 @@
       "id": "cane",
       "name": "Kummer's cane on the chair",
       "across": -1.45,
-      "distance": 4.62,
+      "distance": 4.12,
       "height": 0.95,
       "box": [
         -0.05,
@@ -498,7 +498,7 @@
         "turn": 170
       },
       "across": -1.75,
-      "distance": 3.4,
+      "distance": 3.3,
       "shadow": true
     },
     {
@@ -509,8 +509,8 @@
         "who": "judge",
         "turn": 225
       },
-      "across": 2.2,
-      "distance": 4.6,
+      "across": 2.1,
+      "distance": 4.1,
       "shadow": true
     },
     {
@@ -522,7 +522,7 @@
         "turn": 190
       },
       "across": 0.9,
-      "distance": 5.58,
+      "distance": 5.08,
       "shadow": true
     }
   ],

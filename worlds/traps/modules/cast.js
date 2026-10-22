@@ -41,7 +41,7 @@ return {
   shapes: {
     // the world's style: soft round shapes and tinted lines, the head a little smaller than soft's so the old men read
     // as men, a simple face (eyes, brows, nose, mouth — <id>_mood shows on it) that reads across the garden
-    styles: { traps: { from: 'soft', name: 'Traps', head: 1.22, neck: 0.5, legs: 0.9, line: 1.7 } },
+    styles: { traps: { from: 'soft', name: 'Traps', head: 1.32, neck: 0.5, legs: 0.9, line: 1.7 } },
     garments: {
       // a frock coat: from the shoulders to the knees, straight, no tatters
       frock: { name: 'frock coat', hang: [{ to: 0.95, from: 'shoulders', flare: 0.14, folds: false }], sleeves: 'garment' },
