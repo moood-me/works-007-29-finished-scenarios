@@ -26,10 +26,19 @@ const house = (x, w, h, wall, roof, lit) => {
   }
 };
 // the neighbours
-house(-7.5, 6, 3.2, '#cdbfae', '#6d5d58', [[-1.4, false], [1.4, false]]);
-house(7.6, 6.4, 3.0, '#b9c2bf', '#5e5f6a', [[-1.6, false], [1.6, true]]);
+house(-7.5, 6, 3.2, '#cdbfae', '#6d5d58', [
+  [-1.4, false],
+  [1.4, false],
+]);
+house(7.6, 6.4, 3.0, '#b9c2bf', '#5e5f6a', [
+  [-1.6, false],
+  [1.6, true],
+]);
 // Mark's: its porch, steps, the lit front window
-house(0, 7, 3.3, '#ecebe4', '#62646f', [[-2, true], [2, false]]);
+house(0, 7, 3.3, '#ecebe4', '#62646f', [
+  [-2, true],
+  [2, false],
+]);
 g.fillStyle = '#5a4e48';
 g.fillRect(-0.55, -2.2, 1.1, 2.2);
 g.fillStyle = '#d9d6cc';

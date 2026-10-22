@@ -18,7 +18,8 @@ for (let y = -0.38; y < 0.4; y += 0.09) {
 const star = (x, y, r) => {
   g.beginPath();
   for (let i = 0; i < 10; i++) {
-    const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.45 : r;
+    const a = -Math.PI / 2 + (i * Math.PI) / 5,
+      rr = i % 2 ? r * 0.45 : r;
     g.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr);
   }
   g.closePath();

@@ -1,4 +1,5 @@
-// The old fridge in the back corner: cream enamel, round shoulders, a chrome handle, a child's drawing held by a magnet.
+// The old fridge in the back corner: cream enamel, round shoulders, a chrome handle, a child's drawing held by a
+// magnet.
 g.fillStyle = '#efe8d6';
 g.beginPath();
 g.moveTo(-0.4, 0);

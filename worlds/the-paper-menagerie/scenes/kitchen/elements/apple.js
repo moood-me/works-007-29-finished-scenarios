@@ -10,7 +10,14 @@ g.closePath();
 g.fill();
 g.strokeStyle = '#5b463c';
 g.lineCap = 'round';
-for (const [x1, y1, x2, y2, w] of [[0, -1.8, -1.5, -2.8, 0.09], [0.05, -1.85, 1.4, -3.0, 0.08], [0, -1.9, -0.3, -3.5, 0.08], [-0.8, -2.3, -1.9, -2.4, 0.05], [0.7, -2.4, 1.9, -2.5, 0.05]]) {
+const boughs = [
+  [0, -1.8, -1.5, -2.8, 0.09],
+  [0.05, -1.85, 1.4, -3.0, 0.08],
+  [0, -1.9, -0.3, -3.5, 0.08],
+  [-0.8, -2.3, -1.9, -2.4, 0.05],
+  [0.7, -2.4, 1.9, -2.5, 0.05],
+];
+for (const [x1, y1, x2, y2, w] of boughs) {
   g.lineWidth = w;
   g.beginPath();
   g.moveTo(x1, y1);
@@ -30,8 +37,10 @@ g.fillStyle = '#6f7478';
 g.fillRect(0.35, -0.35, 0.36, 0.03);
 e.layer('blossom', { pivot: [0, -1.9], wind: { strength: 0.25, gust: 0.4, scale: 3 } }, l => {
   for (let i = 0; i < 70; i++) {
-    const a = e.rnd() * Math.PI * 2, r = Math.sqrt(e.rnd());
-    const x = Math.cos(a) * r * 2.3, y = -2.4 + Math.sin(a) * r * 1.05;
+    const a = e.rnd() * Math.PI * 2,
+      r = Math.sqrt(e.rnd());
+    const x = Math.cos(a) * r * 2.3,
+      y = -2.4 + Math.sin(a) * r * 1.05;
     const tone = e.rnd();
     l.fillStyle = tone < 0.4 ? '#f4e6e6' : tone < 0.75 ? '#f0cdd4' : '#e3b3bf';
     l.beginPath();

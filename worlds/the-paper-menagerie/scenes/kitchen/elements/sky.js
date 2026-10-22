@@ -11,7 +11,9 @@ g.fillStyle = sky;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);
 // long thin clouds catching the last light
 for (let i = 0; i < 9; i++) {
-  const x = -0.3 + e.rnd() * (A + 0.6), y = 0.06 + e.rnd() * 0.22, w = 0.12 + e.rnd() * 0.3;
+  const x = -0.3 + e.rnd() * (A + 0.6),
+    y = 0.06 + e.rnd() * 0.22,
+    w = 0.12 + e.rnd() * 0.3;
   g.fillStyle = i % 2 ? 'rgba(246,186,176,0.55)' : 'rgba(226,160,170,0.45)';
   g.beginPath();
   g.ellipse(x, y, w, 0.006 + e.rnd() * 0.008, 0, 0, Math.PI * 2);

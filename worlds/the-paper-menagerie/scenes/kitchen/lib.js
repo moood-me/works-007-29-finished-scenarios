@@ -1,5 +1,5 @@
-// What the kitchen's walls share: the wallpaper — warm pale sage with a small pattern of cream sprigs and coral buds in rows —
-// over x0…x1 of a wall 2.6 m high (metres from the wall's foot, y up negative), a white skirting board, and a narrow
+// What the kitchen's walls share: the wallpaper — pale sage with a small pattern of cream sprigs and coral buds in rows
+// — over x0…x1 of a wall 2.6 m high (metres from the wall's foot, y up negative), a white skirting board, and a narrow
 // moulding under the ceiling. The caller cuts its own openings (clip) before calling.
 function wallpaper(g, e, x0, x1) {
   const w = x1 - x0;

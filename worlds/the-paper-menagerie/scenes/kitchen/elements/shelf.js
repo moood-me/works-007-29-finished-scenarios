@@ -5,7 +5,10 @@ g.fillRect(-0.55, -0.04, 1.1, 0.04);
 g.fillRect(-0.45, 0.0, 0.03, 0.12);
 g.fillRect(0.42, 0.0, 0.03, 0.12);
 // two tea tins, red and green, with gold lids
-for (const [x, c] of [[-0.42, '#a8423a'], [-0.3, '#3f6b56']]) {
+for (const [x, c] of [
+  [-0.42, '#a8423a'],
+  [-0.3, '#3f6b56'],
+]) {
   g.fillStyle = c;
   g.fillRect(x - 0.05, -0.2, 0.1, 0.16);
   g.fillStyle = '#c9a24a';

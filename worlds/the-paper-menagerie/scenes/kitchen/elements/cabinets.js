@@ -6,7 +6,10 @@ g.fillStyle = '#5d6b64';
 g.fillRect(-1.25, -0.08, 2.5, 0.09);
 g.fillStyle = '#c2c3c0';
 g.fillRect(-1.27, -0.92, 2.54, 0.05);
-const doors = [[-1.2, -0.66], [-0.62, -0.06]];
+const doors = [
+  [-1.2, -0.66],
+  [-0.62, -0.06],
+];
 for (const [x0, x1] of doors) {
   g.fillStyle = '#b1d2c1';
   g.fillRect(x0, -0.82, x1 - x0, 0.7);

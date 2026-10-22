@@ -7,7 +7,10 @@ g.fillStyle = '#f6f1e7';
 g.fillRect(-0.95, -2.05, 0.9, 2.05);
 g.strokeStyle = '#ddd3c2';
 g.lineWidth = 0.014;
-for (const [y0, h] of [[-1.95, 0.8], [-1.0, 0.85]]) {
+for (const [y0, h] of [
+  [-1.95, 0.8],
+  [-1.0, 0.85],
+]) {
   g.strokeRect(-0.86, y0, 0.32, h);
   g.strokeRect(-0.46, y0, 0.32, h);
 }
