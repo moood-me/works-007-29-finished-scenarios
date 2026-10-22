@@ -35,7 +35,8 @@ function wallpaper(g, e, x0, x1) {
   g.fillRect(x0, -0.135, w, 0.012);
   g.restore();
 }
-// The backsplash: small square tiles, white with a blue one here and there, pale grout, over x0…x1 between heights y0 and y1 (y up negative).
+// The backsplash: small square tiles, white with a blue one here and there, pale grout, over x0…x1 between heights
+// y0 and y1 (y up negative).
 function tiles(g, x0, x1, y0, y1) {
   g.fillStyle = '#d9d4c6';
   g.fillRect(x0, y0, x1 - x0, y1 - y0);
