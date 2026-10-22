@@ -24,8 +24,8 @@ const BAND = 14;
 const RIBBON = F => ({
   band: new Array(BAND + 1),
   ends: [new Array(4), new Array(4)],
-  profile: [[0, 0.12 * F.head.r], [BAND, 0.12 * F.head.r]],
-  end: [[0, 0.12 * F.head.r], [3, 0.09 * F.head.r]],
+  profile: [[0, 0.075 * F.head.r], [BAND, 0.075 * F.head.r]],
+  end: [[0, 0.09 * F.head.r], [3, 0.07 * F.head.r]],
   colors: [[0, RED]],
 });
 
@@ -99,8 +99,8 @@ return {
     arms: { slim: [[0, 0.058], [0.55, 0.053], [1, 0.043], [1.45, 0.041], [2, 0.03], [2.35, 0.037], [2.7, 0.034], [3, 0.019]] },
     legs: { slim: [[0, 0.092], [0.45, 0.075], [1, 0.05], [1.35, 0.057], [2, 0.031], [2.4, 0.034], [2.8, 0.028], [3, 0.015]] },
     faces: {
-      // Eurydice's: one corner of the mouth a little higher — she is about to tease him
-      eurydice: { name: 'Eurydice', draw: faceOf({ cornerR: 0.025 }) },
+      // Eurydice's: one corner of the mouth a little higher — she is about to tease him; fine brows
+      eurydice: { name: 'Eurydice', draw: faceOf({ cornerR: 0.025, brow: 0.7 }) },
       // Orpheus's: brows a little heavier and straight, the eyes open — he looks at whom he loves
       orpheus: { name: 'Orpheus', draw: faceOf({ brow: 1.2 }) },
       // Orpheus singing: the same face, the lips parted
@@ -116,7 +116,7 @@ return {
       curly: { name: 'curling hair', draw: F => {
         const h = F.head, r = h.r, K = F.keep(CROWN);
         F.cap(h.at, h.axes, K.radii, [0, 0.72, -0.69], -0.12, F.colors.hair, h.sides, h.square);
-        for (const [x, y, z, s] of CURLS) F.ball(h.on([x, y, z], 0.98), h.axes, [r * s, r * s * 0.8, r * s], F.colors.hair, 8);
+        for (const [x, y, z, s] of CURLS) F.ball(h.on([x, y, z], 0.95), h.axes, [r * s * 1.25, r * s, r * s * 1.25], F.colors.hair, 8);
       } },
     },
     parts: {
@@ -124,10 +124,7 @@ return {
       beard: { name: 'short beard', draw: F => {
         const h = F.head, r = h.r;
         F.ball(h.on([0, -0.72, 0.6], 0.97), h.axes, [r * 0.34, r * 0.24, r * 0.24], F.colors.hair, 12);
-        for (const sx of [-1, 1]) {
-          F.ball(h.on([sx * 0.6, -0.45, 0.48], 0.97), h.axes, [r * 0.18, r * 0.26, r * 0.18], F.colors.hair, 10);
-          F.ball(h.on([sx * 0.82, -0.08, 0.22], 0.97), h.axes, [r * 0.1, r * 0.24, r * 0.14], F.colors.hair, 10);
-        }
+        for (const sx of [-1, 1]) F.ball(h.on([sx * 0.58, -0.48, 0.5], 0.97), h.axes, [r * 0.2, r * 0.24, r * 0.18], F.colors.hair, 10);
       } },
       // a plain belt of dark leather round the tunic at the waist
       belt: { name: 'belt', draw: F => {
@@ -140,7 +137,7 @@ return {
         const { add, mul } = V(), h = F.head, K = F.keep(RIBBON), [, hu, hf] = h.axes;
         for (let i = 0; i <= BAND; i++) {
           const a = (i / BAND) * Math.PI * 2;
-          K.band[i] = h.on([Math.sin(a), 0.48 + 0.2 * Math.cos(a), Math.cos(a)], 1.1);
+          K.band[i] = h.on([Math.sin(a), 0.48 + 0.2 * Math.cos(a), Math.cos(a)], 1.06);
         }
         F.tube(K.band, K.profile, K.colors, 6, hu, 0.35);
         const knot = h.on([0, 0.3, -1], 1.12);
