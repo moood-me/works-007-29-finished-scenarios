@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Paradise","translation":"Парадиз","where":"scenes/room/elements/sign.js"},
+  {"text":"The Flat","translation":"Квартира","where":"scenes/room/scene.json title"},
+  {"text":"An evening off the alley. The glass on the shelf catches the lamp.","translation":"Вечер в квартире над переулком. Стекло на полке ловит свет лампы.","where":"scenes/room/scene.json caption"}
+]}
