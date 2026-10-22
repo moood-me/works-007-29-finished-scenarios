@@ -1,6 +1,7 @@
 {
   "engine": 3,
   "title": "The Pier",
+  "caption": "The night of their wedding. He sings; she floats lanterns.",
   "horizon": 0.5,
   "camera": { "mode": "picture" },
   "light": {

@@ -7,13 +7,13 @@
 // kept short in depth so it does not smear sideways. A layer that wavers (shimmer), so the path glints.
 const D0 = 161.5, A0 = 74, SLOPE = 0.462, EYE = 1.7;
 e.layer('dabs', { shimmer: 0.7, flicker: 0.3 }, g => {
-  for (let i = 0; i < 520; i++) {
+  for (let i = 0; i < 380; i++) {
     // where on the screen under the horizon (screen heights), so how far
     const below = 0.006 + 0.47 * e.anim.hash(i, 91), d = EYE / below;
     if (d < 3.2 || d > 318) continue;
     const spread = 0.012 + 0.05 * below / 0.47, x = SLOPE * d - A0 + (e.anim.hash(i, 92) - 0.5) * 2 * spread * d * (0.3 + 0.7 * e.anim.hash(i, 93));
     const w = (0.008 + 0.022 * e.anim.hash(i, 94)) * d, t = Math.min((0.0018 + 0.002 * e.anim.hash(i, 96)) * d * d / EYE, 0.05 * d);
-    g.fillStyle = `rgba(214,224,250,${(0.35 + 0.55 * e.anim.hash(i, 95)).toFixed(2)})`;
+    g.fillStyle = `rgba(214,224,250,${(0.2 + 0.45 * e.anim.hash(i, 95)).toFixed(2)})`;
     g.fillRect(x - w / 2, D0 - d - t / 2, w, t);
   }
 });
