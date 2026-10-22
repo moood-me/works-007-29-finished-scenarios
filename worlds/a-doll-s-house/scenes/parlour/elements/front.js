@@ -25,8 +25,8 @@ g.fillRect(-7, -4.12, 14, 0.02);
 g.fillStyle = '#e2d6bf';
 g.fillRect(-3.28, -3.5, 6.56, 3.5);
 // the joists of the floor above, cut across
-g.fillStyle = '#8c6c4b';
-for (let x = -3.0; x < 3.0; x += 0.6) g.fillRect(x + 0.22, -3.42, 0.14, 0.3);
+g.fillStyle = '#c4ad8a';
+for (let x = -3.0; x < 3.0; x += 0.6) g.fillRect(x + 0.24, -3.38, 0.1, 0.22);
 g.fillStyle = '#d6c8ad';
 g.fillRect(-3.28, -3.5, 6.56, 0.07);
 g.strokeStyle = GILT;

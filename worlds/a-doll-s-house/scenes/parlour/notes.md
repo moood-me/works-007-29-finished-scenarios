@@ -23,5 +23,9 @@ the place, its light and three of its people standing. No motion of people but a
 - **People** (cast: modules/cast — dolls of the `doll` style): Nora between the window and the doorway, the parcel
   in her hands, smiling at Torvald; Torvald by his study door, hands behind his back, smiling at her; Krogstad in the
   hall by the letter box, in his coat and hat, looking at her.
+- **Light.** The room's own lamps (the table's `lamp`, the tree's `tree`, the stove, the hall's wall lamp), the evening
+  at the window (`window_in`), the gas lamp outside (`street`) — and `room`: the lamp of the room the doll's house
+  stands in, before it and above (across 0.6, distance 1.2, 3.6 m up), unseen, its light on the people's faces through
+  the open front.
 - **Keys.** `day` (the evening ↔ a snowy day: the sky's layers, the light's look, the windows across and the gas
   lamp), `lamp`, `candles`, `stove`.

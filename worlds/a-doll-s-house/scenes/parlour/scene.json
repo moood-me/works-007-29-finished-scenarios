@@ -28,7 +28,8 @@
         "tint": "#e9eef4",
         "tintStrength": 0.03,
         "lights": {
-          "street": 0
+          "street": 0,
+          "room": 0.5
         }
       }
     }
@@ -44,8 +45,8 @@
       "id": "lamp",
       "of": "table_lamp#flame",
       "color": "#ffd28a",
-      "strength": 1.8,
-      "reach": 5,
+      "strength": 1.4,
+      "reach": 5.5,
       "on": "lamp",
       "flicker": 0.03
     },
@@ -53,8 +54,8 @@
       "id": "tree",
       "of": "tree_candles#glow",
       "color": "#ffc978",
-      "strength": 1.0,
-      "reach": 3.5,
+      "strength": 1.4,
+      "reach": 4,
       "on": "candles",
       "flicker": 0.2
     },
@@ -71,8 +72,8 @@
       "id": "hall",
       "of": "hall_back#sconce",
       "color": "#ffcf8a",
-      "strength": 1.1,
-      "reach": 4
+      "strength": 1.6,
+      "reach": 4.5
     },
     {
       "id": "street",
@@ -80,6 +81,15 @@
       "color": "#ffd9a0",
       "strength": 1.0,
       "reach": 9
+    },
+    {
+      "id": "room",
+      "across": 0.6,
+      "distance": 1.2,
+      "elevation": 3.6,
+      "color": "#ffe6c4",
+      "strength": 0.9,
+      "reach": 13
     }
   ],
   "modules": [
@@ -503,7 +513,7 @@
       "person": {
         "cast": "cast",
         "who": "nora",
-        "turn": 140,
+        "turn": 150,
         "does": "hold"
       },
       "across": -0.15,
@@ -516,7 +526,7 @@
       "person": {
         "cast": "cast",
         "who": "torvald",
-        "turn": 235,
+        "turn": 215,
         "does": "hands_behind"
       },
       "across": 2.35,
@@ -529,7 +539,7 @@
       "person": {
         "cast": "cast",
         "who": "krogstad",
-        "turn": 195
+        "turn": 190
       },
       "across": 0.55,
       "distance": 9.3
