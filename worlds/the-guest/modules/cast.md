@@ -24,4 +24,5 @@ line; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it), so f
 ## Motions (Kimodo)
 
 The engine's `stand` and `walk`, and: `hands_bound` — stands with the hands together before him at the waist, swaying a
-little (a loop); `arms_folded` — stands with the arms folded, shifting the weight now and then (a loop).
+little (a loop); `hands_behind` — stands with the hands clasped behind the back, watching (a loop); `hands_on_hips` —
+stands with both hands on the hips, shifting the weight from foot to foot (a loop).

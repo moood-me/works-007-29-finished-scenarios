@@ -3,15 +3,24 @@
 // and the snow hangs over the edge.
 g.fillStyle = '#e7ebef';
 g.fillRect(-6.4, -1.45, 12.8, 2.9);
-// rows of tiles showing near the eaves and in a few bare streaks
-for (let row = 0; row < 3; row++) {
-  const y = 1.45 - 0.12 - row * 0.2;
-  for (let x = -6.4; x < 6.4; x += 0.22) {
-    if (e.rnd() < 0.25 + row * 0.25) continue;
-    g.fillStyle = e.rnd() < 0.5 ? '#a5583e' : '#99503a';
-    g.fillRect(x, y - 0.08, 0.2, 0.16);
-  }
+// the last rows of tiles showing along the eaves, the snow's edge ragged over them
+g.fillStyle = '#9d543b';
+g.fillRect(-6.4, 1.05, 12.8, 0.3);
+g.strokeStyle = '#874630';
+g.lineWidth = 0.02;
+for (let x = -6.4; x < 6.4; x += 0.2) {
+  g.beginPath();
+  g.moveTo(x, 1.05);
+  g.lineTo(x, 1.35);
+  g.stroke();
 }
+g.fillStyle = '#e7ebef';
+g.beginPath();
+g.moveTo(-6.4, 1.05);
+for (let x = -6.4; x <= 6.4; x += 0.3) g.lineTo(x, 1.05 + 0.06 + 0.1 * e.rnd());
+g.lineTo(6.4, 1.0);
+g.closePath();
+g.fill();
 for (let i = 0; i < 6; i++) {
   const x = -6 + e.rnd() * 12;
   g.fillStyle = 'rgba(160,86,62,0.55)';

@@ -8,7 +8,7 @@ const D0 = 2900;
 const X = a => a - A0;
 const Y = d => D0 - d;
 // where the land begins to fall (t = 0) and how far past that line a point is: t (relief.js)
-const edge = (d, c) => -7 - 0.25 * (d - 10) - c;
+const edge = (d, c) => -3 - 0.35 * (d - 6) - c;
 // the snow
 g.fillStyle = '#e4e9ef';
 g.fillRect(-3000, -3000, 6000, 6000);
@@ -40,7 +40,7 @@ for (let i = 0; i < 420; i++) {
   g.lineCap = 'round';
   g.beginPath();
   g.moveTo(X(a), Y(d));
-  g.lineTo(X(a - 0.25 * len), Y(d + len));
+  g.lineTo(X(a - 0.35 * len), Y(d + len));
   g.stroke();
 }
 // snow lying on the plain in patches, and long drifts on the hill behind the school
@@ -83,8 +83,8 @@ for (let i = 0; i < 90; i++) {
 }
 g.globalAlpha = 1;
 // the path: trodden snow and mud from the foot of the terrace down past the lip to the horse, and on down the slope
-const path = [[-0.8, 6.9], [-3, 7.5], [-5.5, 8.6], [-8.5, 10.8], [-12, 14.5], [-16, 19.5], [-21, 26], [-27, 33], [-33, 41],
-  [-39, 50], [-44, 60], [-48, 70], [-53, 82], [-60, 96], [-70, 115], [-85, 140], [-105, 175], [-130, 215]];
+const path = [[1.4, 6.0], [-0.6, 5.7], [-2.6, 6.0], [-4.8, 7.2], [-7.4, 9.5], [-10.5, 13], [-14.5, 18], [-19.5, 24], [-25.5, 31],
+  [-32, 40], [-39, 50], [-45, 62], [-49, 74], [-55, 88], [-64, 105], [-79, 130], [-99, 165], [-124, 205]];
 function trace(width, color) {
   g.strokeStyle = color;
   g.lineWidth = width;
@@ -121,7 +121,7 @@ for (let i = 1; i < path.length; i++) {
 for (let i = 0; i < 160; i++) {
   const a = -28 + e.rnd() * 50;
   const d = 1.5 + Math.pow(e.rnd(), 1.3) * 45;
-  if (Math.abs(a + 1) < 3 && d < 9) continue;
+  if (a > -4 && a < 4 && d < 8) continue;
   const r = 0.08 + Math.pow(e.rnd(), 2) * 0.5;
   g.fillStyle = e.rnd() < 0.6 ? '#9f9b92' : '#b2ab9c';
   g.beginPath();
@@ -136,6 +136,6 @@ for (let i = 0; i < 160; i++) {
 g.fillStyle = '#cfd2d3';
 g.globalAlpha = 0.8;
 g.beginPath();
-g.ellipse(X(1.5), Y(6.6), 4.5, 1.8, -0.2, 0, Math.PI * 2);
+g.ellipse(X(1.6), Y(6.4), 3.2, 1.4, -0.35, 0, Math.PI * 2);
 g.fill();
 g.globalAlpha = 1;

@@ -9,13 +9,13 @@ standing. No motion of people, no camera moves.
   behind the school the plateau rises into a long hill — painted by one draped plane `land` (snow, the slope's bare
   streaks, the dun plain with snow patches and a douar, the path down to the horse, stones near). Far: `ridges`,
   `ridges_far` (cards at 6 and 11 km, their foot at the plain's level).
-- **The school** is built of cards and planes on the unseen anchor `school` (across 5.2, distance 6.4, facing 195): its
+- **The school** is built of cards and planes on the unseen anchor `school` (across 6.47, distance 6.25, facing 200): its
   whitewashed `front` (the classroom's door at x −2.4, windows), the right `gable`, the snowy tiled `roof` (a plane,
   tilt 24), the `chimney` (its smoke the particles `smoke`), the `terrace` (a walk plane at 0.45 m) and its front, the
   grain `shed` with its sacks at the left end and its lean-to roof.
-- **People** (cast: modules/cast). Daru on the terrace before the door, arms folded, looking at the Arab; Balducci at
-  the terrace's left end, turned to Daru, his right hand back holding the rope (`balducci_reach`); the Arab behind him on
-  the path, his wrists tied (`hands_bound`, the part `bonds`), looking at Daru. `rope`: one painted rope laid each frame
+- **People** (cast: modules/cast). Daru at the terrace's left end by the door, hands behind his back (`hands_behind`), looking at
+  the Arab; Balducci below the terrace's end, turned to Daru, his left hand on his hip (`hands_on_hips`), his right back
+  holding the rope (`balducci_reach`); the Arab nearer, on the path at the plateau's edge, his wrists tied (`hands_bound`, the part `bonds`), looking at Daru. `rope`: one painted rope laid each frame
   by its animate from `balducci#hand_r` to `arab#bonds`.
 - **What moves.** The people breathing, the grass tufts (`tufts`, copies) in the wind, the chimney's smoke, the high
   cloud drifting, the horse's breath (`breath`: bursts from `horse#muzzle` by its animate).

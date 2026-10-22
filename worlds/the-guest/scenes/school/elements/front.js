@@ -4,22 +4,19 @@
 // snow on the sills.
 g.fillStyle = '#e8e3d6';
 g.fillRect(-6.2, -3.42, 12.4, 3.42);
-// the lime's unevenness: patches a shade warmer or greyer
-for (let i = 0; i < 60; i++) {
-  g.fillStyle = e.rnd() < 0.5 ? 'rgba(214,206,190,0.45)' : 'rgba(244,241,234,0.5)';
-  g.beginPath();
-  g.ellipse(-6 + e.rnd() * 12, -3.2 + e.rnd() * 3, 0.2 + e.rnd() * 0.6, 0.1 + e.rnd() * 0.3, 0, 0, Math.PI * 2);
-  g.fill();
-}
-// streaks of damp from the eaves
-for (let i = 0; i < 14; i++) {
-  const x = -6 + e.rnd() * 12;
-  const r = g.createLinearGradient(0, -3.42, 0, -2.2);
-  r.addColorStop(0, 'rgba(160,150,132,0.4)');
-  r.addColorStop(1, 'rgba(160,150,132,0)');
+// faint streaks of damp under the eaves
+for (let i = 0; i < 10; i++) {
+  const x = -6 + e.rnd() * 11.8;
+  const h = 0.3 + e.rnd() * 0.5;
+  const r = g.createLinearGradient(0, -3.42, 0, -3.42 + h);
+  r.addColorStop(0, 'rgba(170,160,142,0.3)');
+  r.addColorStop(1, 'rgba(170,160,142,0)');
   g.fillStyle = r;
-  g.fillRect(x, -3.42, 0.08 + e.rnd() * 0.2, 1.2);
+  g.fillRect(x, -3.42, 0.05 + e.rnd() * 0.1, h);
 }
+// the eaves' shadow line where the roof overhangs
+g.fillStyle = 'rgba(120,112,100,0.35)';
+g.fillRect(-6.2, -3.42, 12.4, 0.06);
 // the plinth
 g.fillStyle = '#b9a785';
 g.fillRect(-6.2, -0.55, 12.4, 0.55);

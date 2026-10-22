@@ -11,3 +11,4 @@ rope.x = left[0];
 rope.y = left[1];
 rope.rotate = Math.atan2(dy, dx);
 rope.scale = Math.hypot(dx, dy) / 2;
+e.warn(`rope ${a.map(v => v.toFixed(2))} ${b.map(v => v.toFixed(2))}`);

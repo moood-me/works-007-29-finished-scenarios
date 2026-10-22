@@ -7,9 +7,9 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.72,
-    "ambientColor": "#bfd0ec",
-    "bounce": 0.6,
+    "ambient": 0.6,
+    "ambientColor": "#b4c8ec",
+    "bounce": 0.55,
     "haze": 0.03,
     "hazeColor": "#c6d6e8",
     "hazeGlow": 0.3,
@@ -33,7 +33,7 @@
         20
       ],
       "color": "#fff0da",
-      "strength": 1.15
+      "strength": 1.5
     }
   ],
   "modules": [
@@ -46,9 +46,9 @@
     "balducci_mood": "neutral",
     "balducci_reach": {
       "r": [
-        -1.37,
-        6.83,
-        0.85
+        0.04,
+        6.19,
+        0.9
       ]
     },
     "arab_look": "daru",
@@ -102,9 +102,9 @@
       "id": "school",
       "name": "The school",
       "unseen": true,
-      "across": 5.2,
-      "distance": 6.4,
-      "facing": 195
+      "across": 6.47,
+      "distance": 6.25,
+      "facing": 200
     },
     {
       "id": "front",
@@ -113,10 +113,10 @@
       "facing": 180,
       "height": 3.42,
       "box": [
-        -6.3,
-        -3.5,
-        6.3,
-        0.1
+        -6.8,
+        -3.55,
+        6.8,
+        0.15
       ],
       "shadow": true
     },
@@ -128,9 +128,9 @@
       "facing": 90,
       "height": 4.7,
       "box": [
-        -0.2,
-        -4.8,
-        5.2,
+        -0.4,
+        -4.85,
+        5.3,
         0.1
       ],
       "shadow": true
@@ -185,9 +185,9 @@
       "height": 0.5,
       "box": [
         -4.3,
-        -0.55,
-        4.3,
-        0.05
+        -0.6,
+        4.7,
+        0.08
       ],
       "shadow": true
     },
@@ -202,8 +202,8 @@
       "box": [
         -1.6,
         -2.5,
-        1.6,
-        0.05
+        1.75,
+        0.1
       ],
       "shadow": true
     },
@@ -254,11 +254,6 @@
           "distance": 9.5,
           "scale": 1.4,
           "flip": true
-        },
-        {
-          "across": 8.6,
-          "distance": 3.6,
-          "scale": 0.8
         },
         {
           "across": -14,
@@ -370,8 +365,8 @@
           "flip": false
         },
         {
-          "across": 6.8,
-          "distance": 4.0,
+          "across": 7.5,
+          "distance": 2.4,
           "scale": 1,
           "flip": true
         }
@@ -380,8 +375,8 @@
     {
       "id": "horse",
       "name": "Balducci's horse",
-      "across": -48,
-      "distance": 70,
+      "across": -49,
+      "distance": 74,
       "height": 1.75,
       "box": [
         -1.35,
@@ -397,7 +392,6 @@
       "particles": {
         "kind": "smoke",
         "at": "horse#muzzle",
-        "rate": 0,
         "size": [
           0.06,
           0.4
@@ -417,7 +411,11 @@
           -1,
           0,
           0.3
-        ]
+        ],
+        "burst": {
+          "count": 14,
+          "over": 0.6
+        }
       }
     },
     {
@@ -426,11 +424,11 @@
       "person": {
         "cast": "cast",
         "who": "daru",
-        "turn": 245,
-        "does": "arms_folded"
+        "turn": 235,
+        "does": "hands_behind"
       },
-      "across": 2.5,
-      "distance": 5.7
+      "across": 2.4,
+      "distance": 5.6
     },
     {
       "id": "balducci",
@@ -438,10 +436,11 @@
       "person": {
         "cast": "cast",
         "who": "balducci",
-        "turn": 115
+        "turn": 140,
+        "does": "hands_on_hips"
       },
-      "across": -0.9,
-      "distance": 7.0
+      "across": 0.4,
+      "distance": 6.4
     },
     {
       "id": "arab",
@@ -449,17 +448,17 @@
       "person": {
         "cast": "cast",
         "who": "arab",
-        "turn": 112,
+        "turn": 125,
         "does": "hands_bound"
       },
-      "across": -2.9,
-      "distance": 7.4
+      "across": -1.6,
+      "distance": 5.4
     },
     {
       "id": "rope",
       "name": "The rope",
-      "across": -2.1,
-      "distance": 7.1,
+      "across": -0.8,
+      "distance": 5.8,
       "height": 1.0,
       "box": [
         -4,
