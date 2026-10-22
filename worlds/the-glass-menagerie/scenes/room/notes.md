@@ -5,10 +5,10 @@ lamplight, the glass, the alley's neon — and its three people standing as they
 look; no camera moves.
 
 - **Where things are.** The viewer stands at the room's open side (camera `picture`), like a stage. Floor at 0,
-  ceiling 2.8; the back wall at distance 6.4 (`back_wall`, its two openings: the window x −2.05…−0.95, the arch
-  x 1.05…2.45), side walls at across ±3.1 (`left_wall`, `right_wall`: the door to the landing at distance 5.5, Tom's
-  coat and cap on the hook at 4.6). Shared wallpaper: `lib.js`.
-- **Out of the window**: the fire escape's railing (7.1), the land dropping to −9 past 7.8 (`relief.js`), the dance
+  ceiling 2.8; the back wall at distance 5.4 (`back_wall`, its two openings: the window x −2.05…−0.95, the arch
+  x 1.05…2.45), side walls at across ±2.9 (`left_wall`, `right_wall`: the door to the landing at distance 5.5, Tom's
+  overcoat on the hook at 3.65). Shared wallpaper: `lib.js`.
+- **Out of the window**: the fire escape's railing (6.1), the land dropping to −9 past 6.8, left of the dining room (`relief.js`), the dance
   hall's building across the alley (`facade`, 14 m) with the Paradise's neon sign on its roof (`sign`, glows; its tubes
   a flickering layer), the night sky (`sky`).
 - **Through the arch**: the portieres (`portiere`), the dining room's wall and sideboard, the table laid with a white

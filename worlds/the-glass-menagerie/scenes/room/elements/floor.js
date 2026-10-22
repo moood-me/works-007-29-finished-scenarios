@@ -1,12 +1,12 @@
-// The floor from above (metres, its middle at distance 5.3, y toward the viewer): dark varnished boards running across
-// the room, worn paler where feet go, and the faded red rug before the daybed (its middle at distance 4.9, y 0.4).
+// The floor from above (metres, its middle at distance 4.8, y toward the viewer): dark varnished boards running across
+// the room, worn paler where feet go, and the faded red rug before the daybed (its middle at distance 4.0, y 0.8).
 g.fillStyle = '#4a3427';
-g.fillRect(-3.7, -3.4, 7.4, 6.8);
+g.fillRect(-3.0, -2.9, 6.0, 5.8);
 const tones = ['#5e4231', '#59402f', '#634635', '#553c2c'];
 const B = 0.13;
-for (let y = -3.4; y < 3.4; y += B) {
-  let x = -3.7 - e.rnd() * 1.5;
-  while (x < 3.7) {
+for (let y = -2.9; y < 2.9; y += B) {
+  let x = -3.0 - e.rnd() * 1.5;
+  while (x < 3.0) {
     const len = 1.1 + e.rnd() * 1.8;
     g.fillStyle = tones[Math.floor(e.rnd() * tones.length)];
     g.fillRect(x + 0.006, y + 0.006, len - 0.012, B - 0.012);
@@ -15,11 +15,12 @@ for (let y = -3.4; y < 3.4; y += B) {
 }
 g.fillStyle = 'rgba(150,118,90,0.18)';
 g.beginPath();
-g.ellipse(1.6, 0.9, 1.0, 0.6, 0.3, 0, Math.PI * 2);
+g.ellipse(1.6, 1.2, 0.9, 0.6, 0.3, 0, Math.PI * 2);
 g.fill();
 // the rug: a deep red border, a dusky field, a worn medallion, fringe at the ends
 g.save();
-g.translate(-0.1, 0.4);
+g.translate(-0.1, 0.8);
+g.scale(0.87, 0.87);
 g.fillStyle = '#6e2f2b';
 g.fillRect(-1.5, -0.95, 3.0, 1.9);
 g.fillStyle = '#8c4a3b';

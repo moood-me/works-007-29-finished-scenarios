@@ -1,6 +1,6 @@
-// The left wall (facing into the room; its x runs away from the viewer, x 0 at distance 4.15): the old paper, bare
+// The left wall (facing into the room; its x runs away from the viewer, x 0 at distance 3.65): the old paper, bare
 // but for a small mirror gone grey.
-e.lib.wallpaper(g, e, -2.3, 2.3, false);
+e.lib.wallpaper(g, e, -1.8, 1.8, false);
 g.fillStyle = '#6a5038';
 g.fillRect(-0.62, -1.9, 0.42, 0.52);
 g.fillStyle = '#9aa1a4';

@@ -1,8 +1,8 @@
 // The living room's back wall, from its foot (metres, across from the room's middle): the old wallpaper with two
 // openings cut through it — the window onto the fire escape (x −2.05…−0.95, sill 0.75, head 2.25) and the arch into
 // the dining room (x 1.05…2.45, 2.3 high at its crown) — each in a plain painted casing.
-const W0 = -3.15;
-const W1 = 3.15;
+const W0 = -2.95;
+const W1 = 2.95;
 const holes = c => {
   c.rect(-2.05, -2.25, 1.1, 1.5);
   c.moveTo(1.05, 0.02);
