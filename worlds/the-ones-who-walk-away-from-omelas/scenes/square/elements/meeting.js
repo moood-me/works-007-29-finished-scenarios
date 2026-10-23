@@ -61,8 +61,8 @@ g.fillRect(-12, -H - 0.2, 24, 0.9);
 g.fillStyle = '#cfc4ae';
 g.fillRect(-12, -H + 0.7, 24, 0.2);
 for (let x = -11.7; x < 12; x += 0.6) g.fillRect(x, -H + 0.35, 0.25, 0.3);
-// the side door, at x −7.2 (≈ 11 m ahead): a heavy lintel, a dark recess, three steps down into it, the door shut
-const dx = -7.2;
+// the side door, at x −5 (13 m ahead): a heavy lintel, a dark recess, three steps down into it, the door shut
+const dx = -5;
 g.fillStyle = '#b3a892';
 g.fillRect(dx - 0.95, -2.35, 1.9, 0.35);
 g.fillStyle = '#5b544b';

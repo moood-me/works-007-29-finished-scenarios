@@ -89,7 +89,7 @@
     "evening": 0,
     "ila_on": [
       -0.9,
-      4.76,
+      3.86,
       0.52
     ],
     "ila_look": [
@@ -148,7 +148,7 @@
       "plane": true,
       "across": 0,
       "distance": 15300,
-      "elevation": -23,
+      "elevation": -34,
       "width": 80000,
       "depth": 29400,
       "reflect": {
@@ -2200,7 +2200,7 @@
     {
       "id": "meeting",
       "name": "The Meeting House",
-      "across": -6,
+      "across": -7.5,
       "distance": 18,
       "facing": 90,
       "height": 14,
@@ -2215,7 +2215,7 @@
     {
       "id": "row",
       "name": "Houses along the square",
-      "across": 7.5,
+      "across": 9.5,
       "distance": 19,
       "facing": 270,
       "height": 13,
@@ -2240,17 +2240,17 @@
       "shadow": true,
       "copies": [
         {
-          "across": 5.4,
+          "across": 7.0,
           "distance": 9.5
         },
         {
-          "across": 5.6,
+          "across": 7.2,
           "distance": 16,
           "scale": 1.1,
           "flip": true
         },
         {
-          "across": 5.3,
+          "across": 6.9,
           "distance": 22.5,
           "scale": 0.95
         }
@@ -2260,7 +2260,7 @@
       "id": "fountain",
       "name": "The fountain's basin",
       "across": -0.9,
-      "distance": 6.3,
+      "distance": 5.4,
       "height": 0.52,
       "box": [
         -5.3407,
@@ -2274,7 +2274,7 @@
       "id": "column",
       "name": "The fountain's column",
       "across": -0.9,
-      "distance": 6.3,
+      "distance": 5.4,
       "height": 2.32,
       "box": [
         -2.3876,
@@ -2289,7 +2289,7 @@
       "name": "The fountain's water",
       "plane": true,
       "across": -0.9,
-      "distance": 6.3,
+      "distance": 5.4,
       "elevation": 0.46,
       "width": 3,
       "depth": 3,
@@ -2307,7 +2307,7 @@
         "kind": "splashes",
         "at": [
           -0.9,
-          6.3,
+          5.4,
           2.33
         ],
         "rate": 140,
@@ -2344,7 +2344,7 @@
         "kind": "splashes",
         "at": [
           -0.9,
-          6.3,
+          5.4,
           1.72
         ],
         "source": [
@@ -2837,7 +2837,7 @@
         "does": "flute"
       },
       "across": -0.9,
-      "distance": 4.76,
+      "distance": 3.86,
       "shadow": true
     },
     {
@@ -2849,8 +2849,8 @@
         "turn": 118,
         "does": "old_stand"
       },
-      "across": -1.72,
-      "distance": 4.45,
+      "across": -1.45,
+      "distance": 3.62,
       "shadow": true
     },
     {
@@ -2859,11 +2859,11 @@
       "person": {
         "cast": "cast",
         "who": "kor",
-        "turn": 245,
+        "turn": 250,
         "does": "fidget"
       },
-      "across": 0.75,
-      "distance": 5.25,
+      "across": 0.6,
+      "distance": 4.4,
       "shadow": true
     },
     {
@@ -2872,7 +2872,7 @@
       "person": {
         "cast": "cast",
         "who": "rose_woman",
-        "turn": 152
+        "turn": 156
       },
       "across": -3.4,
       "distance": 9.5,
@@ -2884,7 +2884,7 @@
       "person": {
         "cast": "cast",
         "who": "blue_man",
-        "turn": 162
+        "turn": 166
       },
       "across": -2.6,
       "distance": 10.6,
@@ -2896,7 +2896,7 @@
       "person": {
         "cast": "cast",
         "who": "old_man",
-        "turn": 220
+        "turn": 215
       },
       "across": 2.8,
       "distance": 9.2,
@@ -2908,7 +2908,7 @@
       "person": {
         "cast": "cast",
         "who": "flower_girl",
-        "turn": 208
+        "turn": 211
       },
       "across": 1.9,
       "distance": 8.6,
