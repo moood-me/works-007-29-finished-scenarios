@@ -18,11 +18,11 @@ on it), so faces read in a wide shot.
 
 ## Things (a look's `parts`, or `<id>_with`)
 
-`folder` — a folder of reports held against the chest in both hands. `cap_held` — a cloth cap held before him in both
+`folder` — a folder of reports held before him in both hands. `cap_held` — a cloth cap held before him in both
 hands (its colour the look's `hat`). `moustache` — a small moustache (the hair's colour).
 
 ## Motions (Kimodo)
 
 The engine's `stand` and `walk`, and loops: `hands_behind` — stands, the hands clasped behind the back;
-`hold_chest` — stands holding something against the chest in both hands (the folder); `hold_low` — stands, the head
+`hold_waist` — stands holding something before him at the waist in both hands (the folder); `hold_low` — stands, the head
 bowed, holding something before the belly in both hands (the cap).

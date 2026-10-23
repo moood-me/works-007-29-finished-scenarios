@@ -55,7 +55,7 @@ return {
           F.ball(add(h.at, add(mul(hu, -r * 0.42), mul(hf, r * 0.93))), [hs, hu, hf], [r * 0.28, r * 0.07, r * 0.08], F.colors.hair, 10);
         },
       },
-      // the inspector's folder of reports held against the chest in both hands: grey-green board, its papers' edge
+      // the inspector's folder of reports held before him in both hands: grey-green board, its papers' edge
       folder: {
         name: 'folder',
         draw: F => {
