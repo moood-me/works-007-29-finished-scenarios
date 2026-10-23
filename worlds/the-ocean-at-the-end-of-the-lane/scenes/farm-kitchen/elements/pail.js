@@ -1,0 +1,21 @@
+// The milking pail Lettie set on the table: cream enamel with a blue rim, full of fresh milk, its wire handle down.
+g.fillStyle = '#e6dfcc';
+g.beginPath();
+g.moveTo(-0.13, -0.28);
+g.lineTo(0.13, -0.28);
+g.lineTo(0.11, 0);
+g.lineTo(-0.11, 0);
+g.closePath();
+g.fill();
+g.fillStyle = '#3d5d93';
+g.fillRect(-0.14, -0.3, 0.28, 0.03);
+g.fillStyle = '#f7f4ec';
+g.beginPath();
+g.ellipse(0, -0.3, 0.125, 0.02, 0, 0, Math.PI * 2);
+g.fill();
+g.strokeStyle = '#7d7a72';
+g.lineWidth = 0.007;
+g.beginPath();
+g.moveTo(-0.13, -0.27);
+g.quadraticCurveTo(0, -0.12, 0.13, -0.27);
+g.stroke();
