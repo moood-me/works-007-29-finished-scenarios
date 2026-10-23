@@ -1,5 +1,6 @@
 // Parish's cottage, its front to us (x across from its middle, 0 at its foot): whitewash gone grey-ochre, a tiled roof,
-// the bedroom window (x −0.75…0.45, 0.95…2.1 up) — a hole: the room behind it — with its frame and sill; the door
+// the bedroom window (x −0.75…0.45, 0.95…2.1 up) — a hole: the room behind it — with its frame and sill, a small
+// lamp lit on the sill (the scene's light "parish_lamp", on Mrs Parish at the window); the door
 // with the bench by it on the porch; a chimney.
 g.save();
 g.beginPath();
@@ -62,4 +63,16 @@ for (let y = -3.75; y > -5.9; y -= 0.22) {
 }
 g.fillStyle = '#7a6b5c';
 g.fillRect(2.0, -5.6, 0.45, 1.2);
+// the lamp on the sill: a brass foot, a glass chimney, its flame
+g.fillStyle = '#8a6a3a';
+g.fillRect(0.2, -1.0, 0.12, 0.05);
+g.fillStyle = 'rgba(250,236,200,0.7)';
+g.beginPath();
+g.ellipse(0.26, -1.1, 0.04, 0.07, 0, 0, Math.PI * 2);
+g.fill();
+g.fillStyle = '#ffd08a';
+g.beginPath();
+g.ellipse(0.26, -1.1, 0.012, 0.025, 0, 0, Math.PI * 2);
+g.fill();
+e.light(0.26, -1.1, 0.12, '#ffc070', 0.9, 'lamp');
 e.at(-0.15, -1.55, 'window');

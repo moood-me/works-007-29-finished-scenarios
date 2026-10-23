@@ -97,10 +97,10 @@
     },
     {
       "id": "parish_lamp",
-      "of": "house_room#lamp",
+      "of": "house#lamp",
       "color": "#ffbe70",
-      "strength": 1.0,
-      "reach": 2.2
+      "strength": 1.1,
+      "reach": 1.6
     }
   ],
   "modules": [
@@ -109,7 +109,11 @@
   "state": {
     "lamp": 1,
     "dusk": 0,
-    "niggle_look": "parish",
+    "niggle_look": [
+      0.9,
+      3.6,
+      0.5
+    ],
     "niggle_mood": "tired",
     "parish_look": "niggle",
     "parish_mood": "neutral",
@@ -450,8 +454,8 @@
       "name": "The empty travelling bag",
       "inside": true,
       "shadow": true,
-      "across": 2.4,
-      "distance": 2.75,
+      "across": 1.95,
+      "distance": 2.8,
       "height": 0.5,
       "box": [
         -0.5,
@@ -484,7 +488,7 @@
       "person": {
         "cast": "cast",
         "who": "niggle",
-        "turn": 165,
+        "turn": 185,
         "does": "hold_brush"
       },
       "inside": true,
