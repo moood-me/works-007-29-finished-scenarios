@@ -17,6 +17,10 @@ function seeded(seed) {
 // across, a few paler weathered patches
 function canvas(g, e, x0, y0, x1, y1, seam = 1.5) {
   const w = x1 - x0, h = y1 - y0;
+  g.save();
+  g.beginPath();
+  g.rect(x0, y0, w, h);
+  g.clip();
   g.fillStyle = '#7f7c58';
   g.fillRect(x0, y0, w, h);
   for (let i = 0; i < 10; i++) {
@@ -33,9 +37,10 @@ function canvas(g, e, x0, y0, x1, y1, seam = 1.5) {
     g.lineTo(x, y1);
     g.stroke();
   }
+  g.restore();
 }
 
-// a semagram centred at cx, cy, `size` metres across: three to five sweeping loops round the middle, crossing one
+// a semagram centred at cx, cy, `size` metres across: a small ring at its heart, two or three sweeping loops round the middle, crossing one
 // another, two or three strokes branching off them with a hook at their ends — one line, each stroke thick and thin
 function semagram(g, cx, cy, size, seed, color = '#1d2433') {
   const r = seeded(seed), R = size / 2;
@@ -43,14 +48,18 @@ function semagram(g, cx, cy, size, seed, color = '#1d2433') {
   g.strokeStyle = color;
   g.lineCap = 'round';
   g.lineJoin = 'round';
-  const loops = 3 + Math.floor(r() * 3);
+  g.lineWidth = size * 0.03;
+  g.beginPath();
+  g.arc(cx, cy, R * 0.14, 0, Math.PI * 2);
+  g.stroke();
+  const loops = 2 + Math.floor(r() * 2);
   for (let k = 0; k < loops; k++) {
     const a0 = (k / loops) * Math.PI * 2 + r() * 0.8, rx = R * (0.45 + r() * 0.5), ry = R * (0.25 + r() * 0.45);
     const ox = (r() - 0.5) * R * 0.5, oy = (r() - 0.5) * R * 0.5;
-    g.lineWidth = size * (0.018 + r() * 0.03);
+    g.lineWidth = size * (0.012 + r() * 0.022);
     g.beginPath();
     for (let i = 0; i <= 48; i++) {
-      const t = (i / 48) * Math.PI * 2, wob = 1 + 0.18 * Math.sin(t * 3 + k);
+      const t = (i / 48) * Math.PI * 2, wob = 1 + 0.1 * Math.sin(t * 2 + k);
       const x = rx * Math.cos(t) * wob, y = ry * Math.sin(t) * wob;
       const px = cx + ox + x * Math.cos(a0) - y * Math.sin(a0), py = cy + oy + x * Math.sin(a0) + y * Math.cos(a0);
       if (i) g.lineTo(px, py);
@@ -138,7 +147,7 @@ function heptapod(g, e, turn) {
   const raised = limbs.filter(L => L.cz > -0.2).sort((a, b) => b.sx - a.sx)[0];
   for (const L of limbs.filter(L => L.cz < 0 && L !== raised)) {
     const [r, k, f] = pathOf(L);
-    limb(g, r, k, f, 0.075, dark);
+    limb(g, r, k, f, 0.12, dark);
   }
   e.layer('body', { pivot: [0, -1.1], box: [-0.6, -2.42, 0.6, -0.9] }, c => {
     // the barrel: wider below its middle, rounded at the top
@@ -151,10 +160,10 @@ function heptapod(g, e, turn) {
     c.quadraticCurveTo(0, -0.94, -0.24, -1.0);
     c.fill();
     // its wrinkled hide: faint rings round it
-    c.strokeStyle = 'rgba(70,72,66,0.45)';
+    c.strokeStyle = 'rgba(70,72,66,0.25)';
     c.lineWidth = 0.012;
-    for (let i = 0; i < 9; i++) {
-      const y = -1.1 - i * 0.12, hw = 0.42 - Math.abs(y + 1.55) * 0.28;
+    for (let i = 0; i < 5; i++) {
+      const y = -1.2 - i * 0.17, hw = 0.42 - Math.abs(y + 1.55) * 0.28;
       c.beginPath();
       c.ellipse(0, y, hw, 0.035, 0, 0.15, Math.PI - 0.15);
       c.stroke();
@@ -181,12 +190,12 @@ function heptapod(g, e, turn) {
   e.layer('front', { box: [-1.2, -1.6, 1.2, 0.05] }, c => {
     for (const L of limbs.filter(L => L.cz >= 0 && L !== raised).sort((a, b) => a.cz - b.cz)) {
       const [r, k, f] = pathOf(L);
-      limb(c, r, k, f, 0.085, skin);
+      limb(c, r, k, f, 0.13, skin);
     }
   });
   const [r] = pathOf(raised);
   e.layer('arm', { pivot: r, box: [r[0] - 0.2, -2.2, r[0] + 1.2, r[1] + 0.2] }, c => {
-    limb(c, r, [r[0] + 0.55, -1.75], [r[0] + 0.95, -1.55], 0.085, skin);
+    limb(c, r, [r[0] + 0.5, -1.62], [r[0] + 0.78, -1.05], 0.13, skin);
   });
 }
 

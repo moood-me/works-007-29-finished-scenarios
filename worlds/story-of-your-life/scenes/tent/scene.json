@@ -49,7 +49,7 @@
     {
       "id": "glass",
       "across": -0.8,
-      "distance": 7.0,
+      "distance": 6.6,
       "elevation": 1.7,
       "color": "#eef2fb",
       "strength": 1.1,
@@ -58,7 +58,7 @@
     {
       "id": "room",
       "across": -0.5,
-      "distance": 11.5,
+      "distance": 11.1,
       "elevation": 5,
       "color": "#f6f8ff",
       "strength": 2.2,
@@ -76,7 +76,7 @@
     ],
     "gary_on": [
       1.15,
-      3.88,
+      3.33,
       0.74
     ],
     "gary_look": "louise",
@@ -86,9 +86,9 @@
     ],
     "gary_reach": {
       "r": [
-        0.55,
-        4.0,
-        1.1
+        0.6,
+        3.5,
+        1.05
       ]
     },
     "weber_look": "louise",
@@ -127,7 +127,7 @@
       "name": "The white room beyond the glass",
       "glows": true,
       "across": -0.8,
-      "distance": 16,
+      "distance": 15.6,
       "height": 9,
       "box": [
         -9,
@@ -141,16 +141,16 @@
       "name": "The white room's floor",
       "plane": true,
       "across": -0.8,
-      "distance": 11.7,
+      "distance": 11.5,
       "width": 12,
-      "depth": 8.6
+      "depth": 9.0
     },
     {
       "id": "raspberry",
       "name": "Raspberry",
       "shadow": true,
       "across": 1.5,
-      "distance": 12.4,
+      "distance": 12.0,
       "height": 2.3,
       "box": [
         -1.25,
@@ -164,7 +164,7 @@
       "name": "White haze in the room",
       "glows": true,
       "across": -0.4,
-      "distance": 11.2,
+      "distance": 10.8,
       "height": 4,
       "box": [
         -7,
@@ -178,7 +178,7 @@
       "name": "Flapper",
       "shadow": true,
       "across": -2.0,
-      "distance": 9.6,
+      "distance": 9.2,
       "height": 2.3,
       "box": [
         -1.25,
@@ -193,7 +193,7 @@
       "inside": true,
       "translucent": 0.3,
       "across": 0,
-      "distance": 7.4,
+      "distance": 7.0,
       "facing": 180,
       "height": 4.42,
       "box": [
@@ -206,15 +206,15 @@
     {
       "id": "glass_sign",
       "name": "A semagram on the glass",
-      "across": 0.55,
-      "distance": 7.36,
-      "elevation": 1.45,
+      "across": 0.85,
+      "distance": 6.96,
+      "elevation": 1.6,
       "facing": 180,
-      "height": 1.1,
+      "height": 0.8,
       "box": [
-        -0.55,
-        -1.08,
-        0.55,
+        -0.42,
+        -0.8,
+        0.42,
         0.0
       ]
     },
@@ -224,13 +224,13 @@
       "inside": true,
       "translucent": 0.3,
       "across": -4.2,
-      "distance": 3.7,
+      "distance": 3.5,
       "facing": 90,
       "height": 2.32,
       "box": [
-        -3.72,
+        -3.52,
         -2.34,
-        3.72,
+        3.52,
         0.04
       ]
     },
@@ -240,13 +240,13 @@
       "inside": true,
       "translucent": 0.3,
       "across": 4.2,
-      "distance": 3.7,
+      "distance": 3.5,
       "facing": 270,
       "height": 2.32,
       "box": [
-        -3.72,
+        -3.52,
         -2.34,
-        3.72,
+        3.52,
         0.04
       ]
     },
@@ -255,7 +255,7 @@
       "name": "The doorway",
       "unseen": true,
       "across": 4.2,
-      "distance": 5.6,
+      "distance": 5.2,
       "facing": 270,
       "height": 2.05,
       "box": [
@@ -271,15 +271,15 @@
       "inside": true,
       "translucent": 0.3,
       "across": -4.2,
-      "distance": 3.7,
+      "distance": 3.5,
       "elevation": 2.3,
       "facing": 90,
       "tilt": -65.5,
       "height": 5.08,
       "box": [
-        -3.72,
+        -3.52,
         -5.1,
-        3.72,
+        3.52,
         0.04
       ]
     },
@@ -289,15 +289,15 @@
       "inside": true,
       "translucent": 0.3,
       "across": 4.2,
-      "distance": 3.7,
+      "distance": 3.5,
       "elevation": 2.3,
       "facing": 270,
       "tilt": -65.5,
       "height": 5.08,
       "box": [
-        -3.72,
+        -3.52,
         -5.1,
-        3.72,
+        3.52,
         0.04
       ]
     },
@@ -307,10 +307,10 @@
       "plane": true,
       "inside": true,
       "across": 0,
-      "distance": 3.7,
+      "distance": 3.5,
       "elevation": 0.01,
       "width": 8.4,
-      "depth": 7.4
+      "depth": 7.0
     },
     {
       "id": "whiteboard",
@@ -318,7 +318,7 @@
       "inside": true,
       "shadow": true,
       "across": -3.0,
-      "distance": 5.5,
+      "distance": 5.1,
       "facing": 145,
       "height": 1.92,
       "box": [
@@ -334,7 +334,7 @@
       "inside": true,
       "shadow": true,
       "across": -2.4,
-      "distance": 6.4,
+      "distance": 6.0,
       "height": 1.45,
       "box": [
         -0.42,
@@ -349,7 +349,7 @@
       "inside": true,
       "shadow": true,
       "across": 1.7,
-      "distance": 3.75,
+      "distance": 3.2,
       "facing": 180,
       "height": 0.75,
       "box": [
@@ -366,7 +366,7 @@
       "inside": true,
       "shadow": true,
       "across": 1.7,
-      "distance": 4.1,
+      "distance": 3.55,
       "elevation": 0.74,
       "width": 1.8,
       "depth": 0.7
@@ -376,7 +376,7 @@
       "name": "The laptop",
       "inside": true,
       "across": 2.05,
-      "distance": 4.25,
+      "distance": 3.7,
       "elevation": 0.745,
       "facing": 195,
       "height": 0.24,
@@ -393,7 +393,7 @@
       "inside": true,
       "shadow": true,
       "across": 2.4,
-      "distance": 4.3,
+      "distance": 3.75,
       "elevation": 0.745,
       "height": 0.37,
       "box": [
@@ -411,7 +411,7 @@
         "kind": "dust",
         "at": [
           2.6,
-          5.3,
+          4.9,
           1.1
         ],
         "source": [
@@ -430,8 +430,8 @@
         "who": "louise",
         "turn": 150
       },
-      "across": -0.35,
-      "distance": 4.6
+      "across": -0.45,
+      "distance": 4.0
     },
     {
       "id": "gary",
@@ -440,11 +440,11 @@
       "person": {
         "cast": "cast",
         "who": "gary",
-        "turn": 225,
+        "turn": 240,
         "does": "seated"
       },
       "across": 1.15,
-      "distance": 3.62
+      "distance": 3.1
     },
     {
       "id": "weber",
@@ -453,11 +453,11 @@
       "person": {
         "cast": "cast",
         "who": "weber",
-        "turn": 245,
+        "turn": 230,
         "does": "hands_behind"
       },
-      "across": 2.9,
-      "distance": 5.0
+      "across": 2.6,
+      "distance": 4.8
     }
   ],
   "music": {

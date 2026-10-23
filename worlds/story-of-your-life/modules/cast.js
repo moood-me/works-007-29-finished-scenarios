@@ -38,7 +38,7 @@ return {
     weber: {
       kind: 'shapes', style: 'glass', who: 'man', garment: 'field', hair: 'short', hat: 'cap',
       body: { height: 1.0, thick: 1.04, shoulders: 1.06 },
-      colors: { skin: '#dcb091', hair: '#a29c92', top: '#5c5d46', garment: '#5a5b40', bottom: '#56573e', shoes: '#1e1c1a', hat: '#55563c' },
+      colors: { skin: '#d6a986', hair: '#7d776e', top: '#5c5d46', garment: '#5a5b40', bottom: '#56573e', shoes: '#1e1c1a', hat: '#55563c' },
     },
   },
   shapes: {

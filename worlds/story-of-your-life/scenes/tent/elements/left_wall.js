@@ -1,8 +1,8 @@
-// The tent's left wall, from its foot (x along it away from the viewer, −3.7…3.7; 2.3 m to the eaves): canvas, the
+// The tent's left wall, from its foot (x along it away from the viewer, −3.5…3.5; 2.3 m to the eaves): canvas, the
 // frame's posts, and the semagrams pinned up in rows — a month of work.
-e.lib.canvas(g, e, -3.7, -2.32, 3.7, 0.02, 1.6);
+e.lib.canvas(g, e, -3.5, -2.32, 3.5, 0.02, 1.6);
 g.fillStyle = '#9a9890';
-for (const x of [-3.7, -1.2, 1.3, 3.66]) g.fillRect(x, -2.32, 0.07, 2.34);
+for (const x of [-3.5, -1.1, 1.2, 3.43]) g.fillRect(x, -2.32, 0.07, 2.34);
 let seed = 30;
 for (let row = 0; row < 3; row++) {
   for (let col = 0; col < 7; col++) {
