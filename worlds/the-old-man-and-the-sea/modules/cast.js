@@ -35,7 +35,7 @@ return {
         draw: F => {
           const h = F.head;
           const r = h.r * h.out;
-          F.cap(h.at, h.axes, h.egg.map(v => v * r * 1.02), [0, -0.95, 0.3], 0.62, F.colors.hair, h.sides, h.square);
+          F.cap(h.at, h.axes, h.egg.map(v => v * r * 1.02), [0, -0.95, 0.3], 0.78, F.colors.hair, h.sides, h.square);
         },
       },
     },

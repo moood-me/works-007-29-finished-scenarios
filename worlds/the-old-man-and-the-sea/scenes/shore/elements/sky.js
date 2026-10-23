@@ -26,12 +26,12 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
   const tower = (x, h, w) => {
     // (puffs heaped from the foot up, narrowing; each in three tones — its shaded underside violet-grey, its body
     // pale, its sunlit top right cream —, the edges a little soft)
-    g.filter = 'blur(0.0025px)';
+    g.filter = 'blur(0.005px)';
     const puffs = [];
     for (let i = 0; i < 30; i++) {
       const u = Math.pow(e.rnd(), 0.8);
       const r = w * (0.16 + 0.22 * (1 - u)) * (0.7 + 0.5 * e.rnd());
-      puffs.push([x + (e.rnd() - 0.5) * w * (1.3 - 0.8 * u), H - 0.008 - r * 0.3 - u * h, r]);
+      puffs.push([x + (e.rnd() - 0.5) * w * (1.9 - 1.1 * u), H - 0.008 - r * 0.3 - u * h, r]);
     }
     // (a cumulus's foot is flat: all of it cut off along one level line over the horizon)
     g.save();
@@ -40,19 +40,19 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
     g.clip();
     for (const k of [-W, 0, W]) {
       for (const [cx, cy, r] of puffs) {
-        g.fillStyle = '#bfb2c3';
+        g.fillStyle = '#c3b6c4';
         g.beginPath();
         g.arc(cx + k, cy + r * 0.12, r, 0, Math.PI * 2);
         g.fill();
       }
       for (const [cx, cy, r] of puffs) {
-        g.fillStyle = '#e6d8da';
+        g.fillStyle = '#e2d4d4';
         g.beginPath();
         g.arc(cx + k + r * 0.12, cy - r * 0.08, r * 0.86, 0, Math.PI * 2);
         g.fill();
       }
       for (const [cx, cy, r] of puffs) {
-        g.fillStyle = '#fbeee0';
+        g.fillStyle = '#f6e5d4';
         g.beginPath();
         g.arc(cx + k + r * 0.3, cy - r * 0.25, r * 0.58, 0, Math.PI * 2);
         g.fill();
@@ -61,11 +61,10 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
     g.restore();
     g.filter = 'none';
   };
-  tower(0.15, 0.16, 0.12);
-  tower(0.62, 0.11, 0.09);
-  tower(1.12, 0.24, 0.15);
-  tower(1.55, 0.13, 0.1);
-  tower(1.95, 0.19, 0.12);
+  tower(0.12, 0.13, 0.12);
+  tower(0.72, 0.17, 0.13);
+  tower(1.5, 0.2, 0.15);
+  tower(1.95, 0.1, 0.1);
   // long thin streaks high up, pink on their undersides
   for (let i = 0; i < 9; i++) {
     const x = X0 + e.rnd() * W;
