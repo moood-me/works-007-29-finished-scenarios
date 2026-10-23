@@ -1,6 +1,6 @@
 // Old Mrs Hempstock's chair by the fire: a high-backed wooden armchair, dark with age, its back of spindles, a faded
 // patchwork cushion tied to it, curved arms, turned legs.
-const wood = '#4e3524', light = '#654531';
+const wood = '#6e4c33', light = '#86603f';
 // the back: a curved top rail and spindles
 g.fillStyle = wood;
 g.beginPath();
@@ -28,10 +28,10 @@ g.fillStyle = wood;
 for (const s of [-1, 1]) {
   g.beginPath();
   g.moveTo(s * 0.34, -0.7);
-  g.quadraticCurveTo(s * 0.48, -0.72, s * 0.47, -0.66);
-  g.lineTo(s * 0.45, -0.46);
-  g.lineTo(s * 0.41, -0.46);
-  g.lineTo(s * 0.42, -0.64);
+  g.quadraticCurveTo(s * 0.44, -0.72, s * 0.43, -0.66);
+  g.lineTo(s * 0.42, -0.46);
+  g.lineTo(s * 0.39, -0.46);
+  g.lineTo(s * 0.4, -0.64);
   g.lineTo(s * 0.34, -0.64);
   g.closePath();
   g.fill();
