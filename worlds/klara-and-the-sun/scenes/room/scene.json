@@ -35,7 +35,7 @@
         30
       ],
       "color": "#ffc983",
-      "strength": 1.6,
+      "strength": 2.0,
       "on": "sun",
       "through": [
         "window"
@@ -45,7 +45,7 @@
     {
       "id": "daylight",
       "of": "window",
-      "daylight": 0.8
+      "daylight": 0.45
     }
   ],
   "modules": [

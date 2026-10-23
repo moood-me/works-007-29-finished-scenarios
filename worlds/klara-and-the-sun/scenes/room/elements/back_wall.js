@@ -6,7 +6,7 @@ g.beginPath();
 g.rect(-2.42, -2.62, 4.84, 2.64);
 hole(g);
 g.clip('evenodd');
-g.fillStyle = '#f1ebe1';
+g.fillStyle = '#f4e9d8';
 g.fillRect(-2.42, -2.62, 4.84, 2.64);
 g.fillStyle = '#ddd3c4';
 g.fillRect(-2.42, -0.12, 4.84, 0.14);
