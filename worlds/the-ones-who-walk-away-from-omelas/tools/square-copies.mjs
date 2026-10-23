@@ -11,7 +11,7 @@ const r2 = v => Math.round(v * 100) / 100;
 const TINTS = ['#ffffff', '#fff1dc', '#ffe6dc', '#f2f2ff', '#fff6e6', '#ffe9c8', '#eef6ff'];
 const copies = { house: [], block: [], tower: [], grove: [], boat: [], pennant: [], lantern: [] };
 // the lower city: rows of houses down the slope; near ones single, far ones in rows of four; groves between
-const rows = [44, 56, 70, 86, 104, 126, 152, 182, 216, 256, 300, 350, 405, 465, 530, 590];
+const rows = [70, 86, 104, 126, 152, 182, 216, 256, 300, 350, 405, 465, 530, 590];
 for (const d of rows) {
   const half = 0.95 * d + 30, near = d < 160, step = near ? 12 : 46;
   for (let x = -half + rnd() * step; x < half; x += step * (0.85 + 0.4 * rnd())) {
@@ -27,13 +27,13 @@ for (const [x, d] of [[-60, 95], [38, 140], [-150, 230], [110, 290], [-20, 380],
 }
 // boats on the bay
 for (const [x, d] of [[-260, 1400], [120, 2100], [520, 1700], [-700, 2600], [300, 3400]]) copies.boat.push({ across: x, distance: d, flip: rnd() < 0.5 });
-// the garland cords: sagging from 6.6 m at the walls to 5.7 m in the middle; pennants every 0.6 m, a lantern every 2.4 m
-const sag = x => 6.6 - 0.9 * (1 - ((x - 0.75) / 6.75) ** 2);
+// the garland cords: sagging from 6.6 m at the walls to 5.6 m in the middle; pennants every 0.6 m, a lantern every 2.4 m
+const sag = x => 6.6 - 1.0 * (1 - ((x - 1) / 8.5) ** 2);
 const FLAGS = ['#e7a39a', '#f0d68e', '#a9c6dc', '#f6f2ea', '#c7d9a6', '#e3b8d2'];
 let n = 0;
-for (const d of [11, 17, 24]) {
-  for (let x = -5.7; x < 7.3; x += 0.6) {
-    if (Math.abs(((x + 5.7) / 0.6) % 4 - 2) < 0.01) copies.lantern.push({ across: r2(x), distance: d, elevation: r2(sag(x) - 0.62) });
+for (const d of [9, 13.5, 18]) {
+  for (let x = -7.2; x < 9.3; x += 0.6) {
+    if (Math.abs(((x + 7.2) / 0.6) % 4 - 2) < 0.01) copies.lantern.push({ across: r2(x), distance: d, elevation: r2(sag(x) - 0.62) });
     else copies.pennant.push({ across: r2(x), distance: d, elevation: r2(sag(x) - 0.62), tint: FLAGS[n++ % FLAGS.length] });
   }
 }
