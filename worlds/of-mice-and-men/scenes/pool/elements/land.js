@@ -38,13 +38,13 @@ g.moveTo(-26, Y(10));
 g.bezierCurveTo(-14, Y(6), -7, Y(5.5), -2.5, Y(3.8));
 g.stroke();
 // on the sand: the sycamore's crisp leaves, curled, a few twigs, pebbles; more toward the tree on the right
-for (let i = 0; i < 700; i++) {
+for (let i = 0; i < 380; i++) {
   const right = A.hash(i, 5) < 0.55, x = right ? 1 + A.hash(i, 6) * 9 : -9 + A.hash(i, 6) * 19, d = -3 + A.hash(i, 7) * 12.2;
   const k = A.hash(i, 8);
   if (k < 0.6) {
     g.fillStyle = k < 0.2 ? '#8e6a3c' : k < 0.4 ? '#a7834c' : '#b49460';
     g.beginPath();
-    g.ellipse(x, Y(d), 0.09 + 0.06 * A.hash(i, 9), 0.06, A.hash(i, 10) * 3, 0, Math.PI * 2);
+    g.ellipse(x, Y(d), 0.05 + 0.04 * A.hash(i, 9), 0.035, A.hash(i, 10) * 3, 0, Math.PI * 2);
     g.fill();
   } else if (k < 0.75) {
     g.strokeStyle = '#7b6448';

@@ -17,7 +17,7 @@
     "tintStrength": 0.07,
     "vignette": 0.3,
     "grain": 0.08,
-    "haze": 0.05,
+    "haze": 0.025,
     "hazeColor": "#d9b4a8",
     "hazeGlow": 0.6,
     "shafts": 0.2,
@@ -359,8 +359,8 @@
     {
       "id": "bindles",
       "name": "Bindles",
-      "across": -2.4,
-      "distance": 3.7,
+      "across": -2.3,
+      "distance": 4.7,
       "height": 0.3,
       "box": [
         -0.7,
@@ -390,19 +390,19 @@
         "kind": "fire",
         "at": "fire#flame",
         "amount": "fire",
-        "rate": 40,
+        "rate": 60,
         "source": [
-          0.25,
-          0.15,
-          0.04
+          0.18,
+          0.1,
+          0.03
         ],
         "speed": [
-          0.4,
-          0.9
+          0.35,
+          0.7
         ],
         "size": [
-          0.22,
-          0.06
+          0.13,
+          0.03
         ]
       }
     },
@@ -464,7 +464,7 @@
       "person": {
         "cast": "cast",
         "who": "george",
-        "turn": 128,
+        "turn": 165,
         "does": "pockets"
       },
       "across": -1.35,
@@ -477,7 +477,7 @@
       "person": {
         "cast": "cast",
         "who": "lennie",
-        "turn": 228,
+        "turn": 200,
         "does": "hug_knees"
       },
       "across": 1.2,
