@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Square","translation":"Площадь","where":"scenes/square/scene.json title"},
+  {"text":"Omelas on the morning of the Festival of Summer.","translation":"Омелас утром праздника Лета.","where":"scenes/square/scene.json caption"}
+]}

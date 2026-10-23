@@ -1,0 +1,34 @@
+// The Meeting House's bell tower at the square's far left corner: a white shaft, an open belfry with its bell, a
+// gilded dome and a vane
+g.fillStyle = '#f1ebe0';
+g.fillRect(-2.5, -24, 5, 24);
+g.fillStyle = '#e2d9c8';
+for (const y of [-8, -16]) g.fillRect(-2.8, y, 5.6, 0.5);
+g.fillStyle = '#6d7480';
+g.fillRect(-0.5, -13, 1, 2.6);
+g.fillStyle = '#f1ebe0';
+g.fillRect(-2.6, -29.5, 5.2, 5.5);
+g.fillStyle = '#4c4943';
+g.beginPath();
+g.moveTo(-1.7, -24.5);
+g.lineTo(-1.7, -27.6);
+g.arc(0, -27.6, 1.7, Math.PI, 0);
+g.lineTo(1.7, -24.5);
+g.closePath();
+g.fill();
+g.fillStyle = '#b78a3e';
+g.beginPath();
+g.moveTo(-0.8, -25.4);
+g.quadraticCurveTo(-0.7, -27.2, 0, -27.4);
+g.quadraticCurveTo(0.7, -27.2, 0.8, -25.4);
+g.closePath();
+g.fill();
+g.fillStyle = '#d9b45a';
+g.beginPath();
+g.moveTo(-2.9, -29.5);
+g.quadraticCurveTo(-2.8, -34, 0, -35);
+g.quadraticCurveTo(2.8, -34, 2.9, -29.5);
+g.closePath();
+g.fill();
+g.fillRect(-0.1, -37.5, 0.2, 2.6);
+g.fillRect(-0.1, -37.2, 1.1, 0.25);
