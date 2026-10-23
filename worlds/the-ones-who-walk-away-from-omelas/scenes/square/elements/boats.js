@@ -1,0 +1,22 @@
+// A small sailing boat out on the bay: a white sail, a dark hull
+g.fillStyle = '#3e4a56';
+g.beginPath();
+g.moveTo(-4, -1.2);
+g.lineTo(4, -1.2);
+g.lineTo(2.8, 0);
+g.lineTo(-3, 0);
+g.closePath();
+g.fill();
+g.fillStyle = '#f4f1ea';
+g.beginPath();
+g.moveTo(-0.2, -1.4);
+g.lineTo(-0.2, -9);
+g.lineTo(3.4, -1.6);
+g.closePath();
+g.fill();
+g.beginPath();
+g.moveTo(-0.6, -1.5);
+g.lineTo(-0.6, -7);
+g.lineTo(-3.2, -1.6);
+g.closePath();
+g.fill();

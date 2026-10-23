@@ -1,0 +1,26 @@
+// A bright tower of the city: a slender white shaft, an open belfry, a gilded dome
+g.fillStyle = '#f4f0e8';
+g.fillRect(-2.2, -20, 4.4, 20);
+g.fillStyle = '#e4ddd0';
+g.fillRect(-2.6, -20.6, 5.2, 0.6);
+g.fillStyle = '#5c5850';
+g.fillRect(-1.3, -19, 1, 2.6);
+g.fillRect(0.3, -19, 1, 2.6);
+g.fillStyle = '#f4f0e8';
+g.fillRect(-2.2, -23.6, 4.4, 3);
+g.fillStyle = '#4d4a44';
+g.beginPath();
+g.moveTo(-1.4, -21);
+g.lineTo(-1.4, -22.6);
+g.arc(0, -22.6, 1.4, Math.PI, 0);
+g.lineTo(1.4, -21);
+g.closePath();
+g.fill();
+g.fillStyle = '#d9b45a';
+g.beginPath();
+g.moveTo(-2.4, -23.6);
+g.quadraticCurveTo(-2.3, -27.6, 0, -28.4);
+g.quadraticCurveTo(2.3, -27.6, 2.4, -23.6);
+g.closePath();
+g.fill();
+g.fillRect(-0.12, -30, 0.24, 1.8);
