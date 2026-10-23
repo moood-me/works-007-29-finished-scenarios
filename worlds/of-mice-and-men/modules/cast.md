@@ -16,5 +16,5 @@ fine line; the face `simple` — eyes, brows, a nose, a mouth, so that a face re
 
 ## Motions (Kimodo)
 
-- `pockets` — stands, the weight on one leg, the hands in the front pockets, breathing slowly (a loop).
+- `pockets` — stands, the hands in the front pockets, the head up, the weight shifting a little (a loop).
 - `sit_knees` — sits on the ground, the knees drawn up and apart, the forearms on them, rocking a little (a loop).
