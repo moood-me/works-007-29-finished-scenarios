@@ -1,6 +1,6 @@
 // The square's paving seen from above: pale warm flagstones in courses, a ring of darker stones round the fountain
-// (its centre at x −0.9, y 9.1 — 5.4 m ahead), a few petals fallen on it
-const A = e.anim, W = 40, D = 33, fx = -0.9, fy = 9.1;
+// (its centre at x −0.9, y 9.9 — 4.6 m ahead), a few petals fallen on it
+const A = e.anim, W = 40, D = 33, fx = -0.9, fy = 9.9;
 g.fillStyle = '#ddd2bd';
 g.fillRect(-W / 2, -D / 2, W, D);
 // the flagstones: courses across, each stone its own shade, the joints thin and darker

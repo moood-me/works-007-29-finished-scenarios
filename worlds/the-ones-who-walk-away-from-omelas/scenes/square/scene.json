@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Square",
   "caption": "Omelas on the morning of the Festival of Summer.",
-  "horizon": 0.42,
+  "horizon": 0.38,
   "camera": {
     "mode": "picture"
   },
@@ -89,7 +89,7 @@
     "evening": 0,
     "ila_on": [
       -0.9,
-      3.86,
+      3.0,
       0.52
     ],
     "ila_look": [
@@ -112,12 +112,12 @@
     "ila_reach": {
       "r": [
         -1.16,
-        3.7,
+        2.84,
         1.05
       ],
       "l": [
         -0.94,
-        3.68,
+        2.82,
         1.07
       ]
     }
@@ -2077,7 +2077,7 @@
       "id": "fountain",
       "name": "The fountain's basin",
       "across": -0.9,
-      "distance": 5.4,
+      "distance": 4.6,
       "height": 0.52,
       "box": [
         -5.3407,
@@ -2091,7 +2091,7 @@
       "id": "column",
       "name": "The fountain's column",
       "across": -0.9,
-      "distance": 5.4,
+      "distance": 4.6,
       "height": 2.02,
       "box": [
         -1.6965,
@@ -2106,7 +2106,7 @@
       "name": "The fountain's water",
       "plane": true,
       "across": -0.9,
-      "distance": 5.4,
+      "distance": 4.6,
       "elevation": 0.46,
       "width": 3,
       "depth": 3,
@@ -2124,7 +2124,7 @@
         "kind": "splashes",
         "at": [
           -0.9,
-          5.4,
+          4.6,
           2.03
         ],
         "rate": 140,
@@ -2161,7 +2161,7 @@
         "kind": "splashes",
         "at": [
           -0.9,
-          5.4,
+          4.6,
           1.6
         ],
         "source": [
@@ -2756,7 +2756,7 @@
         "does": "sit_low"
       },
       "across": -0.9,
-      "distance": 3.86,
+      "distance": 3.0,
       "shadow": true
     },
     {
@@ -2769,7 +2769,7 @@
         "does": "old_hold"
       },
       "across": -2.05,
-      "distance": 3.95,
+      "distance": 3.15,
       "shadow": true
     },
     {
@@ -2782,7 +2782,7 @@
         "does": "hands_behind"
       },
       "across": 0.6,
-      "distance": 4.4,
+      "distance": 3.6,
       "shadow": true
     },
     {

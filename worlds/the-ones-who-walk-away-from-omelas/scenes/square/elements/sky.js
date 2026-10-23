@@ -1,7 +1,7 @@
 // The summer morning sky over Omelas, looking out to sea: clear blue above, paler and warmer down to the horizon; a
 // few thin high clouds drift (layer `clouds`). The festival evening is a layer of its own over it all — deep blue
 // above, the afterglow low over the sea — shown as `evening` grows (its animate).
-const W = e.aspect, x0 = -0.3, x1 = W + 0.3, y0 = -0.35, y1 = 1.25, hz = 0.42;
+const W = e.aspect, x0 = -0.3, x1 = W + 0.3, y0 = -0.35, y1 = 1.25, hz = 0.38;
 const sky = g.createLinearGradient(0, y0, 0, hz);
 sky.addColorStop(0, '#5f8fc4');
 sky.addColorStop(0.45, '#8db3d8');
