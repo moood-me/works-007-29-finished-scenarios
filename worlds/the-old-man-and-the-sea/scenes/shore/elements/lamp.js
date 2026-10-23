@@ -1,4 +1,4 @@
-// The oil lamp hanging inside the boy's open door: its tin cap and foot, and its glass — a layer lit with the dusk
+// The oil lamp hanging in the boy's open door, from a nail in its lintel: its tin cap and foot, and its glass — a layer lit with the dusk
 // (its glow and its light by `dusk`, in the animate). Metres, the glass's middle at the anchor.
 g.fillStyle = '#3d342c';
 g.fillRect(-0.004, -0.38, 0.008, 0.2);

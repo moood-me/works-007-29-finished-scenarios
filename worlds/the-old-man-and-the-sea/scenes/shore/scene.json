@@ -178,7 +178,7 @@
       "name": "The lamp in the boy's door",
       "on": "house",
       "across": -0.5,
-      "distance": 0.15,
+      "distance": -0.08,
       "elevation": 1.45,
       "height": 0.5,
       "box": [-0.1, -0.42, 0.1, 0.13],

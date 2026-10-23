@@ -1,5 +1,5 @@
 // The boy's house by the road: a palm-board hut under a steep thatch of palm leaves, its door open (dark within; the
-// lamp hanging there is the element `lamp`), and by the threshold the cot the boy sleeps on.
+// lamp hanging in it is the element `lamp`), and by the threshold the cot the boy sleeps on.
 // Metres, the middle of its front's foot at the anchor; 4.2 m wide.
 const W = 2.1;
 // the walls: grey-brown boards standing side by side
