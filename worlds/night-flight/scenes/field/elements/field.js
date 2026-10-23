@@ -1,7 +1,7 @@
 // The airfield seen from above (metres; origin its middle, 400 m ahead; y toward the viewer): short grass in daylight
 // colours (the night is the scene's light), patches of it lighter and darker, the long worn landing strip running
 // away from the hangar's side, its wheel tracks.
-g.fillStyle = '#6c7c58';
+g.fillStyle = '#82926c';
 g.fillRect(-800, -400, 1600, 800);
 // patches of grass a shade off: broad and soft
 for (let i = 0; i < 260; i++) {

@@ -114,7 +114,7 @@
     "floods": 1,
     "hangar": 1,
     "office": 1,
-    "riviere_look": "roblet#hands",
+    "riviere_look": "roblet",
     "riviere_mood": "neutral",
     "robineau_look": "roblet",
     "robineau_mood": "thinking",
@@ -529,8 +529,8 @@
         "turn": 200,
         "does": "hands_behind"
       },
-      "across": 0.7,
-      "distance": 6.7
+      "across": 0.6,
+      "distance": 5.9
     },
     {
       "id": "robineau",
