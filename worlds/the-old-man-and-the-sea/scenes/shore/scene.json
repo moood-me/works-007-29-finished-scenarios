@@ -1,0 +1,238 @@
+{
+  "engine": 3,
+  "title": "The Beach",
+  "caption": "Eighty-four days now without taking a fish.",
+  "horizon": 0.6,
+  "camera": { "mode": "picture" },
+  "light": {
+    "ambient": 0.78,
+    "ambientColor": "#dfe2f0",
+    "bounce": 0.5,
+    "haze": 0.08,
+    "hazeColor": "#e8d9c8",
+    "hazeGlow": 0.5,
+    "shafts": 0.2,
+    "tint": "#ffd9aa",
+    "tintStrength": 0.08,
+    "vignette": 0.3,
+    "grain": 0.08,
+    "wind": [-1, 0.4, 0.5],
+    "looks": {
+      "dusk": {
+        "ambient": 0.6,
+        "ambientColor": "#9a9ccf",
+        "haze": 0.12,
+        "hazeColor": "#9d8fb0",
+        "hazeGlow": 1,
+        "saturation": 0.85,
+        "tint": "#c9a6c4",
+        "tintStrength": 0.1,
+        "lights": { "sun": 0.12 }
+      }
+    }
+  },
+  "lights": [
+    { "id": "sun", "from": [115, 12], "color": "#ffd6a2", "strength": 1.15 },
+    { "id": "house_lamp", "of": "house#lamp", "color": "#ffc27a", "strength": 1, "reach": 5, "on": "dusk", "flicker": 0.1 }
+  ],
+  "modules": ["cast"],
+  "state": {
+    "dusk": 0,
+    "santiago_look": "manolin",
+    "santiago_mood": "neutral",
+    "manolin_look": "santiago",
+    "manolin_mood": "smile",
+    "father_look": "manolin",
+    "father_mood": "neutral"
+  },
+  "states": {
+    "dusk": {
+      "range": [0, 1],
+      "smooth": true,
+      "means": "0 — the late afternoon, the low sun behind the viewer's right shoulder; 1 — the blue dusk, lamps lit in the boy's door and across the bay"
+    }
+  },
+  "objects": [
+    { "id": "sky", "name": "Sky", "sky": true },
+    {
+      "id": "sea",
+      "name": "The bay and the Gulf",
+      "plane": true,
+      "across": 0,
+      "distance": 1500,
+      "elevation": -0.5,
+      "width": 8000,
+      "depth": 3000,
+      "reflect": { "strength": 0.45, "fade": 40, "rough": 0.45, "ripple": 0.4 }
+    },
+    {
+      "id": "far_cape",
+      "name": "The headland far off",
+      "across": 900,
+      "distance": 2200,
+      "onLand": false,
+      "elevation": -0.5,
+      "height": 30,
+      "box": [-620, -36, 620, 2]
+    },
+    {
+      "id": "far_village",
+      "name": "The village across the bay",
+      "across": -100,
+      "distance": 260,
+      "onLand": false,
+      "elevation": -0.5,
+      "height": 40,
+      "box": [-76, -40, 76, 1]
+    },
+    {
+      "id": "moored_a",
+      "name": "A skiff at anchor",
+      "across": -22,
+      "distance": 70,
+      "onLand": false,
+      "elevation": -0.78,
+      "facing": 150,
+      "height": 1.1,
+      "box": [-2.9, -1.4, 2.9, 0.15]
+    },
+    {
+      "id": "moored_b",
+      "name": "Another skiff at anchor",
+      "across": 19,
+      "distance": 52,
+      "onLand": false,
+      "elevation": -0.78,
+      "facing": 215,
+      "height": 1.1,
+      "box": [-2.9, -1.4, 2.9, 0.15]
+    },
+    {
+      "id": "sand",
+      "name": "The beach",
+      "plane": true,
+      "drape": true,
+      "across": -50,
+      "distance": 89,
+      "width": 160,
+      "depth": 182
+    },
+    {
+      "id": "wash",
+      "name": "The wash at the edge",
+      "plane": true,
+      "across": -3,
+      "distance": 18,
+      "elevation": -0.4,
+      "width": 46,
+      "depth": 26
+    },
+    {
+      "id": "boats",
+      "name": "The village's skiffs",
+      "across": -9.2,
+      "distance": 15.8,
+      "facing": 140,
+      "height": 1,
+      "box": [-2.7, -1.15, 2.8, 0.15],
+      "shadow": true,
+      "copies": [
+        { "across": -9.2, "distance": 15.8, "facing": 140 },
+        { "across": -12.4, "distance": 19.6, "facing": 122, "tint": "#e8d8c8" },
+        { "across": 8.6, "distance": 10.2, "facing": 162, "tint": "#d8e0ea" },
+        { "across": 13, "distance": 9.2, "facing": 205, "flip": true }
+      ]
+    },
+    {
+      "id": "lucky_boat",
+      "name": "The lucky boat",
+      "across": -5.8,
+      "distance": 12.9,
+      "facing": 115,
+      "height": 1.1,
+      "box": [-3.5, -1.35, 3.4, 0.15],
+      "shadow": true
+    },
+    {
+      "id": "skiff",
+      "name": "The old man's skiff",
+      "across": 2.4,
+      "distance": 8.6,
+      "facing": 150,
+      "height": 4.6,
+      "box": [-3.1, -4.7, 3, 0.15],
+      "shadow": true
+    },
+    {
+      "id": "house",
+      "name": "The boy's house",
+      "across": -10.5,
+      "distance": 15,
+      "facing": 162,
+      "height": 4.3,
+      "box": [-2.7, -4.4, 2.7, 0.1],
+      "shadow": true
+    },
+    {
+      "id": "palm",
+      "name": "The palms",
+      "across": -8,
+      "distance": 11,
+      "height": 11,
+      "box": [-3.2, -12.4, 6.4, 0.2],
+      "shadow": true,
+      "copies": [
+        { "across": -8, "distance": 11 },
+        { "across": -6.6, "distance": 15.4, "scale": 0.85, "flip": true },
+        { "across": -13.5, "distance": 18.5, "scale": 1.1 },
+        { "across": -16, "distance": 24, "scale": 1.2, "flip": true },
+        { "across": -21, "distance": 32, "scale": 1.15 }
+      ]
+    },
+    {
+      "id": "santiago",
+      "name": "Santiago",
+      "person": { "cast": "cast", "who": "santiago", "turn": 205 },
+      "across": 0.5,
+      "distance": 6.6
+    },
+    {
+      "id": "manolin",
+      "name": "Manolin",
+      "person": { "cast": "cast", "who": "manolin", "turn": 150 },
+      "across": -0.9,
+      "distance": 6.2
+    },
+    {
+      "id": "father",
+      "name": "The boy's father",
+      "person": { "cast": "cast", "who": "father", "turn": 160, "does": "hands_hips" },
+      "across": -4.4,
+      "distance": 11.3
+    }
+  ],
+  "music": {
+    "prompts": [
+      { "text": "solo Spanish guitar, slow fingerpicked, warm and sparse, a Cuban fishing village at evening", "weight": 1.2 },
+      { "text": "soft tres cubano and nylon guitar, slow bolero feeling, tender and plain", "weight": 0.8 },
+      { "text": "low cello and warm strings, long notes, quiet dignity, the open sea", "weight": 0.6 },
+      { "text": "gentle piano, few notes, sea breeze, bittersweet calm", "weight": 0 },
+      { "text": "ambient ocean pad, slow swells, soft and wide", "weight": 0 },
+      { "text": "slow son cubano, muted trumpet far away, dusk on the waterfront", "weight": 0 },
+      { "text": "harmonium drone and plucked bass, plain and patient", "weight": 0 },
+      { "text": "solo clarinet, low register, slow lullaby", "weight": 0 },
+      { "text": "string quartet, restrained, light grief and warmth", "weight": 0 },
+      { "text": "marimba soft rolls, distant, warm evening air", "weight": 0 },
+      { "text": "acoustic bass and brushed drums, very slow, sparse", "weight": 0 },
+      { "text": "choir humming, wordless, very soft, sacred calm", "weight": 0 },
+      { "text": "accordion, slow waltz, nostalgic harbour", "weight": 0 },
+      { "text": "deep ocean drone, slow tidal pulse", "weight": 0 },
+      { "text": "solo violin, sorrowful, high and thin", "weight": 0 },
+      { "text": "music box, faraway, simple melody", "weight": 0 }
+    ],
+    "bpm": 66,
+    "density": 0.25,
+    "brightness": 0.45,
+    "scale": "A_MAJOR_G_FLAT_MINOR"
+  }
+}
