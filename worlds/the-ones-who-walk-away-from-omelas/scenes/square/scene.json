@@ -25,8 +25,8 @@
     ],
     "looks": {
       "evening": {
-        "ambient": 0.34,
-        "ambientColor": "#6c78b4",
+        "ambient": 0.5,
+        "ambientColor": "#7a84bc",
         "tint": "#ffad7c",
         "tintStrength": 0.1,
         "saturation": 0.9,
