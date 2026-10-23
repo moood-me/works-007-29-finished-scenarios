@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Tent at the Looking Glass","translation":"Палатка у зеркала","where":"scenes/tent/scene.json title"},
+  {"text":"Morning at the looking glass. Beyond it, in the white room, two of them are waiting.","translation":"Утро у зеркала. За ним, в белой комнате, ждут двое.","where":"scenes/tent/scene.json caption"}
+]}
