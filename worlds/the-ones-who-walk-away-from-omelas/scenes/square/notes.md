@@ -15,8 +15,8 @@ edge a terrace drops to the lower city going down to the bay, and across the bay
   wind).
 - The fountain: `fountain` (the basin, a form; its rim's coping at 0.52 m is where Ila sits), `column` (a form),
   `water` (the basin's water, its glints wavering), `jet` and `spill` (particles).
-- The festival: `garlands` (three cords, 9, 13.5, 18 m ahead), `pennant` (stretches of four) and `lantern` copies along them (the same
-  curve, laid out by the tool); `petals` on the air.
+- The festival: `garlands` (three cords, 9, 13.5, 18 m ahead), `pennant` (stretches of four) and `lantern` copies
+  along them (the same curve, laid out by the tool); `petals` on the air.
 - Light: the sun behind the viewer on the left (`sun`); `evening` 0…1 — the festival evening: the sky's `evening`
   layer, the look putting the sun out, the lanterns' glows (their animate) and three lights over the cords (`on`).
 - People (`modules/cast`): `ila` (12) sitting on the basin's rim (`ila_on`, a seated loop) playing the flute, looking
