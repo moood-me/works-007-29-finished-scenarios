@@ -1,0 +1,564 @@
+{
+  "engine": 3,
+  "title": "The Pool",
+  "caption": "The green pool below the road, at sundown.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "walk",
+    "area": [
+      3,
+      3,
+      0,
+      5
+    ]
+  },
+  "light": {
+    "tint": "#ffb878",
+    "tintStrength": 0.07,
+    "vignette": 0.3,
+    "grain": 0.08,
+    "haze": 0.025,
+    "hazeColor": "#d9b4a8",
+    "hazeGlow": 0.6,
+    "shafts": 0.2,
+    "ambient": 0.55,
+    "ambientColor": "#a9b4d2",
+    "bounce": 0.5,
+    "wind": [
+      1,
+      0.3,
+      0.35
+    ],
+    "looks": {
+      "dusk": {
+        "ambient": 0.4,
+        "ambientColor": "#7685b8",
+        "tint": "#6a76a8",
+        "tintStrength": 0.1,
+        "saturation": 0.85,
+        "hazeColor": "#6e6c90",
+        "lights": {
+          "sun": 0
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        205,
+        7
+      ],
+      "color": "#ffc184",
+      "strength": 1.1
+    },
+    {
+      "id": "fire_light",
+      "of": "fire#flame",
+      "color": "#ffa65c",
+      "strength": 1.3,
+      "reach": 6,
+      "flicker": 0.4,
+      "on": "fire"
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "dusk": 0,
+    "fire": 1,
+    "george_look": [
+      1.5,
+      -8,
+      1.8
+    ],
+    "lennie_look": "george",
+    "george_mood": "tired",
+    "lennie_mood": "smile"
+  },
+  "states": {
+    "dusk": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — sundown, the low sun behind the viewer on the far bank and the mountains; 1 — the blue dusk after it, the fire the light"
+    },
+    "fire": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the fire on the sand between them: 0 out, 1 burning"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "gabilan",
+      "name": "Gabilan mountains",
+      "across": 300,
+      "distance": 4000,
+      "height": 1100,
+      "box": [
+        -9000,
+        -1150,
+        9000,
+        20
+      ]
+    },
+    {
+      "id": "foothills",
+      "name": "Foothills",
+      "across": -200,
+      "distance": 1300,
+      "height": 130,
+      "box": [
+        -3200,
+        -150,
+        3200,
+        10
+      ]
+    },
+    {
+      "id": "fields",
+      "name": "Valley fields",
+      "plane": true,
+      "across": 0,
+      "distance": 700,
+      "elevation": 1.2,
+      "width": 4000,
+      "depth": 1150
+    },
+    {
+      "id": "land",
+      "name": "Banks",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 62,
+      "width": 240,
+      "depth": 134
+    },
+    {
+      "id": "pool",
+      "name": "The pool",
+      "plane": true,
+      "across": 0,
+      "distance": 18.15,
+      "elevation": -0.55,
+      "width": 300,
+      "depth": 18.7,
+      "reflect": {
+        "strength": 0.55,
+        "fade": 0,
+        "rough": 0.15,
+        "ripple": 0.25
+      }
+    },
+    {
+      "id": "willow",
+      "name": "Willows",
+      "height": 4,
+      "box": [
+        -3,
+        -4.4,
+        3,
+        0.2
+      ],
+      "copies": [
+        {
+          "across": -44,
+          "distance": 31,
+          "scale": 1.1
+        },
+        {
+          "across": -36,
+          "distance": 30,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": -29,
+          "distance": 32,
+          "scale": 1.2
+        },
+        {
+          "across": -22,
+          "distance": 30.5,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": -15,
+          "distance": 31.5,
+          "scale": 1.0
+        },
+        {
+          "across": -9,
+          "distance": 30,
+          "scale": 0.7,
+          "flip": true
+        },
+        {
+          "across": -1,
+          "distance": 32,
+          "scale": 0.85
+        },
+        {
+          "across": 6,
+          "distance": 30.5,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": 13,
+          "distance": 31,
+          "scale": 0.9
+        },
+        {
+          "across": 21,
+          "distance": 32,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": 29,
+          "distance": 30.5,
+          "scale": 0.8
+        },
+        {
+          "across": 38,
+          "distance": 31.5,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": -52,
+          "distance": 33,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": 47,
+          "distance": 32.5,
+          "scale": 1.1
+        },
+        {
+          "across": -9.5,
+          "distance": 8.8,
+          "scale": 1.5
+        },
+        {
+          "across": -13,
+          "distance": 10.5,
+          "scale": 1.3,
+          "flip": true
+        },
+        {
+          "across": 11,
+          "distance": 12,
+          "scale": 1.2
+        }
+      ]
+    },
+    {
+      "id": "reeds",
+      "name": "Tules",
+      "height": 1.4,
+      "box": [
+        -1.6,
+        -1.5,
+        1.6,
+        0.1
+      ],
+      "copies": [
+        {
+          "across": -7.2,
+          "distance": 9.5,
+          "scale": 1
+        },
+        {
+          "across": -5.6,
+          "distance": 9.7,
+          "scale": 0.8
+        },
+        {
+          "across": 3.4,
+          "distance": 9.6,
+          "scale": 0.9
+        },
+        {
+          "across": 8.4,
+          "distance": 9.8,
+          "scale": 1.1
+        },
+        {
+          "across": -18,
+          "distance": 26.2,
+          "scale": 1
+        },
+        {
+          "across": -11,
+          "distance": 26,
+          "scale": 0.9
+        },
+        {
+          "across": -6,
+          "distance": 26.4,
+          "scale": 0.8
+        },
+        {
+          "across": 2,
+          "distance": 26.1,
+          "scale": 1.1
+        },
+        {
+          "across": 9,
+          "distance": 26.3,
+          "scale": 0.9
+        },
+        {
+          "across": 16,
+          "distance": 26,
+          "scale": 1
+        }
+      ]
+    },
+    {
+      "id": "sycamore",
+      "name": "Sycamore",
+      "across": 5.2,
+      "distance": 9,
+      "height": 12.5,
+      "box": [
+        -8.4,
+        -13,
+        3,
+        0.5
+      ],
+      "shadow": true
+    },
+    {
+      "id": "heron",
+      "name": "Heron",
+      "across": -4,
+      "distance": 25.2,
+      "height": 1,
+      "box": [
+        -0.45,
+        -1.05,
+        0.5,
+        0.08
+      ]
+    },
+    {
+      "id": "bindles",
+      "name": "Bindles",
+      "across": -2.1,
+      "distance": 3.9,
+      "height": 0.3,
+      "box": [
+        -0.7,
+        -0.35,
+        0.75,
+        0.06
+      ],
+      "shadow": true
+    },
+    {
+      "id": "fire",
+      "name": "Fire",
+      "across": 0.05,
+      "distance": 2.9,
+      "height": 0.3,
+      "box": [
+        -0.45,
+        -0.32,
+        0.7,
+        0.08
+      ]
+    },
+    {
+      "id": "fire_flame",
+      "name": "Flames",
+      "particles": {
+        "kind": "fire",
+        "at": "fire#flame",
+        "amount": "fire",
+        "rate": 70,
+        "source": [
+          0.16,
+          0.08,
+          0.03
+        ],
+        "speed": [
+          0.3,
+          0.7
+        ],
+        "size": [
+          0.16,
+          0.04
+        ]
+      }
+    },
+    {
+      "id": "fire_embers",
+      "name": "Embers",
+      "particles": {
+        "kind": "embers",
+        "at": "fire#flame",
+        "amount": "fire",
+        "rate": 3
+      }
+    },
+    {
+      "id": "fire_smoke",
+      "name": "Smoke",
+      "particles": {
+        "kind": "smoke",
+        "at": "fire#flame",
+        "amount": "fire",
+        "rate": 2,
+        "size": [
+          0.15,
+          0.9
+        ],
+        "opacity": 0.35
+      }
+    },
+    {
+      "id": "leaves",
+      "name": "Falling sycamore leaves",
+      "particles": {
+        "kind": "leaves",
+        "at": [
+          1,
+          9,
+          8
+        ],
+        "source": [
+          8,
+          3,
+          3
+        ],
+        "rate": 0.25,
+        "colors": [
+          "#a99a4e",
+          "#c4a35a",
+          "#8c8a45"
+        ],
+        "size": [
+          0.14,
+          0.14
+        ]
+      }
+    },
+    {
+      "id": "george",
+      "name": "George",
+      "person": {
+        "cast": "cast",
+        "who": "george",
+        "turn": 170,
+        "does": "pockets"
+      },
+      "across": -1.1,
+      "distance": 3.2,
+      "shadow": true
+    },
+    {
+      "id": "lennie",
+      "name": "Lennie",
+      "person": {
+        "cast": "cast",
+        "who": "lennie",
+        "turn": 208,
+        "does": "sit_knees"
+      },
+      "across": 1.35,
+      "distance": 3.7,
+      "shadow": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "Solo harmonica, slow and lonesome, a ranch hand at dusk by a river, 1930s California",
+        "weight": 1.2
+      },
+      {
+        "text": "Fingerpicked acoustic guitar, warm and plain, a simple folk melody at sundown",
+        "weight": 1.0
+      },
+      {
+        "text": "Aaron Copland-like open strings, wide American plains, gentle and sad",
+        "weight": 0.7
+      },
+      {
+        "text": "Soft upright bass and brushed snare, very slow, a campfire evening",
+        "weight": 0.3
+      },
+      {
+        "text": "Lonely fiddle playing a slow waltz, distant, dust in golden light",
+        "weight": 0.4
+      },
+      {
+        "text": "Banjo plucked softly, sparse, wistful, a river under sycamores",
+        "weight": 0
+      },
+      {
+        "text": "Hammond-free gospel hum on a pump organ, quiet, Depression era",
+        "weight": 0
+      },
+      {
+        "text": "Slide guitar, slow blues, a dry valley in the evening heat",
+        "weight": 0
+      },
+      {
+        "text": "Music box melody, childlike and fragile, a dream of a little house and rabbits",
+        "weight": 0
+      },
+      {
+        "text": "Low cello drone with sparse piano notes, foreboding but tender",
+        "weight": 0
+      },
+      {
+        "text": "Whistled tune over an acoustic guitar, carefree, a road between ranches",
+        "weight": 0
+      },
+      {
+        "text": "Accordion, slow, melancholy, a bunkhouse at night under a tin lamp",
+        "weight": 0
+      },
+      {
+        "text": "Ambient field texture: river water, crickets, wind in the trees, minimal tonal pads",
+        "weight": 0
+      },
+      {
+        "text": "Steel-string guitar harmonics, very sparse, silence between notes",
+        "weight": 0
+      },
+      {
+        "text": "Clarinet and strings, a slow pastoral, 1930s film score warmth",
+        "weight": 0
+      },
+      {
+        "text": "Dobro and harmonica duet, unhurried, two friends talking by a fire",
+        "weight": 0
+      }
+    ],
+    "bpm": 72,
+    "density": 0.3,
+    "brightness": 0.4,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
