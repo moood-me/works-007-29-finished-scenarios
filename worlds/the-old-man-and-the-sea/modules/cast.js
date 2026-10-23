@@ -9,7 +9,7 @@ return {
     santiago: {
       kind: 'shapes', style: 'gulf', who: 'old', garment: 'none', hair: 'short', barefoot: 'both',
       body: { height: 0.97, thick: 0.8, shoulders: 1.02, arms: 1.03 },
-      colors: { skin: '#8f5f43', hair: '#e2ddd2', top: '#8ea3ae', bottom: '#8d7f68' },
+      colors: { skin: '#8f5f43', hair: '#c4bfb5', top: '#8ea3ae', bottom: '#8d7f68' },
     },
     // Manolin, the boy: slight and quick, black hair, a white undershirt, dark shorts, barefoot
     manolin: {

@@ -50,9 +50,9 @@ for (let i = 0; i < 260; i++) {
   g.fillRect(X(a), Y(d), 0.08 + e.rnd() * 0.35, 0.03 + e.rnd() * 0.05);
 }
 // the road: from the beach up the slope to the village
-g.strokeStyle = 'rgba(232,218,190,0.85)';
+g.strokeStyle = 'rgba(230,214,184,0.6)';
 g.lineCap = 'round';
-g.lineWidth = 1.6;
+g.lineWidth = 1.1;
 g.beginPath();
 g.moveTo(X(-4), Y(6));
 g.bezierCurveTo(X(-9), Y(8), X(-11), Y(11), X(-15), Y(12));

@@ -24,17 +24,36 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
   // the towers on the horizon: each heaped of soft puffs, its shaded foot violet-grey, its sunlit right side and top
   // cream; drawn again one width over, so the layer's two ends meet as it drifts
   const tower = (x, h, w) => {
-    for (let i = 0; i < 26; i++) {
-      const u = e.rnd();
-      const y = H - 0.01 - u * h;
-      const r = w * (0.35 + 0.4 * (1 - u)) * (0.6 + 0.5 * e.rnd());
-      const cx = x + (e.rnd() - 0.5) * w * (1.2 - 0.6 * u);
-      const lit = 0.3 + 0.7 * u;
-      for (const k of [-W, 0, W]) {
-        glow(g, cx + k, y, r, r * 0.8, '196,182,196', 0.75);
-        glow(g, cx + k + r * 0.25, y - r * 0.15, r * 0.8, r * 0.65, '252,232,212', 0.55 * lit);
+    // (puffs heaped from the foot up, narrowing; each in three tones — its shaded underside violet-grey, its body
+    // pale, its sunlit top right cream —, the edges a little soft)
+    g.filter = 'blur(0.0025px)';
+    const puffs = [];
+    for (let i = 0; i < 30; i++) {
+      const u = Math.pow(e.rnd(), 0.8);
+      const r = w * (0.16 + 0.22 * (1 - u)) * (0.7 + 0.5 * e.rnd());
+      puffs.push([x + (e.rnd() - 0.5) * w * (1.3 - 0.8 * u), H - r * 0.6 - u * h, r]);
+    }
+    for (const k of [-W, 0, W]) {
+      for (const [cx, cy, r] of puffs) {
+        g.fillStyle = '#bfb2c3';
+        g.beginPath();
+        g.arc(cx + k, cy + r * 0.12, r, 0, Math.PI * 2);
+        g.fill();
+      }
+      for (const [cx, cy, r] of puffs) {
+        g.fillStyle = '#e6d8da';
+        g.beginPath();
+        g.arc(cx + k + r * 0.12, cy - r * 0.08, r * 0.86, 0, Math.PI * 2);
+        g.fill();
+      }
+      for (const [cx, cy, r] of puffs) {
+        g.fillStyle = '#fbeee0';
+        g.beginPath();
+        g.arc(cx + k + r * 0.3, cy - r * 0.25, r * 0.58, 0, Math.PI * 2);
+        g.fill();
       }
     }
+    g.filter = 'none';
   };
   tower(0.15, 0.16, 0.12);
   tower(0.62, 0.11, 0.09);

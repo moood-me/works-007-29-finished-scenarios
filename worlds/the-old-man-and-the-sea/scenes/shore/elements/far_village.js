@@ -6,20 +6,22 @@
 g.fillStyle = '#9aa58a';
 g.beginPath();
 g.moveTo(-75, 0);
-for (let x = -75; x <= 75; x += 3) g.lineTo(x, -22 - 10 * Math.sin(x * 0.03 + 1) - 6 * Math.sin(x * 0.09));
+// (each fold falls to the water at the card's two ends)
+const ends = x => Math.min(1, (75 - Math.abs(x)) / 22);
+for (let x = -75; x <= 75; x += 3) g.lineTo(x, (-22 - 10 * Math.sin(x * 0.03 + 1) - 6 * Math.sin(x * 0.09)) * ends(x));
 g.lineTo(75, 0);
 g.closePath();
 g.fill();
 g.fillStyle = '#7f8f68';
 g.beginPath();
 g.moveTo(-75, 0);
-for (let x = -75; x <= 75; x += 2) g.lineTo(x, -10 - 6 * Math.sin(x * 0.05 + 2) - 3 * Math.sin(x * 0.17) + 4 * Math.max(0, (x - 30) / 45));
+for (let x = -75; x <= 75; x += 2) g.lineTo(x, (-10 - 6 * Math.sin(x * 0.05 + 2) - 3 * Math.sin(x * 0.17) + 4 * Math.max(0, (x - 30) / 45)) * ends(x));
 g.lineTo(75, 0);
 g.closePath();
 g.fill();
 // the beach strip
 g.fillStyle = '#d6c4a0';
-g.fillRect(-75, -1.4, 150, 1.45);
+g.fillRect(-72, -1.4, 144, 1.45);
 // the houses along the water, and some up the slope
 const walls = ['#ece6d8', '#e2cfa4', '#d9b98e', '#f0ebe0', '#c9b9a0', '#b8c4c4'];
 const roofs = ['#8f7f5c', '#7e7058', '#a4573f', '#8a8a86'];

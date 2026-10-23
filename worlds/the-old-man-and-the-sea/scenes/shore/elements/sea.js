@@ -5,15 +5,16 @@ const { shore } = e.lib;
 const D = 1500;
 g.fillStyle = '#2e4277';
 g.fillRect(-4000, -1500, 8000, 3000);
-// the shallows: bands from the water's edge outward, each a little darker and bluer
-const bands = ['#5f9fa2', '#5a96a0', '#52899c', '#4b7d98', '#457193', '#3f668e', '#3a5c88', '#355281', '#31497b'];
+// the shallows: from the water's edge outward green-blue, darkening into the deep over twenty metres
 for (let a = -90; a < 70; a += 1) {
   const s = shore(a + 0.5);
-  bands.forEach((c, k) => {
-    const d0 = s + k * 2.2;
-    g.fillStyle = c;
-    g.fillRect(a, D - d0 - 2.3, 1.05, 2.3);
-  });
+  const grad = g.createLinearGradient(0, D - s, 0, D - s - 22);
+  grad.addColorStop(0, '#62a3a3');
+  grad.addColorStop(0.35, '#4f869a');
+  grad.addColorStop(0.7, '#3c628b');
+  grad.addColorStop(1, '#2e4277');
+  g.fillStyle = grad;
+  g.fillRect(a, D - s - 22, 1.05, 22.2);
 }
 // the swell: long streaks lying across, lighter and darker, short and dense far off, long and sparse near
 for (let i = 0; i < 1100; i++) {

@@ -38,10 +38,10 @@
   "modules": ["cast"],
   "state": {
     "dusk": 0,
-    "santiago_look": "manolin",
-    "santiago_mood": "neutral",
+    "santiago_look": [-3, 0, 1.2],
+    "santiago_mood": "smile",
     "manolin_look": "santiago",
-    "manolin_mood": "smile",
+    "manolin_mood": "neutral",
     "father_look": "manolin",
     "father_mood": "neutral"
   },
@@ -192,16 +192,16 @@
     {
       "id": "santiago",
       "name": "Santiago",
-      "person": { "cast": "cast", "who": "santiago", "turn": 205 },
-      "across": 0.5,
-      "distance": 6.6
+      "person": { "cast": "cast", "who": "santiago", "turn": 192 },
+      "across": -0.4,
+      "distance": 5.4
     },
     {
       "id": "manolin",
       "name": "Manolin",
-      "person": { "cast": "cast", "who": "manolin", "turn": 150 },
-      "across": -0.9,
-      "distance": 6.2
+      "person": { "cast": "cast", "who": "manolin", "turn": 228 },
+      "across": 0.95,
+      "distance": 6.1
     },
     {
       "id": "father",
