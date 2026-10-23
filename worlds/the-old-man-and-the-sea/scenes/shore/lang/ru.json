@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Beach","translation":"Берег","where":"scenes/shore/scene.json title"},
+  {"text":"Eighty-four days now without taking a fish.","translation":"Вот уже восемьдесят четыре дня он не поймал ни одной рыбы.","where":"scenes/shore/scene.json caption"}
+]}
