@@ -1,4 +1,4 @@
-// Reeds and rushes along the near edge of the pond, swaying in the breeze (metres, 18.6 m off), in a few clumps.
+// Reeds and rushes along the far bank of the pond, swaying in the breeze (metres, 26.6 m off), in a few clumps.
 for (let c = 0; c < 6; c++) {
   const cx = -5 + 10 * (c + e.rnd() * 0.6) / 6;
   e.layer('clump' + c, { pivot: [cx, 0], wind: { strength: 0.35, gust: 0.4 }, box: [cx - 0.8, -1.4, cx + 0.8, 0.05] }, g => {

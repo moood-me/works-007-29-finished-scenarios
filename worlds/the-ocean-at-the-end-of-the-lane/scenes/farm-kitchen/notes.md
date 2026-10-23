@@ -15,7 +15,7 @@ reeds in the window. No motion of people, no camera moves, no showcase (nothing 
 - **The table** (`table` top, `table_side`, `table_end`) along the room, left of the middle; on it the milking pail,
   the boy's porridge (jam in it: purple) with the jam jar, a loaf and a jug.
 - **Outside the window**: `sky`, the field (`meadow`, a path to the pond), the duck `pond` (a mirror, rippling),
-  `reeds` swaying, the far `trees`.
+  `reeds` swaying on its far bank, the far `trees`.
 - **People** (the world's cast, modules/cast.md). The boy on the tall `stool` by the table (`boy_on`), looking down at
   his bowl; Lettie standing before the window, hands in her pockets, smiling at him; old Mrs Hempstock in her chair
   (`armchair`) beside the range (`gran_on`), smiling at him. Each faces between the viewer and what they look at, so
