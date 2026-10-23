@@ -5,11 +5,9 @@ const roll = (x, y, l, r, cloth, end, band) => {
   g.beginPath();
   g.roundRect(x - l / 2, y - 2 * r, l, 2 * r, r);
   g.fill();
-  // the blanket's woven bands near its edge, and the soft sag of the roll
+  // the blanket's woven bands near its edge
   g.fillStyle = band;
   for (const u of [-0.42, -0.36, 0.36]) g.fillRect(x + u * l, y - 2 * r, 0.025, 2 * r);
-  g.fillStyle = 'rgba(0, 0, 0, 0.12)';
-  g.fillRect(x - l / 2 + r * 0.5, y - r * 0.5, l - r, r * 0.5);
   g.fillStyle = end;
   g.beginPath();
   g.ellipse(x + l / 2 - r * 0.4, y - r, r * 0.45, r * 0.95, 0, 0, Math.PI * 2);
