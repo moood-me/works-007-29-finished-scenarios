@@ -2,8 +2,8 @@
 // two across, the panes open to the morning (no glass drawn: by day it shows nothing of the room).
 const frame = new Path2D();
 frame.rect(-0.8, -2.05, 1.6, 1.1);
-const pw = 0.37, ph = 0.33, bar = 0.03;
-for (const left of [-0.8 + 0.05, 0.05]) {
+const bar = 0.03, pw = (0.75 - 3 * bar) / 2, ph = 0.33;
+for (const left of [-0.775, 0.025]) {
   for (let c = 0; c < 2; c++) for (let r = 0; r < 3; r++) {
     frame.rect(left + bar / 2 + c * (pw + bar), -2.0 + bar / 2 + r * (ph + bar), pw, ph);
   }

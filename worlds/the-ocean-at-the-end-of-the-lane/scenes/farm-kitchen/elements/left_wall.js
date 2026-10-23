@@ -2,6 +2,10 @@
 // and the old oak dresser — a cupboard below, three rails of blue-and-white plates, jugs and a tea caddy above.
 g.fillStyle = '#e2d8c2';
 g.fillRect(-3.4, -2.72, 6.8, 2.74);
+g.save();
+g.beginPath();
+g.rect(-3.4, -2.72, 6.8, 2.74);
+g.clip();
 for (let k = 0; k < 50; k++) {
   const x = -3.4 + 6.8 * e.rnd(), y = -2.7 + 2.6 * e.rnd(), r = 0.15 + 0.4 * e.rnd();
   const p = g.createRadialGradient(x, y, 0, x, y, r);
@@ -10,6 +14,7 @@ for (let k = 0; k < 50; k++) {
   g.fillStyle = p;
   g.fillRect(x - r, y - r, 2 * r, 2 * r);
 }
+g.restore();
 g.fillStyle = '#4a4038';
 g.fillRect(-3.4, -0.14, 6.8, 0.16);
 // the dresser, x 0.1…2.0
