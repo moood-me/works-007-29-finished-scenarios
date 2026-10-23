@@ -25,3 +25,8 @@ a fine line; the face `simple` — eyes, brows, a nose, a mouth, so that a face 
 the neck (point `#key`). `basket` — a wicker basket of flowers hanging from the left hand, swinging a little late.
 
 ## Motions (Kimodo)
+
+Taken from motions made before (`put_motion`): `sit_low` — sits still on a low seat, the hands on the knees, breathing
+(a loop; Ila on the fountain's rim, her hands then set by `reach`); `old_hold` — an old tired person stands holding a
+small light thing before the belly with both hands (a loop); `hands_behind` — stands, the hands clasped behind the
+back, breathing (a loop).
