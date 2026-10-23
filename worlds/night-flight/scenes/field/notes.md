@@ -13,7 +13,7 @@ moves.
   `hangar_wall` (its far side), `hangar_ceiling` (a card laid face down), `hangar_lamps` (three on cords — parts 0, 4.5,
   9 m back — lights `#l0…#l2`), `spare_engine`.
 - **Before the gate** the plane (`plane`, a side profile card, nose left; `#cockpit`, `#wheel`), the workbench, the
-  drums. **The field** (`field`, 6 × 3 km of grass, the landing strip), the lamps along its edge (`edge_lamps`, copies),
+  drums. **The field** (`field`, 6 × 3 km of grass, the landing strip; its painting is in its own metres, y = 1500 − distance), the lamps along its edge (`edge_lamps`, copies),
   the windsock (`windsock`, its sock a layer swaying in the wind), the floodlight masts (`floods`, three at 95 m between
   the office and the hangar; lights `#f0…#f2`), the fence and gate at 140 m, the office (`office` + `office_windows`:
   the bureau's lit windows below, Rivière's window upstairs by `office`, the red lamp on the radio mast), the town's
