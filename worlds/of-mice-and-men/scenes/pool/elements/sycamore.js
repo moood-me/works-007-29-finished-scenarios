@@ -54,11 +54,11 @@ e.layer('crown', { pivot: [-2.74, -6.48], wind: { strength: 0.18, gust: 0.4, sca
   for (const [shade, lift] of [['#4f5e37', 0.35], ['#677a43', 0], ['#82954f', -0.35], ['#a0aa5e', -0.7]]) {
     g.fillStyle = shade;
     clusters.forEach(([cx, cy, r], j) => {
-      for (let i = 0; i < 20; i++) {
-        const a = A.hash(i + j * 31, 7) * 6.28, d = r * Math.sqrt(A.hash(i + j * 31, 8)) * (shade === '#a0aa5e' ? 0.6 : 1);
-        const x = cx + Math.cos(a) * d, y = cy + Math.sin(a) * d * 0.7 + lift * r * 0.5, s = 0.32 + 0.3 * A.hash(i + j * 31, 9);
+      for (let i = 0; i < 42; i++) {
+        const a = A.hash(i + j * 53, 7) * 6.28, d = r * Math.sqrt(A.hash(i + j * 53, 8)) * (shade === '#a0aa5e' ? 0.6 : 1.05);
+        const x = cx + Math.cos(a) * d, y = cy + Math.sin(a) * d * 0.7 + lift * r * 0.5, s = 0.2 + 0.22 * A.hash(i + j * 53, 9);
         g.beginPath();
-        g.ellipse(x, y, s * 1.1, s * 0.8, A.hash(i + j * 31, 10) * 3, 0, Math.PI * 2);
+        g.ellipse(x, y, s * 1.2, s * 0.75, A.hash(i + j * 53, 10) * 3, 0, Math.PI * 2);
         g.fill();
       }
     });
