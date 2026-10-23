@@ -24,7 +24,7 @@ return {
       // a black shapeless hat: a soft crown, a brim not so wide, pushed back off the brow — the face under it seen
       slouch: { name: 'slouch hat', draw: F => {
         const { add, mul, unit, cross } = MooodShapes.V, { at, axes: [hs, hu, hf], r: rh } = F.head;
-        const tilt = unit(add(hu, mul(hf, -0.2))), axes = [hs, tilt, cross(hs, tilt)];
+        const tilt = unit(add(hu, mul(hf, -0.1))), axes = [hs, tilt, cross(hs, tilt)];
         F.ball(add(at, mul(hu, rh * 0.5)), axes, [rh * 1.4, rh * 0.05, rh * 1.32], F.colors.hat, F.sides * 2);
         F.ball(add(at, add(mul(hu, rh * 0.72), mul(hf, -rh * 0.08))), axes, [rh * 0.9, rh * 0.5, rh * 0.88], F.colors.hat, F.sides, 2.4);
       } },
