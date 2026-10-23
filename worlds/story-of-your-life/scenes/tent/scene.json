@@ -1,0 +1,535 @@
+{
+  "engine": 3,
+  "title": "The Tent at the Looking Glass",
+  "caption": "Morning at the looking glass. Beyond it, in the white room, two of them are waiting.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.78,
+    "ambientColor": "#e9e6dc",
+    "inside": 0.6,
+    "bounce": 0.55,
+    "haze": 0.04,
+    "hazeColor": "#efeee8",
+    "hazeGlow": 0.25,
+    "shafts": 0.6,
+    "tint": "#fff1da",
+    "tintStrength": 0.05,
+    "saturation": 0.95,
+    "vignette": 0.35,
+    "grain": 0.08,
+    "brightness": 1.04,
+    "wind": [
+      1,
+      0,
+      0.3
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        100,
+        24
+      ],
+      "through": [
+        "doorway"
+      ],
+      "color": "#ffe2b8",
+      "strength": 1.6
+    },
+    {
+      "id": "day",
+      "of": "doorway",
+      "daylight": 1,
+      "reach": 7
+    },
+    {
+      "id": "glass",
+      "across": -0.8,
+      "distance": 7.0,
+      "elevation": 1.7,
+      "color": "#eef2fb",
+      "strength": 1.1,
+      "reach": 6
+    },
+    {
+      "id": "room",
+      "across": -0.5,
+      "distance": 11.5,
+      "elevation": 5,
+      "color": "#f6f8ff",
+      "strength": 2.2,
+      "reach": 9
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "louise_look": "gary",
+    "louise_mood": "smile",
+    "louise_with": [
+      "marker"
+    ],
+    "gary_on": [
+      1.15,
+      3.88,
+      0.74
+    ],
+    "gary_look": "louise",
+    "gary_mood": "smile",
+    "gary_with": [
+      "cup"
+    ],
+    "gary_reach": {
+      "r": [
+        0.55,
+        4.0,
+        1.1
+      ]
+    },
+    "weber_look": "louise",
+    "weber_mood": "neutral"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The morning sky",
+      "sky": true
+    },
+    {
+      "id": "treeline",
+      "name": "The trees at the meadow's far edge",
+      "across": 34,
+      "distance": 46,
+      "height": 9,
+      "box": [
+        -30,
+        -9.2,
+        30,
+        0.1
+      ]
+    },
+    {
+      "id": "meadow",
+      "name": "The meadow round the tent",
+      "plane": true,
+      "across": 22,
+      "distance": 8,
+      "width": 36,
+      "depth": 50
+    },
+    {
+      "id": "room_back",
+      "name": "The white room beyond the glass",
+      "glows": true,
+      "across": -0.8,
+      "distance": 16,
+      "height": 9,
+      "box": [
+        -9,
+        -9.02,
+        9,
+        0.08
+      ]
+    },
+    {
+      "id": "room_floor",
+      "name": "The white room's floor",
+      "plane": true,
+      "across": -0.8,
+      "distance": 11.7,
+      "width": 12,
+      "depth": 8.6
+    },
+    {
+      "id": "raspberry",
+      "name": "Raspberry",
+      "shadow": true,
+      "across": 1.5,
+      "distance": 12.4,
+      "height": 2.3,
+      "box": [
+        -1.25,
+        -2.45,
+        1.25,
+        0.08
+      ]
+    },
+    {
+      "id": "room_mist",
+      "name": "White haze in the room",
+      "glows": true,
+      "across": -0.4,
+      "distance": 11.2,
+      "height": 4,
+      "box": [
+        -7,
+        -4,
+        7,
+        0.05
+      ]
+    },
+    {
+      "id": "flapper",
+      "name": "Flapper",
+      "shadow": true,
+      "across": -2.0,
+      "distance": 9.6,
+      "height": 2.3,
+      "box": [
+        -1.25,
+        -2.45,
+        1.25,
+        0.08
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall and the looking glass",
+      "inside": true,
+      "translucent": 0.3,
+      "across": 0,
+      "distance": 7.4,
+      "facing": 180,
+      "height": 4.42,
+      "box": [
+        -4.25,
+        -4.45,
+        4.25,
+        0.05
+      ]
+    },
+    {
+      "id": "glass_sign",
+      "name": "A semagram on the glass",
+      "across": 0.55,
+      "distance": 7.36,
+      "elevation": 1.45,
+      "facing": 180,
+      "height": 1.1,
+      "box": [
+        -0.55,
+        -1.08,
+        0.55,
+        0.0
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall and the semagrams",
+      "inside": true,
+      "translucent": 0.3,
+      "across": -4.2,
+      "distance": 3.7,
+      "facing": 90,
+      "height": 2.32,
+      "box": [
+        -3.72,
+        -2.34,
+        3.72,
+        0.04
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall and the doorway",
+      "inside": true,
+      "translucent": 0.3,
+      "across": 4.2,
+      "distance": 3.7,
+      "facing": 270,
+      "height": 2.32,
+      "box": [
+        -3.72,
+        -2.34,
+        3.72,
+        0.04
+      ]
+    },
+    {
+      "id": "doorway",
+      "name": "The doorway",
+      "unseen": true,
+      "across": 4.2,
+      "distance": 5.6,
+      "facing": 270,
+      "height": 2.05,
+      "box": [
+        -0.6,
+        -2.05,
+        0.6,
+        0
+      ]
+    },
+    {
+      "id": "roof_left",
+      "name": "The roof's left slope",
+      "inside": true,
+      "translucent": 0.3,
+      "across": -4.2,
+      "distance": 3.7,
+      "elevation": 2.3,
+      "facing": 90,
+      "tilt": -65.5,
+      "height": 5.08,
+      "box": [
+        -3.72,
+        -5.1,
+        3.72,
+        0.04
+      ]
+    },
+    {
+      "id": "roof_right",
+      "name": "The roof's right slope",
+      "inside": true,
+      "translucent": 0.3,
+      "across": 4.2,
+      "distance": 3.7,
+      "elevation": 2.3,
+      "facing": 270,
+      "tilt": -65.5,
+      "height": 5.08,
+      "box": [
+        -3.72,
+        -5.1,
+        3.72,
+        0.04
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The plywood floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 3.7,
+      "elevation": 0.01,
+      "width": 8.4,
+      "depth": 7.4
+    },
+    {
+      "id": "whiteboard",
+      "name": "The whiteboard",
+      "inside": true,
+      "shadow": true,
+      "across": -3.0,
+      "distance": 5.5,
+      "facing": 145,
+      "height": 1.92,
+      "box": [
+        -0.72,
+        -1.95,
+        0.72,
+        0.03
+      ]
+    },
+    {
+      "id": "camcorder",
+      "name": "The video camera on its tripod",
+      "inside": true,
+      "shadow": true,
+      "across": -2.4,
+      "distance": 6.4,
+      "height": 1.45,
+      "box": [
+        -0.42,
+        -1.48,
+        0.42,
+        0.03
+      ]
+    },
+    {
+      "id": "table",
+      "name": "The folding table",
+      "inside": true,
+      "shadow": true,
+      "across": 1.7,
+      "distance": 3.75,
+      "facing": 180,
+      "height": 0.75,
+      "box": [
+        -0.92,
+        -0.77,
+        0.92,
+        0.03
+      ]
+    },
+    {
+      "id": "table_top",
+      "name": "The table's top and the papers",
+      "plane": true,
+      "inside": true,
+      "shadow": true,
+      "across": 1.7,
+      "distance": 4.1,
+      "elevation": 0.74,
+      "width": 1.8,
+      "depth": 0.7
+    },
+    {
+      "id": "laptop",
+      "name": "The laptop",
+      "inside": true,
+      "across": 2.05,
+      "distance": 4.25,
+      "elevation": 0.745,
+      "facing": 195,
+      "height": 0.24,
+      "box": [
+        -0.18,
+        -0.26,
+        0.18,
+        0.01
+      ]
+    },
+    {
+      "id": "coffee",
+      "name": "The thermos and the cups",
+      "inside": true,
+      "shadow": true,
+      "across": 2.4,
+      "distance": 4.3,
+      "elevation": 0.745,
+      "height": 0.37,
+      "box": [
+        -0.08,
+        -0.39,
+        0.25,
+        0.01
+      ]
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the sunlight",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          2.6,
+          5.3,
+          1.1
+        ],
+        "source": [
+          3.0,
+          1.6,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "louise",
+      "name": "Louise",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "louise",
+        "turn": 150
+      },
+      "across": -0.35,
+      "distance": 4.6
+    },
+    {
+      "id": "gary",
+      "name": "Gary",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "gary",
+        "turn": 225,
+        "does": "seated"
+      },
+      "across": 1.15,
+      "distance": 3.62
+    },
+    {
+      "id": "weber",
+      "name": "Colonel Weber",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "weber",
+        "turn": 245,
+        "does": "hands_behind"
+      },
+      "across": 2.9,
+      "distance": 5.0
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "sparse felt piano, slow, clear intervals, patient and luminous, like light on a white wall",
+        "weight": 1.2
+      },
+      {
+        "text": "low sustained strings with a single high violin line, still, wondering, morning",
+        "weight": 0.8
+      },
+      {
+        "text": "soft analog synth pad, cool and white, slowly breathing, distant",
+        "weight": 0.6
+      },
+      {
+        "text": "minimal piano ostinato in an odd meter, gentle, circling, time folding on itself",
+        "weight": 0.4
+      },
+      {
+        "text": "solo cello, warm and grave, unhurried",
+        "weight": 0
+      },
+      {
+        "text": "wordless female voice humming softly, far away, tender",
+        "weight": 0
+      },
+      {
+        "text": "glass harmonica tones, airy, crystalline, sustained",
+        "weight": 0
+      },
+      {
+        "text": "deep sub-bass drone with soft wooden knocks, alien, calm",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, transparent harmonies, quiet grief under warmth",
+        "weight": 0
+      },
+      {
+        "text": "music box melody slowed down, bittersweet, a child's tune",
+        "weight": 0
+      },
+      {
+        "text": "acoustic guitar fingerpicking, plain and kind, a porch at night",
+        "weight": 0
+      },
+      {
+        "text": "bowed vibraphone shimmer, cold, suspended",
+        "weight": 0
+      },
+      {
+        "text": "choir pads, distant, sacred stillness",
+        "weight": 0
+      },
+      {
+        "text": "clarinet over pizzicato strings, light, curious",
+        "weight": 0
+      },
+      {
+        "text": "ambient field recording of a meadow at morning, insects, wind, with soft piano",
+        "weight": 0
+      },
+      {
+        "text": "slow pulsing electronic heartbeat under warm strings, inevitable",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.2,
+    "brightness": 0.55,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
