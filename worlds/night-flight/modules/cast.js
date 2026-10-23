@@ -36,7 +36,7 @@ return {
     roblet: {
       kind: 'shapes', style: 'aero', who: 'old', garment: 'jacket', hair: 'short', parts: ['cap_held'],
       body: { height: 0.96, shoulders: 1.02, thick: 1.04, arms: 1.03 },
-      colors: { skin: '#c69273', hair: '#dcd8d0', top: '#9aa3a8', garment: '#4c6f93', bottom: '#3d5470', shoes: '#2b2420', hat: '#3f4650' },
+      colors: { skin: '#c69273', hair: '#dcd8d0', top: '#9aa3a8', garment: '#4c6f93', bottom: '#3d5470', shoes: '#2b2420', hat: '#6e6457' },
     },
   },
   shapes: {

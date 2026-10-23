@@ -29,7 +29,7 @@
       "id": "moon",
       "from": [
         165,
-        32
+        22
       ],
       "color": "#aebfe6",
       "strength": 0.7
@@ -114,7 +114,7 @@
     "floods": 1,
     "hangar": 1,
     "office": 1,
-    "riviere_look": "roblet#hands",
+    "riviere_look": "roblet",
     "riviere_mood": "neutral",
     "robineau_look": "riviere",
     "robineau_mood": "thinking",
