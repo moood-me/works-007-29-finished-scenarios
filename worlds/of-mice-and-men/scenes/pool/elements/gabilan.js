@@ -12,9 +12,9 @@ g.fill(body);
 // the chaparral: dark patches down the slopes, thicker in the folds
 g.save();
 g.clip(body);
-g.fillStyle = '#7a6a4c';
-for (let i = 0; i < 260; i++) {
-  const x = -8900 + A.hash(i, 3) * 17800, top = -ridge(x), y = top * (0.15 + 0.7 * A.hash(i, 4)), w = 60 + 160 * A.hash(i, 5);
+g.fillStyle = '#93714f';
+for (let i = 0; i < 520; i++) {
+  const x = -8900 + A.hash(i, 3) * 17800, top = -ridge(x), y = top * (0.15 + 0.7 * A.hash(i, 4)), w = 30 + 70 * A.hash(i, 5);
   g.beginPath();
   g.ellipse(x, y, w, w * (0.25 + 0.3 * A.hash(i, 6)), (A.hash(i, 7) - 0.5) * 0.6, 0, Math.PI * 2);
   g.fill();
