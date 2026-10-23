@@ -481,8 +481,8 @@
       "person": {
         "cast": "cast",
         "who": "lennie",
-        "turn": 215,
-        "does": "hug_knees"
+        "turn": 198,
+        "does": "sit_knees"
       },
       "across": 1.0,
       "distance": 3.0,
