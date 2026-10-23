@@ -15,7 +15,7 @@ over the pool at the right.
 - `fire` — stones, sticks, three cans of beans; `fire#flame` — its point: the flames, embers and smoke come out of
   it, the light `fire_light` shines from it (`fire` 0…1).
 - `bindles` — their two blanket rolls on the sand.
-- People (`modules/cast`): `george` standing, hands in pockets (`pockets`), looking at Lennie, tired; `lennie` sitting
+- People (`modules/cast`): `george` standing, hands in pockets (`pockets`), looking past the viewer into the low sun, tired; `lennie` sitting
   on the sand hugging his knees (`hug_knees`), looking up at George, smiling.
 - State: `dusk` 0…1 — the blue hour after the sun (the sky's `dusk` layer, the look `dusk` putting the sun out);
   `fire` 0…1.

@@ -11,7 +11,7 @@ fine line; the face `simple` — eyes, brows, a nose, a mouth, so that a face re
 ## Who
 
 - `george` — George Milton: small and quick, a dark face, sharp features; a denim coat, denim trousers, a black
-  shapeless hat.
+  shapeless hat (`slouch`: its brim pushed back off the brow, the face seen under it).
 - `lennie` — Lennie Small: huge, pale, shapeless of face, sloping shoulders, long heavy arms; the same denim and hat.
 
 ## Motions (Kimodo)

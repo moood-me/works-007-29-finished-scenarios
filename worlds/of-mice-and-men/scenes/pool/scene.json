@@ -69,7 +69,11 @@
   "state": {
     "dusk": 0,
     "fire": 1,
-    "george_look": "lennie",
+    "george_look": [
+      1.5,
+      -8,
+      1.8
+    ],
     "lennie_look": "george",
     "george_mood": "tired",
     "lennie_mood": "smile"
@@ -464,7 +468,7 @@
       "person": {
         "cast": "cast",
         "who": "george",
-        "turn": 165,
+        "turn": 170,
         "does": "pockets"
       },
       "across": -1.1,
@@ -477,7 +481,7 @@
       "person": {
         "cast": "cast",
         "who": "lennie",
-        "turn": 200,
+        "turn": 215,
         "does": "hug_knees"
       },
       "across": 1.0,
