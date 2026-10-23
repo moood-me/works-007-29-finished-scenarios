@@ -139,8 +139,8 @@ function heptapod(g, e, turn) {
   }
   const pathOf = L => {
     const root = [L.sx * 0.24, -1.12 + L.cz * 0.04];
-    const knee = [L.sx * 0.78, -1.32 - 0.12 * (1 - Math.abs(L.sx)) + L.cz * 0.06];
-    const foot = [L.sx * 1.05, -0.02 - Math.max(0, -L.cz) * 0.16];
+    const knee = [L.sx * 0.72, -1.5 - 0.1 * (1 - Math.abs(L.sx)) + L.cz * 0.06];
+    const foot = [L.sx * 1.15, -0.02 - Math.max(0, -L.cz) * 0.16];
     return [root, knee, foot];
   };
   // the raised limb: the one most to the right that faces us
@@ -194,8 +194,8 @@ function heptapod(g, e, turn) {
     }
   });
   const [r] = pathOf(raised);
-  e.layer('arm', { pivot: r, box: [r[0] - 0.2, -2.2, r[0] + 1.2, r[1] + 0.2] }, c => {
-    limb(c, r, [r[0] + 0.5, -1.62], [r[0] + 0.78, -1.05], 0.13, skin);
+  e.layer('arm', { pivot: r, box: [r[0] - 0.2, -2.4, r[0] + 1.2, r[1] + 0.2] }, c => {
+    limb(c, r, [r[0] + 0.45, -1.85], [r[0] + 0.85, -2.05], 0.13, skin);
   });
 }
 
