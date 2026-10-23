@@ -1,5 +1,5 @@
 // The right wall (its x runs toward the viewer: −3.4 at the back wall, 3.4 at the front): limewash, and the chimney
-// breast round the range (x −2.95…−1.15): a sooty alcove of old brick behind it, a mantel shelf over it with
+// breast round the range (x −1.85…−0.05): a sooty alcove of old brick behind it, a mantel shelf over it with
 // candlesticks, a tea tin and a row of brass; a calendar and a coat on a peg nearer the viewer.
 g.fillStyle = '#e4dac4';
 g.fillRect(-3.4, -2.72, 6.8, 2.74);
@@ -19,7 +19,7 @@ g.restore();
 g.fillStyle = '#4a4038';
 g.fillRect(-3.4, -0.14, 6.8, 0.16);
 // the alcove: brick, darkening with soot toward its top
-const a0 = -2.95, a1 = -1.15;
+const a0 = -1.85, a1 = -0.05;
 g.fillStyle = '#7a4c38';
 g.fillRect(a0, -1.55, a1 - a0, 1.57);
 g.strokeStyle = 'rgba(60, 40, 30, 0.55)';
@@ -55,22 +55,22 @@ for (const x of [a0 + 0.12, a1 - 0.12]) {
   g.fillRect(x - 0.012, -2.12, 0.024, 0.17);
 }
 g.fillStyle = '#2f5a4a';
-g.fillRect(-2.2, -1.95, 0.16, 0.2);
+g.fillRect(-1.1, -1.95, 0.16, 0.2);
 g.fillStyle = '#c9a24c';
-for (const [x, s] of [[-1.85, 0.05], [-1.74, 0.04], [-1.65, 0.03]]) g.fillRect(x - s / 2, -1.74 - s * 1.4, s, s * 1.4);
+for (const [x, s] of [[-0.75, 0.05], [-0.64, 0.04], [-0.55, 0.03]]) g.fillRect(x - s / 2, -1.74 - s * 1.4, s, s * 1.4);
 // a calendar on a nail, and a coat on a peg
 g.fillStyle = '#f1ecdf';
-g.fillRect(-0.4, -1.9, 0.3, 0.42);
+g.fillRect(1.3, -1.9, 0.3, 0.42);
 g.fillStyle = '#7a8c5a';
-g.fillRect(-0.4, -1.9, 0.3, 0.18);
+g.fillRect(1.3, -1.9, 0.3, 0.18);
 g.fillStyle = '#b8b0a0';
-for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++) g.fillRect(-0.385 + c * 0.047, -1.68 + r * 0.045, 0.03, 0.025);
+for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++) g.fillRect(1.315 + c * 0.047, -1.68 + r * 0.045, 0.03, 0.025);
 g.fillStyle = '#5c5442';
 g.beginPath();
-g.moveTo(0.55, -1.85);
-g.quadraticCurveTo(0.35, -1.8, 0.32, -1.2);
-g.lineTo(0.3, -0.72);
-g.lineTo(0.8, -0.72);
-g.lineTo(0.78, -1.2);
-g.quadraticCurveTo(0.75, -1.8, 0.55, -1.85);
+g.moveTo(2.25, -1.85);
+g.quadraticCurveTo(2.05, -1.8, 2.02, -1.2);
+g.lineTo(2.0, -0.72);
+g.lineTo(2.5, -0.72);
+g.lineTo(2.48, -1.2);
+g.quadraticCurveTo(2.45, -1.8, 2.25, -1.85);
 g.fill();
