@@ -27,14 +27,15 @@ for (const [x, d] of [[-60, 95], [38, 140], [-150, 230], [110, 290], [-20, 380],
 }
 // boats on the bay
 for (const [x, d] of [[-260, 1400], [120, 2100], [520, 1700], [-700, 2600], [300, 3400]]) copies.boat.push({ across: x, distance: d, flip: rnd() < 0.5 });
-// the garland cords: sagging from 6.6 m at the walls to 5.6 m in the middle; pennants every 0.6 m, a lantern every 2.4 m
+// the garland cords: sagging from 6.6 m at the walls to 5.6 m in the middle; along each, stretches of four pennants
+// (2.4 m) with a lantern between one stretch and the next
 const sag = x => 6.6 - 1.0 * (1 - ((x - 1) / 8.5) ** 2);
-const FLAGS = ['#e7a39a', '#f0d68e', '#a9c6dc', '#f6f2ea', '#c7d9a6', '#e3b8d2'];
+const TONES = ['#ffffff', '#fff2ee', '#f2f6ff', '#fffbea'];
 let n = 0;
 for (const d of [9, 13.5, 18]) {
-  for (let x = -7.2; x < 9.3; x += 0.6) {
-    if (Math.abs(((x + 7.2) / 0.6) % 4 - 2) < 0.01) copies.lantern.push({ across: r2(x), distance: d, elevation: r2(sag(x) - 0.62) });
-    else copies.pennant.push({ across: r2(x), distance: d, elevation: r2(sag(x) - 0.62), tint: FLAGS[n++ % FLAGS.length] });
+  for (let x = -7.2; x + 2.4 < 9.6; x += 3) {
+    copies.pennant.push({ across: r2(x + 1.2), distance: d, elevation: r2(sag(x + 1.2) - 0.62), tint: TONES[n++ % TONES.length], flip: n % 2 === 0 });
+    if (x + 3 < 9.3) copies.lantern.push({ across: r2(x + 2.7), distance: d, elevation: r2(sag(x + 2.7) - 0.62) });
   }
 }
 for (const el of spec.objects) if (copies[el.id]) el.copies = copies[el.id];

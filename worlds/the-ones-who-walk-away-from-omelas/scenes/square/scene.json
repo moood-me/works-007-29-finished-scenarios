@@ -1541,13 +1541,7 @@
       "distance": 4.6,
       "elevation": 0.46,
       "width": 3,
-      "depth": 3,
-      "reflect": {
-        "strength": 0.45,
-        "fade": 3,
-        "rough": 0.1,
-        "ripple": 0.5
-      }
+      "depth": 3
     },
     {
       "id": "jet",
@@ -1646,389 +1640,116 @@
       "name": "Pennants on the garlands",
       "height": 0.62,
       "box": [
-        -0.3,
+        -1.2,
         -0.7,
-        0.3,
+        1.2,
         0.1
       ],
       "copies": [
         {
-          "across": -7.2,
+          "across": -6,
           "distance": 9,
-          "elevation": 5.91,
-          "tint": "#e7a39a"
-        },
-        {
-          "across": -6.6,
-          "distance": 9,
-          "elevation": 5.78,
-          "tint": "#f0d68e"
-        },
-        {
-          "across": -5.4,
-          "distance": 9,
-          "elevation": 5.55,
-          "tint": "#a9c6dc"
-        },
-        {
-          "across": -4.8,
-          "distance": 9,
-          "elevation": 5.45,
-          "tint": "#f6f2ea"
-        },
-        {
-          "across": -4.2,
-          "distance": 9,
-          "elevation": 5.35,
-          "tint": "#c7d9a6"
+          "elevation": 5.66,
+          "tint": "#ffffff",
+          "flip": false
         },
         {
           "across": -3,
           "distance": 9,
           "elevation": 5.2,
-          "tint": "#e3b8d2"
-        },
-        {
-          "across": -2.4,
-          "distance": 9,
-          "elevation": 5.14,
-          "tint": "#e7a39a"
-        },
-        {
-          "across": -1.8,
-          "distance": 9,
-          "elevation": 5.09,
-          "tint": "#f0d68e"
-        },
-        {
-          "across": -0.6,
-          "distance": 9,
-          "elevation": 5.02,
-          "tint": "#a9c6dc"
+          "tint": "#fff2ee",
+          "flip": true
         },
         {
           "across": 0,
           "distance": 9,
           "elevation": 4.99,
-          "tint": "#f6f2ea"
-        },
-        {
-          "across": 0.6,
-          "distance": 9,
-          "elevation": 4.98,
-          "tint": "#c7d9a6"
-        },
-        {
-          "across": 1.8,
-          "distance": 9,
-          "elevation": 4.99,
-          "tint": "#e3b8d2"
-        },
-        {
-          "across": 2.4,
-          "distance": 9,
-          "elevation": 5.01,
-          "tint": "#e7a39a"
+          "tint": "#f2f6ff",
+          "flip": false
         },
         {
           "across": 3,
           "distance": 9,
           "elevation": 5.04,
-          "tint": "#f0d68e"
+          "tint": "#fffbea",
+          "flip": true
         },
         {
-          "across": 4.2,
+          "across": 6,
           "distance": 9,
-          "elevation": 5.12,
-          "tint": "#a9c6dc"
+          "elevation": 5.33,
+          "tint": "#ffffff",
+          "flip": false
         },
         {
-          "across": 4.8,
-          "distance": 9,
-          "elevation": 5.18,
-          "tint": "#f6f2ea"
-        },
-        {
-          "across": 5.4,
-          "distance": 9,
-          "elevation": 5.25,
-          "tint": "#c7d9a6"
-        },
-        {
-          "across": 6.6,
-          "distance": 9,
-          "elevation": 5.41,
-          "tint": "#e3b8d2"
-        },
-        {
-          "across": 7.2,
-          "distance": 9,
-          "elevation": 5.51,
-          "tint": "#e7a39a"
-        },
-        {
-          "across": 7.8,
-          "distance": 9,
-          "elevation": 5.62,
-          "tint": "#f0d68e"
-        },
-        {
-          "across": 9,
-          "distance": 9,
-          "elevation": 5.87,
-          "tint": "#a9c6dc"
-        },
-        {
-          "across": -7.2,
+          "across": -6,
           "distance": 13.5,
-          "elevation": 5.91,
-          "tint": "#f6f2ea"
-        },
-        {
-          "across": -6.6,
-          "distance": 13.5,
-          "elevation": 5.78,
-          "tint": "#c7d9a6"
-        },
-        {
-          "across": -5.4,
-          "distance": 13.5,
-          "elevation": 5.55,
-          "tint": "#e3b8d2"
-        },
-        {
-          "across": -4.8,
-          "distance": 13.5,
-          "elevation": 5.45,
-          "tint": "#e7a39a"
-        },
-        {
-          "across": -4.2,
-          "distance": 13.5,
-          "elevation": 5.35,
-          "tint": "#f0d68e"
+          "elevation": 5.66,
+          "tint": "#fff2ee",
+          "flip": true
         },
         {
           "across": -3,
           "distance": 13.5,
           "elevation": 5.2,
-          "tint": "#a9c6dc"
-        },
-        {
-          "across": -2.4,
-          "distance": 13.5,
-          "elevation": 5.14,
-          "tint": "#f6f2ea"
-        },
-        {
-          "across": -1.8,
-          "distance": 13.5,
-          "elevation": 5.09,
-          "tint": "#c7d9a6"
-        },
-        {
-          "across": -0.6,
-          "distance": 13.5,
-          "elevation": 5.02,
-          "tint": "#e3b8d2"
+          "tint": "#f2f6ff",
+          "flip": false
         },
         {
           "across": 0,
           "distance": 13.5,
           "elevation": 4.99,
-          "tint": "#e7a39a"
-        },
-        {
-          "across": 0.6,
-          "distance": 13.5,
-          "elevation": 4.98,
-          "tint": "#f0d68e"
-        },
-        {
-          "across": 1.8,
-          "distance": 13.5,
-          "elevation": 4.99,
-          "tint": "#a9c6dc"
-        },
-        {
-          "across": 2.4,
-          "distance": 13.5,
-          "elevation": 5.01,
-          "tint": "#f6f2ea"
+          "tint": "#fffbea",
+          "flip": true
         },
         {
           "across": 3,
           "distance": 13.5,
           "elevation": 5.04,
-          "tint": "#c7d9a6"
+          "tint": "#ffffff",
+          "flip": false
         },
         {
-          "across": 4.2,
+          "across": 6,
           "distance": 13.5,
-          "elevation": 5.12,
-          "tint": "#e3b8d2"
+          "elevation": 5.33,
+          "tint": "#fff2ee",
+          "flip": true
         },
         {
-          "across": 4.8,
-          "distance": 13.5,
-          "elevation": 5.18,
-          "tint": "#e7a39a"
-        },
-        {
-          "across": 5.4,
-          "distance": 13.5,
-          "elevation": 5.25,
-          "tint": "#f0d68e"
-        },
-        {
-          "across": 6.6,
-          "distance": 13.5,
-          "elevation": 5.41,
-          "tint": "#a9c6dc"
-        },
-        {
-          "across": 7.2,
-          "distance": 13.5,
-          "elevation": 5.51,
-          "tint": "#f6f2ea"
-        },
-        {
-          "across": 7.8,
-          "distance": 13.5,
-          "elevation": 5.62,
-          "tint": "#c7d9a6"
-        },
-        {
-          "across": 9,
-          "distance": 13.5,
-          "elevation": 5.87,
-          "tint": "#e3b8d2"
-        },
-        {
-          "across": -7.2,
+          "across": -6,
           "distance": 18,
-          "elevation": 5.91,
-          "tint": "#e7a39a"
-        },
-        {
-          "across": -6.6,
-          "distance": 18,
-          "elevation": 5.78,
-          "tint": "#f0d68e"
-        },
-        {
-          "across": -5.4,
-          "distance": 18,
-          "elevation": 5.55,
-          "tint": "#a9c6dc"
-        },
-        {
-          "across": -4.8,
-          "distance": 18,
-          "elevation": 5.45,
-          "tint": "#f6f2ea"
-        },
-        {
-          "across": -4.2,
-          "distance": 18,
-          "elevation": 5.35,
-          "tint": "#c7d9a6"
+          "elevation": 5.66,
+          "tint": "#f2f6ff",
+          "flip": false
         },
         {
           "across": -3,
           "distance": 18,
           "elevation": 5.2,
-          "tint": "#e3b8d2"
-        },
-        {
-          "across": -2.4,
-          "distance": 18,
-          "elevation": 5.14,
-          "tint": "#e7a39a"
-        },
-        {
-          "across": -1.8,
-          "distance": 18,
-          "elevation": 5.09,
-          "tint": "#f0d68e"
-        },
-        {
-          "across": -0.6,
-          "distance": 18,
-          "elevation": 5.02,
-          "tint": "#a9c6dc"
+          "tint": "#fffbea",
+          "flip": true
         },
         {
           "across": 0,
           "distance": 18,
           "elevation": 4.99,
-          "tint": "#f6f2ea"
-        },
-        {
-          "across": 0.6,
-          "distance": 18,
-          "elevation": 4.98,
-          "tint": "#c7d9a6"
-        },
-        {
-          "across": 1.8,
-          "distance": 18,
-          "elevation": 4.99,
-          "tint": "#e3b8d2"
-        },
-        {
-          "across": 2.4,
-          "distance": 18,
-          "elevation": 5.01,
-          "tint": "#e7a39a"
+          "tint": "#ffffff",
+          "flip": false
         },
         {
           "across": 3,
           "distance": 18,
           "elevation": 5.04,
-          "tint": "#f0d68e"
+          "tint": "#fff2ee",
+          "flip": true
         },
         {
-          "across": 4.2,
+          "across": 6,
           "distance": 18,
-          "elevation": 5.12,
-          "tint": "#a9c6dc"
-        },
-        {
-          "across": 4.8,
-          "distance": 18,
-          "elevation": 5.18,
-          "tint": "#f6f2ea"
-        },
-        {
-          "across": 5.4,
-          "distance": 18,
-          "elevation": 5.25,
-          "tint": "#c7d9a6"
-        },
-        {
-          "across": 6.6,
-          "distance": 18,
-          "elevation": 5.41,
-          "tint": "#e3b8d2"
-        },
-        {
-          "across": 7.2,
-          "distance": 18,
-          "elevation": 5.51,
-          "tint": "#e7a39a"
-        },
-        {
-          "across": 7.8,
-          "distance": 18,
-          "elevation": 5.62,
-          "tint": "#f0d68e"
-        },
-        {
-          "across": 9,
-          "distance": 18,
-          "elevation": 5.87,
-          "tint": "#a9c6dc"
+          "elevation": 5.33,
+          "tint": "#f2f6ff",
+          "flip": false
         }
       ]
     },
@@ -2045,109 +1766,79 @@
       "flicker": 0.2,
       "copies": [
         {
-          "across": -6,
+          "across": -4.5,
           "distance": 9,
-          "elevation": 5.66
+          "elevation": 5.4
         },
         {
-          "across": -3.6,
-          "distance": 9,
-          "elevation": 5.27
-        },
-        {
-          "across": -1.2,
-          "distance": 9,
-          "elevation": 5.05
-        },
-        {
-          "across": 1.2,
-          "distance": 9,
-          "elevation": 4.98
-        },
-        {
-          "across": 3.6,
+          "across": -1.5,
           "distance": 9,
           "elevation": 5.07
         },
         {
-          "across": 6,
+          "across": 1.5,
           "distance": 9,
-          "elevation": 5.33
-        },
-        {
-          "across": 8.4,
-          "distance": 9,
-          "elevation": 5.74
-        },
-        {
-          "across": -6,
-          "distance": 13.5,
-          "elevation": 5.66
-        },
-        {
-          "across": -3.6,
-          "distance": 13.5,
-          "elevation": 5.27
-        },
-        {
-          "across": -1.2,
-          "distance": 13.5,
-          "elevation": 5.05
-        },
-        {
-          "across": 1.2,
-          "distance": 13.5,
           "elevation": 4.98
         },
         {
-          "across": 3.6,
+          "across": 4.5,
+          "distance": 9,
+          "elevation": 5.15
+        },
+        {
+          "across": 7.5,
+          "distance": 9,
+          "elevation": 5.56
+        },
+        {
+          "across": -4.5,
+          "distance": 13.5,
+          "elevation": 5.4
+        },
+        {
+          "across": -1.5,
           "distance": 13.5,
           "elevation": 5.07
         },
         {
-          "across": 6,
+          "across": 1.5,
           "distance": 13.5,
-          "elevation": 5.33
-        },
-        {
-          "across": 8.4,
-          "distance": 13.5,
-          "elevation": 5.74
-        },
-        {
-          "across": -6,
-          "distance": 18,
-          "elevation": 5.66
-        },
-        {
-          "across": -3.6,
-          "distance": 18,
-          "elevation": 5.27
-        },
-        {
-          "across": -1.2,
-          "distance": 18,
-          "elevation": 5.05
-        },
-        {
-          "across": 1.2,
-          "distance": 18,
           "elevation": 4.98
         },
         {
-          "across": 3.6,
+          "across": 4.5,
+          "distance": 13.5,
+          "elevation": 5.15
+        },
+        {
+          "across": 7.5,
+          "distance": 13.5,
+          "elevation": 5.56
+        },
+        {
+          "across": -4.5,
+          "distance": 18,
+          "elevation": 5.4
+        },
+        {
+          "across": -1.5,
           "distance": 18,
           "elevation": 5.07
         },
         {
-          "across": 6,
+          "across": 1.5,
           "distance": 18,
-          "elevation": 5.33
+          "elevation": 4.98
         },
         {
-          "across": 8.4,
+          "across": 4.5,
           "distance": 18,
-          "elevation": 5.74
+          "elevation": 5.15
+        },
+        {
+          "across": 7.5,
+          "distance": 18,
+          "elevation": 5.56
         }
       ]
     },
