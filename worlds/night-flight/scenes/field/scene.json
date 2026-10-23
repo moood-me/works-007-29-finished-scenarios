@@ -1,0 +1,627 @@
+{
+  "engine": 3,
+  "title": "The Field by the Hangar",
+  "caption": "Half past ten. His cap in his hands, his tool box already packed.",
+  "horizon": 0.55,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.5,
+    "ambientColor": "#8296cc",
+    "bounce": 0.5,
+    "haze": 0.12,
+    "hazeColor": "#2e3d61",
+    "hazeGlow": 1.1,
+    "tint": "#a3b3db",
+    "tintStrength": 0.06,
+    "saturation": 0.92,
+    "vignette": 0.35,
+    "grain": 0.08,
+    "wind": [
+      -1,
+      0.4,
+      0.5
+    ]
+  },
+  "lights": [
+    {
+      "id": "flood_0",
+      "of": "floods#f0",
+      "color": "#e8eeff",
+      "strength": 2.6,
+      "reach": 90,
+      "on": "floods"
+    },
+    {
+      "id": "flood_1",
+      "of": "floods#f1",
+      "color": "#e8eeff",
+      "strength": 2.6,
+      "reach": 90,
+      "on": "floods"
+    },
+    {
+      "id": "flood_2",
+      "of": "floods#f2",
+      "color": "#e8eeff",
+      "strength": 2.6,
+      "reach": 90,
+      "on": "floods"
+    },
+    {
+      "id": "gate_lamp",
+      "of": "hangar_front#gate",
+      "color": "#ffd6a0",
+      "strength": 1.6,
+      "reach": 14,
+      "on": "hangar"
+    },
+    {
+      "id": "work_lamp",
+      "of": "hangar_front#work",
+      "color": "#ffcf8f",
+      "strength": 1.5,
+      "reach": 9,
+      "on": "hangar"
+    },
+    {
+      "id": "hangar_0",
+      "of": "hangar_lamps#l0",
+      "color": "#ffd49a",
+      "strength": 1.5,
+      "reach": 12,
+      "on": "hangar"
+    },
+    {
+      "id": "hangar_1",
+      "of": "hangar_lamps#l1",
+      "color": "#ffd49a",
+      "strength": 1.5,
+      "reach": 12,
+      "on": "hangar"
+    },
+    {
+      "id": "hangar_2",
+      "of": "hangar_lamps#l2",
+      "color": "#ffd49a",
+      "strength": 1.5,
+      "reach": 12,
+      "on": "hangar"
+    },
+    {
+      "id": "office_lamp",
+      "of": "office_windows#office",
+      "color": "#ffd6a0",
+      "strength": 1.2,
+      "reach": 10,
+      "on": "office"
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "floods": 1,
+    "hangar": 1,
+    "office": 1,
+    "riviere_look": "roblet#hands",
+    "riviere_mood": "neutral",
+    "robineau_look": "riviere",
+    "robineau_mood": "thinking",
+    "roblet_look": "riviere",
+    "roblet_mood": "sad"
+  },
+  "states": {
+    "floods": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the field's floodlights on their three masts: 0 out (the field dark, only the hangar's lamps), 1 on (white light over the field); the edge lamps along the field with them"
+    },
+    "hangar": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the hangar's lamps — over the gate, by the switch, the three inside: 0 out, 1 lit (switched, not faded)"
+    },
+    "office": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the window of Rivière's office upstairs in the building over the field: 0 dark, 1 lit"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "field",
+      "name": "The field",
+      "plane": true,
+      "across": 0,
+      "distance": 400,
+      "width": 1600,
+      "depth": 800
+    },
+    {
+      "id": "far_lights",
+      "name": "The town's lights far off",
+      "glows": true,
+      "across": 260,
+      "distance": 1500,
+      "height": 30,
+      "box": [
+        -700,
+        -30,
+        400,
+        2
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "The field's fence and gate",
+      "across": 0,
+      "distance": 140,
+      "height": 1.6,
+      "box": [
+        -220,
+        -1.7,
+        220,
+        0.1
+      ]
+    },
+    {
+      "id": "floods",
+      "name": "The floodlight masts",
+      "across": 0,
+      "distance": 78,
+      "height": 14,
+      "box": [
+        -50,
+        -14.5,
+        44,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "edge_lamps",
+      "name": "The lamps along the field's edge",
+      "across": -11,
+      "distance": 24,
+      "height": 0.7,
+      "box": [
+        -0.12,
+        -0.75,
+        0.12,
+        0.03
+      ],
+      "copies": [
+        {
+          "across": -11,
+          "distance": 24
+        },
+        {
+          "across": -11.6,
+          "distance": 38
+        },
+        {
+          "across": -12.2,
+          "distance": 52
+        },
+        {
+          "across": -12.8,
+          "distance": 66
+        },
+        {
+          "across": -13.4,
+          "distance": 80
+        },
+        {
+          "across": -14,
+          "distance": 94
+        },
+        {
+          "across": -14.6,
+          "distance": 108
+        },
+        {
+          "across": -15.2,
+          "distance": 122
+        },
+        {
+          "across": 30,
+          "distance": 96
+        },
+        {
+          "across": 46,
+          "distance": 98
+        },
+        {
+          "across": 62,
+          "distance": 100
+        }
+      ]
+    },
+    {
+      "id": "office",
+      "name": "The line's office building",
+      "across": -27,
+      "distance": 48,
+      "facing": 162,
+      "height": 13,
+      "box": [
+        -9.2,
+        -13.2,
+        9.2,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "office_windows",
+      "name": "The office's lit windows",
+      "on": "office",
+      "distance": -0.05,
+      "glows": true,
+      "height": 13,
+      "box": [
+        -8.6,
+        -13.1,
+        8.6,
+        -0.4
+      ]
+    },
+    {
+      "id": "windsock",
+      "name": "The windsock",
+      "across": -15,
+      "distance": 30,
+      "height": 6.8,
+      "box": [
+        -3.2,
+        -7,
+        0.4,
+        0.05
+      ]
+    },
+    {
+      "id": "apron",
+      "name": "The concrete before the hangar",
+      "plane": true,
+      "across": 4,
+      "distance": 12,
+      "elevation": 0.01,
+      "width": 30,
+      "depth": 16,
+      "walk": true
+    },
+    {
+      "id": "hangar",
+      "name": "The hangar",
+      "unseen": true,
+      "across": 7.5,
+      "distance": 18,
+      "facing": 196
+    },
+    {
+      "id": "hangar_front",
+      "name": "The hangar's front and its open gates",
+      "on": "hangar",
+      "facing": 180,
+      "height": 9.8,
+      "box": [
+        -10.4,
+        -9.9,
+        10.4,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "hangar_side",
+      "name": "The hangar's near side",
+      "on": "hangar",
+      "across": -10.3,
+      "distance": 7,
+      "facing": 270,
+      "height": 7.6,
+      "box": [
+        -7,
+        -7.7,
+        7,
+        0.05
+      ]
+    },
+    {
+      "id": "hangar_floor",
+      "name": "The hangar's floor",
+      "plane": true,
+      "inside": true,
+      "on": "hangar",
+      "distance": 7,
+      "elevation": 0.02,
+      "width": 20.4,
+      "depth": 14
+    },
+    {
+      "id": "hangar_back",
+      "name": "The hangar's back wall",
+      "inside": true,
+      "on": "hangar",
+      "distance": 14,
+      "facing": 180,
+      "height": 9.8,
+      "box": [
+        -10.4,
+        -9.9,
+        10.4,
+        0.05
+      ]
+    },
+    {
+      "id": "hangar_wall",
+      "name": "The hangar's far side, inside",
+      "inside": true,
+      "on": "hangar",
+      "across": 10.2,
+      "distance": 7,
+      "facing": 270,
+      "height": 7.6,
+      "box": [
+        -7,
+        -7.7,
+        7,
+        0.05
+      ]
+    },
+    {
+      "id": "hangar_ceiling",
+      "name": "The hangar's roof, inside",
+      "inside": true,
+      "on": "hangar",
+      "distance": 14,
+      "elevation": 7.6,
+      "facing": 180,
+      "tilt": -90,
+      "height": 14,
+      "box": [
+        -10.4,
+        -14.05,
+        10.4,
+        0.05
+      ]
+    },
+    {
+      "id": "hangar_lamps",
+      "name": "The lamps hanging in the hangar",
+      "inside": true,
+      "glows": true,
+      "on": "hangar",
+      "distance": 2.5,
+      "facing": 180,
+      "height": 7.6,
+      "box": [
+        -0.4,
+        -7.65,
+        0.4,
+        -5.4
+      ]
+    },
+    {
+      "id": "spare_engine",
+      "name": "A spare engine on its stand, inside",
+      "inside": true,
+      "on": "hangar",
+      "across": 5.5,
+      "distance": 9,
+      "facing": 180,
+      "height": 1.8,
+      "box": [
+        -1.1,
+        -1.85,
+        1.1,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "drums",
+      "name": "Fuel drums by the hangar's corner",
+      "across": -4.6,
+      "distance": 16.5,
+      "facing": 190,
+      "height": 1,
+      "box": [
+        -1.2,
+        -1.05,
+        1.2,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "plane",
+      "name": "The Chilean mail plane",
+      "across": -1.4,
+      "distance": 13.2,
+      "facing": 182,
+      "height": 4.2,
+      "box": [
+        -6.7,
+        -4.3,
+        5.8,
+        0.12
+      ],
+      "shadow": true
+    },
+    {
+      "id": "workbench",
+      "name": "The workbench",
+      "across": 12.4,
+      "distance": 12.6,
+      "facing": 200,
+      "height": 1.1,
+      "box": [
+        -1.2,
+        -1.15,
+        1.2,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "toolbox",
+      "name": "Roblet's tool box, packed",
+      "across": 5.05,
+      "distance": 9.3,
+      "facing": 205,
+      "height": 0.42,
+      "box": [
+        -0.38,
+        -0.44,
+        0.38,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "motes",
+      "name": "Moths and dust in the gate's light",
+      "particles": {
+        "kind": "dust",
+        "at": [
+          6.6,
+          15.4,
+          4.5
+        ],
+        "source": [
+          9,
+          6,
+          5
+        ]
+      }
+    },
+    {
+      "id": "riviere",
+      "name": "Rivière",
+      "person": {
+        "cast": "cast",
+        "who": "riviere",
+        "turn": 100,
+        "does": "hands_behind"
+      },
+      "across": -0.7,
+      "distance": 7.6
+    },
+    {
+      "id": "robineau",
+      "name": "Robineau",
+      "person": {
+        "cast": "cast",
+        "who": "robineau",
+        "turn": 215,
+        "does": "hold_chest"
+      },
+      "across": 2.0,
+      "distance": 8.5
+    },
+    {
+      "id": "roblet",
+      "name": "Roblet",
+      "person": {
+        "cast": "cast",
+        "who": "roblet",
+        "turn": 228,
+        "does": "hold_low"
+      },
+      "across": 4.4,
+      "distance": 9.7
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "slow solo piano, sparse chords, nocturnal, restrained and dignified, French impressionist colour",
+        "weight": 1.2
+      },
+      {
+        "text": "distant morse telegraph clicks over a low string drone, tense and patient, night office",
+        "weight": 0.8
+      },
+      {
+        "text": "low strings sustained, slow, grave and tender, a long night of waiting",
+        "weight": 0.7
+      },
+      {
+        "text": "muted trumpet far away, a few long notes, lonely airfield at night",
+        "weight": 0.3
+      },
+      {
+        "text": "warm accordion, slow, nostalgic, 1930s France",
+        "weight": 0
+      },
+      {
+        "text": "ambient engine hum, low propeller drone, airy pad, vast night sky",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, grave, restrained, noble sadness",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, stars over clouds, weightless and cold",
+        "weight": 0
+      },
+      {
+        "text": "deep timpani rolls and low brass, a storm gathering far off",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, long bowed notes, bitter and beautiful",
+        "weight": 0
+      },
+      {
+        "text": "minimalist piano ostinato, clockwork pulse, waiting for news",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and bassoon, quiet and dry, an office at midnight",
+        "weight": 0
+      },
+      {
+        "text": "wordless choir very soft, high and far, moonlit sea of clouds",
+        "weight": 0
+      },
+      {
+        "text": "slow waltz on a small orchestra, faded, a lamp in a window",
+        "weight": 0
+      },
+      {
+        "text": "bowed vibraphone and reverb, cold blue air, stillness",
+        "weight": 0
+      },
+      {
+        "text": "orchestral swell, heroic yet sorrowful, dawn after a lost night",
+        "weight": 0
+      },
+      {
+        "text": "low horn chorale, slow, mourning without tears",
+        "weight": 0
+      }
+    ],
+    "bpm": 64,
+    "density": 0.25,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
