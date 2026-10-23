@@ -7,7 +7,7 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.85,
+    "ambient": 1,
     "ambientColor": "#e2d4c2",
     "inside": 0.55,
     "bounce": 0.6,
@@ -34,7 +34,7 @@
         30
       ],
       "color": "#ffc983",
-      "strength": 2.4,
+      "strength": 1.6,
       "on": "sun",
       "through": [
         "window"
@@ -57,8 +57,8 @@
       3.2,
       0.52
     ],
-    "josie_look": "klara",
-    "josie_mood": "smile",
+    "josie_look": "josie#sketchbook",
+    "josie_mood": "neutral",
     "klara_look": "josie",
     "mother_look": "josie",
     "mother_mood": "thinking"
@@ -710,9 +710,9 @@
       "plane": true,
       "inside": true,
       "across": 0,
-      "distance": 3.3,
+      "distance": 2.8,
       "width": 4.8,
-      "depth": 2.2
+      "depth": 3.2
     },
     {
       "id": "ceiling",
@@ -723,10 +723,10 @@
       "elevation": 2.6,
       "facing": 180,
       "tilt": -90,
-      "height": 2.2,
+      "height": 3.2,
       "box": [
         -2.4,
-        -2.25,
+        -3.25,
         2.4,
         0.05
       ]
@@ -770,13 +770,13 @@
       "name": "The wall over the bed, Josie's drawings pinned on it",
       "inside": true,
       "across": -2.4,
-      "distance": 3.3,
+      "distance": 2.8,
       "facing": 90,
       "height": 2.6,
       "box": [
-        -1.12,
+        -1.62,
         -2.62,
-        1.12,
+        1.62,
         0.02
       ]
     },
@@ -785,13 +785,13 @@
       "name": "The wall with the door to the hall",
       "inside": true,
       "across": 2.4,
-      "distance": 3.3,
+      "distance": 2.8,
       "facing": 270,
       "height": 2.6,
       "box": [
-        -1.12,
+        -1.62,
         -2.62,
-        1.12,
+        1.62,
         0.02
       ]
     },
@@ -905,7 +905,7 @@
       "person": {
         "cast": "cast",
         "who": "josie",
-        "turn": 140,
+        "turn": 165,
         "does": "drawing"
       },
       "across": -1.55,
@@ -918,7 +918,7 @@
       "person": {
         "cast": "cast",
         "who": "klara",
-        "turn": 225,
+        "turn": 210,
         "does": "hands_clasped"
       },
       "across": 1.5,
@@ -931,8 +931,8 @@
       "person": {
         "cast": "cast",
         "who": "mother",
-        "turn": 235,
-        "does": "arms_folded"
+        "turn": 225,
+        "does": "hand_to_chin"
       },
       "across": 2.05,
       "distance": 3.3

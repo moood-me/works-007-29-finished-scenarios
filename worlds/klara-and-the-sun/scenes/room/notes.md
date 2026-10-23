@@ -22,4 +22,4 @@ sun.
   (0…1) — its light (a cloud). Dust in the sun (`dust`).
 - **People** (modules/cast, style `sun`): Josie sits on the bed's edge (`josie_on` a seat on it) with her
   sketchbook (`drawing`; the part's point `josie#sketchbook`), looking up at Klara; Klara by the west wall right of
-  the window, hands clasped, watching Josie; the Mother in the doorway, arms folded, watching Josie.
+  the window, hands clasped, watching Josie; the Mother in the doorway, a hand at her chin, watching Josie.

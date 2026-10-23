@@ -21,5 +21,5 @@ grown-ups; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it),
 ## Motions (Kimodo)
 
 The engine's `stand` and `walk`, and: `hands_clasped` — stands upright and still, hands clasped before her (a loop);
-`arms_folded` — stands with the arms folded, the weight shifting now and then (a loop); `drawing` — sits on a bed's
+`hand_to_chin` — stands upright, one arm across the waist holding the other elbow, that hand at the chin, watching (a loop); `drawing` — sits on a bed's
 edge, a sketchbook on the knees, drawing with the right hand (a loop; seated — `<id>_on` a seat).

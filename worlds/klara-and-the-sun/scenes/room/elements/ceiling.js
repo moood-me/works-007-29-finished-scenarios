@@ -1,7 +1,7 @@
-// The ceiling, seen from below (the card laid face down, its foot at the west wall, y −2.2 its edge nearest the
+// The ceiling, seen from below (the card laid face down, its foot at the west wall, y −3.2 its edge nearest the
 // viewer): plain white plaster, a round flush lamp, unlit by day.
 g.fillStyle = '#efe9e0';
-g.fillRect(-2.4, -2.25, 4.8, 2.3);
+g.fillRect(-2.4, -3.25, 4.8, 3.3);
 g.fillStyle = '#f7f3ec';
 g.beginPath();
 g.arc(0, -1.1, 0.2, 0, Math.PI * 2);
