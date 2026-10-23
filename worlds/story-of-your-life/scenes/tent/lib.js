@@ -128,8 +128,8 @@ function limb(g, root, knee, foot, w0, color) {
 
 // a heptapod standing, seen from the side (metres from its feet, y down; 2.3 m tall): a barrel hung where its seven
 // limbs meet, a ring of eyes round its top. The limbs behind the barrel in the painting itself; the barrel the layer
-// `body` (it sways a little about its pivot); the limbs before it the layer `front`; one limb half raised, the layer
-// `arm` (turned about its root). `turn` — where its seven limbs are round it (radians).
+// `body` (it sways a little about its pivot); the limbs before it the layer `front`; one limb lifted off the floor,
+// the layer `arm` (turned about its root). `turn` — where its seven limbs are round it (radians).
 function heptapod(g, e, turn) {
   const skin = '#62655f', dark = '#50534e', light = '#7c7f78';
   const limbs = [];
@@ -179,11 +179,11 @@ function heptapod(g, e, turn) {
       if (cz < 0.05) continue;
       c.fillStyle = light;
       c.beginPath();
-      c.ellipse(sx * 0.27, -2.12, 0.045 * cz + 0.008, 0.022, 0, 0, Math.PI * 2);
+      c.ellipse(sx * 0.27, -2.1, 0.06 * cz + 0.01, 0.03, 0, 0, Math.PI * 2);
       c.fill();
       c.fillStyle = '#1f2321';
       c.beginPath();
-      c.ellipse(sx * 0.27, -2.12, 0.032 * cz + 0.005, 0.009, 0, 0, Math.PI * 2);
+      c.ellipse(sx * 0.27, -2.1, 0.042 * cz + 0.006, 0.013, 0, 0, Math.PI * 2);
       c.fill();
     }
   });
@@ -194,8 +194,8 @@ function heptapod(g, e, turn) {
     }
   });
   const [r] = pathOf(raised);
-  e.layer('arm', { pivot: r, box: [r[0] - 0.2, -2.4, r[0] + 1.2, r[1] + 0.2] }, c => {
-    limb(c, r, [r[0] + 0.45, -1.85], [r[0] + 0.85, -2.05], 0.13, skin);
+  e.layer('arm', { pivot: r, box: [r[0] - 0.2, -2.0, r[0] + 1.3, -0.3] }, c => {
+    limb(c, r, [r[0] + 0.55, -1.6], [r[0] + 0.95, -0.6], 0.13, skin);
   });
 }
 

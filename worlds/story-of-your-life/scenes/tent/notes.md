@@ -12,7 +12,7 @@ and its three people standing as they stand in the story. No one moves but a loo
   sill; on it a semagram (`glass_sign`, point `glass_sign#sign`). Beyond it the heptapods' white room: `room_back`
   (glows), `room_floor`, a drifting haze (`room_mist`), Flapper (`flapper`, across −2.0, distance 9.6) and Raspberry
   (`raspberry`, farther, behind the haze). Each heptapod: back limbs painted, the barrel a layer swaying (`body`), the
-  front limbs (`front`), one limb half raised drifting slowly (`arm`).
+  front limbs (`front`), one limb lifted off the floor, drifting slowly (`arm`).
 - **In the tent**: the whiteboard on its stand (left), the video camera on its tripod turned to the glass, the
   folding table (`table`, `table_top`) with papers, the laptop (its screen's glow), the thermos and cups; the plywood
   floor with cables coming in at the doorway.
