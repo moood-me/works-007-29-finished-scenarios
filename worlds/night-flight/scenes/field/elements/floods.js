@@ -1,7 +1,7 @@
 // The floodlights over the field: three steel lattice masts, 13 m, each with a frame of four big lamps at its top
 // turned toward the hangar. The lamps' faces are the layer `lit` (shown by `floods` in animate); each head's light is
 // `f0`…`f2` (the scene's lights flood_0…2).
-const MASTS = [-40, -6, 34];
+const MASTS = [-78, -30, -16];
 for (const x of MASTS) {
   // the lattice: two legs tapering up, cross-braced
   g.strokeStyle = '#5d6168';
