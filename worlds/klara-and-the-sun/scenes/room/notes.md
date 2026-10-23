@@ -19,7 +19,7 @@ sun.
   (330 m); `sky` — pale blue going gold at the horizon, brightest to the right where the Sun is.
 - **Light**: the Sun, far, from bearing 50° and 30° up (out of view, far to the right), coming in only
   `through` the window — its patch falls on the bed and on Josie, on the floor before it; Klara stands out of it by
-  the window, the Mother out of it in the door. Key `sun`
+  the window, the Mother out of it in the door. `daylight` — the day at the window, coming into the room. Key `sun`
   (0…1) — its light (a cloud). Dust in the sun (`dust`).
 - **People** (modules/cast, style `sun`): Josie sits on the bed's edge (`josie_on` a seat on it) with her
   sketchbook (`drawing`; the part's point `josie#sketchbook`), looking at it; Klara by the west wall right of

@@ -41,6 +41,11 @@
         "window"
       ],
       "soft": 0.12
+    },
+    {
+      "id": "daylight",
+      "of": "window",
+      "daylight": 0.8
     }
   ],
   "modules": [
