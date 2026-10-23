@@ -1,6 +1,6 @@
-// An afternoon in the shed: Parish at the door, Niggle on the platform, brush in hand, looking aside — anywhere but at
-// him; then Niggle's eyes go back to his leaf while Parish looks down at the thistles by the door — never at the canvas; the light goes
-// toward sunset and the lantern carries the shed; back to the afternoon.
+// An afternoon in the shed: Parish at the door, Niggle on the platform, brush in hand, looking aside — anywhere but
+// at him; then Niggle's eyes go back to his leaf while Parish looks down at the thistles by the door — never at the
+// canvas; the light goes toward sunset and the lantern carries the shed; back to the afternoon.
 return [
   {
     name: 'afternoon',
@@ -17,7 +17,7 @@ return [
     run: async s => {
       s.person('niggle').look('canvas#leaf');
       await s.wait(1.2);
-      s.person('parish').look([2.2, 7.4, 0.4]);
+      s.person('parish').look([2.95, 6.4, 0.5]);
       await s.wait(7);
     },
   },
