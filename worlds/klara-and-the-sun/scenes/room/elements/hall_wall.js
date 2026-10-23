@@ -1,9 +1,9 @@
 // The far wall of the hall, seen through the door (facing into the room; x runs toward the viewer): a cooler grey-
 // white, a framed photograph of a girl a little older than Josie (Sal), a strip of skirting.
 g.fillStyle = '#d4d0ca';
-g.fillRect(-0.9, -2.72, 1.8, 2.74);
+g.fillRect(-2.2, -2.62, 4.4, 2.64);
 g.fillStyle = '#c9c3ba';
-g.fillRect(-0.9, -0.12, 1.8, 0.14);
+g.fillRect(-2.2, -0.12, 4.4, 0.14);
 g.fillStyle = '#4a4440';
 g.fillRect(-0.18, -1.75, 0.34, 0.42);
 g.fillStyle = '#e9e2d6';

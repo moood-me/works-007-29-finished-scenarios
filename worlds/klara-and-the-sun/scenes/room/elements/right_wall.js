@@ -1,16 +1,16 @@
-// The wall with the door to the hall (facing into the room; its x runs toward the viewer: x 0 at distance 3.9, the
-// west wall at x −1.3): warm white plaster, the skirting board, the doorway (x −0.42…0.48, 2.1 high — the door
+// The wall with the door to the hall (facing into the room; its x runs toward the viewer: x 0 at distance 3.3, the
+// west wall at x −1.1): warm white plaster, the skirting board, the doorway (x −0.42…0.48, 2.1 high — the door
 // itself open back into the hall, out of sight) in a pale casing.
 const hole = c => c.rect(-0.42, -2.1, 0.9, 2.12);
 g.save();
 g.beginPath();
-g.rect(-1.32, -2.72, 2.64, 2.74);
+g.rect(-1.12, -2.62, 2.24, 2.64);
 hole(g);
 g.clip('evenodd');
 g.fillStyle = '#e4dccf';
-g.fillRect(-1.32, -2.72, 2.64, 2.74);
+g.fillRect(-1.12, -2.62, 2.24, 2.64);
 g.fillStyle = '#d9cfbf';
-g.fillRect(-1.32, -0.12, 2.64, 0.14);
+g.fillRect(-1.12, -0.12, 2.24, 0.14);
 g.strokeStyle = '#f0eae0';
 g.lineWidth = 0.12;
 g.beginPath();

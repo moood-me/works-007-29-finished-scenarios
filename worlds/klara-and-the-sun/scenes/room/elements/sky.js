@@ -10,8 +10,8 @@ sky.addColorStop(1, '#f4d9a8');
 g.fillStyle = sky;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);
 // the glow about the Sun, over the right of the view
-const sx = A / 2 + 0.33;
-const glow = g.createRadialGradient(sx, 0.02, 0, sx, 0.02, 0.6);
+const sx = A / 2 + 1.19;
+const glow = g.createRadialGradient(sx, -0.22, 0, sx, -0.22, 1.1);
 glow.addColorStop(0, 'rgba(255,240,205,0.95)');
 glow.addColorStop(0.25, 'rgba(255,228,175,0.55)');
 glow.addColorStop(1, 'rgba(255,220,170,0)');

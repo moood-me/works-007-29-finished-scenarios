@@ -7,18 +7,18 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.72,
-    "ambientColor": "#d9c8b4",
-    "inside": 0.42,
+    "ambient": 0.85,
+    "ambientColor": "#e2d4c2",
+    "inside": 0.55,
     "bounce": 0.6,
     "haze": 0.06,
     "hazeColor": "#ecd2a8",
     "hazeGlow": 0.3,
     "shafts": 0.6,
     "tint": "#ffd9a8",
-    "tintStrength": 0.06,
+    "tintStrength": 0.04,
     "saturation": 0.95,
-    "vignette": 0.38,
+    "vignette": 0.32,
     "grain": 0.08,
     "wind": [
       1,
@@ -30,11 +30,11 @@
     {
       "id": "sun",
       "from": [
-        18,
-        20
+        50,
+        30
       ],
       "color": "#ffc983",
-      "strength": 2.2,
+      "strength": 2.4,
       "on": "sun",
       "through": [
         "window"
@@ -53,8 +53,8 @@
   "state": {
     "sun": 1,
     "josie_on": [
-      -1.75,
-      3.95,
+      -1.55,
+      3.2,
       0.52
     ],
     "josie_look": "klara",
@@ -118,8 +118,8 @@
     {
       "id": "rick_house",
       "name": "Rick's house",
-      "across": 10,
-      "distance": 52,
+      "across": 13,
+      "distance": 70,
       "facing": 190,
       "height": 8,
       "box": [
@@ -147,8 +147,8 @@
       "id": "grass",
       "name": "Tall grass under the window",
       "across": 0,
-      "distance": 10,
-      "height": 1.25,
+      "distance": 14,
+      "height": 1.0,
       "box": [
         -0.55,
         -1.35,
@@ -157,466 +157,550 @@
       ],
       "copies": [
         {
-          "across": -8.84,
-          "distance": 9.29,
-          "scale": 1.08,
+          "across": -9.83,
+          "distance": 14.23,
+          "scale": 1.0,
           "flip": true,
           "tint": "#e8e4cc"
         },
         {
-          "across": -8.14,
-          "distance": 9.55,
-          "scale": 1.17,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -7.15,
-          "distance": 9.24,
-          "scale": 0.88,
-          "flip": true,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": -6.48,
-          "distance": 9.33,
-          "scale": 1.07,
-          "flip": false,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": -5.44,
-          "distance": 9.23,
-          "scale": 0.93,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -4.77,
-          "distance": 9.29,
-          "scale": 0.89,
-          "flip": true,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": -4.0,
-          "distance": 9.55,
+          "across": -9.18,
+          "distance": 14.87,
           "scale": 1.07,
           "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -8.23,
+          "distance": 14.1,
+          "scale": 0.83,
+          "flip": true,
           "tint": "#e8e4cc"
         },
         {
-          "across": -2.92,
-          "distance": 9.54,
-          "scale": 1.07,
-          "flip": true,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": -2.24,
-          "distance": 9.39,
-          "scale": 1.05,
-          "flip": true,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": -1.51,
-          "distance": 9.31,
-          "scale": 1.12,
-          "flip": true,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": -0.56,
-          "distance": 9.73,
-          "scale": 1.11,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 0.06,
-          "distance": 9.45,
-          "scale": 1.11,
-          "flip": true,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": 1.03,
-          "distance": 9.78,
-          "scale": 0.88,
-          "flip": false,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": 1.8,
-          "distance": 9.41,
-          "scale": 1.02,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 2.87,
-          "distance": 9.77,
-          "scale": 1.02,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 3.63,
-          "distance": 9.39,
-          "scale": 1.05,
-          "flip": false,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": 4.23,
-          "distance": 9.43,
-          "scale": 1.08,
-          "flip": true,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": 5.08,
-          "distance": 9.57,
-          "scale": 1.02,
-          "flip": true,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": 5.79,
-          "distance": 9.35,
+          "across": -7.63,
+          "distance": 14.33,
           "scale": 0.99,
           "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -6.61,
+          "distance": 14.07,
+          "scale": 0.87,
+          "flip": false,
           "tint": "#ffffff"
         },
         {
-          "across": 6.63,
-          "distance": 9.44,
-          "scale": 0.95,
+          "across": -6.0,
+          "distance": 14.22,
+          "scale": 0.84,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -5.29,
+          "distance": 14.87,
+          "scale": 0.99,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -4.23,
+          "distance": 14.85,
+          "scale": 0.99,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -3.62,
+          "distance": 14.47,
+          "scale": 0.98,
           "flip": true,
           "tint": "#f2ead8"
         },
         {
-          "across": 7.79,
-          "distance": 9.37,
+          "across": -2.94,
+          "distance": 14.27,
+          "scale": 1.03,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -2.02,
+          "distance": 15.31,
+          "scale": 1.02,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -1.47,
+          "distance": 14.63,
+          "scale": 1.03,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -0.54,
+          "distance": 15.44,
+          "scale": 0.82,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 0.18,
+          "distance": 14.53,
+          "scale": 0.95,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 1.22,
+          "distance": 15.42,
+          "scale": 0.94,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 1.93,
+          "distance": 14.46,
+          "scale": 0.97,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 2.46,
+          "distance": 14.58,
           "scale": 1.0,
           "flip": true,
           "tint": "#f2ead8"
         },
         {
-          "across": 8.65,
-          "distance": 9.29,
-          "scale": 0.91,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -8.99,
-          "distance": 10.9,
-          "scale": 0.91,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -7.98,
-          "distance": 10.62,
-          "scale": 1.05,
-          "flip": false,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": -6.94,
-          "distance": 10.97,
-          "scale": 1.08,
-          "flip": false,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": -6.1,
-          "distance": 10.87,
-          "scale": 1.16,
-          "flip": false,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": -5.53,
-          "distance": 10.64,
-          "scale": 1.02,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -4.88,
-          "distance": 10.53,
-          "scale": 0.91,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -4.04,
-          "distance": 10.74,
-          "scale": 1.04,
-          "flip": false,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": -3.26,
-          "distance": 10.92,
-          "scale": 1.06,
-          "flip": true,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": -1.99,
-          "distance": 10.76,
-          "scale": 1.02,
-          "flip": true,
-          "tint": "#f2ead8"
-        },
-        {
-          "across": -1.15,
-          "distance": 10.68,
-          "scale": 1.02,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -0.45,
-          "distance": 10.84,
-          "scale": 1.02,
-          "flip": false,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": 0.01,
-          "distance": 10.97,
-          "scale": 1.03,
-          "flip": true,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": 1.27,
-          "distance": 10.85,
+          "across": 3.27,
+          "distance": 14.92,
           "scale": 0.95,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 3.92,
+          "distance": 14.37,
+          "scale": 0.92,
           "flip": false,
           "tint": "#ffffff"
         },
         {
-          "across": 1.98,
-          "distance": 10.56,
-          "scale": 0.98,
+          "across": 4.7,
+          "distance": 14.6,
+          "scale": 0.88,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 5.85,
+          "distance": 14.42,
+          "scale": 0.92,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 6.67,
+          "distance": 14.23,
+          "scale": 0.85,
           "flip": true,
           "tint": "#ffffff"
         },
         {
-          "across": 2.72,
-          "distance": 10.87,
+          "across": 6.93,
+          "distance": 15.25,
+          "scale": 0.85,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 7.92,
+          "distance": 14.55,
           "scale": 0.97,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 3.67,
-          "distance": 10.89,
-          "scale": 1.11,
-          "flip": true,
+          "flip": false,
           "tint": "#e8e4cc"
         },
         {
-          "across": 4.33,
-          "distance": 10.84,
-          "scale": 1.2,
+          "across": 8.92,
+          "distance": 15.43,
+          "scale": 1.0,
           "flip": false,
           "tint": "#f2ead8"
         },
         {
-          "across": 5.04,
-          "distance": 10.82,
-          "scale": 1.18,
-          "flip": true,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": 6.21,
-          "distance": 10.97,
-          "scale": 0.98,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 6.78,
-          "distance": 10.6,
-          "scale": 1.02,
-          "flip": false,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": 7.78,
-          "distance": 10.69,
-          "scale": 1.08,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": 8.59,
-          "distance": 10.47,
-          "scale": 0.99,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -8.77,
-          "distance": 11.91,
-          "scale": 1.13,
-          "flip": true,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": -7.99,
-          "distance": 12.04,
-          "scale": 1.18,
-          "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -6.88,
-          "distance": 11.82,
+          "across": 9.72,
+          "distance": 15.17,
           "scale": 1.06,
-          "flip": true,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": -6.47,
-          "distance": 12.3,
-          "scale": 1.19,
           "flip": false,
           "tint": "#f2ead8"
         },
         {
-          "across": -5.65,
-          "distance": 12.13,
-          "scale": 0.86,
-          "flip": false,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": -4.59,
-          "distance": 12.12,
-          "scale": 1.18,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -3.69,
-          "distance": 11.93,
+          "across": -9.79,
+          "distance": 17.09,
           "scale": 0.94,
           "flip": true,
           "tint": "#ffffff"
         },
         {
-          "across": -2.9,
-          "distance": 12.0,
-          "scale": 1.04,
-          "flip": false,
+          "across": -9.19,
+          "distance": 16.81,
+          "scale": 0.85,
+          "flip": true,
           "tint": "#ffffff"
         },
         {
-          "across": -2.01,
-          "distance": 12.01,
-          "scale": 1.01,
+          "across": -8.41,
+          "distance": 17.35,
+          "scale": 0.96,
           "flip": false,
           "tint": "#e8e4cc"
         },
         {
-          "across": -1.43,
-          "distance": 12.35,
-          "scale": 1.03,
+          "across": -7.68,
+          "distance": 17.81,
+          "scale": 0.98,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -6.41,
+          "distance": 17.4,
+          "scale": 0.94,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -5.62,
+          "distance": 17.2,
+          "scale": 0.95,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -4.98,
+          "distance": 17.61,
+          "scale": 0.94,
           "flip": false,
           "tint": "#e8e4cc"
         },
         {
-          "across": -0.57,
-          "distance": 12.32,
-          "scale": 1.12,
+          "across": -4.6,
+          "distance": 17.93,
+          "scale": 0.96,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -3.35,
+          "distance": 17.64,
+          "scale": 0.89,
           "flip": false,
           "tint": "#ffffff"
         },
         {
-          "across": 0.08,
-          "distance": 12.08,
+          "across": -2.7,
+          "distance": 16.89,
+          "scale": 0.91,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -2.02,
+          "distance": 17.67,
+          "scale": 0.9,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -1.1,
+          "distance": 17.73,
+          "scale": 1.02,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -0.5,
+          "distance": 17.6,
           "scale": 1.1,
           "flip": false,
           "tint": "#f2ead8"
         },
         {
-          "across": 1.15,
-          "distance": 12.12,
-          "scale": 1.02,
+          "across": 0.14,
+          "distance": 17.54,
+          "scale": 1.09,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 1.3,
+          "distance": 17.93,
+          "scale": 0.91,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 1.79,
+          "distance": 17.01,
+          "scale": 0.94,
           "flip": false,
           "tint": "#e8e4cc"
         },
         {
-          "across": 1.66,
-          "distance": 11.91,
-          "scale": 0.86,
-          "flip": true,
-          "tint": "#f2ead8"
+          "across": 2.76,
+          "distance": 17.22,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#ffffff"
         },
         {
-          "across": 2.73,
-          "distance": 12.26,
-          "scale": 1.17,
-          "flip": true,
-          "tint": "#e8e4cc"
-        },
-        {
-          "across": 3.75,
-          "distance": 12.16,
+          "across": 3.53,
+          "distance": 16.68,
           "scale": 0.92,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 4.1,
+          "distance": 16.77,
+          "scale": 1.04,
           "flip": true,
           "tint": "#e8e4cc"
         },
         {
-          "across": 4.35,
-          "distance": 12.09,
-          "scale": 1.18,
+          "across": 4.83,
+          "distance": 17.1,
+          "scale": 1.08,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 5.92,
+          "distance": 16.54,
+          "scale": 0.98,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 6.23,
+          "distance": 17.74,
+          "scale": 1.09,
           "flip": false,
           "tint": "#f2ead8"
         },
         {
-          "across": 5.36,
-          "distance": 12.34,
-          "scale": 0.92,
-          "flip": true,
-          "tint": "#f2ead8"
+          "across": 7.01,
+          "distance": 17.32,
+          "scale": 0.81,
+          "flip": false,
+          "tint": "#e8e4cc"
         },
         {
-          "across": 5.79,
-          "distance": 12.07,
+          "across": 8.04,
+          "distance": 17.29,
+          "scale": 1.08,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 8.91,
+          "distance": 16.82,
           "scale": 0.88,
           "flip": true,
           "tint": "#ffffff"
         },
         {
-          "across": 6.65,
-          "distance": 11.98,
-          "scale": 0.89,
+          "across": 9.64,
+          "distance": 16.99,
+          "scale": 0.96,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -9.51,
+          "distance": 19.53,
+          "scale": 0.94,
           "flip": false,
           "tint": "#e8e4cc"
         },
         {
-          "across": 7.68,
-          "distance": 12.02,
+          "across": -9.0,
+          "distance": 20.38,
+          "scale": 0.95,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -8.19,
+          "distance": 20.31,
+          "scale": 1.03,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -7.6,
+          "distance": 19.71,
+          "scale": 1.02,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -6.56,
+          "distance": 19.8,
           "scale": 0.94,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -6.12,
+          "distance": 19.29,
+          "scale": 0.81,
           "flip": true,
           "tint": "#f2ead8"
         },
         {
-          "across": 8.29,
-          "distance": 12.37,
-          "scale": 0.99,
+          "across": -5.08,
+          "distance": 20.14,
+          "scale": 1.07,
           "flip": true,
           "tint": "#e8e4cc"
+        },
+        {
+          "across": -4.09,
+          "distance": 19.91,
+          "scale": 0.86,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -3.56,
+          "distance": 19.72,
+          "scale": 1.08,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -2.58,
+          "distance": 20.34,
+          "scale": 0.86,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -2.24,
+          "distance": 19.66,
+          "scale": 0.82,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -1.42,
+          "distance": 19.45,
+          "scale": 0.84,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -0.42,
+          "distance": 19.55,
+          "scale": 0.88,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 0.12,
+          "distance": 20.43,
+          "scale": 0.92,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 1.22,
+          "distance": 19.24,
+          "scale": 0.93,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 1.77,
+          "distance": 19.53,
+          "scale": 0.83,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 2.61,
+          "distance": 19.66,
+          "scale": 0.81,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 3.24,
+          "distance": 20.44,
+          "scale": 0.83,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 4.37,
+          "distance": 19.16,
+          "scale": 0.88,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 4.76,
+          "distance": 19.19,
+          "scale": 0.93,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 5.6,
+          "distance": 19.8,
+          "scale": 0.95,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 6.2,
+          "distance": 19.09,
+          "scale": 1.01,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 7.07,
+          "distance": 19.03,
+          "scale": 0.83,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 8.15,
+          "distance": 19.1,
+          "scale": 1.06,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 9.0,
+          "distance": 19.63,
+          "scale": 1.07,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 9.51,
+          "distance": 19.36,
+          "scale": 0.83,
+          "flip": true,
+          "tint": "#ffffff"
         }
       ]
     },
@@ -626,24 +710,24 @@
       "plane": true,
       "inside": true,
       "across": 0,
-      "distance": 3.9,
-      "width": 5.2,
-      "depth": 2.6
+      "distance": 3.3,
+      "width": 4.8,
+      "depth": 2.2
     },
     {
       "id": "ceiling",
       "name": "The ceiling",
       "inside": true,
       "across": 0,
-      "distance": 5.2,
-      "elevation": 2.7,
+      "distance": 4.4,
+      "elevation": 2.6,
       "facing": 180,
       "tilt": -90,
-      "height": 2.6,
+      "height": 2.2,
       "box": [
-        -2.6,
-        -2.65,
-        2.6,
+        -2.4,
+        -2.25,
+        2.4,
         0.05
       ]
     },
@@ -652,13 +736,13 @@
       "name": "The west wall and its window",
       "inside": true,
       "across": 0,
-      "distance": 5.2,
+      "distance": 4.4,
       "facing": 180,
-      "height": 2.7,
+      "height": 2.6,
       "box": [
+        -2.42,
         -2.62,
-        -2.72,
-        2.62,
+        2.42,
         0.02
       ]
     },
@@ -669,30 +753,30 @@
       "shadow": {
         "light": "sun"
       },
-      "across": -0.1,
-      "distance": 5.18,
+      "across": 0,
+      "distance": 4.38,
       "elevation": 0.6,
       "facing": 180,
-      "height": 1.7,
+      "height": 1.65,
       "box": [
-        -1.34,
-        -1.74,
-        1.34,
-        0.08
+        -1.46,
+        -1.7,
+        1.46,
+        0.1
       ]
     },
     {
       "id": "left_wall",
       "name": "The wall over the bed, Josie's drawings pinned on it",
       "inside": true,
-      "across": -2.6,
-      "distance": 3.9,
+      "across": -2.4,
+      "distance": 3.3,
       "facing": 90,
-      "height": 2.7,
+      "height": 2.6,
       "box": [
-        -1.32,
-        -2.72,
-        1.32,
+        -1.12,
+        -2.62,
+        1.12,
         0.02
       ]
     },
@@ -700,14 +784,14 @@
       "id": "right_wall",
       "name": "The wall with the door to the hall",
       "inside": true,
-      "across": 2.6,
-      "distance": 3.9,
+      "across": 2.4,
+      "distance": 3.3,
       "facing": 270,
-      "height": 2.7,
+      "height": 2.6,
       "box": [
-        -1.32,
-        -2.72,
-        1.32,
+        -1.12,
+        -2.62,
+        1.12,
         0.02
       ]
     },
@@ -715,14 +799,14 @@
       "id": "hall_wall",
       "name": "The hall beyond the door",
       "inside": true,
-      "across": 3.7,
-      "distance": 3.9,
+      "across": 3.5,
+      "distance": 5.0,
       "facing": 270,
-      "height": 2.7,
+      "height": 2.6,
       "box": [
-        -0.9,
-        -2.72,
-        0.9,
+        -2.2,
+        -2.62,
+        2.2,
         0.02
       ]
     },
@@ -731,18 +815,18 @@
       "name": "The hall's floor",
       "plane": true,
       "inside": true,
-      "across": 3.15,
-      "distance": 3.85,
+      "across": 2.95,
+      "distance": 4.6,
       "width": 1.1,
-      "depth": 1.4
+      "depth": 3.4
     },
     {
       "id": "headboard",
       "name": "The bed's headboard",
       "inside": true,
       "shadow": true,
-      "across": -2.1,
-      "distance": 5.15,
+      "across": -1.9,
+      "distance": 4.35,
       "facing": 180,
       "height": 1.0,
       "box": [
@@ -757,14 +841,14 @@
       "name": "The bed's side",
       "inside": true,
       "shadow": true,
-      "across": -1.6,
-      "distance": 4.15,
+      "across": -1.4,
+      "distance": 3.5,
       "facing": 90,
       "height": 0.6,
       "box": [
-        -1.02,
+        -0.92,
         -0.62,
-        1.02,
+        0.92,
         0.02
       ]
     },
@@ -773,8 +857,8 @@
       "name": "The bed's foot",
       "inside": true,
       "shadow": true,
-      "across": -2.1,
-      "distance": 3.15,
+      "across": -1.9,
+      "distance": 2.6,
       "facing": 180,
       "height": 0.7,
       "box": [
@@ -790,11 +874,11 @@
       "plane": true,
       "inside": true,
       "shadow": true,
-      "across": -2.1,
-      "distance": 4.15,
+      "across": -1.9,
+      "distance": 3.5,
       "elevation": 0.52,
       "width": 1.0,
-      "depth": 2.0
+      "depth": 1.8
     },
     {
       "id": "dust",
@@ -803,13 +887,13 @@
       "particles": {
         "kind": "dust",
         "at": [
-          -0.9,
-          4.1,
-          1.3
+          -1.0,
+          3.4,
+          1.2
         ],
         "source": [
-          2.6,
-          1.8,
+          2.4,
+          1.6,
           1.6
         ]
       }
@@ -824,8 +908,8 @@
         "turn": 140,
         "does": "drawing"
       },
-      "across": -1.75,
-      "distance": 3.95
+      "across": -1.55,
+      "distance": 3.2
     },
     {
       "id": "klara",
@@ -837,8 +921,8 @@
         "turn": 225,
         "does": "hands_clasped"
       },
-      "across": 1.7,
-      "distance": 4.85
+      "across": 1.5,
+      "distance": 4.05
     },
     {
       "id": "mother",
@@ -850,8 +934,8 @@
         "turn": 235,
         "does": "arms_folded"
       },
-      "across": 2.4,
-      "distance": 3.9
+      "across": 2.05,
+      "distance": 3.3
     }
   ],
   "music": {

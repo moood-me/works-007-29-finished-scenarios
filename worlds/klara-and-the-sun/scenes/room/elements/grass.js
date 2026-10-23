@@ -10,8 +10,8 @@ e.layer('clump', { pivot: [0, 0], wind: { strength: 0.5, gust: 0.5, scale: 2 }, 
       const x = (e.rnd() - 0.5) * 0.8;
       const top = 0.7 + e.rnd() * 0.5;
       const lean = (e.rnd() - 0.45) * 0.3;
-      g.moveTo(x * 0.6, 0);
-      g.quadraticCurveTo(x * 0.8 + lean * 0.3, -top * 0.5, x + lean, -top);
+      g.moveTo(x * 0.9, 0);
+      g.quadraticCurveTo(x * 0.95 + lean * 0.3, -top * 0.5, x + lean, -top);
     }
     g.stroke();
   }

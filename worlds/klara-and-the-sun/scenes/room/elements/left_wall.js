@@ -1,10 +1,10 @@
-// The wall over the bed (facing into the room; its x runs away from the viewer: x 0 at distance 3.9, the west wall
-// at x 1.3): warm white plaster, the skirting board, and Josie's drawings pinned up over the bed — pencil figures,
+// The wall over the bed (facing into the room; its x runs away from the viewer: x 0 at distance 3.3, the west wall
+// at x 1.1): warm white plaster, the skirting board, and Josie's drawings pinned up over the bed — pencil figures,
 // two by two, an empty speech bubble over each pair.
 g.fillStyle = '#e4dccf';
-g.fillRect(-1.32, -2.72, 2.64, 2.74);
+g.fillRect(-1.12, -2.62, 2.24, 2.64);
 g.fillStyle = '#d9cfbf';
-g.fillRect(-1.32, -0.12, 2.64, 0.14);
+g.fillRect(-1.12, -0.12, 2.24, 0.14);
 const sheet = (x, y, w, h, tilt) => {
   g.save();
   g.translate(x, y);
@@ -45,8 +45,8 @@ const sheet = (x, y, w, h, tilt) => {
   g.fill();
   g.restore();
 };
-sheet(-0.55, -1.62, 0.3, 0.4, -0.04);
-sheet(-0.15, -1.5, 0.3, 0.4, 0.05);
-sheet(0.25, -1.68, 0.3, 0.4, -0.02);
-sheet(0.62, -1.48, 0.3, 0.4, 0.06);
-sheet(0.02, -1.98, 0.26, 0.34, 0.03);
+sheet(-0.6, -1.62, 0.3, 0.4, -0.04);
+sheet(-0.22, -1.5, 0.3, 0.4, 0.05);
+sheet(0.16, -1.68, 0.3, 0.4, -0.02);
+sheet(0.52, -1.48, 0.3, 0.4, 0.06);
+sheet(-0.04, -1.98, 0.26, 0.34, 0.03);

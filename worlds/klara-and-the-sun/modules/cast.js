@@ -8,7 +8,7 @@ return {
     // Klara, an Artificial Friend: small and slight, a dark bob, porcelain-pale, a plain slate-blue dress — neat,
     // nothing loose about her
     klara: {
-      kind: 'shapes', style: 'sun', who: 'woman', garment: 'dress', hair: 'bob',
+      kind: 'shapes', style: 'sun', who: 'woman', garment: 'shift', hair: 'bob',
       body: { height: 0.86, thick: 0.78, shoulders: 0.84, hips: 0.94 },
       colors: { skin: '#ecdfd2', hair: '#1f1a1d', top: '#4a5a72', garment: '#4a5a72', shoes: '#2a2a30' },
     },
@@ -32,8 +32,10 @@ return {
   },
   shapes: {
     // the world's style: soft rounded shapes and tinted lines (soft), the head a little smaller so the grown-ups read
-    // as grown-ups, a simple face (eyes, brows, nose, mouth — <id>_mood shows on it) so faces read across the room
-    styles: { sun: { from: 'soft', name: 'Klara and the Sun', head: 1.2, neck: 0.55, legs: 0.92, line: 1.8 } },
+    // as grown-ups (a little larger than theirs, so faces read in a room seen whole), a simple face (eyes, brows, nose, mouth — <id>_mood shows on it) so faces read across the room
+    styles: { sun: { from: 'soft', name: 'Klara and the Sun', head: 1.28, neck: 0.55, legs: 0.92, line: 1.8 } },
+    // Klara's plain dress: a straight shift to the knee, short sleeves
+    garments: { shift: { name: 'shift dress', hang: [{ to: 1.1, from: 'waist', flare: 0.2, off: 0.94 }], short: true, bare: true, bodice: true } },
     parts: {
       // Josie's sketchbook: a stiff pad lying level in her lap under her hands, its pages the look's accent
       sketchbook: {
