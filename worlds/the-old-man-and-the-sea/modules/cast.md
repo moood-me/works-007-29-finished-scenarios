@@ -9,8 +9,8 @@ fine line; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it),
 
 ## Who
 
-- `santiago` — the old man: thin and gaunt, skin burnt dark brown, short white hair and a close white beard (the part
-  `stubble`), a faded blue patched shirt, old trousers, barefoot.
+- `santiago` — the old man: thin and gaunt, skin burnt dark brown, short white hair, a faded blue patched shirt, old
+  trousers, barefoot.
 - `manolin` — the boy: slight, black hair, a white undershirt, dark shorts, barefoot.
 - `father` — the boy's father, a fisherman of the lucky boat: thickset, a dark cap, a work shirt, dark trousers.
 

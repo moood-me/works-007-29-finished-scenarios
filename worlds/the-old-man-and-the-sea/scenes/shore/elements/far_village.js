@@ -42,7 +42,7 @@ for (let i = 0; i < 34; i++) {
   g.fill();
   g.fillStyle = '#4a3f36';
   g.fillRect(x + w * 0.3, y - 1.5, 0.6, 1.5);
-  if (i % 3 === 0) e.light(x + w * 0.3 + 0.3, y - 0.9, 0.5, '#ffc47e', 1, `w${i / 3}`);
+  if (i % 3 === 0) e.light(x + w * 0.3 + 0.3, y - 0.9, 1.2, '#ffc47e', 2, `w${i / 3}`);
 }
 // palms among them
 for (let i = 0; i < 26; i++) {
@@ -92,5 +92,5 @@ g.closePath();
 g.fill();
 g.fillStyle = '#5a4a3a';
 g.fillRect(TX, -1.8, 14.5, 0.35);
-e.light(TX + 3.5, -3.6, 0.7, '#ffcf8a', 1.2, 'terrace1');
-e.light(TX + 10.5, -3.6, 0.7, '#ffcf8a', 1.2, 'terrace2');
+e.light(TX + 3.5, -3.6, 1.6, '#ffcf8a', 2.5, 'terrace1');
+e.light(TX + 10.5, -3.6, 1.6, '#ffcf8a', 2.5, 'terrace2');

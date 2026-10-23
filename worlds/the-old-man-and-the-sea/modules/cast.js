@@ -4,10 +4,10 @@
 return {
   ...data,
   characters: {
-    // Santiago: old, thin and gaunt, the skin burnt dark brown by the sun, short white hair and a white stubble of
-    // beard, a faded blue shirt patched many times, old trousers rolled up, barefoot
+    // Santiago: old, thin and gaunt, the skin burnt dark brown by the sun, short white hair, a faded blue shirt
+    // patched many times, old trousers rolled up, barefoot
     santiago: {
-      kind: 'shapes', style: 'gulf', who: 'old', garment: 'none', hair: 'short', barefoot: 'both', parts: ['stubble'],
+      kind: 'shapes', style: 'gulf', who: 'old', garment: 'none', hair: 'short', barefoot: 'both',
       body: { height: 0.97, thick: 0.8, shoulders: 1.02, arms: 1.03 },
       colors: { skin: '#8f5f43', hair: '#c4bfb5', top: '#8ea3ae', bottom: '#8d7f68' },
     },
@@ -28,16 +28,5 @@ return {
     // the world's style: the engine's flat geometry — straight edges, plain colours, the scene's light and shadows —
     // with a simple face (eyes, brows, nose, mouth) so the faces read
     styles: { gulf: { from: 'flat', name: 'The Gulf', line: 0.8, face: 'simple' } },
-    parts: {
-      // a short close beard over the jaw and the chin, below the mouth (the colour of the hair)
-      stubble: {
-        name: 'stubble',
-        draw: F => {
-          const h = F.head;
-          const r = h.r * h.out;
-          F.cap(h.at, h.axes, h.egg.map(v => v * r * 1.02), [0, -0.95, 0.3], 0.78, F.colors.hair, h.sides, h.square);
-        },
-      },
-    },
   },
 };

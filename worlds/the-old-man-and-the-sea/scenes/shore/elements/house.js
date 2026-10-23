@@ -18,7 +18,7 @@ g.fillStyle = '#3a2f27';
 g.fillRect(-0.95, -1.9, 0.85, 1.9);
 g.fillStyle = '#8c785c';
 g.fillRect(-1.3, -1.9, 0.33, 1.9);
-e.light(-0.5, -1.2, 0.25, '#ffc27a', 1, 'lamp');
+e.light(-0.5, -1.2, 0.4, '#ffc27a', 1.6, 'lamp');
 // a window with its shutter propped open
 g.fillStyle = '#2f2722';
 g.fillRect(0.75, -1.6, 0.7, 0.6);
