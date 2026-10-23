@@ -31,8 +31,13 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
     for (let i = 0; i < 30; i++) {
       const u = Math.pow(e.rnd(), 0.8);
       const r = w * (0.16 + 0.22 * (1 - u)) * (0.7 + 0.5 * e.rnd());
-      puffs.push([x + (e.rnd() - 0.5) * w * (1.3 - 0.8 * u), H - r * 0.6 - u * h, r]);
+      puffs.push([x + (e.rnd() - 0.5) * w * (1.3 - 0.8 * u), H - 0.008 - r * 0.3 - u * h, r]);
     }
+    // (a cumulus's foot is flat: all of it cut off along one level line over the horizon)
+    g.save();
+    g.beginPath();
+    g.rect(X0, Y0, W, H - 0.008 - Y0);
+    g.clip();
     for (const k of [-W, 0, W]) {
       for (const [cx, cy, r] of puffs) {
         g.fillStyle = '#bfb2c3';
@@ -53,6 +58,7 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
         g.fill();
       }
     }
+    g.restore();
     g.filter = 'none';
   };
   tower(0.15, 0.16, 0.12);
