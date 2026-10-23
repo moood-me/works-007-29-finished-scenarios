@@ -21,7 +21,8 @@ moves.
   silent lightning in it (`flash`, its animate: a window of 4.5 s holds one flicker or two, or none).
 - **Light.** The night is the light (ambient blue, haze); the moon is behind the viewer (`moon`, a far light) and lights
   the faces; the floodlights cold white from the far left, the hangar's lamps warm from behind the people.
-- **People.** Cast: `modules/cast` (style `aero`). Rivière (`hands_behind`) left, turned to Roblet, looking at his hands;
-  Robineau (`hold_waist`, the folder) between, looking at Rivière; Roblet (`hold_low`, the cap) by his tool box.
+- **People.** Cast: `modules/cast` (style `aero`). Roblet (`hold_low`, the cap) front left, facing us, his tool box at
+  his side; Rivière (`hands_behind`) behind him in the middle, looking at him; Robineau (`hold_waist`, the folder) on
+  the right, looking at Roblet. Placed so all three faces turn toward the viewer.
 - **Keys.** `floods` (the floodlights and the edge lamps), `hangar` (its lamps; switched — the inside lamps' bulbs repaint),
   `office` (Rivière's window).
