@@ -4,8 +4,8 @@ A module for scenes with people (elements with `person`: `{"cast": "cast", "who"
 
 ## Style
 
-`niggle` — made from `soft` (rounded shapes, tinted lines), `toned` by the scene's light, the head a little smaller so
-the grown-ups read as grown-ups; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it).
+`niggle` — made from `soft` (rounded shapes, tinted lines), `toned` by the scene's light, the head a little big so a face
+reads across the shed; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it).
 
 ## Who
 

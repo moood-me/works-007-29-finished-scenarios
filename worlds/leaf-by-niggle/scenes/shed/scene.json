@@ -454,8 +454,8 @@
       "name": "The empty travelling bag",
       "inside": true,
       "shadow": true,
-      "across": 1.95,
-      "distance": 2.8,
+      "across": 1.75,
+      "distance": 3.0,
       "height": 0.5,
       "box": [
         -0.5,

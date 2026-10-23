@@ -32,7 +32,7 @@ return {
     niggle: {
       kind: 'shapes', style: 'niggle', who: 'man', garment: 'tunic', hair: 'short', face: 'simple', parts: ['brush'],
       body: { height: 0.93, thick: 1.0, shoulders: 0.94, hips: 1.04 },
-      colors: { skin: '#e8bf9c', hair: '#6e5a48', top: '#d9cfb8', garment: '#a3aa9c', bottom: '#5c4c3e', shoes: '#3b2d24' },
+      colors: { skin: '#e8bf9c', hair: '#8f7f6c', top: '#c4b9a2', garment: '#8c9486', bottom: '#5c4c3e', shoes: '#3b2d24' },
     },
     // Parish: lean and weathered, a lame leg; a cloth cap, a worn green-brown jacket, a collarless shirt, patched
     // trousers; his ash stick in his right hand
@@ -51,8 +51,8 @@ return {
   },
   shapes: {
     // the world's style: the engine's soft figures (rounded shapes, tinted lines) toned by the light, the head a little
-    // smaller so grown-ups read as grown-ups, a simple face (eyes, brows, nose, mouth: <id>_mood shows on it)
-    styles: { niggle: { from: 'soft', name: 'Leaf by Niggle', head: 1.15, neck: 0.6, line: 1.6, paint: 'toned', face: 'simple' } },
+    // big, so a face reads across the shed, a simple face (eyes, brows, nose, mouth: <id>_mood shows on it)
+    styles: { niggle: { from: 'soft', name: 'Leaf by Niggle', head: 1.35, neck: 0.6, line: 1.6, paint: 'toned', face: 'simple' } },
     parts: {
       brush: {
         name: 'brush',

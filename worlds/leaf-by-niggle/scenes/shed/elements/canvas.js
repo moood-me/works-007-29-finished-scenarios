@@ -29,8 +29,7 @@ for (let i = 0; i < 14; i++) {
   g.ellipse(X0 + e.rnd() * 4, Y0 + e.rnd() * 3.2, 0.3 + e.rnd() * 0.6, 0.2 + e.rnd() * 0.4, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();
 }
-// the far mountains, top right: two washes of blue-grey, the nearer darker, snow on the peaks — soft-edged, as a
-// first wash dries
+// the far mountains, top right: two washes of blue-grey, the nearer darker, snow on the peaks
 const ridge = (pts, fill) => {
   g.fillStyle = fill;
   g.beginPath();
@@ -40,9 +39,8 @@ const ridge = (pts, fill) => {
   g.closePath();
   g.fill();
 };
-g.filter = 'blur(0.012px)';
-ridge([[0.0, -2.75], [0.35, -2.98], [0.55, -2.92], [0.95, -3.36], [1.18, -3.18], [1.42, -3.3], [1.7, -3.08], [2.0, -3.14]], 'rgba(176,188,204,0.75)');
-ridge([[0.15, -2.66], [0.5, -2.86], [0.8, -2.8], [1.1, -3.02], [1.5, -2.84], [2.0, -2.95]], 'rgba(132,146,166,0.6)');
+ridge([[0.0, -2.75], [0.35, -2.98], [0.55, -2.92], [0.95, -3.36], [1.18, -3.18], [1.42, -3.3], [1.7, -3.08], [2.0, -3.14]], 'rgba(160,174,194,0.9)');
+ridge([[0.15, -2.66], [0.5, -2.86], [0.8, -2.8], [1.1, -3.02], [1.5, -2.84], [2.0, -2.95]], 'rgba(118,132,156,0.75)');
 g.fillStyle = 'rgba(250,250,246,0.95)';
 g.beginPath();
 g.moveTo(0.84, -3.24);
@@ -57,14 +55,23 @@ g.lineTo(1.52, -3.22);
 g.lineTo(1.43, -3.24);
 g.closePath();
 g.fill();
-g.filter = 'none';
-// the forest behind the tree, only begun: soft grey-green masses at the right, pencil hints at the left
-for (let i = 0; i < 26; i++) {
-  const x = 0.2 + e.rnd() * 1.8;
-  const y = -2.75 + e.rnd() * 0.75;
-  g.fillStyle = `rgba(${110 + e.rnd() * 30},${130 + e.rnd() * 25},${105 + e.rnd() * 20},0.45)`;
+// the forest behind the tree, only begun: at the right, grey-green crowns washed in over pencilled trunks
+for (let i = 0; i < 16; i++) {
+  const x = 0.35 + e.rnd() * 1.6;
+  const y = -2.15 - e.rnd() * 0.25;
+  const h = 0.25 + e.rnd() * 0.25;
+  g.strokeStyle = 'rgba(100,96,86,0.5)';
+  g.lineWidth = 0.007;
   g.beginPath();
-  g.ellipse(x, y, 0.08 + e.rnd() * 0.12, 0.12 + e.rnd() * 0.15, 0, 0, Math.PI * 2);
+  g.moveTo(x, y + 0.2);
+  g.lineTo(x, y - h * 0.4);
+  g.stroke();
+  g.fillStyle = `rgba(${104 + e.rnd() * 30},${124 + e.rnd() * 25},${98 + e.rnd() * 20},0.55)`;
+  g.beginPath();
+  g.moveTo(x - h * 0.28, y);
+  g.quadraticCurveTo(x - h * 0.3, y - h * 0.8, x, y - h);
+  g.quadraticCurveTo(x + h * 0.3, y - h * 0.8, x + h * 0.28, y);
+  g.quadraticCurveTo(x, y + h * 0.12, x - h * 0.28, y);
   g.fill();
 }
 // at the left, only pencil: a few far trunks, upright strokes
