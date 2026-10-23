@@ -4,6 +4,10 @@
 function planks(g, e, x0, y0, x1, y1, upright, tones) {
   const w = x1 - x0;
   const h = y1 - y0;
+  g.save();
+  g.beginPath();
+  g.rect(x0, y0, w, h);
+  g.clip();
   g.fillStyle = tones[0];
   g.fillRect(x0, y0, w, h);
   const B = 0.17;
@@ -44,13 +48,17 @@ function planks(g, e, x0, y0, x1, y1, upright, tones) {
     if (upright) g.fillRect(x0 + s - 0.008, y0, 0.016, h);
     else g.fillRect(x0, y0 + s - 0.008, w, 0.016);
   }
-  // damp and age: soft paler and darker patches
-  for (let i = 0; i < 8; i++) {
-    g.fillStyle = e.rnd() < 0.5 ? 'rgba(70,58,46,0.12)' : 'rgba(225,212,190,0.12)';
-    g.beginPath();
-    g.ellipse(x0 + e.rnd() * w, y0 + e.rnd() * h, 0.2 + e.rnd() * 0.5, 0.2 + e.rnd() * 0.5, 0, 0, Math.PI * 2);
-    g.fill();
+  // weather: a few boards darker toward their foot, where damp rises
+  for (let i = 0; i < 5; i++) {
+    const a = e.rnd() * span;
+    const grad = upright ? g.createLinearGradient(0, y1 - 0.9, 0, y1) : g.createLinearGradient(x0, 0, x0 + 0.9, 0);
+    grad.addColorStop(0, 'rgba(50,40,30,0)');
+    grad.addColorStop(1, 'rgba(50,40,30,0.25)');
+    g.fillStyle = grad;
+    if (upright) g.fillRect(x0 + a, y1 - 0.9, B, 0.9);
+    else g.fillRect(x0, y0 + a, 0.9, B);
   }
+  g.restore();
 }
 // A leaf as Niggle paints them: a pointed oval about (x, y), `len` long, turned by `a` (radians), filled `fill`, its
 // midrib and veins in `vein` (none: null).

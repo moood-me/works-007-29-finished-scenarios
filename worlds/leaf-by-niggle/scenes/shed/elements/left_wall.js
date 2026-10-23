@@ -1,6 +1,6 @@
-// The left wall (x away from us: −2.5 at its near end … 2.5 at the back): boards laid across, a shelf with jars of
+// The left wall (x away from us: −2.3 at its near end … 2.3 at the back): boards laid across, a shelf with jars of
 // turpentine and brushes, an old coat on a nail, the frames of old pictures leaning against it on the floor.
-e.lib.planks(g, e, -2.5, -4.3, 2.5, 0.02, false, ['#8a7a66', '#827260', '#90806b', '#7c6c5a']);
+e.lib.planks(g, e, -2.3, -4.3, 2.3, 0.02, false, ['#8a7a66', '#827260', '#90806b', '#7c6c5a']);
 // the shelf and its brackets
 g.fillStyle = '#5e4d3c';
 g.fillRect(-2.3, -1.72, 1.9, 0.05);

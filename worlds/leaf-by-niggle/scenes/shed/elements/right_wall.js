@@ -1,12 +1,12 @@
-// The right wall (x toward us: −2.5 at the back … 2.5 at its near end): boards laid across, a window cut through it
+// The right wall (x toward us: −2.3 at the back … 2.3 at its near end): boards laid across, a window cut through it
 // (x −0.6…0.6, sill 1.3, head 2.5) with its cross bars; Niggle's sketches of leaves pinned round it; by its near end
 // the card on its nail — the notice of the journey he has not packed for.
 g.save();
 g.beginPath();
-g.rect(-2.5, -4.3, 5.0, 4.32);
+g.rect(-2.3, -4.3, 4.6, 4.32);
 g.rect(-0.6, -2.5, 1.2, 1.2);
 g.clip('evenodd');
-e.lib.planks(g, e, -2.5, -4.3, 2.5, 0.02, false, ['#8a7a66', '#827260', '#90806b', '#7c6c5a']);
+e.lib.planks(g, e, -2.3, -4.3, 2.3, 0.02, false, ['#8a7a66', '#827260', '#90806b', '#7c6c5a']);
 g.restore();
 // the window frame and its bars
 g.strokeStyle = '#5e4d3c';
@@ -22,7 +22,7 @@ g.stroke();
 g.fillStyle = '#7a6650';
 g.fillRect(-0.7, -1.32, 1.4, 0.06);
 // the sketches: sheets of paper, a little askew, each with a leaf or a branch drawn on it
-const sheets = [[-2.2, -2.75, 0.42, 0.55, -0.05], [-1.65, -2.45, 0.5, 0.38, 0.04], [-2.0, -1.95, 0.36, 0.48, 0.06], [-1.35, -1.75, 0.45, 0.34, -0.03], [0.95, -2.6, 0.4, 0.52, 0.05], [1.45, -2.25, 0.46, 0.36, -0.06]];
+const sheets = [[-2.15, -2.75, 0.42, 0.55, -0.05], [-1.65, -2.45, 0.5, 0.38, 0.04], [-2.0, -1.95, 0.36, 0.48, 0.06], [-1.35, -1.75, 0.45, 0.34, -0.03], [0.85, -2.6, 0.4, 0.52, 0.05], [1.4, -2.25, 0.46, 0.36, -0.06]];
 for (const [x, y, w, h, a] of sheets) {
   g.save();
   g.translate(x + w / 2, y + h / 2);
@@ -66,7 +66,7 @@ for (const [x, y, w, h, a] of sheets) {
 }
 // the card on its nail, by the bag: a few lines of writing too small to read
 g.save();
-g.translate(1.05, -1.3);
+g.translate(0.55, -1.3);
 g.rotate(0.07);
 g.fillStyle = '#efe8d6';
 g.fillRect(-0.11, -0.07, 0.22, 0.14);

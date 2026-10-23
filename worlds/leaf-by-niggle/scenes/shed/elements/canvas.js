@@ -29,33 +29,35 @@ for (let i = 0; i < 14; i++) {
   g.ellipse(X0 + e.rnd() * 4, Y0 + e.rnd() * 3.2, 0.3 + e.rnd() * 0.6, 0.2 + e.rnd() * 0.4, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();
 }
-// the far mountains, top right: blue-grey ridges, snow on the peaks
-g.fillStyle = 'rgba(150,164,182,0.8)';
+// the far mountains, top right: two washes of blue-grey, the nearer darker, snow on the peaks — soft-edged, as a
+// first wash dries
+const ridge = (pts, fill) => {
+  g.fillStyle = fill;
+  g.beginPath();
+  g.moveTo(pts[0][0], -2.62);
+  for (const [x, y] of pts) g.lineTo(x, y);
+  g.lineTo(pts[pts.length - 1][0], -2.62);
+  g.closePath();
+  g.fill();
+};
+g.filter = 'blur(0.012px)';
+ridge([[0.0, -2.75], [0.35, -2.98], [0.55, -2.92], [0.95, -3.36], [1.18, -3.18], [1.42, -3.3], [1.7, -3.08], [2.0, -3.14]], 'rgba(176,188,204,0.75)');
+ridge([[0.15, -2.66], [0.5, -2.86], [0.8, -2.8], [1.1, -3.02], [1.5, -2.84], [2.0, -2.95]], 'rgba(132,146,166,0.6)');
+g.fillStyle = 'rgba(250,250,246,0.95)';
 g.beginPath();
-g.moveTo(0.1, -2.75);
-g.lineTo(0.45, -3.05);
-g.lineTo(0.7, -2.95);
-g.lineTo(1.05, -3.35);
-g.lineTo(1.35, -3.1);
-g.lineTo(1.6, -3.25);
-g.lineTo(2.0, -2.9);
-g.lineTo(2.0, -2.7);
+g.moveTo(0.84, -3.24);
+g.lineTo(0.95, -3.36);
+g.lineTo(1.07, -3.26);
+g.lineTo(1.0, -3.28);
+g.lineTo(0.93, -3.22);
+g.closePath();
+g.moveTo(1.33, -3.24);
+g.lineTo(1.42, -3.3);
+g.lineTo(1.52, -3.22);
+g.lineTo(1.43, -3.24);
 g.closePath();
 g.fill();
-g.fillStyle = '#f6f4ee';
-g.beginPath();
-g.moveTo(0.92, -3.2);
-g.lineTo(1.05, -3.35);
-g.lineTo(1.2, -3.22);
-g.lineTo(1.1, -3.24);
-g.lineTo(1.02, -3.18);
-g.closePath();
-g.moveTo(1.5, -3.18);
-g.lineTo(1.6, -3.25);
-g.lineTo(1.72, -3.15);
-g.lineTo(1.62, -3.17);
-g.closePath();
-g.fill();
+g.filter = 'none';
 // the forest behind the tree, only begun: soft grey-green masses at the right, pencil hints at the left
 for (let i = 0; i < 26; i++) {
   const x = 0.2 + e.rnd() * 1.8;
@@ -65,62 +67,94 @@ for (let i = 0; i < 26; i++) {
   g.ellipse(x, y, 0.08 + e.rnd() * 0.12, 0.12 + e.rnd() * 0.15, 0, 0, Math.PI * 2);
   g.fill();
 }
-g.strokeStyle = 'rgba(110,104,92,0.5)';
-g.lineWidth = 0.008;
-for (let i = 0; i < 9; i++) {
-  const x = -1.9 + e.rnd() * 1.2;
+// at the left, only pencil: a few far trunks, upright strokes
+g.strokeStyle = 'rgba(110,104,92,0.45)';
+g.lineWidth = 0.007;
+for (let i = 0; i < 7; i++) {
+  const x = -1.85 + e.rnd() * 1.1;
   g.beginPath();
-  g.moveTo(x, -2.0);
-  g.lineTo(x + 0.07, -2.45 - e.rnd() * 0.2);
-  g.lineTo(x + 0.14, -2.0);
+  g.moveTo(x, -1.95);
+  g.lineTo(x + (e.rnd() - 0.5) * 0.03, -2.35 - e.rnd() * 0.3);
   g.stroke();
 }
-// grey patches
-for (let i = 0; i < 10; i++) {
-  g.fillStyle = 'rgba(130,128,122,0.2)';
+// grey patches: washes laid in and left, each a ragged blot
+for (let i = 0; i < 7; i++) {
+  const cx = X0 + 0.4 + e.rnd() * 3.2;
+  const cy = Y0 + 0.5 + e.rnd() * 2.2;
+  const r = 0.1 + e.rnd() * 0.16;
+  g.fillStyle = 'rgba(132,130,124,0.18)';
   g.beginPath();
-  g.ellipse(X0 + 0.3 + e.rnd() * 3.4, Y0 + 0.4 + e.rnd() * 2.4, 0.12 + e.rnd() * 0.25, 0.08 + e.rnd() * 0.2, e.rnd() * 3, 0, Math.PI * 2);
+  for (let k = 0; k < 9; k++) {
+    const a = (k / 9) * Math.PI * 2;
+    const rr = r * (0.7 + e.rnd() * 0.6);
+    const px = cx + Math.cos(a) * rr * 1.4;
+    const py = cy + Math.sin(a) * rr;
+    if (k === 0) g.moveTo(px, py);
+    else g.lineTo(px, py);
+  }
+  g.closePath();
   g.fill();
 }
-// the trunk: a wash of grey-brown up its lower half, the pencil contour all the way into the branches
-g.fillStyle = 'rgba(128,112,92,0.55)';
+// the trunk: a wash of grey-brown up its lower part, flaring into roots; the pencil contour all the way up and out
+// into the branches and their twigs
+g.fillStyle = 'rgba(128,112,92,0.5)';
 g.beginPath();
-g.moveTo(-0.55, Y1);
-g.bezierCurveTo(-0.38, -1.0, -0.3, -1.3, -0.22, -1.7);
+g.moveTo(-0.62, Y1);
+g.quadraticCurveTo(-0.3, -0.55, -0.26, -0.9);
+g.bezierCurveTo(-0.22, -1.25, -0.24, -1.5, -0.2, -1.72);
 g.lineTo(0.0, -1.72);
-g.bezierCurveTo(0.02, -1.3, 0.1, -0.9, 0.32, Y1);
+g.bezierCurveTo(0.02, -1.45, 0.0, -1.2, 0.04, -0.9);
+g.quadraticCurveTo(0.08, -0.55, 0.42, Y1);
 g.closePath();
 g.fill();
 const branches = [
-  [-0.12, -1.7, -0.9, -2.4, -1.6, -2.75],
-  [-0.12, -1.7, -0.6, -2.7, -0.9, -3.3],
-  [-0.1, -1.75, -0.1, -2.6, 0.05, -3.4],
-  [-0.08, -1.7, 0.5, -2.4, 1.0, -2.9],
-  [-0.06, -1.65, 0.7, -1.9, 1.55, -2.1],
-  [-0.15, -1.6, -0.8, -1.7, -1.5, -1.6],
+  [-0.12, -1.7, -0.75, -2.15, -1.55, -2.55],
+  [-0.14, -1.72, -0.35, -2.55, -0.95, -3.25],
+  [-0.1, -1.75, -0.18, -2.6, 0.08, -3.4],
+  [-0.08, -1.7, 0.35, -2.25, 0.95, -2.95],
+  [-0.06, -1.66, 0.6, -1.75, 1.45, -2.2],
+  [-0.16, -1.62, -0.7, -1.62, -1.45, -1.85],
+];
+const at = (b, u) => [
+  (1 - u) * (1 - u) * b[0] + 2 * (1 - u) * u * b[2] + u * u * b[4],
+  (1 - u) * (1 - u) * b[1] + 2 * (1 - u) * u * b[3] + u * u * b[5],
 ];
 g.strokeStyle = 'rgba(92,86,76,0.85)';
 g.lineCap = 'round';
 g.lineWidth = 0.012;
 g.beginPath();
-g.moveTo(-0.55, Y1);
-g.bezierCurveTo(-0.38, -1.0, -0.3, -1.3, -0.22, -1.7);
-g.moveTo(0.32, Y1);
-g.bezierCurveTo(0.1, -0.9, 0.02, -1.3, 0.0, -1.72);
-for (const [x0, y0, cx, cy, x1, y1] of branches) {
-  g.moveTo(x0, y0);
-  g.quadraticCurveTo(cx, cy, x1, y1);
-  g.moveTo(x0 + 0.06, y0 + 0.02);
-  g.quadraticCurveTo(cx + 0.05, cy + 0.06, x1 + 0.01, y1 + 0.02);
+g.moveTo(-0.62, Y1);
+g.quadraticCurveTo(-0.3, -0.55, -0.26, -0.9);
+g.bezierCurveTo(-0.22, -1.25, -0.24, -1.5, -0.2, -1.72);
+g.moveTo(0.42, Y1);
+g.quadraticCurveTo(0.08, -0.55, 0.04, -0.9);
+g.bezierCurveTo(0.0, -1.2, 0.02, -1.45, 0.0, -1.72);
+for (const b of branches) {
+  g.moveTo(b[0], b[1]);
+  g.quadraticCurveTo(b[2], b[3], b[4], b[5]);
+  g.moveTo(b[0] + 0.05, b[1] + 0.02);
+  g.quadraticCurveTo(b[2] + 0.04, b[3] + 0.05, b[4] + 0.01, b[5] + 0.02);
+}
+g.stroke();
+g.lineWidth = 0.007;
+g.beginPath();
+for (const b of branches) {
+  for (const u of [0.45, 0.65, 0.85]) {
+    const [x, y] = at(b, u);
+    const a = Math.atan2(b[5] - b[1], b[4] - b[0]) + (e.rnd() < 0.5 ? -0.7 : 0.7);
+    const l = 0.18 + e.rnd() * 0.22;
+    g.moveTo(x, y);
+    g.quadraticCurveTo(x + Math.cos(a) * l * 0.6, y + Math.sin(a) * l * 0.4, x + Math.cos(a) * l, y + Math.sin(a) * l - 0.05);
+  }
 }
 g.stroke();
 // the leaves: clusters at the branches' ends and along them — most a pencil outline, some washed in
 const greens = ['rgba(112,138,90,0.85)', 'rgba(142,160,107,0.85)', 'rgba(167,168,110,0.85)', 'rgba(181,154,92,0.8)', 'rgba(150,120,80,0.75)'];
-for (const [x0, y0, cx, cy, x1, y1] of branches) {
-  for (let k = 0; k < 26; k++) {
-    const u = 0.35 + e.rnd() * 0.7;
-    const bx = (1 - u) * (1 - u) * x0 + 2 * (1 - u) * u * cx + u * u * x1 + (e.rnd() - 0.5) * 0.5;
-    const by = (1 - u) * (1 - u) * y0 + 2 * (1 - u) * u * cy + u * u * y1 + (e.rnd() - 0.5) * 0.45;
+for (const b of branches) {
+  for (let k = 0; k < 30; k++) {
+    const [px, py] = at(b, 0.35 + e.rnd() * 0.7);
+    const bx = px + (e.rnd() - 0.5) * 0.5;
+    const by = py + (e.rnd() - 0.5) * 0.45;
     const len = 0.07 + e.rnd() * 0.06;
     const a = e.rnd() * Math.PI * 2;
     if (e.rnd() < 0.4) L.leaf(g, bx, by, len, a, greens[Math.floor(e.rnd() * greens.length)], 'rgba(70,80,55,0.5)');
