@@ -49,7 +49,7 @@ for (let i = 0; i < 380; i++) {
   } else if (k < 0.75) {
     g.strokeStyle = '#7b6448';
     g.lineWidth = 0.025;
-    const a = A.hash(i, 11) * 6.28, l = 0.2 + 0.4 * A.hash(i, 12);
+    const a = A.hash(i, 11) * 6.28, l = 0.12 + 0.25 * A.hash(i, 12);
     g.beginPath();
     g.moveTo(x, Y(d));
     g.lineTo(x + Math.cos(a) * l, Y(d) + Math.sin(a) * l);
