@@ -33,7 +33,7 @@
   },
   "lights": [
     { "id": "sun", "from": [115, 12], "color": "#ffd6a2", "strength": 1.15 },
-    { "id": "house_lamp", "of": "house#lamp", "color": "#ffc27a", "strength": 1, "reach": 5, "on": "dusk", "flicker": 0.1 }
+    { "id": "house_lamp", "of": "lamp#flame", "color": "#ffc27a", "strength": 1, "reach": 5, "on": "dusk", "flicker": 0.1 }
   ],
   "modules": ["cast"],
   "state": {
@@ -172,6 +172,17 @@
       "height": 4.3,
       "box": [-2.7, -4.4, 2.7, 0.1],
       "shadow": true
+    },
+    {
+      "id": "lamp",
+      "name": "The lamp in the boy's door",
+      "on": "house",
+      "across": -0.5,
+      "distance": 0.15,
+      "elevation": 1.45,
+      "height": 0.5,
+      "box": [-0.1, -0.42, 0.1, 0.13],
+      "glows": true
     },
     {
       "id": "palm",

@@ -1,5 +1,5 @@
-// The boy's house by the road: a palm-board hut under a steep thatch of palm leaves, its door open (dark within, a
-// lamp lit there at dusk — its glow by `dusk`, in the animate), and by the threshold the cot the boy sleeps on.
+// The boy's house by the road: a palm-board hut under a steep thatch of palm leaves, its door open (dark within; the
+// lamp hanging there is the element `lamp`), and by the threshold the cot the boy sleeps on.
 // Metres, the middle of its front's foot at the anchor; 4.2 m wide.
 const W = 2.1;
 // the walls: grey-brown boards standing side by side
@@ -18,7 +18,6 @@ g.fillStyle = '#3a2f27';
 g.fillRect(-0.95, -1.9, 0.85, 1.9);
 g.fillStyle = '#8c785c';
 g.fillRect(-1.3, -1.9, 0.33, 1.9);
-e.light(-0.5, -1.2, 0.4, '#ffc27a', 1.6, 'lamp');
 // a window with its shutter propped open
 g.fillStyle = '#2f2722';
 g.fillRect(0.75, -1.6, 0.7, 0.6);
