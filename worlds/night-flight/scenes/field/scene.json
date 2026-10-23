@@ -38,24 +38,24 @@
       "id": "flood_0",
       "of": "floods#f0",
       "color": "#e8eeff",
-      "strength": 2.6,
-      "reach": 90,
+      "strength": 5,
+      "reach": 150,
       "on": "floods"
     },
     {
       "id": "flood_1",
       "of": "floods#f1",
       "color": "#e8eeff",
-      "strength": 2.6,
-      "reach": 90,
+      "strength": 5,
+      "reach": 150,
       "on": "floods"
     },
     {
       "id": "flood_2",
       "of": "floods#f2",
       "color": "#e8eeff",
-      "strength": 2.6,
-      "reach": 90,
+      "strength": 5,
+      "reach": 150,
       "on": "floods"
     },
     {
@@ -491,8 +491,8 @@
     {
       "id": "toolbox",
       "name": "Roblet's tool box, packed",
-      "across": 3.2,
-      "distance": 5.95,
+      "across": 2.95,
+      "distance": 5.35,
       "facing": 205,
       "height": 0.42,
       "box": [
@@ -526,11 +526,11 @@
       "person": {
         "cast": "cast",
         "who": "riviere",
-        "turn": 105,
+        "turn": 145,
         "does": "hands_behind"
       },
-      "across": -1.3,
-      "distance": 4.7
+      "across": -1.25,
+      "distance": 4.2
     },
     {
       "id": "robineau",
@@ -538,11 +538,11 @@
       "person": {
         "cast": "cast",
         "who": "robineau",
-        "turn": 215,
+        "turn": 205,
         "does": "hold_waist"
       },
-      "across": 0.7,
-      "distance": 5.5
+      "across": 0.55,
+      "distance": 5.0
     },
     {
       "id": "roblet",
@@ -550,11 +550,11 @@
       "person": {
         "cast": "cast",
         "who": "roblet",
-        "turn": 235,
+        "turn": 220,
         "does": "hold_low"
       },
-      "across": 2.6,
-      "distance": 6.2
+      "across": 2.3,
+      "distance": 5.6
     }
   ],
   "music": {
