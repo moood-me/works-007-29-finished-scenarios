@@ -1,9 +1,9 @@
-// A row of houses far down the city: four houses wall to wall, white and painted (the copy's tint), their red roofs
-// at different heights
+// A row of houses far down the city: eight houses wall to wall, white and painted (the copy's tint varies them), their
+// red roofs at different heights
 const A = e.anim;
-for (let i = 0; i < 4; i++) {
-  const x = -20 + i * 10, h = 7 + 4 * A.hash(i, 1);
-  g.fillStyle = ['#f2ece2', '#efdcc4', '#f1e4d6', '#e7e3dc'][i];
+for (let i = 0; i < 8; i++) {
+  const x = -40 + i * 10, h = 7 + 4 * A.hash(i, 1);
+  g.fillStyle = ['#f2ece2', '#efdcc4', '#f1e4d6', '#e7e3dc'][i % 4];
   g.fillRect(x, -h, 10, h);
   g.fillStyle = i % 2 ? '#b8563e' : '#c4674a';
   g.beginPath();

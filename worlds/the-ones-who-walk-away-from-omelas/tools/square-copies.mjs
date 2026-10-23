@@ -10,10 +10,10 @@ const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
 const r2 = v => Math.round(v * 100) / 100;
 const TINTS = ['#ffffff', '#fff1dc', '#ffe6dc', '#f2f2ff', '#fff6e6', '#ffe9c8', '#eef6ff'];
 const copies = { house: [], block: [], tower: [], grove: [], boat: [], pennant: [], lantern: [] };
-// the lower city: rows of houses down the slope; near ones single, far ones in rows of four; groves between
+// the lower city: rows of houses down the slope; near ones single, far ones in rows of eight; groves between
 const rows = [70, 86, 104, 126, 152, 182, 216, 256, 300, 350, 405, 465, 530, 590];
 for (const d of rows) {
-  const half = 0.95 * d + 30, near = d < 160, step = near ? 12 : 46;
+  const half = 0.95 * d + 30, near = d < 160, step = near ? 15 : 84;
   for (let x = -half + rnd() * step; x < half; x += step * (0.85 + 0.4 * rnd())) {
     const dd = r2(d + (rnd() - 0.5) * (near ? 6 : 18)), u = rnd();
     if (u < 0.2) copies.grove.push({ across: r2(x), distance: dd, scale: r2(0.8 + 0.6 * rnd()), flip: rnd() < 0.5 });

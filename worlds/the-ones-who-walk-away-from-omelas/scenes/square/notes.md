@@ -6,9 +6,9 @@ edge a terrace drops to the lower city going down to the bay, and across the bay
 
 - Land: `relief.js` — the square flat to 31 m; a terrace wall drops 6 m (31–33 m), then the city goes down 5 m in 100
   to the shore at 600 m; the sea's bed below the water beyond. `town` (draped) paints the lower city's ground,
-  `bay` (a mirror, −34 m) the sea, `peaks` (22 km off) the mountains.
+  `bay` (−34 m) the sea, `peaks` (22 km off) the mountains.
 - The lower city — copies laid out by `tools/square-copies.mjs` (run it after changing the layout; it rewrites the
-  copies in scene.json): `house` near, `block` (rows of four) far, `tower`, `grove` (crowns in the wind), `boat` on the bay.
+  copies in scene.json): `house` near, `block` (rows of eight) far, `tower`, `grove` (crowns in the wind), `boat` on the bay.
 - The square: `paving` (a ring of darker stones round the fountain), `edge` (the kerb and the stair's head with two
   urns), `meeting` (seen along its length, x −8 at 6 m … x 8 at 22 m; its side door at x −1 — point `meeting#door`),
   `belltower`, `row` (three painted houses; `row#window` — the open window, Pim's), `planetree` (copies; crowns in the
