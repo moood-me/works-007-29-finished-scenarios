@@ -98,9 +98,6 @@
       1.2
     ],
     "mev_look": "ila",
-    "mev_reach": {
-      "r": "ila#shoulder_r"
-    },
     "mev_mood": "smile",
     "kor_look": "ila",
     "kor_mood": "laugh",
@@ -116,12 +113,12 @@
       "r": [
         -1.16,
         3.7,
-        1.08
+        1.05
       ],
       "l": [
         -0.94,
         3.68,
-        1.1
+        1.07
       ]
     }
   },
@@ -2768,11 +2765,11 @@
       "person": {
         "cast": "cast",
         "who": "mev",
-        "turn": 118,
+        "turn": 140,
         "does": "old_hold"
       },
-      "across": -1.4,
-      "distance": 3.7,
+      "across": -2.05,
+      "distance": 3.95,
       "shadow": true
     },
     {
