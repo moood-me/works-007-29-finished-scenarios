@@ -45,9 +45,10 @@ g.bezierCurveTo(-2.1, -6.4, -0.4, -3.6, 0.6, 0.3);
 g.fill();
 g.globalAlpha = 1;
 g.restore();
-// the crown: clusters of big leaves round the limbs' ends and along them — dark beneath, lighter on top
+// the crown: clusters of big leaves round the limbs' ends and along them, low ones over the water along the lean — dark beneath, lighter on top
 const clusters = [[-8.2, -12.6, 2.6], [-6.4, -11.6, 2.2], [-5, -13.8, 2.4], [-2.8, -15, 2.6], [-1, -13.4, 2.2], [0.8, -12.6, 2.1],
-  [-3.6, -12.2, 2.4], [-7, -14.3, 1.8], [-1.5, -16.2, 1.6], [-9.6, -11.5, 1.4], [2, -11.4, 1.4], [-4.8, -10.6, 1.6]];
+  [-3.6, -12.2, 2.4], [-7, -14.3, 1.8], [-1.5, -16.2, 1.6], [-9.6, -11.5, 1.4], [2, -11.4, 1.4], [-4.8, -10.6, 1.6],
+  [-2.4, -6.6, 1.3], [-3.6, -8, 1.5], [-5.6, -9.2, 1.4], [1.6, -10.4, 1.2], [-7.4, -10.6, 1.3]];
 e.layer('crown', { pivot: [-2.74, -6.48], wind: { strength: 0.18, gust: 0.4, scale: 1 } }, g => {
   g.scale(0.72, 0.72);
   for (const [shade, lift] of [['#4f5e37', 0.35], ['#677a43', 0], ['#82954f', -0.35], ['#a0aa5e', -0.7]]) {
