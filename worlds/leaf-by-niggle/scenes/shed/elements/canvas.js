@@ -56,17 +56,17 @@ g.lineTo(1.43, -3.24);
 g.closePath();
 g.fill();
 // the forest behind the tree, only begun: at the right, grey-green crowns washed in over pencilled trunks
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < 11; i++) {
   const x = 0.35 + e.rnd() * 1.6;
-  const y = -2.15 - e.rnd() * 0.25;
-  const h = 0.25 + e.rnd() * 0.25;
+  const y = -1.95 - e.rnd() * 0.45;
+  const h = 0.18 + e.rnd() * 0.3;
   g.strokeStyle = 'rgba(100,96,86,0.5)';
   g.lineWidth = 0.007;
   g.beginPath();
   g.moveTo(x, y + 0.2);
   g.lineTo(x, y - h * 0.4);
   g.stroke();
-  g.fillStyle = `rgba(${104 + e.rnd() * 30},${124 + e.rnd() * 25},${98 + e.rnd() * 20},0.55)`;
+  g.fillStyle = `rgba(${104 + e.rnd() * 30},${124 + e.rnd() * 25},${98 + e.rnd() * 20},0.4)`;
   g.beginPath();
   g.moveTo(x - h * 0.28, y);
   g.quadraticCurveTo(x - h * 0.3, y - h * 0.8, x, y - h);
