@@ -102,11 +102,11 @@
       "id": "gabilan",
       "name": "Gabilan mountains",
       "across": 300,
-      "distance": 5000,
-      "height": 700,
+      "distance": 4000,
+      "height": 1100,
       "box": [
         -9000,
-        -760,
+        -1150,
         9000,
         20
       ]
@@ -334,12 +334,12 @@
       "name": "Sycamore",
       "across": 5.2,
       "distance": 9,
-      "height": 17,
+      "height": 12.5,
       "box": [
-        -11.5,
-        -17.8,
-        4,
-        0.6
+        -8.4,
+        -13,
+        3,
+        0.5
       ],
       "shadow": true
     },
@@ -359,8 +359,8 @@
     {
       "id": "bindles",
       "name": "Bindles",
-      "across": -2.3,
-      "distance": 4.7,
+      "across": -2.1,
+      "distance": 3.9,
       "height": 0.3,
       "box": [
         -0.7,
@@ -373,8 +373,8 @@
     {
       "id": "fire",
       "name": "Fire",
-      "across": -0.1,
-      "distance": 3.2,
+      "across": -0.05,
+      "distance": 2.6,
       "height": 0.3,
       "box": [
         -0.45,
@@ -467,8 +467,8 @@
         "turn": 165,
         "does": "pockets"
       },
-      "across": -1.35,
-      "distance": 3.9,
+      "across": -1.1,
+      "distance": 3.2,
       "shadow": true
     },
     {
@@ -480,8 +480,8 @@
         "turn": 200,
         "does": "hug_knees"
       },
-      "across": 1.2,
-      "distance": 3.75,
+      "across": 1.0,
+      "distance": 3.0,
       "shadow": true
     }
   ],
