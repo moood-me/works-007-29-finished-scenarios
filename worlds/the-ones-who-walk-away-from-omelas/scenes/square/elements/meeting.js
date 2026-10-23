@@ -3,7 +3,7 @@
 // between the windows. Nearest the viewer, apart from the arcade, its side door: a low plain door of dark iron-bound
 // wood, three steps down to it under a heavy lintel — the way to the cellar (point "meeting#door").
 const A = e.anim, H = 13;
-g.fillStyle = '#ece4d3';
+g.fillStyle = '#f3e7d0';
 g.fillRect(-8, -H, 16, H);
 // a plinth and the courses of the stone
 g.fillStyle = '#d9cfbb';

@@ -120,7 +120,7 @@
         1
       ],
       "smooth": true,
-      "means": "0 — the festival morning, the sun high behind the viewer; 1 — the festival evening: the sun gone, the sky deep blue with the afterglow over the sea, the garland lanterns lit"
+      "means": "0 \u2014 the festival morning, the sun high behind the viewer; 1 \u2014 the festival evening: the sun gone, the sky deep blue with the afterglow over the sea, the garland lanterns lit"
     }
   },
   "objects": [
@@ -2083,12 +2083,12 @@
       "name": "The fountain's column",
       "across": -0.9,
       "distance": 5.4,
-      "height": 2.32,
+      "height": 2.02,
       "box": [
-        -2.3876,
+        -1.6965,
         0,
-        2.3876,
-        2.8614
+        1.6965,
+        2.2589
       ],
       "shadow": true
     },
@@ -2116,7 +2116,7 @@
         "at": [
           -0.9,
           5.4,
-          2.33
+          2.03
         ],
         "rate": 140,
         "direction": [
@@ -2153,11 +2153,11 @@
         "at": [
           -0.9,
           5.4,
-          1.72
+          1.6
         ],
         "source": [
-          1.5,
-          1.5,
+          1.05,
+          1.05,
           0
         ],
         "rate": 160,
@@ -2759,8 +2759,8 @@
         "turn": 118,
         "does": "old_stand"
       },
-      "across": -1.45,
-      "distance": 3.62,
+      "across": -1.4,
+      "distance": 3.7,
       "shadow": true
     },
     {
@@ -2769,7 +2769,7 @@
       "person": {
         "cast": "cast",
         "who": "kor",
-        "turn": 222,
+        "turn": 205,
         "does": "fidget"
       },
       "across": 0.6,
