@@ -15,7 +15,7 @@ for (let x = -2.4; x < 2.4; x += B) {
 }
 // the rug: a soft wool rug, a pale border, beside the bed where Josie's feet come down
 g.fillStyle = '#e6dfd2';
-g.fillRect(-1.3, 0.0, 1.5, 1.4);
+g.fillRect(-1.3, -0.9, 1.5, 1.4);
 g.strokeStyle = '#c9bfae';
 g.lineWidth = 0.04;
-g.strokeRect(-1.22, 0.08, 1.34, 1.24);
+g.strokeRect(-1.22, -0.82, 1.34, 1.24);
