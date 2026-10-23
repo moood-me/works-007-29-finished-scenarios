@@ -1,0 +1,513 @@
+{
+  "engine": 3,
+  "title": "The Kitchen",
+  "caption": "An evening in spring. Wrapping paper on the oilcloth, and the goats on the sill are awake.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.8,
+    "ambientColor": "#c4bedc",
+    "inside": 0.4,
+    "bounce": 0.55,
+    "haze": 0.04,
+    "hazeColor": "#d6a99a",
+    "hazeGlow": 0.25,
+    "tint": "#ffd9b4",
+    "tintStrength": 0.03,
+    "saturation": 0.96,
+    "vignette": 0.38,
+    "grain": 0.1
+  },
+  "lights": [
+    {
+      "id": "lamp",
+      "of": "lamp#bulb",
+      "color": "#ffd29a",
+      "strength": 1.4,
+      "reach": 5,
+      "on": "lamp",
+      "flicker": 0.02
+    },
+    {
+      "id": "dusk",
+      "of": "window",
+      "daylight": 0.7
+    },
+    {
+      "id": "afterglow",
+      "from": [
+        160,
+        20
+      ],
+      "color": "#f2c4b4",
+      "strength": 0.6
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "lamp": 1,
+    "mom_look": "jack",
+    "mom_mood": "smile",
+    "jack_look": "laohu",
+    "jack_mood": "surprised",
+    "dad_look": "mom",
+    "dad_mood": "smile",
+    "jack_reach": {
+      "r": [
+        -0.86,
+        2.55,
+        0.79
+      ]
+    }
+  },
+  "states": {
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lamp over the table: 0 out, 1 lit — the kitchen's warm light on the three of them and the paper"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The spring dusk over the street",
+      "sky": true
+    },
+    {
+      "id": "yard",
+      "name": "The back yard's grass and the street",
+      "plane": true,
+      "across": 0,
+      "distance": 60,
+      "width": 300,
+      "depth": 110
+    },
+    {
+      "id": "street",
+      "name": "Mark's house across the street, the school bus stop",
+      "across": -1.5,
+      "distance": 26,
+      "height": 6,
+      "box": [
+        -11.5,
+        -6.4,
+        11.5,
+        0.05
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "The white picket fence and the gate",
+      "across": -0.6,
+      "distance": 12,
+      "height": 1.0,
+      "box": [
+        -5,
+        -1.05,
+        5,
+        0.03
+      ]
+    },
+    {
+      "id": "apple",
+      "name": "The apple tree in blossom",
+      "across": -0.9,
+      "distance": 9,
+      "height": 4,
+      "box": [
+        -3,
+        -4.4,
+        3,
+        0.05
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The linoleum floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 2.7,
+      "width": 5.8,
+      "depth": 3.6
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 4.4,
+      "elevation": 2.6,
+      "facing": 180,
+      "tilt": -90,
+      "height": 3.6,
+      "box": [
+        -2.9,
+        -3.7,
+        2.9,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall with the window over the sink",
+      "inside": true,
+      "across": 0,
+      "distance": 4.4,
+      "facing": 180,
+      "height": 2.6,
+      "box": [
+        -2.9,
+        -2.62,
+        2.9,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall and the calendar",
+      "inside": true,
+      "across": -2.85,
+      "distance": 2.7,
+      "facing": 90,
+      "height": 2.6,
+      "box": [
+        -1.75,
+        -2.62,
+        1.75,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall and the door to the hall",
+      "inside": true,
+      "across": 2.85,
+      "distance": 2.7,
+      "facing": 270,
+      "height": 2.6,
+      "box": [
+        -1.75,
+        -2.62,
+        1.75,
+        0.02
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The window over the sink",
+      "inside": true,
+      "translucent": 0.45,
+      "across": -0.3,
+      "distance": 4.37,
+      "elevation": 1.0,
+      "facing": 180,
+      "height": 1.1,
+      "box": [
+        -0.7,
+        -1.14,
+        0.7,
+        0.03
+      ]
+    },
+    {
+      "id": "fridge",
+      "name": "The old round-shouldered fridge",
+      "inside": true,
+      "shadow": true,
+      "across": -2.25,
+      "distance": 4.05,
+      "facing": 180,
+      "height": 1.6,
+      "box": [
+        -0.42,
+        -1.62,
+        0.42,
+        0.02
+      ]
+    },
+    {
+      "id": "counter",
+      "name": "The counter top and the sink",
+      "plane": true,
+      "inside": true,
+      "across": -0.55,
+      "distance": 4.15,
+      "elevation": 0.9,
+      "width": 2.5,
+      "depth": 0.5
+    },
+    {
+      "id": "cabinets",
+      "name": "The cupboards under the counter",
+      "inside": true,
+      "across": -0.55,
+      "distance": 3.9,
+      "facing": 180,
+      "height": 0.9,
+      "box": [
+        -1.26,
+        -0.92,
+        1.26,
+        0.02
+      ]
+    },
+    {
+      "id": "stove",
+      "name": "The white enamel stove and the kettle",
+      "inside": true,
+      "shadow": true,
+      "across": 1.35,
+      "distance": 4.05,
+      "facing": 180,
+      "height": 1.2,
+      "box": [
+        -0.42,
+        -1.25,
+        0.42,
+        0.02
+      ]
+    },
+    {
+      "id": "shelf",
+      "name": "The shelf over the stove",
+      "inside": true,
+      "across": 1.35,
+      "distance": 4.32,
+      "elevation": 1.6,
+      "facing": 180,
+      "height": 0.45,
+      "box": [
+        -0.55,
+        -0.45,
+        0.55,
+        0.15
+      ]
+    },
+    {
+      "id": "goats",
+      "name": "The paper goats on the sill",
+      "inside": true,
+      "across": -0.62,
+      "distance": 4.28,
+      "elevation": 1.02,
+      "facing": 180,
+      "height": 0.16,
+      "box": [
+        -0.22,
+        -0.17,
+        0.22,
+        0.01
+      ]
+    },
+    {
+      "id": "buffalo",
+      "name": "The paper buffalo in the flower pot",
+      "inside": true,
+      "across": 0.12,
+      "distance": 4.28,
+      "elevation": 1.02,
+      "facing": 180,
+      "height": 0.24,
+      "box": [
+        -0.13,
+        -0.25,
+        0.13,
+        0.01
+      ]
+    },
+    {
+      "id": "shark",
+      "name": "The paper shark swimming in the sink",
+      "inside": true,
+      "across": -0.3,
+      "distance": 4.18,
+      "elevation": 0.86,
+      "facing": 180,
+      "height": 0.1,
+      "box": [
+        -0.24,
+        -0.1,
+        0.24,
+        0.02
+      ]
+    },
+    {
+      "id": "table",
+      "name": "The kitchen table under its oilcloth",
+      "plane": true,
+      "inside": true,
+      "shadow": {
+        "light": "lamp"
+      },
+      "across": -0.25,
+      "distance": 2.8,
+      "elevation": 0.76,
+      "width": 1.3,
+      "depth": 0.8
+    },
+    {
+      "id": "table_front",
+      "name": "The table's oilcloth hem and legs",
+      "inside": true,
+      "across": -0.25,
+      "distance": 2.4,
+      "facing": 180,
+      "height": 0.78,
+      "box": [
+        -0.68,
+        -0.8,
+        0.68,
+        0.02
+      ]
+    },
+    {
+      "id": "lamp",
+      "name": "The lamp over the table",
+      "inside": true,
+      "across": -0.25,
+      "distance": 2.8,
+      "elevation": 1.95,
+      "height": 0.65,
+      "box": [
+        -0.26,
+        -0.66,
+        0.26,
+        0.03
+      ]
+    },
+    {
+      "id": "laohu",
+      "name": "Laohu, the paper tiger",
+      "inside": true,
+      "shadow": true,
+      "across": -0.58,
+      "distance": 2.7,
+      "elevation": 0.76,
+      "height": 0.28,
+      "box": [
+        -0.28,
+        -0.3,
+        0.28,
+        0.01
+      ]
+    },
+    {
+      "id": "mom",
+      "name": "Mom",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "mom",
+        "turn": 180,
+        "does": "folding"
+      },
+      "across": -0.15,
+      "distance": 3.5
+    },
+    {
+      "id": "jack",
+      "name": "Jack",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "jack",
+        "turn": 110
+      },
+      "across": -1.08,
+      "distance": 2.7
+    },
+    {
+      "id": "dad",
+      "name": "Dad",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "dad",
+        "turn": 220,
+        "does": "arms_folded"
+      },
+      "across": 1.6,
+      "distance": 3.15
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a gentle Chinese lullaby melody on solo erhu, slow and tender, a mother humming to a child",
+        "weight": 1.1
+      },
+      {
+        "text": "soft felt piano in a small warm kitchen, plain chords, slow, a little nostalgic",
+        "weight": 1.0
+      },
+      {
+        "text": "music box playing a simple folk tune, delicate, paper-thin, wonder",
+        "weight": 0.7
+      },
+      {
+        "text": "guzheng plucked softly, sparse notes, spring evening, quiet",
+        "weight": 0.5
+      },
+      {
+        "text": "celesta and glockenspiel, small magical sparkles, childlike wonder",
+        "weight": 0
+      },
+      {
+        "text": "acoustic guitar fingerpicking, American suburb at dusk, warm and simple",
+        "weight": 0
+      },
+      {
+        "text": "bamboo flute, breathy and slow, faraway village memory",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, very soft, bittersweet, restrained",
+        "weight": 0
+      },
+      {
+        "text": "toy piano, slightly out of tune, slow, intimate",
+        "weight": 0
+      },
+      {
+        "text": "ambient pad like lamplight on paper, slow warm swells",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, low and tender, a lament held back",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios, gentle, luminous, dreamlike",
+        "weight": 0
+      },
+      {
+        "text": "rustling paper and soft wooden percussion, light, playful, slow",
+        "weight": 0
+      },
+      {
+        "text": "pipa, gentle tremolo, melancholy and warm",
+        "weight": 0
+      },
+      {
+        "text": "wordless humming, a woman's voice far away, lullaby",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and piano duet, small-town evening, tender",
+        "weight": 0
+      }
+    ],
+    "bpm": 72,
+    "density": 0.22,
+    "brightness": 0.45,
+    "scale": "G_MAJOR_E_MINOR"
+  }
+}
