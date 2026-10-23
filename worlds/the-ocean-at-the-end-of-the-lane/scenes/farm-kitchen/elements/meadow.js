@@ -1,5 +1,5 @@
 // The field behind the farm, seen from above: summer grass, greener near the pond, a worn path toward it.
-const w = 400, d = 220;
+const w = 400, d = 228;
 g.fillStyle = '#9aa86a';
 g.fillRect(-w / 2, -d / 2, w, d);
 // broad patches of lighter and darker grass
