@@ -9,5 +9,5 @@ e.layer('glass', {}, g => {
   g.beginPath();
   g.ellipse(0, -0.04, 0.045, 0.11, 0, 0, Math.PI * 2);
   g.fill();
-  e.light(0, -0.04, 0.35, '#ffc27a', 1.6, 'flame');
+  e.light(0, -0.04, 0.6, '#ffc27a', 1.8, 'flame');
 });
