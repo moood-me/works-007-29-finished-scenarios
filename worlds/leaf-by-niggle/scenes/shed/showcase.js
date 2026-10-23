@@ -1,5 +1,5 @@
-// An afternoon in the shed: Parish at the door, Niggle turned to him from the platform, brush in hand; then Niggle's
-// eyes go back to his leaf while Parish looks down at the thistles by the door — never at the canvas; the light goes
+// An afternoon in the shed: Parish at the door, Niggle on the platform, brush in hand, looking aside — anywhere but at
+// him; then Niggle's eyes go back to his leaf while Parish looks down at the thistles by the door — never at the canvas; the light goes
 // toward sunset and the lantern carries the shed; back to the afternoon.
 return [
   {
@@ -7,7 +7,7 @@ return [
     run: async s => {
       s.set('dusk', 0);
       s.set('lamp', 1);
-      s.person('niggle').look('parish');
+      s.person('niggle').look([1.3, 3.0, 2.0]);
       s.person('parish').look('niggle');
       await s.wait(8);
     },
@@ -31,7 +31,7 @@ return [
   {
     name: 'back',
     run: async s => {
-      s.person('niggle').look('parish');
+      s.person('niggle').look([1.3, 3.0, 2.0]);
       s.person('parish').look('niggle');
       await s.move('dusk', 0, { over: 4 });
       await s.wait(3);
