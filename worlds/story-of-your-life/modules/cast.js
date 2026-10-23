@@ -36,7 +36,7 @@ return {
     },
     // Colonel Weber: square, upright, greying, close-cropped; the army's olive field jacket and cap
     weber: {
-      kind: 'shapes', style: 'glass', who: 'man', garment: 'field', hair: 'short', hat: 'cap',
+      kind: 'shapes', style: 'glass', who: 'man', garment: 'field', hair: 'none', hat: 'cap',
       body: { height: 1.0, thick: 1.04, shoulders: 1.06 },
       colors: { skin: '#d6a986', hair: '#7d776e', top: '#5c5d46', garment: '#5a5b40', bottom: '#56573e', shoes: '#1e1c1a', hat: '#55563c' },
     },

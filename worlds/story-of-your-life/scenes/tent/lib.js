@@ -131,7 +131,7 @@ function limb(g, root, knee, foot, w0, color) {
 // `body` (it sways a little about its pivot); the limbs before it the layer `front`; one limb half raised, the layer
 // `arm` (turned about its root). `turn` — where its seven limbs are round it (radians).
 function heptapod(g, e, turn) {
-  const skin = '#6e716a', dark = '#5b5e58', light = '#878a82';
+  const skin = '#62655f', dark = '#50534e', light = '#7c7f78';
   const limbs = [];
   for (let k = 0; k < 7; k++) {
     const a = turn + (k / 7) * Math.PI * 2, sx = Math.sin(a), cz = Math.cos(a);
@@ -179,11 +179,11 @@ function heptapod(g, e, turn) {
       if (cz < 0.05) continue;
       c.fillStyle = light;
       c.beginPath();
-      c.ellipse(sx * 0.3, -2.02, 0.07 * cz + 0.01, 0.045, 0, 0, Math.PI * 2);
+      c.ellipse(sx * 0.27, -2.12, 0.045 * cz + 0.008, 0.022, 0, 0, Math.PI * 2);
       c.fill();
       c.fillStyle = '#1f2321';
       c.beginPath();
-      c.ellipse(sx * 0.3, -2.02, 0.045 * cz + 0.006, 0.026, 0, 0, Math.PI * 2);
+      c.ellipse(sx * 0.27, -2.12, 0.032 * cz + 0.005, 0.009, 0, 0, Math.PI * 2);
       c.fill();
     }
   });
