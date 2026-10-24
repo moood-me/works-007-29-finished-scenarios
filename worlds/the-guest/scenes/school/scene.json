@@ -48,13 +48,6 @@
     "daru_mood": "thinking",
     "balducci_look": "daru",
     "balducci_mood": "neutral",
-    "balducci_reach": {
-      "r": [
-        0.05,
-        6.96,
-        0.9
-      ]
-    },
     "arab_look": "daru",
     "arab_mood": "neutral"
   },
@@ -448,7 +441,7 @@
       "person": {
         "cast": "cast",
         "who": "daru",
-        "turn": 205,
+        "turn": 235,
         "does": "hands_behind"
       },
       "across": 2.6,
@@ -461,7 +454,7 @@
         "cast": "cast",
         "who": "balducci",
         "turn": 150,
-        "does": "hands_on_hips"
+        "does": "hold_rope"
       },
       "across": 0.5,
       "distance": 7.0
