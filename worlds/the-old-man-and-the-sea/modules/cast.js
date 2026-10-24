@@ -11,7 +11,7 @@ return {
     santiago: {
       kind: 'shapes', style: 'gulf', who: 'old', garment: 'none', hair: 'cropped', barefoot: 'both', parts: ['patches'],
       body: { height: 0.97, thick: 0.8, shoulders: 1.02, arms: 1.03 },
-      colors: { skin: '#8f5f43', hair: '#9d9890', top: '#8ea3ae', bottom: '#8d7f68', accent: '#a9b9bf' },
+      colors: { skin: '#8f5f43', hair: '#7d7872', top: '#8ea3ae', bottom: '#8d7f68', accent: '#a9b9bf' },
     },
     // Manolin, the boy: slight and quick, black hair, a white undershirt, dark shorts, barefoot
     manolin: {
@@ -34,7 +34,7 @@ return {
       // an old man's hair cropped close, grey: thin, the brow high, down over the temples and the nape
       cropped: { name: 'cropped', draw: F => {
         const h = F.head;
-        F.shell(h.at, h.axes, h.egg.map(e => e * h.r * h.out * 1.03), a => 0.5 - 0.7 * smooth(0.4, 1.4, Math.abs(a)) - 0.25 * smooth(2, 2.8, Math.abs(a)), 0,
+        F.shell(h.at, h.axes, h.egg.map(e => e * h.r * h.out * 1.006), a => 0.5 - 0.7 * smooth(0.4, 1.4, Math.abs(a)) - 0.25 * smooth(2, 2.8, Math.abs(a)), 0,
           F.colors.hair, h.sides, h.square);
       } },
     },
