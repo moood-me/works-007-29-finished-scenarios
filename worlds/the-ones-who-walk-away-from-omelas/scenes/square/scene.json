@@ -120,6 +120,9 @@
         2.78,
         1.07
       ]
+    },
+    "mev_reach": {
+      "r": "ila#head"
     }
   },
   "states": {
@@ -1524,12 +1527,12 @@
       "name": "The fountain's column",
       "across": -0.9,
       "distance": 4.6,
-      "height": 2.1,
+      "height": 1.78,
       "box": [
-        -1.3195,
+        -0.6912,
         0,
-        1.3195,
-        2.1478
+        0.6912,
+        1.5466
       ],
       "shadow": true
     },
@@ -1551,22 +1554,22 @@
         "at": [
           -0.9,
           4.6,
-          2.11
+          1.78
         ],
-        "rate": 140,
+        "rate": 280,
         "direction": [
           0,
           0,
           1
         ],
-        "spread": 7,
+        "spread": 22,
         "speed": [
-          2.2,
-          2.6
+          2.4,
+          2.9
         ],
         "life": [
-          0.55,
-          0.65
+          0.8,
+          0.85
         ],
         "shape": "streak",
         "streak": 0.05,
@@ -1576,48 +1579,6 @@
         ],
         "color": "#eef6f8",
         "opacity": 0.75,
-        "ground": "pass",
-        "drag": 0.1
-      }
-    },
-    {
-      "id": "spill",
-      "name": "The water spilling from the bowl",
-      "particles": {
-        "kind": "splashes",
-        "at": [
-          -0.9,
-          4.6,
-          1.6
-        ],
-        "source": [
-          0.8,
-          0.8,
-          0
-        ],
-        "rate": 160,
-        "direction": [
-          0,
-          0,
-          -1
-        ],
-        "spread": 10,
-        "speed": [
-          0.1,
-          0.3
-        ],
-        "life": [
-          0.45,
-          0.5
-        ],
-        "shape": "streak",
-        "streak": 0.06,
-        "size": [
-          0.02,
-          0.02
-        ],
-        "color": "#eef6f8",
-        "opacity": 0.6,
         "ground": "pass",
         "drag": 0.1
       }
@@ -1876,7 +1837,7 @@
         "cast": "cast",
         "who": "ila",
         "turn": 172,
-        "does": "sit_low"
+        "does": "sit_flute"
       },
       "across": -0.9,
       "distance": 2.96,
@@ -1888,11 +1849,10 @@
       "person": {
         "cast": "cast",
         "who": "mev",
-        "turn": 140,
-        "does": "old_hold"
+        "turn": 235
       },
-      "across": -2.05,
-      "distance": 3.15,
+      "across": -0.12,
+      "distance": 2.82,
       "shadow": true
     },
     {
@@ -1904,8 +1864,8 @@
         "turn": 205,
         "does": "hands_behind"
       },
-      "across": 0.6,
-      "distance": 3.6,
+      "across": 0.95,
+      "distance": 3.55,
       "shadow": true
     },
     {
@@ -1928,8 +1888,8 @@
         "who": "blue_man",
         "turn": 166
       },
-      "across": -2.6,
-      "distance": 10.6,
+      "across": -4.5,
+      "distance": 11.2,
       "shadow": true
     },
     {
