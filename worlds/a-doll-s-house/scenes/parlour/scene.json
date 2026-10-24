@@ -22,14 +22,14 @@
       "day": {
         "ambient": 0.9,
         "ambientColor": "#e4e6ec",
-        "inside": 0.55,
+        "inside": 0.7,
         "hazeColor": "#d8dde4",
         "hazeGlow": 0.2,
         "tint": "#e9eef4",
         "tintStrength": 0.03,
         "lights": {
           "street": 0,
-          "room": 0.5
+          "room": 0.85
         }
       }
     }
@@ -96,6 +96,7 @@
     "cast"
   ],
   "state": {
+    "camera_z": 0.6,
     "day": 0,
     "lamp": 1,
     "candles": 1,
@@ -545,8 +546,8 @@
         "turn": 225,
         "does": "hands_behind"
       },
-      "across": 1.6,
-      "distance": 6.8
+      "across": 1.45,
+      "distance": 6.4
     },
     {
       "id": "krogstad",
@@ -558,7 +559,7 @@
         "turn": 200
       },
       "across": 0.75,
-      "distance": 9.3
+      "distance": 9.1
     }
   ],
   "music": {
