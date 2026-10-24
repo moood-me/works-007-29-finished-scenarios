@@ -4,7 +4,8 @@
   "caption": "Half past ten. His cap in his hands, his tool box already packed.",
   "horizon": 0.55,
   "camera": {
-    "mode": "picture"
+    "mode": "picture",
+    "look": 0.08
   },
   "light": {
     "ambient": 0.5,
