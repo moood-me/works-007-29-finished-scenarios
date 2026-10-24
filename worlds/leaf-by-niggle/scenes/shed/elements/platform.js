@@ -1,5 +1,5 @@
 // The platform before the canvas, its front face (x −1.5…1.3, 0.9 high): boards across on three posts, paint dripped
-// down it; at its right end three steps up (x 1.3…1.95).
+// down it; at its right end two steps down (x 1.3…1.76).
 g.save();
 g.beginPath();
 g.rect(-1.5, -0.9, 2.8, 0.92);
@@ -16,14 +16,16 @@ for (let i = 0; i < 12; i++) {
   g.fillStyle = drips[Math.floor(e.rnd() * drips.length)];
   g.fillRect(x, -0.88, 0.012, 0.05 + e.rnd() * 0.2);
 }
-// the steps: stringers and three treads
+// the steps: three boxed treads going down to the right, their risers boards, their edges worn light
+for (const [x, top] of [[1.3, -0.6], [1.52, -0.3]]) {
+  g.save();
+  g.beginPath();
+  g.rect(x, top, 0.24, -top + 0.02);
+  g.clip();
+  e.lib.planks(g, e, x, top, x + 0.24, 0.02, true, ['#6f5e4a', '#76644f', '#6a5a46']);
+  g.restore();
+}
 g.fillStyle = '#5a4836';
-g.beginPath();
-g.moveTo(1.3, -0.92);
-g.lineTo(1.4, -0.92);
-g.lineTo(1.98, 0.0);
-g.lineTo(1.86, 0.02);
-g.closePath();
-g.fill();
-g.fillStyle = '#8a765e';
-for (const [x, y] of [[1.42, -0.62], [1.6, -0.32], [1.78, -0.02]]) g.fillRect(x - 0.12, y - 0.04, 0.3, 0.06);
+g.fillRect(1.3, -0.9, 0.02, 0.92);
+g.fillStyle = '#9a8667';
+for (const [x, y] of [[1.3, -0.64], [1.52, -0.34]]) g.fillRect(x - 0.02, y, 0.28, 0.05);
