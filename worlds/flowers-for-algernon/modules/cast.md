@@ -9,8 +9,8 @@ grown-ups; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it),
 
 ## Who
 
-- `charlie` — Charlie Gordon, thirty-seven: broad and soft, a round face, sandy hair in a crew cut; a brown work jacket a
-  little too big over a white shirt, dark trousers.
+- `charlie` — Charlie Gordon, thirty-seven: broad and soft, a round face, sandy hair in a crew cut (the hair `crewcut`);
+  a brown jacket a little too big, a white shirt and a narrow dark tie (the part `tie`), dark trousers.
 - `kinnian` — Alice Kinnian, thirty-four: slight, upright, brown hair in a low bun, a plain dusty-rose day dress to below the knee (the garment `frock`).
 - `strauss` — Dr Strauss: tall, spare, greying, round spectacles (the part `spectacles`, its point `#spectacles`), a
   white laboratory coat (the garment `labcoat`) over a grey suit.
@@ -18,4 +18,4 @@ grown-ups; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it),
 ## Motions (Kimodo)
 
 The engine's `stand` and `walk`, and: `hands_clasped` — stands with the hands clasped in front, swaying a very little
-(a loop); `hands_behind` — stands with the hands clasped behind the back (a loop).
+(a loop).

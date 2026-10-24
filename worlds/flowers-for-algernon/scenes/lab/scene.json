@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Laboratory",
   "caption": "An April morning. Algernon is in the maze, and Charlie is next.",
-  "horizon": 0.34,
+  "horizon": 0.4,
   "camera": {
     "mode": "picture"
   },
@@ -51,6 +51,8 @@
     "cast"
   ],
   "state": {
+    "camera_z": 0.8,
+    "camera_h": -0.25,
     "charlie_look": "algernon",
     "charlie_mood": "smile",
     "charlie_reach": {
@@ -391,8 +393,7 @@
       "person": {
         "cast": "cast",
         "who": "strauss",
-        "turn": 200,
-        "does": "hands_behind"
+        "turn": 200
       },
       "across": 1.3,
       "distance": 3.8

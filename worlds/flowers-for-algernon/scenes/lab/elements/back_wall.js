@@ -5,7 +5,7 @@ g.beginPath();
 g.rect(-3.0, -3.02, 6.0, 3.04);
 g.rect(-2.7, -2.6, 1.8, 1.65);
 g.clip('evenodd');
-e.lib.wallPaint(g, e, -3.0, 3.0);
+e.lib.wallPaint(g, -3.0, 3.0);
 g.strokeStyle = '#f1f1ea';
 g.lineWidth = 0.12;
 g.strokeRect(-2.76, -2.66, 1.92, 1.77);

@@ -1,7 +1,7 @@
 // The right wall (facing into the room; its x runs toward the viewer: x 0 at distance 3.6, the door at distance
 // 3.3…4.3): the pale paint, the door to the corridor — white-painted, a panel of frosted glass, a round steel knob —
 // and nearer the viewer a white enamel sink with a towel on its rail.
-e.lib.wallPaint(g, e, -1.8, 1.8);
+e.lib.wallPaint(g, -1.8, 1.8);
 g.fillStyle = '#c9cec6';
 g.fillRect(-0.78, -2.25, 1.16, 2.27);
 g.fillStyle = '#eef0ea';

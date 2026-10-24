@@ -1,6 +1,6 @@
 // The left wall (facing into the room; its x runs away from the viewer, x 0 at distance 3.6): the pale paint, and a
 // tall bookcase of plain oak — journals, grey binders, boxes of record cards — with a framed chart of the brain beside it.
-e.lib.wallPaint(g, e, -1.8, 1.8);
+e.lib.wallPaint(g, -1.8, 1.8);
 g.fillStyle = '#8a6a48';
 g.fillRect(-1.5, -2.3, 1.4, 2.3);
 g.fillStyle = '#6f5338';
