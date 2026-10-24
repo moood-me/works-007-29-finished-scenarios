@@ -5,13 +5,15 @@ brought the Arab up to it on a rope and Daru stands on the terrace (П.3) — th
 standing. No motion of people, no camera moves.
 
 - **Where things are.** The viewer stands on the plateau before the school (camera `picture`). The land is
-  `relief.js` — flat round the school; its edge runs off to the left and past it the land falls 190 m to the plain;
+  `relief.js` — flat round the school; its ragged lip runs off nearly straight ahead on the left of the people (across −4.2 at 6 m,
+  −8.7 at 36 m) and past it the land falls 190 m to the plain, wide below in the haze; near the viewer, left of the
+  school, low wind-drifts;
   behind the school the plateau rises into a long hill — painted by one draped plane `land` (snow, the slope's bare
-  streaks, the dun plain with snow patches and a douar, the path down to the horse, stones, the snow ridged by the wind near). Far: `ridges`,
+  streaks, the dun plain with snow patches and a douar, the path (trodden snow and three trails of footprints, the mud showing lower down) from the terrace's end past the shed and down over the lip to the horse, stones, the snow ridged by the wind near). Far: `ridges`,
   `ridges_far` (cards at 6 and 11 km, their foot at the plain's level).
 - **The school** is built of cards and planes on the unseen anchor `school` (across 6.67, distance 5.45, facing 200): its
   whitewashed `front` (the classroom's door at x −2.4, windows), the right `gable`, the snowy tiled `roof` (a plane,
-  tilt 24), the `chimney` (its smoke the particles `smoke`), the `terrace` (a walk plane at 0.45 m) and its front, the
+  tilt 24), the `chimney` (its smoke the particles `smoke`), the `terrace` (a walk plane at 0.45 m), its front and its left end (`terrace_end`), the
   grain `shed` with its sacks at the left end and its lean-to roof.
 - **People** (cast: modules/cast). Daru at the terrace's left end by the door, nearest the viewer, hands behind his
   back (`hands_behind`), not looking at them — down the slope where the boy ran (`daru_look`: a point of the land); by
@@ -20,5 +22,7 @@ standing. No motion of people, no camera moves.
   Daru. `rope`: one painted rope laid each frame by its animate from `balducci#hand_r` to `arab#bonds`.
 - **What moves.** The people breathing, the grass tufts (`tufts`, copies) in the wind, the chimney's smoke, the high
   cloud drifting, the horse's breath (`breath`: bursts from `horse#muzzle` by its animate).
+- **Frame.** `horizon` 0.55: the sky over a third of the frame, the snow before the people kept short; the sky's
+  gradient is one fill down past it (two fills meeting at the horizon left a seam).
 - **Light.** A low winter sun behind the viewer on the right (`sun`, from bearing 140, 28° up): long shadows away to the
   left; the snow's bounce fills the shade with a cool blue (ambientColor).
