@@ -40,7 +40,7 @@ return {
     niggle: {
       kind: 'shapes', style: 'niggle', who: 'man', garment: 'smock', hair: 'untidy', face: 'simple', parts: ['brush'],
       body: { height: 0.93, thick: 1.0, shoulders: 0.94, hips: 1.04 },
-      colors: { skin: '#e8bf9c', hair: '#7d6d5c', top: '#b9ae98', garment: '#6f8494', bottom: '#5a4636', shoes: '#3b2d24' },
+      colors: { skin: '#e8bf9c', hair: '#7d6d5c', top: '#b9ae98', garment: '#4f6c96', bottom: '#5a4636', shoes: '#3b2d24' },
     },
     // Parish: lean and weathered, a lame leg; a cloth cap, a worn green-brown jacket, a collarless shirt, patched
     // trousers; his ash stick in his right hand
