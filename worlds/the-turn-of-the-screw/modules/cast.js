@@ -31,50 +31,58 @@ return {
     // Flora, eight: fair hair loose to the shoulders, a white frock to the knees with a pale blue sash, white stockings
     flora: {
       kind: 'shapes', style: 'bly', who: 'child', garment: 'frock', hair: 'long', face: 'bly', socks: true, parts: ['sash'],
-      body: { height: 0.7, head: 1.12 },
+      body: { height: 0.7, head: 1.06 },
       colors: { skin: '#f0cfb3', hair: '#d3ac62', top: '#dedcd6', garment: '#dedcd6', bottom: '#dedcd6', socks: '#d9d6cf', shoes: '#4a3a30', accent: '#9fb6cf' },
     },
     // Miles, ten: dark chestnut hair cut short, a navy Eton jacket, a wide white collar, grey knee breeches, dark
     // stockings
     miles: {
       kind: 'shapes', style: 'bly', who: 'child', garment: 'eton', hair: 'short', face: 'bly', socks: true, parts: ['collar'],
-      body: { height: 0.77, head: 1.08, shoulders: 0.92 },
+      body: { height: 0.77, head: 1.02, shoulders: 0.92 },
       colors: { skin: '#efcdb0', hair: '#4a2e1e', top: '#2d3446', garment: '#2d3446', bottom: '#5b5c62', socks: '#2b2b31', shoes: '#231f1d' },
     },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, plain colours, the scene's light and shadows —
     // with a simple face (the world's own `bly`: eyes, brows, nose, mouth, drawn bold) so the faces read
-    styles: { bly: { from: 'flat', name: 'Bly', line: 0.7, face: 'bly' } },
+    styles: {
+      bly: {
+        from: 'flat', name: 'Bly', line: 0.7, face: 'bly', head: 1.02, neck: 0.75, rigid: false, arms: 'bly', feet: 'bly',
+      },
+    },
+    // limbs that taper as a body's do — the upper arm to the wrist, a small hand; the thigh to the knee, the calf, a
+    // slender ankle, a shoe (half-widths along the joints: 0 shoulder/hip, 1 elbow/knee, 2 wrist/ankle, 3 tips)
+    arms: { bly: [[0, 0.05], [0.5, 0.044], [1, 0.035], [1.5, 0.033], [2, 0.024], [2.4, 0.032], [2.8, 0.026], [3, 0.012]] },
+    legs: { bly: [[0, 0.078], [0.5, 0.064], [1, 0.044], [1.35, 0.05], [2, 0.028], [2.25, 0.038], [2.8, 0.036], [3, 0.02]] },
     faces: {
-      // the engine's simple face drawn bolder, to read as far as the lawn's wide shot: large dark eyes, firm brows, a
-      // nose, a mouth with a rose lip, a faint flush on the cheeks — the same solids for every expression
+      // the engine's simple face, a little stronger, to read in the lawn's wide shot and stay quiet close: dark almond
+      // eyes, fine brows, a nose, a rose mouth, the least warmth on the cheeks — the same solids for every expression
       bly: {
         name: 'Bly',
         draw: F => {
           const { axes, r: rh, on } = F.head;
           const [, hu] = axes;
           const x = MOODS[F.look.expression] ?? MOODS.neutral;
-          const dark = [0.16, 0.12, 0.11];
-          const brow = F.colors.hair.map((v, i) => (i < 3 ? v * 0.6 : v));
-          const lips = [0.72, 0.38, 0.38];
-          const flush = F.colors.skin.map((v, i) => (i === 0 ? Math.min(1, v * 1.04) : i < 3 ? v * 0.86 : v));
+          const dark = [0.15, 0.11, 0.1];
+          const brow = F.colors.hair.map((v, i) => (i < 3 ? v * 0.62 : v));
+          const lips = [0.66, 0.4, 0.38];
+          const warm = F.colors.skin.map((v, i) => (i === 0 ? v : i < 3 ? v * 0.94 : v));
           for (const sx of [-1, 1]) {
-            F.ball(on([sx * 0.55, -0.22, 0.81], 0.99), axes, [rh * 0.15, rh * 0.09, rh * 0.03], flush, 10);
-            F.ball(on([sx * 0.34, 0.06, 0.94], 0.985), axes, [rh * 0.13, rh * 0.16 * x.eye, rh * 0.06], dark, 12);
+            F.ball(on([sx * 0.5, -0.24, 0.85], 0.99), axes, [rh * 0.14, rh * 0.09, rh * 0.03], warm, 10);
+            F.ball(on([sx * 0.32, 0.05, 0.94], 0.985), axes, [rh * 0.1, rh * 0.08 * x.eye, rh * 0.045], dark, 12);
             F.tube(
-              [on([sx * 0.14, 0.4 + x.inner, 0.93], 0.995), on([sx * 0.33, 0.44 + (x.inner + x.outer) / 2, 0.9], 1.0), on([sx * 0.52, 0.37 + x.outer, 0.82], 0.995)],
-              [[0, rh * 0.06], [1, rh * 0.07], [2, rh * 0.045]],
+              [on([sx * 0.13, 0.33 + x.inner, 0.94], 0.995), on([sx * 0.3, 0.37 + (x.inner + x.outer) / 2, 0.91], 1.0), on([sx * 0.47, 0.31 + x.outer, 0.84], 0.995)],
+              [[0, rh * 0.032], [1, rh * 0.036], [2, rh * 0.022]],
               [[0, brow]],
               6,
               hu,
             );
           }
-          F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.09, rh * 0.13, rh * 0.13], F.colors.skin.map((v, i) => (i < 3 ? v * 0.93 : v)), 10);
-          const w = x.wide;
-          const y = -0.4;
-          F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.8, rh * x.open * 1.3, rh * 0.03], dark, 10);
-          F.tube([on([-w, y + x.corners, 0.92], 0.995), on([0, y, 0.94], 1.0), on([w, y + x.corners, 0.92], 0.995)], [[0, rh * 0.04], [2, rh * 0.04]], [[0, lips]], 6, hu);
+          F.ball(on([0, -0.1, 1], 0.97), axes, [rh * 0.08, rh * 0.12, rh * 0.12], F.colors.skin.map((v, i) => (i < 3 ? v * 0.95 : v)), 10);
+          const w = x.wide * 0.85;
+          const y = -0.39;
+          F.ball(on([0, y - x.open / 2, 0.95], 0.975), axes, [rh * w * 0.8, rh * x.open * 1.2, rh * 0.03], dark, 10);
+          F.tube([on([-w, y + x.corners, 0.92], 0.995), on([0, y, 0.94], 1.0), on([w, y + x.corners, 0.92], 0.995)], [[0, rh * 0.026], [2, rh * 0.026]], [[0, lips]], 6, hu);
         },
       },
     },
