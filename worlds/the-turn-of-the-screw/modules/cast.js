@@ -25,20 +25,20 @@ return {
     // slate-grey gown to the ground with long sleeves, a narrow white collar
     governess: {
       kind: 'shapes', style: 'bly', who: 'woman', garment: 'gown', hair: 'bun', face: 'bly', parts: ['collar'],
-      body: { height: 0.93, shoulders: 0.86, hips: 1.02, thick: 0.78 },
+      body: { height: 0.93, head: 1.08, neck: 0.6, shoulders: 0.86, hips: 1.02, thick: 0.8 },
       colors: { skin: '#ecc8a8', hair: '#5a3a26', top: '#4e5262', garment: '#4e5262', bottom: '#4e5262', shoes: '#2a2624' },
     },
     // Flora, eight: fair hair loose to the shoulders, a white frock to the knees with a pale blue sash, white stockings
     flora: {
       kind: 'shapes', style: 'bly', who: 'child', garment: 'frock', hair: 'long', face: 'bly', socks: true, parts: ['sash'],
-      body: { height: 0.7, head: 1.1 },
+      body: { height: 0.7, head: 1.1, neck: 0.7 },
       colors: { skin: '#f0cfb3', hair: '#d3ac62', top: '#dedcd6', garment: '#dedcd6', bottom: '#dedcd6', socks: '#d9d6cf', shoes: '#4a3a30', accent: '#9fb6cf' },
     },
     // Miles, ten: dark chestnut hair cut short, a navy Eton jacket, a wide white collar, grey knee breeches, dark
     // stockings
     miles: {
       kind: 'shapes', style: 'bly', who: 'child', garment: 'eton', hair: 'short', face: 'bly', socks: true, parts: ['collar'],
-      body: { height: 0.77, head: 1.06, shoulders: 0.92 },
+      body: { height: 0.77, head: 1.06, neck: 0.7, shoulders: 0.92 },
       colors: { skin: '#efcdb0', hair: '#4a2e1e', top: '#2d3446', garment: '#2d3446', bottom: '#5b5c62', socks: '#2b2b31', shoes: '#231f1d' },
     },
   },
@@ -89,8 +89,8 @@ return {
     garments: {
       // a gown: a full skirt from the waist, belled to the ground, long sleeves, the bodice in its colour
       gown: { name: 'gown', hang: [{ to: 2.15, from: 'waist', flare: 0.75, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
-      // a boy's Eton jacket: short, cut off at the waist, long sleeves
-      eton: { name: 'Eton jacket', hang: [{ to: 0.12, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment' },
+      // a boy's Eton jacket: short, cut off at the hips, long sleeves
+      eton: { name: 'Eton jacket', hang: [{ to: 0.02, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
       // a child's frock: a skirt from the waist to the knees, long sleeves
       frock: { name: 'frock', hang: [{ to: 1.05, from: 'waist', flare: 0.42, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
     },
