@@ -144,7 +144,7 @@ function limb(g, root, knee, foot, w0, color) {
 // limb lifted off the floor, the layer `arm` (turned about its root). `turn` — where its seven limbs are round it
 // (radians).
 function heptapod(g, e, turn) {
-  const skin = '#6b6961', dark = '#56554e', light = '#8a877d', crease = 'rgba(52,50,45,0.35)';
+  const skin = '#55534c', dark = '#46443f', light = '#7a776d', crease = 'rgba(40,38,34,0.22)';
   const limbs = [];
   for (let k = 0; k < 7; k++) {
     const a = turn + (k / 7) * Math.PI * 2;
@@ -160,7 +160,7 @@ function heptapod(g, e, turn) {
   const raised = limbs.filter(L => L.cz > -0.2).sort((a, b) => b.sx - a.sx)[0];
   for (const L of limbs.filter(L => L.cz < 0 && L !== raised)) {
     const [r, k, f] = pathOf(L);
-    limb(g, r, k, f, 0.15, dark);
+    limb(g, r, k, f, 0.19, dark);
   }
   e.layer('body', { pivot: [0, -1.1], box: [-0.62, -2.7, 0.62, -0.88] }, c => {
     // the barrel: narrow where the limbs meet, swelling, then a long rounded crown
@@ -184,8 +184,8 @@ function heptapod(g, e, turn) {
     // the creases running up it, following its roundness
     c.strokeStyle = crease;
     c.lineWidth = 0.014;
-    for (let i = -3; i <= 3; i++) {
-      const x = i * 0.12;
+    for (let i = -2; i <= 2; i++) {
+      const x = i * 0.17;
       c.beginPath();
       c.moveTo(x * 0.6, -1.0);
       c.bezierCurveTo(x * 1.35, -1.4, x * 1.3, -2.0, x * 0.9, -2.5);
@@ -221,12 +221,12 @@ function heptapod(g, e, turn) {
   e.layer('front', { box: [-1.45, -2.3, 1.45, 0.05] }, c => {
     for (const L of limbs.filter(L => L.cz >= 0 && L !== raised).sort((a, b) => a.cz - b.cz)) {
       const [r, k, f] = pathOf(L);
-      limb(c, r, k, f, 0.16, skin);
+      limb(c, r, k, f, 0.2, skin);
     }
   });
   const [r] = pathOf(raised);
   e.layer('arm', { pivot: r, box: [r[0] - 0.25, -2.45, r[0] + 1.45, -0.3] }, c => {
-    limb(c, r, [r[0] + 0.85, -2.3], [r[0] + 1.15, -0.75], 0.16, skin);
+    limb(c, r, [r[0] + 0.85, -2.3], [r[0] + 1.15, -0.75], 0.19, skin);
   });
 }
 

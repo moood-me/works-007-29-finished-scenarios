@@ -428,7 +428,7 @@
       "person": {
         "cast": "cast",
         "who": "louise",
-        "turn": 150
+        "turn": 170
       },
       "across": -0.55,
       "distance": 3.15
@@ -440,7 +440,7 @@
       "person": {
         "cast": "cast",
         "who": "gary",
-        "turn": 225,
+        "turn": 215,
         "does": "seated"
       },
       "across": 0.95,

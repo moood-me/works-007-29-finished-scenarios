@@ -47,8 +47,8 @@ return {
     // brows, nose, mouth — <id>_mood shows on it)
     styles: {
       glass: {
-        from: 'soft', name: 'Story of Your Life', head: 1.1, neck: 0.85, legs: 1.0, limb: 0.9, line: 1.2,
-        trunk: { w: [0.9, 0.95, 0.84, 0.95, 0.98], d: [0.9, 0.92, 0.86, 0.9, 0.84] }, arms: 'palm', feet: 'shoe',
+        from: 'soft', name: 'Story of Your Life', head: 1.2, neck: 0.6, legs: 0.96, limb: 1.05, line: 1.3,
+        trunk: { w: [0.96, 1.0, 0.92, 1.0, 0.98], d: [0.98, 1.0, 0.96, 0.98, 0.9] }, arms: 'palm', feet: 'shoe',
       },
     },
     garments: {
