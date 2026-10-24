@@ -5,7 +5,7 @@ data (`cast.data.json`) holds the motions, written there by `put_motion`.
 
 ## Style
 
-`dust` — the engine's flat geometry (`flat`), its limbs heavier, work boots: straight edges, plain colours, the light and the shadows the scene's, a
+`dust` — the engine's flat geometry (`flat`), its limbs heavier: straight edges, plain colours, the light and the shadows the scene's, a
 fine line; the face `simple` — eyes, brows, a nose, a mouth, so that a face reads across a fire and takes `<id>_mood`.
 
 ## Who

@@ -13,14 +13,13 @@ return {
     // Lennie Small: huge, shapeless of face, pale; wide sloping shoulders, long heavy arms; the same denim, the same
     // black hat
     lennie: { kind: 'shapes', style: 'dust', who: 'man', garment: 'denim', hair: 'short', hat: 'slouch',
-      body: { height: 1.12, head: 1.04, thick: 1.3, shoulders: 1.2, arms: 1.08, neck: 0.8 },
+      body: { height: 1.12, head: 1.04, thick: 1.25, shoulders: 1.2, arms: 1.08, neck: 0.8 },
       colors: { skin: '#d8b092', hair: '#8b6c48', top: '#b5a88e', garment: '#6a7f9e', bottom: '#3e4c68', hat: '#2e2b29', shoes: '#3b2c21' } },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, plain colours under the scene's light — with
-    // limbs a working man's, heavier than its own, work boots, and a simple face (eyes, brows, a nose, a mouth) that
-    // takes a mood
-    styles: { dust: { from: 'flat', name: 'Dust', limb: 1.1, feet: 'boot', line: 0.8, face: 'simple' } },
+    // limbs a working man's, heavier than its own, and a simple face (eyes, brows, a nose, a mouth) that takes a mood
+    styles: { dust: { from: 'flat', name: 'Dust', limb: 1.1, line: 0.8, face: 'simple' } },
     // a denim work jacket, short: to the hips, straight (the engine's jacket hangs halfway down the thighs, a smock)
     garments: { denim: { name: 'denim jacket', hang: [{ to: 0.14, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment' } },
     hats: {
