@@ -23,7 +23,7 @@ return {
     // suit and a loud red tie, a glass of the judge's wine held at his chest
     traps: {
       kind: 'shapes', style: 'traps', who: 'man', garment: 'suit', hair: 'short', face: 'simple', parts: ['glass', 'tie'],
-      body: { height: 1, thick: 1.06, shoulders: 1, head: 1.02 },
+      body: { height: 1, thick: 1.12, shoulders: 1, head: 1.02 },
       colors: { skin: '#e9b58f', hair: '#2f231d', top: '#f4efe3', garment: '#c8aa7c', bottom: '#b49870', shoes: '#6b4128', accent: '#a8322d' },
     },
     // the judge, the host: small, old, bald with a white fringe and a white moustache, a black suit, a dark red bow tie
