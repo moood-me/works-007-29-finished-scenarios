@@ -15,7 +15,7 @@ return {
     // Josie, fourteen and ill: thin and pale, long honey-brown hair, a big oatmeal cardigan over a pale-blue top,
     // grey leggings, socks — at home, in bed most days; her sketchbook
     josie: {
-      kind: 'shapes', style: 'sun', who: 'teen', garment: 'jacket', hair: 'long', socks: true, parts: ['sketchbook'],
+      kind: 'shapes', style: 'sun', who: 'teen', garment: 'jacket', hair: 'straight', socks: true, parts: ['sketchbook'],
       body: { height: 0.88, thick: 0.74, shoulders: 0.86, hips: 0.96 },
       colors: {
         skin: '#f1d6c2', hair: '#8f6440', top: '#a9bfd3', garment: '#ddcbaa', bottom: '#74757e', shoes: '#e9e3d8',

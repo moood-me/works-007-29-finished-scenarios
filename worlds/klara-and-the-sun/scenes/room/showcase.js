@@ -2,7 +2,7 @@
 // Mother in the doorway. Josie looks up from her drawing, out into the room, and smiles; a cloud crosses the Sun and
 // the light on the bed goes and comes back; Josie goes back to her drawing.
 // where Josie looks up to: out into the room before her, toward the viewer, so her face is seen
-const UP = [-0.4, 1.2, 1.3];
+const UP = [0.1, 1.4, 1.45];
 return [
   {
     name: 'afternoon',
