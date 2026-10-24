@@ -11,7 +11,7 @@ reads across the shed; a simple face (eyes, brows, nose, mouth — `<id>_mood` s
 
 - `niggle` — Niggle: a little roundish man past his middle years, untidy greying-brown hair, a faded blue painter’s
   smock; his brush in the right hand (part `brush`).
-- `parish` — Parish, his neighbour: lean, lame, a cloth cap, a worn green-brown jacket; his ash stick in the right hand
+- `parish` — Parish, his neighbour: lean, lame, a short moustache (part `moustache`), a cloth cap, a worn green-brown jacket; his ash stick in the right hand
   (part `stick`, from the hand to the floor by the feet).
 - `mrs_parish` — Mrs Parish: small, ill, a pale kerchief (hat `kerchief`), a faded rose house dress.
 

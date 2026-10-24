@@ -5,11 +5,12 @@
 const V = () => MooodShapes.V;
 const UP = [0, 1, 0];
 // Niggle's tufts: directions from the head's centre (side, up, forward) — over the ears, behind them, at the crown's back
-const TUFTS = [[0.95, 0.15, -0.1], [-0.95, 0.15, -0.1], [0.8, 0.3, -0.5], [-0.8, 0.3, -0.5], [0.15, 0.55, -0.85], [-0.25, 0.8, -0.4]];
+const TUFTS = [[0.97, 0.05, -0.05], [-0.97, 0.05, -0.05], [0.9, 0.35, -0.2], [-0.9, 0.35, -0.2], [0.7, 0.25, -0.7], [-0.7, 0.25, -0.7],
+  [0, 0.3, -0.97], [0.35, 0.75, -0.55], [-0.35, 0.75, -0.55]];
 const UNTIDY = F => ({
   radii: F.head.egg.map(e => e * F.head.r * F.head.out),
   pts: TUFTS.map(() => [null, null, null]),
-  profile: [[0, F.head.r * 0.3], [1, F.head.r * 0.2], [2, F.head.r * 0.03]],
+  profile: [[0, F.head.r * 0.36], [1, F.head.r * 0.24], [2, F.head.r * 0.03]],
   colors: [[0, F.colors.hair]],
 });
 // Niggle's brush: a long pale handle out of the right fist along the forearm, a ferrule, a green-tipped head
@@ -42,13 +43,13 @@ return {
       body: { height: 0.93, thick: 1.0, shoulders: 0.94, hips: 1.04 },
       colors: { skin: '#e8bf9c', hair: '#7d6d5c', top: '#b9ae98', garment: '#4f6c96', bottom: '#5a4636', shoes: '#3b2d24' },
     },
-    // Parish: lean and weathered, a lame leg; a cloth cap, a worn green-brown jacket, a collarless shirt, patched
+    // Parish: lean and weathered, a lame leg, a short greying moustache; a cloth cap, a worn green-brown jacket, a collarless shirt, patched
     // trousers; his ash stick in his right hand
     parish: {
       kind: 'shapes', style: 'niggle', who: 'man', garment: 'jacket', hair: 'short', hat: 'cap', face: 'simple',
-      parts: ['stick'],
+      parts: ['stick', 'moustache'],
       body: { height: 1.0, thick: 0.82, shoulders: 0.98 },
-      colors: { skin: '#d5a47f', hair: '#8a7a68', top: '#cdbfa5', garment: '#5f6447', bottom: '#4d4236', shoes: '#2e241d', hat: '#4a4134' },
+      colors: { skin: '#c9977a', hair: '#7e7466', top: '#cdbfa5', garment: '#5f6447', bottom: '#4d4236', shoes: '#2e241d', hat: '#4a4134' },
     },
     // Mrs Parish: small, ill since summer; a kerchief over her hair, a faded rose house dress
     mrs_parish: {
@@ -63,18 +64,18 @@ return {
     styles: { niggle: { from: 'soft', name: 'Leaf by Niggle', head: 1.35, neck: 0.6, line: 1.6, paint: 'toned', face: 'simple' } },
     garments: {
       // a painter's smock: loose from the shoulders to the thigh, long sleeves
-      smock: { name: 'smock', hang: [{ to: 0.72, from: 'shoulders', flare: 0.2 }], sleeves: 'garment' },
+      smock: { name: 'smock', hang: [{ to: 0.6, from: 'shoulders', flare: 0.1 }], sleeves: 'garment' },
     },
     hair: {
-      // untidy: thin on the crown, tufts sticking out over the ears and at the back
+      // untidy: thin on the crown, a fluff of tufts sticking out over the ears and round the back
       untidy: { name: 'untidy', draw: F => {
         const { add, mul, unit, cross } = V(), h = F.head, [hs, hu, hf] = h.axes, rh = h.r, K = F.keep(UNTIDY);
         F.cap(h.at, h.axes, K.radii, [0, 0.62, -0.78], -0.12, F.colors.hair, h.sides, h.square);
         TUFTS.forEach((d, i) => {
           const v = unit(add(add(mul(hs, d[0]), mul(hu, d[1])), mul(hf, d[2]))), base = add(h.at, mul(v, rh * 0.85)), p = K.pts[i];
           p[0] = base;
-          p[1] = add(base, mul(v, rh * 0.3));
-          p[2] = add(base, add(mul(v, rh * 0.45), mul(hu, -rh * 0.12)));
+          p[1] = add(base, mul(v, rh * 0.32));
+          p[2] = add(base, add(mul(v, rh * 0.52), mul(hu, -rh * 0.1)));
           F.tube(p, K.profile, K.colors, 8, unit(cross(v, hf)), 0.5);
         });
       } },
@@ -88,6 +89,11 @@ return {
       } },
     },
     parts: {
+      // a short moustache under the nose (the colour of the hair)
+      moustache: { name: 'moustache', draw: F => {
+        const { axes, r, on } = F.head;
+        F.ball(on([0, -0.24, 0.97], 1.0), axes, [r * 0.27, r * 0.07, r * 0.06], F.colors.hair, 10);
+      } },
       brush: {
         name: 'brush',
         draw: F => {
