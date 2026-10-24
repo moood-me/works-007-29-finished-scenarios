@@ -188,8 +188,15 @@
           5.15,
           20.0
         ],
-        "count": 5000,
-        "amount": "rain"
+        "count": 8000,
+        "amount": "rain",
+        "reach": 16,
+        "size": [
+          0.011,
+          0.011
+        ],
+        "opacity": 0.5,
+        "streak": 0.05
       }
     },
     {
@@ -203,8 +210,15 @@
           -2.0,
           20.0
         ],
-        "count": 5000,
-        "amount": "rain"
+        "count": 8000,
+        "amount": "rain",
+        "reach": 16,
+        "size": [
+          0.011,
+          0.011
+        ],
+        "opacity": 0.5,
+        "streak": 0.05
       }
     },
     {
