@@ -6,15 +6,18 @@ const H = 0.5;
 const X0 = -0.3;
 const W = A + 0.6;
 const Y0 = -0.35;
-const sky = g.createLinearGradient(0, Y0, 0, H);
-sky.addColorStop(0, '#6f87b4');
-sky.addColorStop(0.3, '#93a6c8');
-sky.addColorStop(0.62, '#c3c3d6');
-sky.addColorStop(0.8, '#e2c9cc');
-sky.addColorStop(0.93, '#f1d9c8');
+// (from far above the frame — a tall screen's top — the blue deepening overhead)
+const TOP = -1.5;
+const sky = g.createLinearGradient(0, TOP, 0, H);
+sky.addColorStop(0, '#56709f');
+sky.addColorStop(0.575, '#6f87b4');
+sky.addColorStop(0.7025, '#93a6c8');
+sky.addColorStop(0.8385, '#c3c3d6');
+sky.addColorStop(0.915, '#e2c9cc');
+sky.addColorStop(0.97, '#f1d9c8');
 sky.addColorStop(1, '#f4e6d6');
 g.fillStyle = sky;
-g.fillRect(X0, Y0, W, H - Y0);
+g.fillRect(X0, TOP, W, H - TOP);
 g.fillStyle = '#efe2d2';
 g.fillRect(X0, H, W, 1.25 - H);
 // the moon: a pale disc, its seas a faint grey-blue
