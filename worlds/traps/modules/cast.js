@@ -11,8 +11,8 @@ const TIE = F => ({ pts: [null, null, null], profile: [[0, 0.014 * F.fit.h], [1,
 const TASH = F => ({ r: [F.head.r * 0.17, F.head.r * 0.07, F.head.r * 0.07] });
 const GLASS_SIZES = F => ({
   axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
-  bowl: [0.034 * F.fit.h, 0.052 * F.fit.h, 0.034 * F.fit.h],
-  wine: [0.035 * F.fit.h, 0.034 * F.fit.h, 0.035 * F.fit.h],
+  bowl: [0.035 * F.fit.h, 0.022 * F.fit.h, 0.035 * F.fit.h],
+  wine: [0.035 * F.fit.h, 0.04 * F.fit.h, 0.035 * F.fit.h],
   foot: [0.03 * F.fit.h, 0.004 * F.fit.h, 0.03 * F.fit.h],
   stem: [[0, GLASS]],
   low: [0, -0.03 * F.fit.h, 0],
