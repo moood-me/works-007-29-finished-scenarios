@@ -508,8 +508,8 @@
         "who": "governess",
         "turn": 166
       },
-      "across": -0.38,
-      "distance": 2.95
+      "across": -0.42,
+      "distance": 3.45
     },
     {
       "id": "flora",
@@ -519,8 +519,8 @@
         "who": "flora",
         "turn": 184
       },
-      "across": -0.86,
-      "distance": 2.82
+      "across": -0.92,
+      "distance": 3.32
     },
     {
       "id": "miles",
@@ -532,7 +532,7 @@
         "does": "hands_behind"
       },
       "across": 0.42,
-      "distance": 2.72
+      "distance": 3.2
     }
   ],
   "state": {
