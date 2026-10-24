@@ -76,7 +76,7 @@
     ],
     "gary_on": [
       0.95,
-      3.12,
+      3.15,
       0.74
     ],
     "gary_look": "louise",
@@ -431,7 +431,7 @@
         "turn": 150
       },
       "across": -0.35,
-      "distance": 3.4
+      "distance": 3.3
     },
     {
       "id": "gary",
@@ -444,7 +444,7 @@
         "does": "seated"
       },
       "across": 0.95,
-      "distance": 2.9
+      "distance": 2.95
     },
     {
       "id": "weber",
@@ -456,8 +456,8 @@
         "turn": 230,
         "does": "hands_behind"
       },
-      "across": 2.6,
-      "distance": 4.6
+      "across": 2.35,
+      "distance": 4.8
     }
   ],
   "music": {
