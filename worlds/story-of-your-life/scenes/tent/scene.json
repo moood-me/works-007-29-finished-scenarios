@@ -428,10 +428,10 @@
       "person": {
         "cast": "cast",
         "who": "louise",
-        "turn": 170
+        "turn": 150
       },
-      "across": -0.55,
-      "distance": 3.15
+      "across": -0.35,
+      "distance": 3.4
     },
     {
       "id": "gary",
