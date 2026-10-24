@@ -53,7 +53,7 @@ const tie = F => {
 // Miss Kinnian's exercise book held to her chest in both hands: a dark blue cover, its pages' cream edge, upright
 // before the chest between the hands and it
 const BOOK = F => {
-  const m = F.fit.h, board = (w, h, d, back, colour) => ({ h, back, flat: d / w, pts: [null, null], profile: [[0, w], [1, w]], colors: [[0, colour]] });
+  const m = F.fit.h, board = (w, h, d, back, colour) => ({ h, low: -h, back, flat: d / w, pts: [null, null], profile: [[0, w], [1, w]], colors: [[0, colour]] });
   return {
     back: -0.035 * m, down: -0.05 * m,
     boards: [board(0.085 * m, 0.108 * m, 0.008 * m, -0.01 * m, [0.93, 0.9, 0.82, 1]), board(0.09 * m, 0.115 * m, 0.004 * m, 0, [0.25, 0.3, 0.42, 1])],
@@ -62,9 +62,9 @@ const BOOK = F => {
 const notebook = F => {
   const K = F.keep(BOOK), fw = F.fwd('Chest'), up = F.up('Chest'), sd = F.side('Chest');
   const c = add(add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(fw, K.back)), mul(up, K.down));
-  for (const b of K.boards) {
-    const at = add(c, mul(fw, b.back));
-    b.pts[0] = add(at, mul(up, -b.h)); b.pts[1] = add(at, mul(up, b.h));
+  for (let i = 0; i < 2; i++) {
+    const b = K.boards[i], at = add(c, mul(fw, b.back));
+    b.pts[0] = add(at, mul(up, b.low)); b.pts[1] = add(at, mul(up, b.h));
     F.tube(b.pts, b.profile, b.colors, 8, sd, b.flat, 8, true);
   }
 };
