@@ -49,9 +49,9 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
     // tones with crisp edges: the body violet-grey, the puffs over its shaded foot lit, their sunlit tops right cream)
     const foot = H - 0.008;
     const puffs = [];
-    for (let i = 0; i < 44; i++) {
+    for (let i = 0; i < 32; i++) {
       const u = Math.pow(e.rnd(), 0.75);
-      const r = w * (0.08 + 0.24 * (1 - u)) * (0.6 + 0.7 * e.rnd());
+      const r = w * (0.13 + 0.22 * (1 - u)) * (0.75 + 0.5 * e.rnd());
       puffs.push([x + (e.rnd() - 0.5) * w * (2 - 1.3 * u), foot - r * 0.25 - u * h, r]);
     }
     const heap = (k, dx, dy, s, top) => {
@@ -72,10 +72,10 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
       g.fillStyle = '#b8abbd';
       g.fill();
       // (lit but for the puffs of its shaded foot, the light coming from the right)
-      heap(k, 0.12, -0.08, 0.86, foot - h * 0.22);
+      heap(k, 0.1, -0.06, 0.9, foot - h * 0.22);
       g.fillStyle = '#e4d6d5';
       g.fill();
-      heap(k, 0.22, -0.18, 0.7, foot - h * 0.3);
+      heap(k, 0.18, -0.13, 0.76, foot - h * 0.3);
       g.fillStyle = '#f5e5d5';
       g.fill();
     }
