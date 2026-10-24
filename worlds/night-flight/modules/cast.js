@@ -68,8 +68,8 @@ return {
           F.ball(add(c, mul(axes[1], 0.012 * m)), axes, [0.16 * m, 0.21 * m, 0.022 * m], [0.88, 0.86, 0.8, 1], 4, 10);
         },
       },
-      // the mechanic's cloth cap, taken off and held up by its peak in both hands before him, its crown to us: the
-      // round flat top, the band, the button, the peak between the hands darker
+      // the mechanic's cloth cap, taken off and held in both hands before him, its top to us: the round flat crown,
+      // its peak hanging below it darker
       cap_held: {
         name: 'cap in the hands',
         draw: F => {
@@ -77,17 +77,14 @@ return {
           const m = F.fit.h;
           const { mid, axes } = heldInHands(F);
           const [, up, out] = axes;
-          const c = add(mid, add(mul(up, -0.07 * m), mul(out, 0.035 * m)));
-          const dark = F.colors.hat.map((v, i) => (i < 3 ? v * 0.62 : v));
-          F.ball(c, axes, [0.135 * m, 0.12 * m, 0.022 * m], F.colors.hat, 18);
-          F.ball(add(c, mul(out, 0.016 * m)), axes, [0.105 * m, 0.095 * m, 0.022 * m], F.colors.hat.map((v, i) => (i < 3 ? v * 1.12 : v)), 18);
-          F.ball(add(c, mul(out, 0.036 * m)), axes, [0.014 * m, 0.014 * m, 0.01 * m], dark, 8);
-          F.ball(add(c, add(mul(up, 0.125 * m), mul(out, -0.004 * m))), axes, [0.085 * m, 0.03 * m, 0.012 * m], dark, 14);
+          const c = add(mid, add(mul(up, -0.04 * m), mul(out, 0.04 * m)));
+          F.ball(add(c, add(mul(up, -0.12 * m), mul(out, 0.012 * m))), axes, [0.1 * m, 0.045 * m, 0.012 * m], F.colors.hat.map((v, i) => (i < 3 ? v * 0.6 : v)), 16);
+          F.ball(c, axes, [0.14 * m, 0.115 * m, 0.03 * m], F.colors.hat, 20);
         },
       },
     },
     hats: {
-      // a hat of the 'twenties: a narrow brim, a dark band, a rounded crown
+      // a hat of the 'twenties: a brim, a high rounded crown
       fedora: {
         name: 'fedora',
         draw: F => {
@@ -95,9 +92,8 @@ return {
           const { at: head, axes: [hs, hu, hf], r: rh } = F.head;
           const tilt = unit(add(hu, mul(hf, 0.1)));
           const axes = [hs, tilt, cross(hs, tilt)];
-          F.ball(add(head, add(mul(hu, rh * 0.42), mul(hf, rh * 0.06))), axes, [rh * 1.3, rh * 0.045, rh * 1.32], F.colors.hat, F.sides * 2);
-          F.ball(add(head, mul(hu, rh * 0.52)), axes, [rh * 0.94, rh * 0.12, rh * 0.98], F.colors.hat.map((v, i) => (i < 3 ? v * 0.55 : v)), F.sides, 3);
-          F.ball(add(head, mul(hu, rh * 0.74)), axes, [rh * 0.9, rh * 0.42, rh * 0.95], F.colors.hat, F.sides, 3);
+          F.ball(add(head, add(mul(hu, rh * 0.45), mul(hf, rh * 0.06))), axes, [rh * 1.5, rh * 0.06, rh * 1.5], F.colors.hat, F.sides * 2);
+          F.ball(add(head, mul(hu, rh * 0.8)), axes, [rh * 0.96, rh * 0.58, rh * 1.0], F.colors.hat, F.sides, 3);
         },
       },
     },
