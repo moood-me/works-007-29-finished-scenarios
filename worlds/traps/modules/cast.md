@@ -18,5 +18,12 @@ old men read as men; a simple face (eyes, brows, nose, mouth — `<id>_mood` sho
 
 ## Motions
 
-The engine's `stand` and `walk` only; hands are placed by `<id>_reach` (a glass at the chest, hands clasped, hands on
-a chair's back).
+`cast.data.json` (Kimodo's, put there with put_motion), each a loop of standing as the person stands in the story:
+
+- `stand_glass` — Traps: a wide stance, a drink held at the chest in the right hand, the left arm hanging.
+- `stand_hands_folded` — the judge: upright, both hands held together before the stomach (`judge_reach` brings them
+  onto his belly).
+- `lean_on_hands` — Zorn: bent a little forward, both hands down before him on something waist-high (`zorn_reach`
+  sets them on his chair's back).
+
+The engine's `walk` for walking.
