@@ -355,11 +355,11 @@
       "person": {
         "cast": "cast",
         "who": "otis",
-        "turn": 115,
+        "turn": 135,
         "does": "offer"
       },
-      "across": -1.75,
-      "distance": 4.6
+      "across": -2.35,
+      "distance": 5.7
     }
   ],
   "music": {
