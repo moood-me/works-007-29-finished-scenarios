@@ -4,7 +4,8 @@
   "caption": "Half past ten. His cap in his hands, his tool box already packed.",
   "horizon": 0.55,
   "camera": {
-    "mode": "picture"
+    "mode": "picture",
+    "look": 0.08
   },
   "light": {
     "ambient": 0.5,
@@ -491,8 +492,8 @@
     {
       "id": "toolbox",
       "name": "Roblet's tool box, packed",
-      "across": -1.6,
-      "distance": 3.95,
+      "across": -1.3,
+      "distance": 3.75,
       "facing": 190,
       "height": 0.42,
       "box": [
@@ -529,8 +530,8 @@
         "turn": 200,
         "does": "hands_behind"
       },
-      "across": 0.8,
-      "distance": 5.1
+      "across": 0.7,
+      "distance": 4.25
     },
     {
       "id": "robineau",
@@ -541,8 +542,8 @@
         "turn": 245,
         "does": "hold_waist"
       },
-      "across": 2.5,
-      "distance": 4.7
+      "across": 2.1,
+      "distance": 3.85
     },
     {
       "id": "roblet",
@@ -553,8 +554,8 @@
         "turn": 165,
         "does": "hold_low"
       },
-      "across": -0.9,
-      "distance": 4.2
+      "across": -0.75,
+      "distance": 3.45
     }
   ],
   "music": {

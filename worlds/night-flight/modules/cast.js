@@ -20,7 +20,7 @@ return {
     // Rivière, the director of the line: past fifty, tall and upright, grey at the temples, a long dark overcoat
     // buttoned up, a dark hat; a white collar the one light thing on him
     riviere: {
-      kind: 'shapes', style: 'aero', who: 'old', garment: 'coat', hair: 'short', hat: 'hat',
+      kind: 'shapes', style: 'aero', who: 'old', garment: 'coat', hair: 'short', hat: 'fedora',
       body: { height: 1.02, shoulders: 1.04, thick: 0.92 },
       colors: { skin: '#cfa587', hair: '#9d978f', top: '#e2ddd3', garment: '#2c3240', bottom: '#262a33', hat: '#1f2229', shoes: '#18191d' },
     },
@@ -31,18 +31,19 @@ return {
       body: { height: 0.95, shoulders: 0.94, thick: 1.12 },
       colors: { skin: '#e0b896', hair: '#2a211c', top: '#d9d2c2', garment: '#6e5a45', bottom: '#5a4a3a', shoes: '#2a211c', accent: '#8c2f2a' },
     },
-    // Roblet, the old mechanic: twenty years on the engines — stooped a little, white hair cut short, a faded blue
-    // work jacket, his cap off and held in both hands
+    // Roblet, the old mechanic: twenty years on the engines — stooped a little, grey hair cut short, a faded blue
+    // work jacket, a grey moustache, his cap off and held in both hands
     roblet: {
-      kind: 'shapes', style: 'aero', who: 'old', garment: 'jacket', hair: 'short', parts: ['cap_held'],
+      kind: 'shapes', style: 'aero', who: 'old', garment: 'jacket', hair: 'short', parts: ['moustache', 'cap_held'],
       body: { height: 0.96, shoulders: 1.02, thick: 1.04, arms: 1.03 },
-      colors: { skin: '#c69273', hair: '#dcd8d0', top: '#9aa3a8', garment: '#4c6f93', bottom: '#3d5470', shoes: '#2b2420', hat: '#6e6457' },
+      colors: { skin: '#c69273', hair: '#b9b4ab', top: '#9aa3a8', garment: '#4c6f93', bottom: '#3d5470', shoes: '#2b2420', hat: '#9c805a' },
     },
   },
   shapes: {
-    // the world's style: an airline poster's figures — broad shoulders over a narrow waist, square-ish, plain colours
-    // under the scene's light, a fine line, a simple face (eyes, brows, nose, mouth) so faces read
-    styles: { aero: { from: 'graphic', name: 'Night Flight', paint: 'lit', line: 1.1, face: 'simple' } },
+    // the world's style: an airline poster's figures — the engine's flat geometry (straight edges, a coat a clean
+    // trapezoid, plain colours under the scene's light), a fine line, a head a little larger and a simple face (eyes,
+    // brows, nose, mouth) so faces read
+    styles: { aero: { from: 'flat', name: 'Night Flight', head: 1.18, line: 0.9, face: 'simple' } },
     parts: {
       // a small dark moustache under the nose (the hair's colour)
       moustache: {
@@ -67,17 +68,32 @@ return {
           F.ball(add(c, mul(axes[1], 0.012 * m)), axes, [0.16 * m, 0.21 * m, 0.022 * m], [0.88, 0.86, 0.8, 1], 4, 10);
         },
       },
-      // the mechanic's cloth cap, taken off and held by its peak in both hands before him: its crown towards us
+      // the mechanic's cloth cap, taken off and held in both hands before him, its top to us: the round flat crown,
+      // its peak hanging below it darker
       cap_held: {
         name: 'cap in the hands',
         draw: F => {
           const { add, mul } = V();
           const m = F.fit.h;
           const { mid, axes } = heldInHands(F);
-          const [side, up, out] = axes;
-          const crown = add(mid, mul(out, 0.05 * m));
-          F.ball(crown, [side, out, mul(up, -1)], [0.11 * m, 0.045 * m, 0.1 * m], F.colors.hat, 14);
-          F.ball(add(mid, mul(up, 0.06 * m)), axes, [0.085 * m, 0.012 * m, 0.05 * m], F.colors.hat, 10);
+          const [, up, out] = axes;
+          const c = add(mid, add(mul(up, -0.04 * m), mul(out, 0.04 * m)));
+          F.ball(add(c, add(mul(up, -0.12 * m), mul(out, 0.012 * m))), axes, [0.1 * m, 0.045 * m, 0.012 * m], F.colors.hat.map((v, i) => (i < 3 ? v * 0.6 : v)), 16);
+          F.ball(c, axes, [0.14 * m, 0.115 * m, 0.03 * m], F.colors.hat, 20);
+        },
+      },
+    },
+    hats: {
+      // a hat of the 'twenties: a brim, a high rounded crown
+      fedora: {
+        name: 'fedora',
+        draw: F => {
+          const { add, mul, unit, cross } = V();
+          const { at: head, axes: [hs, hu, hf], r: rh } = F.head;
+          const tilt = unit(add(hu, mul(hf, 0.1)));
+          const axes = [hs, tilt, cross(hs, tilt)];
+          F.ball(add(head, add(mul(hu, rh * 0.45), mul(hf, rh * 0.06))), axes, [rh * 1.55, rh * 0.07, rh * 1.55], F.colors.hat, F.sides * 2);
+          F.ball(add(head, mul(hu, rh * 0.62)), axes, [rh * 1.02, rh * 0.72, rh * 1.06], F.colors.hat, F.sides, 3);
         },
       },
     },
