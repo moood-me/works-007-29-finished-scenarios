@@ -363,8 +363,8 @@
     {
       "id": "bindles",
       "name": "Bindles",
-      "across": -2.1,
-      "distance": 3.9,
+      "across": -1.85,
+      "distance": 3.45,
       "height": 0.3,
       "box": [
         -0.7,
@@ -377,8 +377,8 @@
     {
       "id": "fire",
       "name": "Fire",
-      "across": 0.05,
-      "distance": 2.9,
+      "across": 0.1,
+      "distance": 4.0,
       "height": 0.3,
       "box": [
         -0.45,
@@ -471,8 +471,8 @@
         "turn": 170,
         "does": "pockets"
       },
-      "across": -1.1,
-      "distance": 3.2,
+      "across": -1.0,
+      "distance": 4.3,
       "shadow": true
     },
     {
@@ -481,11 +481,11 @@
       "person": {
         "cast": "cast",
         "who": "lennie",
-        "turn": 208,
-        "does": "sit_knees"
+        "turn": 192,
+        "does": "hug_knees"
       },
-      "across": 1.35,
-      "distance": 3.7,
+      "across": 1.25,
+      "distance": 4.6,
       "shadow": true
     }
   ],

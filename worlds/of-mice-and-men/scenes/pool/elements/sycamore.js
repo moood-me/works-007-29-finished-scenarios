@@ -45,22 +45,48 @@ g.bezierCurveTo(-2.1, -6.4, -0.4, -3.6, 0.6, 0.3);
 g.fill();
 g.globalAlpha = 1;
 g.restore();
-// the crown: clusters of big leaves round the limbs' ends and along them, low ones over the water along the lean — dark beneath, lighter on top
-const clusters = [[-8.2, -12.6, 2.6], [-6.4, -11.6, 2.2], [-5, -13.8, 2.4], [-2.8, -15, 2.6], [-1, -13.4, 2.2], [0.8, -12.6, 2.1],
-  [-3.6, -12.2, 2.4], [-7, -14.3, 1.8], [-1.5, -16.2, 1.6], [-9.6, -11.5, 1.4], [2, -11.4, 1.4], [-4.8, -10.6, 1.6],
-  [-2.4, -6.6, 1.3], [-3.6, -8, 1.5], [-5.6, -9.2, 1.4], [1.6, -10.4, 1.2], [-7.4, -10.6, 1.3]];
+// the crown: open, ragged — clumps of big leaves at the ends of twigs off the three limbs, the evening sky between
+// them; each clump dark beneath, lit on top, a leaf here and there gone yellow. The twigs and the clumps sway together
+// (layer `crown`)
+const twigs = [
+  // [from x, y on a limb, to x, y — the clump's middle, its radius]
+  [-6.6, -11.4, -9.4, -11.6, 1.1], [-7.4, -11.9, -8.6, -13.6, 1.2], [-8.4, -12.3, -10.2, -12.9, 0.9], [-5.6, -10.7, -6.4, -12.8, 1.1],
+  [-5, -10.2, -5.2, -9, 0.8], [-6.2, -11.1, -7.2, -9.9, 0.8], [-3, -12.4, -4.6, -13.9, 1.2], [-2.6, -14.6, -3.4, -16.2, 1.1],
+  [-2.6, -14.6, -1.6, -15.9, 1], [-2.8, -13.5, -1.2, -13.7, 0.9], [-3.3, -11, -4.3, -11.9, 0.9], [-0.6, -10.6, -0.2, -12.4, 1.1],
+  [1, -12.2, 1.9, -13.1, 0.9], [1, -12.2, 2.2, -11.4, 0.8], [0.2, -11.3, 0.9, -10.1, 0.7], [-1.8, -10, -1.9, -8.6, 0.7],
+  [-3.1, -7.6, -2.1, -6.8, 0.6], [-3.6, -8.4, -4.6, -8.1, 0.6],
+  // low, over the water along the lean: what of the crown the viewer sees from under it
+  [-2.9, -6.6, -5.2, -7.4, 1.1], [-3.4, -7.4, -6.6, -8.6, 1.2], [-2.4, -5.8, -3.6, -5.2, 0.8], [-3.9, -8.2, -7.8, -9.4, 1],
+  [-2.2, -5.4, -0.6, -6.6, 0.9], [-3.2, -7.2, -1.4, -8.4, 1], [-4, -8.6, -5.6, -9.9, 1.1]];
+const LEAF = ['#4e5c35', '#66763d', '#83924a', '#a3aa58'], YELLOW = '#c3a64f';
 e.layer('crown', { pivot: [-2.74, -6.48], wind: { strength: 0.18, gust: 0.4, scale: 1 } }, g => {
   g.scale(0.72, 0.72);
-  for (const [shade, lift] of [['#4f5e37', 0.35], ['#677a43', 0], ['#82954f', -0.35], ['#a0aa5e', -0.7]]) {
-    g.fillStyle = shade;
-    clusters.forEach(([cx, cy, r], j) => {
-      for (let i = 0; i < 42; i++) {
-        const a = A.hash(i + j * 53, 7) * 6.28, d = r * Math.sqrt(A.hash(i + j * 53, 8)) * (shade === '#a0aa5e' ? 0.6 : 1.05);
-        const x = cx + Math.cos(a) * d, y = cy + Math.sin(a) * d * 0.7 + lift * r * 0.5, s = 0.2 + 0.22 * A.hash(i + j * 53, 9);
+  g.strokeStyle = '#cfc9b6';
+  g.lineCap = 'round';
+  for (const [x0, y0, x1, y1, r] of twigs) {
+    g.lineWidth = 0.07 + 0.05 * r;
+    g.beginPath();
+    g.moveTo(x0, y0);
+    g.quadraticCurveTo((x0 + x1) / 2, Math.min(y0, y1) - 0.3, x1, y1);
+    g.stroke();
+  }
+  // the leaves, shade by shade from beneath: broad, a little pointed, each turned its own way
+  LEAF.forEach((shade, k) => {
+    twigs.forEach(([, , cx, cy, r], j) => {
+      for (let i = 0; i < 22; i++) {
+        const n = i + j * 61 + k * 977, a = A.hash(n, 7) * 6.28, d = 1.15 * r * Math.sqrt(A.hash(n, 8)) * (1 - 0.18 * k);
+        const x = cx + Math.cos(a) * d, y = cy + Math.sin(a) * d * 0.75 + (0.3 - 0.22 * k) * r, s = 0.2 + 0.14 * A.hash(n, 9);
+        g.fillStyle = k > 0 && A.hash(n, 11) < 0.08 ? YELLOW : shade;
+        g.save();
+        g.translate(x, y);
+        g.rotate(A.hash(n, 10) * 6.28);
         g.beginPath();
-        g.ellipse(x, y, s * 1.2, s * 0.75, A.hash(i + j * 53, 10) * 3, 0, Math.PI * 2);
+        g.moveTo(0, -s);
+        g.quadraticCurveTo(s * 1.1, -s * 0.3, 0, s * 0.8);
+        g.quadraticCurveTo(-s * 1.1, -s * 0.3, 0, -s);
         g.fill();
+        g.restore();
       }
     });
-  }
+  });
 });
