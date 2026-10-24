@@ -47,7 +47,7 @@ const BOOK = F => {
 };
 const notebook = F => {
   const m = F.fit.h, K = F.keep(BOOK), fw = F.fwd('Chest'), up = F.up('Chest'), sd = F.side('Chest');
-  const c = add(add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(fw, -0.035 * m)), mul(up, 0.03 * m));
+  const c = add(add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(fw, -0.035 * m)), mul(up, -0.05 * m));
   for (const [b, at] of [[K.pages, add(c, mul(fw, -0.01 * m))], [K.cover, c]])
     F.tube([add(at, mul(up, -b.h)), add(at, mul(up, b.h))], b.profile, b.colors, 8, sd, b.d / b.w, 8, true);
 };
