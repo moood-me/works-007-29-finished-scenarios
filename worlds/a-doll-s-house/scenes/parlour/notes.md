@@ -4,7 +4,8 @@ Stage 2 of the game (the look): the Helmers' flat as a doll's house with its fro
 the place, its light and three of its people standing. No motion of people but a look, no camera moves.
 
 - **Where things are.** Camera `picture`, horizon 0.55 (the frame's height is its focal length: at distance d the
-  frame shows d metres up and down). The cabinet's front (`front`, at 4.6) frames the room's opening, 6 m by 3 m: the
+  frame shows d metres up and down), the start 0.6 m in (`camera_z`): the cabinet's frame just round the edges, the
+  room and its people as large as it lets them be. The cabinet's front (`front`, at 4.6) frames the room's opening, 6 m by 3 m: the
   cut plaster of the walls' ends and of the floor above, green-black lacquer and gilt round it, a cornice; its base
   before the opening is the plane `ledge`. The room runs back to the back wall at 8.4 (floor 0, ceiling 3, walls at
   across ±3; the ceiling a card laid face down, `tilt` −90, its foot at the back).
