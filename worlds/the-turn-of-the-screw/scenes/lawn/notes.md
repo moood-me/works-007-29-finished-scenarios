@@ -17,12 +17,13 @@ motion of people, no camera moves.
   `lancet`); `tower_top` — an unseen walk plane on its leads, 19.9 m up, for someone to stand between the merlons.
   `jackdaws` wheel over it (lib.js `JACKDAWS`: each a layer its animate moves and flaps).
 - **The cedar** on the left and **the lime avenue** on the right (`limes`, copies in two rows) frame the view.
-- **People** (cast: modules/cast). The governess in front of the tower's line, looking down at Flora (`smile`),
-  her right hand holding Flora's left (`governess_reach` ↔ `flora_reach`); Flora looking at the viewer (`smile`);
-  Miles to the right, a little back, hands behind him (`hands_behind`), looking at the governess (`smile`).
-- **What moves.** The people breathing, the cedar's tiers and the limes' crowns and the grass near in the air, the
-  clouds drifting, the kitchen chimney's smoke, the jackdaws.
+- **People** (cast: modules/cast), whole in the frame 3.5–3.8 m off. The governess in front of the tower's line,
+  looking at Miles (`smile`), her right hand holding Flora's left (`governess_reach` ↔ `flora_reach`); Flora and
+  Miles — a little nearer, to her right, hands behind him (`hands_behind`) — looking at the viewer (`smile`): the
+  children too good, the governess watching.
+- **What moves.** The people breathing, the cedar's tiers and the limes' crowns (clumps of leaf shaded below, lit on
+  top) and the grass near in the air, the clouds drifting, the kitchen chimney's smoke, the jackdaws.
 - **Light.** The sun low behind the viewer on the right (`sun`, from bearing 128, 9° up, warm): the house and the
   tower gold, the shadows long to the left; the sky ahead the cool evening blue with its rose band along the horizon
-  and the moon risen pale over the avenue. `bounce` 0.3 (more lights the grass round Flora's white frock like a
+  and the moon risen pale over the avenue. `bounce` 0.15 (more lights the grass round Flora's white frock like a
   halo); no `shafts` (the people's shadows made beams in the air).
