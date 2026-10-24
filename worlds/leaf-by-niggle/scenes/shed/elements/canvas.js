@@ -1,6 +1,6 @@
 // The great canvas on its stretcher (x −2…2, y −3.6…−0.4 over the floor; two posts hold it): the Tree as Niggle has
-// it — a pencilled trunk and branches, grey patches, leaves here and there, most only drawn, some washed in autumn
-// greens; behind it the beginnings of a forest and, far off at the top, mountains tipped with snow. In the middle one
+// it — a trunk and its limbs branching again and again, washed and pencilled, grey patches, leaves at every twig, most
+// only drawn, those round the finished one washed in autumn greens; behind it the beginnings of a forest and, far off at the top, mountains tipped with snow. In the middle one
 // leaf finished to the last vein, a drop of dew on its edge (point "leaf"; the drop's glint a layer). Old pictures
 // he has stitched on round the edges: a harbour, a hill, an old house.
 const X0 = -2.0;

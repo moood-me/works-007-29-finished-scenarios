@@ -9,7 +9,7 @@ standing as they stand in the story. No one moves but a look; no camera moves.
   doorway x 1.0…2.6, 2.3 high; the door's leaf `door` swung in), side walls at across ±3.2 from 1.05 to 5.6
   (`left_wall`: a shelf of jars, an old coat, old pictures leaning; `right_wall`: a window x −0.6…0.6 of it, Niggle's
   leaf sketches pinned round it, the card of the journey on its nail by the bag). Boards and leaves: `lib.js`.
-- **The canvas** (`canvas`, 5.15, turned a little to us): the Tree pencilled, a few leaves washed in, grey patches,
+- **The canvas** (`canvas`, 5.15, turned a little to us): the Tree branching again and again, leaves at every twig, those round the finished one washed in, grey patches,
   the forest begun, the Mountains with snow at the top right; the finished leaf in the middle (`canvas#leaf`), its
   dew drop's glint a flickering layer (`canvas#dew`); old pictures stitched on at the edges (harbour, hill, house).
 - **Before it** the platform (`platform` — its front and steps; `platform_top` — the plane Niggle stands on, 0.9 up),
