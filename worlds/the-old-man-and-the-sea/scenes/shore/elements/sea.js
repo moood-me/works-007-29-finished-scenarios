@@ -26,6 +26,7 @@ for (let i = 0; i < 1100; i++) {
   const d = 20 + (1 - near) * 2900;
   const x = (e.rnd() - 0.5) * (60 + d * 1.6);
   const len = 1.5 + e.rnd() * 6 + near * 14 + d * 0.01;
-  g.fillStyle = e.rnd() < 0.55 ? 'rgba(170,190,220,0.22)' : 'rgba(26,34,70,0.28)';
+  // (far off, where they crowd into one band, mostly light: the swell's faces catching the sky)
+  g.fillStyle = e.rnd() < 0.55 + 0.3 * (1 - near) ? 'rgba(196,206,228,0.22)' : 'rgba(30,40,80,0.22)';
   g.fillRect(x, D - d, len, 0.1 + e.rnd() * 0.2 + d * 0.0015);
 }
