@@ -29,7 +29,7 @@
     {
       "id": "sun",
       "from": [
-        15,
+        -30,
         32
       ],
       "color": "#ffe6c0",
@@ -37,23 +37,23 @@
       "through": [
         [
           [
-            0.2,
-            6.35,
-            0.95
+            -2.4,
+            5.35,
+            0.75
           ],
           [
-            1.8,
-            6.35,
-            0.95
+            -0.9,
+            5.35,
+            0.75
           ],
           [
-            1.8,
-            6.35,
+            -0.9,
+            5.35,
             2.05
           ],
           [
-            0.2,
-            6.35,
+            -2.4,
+            5.35,
             2.05
           ]
         ]
@@ -85,18 +85,19 @@
     "lettie_mood": "smile",
     "boy_look": "breakfast",
     "boy_on": [
-      0.2,
-      3.3,
+      -0.42,
+      2.95,
       0.62
     ],
     "gran_look": "boy",
     "gran_on": [
-      1.7,
-      4.43,
-      0.46
+      1.0,
+      3.5,
+      0.43
     ],
     "gran_mood": "smile",
-    "boy_mood": "thinking"
+    "boy_mood": "thinking",
+    "camera_h": -0.55
   },
   "states": {
     "fire": {
@@ -140,11 +141,11 @@
       "id": "pond",
       "name": "The duck pond",
       "plane": true,
-      "across": 3.5,
+      "across": -6.5,
       "distance": 22,
       "elevation": 0.02,
-      "width": 11,
-      "depth": 9,
+      "width": 16,
+      "depth": 12,
       "reflect": {
         "strength": 0.55,
         "fade": 0,
@@ -155,13 +156,13 @@
     {
       "id": "reeds",
       "name": "Reeds on the pond's far bank",
-      "across": 3.5,
-      "distance": 26.6,
+      "across": -6.5,
+      "distance": 28.3,
       "height": 1.3,
       "box": [
-        -5.5,
+        -7.5,
         -1.4,
-        5.5,
+        7.5,
         0.05
       ]
     },
@@ -169,13 +170,13 @@
       "id": "back_wall",
       "name": "The back wall with the window",
       "across": 0,
-      "distance": 6.0,
+      "distance": 5.0,
       "facing": 180,
-      "height": 2.7,
+      "height": 2.5,
       "box": [
-        -3.45,
-        -2.72,
-        3.45,
+        -2.95,
+        -2.52,
+        2.95,
         0.02
       ],
       "inside": true
@@ -184,60 +185,60 @@
       "id": "opening",
       "name": "The window's opening",
       "unseen": true,
-      "across": 1.0,
-      "distance": 6.35,
+      "across": -1.65,
+      "distance": 5.35,
       "facing": 180,
-      "height": 1.1,
+      "height": 2.05,
       "box": [
-        -0.8,
+        -0.75,
         -2.05,
-        0.8,
-        -0.95
+        0.75,
+        -0.75
       ]
     },
     {
       "id": "reveal_l",
       "name": "The window's left reveal",
-      "across": 0.2,
-      "distance": 6.175,
+      "across": -2.4,
+      "distance": 5.175,
       "facing": 90,
       "height": 2.05,
       "box": [
         -0.175,
         -2.05,
         0.175,
-        -0.95
+        -0.75
       ],
       "inside": true
     },
     {
       "id": "reveal_r",
       "name": "The window's right reveal",
-      "across": 1.8,
-      "distance": 6.175,
+      "across": -0.9,
+      "distance": 5.175,
       "facing": 270,
       "height": 2.05,
       "box": [
         -0.175,
         -2.05,
         0.175,
-        -0.95
+        -0.75
       ],
       "inside": true
     },
     {
       "id": "lintel",
       "name": "The window's lintel",
-      "across": 1.0,
-      "distance": 6.35,
+      "across": -1.65,
+      "distance": 5.35,
       "elevation": 2.05,
       "facing": 180,
       "tilt": -90,
       "height": 0.35,
       "box": [
-        -0.8,
+        -0.75,
         -0.35,
-        0.8,
+        0.75,
         0
       ],
       "inside": true
@@ -246,25 +247,25 @@
       "id": "sill",
       "name": "The window sill",
       "plane": true,
-      "across": 1.0,
-      "distance": 6.13,
-      "elevation": 0.95,
-      "width": 1.7,
-      "depth": 0.44,
+      "across": -1.65,
+      "distance": 5.125,
+      "elevation": 0.75,
+      "width": 1.6,
+      "depth": 0.45,
       "inside": true
     },
     {
       "id": "casement",
       "name": "The casement and its glazing bars",
-      "across": 1.0,
-      "distance": 6.25,
+      "across": -1.65,
+      "distance": 5.25,
       "facing": 180,
       "height": 2.05,
       "box": [
-        -0.8,
+        -0.75,
         -2.05,
-        0.8,
-        -0.95
+        0.75,
+        -0.75
       ],
       "inside": true,
       "shadow": {
@@ -274,9 +275,9 @@
     {
       "id": "sill_things",
       "name": "A geranium and a jug on the sill",
-      "across": 1.0,
-      "distance": 6.12,
-      "elevation": 0.95,
+      "across": -1.65,
+      "distance": 5.12,
+      "elevation": 0.75,
       "height": 0.35,
       "box": [
         -0.75,
@@ -292,14 +293,14 @@
     {
       "id": "left_wall",
       "name": "The left wall with the dresser",
-      "across": -3.4,
-      "distance": 2.65,
+      "across": -2.9,
+      "distance": 2.25,
       "facing": 90,
-      "height": 2.7,
+      "height": 2.5,
       "box": [
-        -3.4,
-        -2.72,
-        3.4,
+        -2.75,
+        -2.52,
+        2.75,
         0.02
       ],
       "inside": true
@@ -307,53 +308,53 @@
     {
       "id": "right_wall",
       "name": "The right wall: the chimney breast",
-      "across": 3.4,
-      "distance": 2.65,
+      "across": 2.9,
+      "distance": 2.25,
       "facing": 270,
-      "height": 2.7,
+      "height": 2.5,
       "box": [
-        -3.4,
-        -2.72,
-        3.4,
+        -2.75,
+        -2.52,
+        2.75,
         0.02
       ],
-      "inside": true,
-      "flicker": 0.2
+      "inside": true
     },
     {
       "id": "floor",
       "name": "The flagstone floor",
       "plane": true,
       "across": 0,
-      "distance": 2.65,
-      "width": 6.8,
-      "depth": 6.8,
+      "distance": 2.25,
+      "width": 5.8,
+      "depth": 5.5,
       "inside": true
     },
     {
       "id": "rug",
       "name": "The rag rug before the fire",
       "plane": true,
-      "across": 1.9,
-      "distance": 4.15,
+      "across": 1.0,
+      "distance": 3.75,
       "elevation": 0.005,
       "width": 1.5,
       "depth": 1.0,
-      "inside": true
+      "inside": true,
+      "rotation": 35
     },
     {
       "id": "ceiling",
       "name": "The beamed ceiling",
       "across": 0,
-      "distance": 6.0,
-      "elevation": 2.7,
+      "distance": 5.0,
+      "elevation": 2.5,
       "facing": 180,
       "tilt": -90,
-      "height": 6.8,
+      "height": 5.5,
       "box": [
-        -3.45,
-        -6.8,
-        3.45,
+        -2.95,
+        -5.5,
+        2.95,
         0.02
       ],
       "inside": true
@@ -361,9 +362,9 @@
     {
       "id": "herbs",
       "name": "Herbs drying from the beam",
-      "across": -0.9,
-      "distance": 3.2,
-      "elevation": 2.6,
+      "across": -0.55,
+      "distance": 3.9,
+      "elevation": 2.42,
       "height": 0.5,
       "box": [
         -0.7,
@@ -376,35 +377,50 @@
     {
       "id": "range",
       "name": "The black range",
-      "across": 2.82,
-      "distance": 3.6,
-      "facing": 270,
-      "height": 0.92,
+      "across": 1.85,
+      "distance": 4.55,
+      "facing": 180,
+      "height": 0.9,
       "box": [
-        -0.78,
-        -0.95,
-        0.78,
+        -0.65,
+        -0.92,
+        0.65,
         0.02
       ],
       "inside": true,
       "flicker": 0.35
     },
     {
+      "id": "range_side",
+      "name": "The range's side",
+      "across": 1.2000000000000002,
+      "distance": 4.775,
+      "facing": 270,
+      "height": 0.9,
+      "box": [
+        -0.225,
+        -0.92,
+        0.225,
+        0.02
+      ],
+      "inside": true
+    },
+    {
       "id": "range_top",
       "name": "The range's hotplate",
       "plane": true,
-      "across": 3.11,
-      "distance": 3.6,
+      "across": 1.85,
+      "distance": 4.775,
       "elevation": 0.9,
-      "width": 0.58,
-      "depth": 1.56,
+      "width": 1.3,
+      "depth": 0.45,
       "inside": true
     },
     {
       "id": "kettle",
       "name": "The kettle on the hotplate",
-      "across": 3.05,
-      "distance": 3.95,
+      "across": 1.53,
+      "distance": 4.8,
       "elevation": 0.9,
       "height": 0.3,
       "box": [
@@ -421,9 +437,9 @@
       "particles": {
         "kind": "fire",
         "at": [
-          2.8,
-          3.6,
-          0.36
+          1.85,
+          4.53,
+          0.33
         ],
         "source": [
           0.02,
@@ -456,8 +472,8 @@
       "particles": {
         "kind": "smoke",
         "at": [
-          2.83,
-          3.95,
+          1.31,
+          4.8,
           1.13
         ],
         "rate": 5,
@@ -484,13 +500,13 @@
       "particles": {
         "kind": "dust",
         "at": [
-          0.6,
-          4.4,
-          1.3
+          -0.6,
+          3.4,
+          1.2
         ],
         "source": [
-          2.0,
-          3.0,
+          2.4,
+          2.4,
           2.2
         ]
       }
@@ -499,25 +515,25 @@
       "id": "table",
       "name": "The long scrubbed table",
       "plane": true,
-      "across": -0.6,
-      "distance": 3.55,
+      "across": -1.15,
+      "distance": 3.4,
       "elevation": 0.76,
-      "width": 0.95,
-      "depth": 2.9,
+      "width": 0.9,
+      "depth": 2.4,
       "inside": true,
       "shadow": true
     },
     {
       "id": "table_side",
       "name": "The table's near side and legs",
-      "across": -0.125,
-      "distance": 3.55,
+      "across": -0.7,
+      "distance": 3.4,
       "facing": 90,
       "height": 0.76,
       "box": [
-        -1.47,
+        -1.22,
         -0.78,
-        1.47,
+        1.22,
         0.02
       ],
       "inside": true,
@@ -526,14 +542,14 @@
     {
       "id": "table_end",
       "name": "The table's near end",
-      "across": -0.6,
-      "distance": 2.1,
+      "across": -1.15,
+      "distance": 2.2,
       "facing": 180,
       "height": 0.76,
       "box": [
-        -0.5,
+        -0.47,
         -0.78,
-        0.5,
+        0.47,
         0.02
       ],
       "inside": true
@@ -541,8 +557,8 @@
     {
       "id": "pail",
       "name": "The milking pail",
-      "across": -0.82,
-      "distance": 2.65,
+      "across": -1.38,
+      "distance": 2.75,
       "elevation": 0.76,
       "height": 0.3,
       "box": [
@@ -557,8 +573,8 @@
     {
       "id": "breakfast",
       "name": "The bowl of porridge and the jam",
-      "across": -0.33,
-      "distance": 3.25,
+      "across": -0.9,
+      "distance": 2.95,
       "elevation": 0.76,
       "height": 0.16,
       "box": [
@@ -573,8 +589,8 @@
     {
       "id": "loaf",
       "name": "A loaf and a jug at the far end",
-      "across": -0.85,
-      "distance": 3.9,
+      "across": -1.2,
+      "distance": 4.05,
       "elevation": 0.76,
       "height": 0.3,
       "box": [
@@ -589,8 +605,8 @@
     {
       "id": "stool",
       "name": "The high stool",
-      "across": 0.2,
-      "distance": 3.3,
+      "across": -0.42,
+      "distance": 2.95,
       "height": 0.62,
       "box": [
         -0.22,
@@ -602,16 +618,77 @@
       "shadow": true
     },
     {
-      "id": "armchair",
-      "name": "Old Mrs Hempstock's chair",
-      "across": 1.8,
-      "distance": 4.56,
-      "facing": 225,
+      "id": "chair_back",
+      "name": "Old Mrs Hempstock's chair: its back",
+      "across": 1.143,
+      "distance": 3.705,
+      "facing": 215,
       "height": 1.15,
       "box": [
-        -0.5,
+        -0.32,
         -1.18,
-        0.5,
+        0.32,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "chair_seat",
+      "name": "Old Mrs Hempstock's chair: its seat",
+      "plane": true,
+      "across": 1.0,
+      "distance": 3.5,
+      "elevation": 0.43,
+      "rotation": 325,
+      "width": 0.6,
+      "depth": 0.52,
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "chair_front",
+      "name": "Old Mrs Hempstock's chair: its front legs",
+      "across": 0.857,
+      "distance": 3.295,
+      "facing": 215,
+      "height": 0.45,
+      "box": [
+        -0.32,
+        -0.46,
+        0.32,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "chair_arm_r",
+      "name": "Old Mrs Hempstock's chair: the arm at her right",
+      "across": 0.754,
+      "distance": 3.672,
+      "facing": 305,
+      "height": 0.7,
+      "box": [
+        -0.27,
+        -0.72,
+        0.27,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "chair_arm_l",
+      "name": "Old Mrs Hempstock's chair: the arm at her left",
+      "across": 1.246,
+      "distance": 3.328,
+      "facing": 125,
+      "height": 0.7,
+      "box": [
+        -0.27,
+        -0.72,
+        0.27,
         0.02
       ],
       "inside": true,
@@ -623,11 +700,11 @@
       "person": {
         "cast": "cast",
         "who": "lettie",
-        "turn": 195,
+        "turn": 205,
         "does": "pockets"
       },
-      "across": 0.95,
-      "distance": 4.7,
+      "across": 0.35,
+      "distance": 4.15,
       "inside": true
     },
     {
@@ -636,11 +713,11 @@
       "person": {
         "cast": "cast",
         "who": "boy",
-        "turn": 210,
+        "turn": 235,
         "does": "perch"
       },
-      "across": 0.2,
-      "distance": 3.3,
+      "across": -0.42,
+      "distance": 2.95,
       "inside": true
     },
     {
@@ -649,11 +726,11 @@
       "person": {
         "cast": "cast",
         "who": "gran",
-        "turn": 225,
+        "turn": 215,
         "does": "sit_calm"
       },
-      "across": 1.7,
-      "distance": 4.43,
+      "across": 1.0,
+      "distance": 3.5,
       "inside": true
     }
   ]

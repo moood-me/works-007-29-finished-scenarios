@@ -1,76 +1,52 @@
-// The right wall (its x runs toward the viewer: −3.4 at the back wall, 3.4 at the front): limewash, and the chimney
-// breast round the range (x −1.85…−0.05): a sooty alcove of old brick behind it, a mantel shelf over it with
-// candlesticks, a tea tin and a row of brass; a calendar and a coat on a peg nearer the viewer.
-g.fillStyle = '#e4dac4';
-g.fillRect(-3.4, -2.72, 6.8, 2.74);
+// The right wall (its x runs toward the viewer: -2.75 at the back wall, 2.75 at the front): limewash, a dark
+// skirting, a calendar on a nail and a coat on a peg; nearer, the door to the passage.
+g.fillStyle = '#e8dec8';
+g.fillRect(-2.75, -2.52, 5.5, 2.54);
 g.save();
 g.beginPath();
-g.rect(-3.4, -2.72, 6.8, 2.74);
+g.rect(-2.75, -2.52, 5.5, 2.54);
 g.clip();
-for (let k = 0; k < 50; k++) {
-  const x = -3.4 + 6.8 * e.rnd(), y = -2.7 + 2.6 * e.rnd(), r = 0.15 + 0.4 * e.rnd();
+for (let k = 0; k < 40; k++) {
+  const x = -2.7 + 5.4 * e.rnd(), y = -2.5 + 2.4 * e.rnd(), r = 0.15 + 0.4 * e.rnd();
   const p = g.createRadialGradient(x, y, 0, x, y, r);
-  p.addColorStop(0, 'rgba(206, 190, 156, 0.35)');
-  p.addColorStop(1, 'rgba(206, 190, 156, 0)');
+  p.addColorStop(0, 'rgba(210, 194, 160, 0.35)');
+  p.addColorStop(1, 'rgba(210, 194, 160, 0)');
   g.fillStyle = p;
   g.fillRect(x - r, y - r, 2 * r, 2 * r);
 }
 g.restore();
 g.fillStyle = '#4a4038';
-g.fillRect(-3.4, -0.14, 6.8, 0.16);
-// the alcove: brick, darkening with soot toward its top
-const a0 = -1.85, a1 = -0.05;
-g.fillStyle = '#7a4c38';
-g.fillRect(a0, -1.55, a1 - a0, 1.57);
-g.strokeStyle = 'rgba(60, 40, 30, 0.55)';
-g.lineWidth = 0.01;
-for (let r = 0, y = -0.02; y > -1.55; r++, y -= 0.075) {
-  g.beginPath();
-  g.moveTo(a0, y);
-  g.lineTo(a1, y);
-  g.stroke();
-  for (let x = a0 + (r % 2) * 0.11; x < a1; x += 0.22) {
-    g.beginPath();
-    g.moveTo(x, y);
-    g.lineTo(x, y - 0.075);
-    g.stroke();
-  }
-}
-const soot = g.createLinearGradient(0, -1.55, 0, -0.6);
-soot.addColorStop(0, 'rgba(30, 22, 18, 0.85)');
-soot.addColorStop(1, 'rgba(30, 22, 18, 0)');
-g.fillStyle = soot;
-g.fillRect(a0, -1.55, a1 - a0, 0.95);
-// the mantel beam
-g.fillStyle = '#4b321f';
-g.fillRect(a0 - 0.12, -1.7, a1 - a0 + 0.24, 0.16);
-g.fillStyle = '#5e4129';
-g.fillRect(a0 - 0.16, -1.74, a1 - a0 + 0.32, 0.05);
-// on the mantel: two brass candlesticks with white candles, a tin, brass weights
-for (const x of [a0 + 0.12, a1 - 0.12]) {
-  g.fillStyle = '#b8913e';
-  g.fillRect(x - 0.05, -1.75, 0.1, 0.02);
-  g.fillRect(x - 0.015, -1.95, 0.03, 0.2);
-  g.fillStyle = '#efe9da';
-  g.fillRect(x - 0.012, -2.12, 0.024, 0.17);
-}
-g.fillStyle = '#2f5a4a';
-g.fillRect(-1.1, -1.95, 0.16, 0.2);
-g.fillStyle = '#c9a24c';
-for (const [x, s] of [[-0.75, 0.05], [-0.64, 0.04], [-0.55, 0.03]]) g.fillRect(x - s / 2, -1.74 - s * 1.4, s, s * 1.4);
-// a calendar on a nail, and a coat on a peg
+g.fillRect(-2.75, -0.14, 5.5, 0.16);
+// the calendar
 g.fillStyle = '#f1ecdf';
-g.fillRect(1.3, -1.9, 0.3, 0.42);
+g.fillRect(-2.25, -1.85, 0.3, 0.42);
 g.fillStyle = '#7a8c5a';
-g.fillRect(1.3, -1.9, 0.3, 0.18);
+g.fillRect(-2.25, -1.85, 0.3, 0.18);
 g.fillStyle = '#b8b0a0';
-for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++) g.fillRect(1.315 + c * 0.047, -1.68 + r * 0.045, 0.03, 0.025);
+for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++) g.fillRect(-2.235 + c * 0.047, -1.63 + r * 0.045, 0.03, 0.025);
+// the coat on its peg
 g.fillStyle = '#5c5442';
 g.beginPath();
-g.moveTo(2.25, -1.85);
-g.quadraticCurveTo(2.05, -1.8, 2.02, -1.2);
-g.lineTo(2.0, -0.72);
-g.lineTo(2.5, -0.72);
-g.lineTo(2.48, -1.2);
-g.quadraticCurveTo(2.45, -1.8, 2.25, -1.85);
+g.moveTo(-1.45, -1.8);
+g.quadraticCurveTo(-1.65, -1.75, -1.68, -1.15);
+g.lineTo(-1.7, -0.67);
+g.lineTo(-1.2, -0.67);
+g.lineTo(-1.22, -1.15);
+g.quadraticCurveTo(-1.25, -1.75, -1.45, -1.8);
 g.fill();
+// the door to the passage: old planks, a latch
+g.fillStyle = '#6b4a2f';
+g.fillRect(-0.6, -2.0, 0.85, 2.0);
+g.strokeStyle = '#4b321f';
+g.lineWidth = 0.012;
+for (let x = -0.6 + 0.17; x < 0.25; x += 0.17) {
+  g.beginPath();
+  g.moveTo(x, -2.0);
+  g.lineTo(x, 0);
+  g.stroke();
+}
+g.fillStyle = '#4b321f';
+g.fillRect(-0.6, -1.7, 0.85, 0.06);
+g.fillRect(-0.6, -0.4, 0.85, 0.06);
+g.fillStyle = '#2b2520';
+g.fillRect(0.08, -1.05, 0.1, 0.025);

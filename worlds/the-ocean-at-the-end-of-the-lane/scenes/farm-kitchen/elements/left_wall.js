@@ -1,13 +1,13 @@
-// The left wall (its x runs away from the viewer: −3.4 at the front, 3.4 at the back wall): limewash, a dark skirting
+// The left wall (its x runs away from the viewer: −2.75 at the front, 2.75 at the back wall): limewash, a dark skirting
 // and the old oak dresser — a cupboard below, three rails of blue-and-white plates, jugs and a tea caddy above.
 g.fillStyle = '#e2d8c2';
-g.fillRect(-3.4, -2.72, 6.8, 2.74);
+g.fillRect(-2.75, -2.52, 5.5, 2.54);
 g.save();
 g.beginPath();
-g.rect(-3.4, -2.72, 6.8, 2.74);
+g.rect(-2.75, -2.52, 5.5, 2.54);
 g.clip();
 for (let k = 0; k < 50; k++) {
-  const x = -3.4 + 6.8 * e.rnd(), y = -2.7 + 2.6 * e.rnd(), r = 0.15 + 0.4 * e.rnd();
+  const x = -2.7 + 5.4 * e.rnd(), y = -2.5 + 2.4 * e.rnd(), r = 0.15 + 0.4 * e.rnd();
   const p = g.createRadialGradient(x, y, 0, x, y, r);
   p.addColorStop(0, 'rgba(206, 190, 156, 0.35)');
   p.addColorStop(1, 'rgba(206, 190, 156, 0)');
@@ -16,9 +16,9 @@ for (let k = 0; k < 50; k++) {
 }
 g.restore();
 g.fillStyle = '#4a4038';
-g.fillRect(-3.4, -0.14, 6.8, 0.16);
-// the dresser, x 0.1…2.0
-const x0 = 0.1, x1 = 2.0, oak = '#6b4a2f', dark = '#4b321f';
+g.fillRect(-2.75, -0.14, 5.5, 0.16);
+// the dresser, x 0.75…2.6
+const x0 = 0.75, x1 = 2.6, oak = '#6b4a2f', dark = '#4b321f';
 g.fillStyle = oak;
 g.fillRect(x0, -0.92, x1 - x0, 0.92);
 g.fillStyle = dark;
