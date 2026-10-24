@@ -31,14 +31,14 @@ return {
     // Flora, eight: fair hair loose to the shoulders, a white frock to the knees with a pale blue sash, white stockings
     flora: {
       kind: 'shapes', style: 'bly', who: 'child', garment: 'frock', hair: 'long', face: 'bly', socks: true, parts: ['sash'],
-      body: { height: 0.7, head: 1.06 },
+      body: { height: 0.7, head: 1.1 },
       colors: { skin: '#f0cfb3', hair: '#d3ac62', top: '#dedcd6', garment: '#dedcd6', bottom: '#dedcd6', socks: '#d9d6cf', shoes: '#4a3a30', accent: '#9fb6cf' },
     },
     // Miles, ten: dark chestnut hair cut short, a navy Eton jacket, a wide white collar, grey knee breeches, dark
     // stockings
     miles: {
       kind: 'shapes', style: 'bly', who: 'child', garment: 'eton', hair: 'short', face: 'bly', socks: true, parts: ['collar'],
-      body: { height: 0.77, head: 1.02, shoulders: 0.92 },
+      body: { height: 0.77, head: 1.06, shoulders: 0.92 },
       colors: { skin: '#efcdb0', hair: '#4a2e1e', top: '#2d3446', garment: '#2d3446', bottom: '#5b5c62', socks: '#2b2b31', shoes: '#231f1d' },
     },
   },
@@ -47,7 +47,7 @@ return {
     // with a simple face (the world's own `bly`: eyes, brows, nose, mouth, drawn bold) so the faces read
     styles: {
       bly: {
-        from: 'flat', name: 'Bly', line: 0.7, face: 'bly', head: 1.02, neck: 0.5, rigid: false, arms: 'bly', feet: 'bly',
+        from: 'flat', name: 'Bly', line: 0.7, face: 'bly', head: 1.08, neck: 0.5, rigid: false, arms: 'bly', feet: 'bly',
       },
     },
     // limbs that taper as a body's do — the upper arm to the wrist, a small hand; the thigh to the knee, the calf, a
@@ -69,10 +69,10 @@ return {
           const warm = F.colors.skin.map((v, i) => (i === 0 ? v : i < 3 ? v * 0.94 : v));
           for (const sx of [-1, 1]) {
             F.ball(on([sx * 0.5, -0.24, 0.85], 0.99), axes, [rh * 0.14, rh * 0.09, rh * 0.03], warm, 10);
-            F.ball(on([sx * 0.32, 0.05, 0.94], 0.985), axes, [rh * 0.1, rh * 0.08 * x.eye, rh * 0.045], dark, 12);
+            F.ball(on([sx * 0.32, 0.05, 0.94], 0.985), axes, [rh * 0.11, rh * 0.1 * x.eye, rh * 0.05], dark, 12);
             F.tube(
               [on([sx * 0.13, 0.33 + x.inner, 0.94], 0.995), on([sx * 0.3, 0.37 + (x.inner + x.outer) / 2, 0.91], 1.0), on([sx * 0.47, 0.31 + x.outer, 0.84], 0.995)],
-              [[0, rh * 0.032], [1, rh * 0.036], [2, rh * 0.022]],
+              [[0, rh * 0.04], [1, rh * 0.045], [2, rh * 0.028]],
               [[0, brow]],
               6,
               hu,
