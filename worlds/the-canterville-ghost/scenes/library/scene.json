@@ -47,7 +47,7 @@
       "id": "lamp",
       "of": "desk_lamp#flame",
       "color": "#ffd08a",
-      "strength": 1.4,
+      "strength": 2.0,
       "reach": 5,
       "on": "lamp"
     },
@@ -355,11 +355,11 @@
       "person": {
         "cast": "cast",
         "who": "otis",
-        "turn": 135,
+        "turn": 125,
         "does": "offer"
       },
-      "across": -2.35,
-      "distance": 5.7
+      "across": -2.3,
+      "distance": 5.25
     }
   ],
   "music": {

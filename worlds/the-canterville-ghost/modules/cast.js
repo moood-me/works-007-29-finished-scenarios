@@ -135,32 +135,24 @@ function fetters(F) {
   K.pts[1][1] = Math.min(K.pts[0][1], K.pts[2][1]) - 0.05 * F.fit.h;
   F.tube(K.pts, K.profile, K.colors, 6, F.side('Hips'), 1);
 }
-// his cloak: a ragged sheet hanging from his shoulders down his back to the calves, its hem in tatters — cloth
-// (F.cloth), swinging as he moves
-const TATTERS = [0, 0.09, 0.02, 0.13, 0.04, 0.1, 0];
+// his cloak: from his shoulders down his back to the calves, wide and flat, swinging a little behind him as he moves
+// (the engine hangs a sheet of cloth — F.cloth — only before a garment: this one is a flat tube, as his locks are)
+const CLOAK = F => ({
+  pts: [null, null, null, null],
+  profile: [[0, 0.2 * F.k], [1, 0.25 * F.k], [3, 0.3 * F.k]],
+  colors: [[0, SHROUD]],
+});
 function cloak(F) {
   const { add, mul, mix } = V();
   const k = F.k;
   const h = F.fit.h;
-  const n = TATTERS.length;
-  const down = 6;
-  const back = mul(F.fwd('Chest'), -0.13 * k);
-  const l = add(F.P('LeftArm'), back);
-  const r = add(F.P('RightArm'), back);
-  const rows = [];
-  for (let j = 0; j <= down; j++) {
-    const v = j / down;
-    rows.push(
-      Array.from({ length: n }, (_, q) => {
-        const u = q / (n - 1);
-        const x = u * 2 - 1;
-        const top = add(mix(l, r, u), [0, 0.03 * h * (1 - x * x), 0]);
-        const drop = v * (1.05 + (j === down ? TATTERS[q] : 0)) * h;
-        return add(top, add(mul(F.side('Hips'), x * 0.08 * k * v), add(mul(F.fwd('Hips'), -0.07 * k * v), [0, -drop, 0])));
-      }),
-    );
-  }
-  F.cloth(rows, SHROUD, 1);
+  const K = F.keep(CLOAK);
+  const back = mul(F.fwd('Chest'), -0.14 * k);
+  K.pts[0] = add(mix(F.P('LeftArm'), F.P('RightArm'), 0.5), add(back, [0, -0.02 * h, 0]));
+  K.pts[1] = F.clear(add(K.pts[0], add(mul(F.fwd('Hips'), -0.03 * k), [0, -0.3 * h, 0])), -1, 0.04 * k);
+  K.pts[2] = F.clear(F.swing('cloak1', add(K.pts[1], add(mul(F.fwd('Hips'), -0.04 * k), [0, -0.4 * h, 0])), 120), -1, 0.05 * k);
+  K.pts[3] = F.clear(F.swing('cloak2', add(K.pts[2], add(mul(F.fwd('Hips'), -0.03 * k), [0, -0.38 * h, 0])), 80), -1, 0.05 * k);
+  F.tube(K.pts, K.profile, K.colors, 12, F.side('Hips'), 0.18);
 }
 // the bottle of oil for his chains Mr Otis offers him, held up in the right hand
 function bottle(F) {
@@ -197,7 +189,7 @@ return {
     otis: {
       kind: 'shapes', style: 'canterville', who: 'man', garment: 'coat', hair: 'short', face: 'storybook',
       body: { height: 1.02, shoulders: 1.04, thick: 1.04 },
-      colors: { skin: '#ebc7a7', hair: '#857560', top: '#8a8a88', garment: '#22242a', bottom: '#2b2c31', shoes: '#191818' },
+      colors: { skin: '#ebc7a7', hair: '#857560', top: '#8a8a88', garment: '#2e333d', bottom: '#2b2c31', shoes: '#191818' },
     },
   },
   shapes: {
@@ -214,7 +206,7 @@ return {
       // a girl's frock: a full skirt from the waist to the ankles, long sleeves, the bodice in its colour
       frock: { name: 'frock', hang: [{ to: 2.0, from: 'waist', flare: 0.4, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
       // an old doublet to the hips, its trunk hose puffed out round the tops of the thighs, in tatters
-      doublet: { name: 'doublet', hang: [{ to: 0.42, from: 'shoulders', flare: 0.55, ragged: true }], sleeves: 'garment' },
+      doublet: { name: 'doublet', hang: [{ to: 0.36, from: 'shoulders', flare: 0.35, ragged: true }], sleeves: 'garment' },
     },
     parts: {
       ruff: { name: 'ruff', draw: ruff },
