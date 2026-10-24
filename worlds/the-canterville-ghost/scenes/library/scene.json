@@ -53,11 +53,12 @@
     },
     {
       "id": "ghost",
-      "at": "simon#chest",
+      "across": 1.0,
+      "distance": 3.1,
+      "elevation": 1.6,
       "color": "#bdf0df",
-      "strength": 2.2,
-      "reach": 3.6,
-      "glow": 0.6
+      "strength": 2.0,
+      "reach": 3.6
     }
   ],
   "modules": [
@@ -70,7 +71,10 @@
     "otis_mood": "smile",
     "virginia_look": "simon",
     "virginia_mood": "sad",
-    "simon_mood": "angry"
+    "simon_mood": "angry",
+    "otis_with": [
+      "bottle"
+    ]
   },
   "states": {
     "fire": {
@@ -327,11 +331,11 @@
       "person": {
         "cast": "cast",
         "who": "virginia",
-        "turn": 145,
+        "turn": 150,
         "does": "clasped"
       },
-      "across": -0.5,
-      "distance": 5.2
+      "across": -0.3,
+      "distance": 4.1
     },
     {
       "id": "simon",
@@ -339,11 +343,11 @@
       "person": {
         "cast": "cast",
         "who": "simon",
-        "turn": 200,
-        "does": "spread"
+        "turn": 205,
+        "does": "loom"
       },
-      "across": 1.6,
-      "distance": 4.3
+      "across": 1.35,
+      "distance": 3.7
     },
     {
       "id": "otis",
@@ -351,11 +355,11 @@
       "person": {
         "cast": "cast",
         "who": "otis",
-        "turn": 130,
-        "does": "hands_behind"
+        "turn": 115,
+        "does": "offer"
       },
-      "across": -2.1,
-      "distance": 5.8
+      "across": -1.75,
+      "distance": 4.6
     }
   ],
   "music": {

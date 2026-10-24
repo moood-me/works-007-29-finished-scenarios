@@ -63,8 +63,8 @@ function ruff(F) {
   const { add, mul } = V();
   const uc = F.up('Chest');
   const c = add(F.P('Neck1'), mul(uc, -0.02 * F.fit.h));
-  const w = 0.1 * F.k;
-  F.ball(c, [F.side('Chest'), uc, F.fwd('Chest')], [w, 0.026 * F.fit.h, w * 0.9], GHOSTLY, 20);
+  const w = 0.13 * F.k;
+  F.ball(c, [F.side('Chest'), uc, F.fwd('Chest')], [w, 0.03 * F.fit.h, w * 0.9], GHOSTLY, 20);
 }
 // the ghost's long white beard from the chin down the chest, glowing, swinging a little
 const BEARD = F => ({ pts: [null, null, null], profile: [[0, F.head.r * 0.5], [1, F.head.r * 0.42], [2, F.head.r * 0.08]], colors: [[0, GHOSTLY]] });
@@ -92,14 +92,15 @@ function ghostHair(F) {
   const a = h.axes;
   const rh = h.r;
   const K = F.keep(LOCKS);
-  F.cap(h.at, a, K.radii, [0, 0.62, -0.78], -0.12, GHOSTLY, h.sides, h.square);
+  F.cap(h.at, a, K.radii, [0, 0.8, -0.6], 0.12, GHOSTLY, h.sides, h.square);
   K.pts[0] = add(h.at, add(mul(a[2], -rh * 0.55), mul(a[1], -rh * 0.1)));
   K.pts[1] = F.swing('locks1', add(K.pts[0], add([0, -0.18 * F.fit.h, 0], mul(F.fwd('Chest'), -0.05 * F.k))), 160);
   K.pts[2] = F.swing('locks2', add(K.pts[1], add([0, -0.16 * F.fit.h, 0], mul(F.fwd('Chest'), -0.02 * F.k))), 90);
   F.tube(K.pts, K.profile, K.colors, F.sides, a[0], 0.65);
 }
 // rusty manacles on both wrists and the chain sagging from one to the other before the body
-const CHAIN = F => ({ pts: [null, null, null, null, null], profile: [[0, 0.022 * F.k], [4, 0.022 * F.k]], colors: [[0, RUST]] });
+const LINKS = 9;
+const CHAIN = F => ({ pts: Array.from({ length: LINKS }, () => null), profile: [[0, 0.015 * F.k], [LINKS - 1, 0.015 * F.k]], colors: [[0, RUST]] });
 function shackles(F) {
   const { add, mul, mix } = V();
   const k = F.k;
@@ -113,11 +114,10 @@ function shackles(F) {
   const b = add(F.P('RightHand'), mul(F.up('RightHand'), 0.05 * F.fit.h));
   const sag = 0.16 * F.fit.h + 0.2 * Math.hypot(a[0] - b[0], a[2] - b[2]);
   const ahead = mul(F.fwd('Hips'), 0.06 * k);
-  for (let i = 0; i < 5; i++) {
-    const u = i / 4;
+  for (let i = 0; i < LINKS; i++) {
+    const u = i / (LINKS - 1);
     K.pts[i] = add(add(mix(a, b, u), ahead), [0, -sag * 4 * u * (1 - u), 0]);
   }
-  K.pts[2] = F.swing('chain', K.pts[2], 60);
   F.tube(K.pts, K.profile, K.colors, 6, F.side('Hips'), 1);
 }
 // irons on both ankles and a short chain between them lying on the floor
