@@ -38,12 +38,18 @@ const tie = F => {
 };
 // Miss Kinnian's exercise book held to her chest in both hands: a dark blue cover, its pages' cream edge, upright
 // before the chest between the hands and it
-const COVER = [0.25, 0.3, 0.42, 1], PAGES = [0.93, 0.9, 0.82, 1];
+const BOOK = F => {
+  const m = F.fit.h;
+  return {
+    pages: { w: 0.085 * m, h: 0.108 * m, d: 0.008 * m, profile: [[0, 0.085 * m], [1, 0.085 * m]], colors: [[0, [0.93, 0.9, 0.82, 1]]] },
+    cover: { w: 0.09 * m, h: 0.115 * m, d: 0.004 * m, profile: [[0, 0.09 * m], [1, 0.09 * m]], colors: [[0, [0.25, 0.3, 0.42, 1]]] },
+  };
+};
 const notebook = F => {
-  const m = F.fit.h, fw = F.fwd('Chest'), axes = [F.side('Chest'), F.up('Chest'), fw];
-  const c = add(add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(fw, -0.035 * m)), mul(axes[1], 0.03 * m));
-  F.ball(add(c, mul(fw, -0.008 * m)), axes, [0.085 * m, 0.11 * m, 0.008 * m], PAGES, 4, 8);
-  F.ball(c, axes, [0.09 * m, 0.115 * m, 0.004 * m], COVER, 4, 8);
+  const m = F.fit.h, K = F.keep(BOOK), fw = F.fwd('Chest'), up = F.up('Chest'), sd = F.side('Chest');
+  const c = add(add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(fw, -0.035 * m)), mul(up, 0.03 * m));
+  for (const [b, at] of [[K.pages, add(c, mul(fw, -0.01 * m))], [K.cover, c]])
+    F.tube([add(at, mul(up, -b.h)), add(at, mul(up, b.h))], b.profile, b.colors, 8, sd, b.d / b.w, 8, true);
 };
 // Charlie's crew cut: hair cropped close to the head (a shell standing a little off it), the hairline high over the
 // brow, lower at the temples, down to the nape behind
