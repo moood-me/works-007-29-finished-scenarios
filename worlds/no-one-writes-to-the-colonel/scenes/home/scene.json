@@ -107,9 +107,9 @@
       "name": "The yard in the rain",
       "plane": true,
       "across": 0.0,
-      "distance": 33.0,
-      "width": 80.0,
-      "depth": 54.6
+      "distance": 13.0,
+      "width": 40.0,
+      "depth": 16.0
     },
     {
       "id": "yard_side",
@@ -195,8 +195,9 @@
           0.011,
           0.011
         ],
-        "opacity": 0.5,
-        "streak": 0.05
+        "opacity": 0.55,
+        "streak": 0.05,
+        "color": "#7f8c98"
       }
     },
     {
@@ -217,8 +218,9 @@
           0.011,
           0.011
         ],
-        "opacity": 0.5,
-        "streak": 0.05
+        "opacity": 0.55,
+        "streak": 0.05,
+        "color": "#7f8c98"
       }
     },
     {
