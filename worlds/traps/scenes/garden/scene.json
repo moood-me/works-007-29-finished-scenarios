@@ -87,13 +87,6 @@
       1.55
     ],
     "traps_mood": "smile",
-    "traps_reach": {
-      "r": [
-        -1.365,
-        2.847,
-        1.2
-      ]
-    },
     "judge_look": [
       -0.6,
       1.8,
@@ -494,7 +487,8 @@
       "person": {
         "cast": "cast",
         "who": "traps",
-        "turn": 158
+        "turn": 158,
+        "does": "stand_glass"
       },
       "across": -1.4,
       "distance": 3.2,
@@ -506,7 +500,8 @@
       "person": {
         "cast": "cast",
         "who": "judge",
-        "turn": 222
+        "turn": 222,
+        "does": "stand_hands_folded"
       },
       "across": 1.2,
       "distance": 3.1,
@@ -518,10 +513,11 @@
       "person": {
         "cast": "cast",
         "who": "zorn",
-        "turn": 195
+        "turn": 195,
+        "does": "lean_on_hands"
       },
       "across": -0.2,
-      "distance": 5.1,
+      "distance": 5.4,
       "shadow": true
     }
   ],

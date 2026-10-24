@@ -19,12 +19,12 @@ has risen to meet his guest. No one moves but heads and faces; no camera moves.
 - **Light**: the sun low behind the viewer on the left (`sun`, from bearing −125°) lays gold on the faces and the
   villa and long shadows to the right; the eastern sky blue over a rose belt (`sky`, its clouds drifting); lavender
   ambient in the shadows; the lanterns and the villa's windows already lit.
-- **People** (modules/cast, style `traps`): Traps (−1.4/3.2, turned 158) with a glass of red raised a little toward
-  his host (`traps_reach` r, part `glass`), the other arm hanging, his case of samples (`case`) by his feet, smiling
-  past the viewer; the judge (1.2/3.1, turned 222) before the right end of his table, a head shorter than his guest,
-  hands clasped on his belly, beaming toward him; Zorn (−0.2/5.1, turned 195) behind his chair across the table,
-  hands on its back, studying Traps. Their looks are kept within ~45° of the viewer so the faces read (a look
-  straight at someone beside them is a profile): the judge looks between Traps and the viewer, and the showcase's
-  glance of Traps toward his host stops there too. Kummer and Pile are not in the frame (Kummer's cane is). Hands
-  are placed by `<id>_reach` over the engine's `stand`: the world has no motions of its own yet.
-- **Not yet**: the night variant (the lanterns burning down), the other people, motions.
+- **People** (modules/cast, style `traps`): Traps (−1.4/3.2, turned 158) in a wide stance, a glass of red at his chest
+  (`stand_glass`, part `glass`), the other arm hanging, his case of samples (`case`) by his feet, smiling past the
+  viewer; the judge (1.2/3.1, turned 222) before the right end of his table, a head shorter than his guest, hands
+  clasped on his belly (`stand_hands_folded`, `judge_reach`), beaming toward him; Zorn (−0.2/5.4, turned 195) a step
+  behind his chair across the table, leaning on its back (`lean_on_hands`, `zorn_reach`), studying Traps. Their looks
+  are kept within ~45° of the viewer so the faces read (a look straight at someone beside them is a profile): the
+  judge looks between Traps and the viewer, and the showcase's glance of Traps toward his host stops there too. Kummer
+  and Pile are not in the frame (Kummer's cane is).
+- **Not yet**: the night variant (the lanterns burning down), the other people.
