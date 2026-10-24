@@ -9,11 +9,11 @@ reads across the shed; a simple face (eyes, brows, nose, mouth — `<id>_mood` s
 
 ## Who
 
-- `niggle` — Niggle: a little roundish man past his middle years, untidy greying-brown hair, a dust-coloured painter's
+- `niggle` — Niggle: a little roundish man past his middle years, untidy greying-brown hair, a faded blue painter’s
   smock; his brush in the right hand (part `brush`).
 - `parish` — Parish, his neighbour: lean, lame, a cloth cap, a worn green-brown jacket; his ash stick in the right hand
   (part `stick`, from the hand to the floor by the feet).
-- `mrs_parish` — Mrs Parish: small, ill, a kerchief, a faded rose house dress.
+- `mrs_parish` — Mrs Parish: small, ill, a pale kerchief (hat `kerchief`), a faded rose house dress.
 
 ## Motions (Kimodo)
 
