@@ -1,6 +1,6 @@
-// The field from above (metres, its middle 205 m ahead; y toward the viewer — its near edge, y 200, under the
-// house's west wall, a little past the room's): waist-high summer grass gone gold, lighter and darker drifts of it, a trodden path from the gate out toward
-// the barn; this side of the fence (y 191…200) the mown lawn under the window.
+// The field from above (metres, its middle 206.2 m ahead; y toward the viewer — its near edge, y 200, under the
+// house's west wall, a little past the room's): waist-high summer grass gone gold, lighter and darker drifts of it, a
+// trodden path from the gate out toward the barn; this side of the fence (y 191…200) the mown lawn under the window.
 g.fillStyle = '#b6a565';
 g.fillRect(-250, -200, 500, 400);
 const tones = ['rgba(150,140,80,0.45)', 'rgba(205,190,120,0.45)', 'rgba(140,150,90,0.4)', 'rgba(190,170,100,0.4)'];
@@ -28,7 +28,7 @@ for (let i = 0; i < 260; i++) {
 g.strokeStyle = 'rgba(214,196,150,0.8)';
 g.lineWidth = 0.7;
 g.beginPath();
-g.moveTo(5.9, 191);
+g.moveTo(4.7, 191);
 g.bezierCurveTo(4, 150, -10, 120, -9, 80);
 g.bezierCurveTo(-8, 50, -15, 20, -14, -30);
 g.stroke();
