@@ -1,6 +1,8 @@
 // A late afternoon in Josie's room: Josie on the edge of her bed drawing; Klara by the window, watching her; the
-// Mother in the doorway. Josie looks up at Klara and smiles; a cloud crosses the Sun and the light on the bed goes and
-// comes back; Josie goes back to her drawing.
+// Mother in the doorway. Josie looks up from her drawing, out into the room, and smiles; a cloud crosses the Sun and
+// the light on the bed goes and comes back; Josie goes back to her drawing.
+// where Josie looks up to: out into the room before her, toward the viewer, so her face is seen
+const UP = [-0.4, 1.2, 1.3];
 return [
   {
     name: 'afternoon',
@@ -16,7 +18,7 @@ return [
   {
     name: 'she looks up',
     run: async s => {
-      s.person('josie').look('klara');
+      s.person('josie').look(UP);
       s.person('josie').mood('smile');
       await s.wait(6);
     },
