@@ -3,7 +3,7 @@
 Stage 2 of the game (the look): Josie's room on a late afternoon — the place that sets the world's mood (the Sun
 coming in at the big west window over the field, lying across the bed) and its three people as they stand in the
 story. They face a little out toward the viewer (a stage's blocking), so their faces read. No one
-moves but a look; no camera moves (the start a little into the room: `camera_z` 0.5); the light breathes (a cloud), the grass outside sways, dust in the
+moves but a look; no camera moves (the start a little into the room: `camera_z` 0.4); the light breathes (a cloud), the grass outside sways, dust in the
 sun.
 
 - **Where things are.** The viewer stands at the room's open side (camera `picture`). Floor at 0, ceiling 2.6

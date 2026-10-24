@@ -52,7 +52,7 @@
     "cast"
   ],
   "state": {
-    "camera_z": 0.5,
+    "camera_z": 0.4,
     "sun": 1,
     "josie_on": [
       -1.55,
@@ -923,7 +923,7 @@
         "turn": 210,
         "does": "hands_clasped"
       },
-      "across": 1.32,
+      "across": 1.27,
       "distance": 4.1
     },
     {
@@ -936,7 +936,7 @@
         "turn": 225,
         "does": "hand_to_chin"
       },
-      "across": 2.0,
+      "across": 1.9,
       "distance": 3.85
     }
   ],
