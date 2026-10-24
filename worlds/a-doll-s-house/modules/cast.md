@@ -10,9 +10,15 @@ it): the people of a doll's house, their faces read in a wide shot.
 
 ## Who
 
-- `nora` — Nora Helmer: small, fair hair in a knot, a teal-blue house dress.
-- `torvald` — Torvald Helmer: tall, a black frock coat over a light waistcoat, brown hair and a moustache.
-- `krogstad` — Nils Krogstad: thin, a worn grey-brown overcoat, a dark hat, a brick-red scarf.
+- `nora` — Nora Helmer: small, fair hair in a knot, a teal-blue house dress (`housedress`).
+- `torvald` — Torvald Helmer: tall, a black frock coat (`frockcoat`) over a light waistcoat, brown hair and a moustache.
+- `krogstad` — Nils Krogstad: thin, a worn grey-brown overcoat, a dark bowler (`bowler`), a brick-red scarf.
+
+## Garments and hats
+
+`housedress` — 1879: a fitted bodice and a long skirt (`garment`), an overskirt draped to the knee and gathered
+behind into a small bustle (`top`), a white collar (`accent`). `frockcoat` — to above the knee, open at the chest on
+the waistcoat and shirt front (`top`). `bowler` — a round crown high on the head, a narrow brim: the eyes seen under it.
 
 ## Things (`<id>_with`, or a look's `parts`)
 
