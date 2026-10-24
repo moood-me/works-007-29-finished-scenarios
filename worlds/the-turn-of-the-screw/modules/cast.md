@@ -5,9 +5,11 @@ lengths are a man's metres times `F.fit.h`.
 
 ## Style
 
-`bly` — the engine's flat geometry (`flat`): straight edges, plain quiet colours, lit by the scene's light; a fine
-line; the world's own face `bly` — the engine's simple face drawn bolder (large dark eyes, firm brows, a nose, a rose
-mouth, a flush on the cheeks; `<id>_mood` shows on it), so faces read in a wide shot.
+`bly` — the engine's flat geometry (`flat`), softened: plain quiet colours lit by the scene's light, a fine line;
+limbs that taper as a body's do (`arms`/`legs` `bly`: the wrist, a small hand, the calf, a slender ankle, a shoe),
+garments hanging in curves (not `straight`), a head a little smaller; the world's own face `bly` — the engine's simple
+face a little stronger (dark almond eyes, fine brows, a nose, a rose mouth, the least warmth on the cheeks;
+`<id>_mood` shows on it), to read in a wide shot and stay quiet close.
 
 ## Who
 
@@ -20,7 +22,7 @@ mouth, a flush on the cheeks; `<id>_mood` shows on it), so faces read in a wide 
 ## Things (a look's `parts`, `garment`)
 
 Garments: `gown` (to the ground, long sleeves), `frock` (to the knees, long sleeves), `eton` (a boy's short jacket to
-the waist). Parts: `collar` — a white collar round the neck; `sash` — a sash round the waist in the look's `accent`.
+the hips). Parts: `collar` — a white collar round the neck; `sash` — a sash round the waist in the look's `accent`.
 
 ## Motions (Kimodo)
 

@@ -1,5 +1,5 @@
 // A lime of the avenue: a straight grey trunk, the crown a tall oval of leaf — a solid mass of the darker green, its
-// clumps of a few close greens over it, smaller toward the edge (metres: x across from the trunk, y up from the
+// clumps over it, each shaded below and lit on its top (metres: x across from the trunk, y up from the
 // ground); the crown stirs in the evening air.
 g.fillStyle = '#625749';
 g.beginPath();
@@ -30,17 +30,30 @@ e.layer('crown', { pivot: [0, -6.5], wind: { strength: 0.18, gust: 0.5 }, box: [
     c.arc(Math.cos(a) * 3.3, -11.6 + Math.sin(a) * 5.2, 0.7 + e.rnd() * 0.5, 0, Math.PI * 2);
     c.fill();
   }
-  // the clumps of leaf over it, lighter toward the top, where more of the sky's light falls
-  for (let i = 0; i < 320; i++) {
+  // the clumps of leaf over it, back to front and top down: each a clump in its shade, its body and the light on its
+  // top — the crown's lower half in its own shade, its top where most of the sky's light falls
+  const clumps = [];
+  for (let i = 0; i < 260; i++) {
     const a = e.rnd() * Math.PI * 2;
     const r = Math.sqrt(e.rnd());
-    const x = Math.cos(a) * r * 3.6;
-    const y = -11.6 + Math.sin(a) * r * 5.5;
-    const up = (-y - 6) / 12;
-    const tones = up > 0.55 ? ['#5a7a3a', '#4f6d33', '#64843f'] : ['#4a6630', '#41592c', '#53723a'];
-    c.fillStyle = tones[Math.floor(e.rnd() * 3)];
+    clumps.push([Math.cos(a) * r * 3.4, -11.6 + Math.sin(a) * r * 5.3, 0.3 + e.rnd() * 0.3, e.rnd(), r]);
+  }
+  clumps.sort((p, q) => q[4] - p[4] || p[1] - q[1]);
+  for (const [x, y, w, t] of clumps) {
+    const up = Math.max(0, Math.min(1, (-y - 7) / 10));
+    const tone = Math.min(2, Math.floor(up * 2.2 + t * 0.8));
+    const [shade, body, lit] = [['#2f4421', '#3d5529', '#4b6632'], ['#3a5227', '#4a6630', '#5d7c3c'], ['#43602c', '#57773a', '#6e8f47']][tone];
+    c.fillStyle = shade;
     c.beginPath();
-    c.ellipse(x, y, 0.32 + e.rnd() * 0.36, 0.24 + e.rnd() * 0.26, e.rnd() * 3, 0, Math.PI * 2);
+    c.ellipse(x + 0.05, y + w * 0.35, w * 1.05, w * 0.8, 0, 0, Math.PI * 2);
+    c.fill();
+    c.fillStyle = body;
+    c.beginPath();
+    c.ellipse(x, y, w, w * 0.78, 0, 0, Math.PI * 2);
+    c.fill();
+    c.fillStyle = lit;
+    c.beginPath();
+    c.ellipse(x - w * 0.1, y - w * 0.3, w * 0.62, w * 0.42, 0, 0, Math.PI * 2);
     c.fill();
   }
 });

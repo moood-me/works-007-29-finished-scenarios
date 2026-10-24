@@ -9,7 +9,7 @@
   "light": {
     "ambient": 0.62,
     "ambientColor": "#aab3d2",
-    "bounce": 0.3,
+    "bounce": 0.15,
     "haze": 0.07,
     "hazeColor": "#e2d3cc",
     "hazeGlow": 0.2,
@@ -508,8 +508,8 @@
         "who": "governess",
         "turn": 166
       },
-      "across": -0.5,
-      "distance": 3.9
+      "across": -0.42,
+      "distance": 3.8
     },
     {
       "id": "flora",
@@ -519,8 +519,8 @@
         "who": "flora",
         "turn": 184
       },
-      "across": -1.02,
-      "distance": 3.75
+      "across": -0.92,
+      "distance": 3.66
     },
     {
       "id": "miles",
@@ -531,12 +531,12 @@
         "turn": 202,
         "does": "hands_behind"
       },
-      "across": 0.38,
-      "distance": 4.4
+      "across": 0.42,
+      "distance": 3.52
     }
   ],
   "state": {
-    "governess_look": "flora",
+    "governess_look": "miles",
     "governess_mood": "smile",
     "governess_reach": {
       "r": "flora#hand_l"
@@ -550,7 +550,11 @@
     "flora_reach": {
       "l": "governess#hand_r"
     },
-    "miles_look": "governess",
+    "miles_look": [
+      0,
+      0,
+      1.6
+    ],
     "miles_mood": "smile"
   },
   "music": {
