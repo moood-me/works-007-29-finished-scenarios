@@ -11,7 +11,7 @@ const TIE = F => ({ pts: [null, null, null], profile: [[0, 0.014 * F.fit.h], [1,
 const TASH = F => ({ r: [F.head.r * 0.17, F.head.r * 0.07, F.head.r * 0.07] });
 const GLASS_SIZES = F => ({
   axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
-  bowl: [0.036 * F.fit.h, 0.04 * F.fit.h, 0.036 * F.fit.h],
+  bowl: [0.034 * F.fit.h, 0.052 * F.fit.h, 0.034 * F.fit.h],
   wine: [0.035 * F.fit.h, 0.034 * F.fit.h, 0.035 * F.fit.h],
   foot: [0.03 * F.fit.h, 0.004 * F.fit.h, 0.03 * F.fit.h],
   stem: [[0, GLASS]],
@@ -25,13 +25,13 @@ return {
     // suit and a loud red tie, a glass of the judge's wine held at his chest
     traps: {
       kind: 'shapes', style: 'traps', who: 'man', garment: 'suit', hair: 'short', face: 'simple', parts: ['glass', 'tie'],
-      body: { height: 1, thick: 1.12, shoulders: 1, head: 1.02 },
+      body: { height: 1, thick: 1.12, shoulders: 0.88, hips: 1.14, head: 1.02 },
       colors: { skin: '#e9b58f', hair: '#2f231d', top: '#f4efe3', garment: '#c8aa7c', bottom: '#b49870', shoes: '#6b4128', accent: '#a8322d' },
     },
     // the judge, the host: small, old, bald with a white fringe and a white moustache, a black suit, a dark red bow tie
     judge: {
       kind: 'shapes', style: 'traps', who: 'old', garment: 'suit', hair: 'fringe', face: 'simple', parts: ['bowtie', 'moustache'],
-      body: { height: 0.85, thick: 1.02, shoulders: 0.94, head: 1.1 },
+      body: { height: 0.85, thick: 1.02, shoulders: 0.86, hips: 1.08, head: 1.1 },
       colors: { skin: '#f0c2a2', hair: '#f1eee7', top: '#f2eee6', garment: '#2e2a2e', bottom: '#2e2a2e', shoes: '#1c1a1a', accent: '#8e2230' },
     },
     // Zorn, the prosecutor: tall, thin, silver hair combed flat, a long black frock coat, a wine-red silk cravat
