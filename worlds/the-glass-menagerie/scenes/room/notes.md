@@ -14,12 +14,17 @@ story. No one moves but a look; no camera moves.
 - **Through the arch**: the portieres (`portiere`), the dining room's wall and sideboard (7.6), the table laid with a
   white cloth (6.6), the lamp hanging over it (`dining_lamp`, key `dining`).
 - **In the room**: the father's photograph over the daybed (`photo#face`), the daybed (`sofa`), the victrola in the
-  left corner, the floor lamp before the daybed (`floor_lamp`, key `lamp` — the main light, in front of the people so
-  their faces are lit), the glass menagerie on its whatnot (`shelf`; the unicorn at its near end, `shelf#unicorn`; the
-  glints are a layer the element's shader makes shine, uniform `shine`), the typewriter table by the door with a
+  left corner, the floor lamp at the daybed's right end before the portieres (`floor_lamp`, key `lamp` — the room's
+  warm light, kept out of the middle of the frame), the glass menagerie on its whatnot with a dark back (`shelf`; the
+  unicorn at its near end, `shelf#unicorn`; the glints and the lit edges of the glass are a layer the element's shader
+  makes shine — the brightest things in the room, uniform `shine`), the typewriter table by the door with a
   green-shaded lamp (`desk`, key `desk`).
-- **Light**: warm lamps inside; the neon's pink and green and the night's blue come in at the window (point lights
-  just outside it: `neon_pink`, `neon_green` by `neon`; `night`).
-- **People** (modules/cast, style `memory`): Laura by her glass, eyes lowered (`laura_look` a point before her);
-  Amanda before the daybed, hands clasped, watching Tom; Tom by the door, arms folded, looking out at the viewer — the
-  narrator. The showcase: the room; Tom and Amanda look up at the photograph; back.
+- **Light**: warm lamps inside, and `near` — a lamp on the viewer's side of the room, out of the frame, so the faces
+  read; the dining room's lamp reaches only that room (`dining`, reach 1.8: a longer reach darkened the strip of the
+  back wall above the picture rail — an engine matter, not mended here); the neon's pink and green and the night's
+  blue come in at the window (point lights just outside it: `neon_pink`, `neon_green` by `neon`; `night`).
+- **People** (modules/cast, style `memory`): Laura by her glass, holding the little glass deer (`laura_with:
+  ["deer"]`, a part that keeps its own light; `laura#deer`), eyes lowered past it (`laura_look` a point before her);
+  Amanda before the daybed, hands clasped, watching Tom; Tom in his shirtsleeves by the door (his overcoat on the
+  hook), arms folded, looking out at the viewer — the narrator. The showcase: the room; Tom and Amanda look up at the
+  photograph; back.

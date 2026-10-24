@@ -6,7 +6,7 @@ return [
     run: async s => {
       s.set('lamp', 1);
       s.set('neon', 1);
-      s.person('laura').look([-1.75, 2.8, 1.15]);
+      s.person('laura').look([-0.95, 2.5, 0.75]);
       s.person('amanda').look('tom');
       s.person('tom').look([0, 0, 1.7]);
       await s.wait(9);

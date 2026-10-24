@@ -1,8 +1,11 @@
-// Laura's glass menagerie: a light whatnot of dark wood with four glass shelves, the little glass animals on them —
+// Laura's glass menagerie: a light whatnot of dark wood with four glass shelves before a dark back, the little glass animals on them —
 // a swan, deer, cats, a dog, a fish, tiny bottles — and on the third shelf, a little apart, the unicorn (its point
 // `unicorn`). The glass itself is the painting's; where it catches the light is the layer `glints`, which the
 // element's shader makes shine and tremble (the brightest things in the room).
 const SH = [-0.42, -0.78, -1.14, -1.5];
+// the back: dark stained wood, so the glass before it shows as glass (pale, see-through, lit at its edges)
+g.fillStyle = '#2a1c16';
+g.fillRect(-0.37, -1.72, 0.74, 1.66);
 // the frame: four slim posts (two seen), the shelves' wooden rails, a fretwork crest
 g.fillStyle = '#3d2a1f';
 g.fillRect(-0.4, -1.72, 0.035, 1.72);
@@ -21,7 +24,7 @@ for (const y of SH) {
   g.fillStyle = 'rgba(236,246,250,0.8)';
   g.fillRect(-0.365, y + 0.012, 0.73, 0.008);
 }
-const glass = ['rgba(198,222,238,0.85)', 'rgba(228,206,236,0.85)', 'rgba(204,236,214,0.85)', 'rgba(240,226,190,0.85)'];
+const glass = ['rgba(198,222,238,0.65)', 'rgba(228,206,236,0.65)', 'rgba(204,236,214,0.65)', 'rgba(240,226,190,0.65)'];
 // a small creature: a body, a head on a neck, legs — glass-coloured, a lighter edge
 function creature(x, y, s, col, flip) {
   g.save();
@@ -87,7 +90,7 @@ g.fill();
 // shelf 3: two little horses — and the unicorn, apart from them, its horn catching the light
 creature(0.22, -1.14, 1.0, glass[3], true);
 creature(0.06, -1.14, 0.9, glass[1], false);
-creature(-0.2, -1.14, 1.1, 'rgba(236,244,250,0.92)', false);
+creature(-0.2, -1.14, 1.1, 'rgba(236,244,250,0.7)', false);
 g.strokeStyle = 'rgba(250,250,255,0.95)';
 g.lineWidth = 0.007;
 g.beginPath();
@@ -116,5 +119,16 @@ e.layer('glints', {}, c => {
   for (const y of SH) {
     c.fillRect(-0.3, y + 0.011, 0.2, 0.006);
     c.fillRect(0.12, y + 0.011, 0.12, 0.006);
+  }
+  // the lit edges of the bigger pieces: a thin bright line along each back and neck
+  c.strokeStyle = 'rgba(255,255,255,0.85)';
+  c.lineWidth = 0.006;
+  c.lineCap = 'round';
+  for (const [x, y, s, f] of [[0.22, -0.42, 1.1, -1], [-0.2, -0.78, 1.2, 1], [0.22, -1.14, 1.0, -1], [0.06, -1.14, 0.9, 1], [-0.2, -1.14, 1.1, 1], [0.02, -1.5, 1.0, -1]]) {
+    c.beginPath();
+    c.moveTo(x - f * 0.045 * s, y - 0.06 * s);
+    c.quadraticCurveTo(x, y - 0.08 * s, x + f * 0.035 * s, y - 0.07 * s);
+    c.lineTo(x + f * 0.058 * s, y - 0.115 * s);
+    c.stroke();
   }
 });
