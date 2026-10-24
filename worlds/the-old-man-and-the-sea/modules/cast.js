@@ -6,12 +6,12 @@ const smooth = (e0, e1, v) => { const u = Math.max(0, Math.min(1, (v - e0) / (e1
 return {
   ...data,
   characters: {
-    // Santiago: old, thin and gaunt, the skin burnt dark brown by the sun, short white hair, a faded blue shirt
+    // Santiago: old, thin and gaunt, the skin burnt dark brown by the sun, grey hair cropped close, a faded blue shirt
     // patched many times, old trousers rolled up, barefoot
     santiago: {
       kind: 'shapes', style: 'gulf', who: 'old', garment: 'none', hair: 'cropped', barefoot: 'both', parts: ['patches'],
       body: { height: 0.97, thick: 0.8, shoulders: 1.02, arms: 1.03 },
-      colors: { skin: '#8f5f43', hair: '#b9b4ab', top: '#8ea3ae', bottom: '#8d7f68', accent: '#a9b9bf' },
+      colors: { skin: '#8f5f43', hair: '#9d9890', top: '#8ea3ae', bottom: '#8d7f68', accent: '#a9b9bf' },
     },
     // Manolin, the boy: slight and quick, black hair, a white undershirt, dark shorts, barefoot
     manolin: {
@@ -31,10 +31,10 @@ return {
     // with a simple face (eyes, brows, nose, mouth) so the faces read
     styles: { gulf: { from: 'flat', name: 'The Gulf', line: 0.8, face: 'simple' } },
     hair: {
-      // an old man's hair cropped close: thin, the brow high, down over the temples and the nape
+      // an old man's hair cropped close, grey: thin, the brow high, down over the temples and the nape
       cropped: { name: 'cropped', draw: F => {
         const h = F.head;
-        F.shell(h.at, h.axes, h.egg.map(e => e * h.r * h.out * 1.03), a => 0.56 - 0.62 * smooth(0.5, 1.4, Math.abs(a)) - 0.3 * smooth(2, 2.8, Math.abs(a)), 0,
+        F.shell(h.at, h.axes, h.egg.map(e => e * h.r * h.out * 1.03), a => 0.5 - 0.7 * smooth(0.4, 1.4, Math.abs(a)) - 0.25 * smooth(2, 2.8, Math.abs(a)), 0,
           F.colors.hair, h.sides, h.square);
       } },
     },
