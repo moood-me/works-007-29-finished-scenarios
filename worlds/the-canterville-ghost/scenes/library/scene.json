@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Library",
   "caption": "Canterville Chase, past midnight. The bloodstain by the fireplace is back again.",
-  "horizon": 0.52,
+  "horizon": 0.4,
   "camera": {
     "mode": "picture"
   },
@@ -216,27 +216,27 @@
           0.16
         ],
         "source": [
-          0.06,
-          0.55,
-          0.02
+          0.12,
+          0.6,
+          0.04
         ],
         "amount": "fire",
         "size": [
-          0.13,
-          0.03
+          0.26,
+          0.06
         ],
-        "rate": 80,
+        "rate": 140,
         "speed": [
-          0.5,
-          1.1
+          0.35,
+          0.8
         ],
         "life": [
-          0.3,
-          0.7
+          0.4,
+          0.8
         ],
         "glow": [
-          2.2,
-          0.5
+          1.8,
+          0.4
         ]
       }
     },
