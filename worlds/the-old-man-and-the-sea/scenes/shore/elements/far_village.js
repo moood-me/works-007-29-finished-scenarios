@@ -42,7 +42,7 @@ for (let i = 0; i < 34; i++) {
   g.fill();
   g.fillStyle = '#4a3f36';
   g.fillRect(x + w * 0.3, y - 1.5, 0.6, 1.5);
-  if (i % 3 === 0) e.light(x + w * 0.3 + 0.3, y - 0.9, 1.2, '#ffc47e', 2, `w${i / 3}`);
+  if (i % 3 === 0) e.light(x + w * 0.3 + 0.3, y - 0.9, 1.8, '#ffc47e', 3, `w${i / 3}`);
 }
 // palms among them
 for (let i = 0; i < 26; i++) {

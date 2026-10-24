@@ -45,42 +45,41 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
   // the towers on the horizon: each heaped of soft puffs, its shaded foot violet-grey, its sunlit right side and top
   // cream; drawn again one width over, so the layer's two ends meet as it drifts
   const tower = (x, h, w) => {
-    // (puffs heaped from the foot up, narrowing; each in three tones — its shaded underside violet-grey, its body
-    // pale, its sunlit top right cream —, the edges a little soft)
-    g.filter = 'blur(0.005px)';
+    // (puffs heaped from the broad foot up, narrowing and smaller toward the top — a cauliflower, not a pillow; in three
+    // tones with crisp edges: the body violet-grey, the puffs over its shaded foot lit, their sunlit tops right cream)
+    const foot = H - 0.008;
     const puffs = [];
-    for (let i = 0; i < 30; i++) {
-      const u = Math.pow(e.rnd(), 0.8);
-      const r = w * (0.16 + 0.22 * (1 - u)) * (0.7 + 0.5 * e.rnd());
-      puffs.push([x + (e.rnd() - 0.5) * w * (1.9 - 1.1 * u), H - 0.008 - r * 0.3 - u * h, r]);
+    for (let i = 0; i < 32; i++) {
+      const u = Math.pow(e.rnd(), 0.75);
+      const r = w * (0.13 + 0.22 * (1 - u)) * (0.75 + 0.5 * e.rnd());
+      puffs.push([x + (e.rnd() - 0.5) * w * (2 - 1.3 * u), foot - r * 0.25 - u * h, r]);
     }
-    // (a cumulus's foot is flat: all of it cut off along one level line over the horizon)
+    const heap = (k, dx, dy, s, top) => {
+      g.beginPath();
+      for (const [cx, cy, r] of puffs) {
+        if (cy > top) continue;
+        g.moveTo(cx + k + r * dx + r * s, cy + r * dy);
+        g.arc(cx + k + r * dx, cy + r * dy, r * s, 0, Math.PI * 2);
+      }
+    };
     g.save();
+    // (a cumulus's foot is flat: all of it cut off along one level line over the horizon)
     g.beginPath();
-    g.rect(X0, Y0, W, H - 0.008 - Y0);
+    g.rect(X0, Y0, W, foot - Y0);
     g.clip();
     for (const k of [-W, 0, W]) {
-      for (const [cx, cy, r] of puffs) {
-        g.fillStyle = '#c3b6c4';
-        g.beginPath();
-        g.arc(cx + k, cy + r * 0.12, r, 0, Math.PI * 2);
-        g.fill();
-      }
-      for (const [cx, cy, r] of puffs) {
-        g.fillStyle = '#e2d4d4';
-        g.beginPath();
-        g.arc(cx + k + r * 0.12, cy - r * 0.08, r * 0.86, 0, Math.PI * 2);
-        g.fill();
-      }
-      for (const [cx, cy, r] of puffs) {
-        g.fillStyle = '#f6e5d4';
-        g.beginPath();
-        g.arc(cx + k + r * 0.3, cy - r * 0.25, r * 0.58, 0, Math.PI * 2);
-        g.fill();
-      }
+      heap(k, 0, 0.1, 1, foot);
+      g.fillStyle = '#b8abbd';
+      g.fill();
+      // (lit but for the puffs of its shaded foot, the light coming from the right)
+      heap(k, 0.1, -0.06, 0.9, foot - h * 0.22);
+      g.fillStyle = '#e4d6d5';
+      g.fill();
+      heap(k, 0.18, -0.13, 0.76, foot - h * 0.3);
+      g.fillStyle = '#f5e5d5';
+      g.fill();
     }
     g.restore();
-    g.filter = 'none';
   };
   tower(0.12, 0.13, 0.12);
   tower(0.72, 0.17, 0.13);

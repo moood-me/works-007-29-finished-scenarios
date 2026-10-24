@@ -1,6 +1,6 @@
 // The beach and the village's slope from above, metres (draped on the land): dry pale sand, darker and wet along the
 // water's edge, weed and driftwood left by the tide, the keel's furrow where the old man's skiff was drawn up, the
-// footprints of the morning; up the slope on the left the sand gives way to dry grass and scrub, and the pale road
+// footprints of the morning; up the slope on the left the sand gives way to dry grass and scrub, and the trodden road
 // climbs it to the village. The plane's centre is at across -50, distance 89: across = x - 50, distance = 89 - y.
 const { shore, land, WATER } = e.lib;
 const X = a => a + 50;
@@ -49,8 +49,8 @@ for (let i = 0; i < 260; i++) {
   g.fillStyle = e.rnd() < 0.6 ? '#5b5236' : '#8a7354';
   g.fillRect(X(a), Y(d), 0.08 + e.rnd() * 0.35, 0.03 + e.rnd() * 0.05);
 }
-// the road: from the beach up the slope to the village
-g.strokeStyle = 'rgba(230,214,184,0.6)';
+// the road: from the beach up the slope to the village, the sand trodden firm and a shade darker
+g.strokeStyle = 'rgba(184,164,128,0.3)';
 g.lineCap = 'round';
 g.lineWidth = 1.1;
 g.beginPath();
