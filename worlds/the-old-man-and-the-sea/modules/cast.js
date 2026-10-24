@@ -1,15 +1,17 @@
 // The people of «The Old Man and the Sea» as people in a scene (an element with "person"): who they are — figures of
 // shapes in this world's style, plain flat shapes in warm sun-faded colours lit by the scene's own light, with a simple
 // face so faces read — and what they move by (the motions in cast.data.json). cast.md says who is who.
+const V = () => MooodShapes.V;
+const smooth = (e0, e1, v) => { const u = Math.max(0, Math.min(1, (v - e0) / (e1 - e0))); return u * u * (3 - 2 * u); };
 return {
   ...data,
   characters: {
     // Santiago: old, thin and gaunt, the skin burnt dark brown by the sun, short white hair, a faded blue shirt
     // patched many times, old trousers rolled up, barefoot
     santiago: {
-      kind: 'shapes', style: 'gulf', who: 'old', garment: 'none', hair: 'short', barefoot: 'both',
+      kind: 'shapes', style: 'gulf', who: 'old', garment: 'none', hair: 'cropped', barefoot: 'both', parts: ['patches'],
       body: { height: 0.97, thick: 0.8, shoulders: 1.02, arms: 1.03 },
-      colors: { skin: '#8f5f43', hair: '#c4bfb5', top: '#8ea3ae', bottom: '#8d7f68' },
+      colors: { skin: '#8f5f43', hair: '#b9b4ab', top: '#8ea3ae', bottom: '#8d7f68', accent: '#a9b9bf' },
     },
     // Manolin, the boy: slight and quick, black hair, a white undershirt, dark shorts, barefoot
     manolin: {
@@ -28,5 +30,25 @@ return {
     // the world's style: the engine's flat geometry — straight edges, plain colours, the scene's light and shadows —
     // with a simple face (eyes, brows, nose, mouth) so the faces read
     styles: { gulf: { from: 'flat', name: 'The Gulf', line: 0.8, face: 'simple' } },
+    hair: {
+      // an old man's hair cropped close: thin, the brow high, down over the temples and the nape
+      cropped: { name: 'cropped', draw: F => {
+        const h = F.head;
+        F.shell(h.at, h.axes, h.egg.map(e => e * h.r * h.out * 1.03), a => 0.56 - 0.62 * smooth(0.5, 1.4, Math.abs(a)) - 0.3 * smooth(2, 2.8, Math.abs(a)), 0,
+          F.colors.hair, h.sides, h.square);
+      } },
+    },
+    parts: {
+      // the shirt patched so many times: squares of paler, less faded cloth sewn on the chest, the side and the back
+      patches: { name: 'patches', draw: F => {
+        const { add, sub, mul, mix, mean, unit, cross } = V(), on = F.worn, n = on[0].length, k = F.k;
+        for (const [ring, q, w, h] of [[0.55, n * 0.3, 0.05, 0.06], [1.45, n * 0.17, 0.045, 0.05], [0.8, n * 0.72, 0.06, 0.07]]) {
+          const i = Math.min(1, Math.floor(ring)), u = ring - i, j = Math.round(q) % n;
+          const p = mix(on[i][j], on[i + 1][j], u), out = unit(sub(p, mix(mean(on[i]), mean(on[i + 1]), u)));
+          const up = unit(sub(on[i][j], on[i + 1][j])), across = unit(cross(up, out));
+          F.ball(add(p, mul(out, 0.004 * k)), [across, up, out], [w * k, h * F.fit.h, 0.006 * k], F.colors.accent, 4, 6);
+        }
+      } },
+    },
   },
 };

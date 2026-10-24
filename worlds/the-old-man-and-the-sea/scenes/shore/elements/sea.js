@@ -1,9 +1,13 @@
 // The bay and the Gulf beyond it from above, metres, in their daylight colours (the scene's light makes the hour):
-// the deep water dark blue, almost violet; over the sandy bottom near the beach it is shallow and green-blue, lighter
-// toward the edge; streaks of the swell lie across it. The plane's centre is 1500 m out: distance = 1500 - y.
+// the deep water dark blue, almost violet, paling to the sky's blue toward the horizon; over the sandy bottom near
+// the beach it is shallow and green-blue, lighter toward the edge; streaks of the swell lie across it. The plane's
+// centre is 1500 m out: distance = 1500 - y.
 const { shore } = e.lib;
 const D = 1500;
-g.fillStyle = '#2e4277';
+// (toward the horizon the deep takes the sky's pale blue: water seen so low mirrors more of the sky than it shows)
+const deep = g.createLinearGradient(0, D - 40, 0, D - 3000);
+for (const [d, c] of [[0, '#2e4277'], [160, '#344a7f'], [560, '#4a5e8f'], [1460, '#7083a8'], [2960, '#99a3bf']]) deep.addColorStop(d / 2960, c);
+g.fillStyle = deep;
 g.fillRect(-4000, -1500, 8000, 3000);
 // the shallows: from the water's edge outward green-blue, darkening into the deep over twenty metres
 for (let a = -90; a < 70; a += 1) {
