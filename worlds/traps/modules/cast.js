@@ -22,13 +22,13 @@ return {
     // Alfredo Traps, forty-five, a travelling salesman lately risen: well fed, dark hair combed back, a new cream summer
     // suit and a loud red tie, a glass of the judge's wine held at his chest
     traps: {
-      kind: 'shapes', style: 'traps', who: 'man', garment: 'jacket', hair: 'short', face: 'simple', parts: ['glass', 'tie'],
+      kind: 'shapes', style: 'traps', who: 'man', garment: 'suit', hair: 'short', face: 'simple', parts: ['glass', 'tie'],
       body: { height: 1, thick: 1.06, shoulders: 1, head: 1.02 },
       colors: { skin: '#e9b58f', hair: '#2f231d', top: '#f4efe3', garment: '#c8aa7c', bottom: '#b49870', shoes: '#6b4128', accent: '#a8322d' },
     },
     // the judge, the host: small, old, bald with a white fringe and a white moustache, a black suit, a dark red bow tie
     judge: {
-      kind: 'shapes', style: 'traps', who: 'old', garment: 'jacket', hair: 'fringe', face: 'simple', parts: ['bowtie', 'moustache'],
+      kind: 'shapes', style: 'traps', who: 'old', garment: 'suit', hair: 'fringe', face: 'simple', parts: ['bowtie', 'moustache'],
       body: { height: 0.85, thick: 1.02, shoulders: 0.94, head: 1.1 },
       colors: { skin: '#f0c2a2', hair: '#f1eee7', top: '#f2eee6', garment: '#2e2a2e', bottom: '#2e2a2e', shoes: '#1c1a1a', accent: '#8e2230' },
     },
@@ -46,6 +46,8 @@ return {
     garments: {
       // a frock coat: from the shoulders to the knees, straight, no tatters
       frock: { name: 'frock coat', hang: [{ to: 0.95, from: 'shoulders', flare: 0.14, folds: false }], sleeves: 'garment' },
+      // a suit's jacket: close round the trunk, its hem at the top of the thighs, the trousers below it
+      suit: { name: 'suit jacket', hang: [{ to: 0.28, from: 'shoulders', flare: 0.03, off: 1.05, folds: false }], sleeves: 'garment' },
     },
     hair: {
       // a bald crown with a white fringe round the back and over the ears
