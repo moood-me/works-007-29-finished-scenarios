@@ -45,8 +45,8 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
   // the towers on the horizon: each heaped of soft puffs, its shaded foot violet-grey, its sunlit right side and top
   // cream; drawn again one width over, so the layer's two ends meet as it drifts
   const tower = (x, h, w) => {
-    // (puffs heaped from the broad foot up, narrowing and smaller toward the top — a cauliflower, not a pillow; each in
-    // three tones with crisp edges: its body violet-grey, lit above the shaded base, its sunlit top right cream)
+    // (puffs heaped from the broad foot up, narrowing and smaller toward the top — a cauliflower, not a pillow; in three
+    // tones with crisp edges: the body violet-grey, the puffs over its shaded foot lit, their sunlit tops right cream)
     const foot = H - 0.008;
     const puffs = [];
     for (let i = 0; i < 44; i++) {
@@ -54,9 +54,10 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
       const r = w * (0.08 + 0.24 * (1 - u)) * (0.6 + 0.7 * e.rnd());
       puffs.push([x + (e.rnd() - 0.5) * w * (2 - 1.3 * u), foot - r * 0.25 - u * h, r]);
     }
-    const heap = (k, dx, dy, s) => {
+    const heap = (k, dx, dy, s, top) => {
       g.beginPath();
       for (const [cx, cy, r] of puffs) {
+        if (cy > top) continue;
         g.moveTo(cx + k + r * dx + r * s, cy + r * dy);
         g.arc(cx + k + r * dx, cy + r * dy, r * s, 0, Math.PI * 2);
       }
@@ -67,21 +68,16 @@ e.layer('clouds', { drift: [0.0015, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g =>
     g.rect(X0, Y0, W, foot - Y0);
     g.clip();
     for (const k of [-W, 0, W]) {
-      heap(k, 0, 0.1, 1);
+      heap(k, 0, 0.1, 1, foot);
       g.fillStyle = '#b8abbd';
       g.fill();
-      // (lit above its shaded third, the light coming from the right)
-      g.save();
-      g.beginPath();
-      g.rect(X0, Y0, W, foot - h * 0.32 - Y0);
-      g.clip();
-      heap(k, 0.1, -0.06, 0.88);
+      // (lit but for the puffs of its shaded foot, the light coming from the right)
+      heap(k, 0.12, -0.08, 0.86, foot - h * 0.22);
       g.fillStyle = '#e4d6d5';
       g.fill();
-      heap(k, 0.3, -0.24, 0.56);
-      g.fillStyle = '#f7e7d6';
+      heap(k, 0.22, -0.18, 0.7, foot - h * 0.3);
+      g.fillStyle = '#f5e5d5';
       g.fill();
-      g.restore();
     }
     g.restore();
   };
