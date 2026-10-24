@@ -20,6 +20,7 @@ const GLASS_SIZES = F => ({
   wineAt: [0, 0.084 * F.fit.h, 0],
 });
 return {
+  ...data,
   characters: {
     // Alfredo Traps, forty-five, a travelling salesman lately risen: well fed, dark hair combed back, a new cream summer
     // suit and a loud red tie, a glass of the judge's wine held at his chest
