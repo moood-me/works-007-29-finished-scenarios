@@ -9,13 +9,13 @@ reads across the shed; a simple face (eyes, brows, nose, mouth — `<id>_mood` s
 
 ## Who
 
-- `niggle` — Niggle: a little roundish man past his middle years, untidy greying-brown hair, a dust-coloured painter's
+- `niggle` — Niggle: a little roundish man past his middle years, untidy greying-brown hair, a faded blue painter’s
   smock; his brush in the right hand (part `brush`).
-- `parish` — Parish, his neighbour: lean, lame, a cloth cap, a worn green-brown jacket; his ash stick in the right hand
-  (part `stick`, from the hand to the floor by the feet).
-- `mrs_parish` — Mrs Parish: small, ill, a kerchief, a faded rose house dress.
+- `parish` — Parish, his neighbour: lean, lame, a short moustache (part `moustache`), a cloth cap, a worn green-brown
+  jacket; his ash stick in the right hand (part `stick`, from the hand to the floor by the feet).
+- `mrs_parish` — Mrs Parish: small, ill, a pale kerchief (hat `kerchief`), a faded rose house dress.
 
 ## Motions (Kimodo)
 
 The engine's `stand` and `walk`, and: `hold_brush` — stands holding something small at chest height in the right hand,
-breathing (a loop); `lean_stick` — stands leaning on a stick in the right hand, the weight on the left leg (a loop).
+breathing (a loop).

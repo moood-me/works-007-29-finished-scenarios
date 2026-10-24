@@ -4,6 +4,15 @@
 // carries. A part's lengths are a man's metres times F.fit.h (the person's height as a share of a man's 1.76 m).
 const V = () => MooodShapes.V;
 const UP = [0, 1, 0];
+// Niggle's tufts: directions from the head's centre (side, up, forward) — over the ears, behind them, at the crown's back
+const TUFTS = [[0.97, 0.05, -0.05], [-0.97, 0.05, -0.05], [0.9, 0.35, -0.2], [-0.9, 0.35, -0.2], [0.7, 0.25, -0.7], [-0.7, 0.25, -0.7],
+  [0, 0.3, -0.97], [0.35, 0.75, -0.55], [-0.35, 0.75, -0.55]];
+const UNTIDY = F => ({
+  radii: F.head.egg.map(e => e * F.head.r * F.head.out),
+  pts: TUFTS.map(() => [null, null, null]),
+  profile: [[0, F.head.r * 0.36], [1, F.head.r * 0.24], [2, F.head.r * 0.03]],
+  colors: [[0, F.colors.hair]],
+});
 // Niggle's brush: a long pale handle out of the right fist along the forearm, a ferrule, a green-tipped head
 const BRUSH = F => {
   const h = F.fit.h;
@@ -14,12 +23,12 @@ const BRUSH = F => {
     tip: [[0, [0.32, 0.45, 0.27, 1]]],
   };
 };
-// Parish's stick: a plain ash stick with a crook, from under his right hand to the floor beside his right foot
+// Parish's stick: a plain pale ash stick with a crook, from under his right hand to the floor beside his right foot
 const STICK = F => {
   const h = F.fit.h;
   return {
     h,
-    wood: [[0, [0.36, 0.26, 0.17, 1]]],
+    wood: [[0, [0.52, 0.4, 0.28, 1]]],
     hook: [[0, 0.016 * h], [3, 0.015 * h]],
     curl: [null, null, null, null],
   };
@@ -27,33 +36,64 @@ const STICK = F => {
 return {
   ...data,
   characters: {
-    // Niggle: a little man, past his middle years, roundish, untidy greying-brown hair; a painter's smock gone the
-    // colour of dust over a shirt, old brown trousers; a brush in his right hand
+    // Niggle: a little man, past his middle years, roundish, untidy greying-brown hair; a painter's smock of faded
+    // blue linen to the thigh, old brown trousers; a brush in his right hand
     niggle: {
-      kind: 'shapes', style: 'niggle', who: 'man', garment: 'tunic', hair: 'short', face: 'simple', parts: ['brush'],
+      kind: 'shapes', style: 'niggle', who: 'man', garment: 'smock', hair: 'untidy', face: 'simple', parts: ['brush'],
       body: { height: 0.93, thick: 1.0, shoulders: 0.94, hips: 1.04 },
-      colors: { skin: '#e8bf9c', hair: '#8f7f6c', top: '#c4b9a2', garment: '#8c9486', bottom: '#5c4c3e', shoes: '#3b2d24' },
+      colors: { skin: '#e8bf9c', hair: '#7d6d5c', top: '#b9ae98', garment: '#4f6c96', bottom: '#5a4636', shoes: '#3b2d24' },
     },
-    // Parish: lean and weathered, a lame leg; a cloth cap, a worn green-brown jacket, a collarless shirt, patched
-    // trousers; his ash stick in his right hand
+    // Parish: lean and weathered, a lame leg, a short greying moustache; a cloth cap, a worn green-brown jacket, a
+    // collarless shirt, patched trousers; his ash stick in his right hand
     parish: {
       kind: 'shapes', style: 'niggle', who: 'man', garment: 'jacket', hair: 'short', hat: 'cap', face: 'simple',
-      parts: ['stick'],
+      parts: ['stick', 'moustache'],
       body: { height: 1.0, thick: 0.82, shoulders: 0.98 },
-      colors: { skin: '#d5a47f', hair: '#8a7a68', top: '#cdbfa5', garment: '#5f6447', bottom: '#4d4236', shoes: '#2e241d', hat: '#4a4134' },
+      colors: { skin: '#c9977a', hair: '#7e7466', top: '#cdbfa5', garment: '#5f6447', bottom: '#4d4236', shoes: '#2e241d', hat: '#4a4134' },
     },
     // Mrs Parish: small, ill since summer; a kerchief over her hair, a faded rose house dress
     mrs_parish: {
-      kind: 'shapes', style: 'niggle', who: 'woman', garment: 'dress', hair: 'bun', hood: true, face: 'simple',
+      kind: 'shapes', style: 'niggle', who: 'woman', garment: 'dress', hair: 'bun', hat: 'kerchief', face: 'simple',
       body: { height: 0.9, thick: 0.8, shoulders: 0.86, hips: 0.98 },
-      colors: { skin: '#e6c0a4', hair: '#8c7666', top: '#a9838a', garment: '#a9838a', shoes: '#4a3b36' },
+      colors: { skin: '#e6c0a4', hair: '#8c7666', top: '#a9838a', garment: '#a9838a', shoes: '#4a3b36', hat: '#d8cfbd' },
     },
   },
   shapes: {
     // the world's style: the engine's soft figures (rounded shapes, tinted lines) toned by the light, the head a little
     // big, so a face reads across the shed, a simple face (eyes, brows, nose, mouth: <id>_mood shows on it)
     styles: { niggle: { from: 'soft', name: 'Leaf by Niggle', head: 1.35, neck: 0.6, line: 1.6, paint: 'toned', face: 'simple' } },
+    garments: {
+      // a painter's smock: loose from the shoulders to the thigh, long sleeves
+      smock: { name: 'smock', hang: [{ to: 0.6, from: 'shoulders', flare: 0.1 }], sleeves: 'garment' },
+    },
+    hair: {
+      // untidy: thin on the crown, a fluff of tufts sticking out over the ears and round the back
+      untidy: { name: 'untidy', draw: F => {
+        const { add, mul, unit, cross } = V(), h = F.head, [hs, hu, hf] = h.axes, rh = h.r, K = F.keep(UNTIDY);
+        F.cap(h.at, h.axes, K.radii, [0, 0.62, -0.78], -0.12, F.colors.hair, h.sides, h.square);
+        TUFTS.forEach((d, i) => {
+          const v = unit(add(add(mul(hs, d[0]), mul(hu, d[1])), mul(hf, d[2]))), base = add(h.at, mul(v, rh * 0.85)), p = K.pts[i];
+          p[0] = base;
+          p[1] = add(base, mul(v, rh * 0.32));
+          p[2] = add(base, add(mul(v, rh * 0.52), mul(hu, -rh * 0.1)));
+          F.tube(p, K.profile, K.colors, 8, unit(cross(v, hf)), 0.5);
+        });
+      } },
+    },
+    hats: {
+      // a kerchief over the hair, tied at the nape
+      kerchief: { name: 'kerchief', draw: F => {
+        const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
+        F.cap(at, axes, egg.map(e => e * r * out * 1.08), [0, 0.7, -0.72], -0.05, F.colors.hat, sides, square);
+        F.ball(add(at, add(mul(hu, -r * 0.45), mul(hf, -r * 1.02))), axes, [r * 0.22, r * 0.16, r * 0.14], F.colors.hat, 10);
+      } },
+    },
     parts: {
+      // a short moustache under the nose (the colour of the hair)
+      moustache: { name: 'moustache', draw: F => {
+        const { axes, r, on } = F.head;
+        F.ball(on([0, -0.24, 0.97], 1.0), axes, [r * 0.27, r * 0.07, r * 0.06], F.colors.hair, 10);
+      } },
       brush: {
         name: 'brush',
         draw: F => {

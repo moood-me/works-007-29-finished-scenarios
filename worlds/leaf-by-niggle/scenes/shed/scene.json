@@ -501,8 +501,7 @@
       "person": {
         "cast": "cast",
         "who": "parish",
-        "turn": 215,
-        "does": "lean_stick"
+        "turn": 215
       },
       "across": 1.35,
       "distance": 5.9
