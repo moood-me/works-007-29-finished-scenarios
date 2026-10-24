@@ -1,5 +1,5 @@
 // The right wall (its x runs toward the viewer: -2.75 at the back wall, 2.75 at the front): limewash, a dark
-// skirting, a calendar on a nail and a coat on a peg; nearer, the door to the passage.
+// skirting, a calendar on a nail and a coat on a peg.
 g.fillStyle = '#e8dec8';
 g.fillRect(-2.75, -2.52, 5.5, 2.54);
 g.save();
@@ -34,19 +34,3 @@ g.lineTo(-1.2, -0.67);
 g.lineTo(-1.22, -1.15);
 g.quadraticCurveTo(-1.25, -1.75, -1.45, -1.8);
 g.fill();
-// the door to the passage: old planks, a latch
-g.fillStyle = '#6b4a2f';
-g.fillRect(-0.6, -2.0, 0.85, 2.0);
-g.strokeStyle = '#4b321f';
-g.lineWidth = 0.012;
-for (let x = -0.6 + 0.17; x < 0.25; x += 0.17) {
-  g.beginPath();
-  g.moveTo(x, -2.0);
-  g.lineTo(x, 0);
-  g.stroke();
-}
-g.fillStyle = '#4b321f';
-g.fillRect(-0.6, -1.7, 0.85, 0.06);
-g.fillRect(-0.6, -0.4, 0.85, 0.06);
-g.fillStyle = '#2b2520';
-g.fillRect(0.08, -1.05, 0.1, 0.025);
