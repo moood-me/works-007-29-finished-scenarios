@@ -47,7 +47,7 @@ return {
     // with a simple face (the world's own `bly`: eyes, brows, nose, mouth, drawn bold) so the faces read
     styles: {
       bly: {
-        from: 'flat', name: 'Bly', line: 0.7, face: 'bly', head: 1.02, neck: 0.75, rigid: false, arms: 'bly', feet: 'bly',
+        from: 'flat', name: 'Bly', line: 0.7, face: 'bly', head: 1.02, neck: 0.5, rigid: false, arms: 'bly', feet: 'bly',
       },
     },
     // limbs that taper as a body's do — the upper arm to the wrist, a small hand; the thigh to the knee, the calf, a
