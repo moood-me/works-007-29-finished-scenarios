@@ -27,5 +27,7 @@ the waistcoat and shirt front (`top`). `bowler` — a round crown high on the he
 
 ## Motions (Kimodo)
 
-The engine's `stand` and `walk`, and: `hold` — stands holding a small thing in both hands at the chest, a loop;
-`hands_behind` — stands with the hands clasped behind the back, a loop.
+The engine's `stand` and `walk`, and the world's own, made for these people (make_motion), each a loop:
+`hold` — Nora's: stands light on her feet holding a small thing in both hands at the chest, shifting her weight;
+`hands_behind` — Torvald's: stands upright, chest out, the hands clasped behind the back;
+`hunched` — Krogstad's: stands still, a little hunched, head forward, arms hanging, watching.

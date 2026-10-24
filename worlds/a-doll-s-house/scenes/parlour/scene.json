@@ -556,7 +556,8 @@
       "person": {
         "cast": "cast",
         "who": "krogstad",
-        "turn": 200
+        "turn": 200,
+        "does": "hunched"
       },
       "across": 0.75,
       "distance": 9.1
