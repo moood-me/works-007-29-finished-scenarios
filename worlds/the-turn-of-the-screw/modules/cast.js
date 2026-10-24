@@ -22,11 +22,11 @@ return {
   ...data,
   characters: {
     // the governess: twenty, a country parson's youngest daughter; slight, upright; brown hair in a bun; a plain
-    // slate-grey gown to the ground with long sleeves, a narrow white collar, a darker band at the waist
+    // slate-grey gown to the ground with long sleeves, a narrow white collar
     governess: {
-      kind: 'shapes', style: 'bly', who: 'woman', garment: 'gown', hair: 'bun', face: 'bly', parts: ['collar', 'sash'],
+      kind: 'shapes', style: 'bly', who: 'woman', garment: 'gown', hair: 'bun', face: 'bly', parts: ['collar'],
       body: { height: 0.93, shoulders: 0.86, hips: 1.02, thick: 0.78 },
-      colors: { skin: '#ecc8a8', hair: '#5a3a26', top: '#4e5262', garment: '#4e5262', bottom: '#4e5262', shoes: '#2a2624', accent: '#383b47' },
+      colors: { skin: '#ecc8a8', hair: '#5a3a26', top: '#4e5262', garment: '#4e5262', bottom: '#4e5262', shoes: '#2a2624' },
     },
     // Flora, eight: fair hair loose to the shoulders, a white frock to the knees with a pale blue sash, white stockings
     flora: {
