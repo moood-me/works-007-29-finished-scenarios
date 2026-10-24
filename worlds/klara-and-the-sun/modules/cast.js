@@ -38,7 +38,7 @@ return {
       // Klara's plain dress: a straight shift to the knee, short sleeves, over tights (the legs the bottom's colour)
       shift: { name: 'shift dress', hang: [{ to: 1.1, from: 'waist', flare: 0.2, off: 0.94 }], short: true, bodice: true },
       // the Mother's work jacket: fitted, straight, to the hip
-      blazer: { name: 'blazer', hang: [{ to: 0.36, from: 'shoulders', flare: 0, off: 0.94, folds: false }], sleeves: 'garment' },
+      blazer: { name: 'blazer', hang: [{ to: 0.38, from: 'shoulders', flare: 0, off: 1.0, folds: false }], sleeves: 'garment' },
     },
     parts: {
       // Josie's sketchbook: a stiff pad lying level in her lap under her hands, its pages the look's accent
