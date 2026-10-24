@@ -55,24 +55,24 @@ g.lineTo(1.52, -3.22);
 g.lineTo(1.43, -3.24);
 g.closePath();
 g.fill();
-// the forest behind the tree, only begun: at the right, grey-green crowns washed in over pencilled trunks
-for (let i = 0; i < 11; i++) {
-  const x = 0.35 + e.rnd() * 1.6;
-  const y = -1.95 - e.rnd() * 0.45;
-  const h = 0.18 + e.rnd() * 0.3;
+// the forest behind the tree, only begun: at the right, grey-green crowns washed in (a few soft rounds each) over
+// pencilled trunks
+for (let i = 0; i < 9; i++) {
+  const x = 0.4 + e.rnd() * 1.5;
+  const y = -1.9 - e.rnd() * 0.4;
+  const r = 0.09 + e.rnd() * 0.07;
   g.strokeStyle = 'rgba(100,96,86,0.5)';
   g.lineWidth = 0.007;
   g.beginPath();
-  g.moveTo(x, y + 0.2);
-  g.lineTo(x, y - h * 0.4);
+  g.moveTo(x, y + 0.25);
+  g.lineTo(x, y - r);
   g.stroke();
-  g.fillStyle = `rgba(${104 + e.rnd() * 30},${124 + e.rnd() * 25},${98 + e.rnd() * 20},0.4)`;
-  g.beginPath();
-  g.moveTo(x - h * 0.28, y);
-  g.quadraticCurveTo(x - h * 0.3, y - h * 0.8, x, y - h);
-  g.quadraticCurveTo(x + h * 0.3, y - h * 0.8, x + h * 0.28, y);
-  g.quadraticCurveTo(x, y + h * 0.12, x - h * 0.28, y);
-  g.fill();
+  g.fillStyle = `rgba(${104 + e.rnd() * 30},${124 + e.rnd() * 25},${98 + e.rnd() * 20},0.3)`;
+  for (let k = 0; k < 4; k++) {
+    g.beginPath();
+    g.arc(x + (e.rnd() - 0.5) * r * 1.4, y - r * (0.4 + e.rnd() * 1.1), r * (0.6 + e.rnd() * 0.4), 0, Math.PI * 2);
+    g.fill();
+  }
 }
 // at the left, only pencil: a few far trunks, upright strokes
 g.strokeStyle = 'rgba(110,104,92,0.45)';
@@ -102,75 +102,85 @@ for (let i = 0; i < 7; i++) {
   g.closePath();
   g.fill();
 }
-// the trunk: a wash of grey-brown up its lower part, flaring into roots; the pencil contour all the way up and out
-// into the branches and their twigs
-g.fillStyle = 'rgba(128,112,92,0.5)';
-g.beginPath();
-g.moveTo(-0.62, Y1);
-g.quadraticCurveTo(-0.3, -0.55, -0.26, -0.9);
-g.bezierCurveTo(-0.22, -1.25, -0.24, -1.5, -0.2, -1.72);
-g.lineTo(0.0, -1.72);
-g.bezierCurveTo(0.02, -1.45, 0.0, -1.2, 0.04, -0.9);
-g.quadraticCurveTo(0.08, -0.55, 0.42, Y1);
-g.closePath();
-g.fill();
-const branches = [
-  [-0.12, -1.7, -0.75, -2.15, -1.55, -2.55],
-  [-0.14, -1.72, -0.35, -2.55, -0.95, -3.25],
-  [-0.1, -1.75, -0.18, -2.6, 0.08, -3.4],
-  [-0.08, -1.7, 0.35, -2.25, 0.95, -2.95],
-  [-0.06, -1.66, 0.6, -1.75, 1.45, -2.2],
-  [-0.16, -1.62, -0.7, -1.62, -1.45, -1.85],
-];
-const at = (b, u) => [
-  (1 - u) * (1 - u) * b[0] + 2 * (1 - u) * u * b[2] + u * u * b[4],
-  (1 - u) * (1 - u) * b[1] + 2 * (1 - u) * u * b[3] + u * u * b[5],
-];
-g.strokeStyle = 'rgba(92,86,76,0.85)';
-g.lineCap = 'round';
-g.lineWidth = 0.012;
-g.beginPath();
-g.moveTo(-0.62, Y1);
-g.quadraticCurveTo(-0.3, -0.55, -0.26, -0.9);
-g.bezierCurveTo(-0.22, -1.25, -0.24, -1.5, -0.2, -1.72);
-g.moveTo(0.42, Y1);
-g.quadraticCurveTo(0.08, -0.55, 0.04, -0.9);
-g.bezierCurveTo(0.0, -1.2, 0.02, -1.45, 0.0, -1.72);
-for (const b of branches) {
-  g.moveTo(b[0], b[1]);
-  g.quadraticCurveTo(b[2], b[3], b[4], b[5]);
-  g.moveTo(b[0] + 0.05, b[1] + 0.02);
-  g.quadraticCurveTo(b[2] + 0.04, b[3] + 0.05, b[4] + 0.01, b[5] + 0.02);
-}
-g.stroke();
-g.lineWidth = 0.007;
-g.beginPath();
-for (const b of branches) {
-  for (const u of [0.45, 0.65, 0.85]) {
-    const [x, y] = at(b, u);
-    const a = Math.atan2(b[5] - b[1], b[4] - b[0]) + (e.rnd() < 0.5 ? -0.7 : 0.7);
-    const l = 0.18 + e.rnd() * 0.22;
-    g.moveTo(x, y);
-    g.quadraticCurveTo(x + Math.cos(a) * l * 0.6, y + Math.sin(a) * l * 0.4, x + Math.cos(a) * l, y + Math.sin(a) * l - 0.05);
+// the Tree: a trunk washed grey-brown, flaring into roots, branching and branching again into twigs — each limb a
+// tapering wash with its pencil contour; the leaves at the twigs' ends, most only drawn, those round the finished leaf
+// washed in autumn greens and golds (Niggle has worked outward from it)
+const WASH = 'rgba(126,108,88,0.5)';
+const PENCIL = 'rgba(86,78,68,0.8)';
+const joints = [];
+const tips = [];
+const limb = (x, y, a, len, w, depth) => {
+  const bend = (e.rnd() - 0.5) * 0.4;
+  const ex = x + Math.cos(a + bend) * len;
+  const ey = y + Math.sin(a + bend) * len;
+  const mx = x + Math.cos(a + bend * 0.3) * len * 0.5;
+  const my = y + Math.sin(a + bend * 0.3) * len * 0.5;
+  const w2 = w * 0.6;
+  const nx = -Math.sin(a);
+  const ny = Math.cos(a);
+  const wm = (w + w2) / 4;
+  g.beginPath();
+  g.moveTo(x + nx * w / 2, y + ny * w / 2);
+  g.quadraticCurveTo(mx + nx * wm, my + ny * wm, ex + nx * w2 / 2, ey + ny * w2 / 2);
+  g.lineTo(ex - nx * w2 / 2, ey - ny * w2 / 2);
+  g.quadraticCurveTo(mx - nx * wm, my - ny * wm, x - nx * w / 2, y - ny * w / 2);
+  g.fillStyle = WASH;
+  g.fill();
+  g.strokeStyle = PENCIL;
+  g.lineWidth = Math.max(0.004, Math.min(0.01, w * 0.12));
+  g.stroke();
+  joints.push([ex, ey]);
+  if (depth === 0) {
+    tips.push([ex, ey, a + bend]);
+    return;
   }
+  const n = depth > 2 ? 3 : 2 + (e.rnd() < 0.5 ? 1 : 0);
+  for (let k = 0; k < n; k++) {
+    const spread = n === 3 ? (k - 1) * 0.55 : (k - 0.5) * 0.8;
+    limb(ex, ey, a + bend + spread + (e.rnd() - 0.5) * 0.3, len * (0.68 + e.rnd() * 0.14), w2, depth - 1);
+  }
+};
+// the roots: a few strokes spreading over the canvas's foot
+g.lineCap = 'round';
+for (const [rx, ry] of [[-0.75, -0.42], [-0.45, -0.46], [0.3, -0.45], [0.6, -0.42]]) {
+  g.strokeStyle = PENCIL;
+  g.lineWidth = 0.008;
+  g.beginPath();
+  g.moveTo(-0.1 + rx * 0.2, -0.75);
+  g.quadraticCurveTo(-0.1 + rx * 0.5, -0.5, -0.1 + rx, ry);
+  g.stroke();
 }
+limb(-0.1, Y1, -Math.PI / 2, 1.2, 0.36, 0);
+tips.length = 0;
+const [fx, fy] = joints[0];
+limb(fx, fy, -Math.PI / 2 - 0.5, 0.62, 0.21, 4);
+limb(fx, fy, -Math.PI / 2 + 0.05, 0.6, 0.22, 4);
+limb(fx, fy, -Math.PI / 2 + 0.6, 0.6, 0.2, 4);
+// the finished leaf's stalk: from the nearest joint of a limb to its base
+const LEAF = [0.08, -2.02];
+let near = joints[0];
+for (const j of joints) if (Math.hypot(j[0] - LEAF[0], j[1] - LEAF[1]) < Math.hypot(near[0] - LEAF[0], near[1] - LEAF[1])) near = j;
+g.strokeStyle = PENCIL;
+g.lineWidth = 0.008;
+g.beginPath();
+g.moveTo(near[0], near[1]);
+g.quadraticCurveTo((near[0] + LEAF[0]) / 2, Math.min(near[1], LEAF[1]) - 0.05, LEAF[0] - 0.04, LEAF[1] + 0.01);
 g.stroke();
-// the leaves: clusters at the branches' ends and along them — most a pencil outline, some washed in
 const greens = ['rgba(112,138,90,0.85)', 'rgba(142,160,107,0.85)', 'rgba(167,168,110,0.85)', 'rgba(181,154,92,0.8)', 'rgba(150,120,80,0.75)'];
-for (const b of branches) {
-  for (let k = 0; k < 30; k++) {
-    const [px, py] = at(b, 0.35 + e.rnd() * 0.7);
-    const bx = px + (e.rnd() - 0.5) * 0.5;
-    const by = py + (e.rnd() - 0.5) * 0.45;
-    const len = 0.07 + e.rnd() * 0.06;
-    const a = e.rnd() * Math.PI * 2;
-    if (e.rnd() < 0.4) L.leaf(g, bx, by, len, a, greens[Math.floor(e.rnd() * greens.length)], 'rgba(70,80,55,0.5)');
+for (const [tx, ty, ta] of tips) {
+  const washed = Math.hypot(tx - LEAF[0], ty - LEAF[1]) < 0.9 ? 0.7 : 0.18;
+  for (let k = 0; k < 6; k++) {
+    const bx = tx + (e.rnd() - 0.5) * 0.22;
+    const by = ty + (e.rnd() - 0.5) * 0.2;
+    const len = 0.06 + e.rnd() * 0.05;
+    const a = ta + (e.rnd() - 0.5) * 2.4;
+    if (e.rnd() < washed) L.leaf(g, bx, by, len, a, greens[Math.floor(e.rnd() * greens.length)], 'rgba(70,80,55,0.5)');
     else {
       g.save();
       g.translate(bx, by);
       g.rotate(a);
       g.strokeStyle = 'rgba(100,94,84,0.6)';
-      g.lineWidth = 0.006;
+      g.lineWidth = 0.005;
       g.beginPath();
       g.moveTo(0, 0);
       g.bezierCurveTo(len * 0.3, -len * 0.32, len * 0.75, -len * 0.22, len, 0);
@@ -182,7 +192,7 @@ for (const b of branches) {
 }
 // THE leaf: finished, glowing green-gold, every vein; the drop at its tip
 g.save();
-g.translate(0.08, -2.02);
+g.translate(LEAF[0], LEAF[1]);
 g.rotate(-0.45);
 const len = 0.46;
 const grad = g.createLinearGradient(0, -0.12, 0, 0.12);
@@ -226,11 +236,11 @@ g.beginPath();
 g.ellipse(len * 0.86, len * 0.1, 0.018, 0.022, 0, 0, Math.PI * 2);
 g.fill();
 g.restore();
-e.at(0.08 + Math.cos(-0.45) * 0.23, -2.02 + Math.sin(-0.45) * 0.23, 'leaf');
+e.at(LEAF[0] + Math.cos(-0.45) * 0.23, LEAF[1] + Math.sin(-0.45) * 0.23, 'leaf');
 g.restore();
 // its glint: a tiny bright highlight on the drop, a layer that trembles
-const dx = 0.08 + Math.cos(-0.45) * len * 0.86 - Math.sin(-0.45) * len * 0.1;
-const dy = -2.02 + Math.sin(-0.45) * len * 0.86 + Math.cos(-0.45) * len * 0.1;
+const dx = LEAF[0] + Math.cos(-0.45) * len * 0.86 - Math.sin(-0.45) * len * 0.1;
+const dy = LEAF[1] + Math.sin(-0.45) * len * 0.86 + Math.cos(-0.45) * len * 0.1;
 e.layer('dew', { flicker: 0.5, blend: 'add', box: [dx - 0.04, dy - 0.04, dx + 0.04, dy + 0.04] }, l => {
   l.fillStyle = 'rgba(255,255,240,0.9)';
   l.beginPath();
