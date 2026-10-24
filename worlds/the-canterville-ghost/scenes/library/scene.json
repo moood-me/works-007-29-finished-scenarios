@@ -53,8 +53,8 @@
     },
     {
       "id": "ghost",
-      "across": 1.0,
-      "distance": 3.1,
+      "across": 0.95,
+      "distance": 2.75,
       "elevation": 1.6,
       "color": "#bdf0df",
       "strength": 2.0,
@@ -334,8 +334,8 @@
         "turn": 150,
         "does": "clasped"
       },
-      "across": -0.3,
-      "distance": 4.1
+      "across": -0.35,
+      "distance": 3.7
     },
     {
       "id": "simon",
@@ -346,8 +346,8 @@
         "turn": 205,
         "does": "loom"
       },
-      "across": 1.35,
-      "distance": 3.7
+      "across": 1.25,
+      "distance": 3.35
     },
     {
       "id": "otis",
@@ -359,7 +359,7 @@
         "does": "offer"
       },
       "across": -2.3,
-      "distance": 5.25
+      "distance": 4.9
     }
   ],
   "music": {
