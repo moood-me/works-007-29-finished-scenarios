@@ -9,5 +9,5 @@ const side = Math.min(1, Math.max(0, (across + 12) / 24));
 const rise = 60 * (1 - Math.exp(-(Math.max(0, distance - 22) * side * 0.12) / 60));
 const roll = 0.5 * anim.noise(across * 0.05 + distance * 0.03, 2) * anim.span(distance, 8, 30);
 const near = anim.span(distance, 1.2, 3) * Math.max(1 - anim.span(distance, 3.2, 4.4), 1 - anim.span(across, -4, -2)) * (1 - anim.span(distance, 30, 40));
-const drifts = near * (0.09 * anim.noise(distance * 0.45 + across * 0.08, 7) + 0.05 * anim.noise(across * 0.3 - distance * 0.2, 9));
+const drifts = near * (0.2 * anim.noise(distance * 0.3 + across * 0.06, 7) + 0.1 * anim.noise(across * 0.22 - distance * 0.15, 9));
 return rise + roll + drifts - fall;

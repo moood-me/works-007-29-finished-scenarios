@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The School",
   "caption": "Three hours up from El Ameur, on foot, through the snow.",
-  "horizon": 0.48,
+  "horizon": 0.55,
   "camera": {
     "mode": "picture"
   },
@@ -10,7 +10,7 @@
     "ambient": 0.58,
     "ambientColor": "#bccdee",
     "bounce": 0.55,
-    "haze": 0.11,
+    "haze": 0.085,
     "hazeColor": "#c6d6e8",
     "hazeGlow": 0.3,
     "shafts": 0,
