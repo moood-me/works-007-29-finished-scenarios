@@ -5,8 +5,8 @@
 const { shore } = e.lib;
 const D = 1500;
 // (toward the horizon the deep takes the sky's pale blue: water seen so low mirrors more of the sky than it shows)
-const deep = g.createLinearGradient(0, D - 40, 0, D - 3000);
-for (const [d, c] of [[0, '#2e4277'], [160, '#344a7f'], [560, '#4a5e8f'], [1460, '#7083a8'], [2960, '#99a3bf']]) deep.addColorStop(d / 2960, c);
+const deep = g.createLinearGradient(0, D, 0, D - 3000);
+for (const [d, c] of [[35, '#2e4277'], [70, '#3a4f86'], [140, '#4c6193'], [320, '#6577a2'], [900, '#8391b3'], [3000, '#a3abc4']]) deep.addColorStop(d / 3000, c);
 g.fillStyle = deep;
 g.fillRect(-4000, -1500, 8000, 3000);
 // the shallows: from the water's edge outward green-blue, darkening into the deep over twenty metres
