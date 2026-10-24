@@ -113,7 +113,7 @@
       "name": "The field",
       "plane": true,
       "across": 0,
-      "distance": 205,
+      "distance": 206.2,
       "width": 500,
       "depth": 400
     },
@@ -818,9 +818,9 @@
       "plane": true,
       "inside": true,
       "across": 2.95,
-      "distance": 4.6,
+      "distance": 4.55,
       "width": 1.1,
-      "depth": 3.4
+      "depth": 3.3
     },
     {
       "id": "headboard",
@@ -907,7 +907,7 @@
       "person": {
         "cast": "cast",
         "who": "josie",
-        "turn": 165,
+        "turn": 125,
         "does": "drawing"
       },
       "across": -1.55,
