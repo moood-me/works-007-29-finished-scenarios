@@ -15,11 +15,12 @@ standing. No motion of people, no camera moves.
   whitewashed `front` (the classroom's door at x −2.4, windows), the right `gable`, the snowy tiled `roof` (a plane,
   tilt 24), the `chimney` (its smoke the particles `smoke`), the `terrace` (a walk plane at 0.45 m), its front and its left end (`terrace_end`), the
   grain `shed` with its sacks at the left end and its lean-to roof.
-- **People** (cast: modules/cast). Daru at the terrace's left end by the door, nearest the viewer, hands behind his
-  back (`hands_behind`), not looking at them — down the slope where the boy ran (`daru_look`: a point of the land); by
-  the shed Balducci, turned to Daru, his left hand on his hip (`hands_on_hips`), his right back holding the rope
-  (`balducci_reach`), and the Arab a step behind him, his wrists tied (`hands_bound`, the part `bonds`), staring at
-  Daru. `rope`: one painted rope laid each frame by its animate from `balducci#hand_r` to `arab#bonds`.
+- **People** (cast: modules/cast; their motions made for them, cast.md). Daru at the terrace's left end by the door,
+  nearest the viewer, turned three-quarters to the slope, hands behind his back (`hands_behind`), not looking at them —
+  down the slope where the boy ran (`daru_look`: a point of the land); by the shed Balducci, turned to Daru, the rope
+  in his right hand at his side (`hold_rope`), and the Arab a step behind him, his wrists tied (`hands_bound`, the part
+  `bonds`), staring at Daru. `rope`: one painted rope laid each frame by its animate from `balducci#hand_r` to
+  `arab#bonds` — a card: right from the starting viewpoint only (seen close from elsewhere it parts from the hands).
 - **What moves.** The people breathing, the grass tufts (`tufts`, copies) in the wind, the chimney's smoke, the high
   cloud drifting, the horse's breath (`breath`: bursts from `horse#muzzle` by its animate).
 - **Frame.** `horizon` 0.55: the sky over a third of the frame, the snow before the people kept short; the sky's
