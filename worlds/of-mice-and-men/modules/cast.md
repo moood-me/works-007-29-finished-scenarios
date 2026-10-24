@@ -5,13 +5,13 @@ data (`cast.data.json`) holds the motions, written there by `put_motion`.
 
 ## Style
 
-`dust` — the engine's flat geometry (`flat`), its limbs heavier: straight edges, plain colours, the light and the shadows the scene's, a
-fine line; the face `simple` — eyes, brows, a nose, a mouth, so that a face reads across a fire and takes `<id>_mood`.
+`dust` — the engine's flat geometry (`flat`), its limbs heavier: straight edges, plain colours, the light and the
+shadows the scene's, a fine line; the face `simple` — eyes, brows, a nose, a mouth, so that a face reads across a fire and takes `<id>_mood`.
 
 ## Who
 
-- `george` — George Milton: small and quick, a dark face, sharp features; a short denim jacket (`denim`), denim trousers, a black
-  shapeless hat (`slouch`: its brim pushed back off the brow, the face seen under it).
+- `george` — George Milton: small and quick, a dark face, sharp features; a short denim jacket (`denim`: to the hips), denim
+  trousers, a black shapeless hat (`slouch`: its brim pushed back off the brow, the face seen under it).
 - `lennie` — Lennie Small: huge, pale, shapeless of face, sloping shoulders, long heavy arms; the same denim and hat.
 
 ## Motions (Kimodo)
