@@ -5,7 +5,7 @@ Chilean mail just in, the field's floodlights on, Roblet in front of the gate wi
 packed, Robineau with his folder, Rivière looking at the old man's hands. People only stand (their loops); no camera
 moves.
 
-- **Where things are.** Camera `picture` from the edge of the concrete apron (`apron`, a plane 1…21 m ahead). The
+- **Where things are.** Camera `picture` (the gaze lowered a little, `look` 0.08, so the three stand whole) from the edge of the concrete apron (`apron`, a plane 1…21 m ahead). The
   hangar (`hangar`, an unseen anchor at across 7.5, distance 18, turned 16° toward the viewer) is built of cards on it:
   `hangar_front` (corrugated iron, arched top, the gate's opening x ±6.2 × 6.4 m left empty; the sliding leaves pushed
   aside; the gate lamp `#gate`, the work lamp `#work` over the field's switch box `#switch`), `hangar_side` (its near
@@ -21,7 +21,7 @@ moves.
   silent lightning in it (`flash`, its animate: a window of 4.5 s holds one flicker or two, or none).
 - **Light.** The night is the light (ambient blue, haze); the moon is behind the viewer (`moon`, a far light) and lights
   the faces; the floodlights cold white from the far left, the hangar's lamps warm from behind the people.
-- **People.** Cast: `modules/cast` (style `aero`). Roblet (`hold_low`, the cap) front left, facing us, his tool box at
+- **People.** Cast: `modules/cast` (style `aero`). Roblet (`hold_low`, the cap) front left at 3.5 m, facing us, his tool box at
   his side; Rivière (`hands_behind`) behind him in the middle, looking at him; Robineau (`hold_waist`, the folder) on
   the right, looking at Roblet. Placed so all three faces turn toward the viewer.
 - **Keys.** `floods` (the floodlights and the edge lamps), `hangar` (its lamps; switched — the inside lamps' bulbs repaint),
