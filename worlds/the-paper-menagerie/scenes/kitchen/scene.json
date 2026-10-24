@@ -13,7 +13,7 @@
     "bounce": 0.55,
     "haze": 0.04,
     "hazeColor": "#d6a99a",
-    "hazeGlow": 0.25,
+    "hazeGlow": 0.08,
     "tint": "#ffd9b4",
     "tintStrength": 0.03,
     "saturation": 0.96,
@@ -58,8 +58,8 @@
     "dad_mood": "smile",
     "jack_reach": {
       "r": [
-        -0.86,
-        2.55,
+        -0.76,
+        2.12,
         0.79
       ]
     }
@@ -347,8 +347,8 @@
       "shadow": {
         "light": "lamp"
       },
-      "across": -0.25,
-      "distance": 2.8,
+      "across": -0.15,
+      "distance": 2.2,
       "elevation": 0.76,
       "width": 1.3,
       "depth": 0.8
@@ -357,8 +357,8 @@
       "id": "table_front",
       "name": "The table's oilcloth hem and legs",
       "inside": true,
-      "across": -0.25,
-      "distance": 2.4,
+      "across": -0.15,
+      "distance": 1.8,
       "facing": 180,
       "height": 0.78,
       "box": [
@@ -372,8 +372,8 @@
       "id": "lamp",
       "name": "The lamp over the table",
       "inside": true,
-      "across": -0.25,
-      "distance": 2.8,
+      "across": -0.15,
+      "distance": 2.2,
       "elevation": 1.95,
       "height": 0.65,
       "box": [
@@ -388,8 +388,8 @@
       "name": "Laohu, the paper tiger",
       "inside": true,
       "shadow": true,
-      "across": -0.58,
-      "distance": 2.7,
+      "across": -0.5,
+      "distance": 2.1,
       "elevation": 0.76,
       "height": 0.28,
       "box": [
@@ -409,8 +409,8 @@
         "turn": 180,
         "does": "folding"
       },
-      "across": -0.15,
-      "distance": 3.5
+      "across": -0.05,
+      "distance": 2.9
     },
     {
       "id": "jack",
@@ -421,8 +421,8 @@
         "who": "jack",
         "turn": 110
       },
-      "across": -1.08,
-      "distance": 2.7
+      "across": -0.97,
+      "distance": 2.1
     },
     {
       "id": "dad",
@@ -431,11 +431,11 @@
       "person": {
         "cast": "cast",
         "who": "dad",
-        "turn": 220,
-        "does": "arms_folded"
+        "turn": 235,
+        "does": "hands_in_pockets"
       },
-      "across": 1.6,
-      "distance": 3.15
+      "across": 1.3,
+      "distance": 2.65
     }
   ],
   "music": {

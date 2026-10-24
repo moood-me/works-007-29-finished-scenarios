@@ -1,6 +1,6 @@
 // The left wall (its face toward the room; x runs from the back of the room, +1.7, to the front, −1.7): the wallpaper,
 // a calendar from the hardware store, and the telephone on its little shelf.
-e.lib.wallpaper(g, e, -1.77, 1.77);
+e.lib.wallpaper(g, -1.77, 1.77);
 // the calendar: a picture of mountains over a grid of days
 g.fillStyle = '#f6f1e6';
 g.fillRect(0.3, -1.95, 0.42, 0.62);

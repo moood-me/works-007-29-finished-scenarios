@@ -1,7 +1,7 @@
 // What the kitchen's walls share: the wallpaper — pale sage with a small pattern of cream sprigs and coral buds in rows
 // — over x0…x1 of a wall 2.6 m high (metres from the wall's foot, y up negative), a white skirting board, and a narrow
 // moulding under the ceiling. The caller cuts its own openings (clip) before calling.
-function wallpaper(g, e, x0, x1) {
+function wallpaper(g, x0, x1) {
   const w = x1 - x0;
   g.save();
   g.beginPath();
@@ -21,12 +21,6 @@ function wallpaper(g, e, x0, x1) {
       g.arc(x, y - 0.012, 0.011, 0, Math.PI * 2);
       g.fill();
     }
-  }
-  for (let i = 0; i < 5; i++) {
-    g.fillStyle = e.rnd() < 0.5 ? 'rgba(150,160,130,0.12)' : 'rgba(245,245,225,0.18)';
-    g.beginPath();
-    g.ellipse(x0 + e.rnd() * w, -2.2 + e.rnd() * 2, 0.3 + e.rnd() * 0.4, 0.2 + e.rnd() * 0.3, 0, 0, Math.PI * 2);
-    g.fill();
   }
   g.fillStyle = '#f2ece0';
   g.fillRect(x0, -2.62, w, 0.08);

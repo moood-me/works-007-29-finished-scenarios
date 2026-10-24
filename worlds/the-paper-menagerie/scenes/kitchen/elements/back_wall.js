@@ -5,6 +5,6 @@ g.beginPath();
 g.rect(-2.92, -2.64, 5.84, 2.68);
 g.rect(-0.95, -2.1, 1.3, 1.1);
 g.clip('evenodd');
-e.lib.wallpaper(g, e, -2.92, 2.92);
+e.lib.wallpaper(g, -2.92, 2.92);
 e.lib.tiles(g, -1.8, 1.8, -1.5, -0.9);
 g.restore();

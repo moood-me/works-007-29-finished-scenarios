@@ -1,6 +1,6 @@
 // The right wall (its face toward the room; x runs from the back of the room, −1.7, to the front, +1.7): the
 // wallpaper, the white panelled door to the hall (x −0.95…−0.05, shut) in its casing, a coat hook with Dad's cap.
-e.lib.wallpaper(g, e, -1.77, 1.77);
+e.lib.wallpaper(g, -1.77, 1.77);
 g.fillStyle = '#efe9dd';
 g.fillRect(-1.03, -2.13, 1.06, 2.13);
 g.fillStyle = '#f6f1e7';

@@ -1,6 +1,7 @@
 // Laohu: a tiger folded from Christmas wrapping paper — red, with gold stars — the size of a kitten, standing on the
 // oilcloth with its head turned to the boy (drawn S times the sizes written). Flat paper facets, each fold a shade
-// lighter or darker, the creases drawn; the stars printed across folds as wrapping paper's are. Two layers: `tiger`
+// lighter or darker, the creases drawn; its stripes pleats folded down the flank and the brow, its whiskers scored
+// creases; the stars printed across folds as wrapping paper's are. Two layers: `tiger`
 // (all of it but the tail — animate swells it with breath) and `tail` (pivoting at its root, ticking from pose to
 // pose). Its head is its point.
 const S = 1.4,
@@ -125,6 +126,23 @@ e.layer('tiger', { pivot: [0, 0] }, l => {
     [-0.065, -0.093],
     [0.07, -0.088],
   ]);
+  // the stripes: narrow pleats folded down the flank from the back, each a darker band with its crease
+  for (const x of [-0.052, -0.018, 0.016, 0.05]) {
+    poly(
+      l,
+      [
+        [x - 0.006, -0.094],
+        [x + 0.008, -0.093],
+        [x + 0.002, -0.06],
+        [x - 0.004, -0.06],
+      ],
+      D,
+    );
+    crease(l, [
+      [x + 0.008, -0.093],
+      [x + 0.002, -0.06],
+    ]);
+  }
   // the near legs, each a long triangle folded flat, the paw turned out
   poly(
     l,
@@ -268,5 +286,34 @@ e.layer('tiger', { pivot: [0, 0] }, l => {
   l.fill();
   l.fillRect(-0.1, -0.124, 0.007, 0.004);
   star(l, -0.07, -0.128, 0.006);
+  // the forehead's two pleats, and the whiskers — creases scored out from the muzzle
+  poly(
+    l,
+    [
+      [-0.098, -0.172],
+      [-0.09, -0.171],
+      [-0.092, -0.155],
+    ],
+    D,
+  );
+  poly(
+    l,
+    [
+      [-0.078, -0.17],
+      [-0.07, -0.169],
+      [-0.076, -0.154],
+    ],
+    D,
+  );
+  for (const [x, y] of [
+    [-0.145, -0.118],
+    [-0.143, -0.108],
+    [-0.062, -0.118],
+    [-0.064, -0.108],
+  ])
+    crease(l, [
+      [-0.098, -0.114],
+      [x, y],
+    ]);
 });
 e.at(-0.095 * S, -0.14 * S);
