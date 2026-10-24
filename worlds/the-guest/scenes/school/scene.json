@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The School",
   "caption": "Three hours up from El Ameur, on foot, through the snow.",
-  "horizon": 0.48,
+  "horizon": 0.55,
   "camera": {
     "mode": "picture"
   },
@@ -10,7 +10,7 @@
     "ambient": 0.58,
     "ambientColor": "#bccdee",
     "bounce": 0.55,
-    "haze": 0.06,
+    "haze": 0.085,
     "hazeColor": "#c6d6e8",
     "hazeGlow": 0.3,
     "shafts": 0,
@@ -71,7 +71,7 @@
       "drape": true,
       "across": -1000,
       "distance": 2900,
-      "width": 6000,
+      "width": 10000,
       "depth": 6000
     },
     {
@@ -83,7 +83,7 @@
       "height": 700,
       "box": [
         -12000,
-        -720,
+        -900,
         12000,
         60
       ]
@@ -196,6 +196,22 @@
       "shadow": true
     },
     {
+      "id": "terrace_end",
+      "on": "school",
+      "name": "The terrace's left end",
+      "across": -4.0,
+      "distance": -1.2,
+      "facing": 270,
+      "height": 0.5,
+      "box": [
+        -1.25,
+        -0.6,
+        1.25,
+        0.08
+      ],
+      "shadow": true
+    },
+    {
       "id": "shed",
       "on": "school",
       "name": "The grain shed",
@@ -269,8 +285,8 @@
           "scale": 2.0
         },
         {
-          "across": -6,
-          "distance": 14,
+          "across": -5.2,
+          "distance": 11.5,
           "scale": 1.2,
           "flip": true
         },
@@ -383,8 +399,8 @@
     {
       "id": "horse",
       "name": "Balducci's horse",
-      "across": -20,
-      "distance": 34,
+      "across": -11.5,
+      "distance": 29,
       "height": 1.75,
       "box": [
         -1.35,

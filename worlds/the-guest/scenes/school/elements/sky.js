@@ -1,8 +1,8 @@
 // The winter sky over the plateau after the snow: deep cold blue overhead, paling to a clear whitish blue along the
 // horizon; the sun behind the viewer, so no disc here — only a few thin high streaks of cloud, drifting slowly. Screen
-// heights; the horizon at 0.48.
+// heights; the horizon at 0.55.
 const A = e.aspect;
-const H = 0.48;
+const H = 0.55;
 const X0 = -0.3;
 const W = A + 0.6;
 const Y0 = -0.35;
@@ -12,10 +12,9 @@ sky.addColorStop(0.35, '#3c6eb0');
 sky.addColorStop(0.75, '#86aed6');
 sky.addColorStop(0.93, '#c4d8ea');
 sky.addColorStop(1, '#dbe6ef');
+// one fill down past the horizon (the gradient holds its last colour below it): no seam at the horizon
 g.fillStyle = sky;
-g.fillRect(X0, Y0, W, H - Y0);
-g.fillStyle = '#dbe6ef';
-g.fillRect(X0, H, W, 1.25 - H);
+g.fillRect(X0, Y0, W, 1.25 - Y0);
 // a soft streak: a long thin ellipse fading out at its ends
 function streak(c, x, y, w, h, alpha) {
   c.save();
