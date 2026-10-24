@@ -26,7 +26,6 @@ the neck (point `#key`). `basket` — a wicker basket of flowers hanging from th
 
 ## Motions (Kimodo)
 
-Taken from motions made before (`put_motion`): `sit_low` — sits still on a low seat, the hands on the knees, breathing
-(a loop; Ila on the fountain's rim, her hands then set by `reach`); `old_hold` — an old tired person stands holding a
-small light thing before the belly with both hands (a loop); `hands_behind` — stands, the hands clasped behind the
-back, breathing (a loop).
+`sit_flute` — sits on a low wall, knees together, feet on the floor, holding a small thing up to the mouth with both
+hands (a loop; Ila on the fountain's rim, her hands then set by `reach`); `hands_behind` — stands, the hands clasped
+behind the back, breathing (a loop).
