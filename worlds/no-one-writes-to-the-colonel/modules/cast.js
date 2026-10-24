@@ -1,6 +1,6 @@
 // The people of «No One Writes to the Colonel» as people in a scene (an element with "person"): who they are — figures
-// of shapes in this world's style, flat shapes in sun-faded colours lit by the scene, a simple face so a face reads
-// across the room — and what they move by (the motions in cast.data.json). cast.md says who is who and what each
+// of shapes in this world's style, matte figurines in sun-faded colours lit by the scene, a simple face so a face
+// reads across the room — and what they move by (the motions in cast.data.json). cast.md says who is who and what each
 // carries. A part's lengths are a man's metres times F.fit.h (the person's height as a share of a man's 1.76 m).
 const V = () => MooodShapes.V;
 const UMBRELLA = [0.09, 0.085, 0.09, 1];
@@ -39,9 +39,9 @@ return {
     },
   },
   shapes: {
-    // the world's style: the engine's graphic figures — flat colours, a narrow waist, long limbs — toned by the light,
-    // a head big enough for a face to read, with a simple face (eyes, brows, nose, mouth: <id>_mood shows on it)
-    styles: { macondo: { from: 'graphic', name: 'No One Writes to the Colonel', head: 1.3, limb: 0.92, paint: 'toned', face: 'simple', line: 1.4 } },
+    // the world's style: the engine's toy figurines — soft matte volumes lit by the room's light, quiet and upright —
+    // with a simple face (eyes, brows, nose, mouth: <id>_mood shows on it)
+    styles: { macondo: { from: 'toy', name: 'No One Writes to the Colonel', face: 'simple' } },
     parts: {
       // a grey moustache under the nose, drooping a little at its ends (the colour of the hair)
       moustache: {

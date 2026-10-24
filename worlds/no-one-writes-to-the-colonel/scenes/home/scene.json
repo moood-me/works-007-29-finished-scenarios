@@ -357,8 +357,8 @@
           ]
         },
         "size": [
-          0.07,
-          0.015
+          0.14,
+          0.03
         ],
         "amount": "fire"
       }
@@ -479,10 +479,11 @@
       "person": {
         "cast": "cast",
         "who": "colonel",
-        "turn": 150
+        "turn": 165,
+        "does": "stand_cane"
       },
-      "across": -0.55,
-      "distance": 2.7
+      "across": -0.75,
+      "distance": 3.15
     },
     {
       "id": "wife",
@@ -491,7 +492,7 @@
       "person": {
         "cast": "cast",
         "who": "wife",
-        "turn": 200,
+        "turn": 225,
         "does": "sit_upright"
       },
       "across": 1.6,
