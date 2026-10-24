@@ -65,7 +65,8 @@ return {
       },
     },
     parts: {
-      // a square of paper held between the hands, being folded: its colour the look's accent
+      // a square of paper held up between the hands, its face to whoever she faces, being folded: its colour the
+      // look's accent
       sheet: {
         name: 'a sheet of paper',
         draw: F => {
@@ -75,10 +76,8 @@ return {
           const across = unit(sub(r, l)),
             fwd = unit(cross(across, F.up('Chest'))),
             flat = cross(fwd, across);
-          const span = Math.hypot(r[0] - l[0], r[1] - l[1], r[2] - l[2]) * 0.5;
-          const half = Math.min(0.09, Math.max(0.05, span)) * F.fit.h;
-          const radii = [half, 0.004, 0.075 * F.fit.h];
-          F.ball(add(c, mul(flat, 0.02 * F.fit.h)), [across, flat, fwd], radii, F.colors.accent, 4, 8);
+          const half = 0.08 * F.fit.h;
+          F.ball(add(c, mul(fwd, 0.02 * F.fit.h)), [across, flat, fwd], [half, half, 0.004], F.colors.accent, 4, 8);
         },
       },
     },

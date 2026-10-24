@@ -17,7 +17,7 @@ the room.
 
 ## Parts
 
-- `sheet` — a square of paper held between the hands, being folded (the look's `accent` colour).
+- `sheet` — a square of paper held up between the hands, its face out, being folded (the look's `accent` colour).
 
 ## Motions (Kimodo)
 
