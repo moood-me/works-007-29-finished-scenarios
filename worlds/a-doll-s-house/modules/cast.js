@@ -25,8 +25,8 @@ function shirtFront(F) {
   const { add, mul } = V();
   const m = F.fit.h;
   const axes = chestAxes(F);
-  const front = F.clear(add(F.P('Chest'), mul(axes[1], 0.02 * m)), 1, 0.004 * m);
-  F.ball(front, axes, [0.055 * m, 0.11 * m, 0.012 * m], F.colors.top, 12);
+  const front = F.clear(add(F.P('Neck1'), mul(axes[1], -0.12 * m)), 1, 0.002 * m);
+  F.ball(front, axes, [0.075 * m, 0.13 * m, 0.016 * m], F.colors.top, 12);
   F.ball(add(F.clear(add(F.P('Neck1'), mul(axes[1], -0.03 * m)), 1, 0.01 * m), mul(axes[2], 0.004 * m)), axes, [0.03 * m, 0.016 * m, 0.012 * m], TIE, 10);
 }
 // a Christmas parcel held in both hands before the chest: brown paper, tied crosswise with red string
