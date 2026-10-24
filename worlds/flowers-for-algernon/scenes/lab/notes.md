@@ -20,8 +20,10 @@ story. No one moves but a look; no camera moves.
   `maze#goal`), Algernon in a corridor (`algernon`, his head a layer that sniffs).
 - **Light**: daylight — the sun in at the window (`sun`, through `window`: its patch on the floor, shafts in the haze,
   `dust` motes in them) and the window's daylight (`day`).
-- **People** (modules/cast, style `lab`): Charlie behind the maze table, his hands on its edge (`charlie_reach`),
-  looking down at Algernon, smiling; Miss Kinnian behind on the left, before the window, hands clasped, smiling at
-  him; Dr Strauss behind on the right, standing straight in his white coat, watching Charlie (a coat
-  hung from the shoulders flares into a bell over hands clasped behind the back — so his hands hang). The showcase: over Charlie's head Miss
-  Kinnian and Dr Strauss look at each other, then all three look down at Algernon.
+- **People** (modules/cast, style `lab`), each standing their own way (the cast's motions): Charlie behind the maze
+  table, a little stooped and shy (`shy_stoop`), his hands on its edge (`charlie_reach`), looking down at Algernon,
+  smiling; Miss Kinnian behind on the left, before the window, upright, her exercise book held to her chest
+  (`notebook_held`), smiling at him; Dr Strauss behind on the right, turned to Charlie, his chin in his hand, thinking
+  (`chin_in_hand`; his coat's skirt hangs from the waist — hung from the shoulders it flared into a bell over the
+  arms). The showcase: over Charlie's head Miss Kinnian and Dr Strauss look at each other, then all three look down
+  at Algernon.
