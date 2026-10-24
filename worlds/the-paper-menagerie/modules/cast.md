@@ -21,6 +21,6 @@ the room.
 
 ## Motions (Kimodo)
 
-The engine's `stand` and `walk`, and: `folding` — stands at a table working with both hands on something small at
-waist height (a loop); `arms_folded` — stands with the arms folded, waiting, the weight shifting now and then (a
-loop).
+The engine's `stand` and `walk`, and: `folding` — stands folding a small sheet of paper in both hands held up before
+the chest, creasing and turning it (a loop); `hands_in_pockets` — stands relaxed, both hands in the front trouser
+pockets, the weight shifting a little (a loop).

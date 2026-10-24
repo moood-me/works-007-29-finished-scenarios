@@ -1,6 +1,6 @@
 // An evening in the kitchen: the three of them as they are (Mom folding at the table, her eyes on Jack; Jack leaning
-// at the table over Laohu; Dad in from the hall, arms folded, watching her); then Jack looks up at his mother, and she
-// at the tiger; then back. Nobody moves but a look; the paper animals breathe and stir.
+// at the table over Laohu; Dad in from the hall, hands in his pockets, watching her); then Jack looks up at his
+// mother, and she at the tiger; then back. Nobody moves but a look; the paper animals breathe and stir.
 return [
   {
     name: 'evening',

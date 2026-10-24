@@ -22,4 +22,4 @@ stand in the story. No one moves but a look; no camera moves.
   `dusk`, daylight; the afterglow low behind the house, `afterglow`, lights the yard and what stands in it).
 - **People** (modules/cast, style `paper`): Mom behind the table, folding a yellow square (part `sheet`), her eyes on
   Jack; Jack standing at the table's left end over Laohu, his right hand on its edge (`jack_reach`); Dad in from the
-  hall, arms folded, watching her. The showcase: Jack looks up at her and she at the tiger; back.
+  hall, hands in his pockets, watching her. The showcase: Jack looks up at her and she at the tiger; back.
