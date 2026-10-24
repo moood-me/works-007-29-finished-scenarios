@@ -42,9 +42,15 @@ return {
     },
   },
   shapes: {
-    // the world's style: soft rounded shapes and tinted lines, quieter and finer than `soft`; the head a little smaller
-    // so the grown-ups read as grown-ups; a simple face (eyes, brows, nose, mouth — <id>_mood shows on it)
-    styles: { glass: { from: 'soft', name: 'Story of Your Life', head: 1.28, neck: 0.55, legs: 0.93, line: 1.6 } },
+    // the world's style: soft rounded shapes and tinted lines, quieter and finer than `soft`, with grown-ups' proportions
+    // — a head and a trunk of a grown-up's size, a neck, long legs, slim limbs with palms and shoes; a simple face (eyes,
+    // brows, nose, mouth — <id>_mood shows on it)
+    styles: {
+      glass: {
+        from: 'soft', name: 'Story of Your Life', head: 1.2, neck: 0.6, legs: 0.96, limb: 1.05, line: 1.3,
+        trunk: { w: [0.96, 1.0, 0.92, 1.0, 0.98], d: [0.98, 1.0, 0.96, 0.98, 0.9] }, arms: 'palm', feet: 'shoe',
+      },
+    },
     garments: {
       // a long cardigan: open, from the shoulders to the hips, its sleeves the cardigan's
       cardigan: { name: 'cardigan', hang: [{ to: 0.62, from: 'shoulders', flare: 0.08, folds: false }], sleeves: 'garment' },

@@ -4,8 +4,8 @@ A module for scenes with people (elements with `person`: `{"cast": "cast", "who"
 
 ## Style
 
-`glass` — made from `soft` (rounded shapes, tinted lines, toned colours), finer lines and a smaller head, so the
-grown-ups read as grown-ups; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it), so faces read across
+`glass` — made from `soft` (rounded shapes, tinted lines, toned colours), with finer lines and a grown-up's
+proportions (a smaller head, a neck, longer legs, palms and shoes), so the grown-ups read as grown-ups; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it), so faces read across
 the tent.
 
 ## Who

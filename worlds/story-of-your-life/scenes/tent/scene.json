@@ -7,13 +7,13 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.85,
+    "ambient": 0.72,
     "ambientColor": "#e9e6dc",
     "inside": 0.6,
     "bounce": 0.55,
     "haze": 0.04,
     "hazeColor": "#efeee8",
-    "hazeGlow": 0.25,
+    "hazeGlow": 0.45,
     "shafts": 0.6,
     "tint": "#fff1da",
     "tintStrength": 0.05,
@@ -52,8 +52,8 @@
       "distance": 6.6,
       "elevation": 1.7,
       "color": "#eef2fb",
-      "strength": 1.1,
-      "reach": 6
+      "strength": 1.4,
+      "reach": 7
     },
     {
       "id": "room",
@@ -75,8 +75,8 @@
       "marker"
     ],
     "gary_on": [
-      1.15,
-      3.33,
+      0.95,
+      3.15,
       0.74
     ],
     "gary_look": "louise",
@@ -86,8 +86,8 @@
     ],
     "gary_reach": {
       "r": [
-        0.8,
-        3.3,
+        0.55,
+        3.05,
         1.12
       ]
     },
@@ -151,11 +151,11 @@
       "shadow": true,
       "across": 1.5,
       "distance": 12.0,
-      "height": 2.3,
+      "height": 2.6,
       "box": [
-        -1.25,
-        -2.45,
-        1.25,
+        -1.5,
+        -2.75,
+        1.5,
         0.08
       ]
     },
@@ -179,11 +179,11 @@
       "shadow": true,
       "across": -2.0,
       "distance": 9.2,
-      "height": 2.3,
+      "height": 2.6,
       "box": [
-        -1.25,
-        -2.45,
-        1.25,
+        -1.5,
+        -2.75,
+        1.5,
         0.08
       ]
     },
@@ -348,8 +348,8 @@
       "name": "The folding table",
       "inside": true,
       "shadow": true,
-      "across": 1.7,
-      "distance": 3.2,
+      "across": 1.45,
+      "distance": 3.0,
       "facing": 180,
       "height": 0.75,
       "box": [
@@ -365,8 +365,8 @@
       "plane": true,
       "inside": true,
       "shadow": true,
-      "across": 1.7,
-      "distance": 3.55,
+      "across": 1.45,
+      "distance": 3.35,
       "elevation": 0.74,
       "width": 1.8,
       "depth": 0.7
@@ -375,8 +375,8 @@
       "id": "laptop",
       "name": "The laptop",
       "inside": true,
-      "across": 2.05,
-      "distance": 3.7,
+      "across": 1.8,
+      "distance": 3.5,
       "elevation": 0.745,
       "facing": 195,
       "height": 0.24,
@@ -392,8 +392,8 @@
       "name": "The thermos and the cups",
       "inside": true,
       "shadow": true,
-      "across": 2.4,
-      "distance": 3.75,
+      "across": 2.15,
+      "distance": 3.55,
       "elevation": 0.745,
       "height": 0.37,
       "box": [
@@ -430,8 +430,8 @@
         "who": "louise",
         "turn": 150
       },
-      "across": -0.45,
-      "distance": 3.75
+      "across": -0.35,
+      "distance": 3.3
     },
     {
       "id": "gary",
@@ -440,11 +440,11 @@
       "person": {
         "cast": "cast",
         "who": "gary",
-        "turn": 240,
+        "turn": 215,
         "does": "seated"
       },
-      "across": 1.15,
-      "distance": 3.1
+      "across": 0.95,
+      "distance": 2.95
     },
     {
       "id": "weber",
@@ -456,7 +456,7 @@
         "turn": 230,
         "does": "hands_behind"
       },
-      "across": 2.6,
+      "across": 2.35,
       "distance": 4.8
     }
   ],
