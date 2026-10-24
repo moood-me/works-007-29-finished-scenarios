@@ -27,7 +27,7 @@ return {
     // wool cloth, a white collarless shirt buttoned to the throat, polished black shoes
     colonel: {
       kind: 'shapes', style: 'macondo', who: 'old', garment: 'jacket', hair: 'short', face: 'simple', parts: ['moustache'],
-      body: { height: 1.0, thick: 0.78, shoulders: 0.98, neck: 1.1 },
+      body: { height: 1.0, thick: 0.78, shoulders: 0.98, neck: 0.85 },
       colors: { skin: '#b9845f', hair: '#cfc9bf', top: '#ece6d8', garment: '#2b2a31', bottom: '#2b2a31', shoes: '#141215' },
     },
     // his wife, about seventy: small and bony, grey hair drawn back in a knot, a faded dark-blue house dress gone grey
