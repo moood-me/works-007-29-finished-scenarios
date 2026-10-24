@@ -63,7 +63,7 @@
       "elevation": -0.5,
       "width": 8000,
       "depth": 3000,
-      "reflect": { "strength": 0.45, "fade": 40, "rough": 0.45, "ripple": 0.4 }
+      "reflect": { "strength": 0.01, "fade": 40, "rough": 0.45, "ripple": 0.4 }
     },
     {
       "id": "far_cape",
