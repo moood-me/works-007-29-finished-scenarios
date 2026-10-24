@@ -12,10 +12,9 @@ sky.addColorStop(0.35, '#3c6eb0');
 sky.addColorStop(0.75, '#86aed6');
 sky.addColorStop(0.93, '#c4d8ea');
 sky.addColorStop(1, '#dbe6ef');
+// one fill down past the horizon (the gradient holds its last colour below it): no seam at the horizon
 g.fillStyle = sky;
-g.fillRect(X0, Y0, W, H - Y0);
-g.fillStyle = '#dbe6ef';
-g.fillRect(X0, H, W, 1.25 - H);
+g.fillRect(X0, Y0, W, 1.25 - Y0);
 // a soft streak: a long thin ellipse fading out at its ends
 function streak(c, x, y, w, h, alpha) {
   c.save();
