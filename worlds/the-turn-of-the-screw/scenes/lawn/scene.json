@@ -509,7 +509,7 @@
         "turn": 166
       },
       "across": -0.42,
-      "distance": 3.45
+      "distance": 3.8
     },
     {
       "id": "flora",
@@ -520,7 +520,7 @@
         "turn": 184
       },
       "across": -0.92,
-      "distance": 3.32
+      "distance": 3.66
     },
     {
       "id": "miles",
@@ -532,7 +532,7 @@
         "does": "hands_behind"
       },
       "across": 0.42,
-      "distance": 3.2
+      "distance": 3.52
     }
   ],
   "state": {

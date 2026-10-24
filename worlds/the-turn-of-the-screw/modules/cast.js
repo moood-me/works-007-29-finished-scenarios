@@ -22,11 +22,11 @@ return {
   ...data,
   characters: {
     // the governess: twenty, a country parson's youngest daughter; slight, upright; brown hair in a bun; a plain
-    // slate-grey gown to the ground with long sleeves and a narrow white collar
+    // slate-grey gown to the ground with long sleeves, a narrow white collar, a darker band at the waist
     governess: {
-      kind: 'shapes', style: 'bly', who: 'woman', garment: 'gown', hair: 'bun', face: 'bly', parts: ['collar'],
-      body: { height: 0.93, shoulders: 0.86, hips: 1.02, thick: 0.84 },
-      colors: { skin: '#ecc8a8', hair: '#5a3a26', top: '#4e5262', garment: '#4e5262', bottom: '#4e5262', shoes: '#2a2624' },
+      kind: 'shapes', style: 'bly', who: 'woman', garment: 'gown', hair: 'bun', face: 'bly', parts: ['collar', 'sash'],
+      body: { height: 0.93, shoulders: 0.86, hips: 1.02, thick: 0.78 },
+      colors: { skin: '#ecc8a8', hair: '#5a3a26', top: '#4e5262', garment: '#4e5262', bottom: '#4e5262', shoes: '#2a2624', accent: '#383b47' },
     },
     // Flora, eight: fair hair loose to the shoulders, a white frock to the knees with a pale blue sash, white stockings
     flora: {
@@ -87,8 +87,8 @@ return {
       },
     },
     garments: {
-      // a gown: a full skirt from the waist to the ground, long sleeves, the bodice in its colour
-      gown: { name: 'gown', hang: [{ to: 2.15, from: 'waist', flare: 0.4, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
+      // a gown: a full skirt from the waist, belled to the ground, long sleeves, the bodice in its colour
+      gown: { name: 'gown', hang: [{ to: 2.15, from: 'waist', flare: 0.75, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
       // a boy's Eton jacket: short, cut off at the waist, long sleeves
       eton: { name: 'Eton jacket', hang: [{ to: 0.12, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment' },
       // a child's frock: a skirt from the waist to the knees, long sleeves
