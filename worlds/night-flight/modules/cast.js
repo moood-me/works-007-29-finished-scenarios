@@ -36,14 +36,14 @@ return {
     roblet: {
       kind: 'shapes', style: 'aero', who: 'old', garment: 'jacket', hair: 'short', parts: ['moustache', 'cap_held'],
       body: { height: 0.96, shoulders: 1.02, thick: 1.04, arms: 1.03 },
-      colors: { skin: '#c69273', hair: '#b9b4ab', top: '#9aa3a8', garment: '#4c6f93', bottom: '#3d5470', shoes: '#2b2420', hat: '#8a7c66' },
+      colors: { skin: '#c69273', hair: '#b9b4ab', top: '#9aa3a8', garment: '#4c6f93', bottom: '#3d5470', shoes: '#2b2420', hat: '#9c805a' },
     },
   },
   shapes: {
     // the world's style: an airline poster's figures — the engine's flat geometry (straight edges, a coat a clean
     // trapezoid, plain colours under the scene's light), a fine line, a head a little larger and a simple face (eyes,
     // brows, nose, mouth) so faces read
-    styles: { aero: { from: 'flat', name: 'Night Flight', head: 1.14, line: 0.9, face: 'simple' } },
+    styles: { aero: { from: 'flat', name: 'Night Flight', head: 1.18, line: 0.9, face: 'simple' } },
     parts: {
       // a small dark moustache under the nose (the hair's colour)
       moustache: {
@@ -92,8 +92,8 @@ return {
           const { at: head, axes: [hs, hu, hf], r: rh } = F.head;
           const tilt = unit(add(hu, mul(hf, 0.1)));
           const axes = [hs, tilt, cross(hs, tilt)];
-          F.ball(add(head, add(mul(hu, rh * 0.45), mul(hf, rh * 0.06))), axes, [rh * 1.5, rh * 0.06, rh * 1.5], F.colors.hat, F.sides * 2);
-          F.ball(add(head, mul(hu, rh * 0.8)), axes, [rh * 0.96, rh * 0.58, rh * 1.0], F.colors.hat, F.sides, 3);
+          F.ball(add(head, add(mul(hu, rh * 0.45), mul(hf, rh * 0.06))), axes, [rh * 1.55, rh * 0.07, rh * 1.55], F.colors.hat, F.sides * 2);
+          F.ball(add(head, mul(hu, rh * 0.62)), axes, [rh * 1.02, rh * 0.72, rh * 1.06], F.colors.hat, F.sides, 3);
         },
       },
     },
