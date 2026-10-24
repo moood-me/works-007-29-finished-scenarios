@@ -1,5 +1,5 @@
 // The duck pond, seen from above: dark still water under the sky's reflection, a soft muddy rim, a few lily pads.
-const w = 11, d = 9;
+const w = 16, d = 12;
 g.fillStyle = '#6f7a62';
 g.beginPath();
 g.ellipse(0, 0, w / 2, d / 2, 0, 0, Math.PI * 2);
