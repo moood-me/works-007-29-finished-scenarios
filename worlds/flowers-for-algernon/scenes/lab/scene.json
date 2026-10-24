@@ -381,7 +381,8 @@
       "person": {
         "cast": "cast",
         "who": "charlie",
-        "turn": 180
+        "turn": 180,
+        "does": "shy_stoop"
       },
       "across": -0.2,
       "distance": 3.3
@@ -393,7 +394,8 @@
       "person": {
         "cast": "cast",
         "who": "strauss",
-        "turn": 200
+        "turn": 200,
+        "does": "chin_in_hand"
       },
       "across": 1.3,
       "distance": 3.8
