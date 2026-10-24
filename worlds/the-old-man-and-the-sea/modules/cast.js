@@ -41,10 +41,10 @@ return {
     parts: {
       // the shirt patched so many times: squares of paler, less faded cloth sewn on the chest, the side and the back
       patches: { name: 'patches', draw: F => {
-        const { add, sub, mul, mix, unit, cross } = V(), tr = F.trunk(1.01), e = 2 / F.style.square, k = F.k;
+        const { add, sub, mul, mix, unit, cross } = V(), trunk = F.trunk(1.01), e = 2 / F.style.square, k = F.k;
         // (a spot on the trunk between its sections i and i + 1, `a` round it — 0 its left, π/2 before, −π/2 behind)
         for (const [i, u, a, w, h] of [[3, 0.3, 1.2, 0.05, 0.06], [2, 0.2, 2.0, 0.045, 0.05], [3, 0.1, -1.9, 0.06, 0.07]]) {
-          const s0 = tr[i], s1 = tr[i + 1], c = mix(s0[0], s1[0], u), sd = s0[1], fw = s0[2], wd = s0[3] + (s1[3] - s0[3]) * u, dp = s0[4] + (s1[4] - s0[4]) * u;
+          const s0 = trunk[i], s1 = trunk[i + 1], c = mix(s0[0], s1[0], u), sd = s0[1], fw = s0[2], wd = s0[3] + (s1[3] - s0[3]) * u, dp = s0[4] + (s1[4] - s0[4]) * u;
           const cs = Math.cos(a), sn = Math.sin(a), x = wd * Math.sign(cs) * Math.abs(cs) ** e, y = dp * Math.sign(sn) * Math.abs(sn) ** e;
           const out = unit(add(mul(sd, x / wd / wd), mul(fw, y / dp / dp))), up = unit(sub(s1[0], s0[0])), across = unit(cross(up, out));
           F.ball(add(add(c, add(mul(sd, x), mul(fw, y))), mul(out, 0.003 * k)), [across, up, out], [w * k, h * F.fit.h, 0.006 * k], F.colors.accent, 4, 6);
