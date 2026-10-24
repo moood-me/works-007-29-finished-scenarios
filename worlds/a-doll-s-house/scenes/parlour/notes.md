@@ -23,7 +23,7 @@ the place, its light and three of its people standing. No motion of people but a
   houses across at 18 m with their windows lit in the evening, snow falling (`snowfall`, only out there).
 - **People** (cast: modules/cast — dolls of the `doll` style), staged so every face is turned to the open front:
   Nora downstage in the middle, the parcel in her hands, smiling out; Torvald upstage right between the doorway and
-  the tree, hands behind his back, smiling at her; Krogstad in the hall by the letter box, in his coat and hat,
+  the tree, hands behind his back, smiling at her; Krogstad in the hall by the letter box, in his coat and hat, a little hunched,
   looking at her. (Two people on one depth looking at each other show the viewer their profiles: keep the one looked
   at nearer the front.)
 - **Light.** The room's own lamps (the table's `lamp`, the tree's `tree`, the stove, the hall's wall lamp), the evening
