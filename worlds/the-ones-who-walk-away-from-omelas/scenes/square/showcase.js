@@ -1,5 +1,5 @@
 // The square on the festival morning, then the evening coming over the bay and the garland lanterns lighting, and
-// back to the morning: the people stand as they are — Ila playing on the fountain's rim, Mev's hand on her hair, Kor
+// back to the morning: the people stand as they are — Ila playing on the fountain's rim, Mev beside her with the basket, watching her, Kor
 // laughing beside them
 return [
   { name: 'morning', run: async s => { await s.wait(12); } },

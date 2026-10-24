@@ -13,15 +13,17 @@ edge a terrace drops to the lower city going down to the bay, and across the bay
   urns), `meeting` (seen along its length, x −8 at 6 m … x 8 at 22 m; its side door at x −1 — point `meeting#door`),
   `belltower`, `row` (three painted houses; `row#window` — the open window, Pim's), `planetree` (copies; crowns in the
   wind).
-- The fountain: `fountain` (the basin, a form; its rim's coping at 0.52 m is where Ila sits), `column` (a form),
-  `water` (the basin's water, its glints wavering), `jet` and `spill` (particles).
+- The fountain: `fountain` (the basin, a form; its rim's coping at 0.52 m is where Ila sits), `column` (a slender
+  baluster, a form), `water` (the basin's water, its glints wavering), `jet` (particles: a spray from the column's urn
+  falling back all round into the basin).
 - The festival: `garlands` (three cords, 9, 13.5, 18 m ahead), `pennant` (stretches of four) and `lantern` copies
   along them (the same curve, laid out by the tool); `petals` on the air.
 - Light: the sun behind the viewer on the left (`sun`); `evening` 0…1 — the festival evening: the sky's `evening`
   layer, the look putting the sun out, the lanterns' glows (their animate) and three lights over the cords (`on`).
-- People (`modules/cast`): `ila` (12) sitting on the basin's rim (`ila_on`, a seated loop) playing the flute, looking
-  at no one — her hands hold it at her lips by `ila_reach` (points before her mouth, to her right), the flute drawn
-  between them; `mev` beside her, the basket on her arm, the key on her breast, watching her; `kor` (12) standing by the
+- People (`modules/cast`): `ila` (12) sitting on the basin's rim (`ila_on`, `sit_flute`: knees together, feet down)
+  playing the flute, looking at no one — her hands hold it at her lips by `ila_reach` (points before her mouth, to her
+  right), the flute drawn between them; `mev` standing to her left, the basket hanging from her hand, the key on her
+  breast, watching her; `kor` (12) standing by the
   rim, hands behind his back, laughing at her; four townsfolk stopped to listen (`rose_woman`, `blue_man`, `old_man`,
   `flower_girl`). The basin's centre is 4.6 m ahead; Ila 2.96 m.
 - Stage 2 (the look of the world): people stand; only breathing, water, wind, lanterns move.
