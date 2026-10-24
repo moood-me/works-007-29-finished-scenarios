@@ -203,14 +203,14 @@
     {
       "id": "santiago",
       "name": "Santiago",
-      "person": { "cast": "cast", "who": "santiago", "turn": 192 },
+      "person": { "cast": "cast", "who": "santiago", "turn": 192, "does": "stand_old" },
       "across": -0.35,
       "distance": 5
     },
     {
       "id": "manolin",
       "name": "Manolin",
-      "person": { "cast": "cast", "who": "manolin", "turn": 228 },
+      "person": { "cast": "cast", "who": "manolin", "turn": 228, "does": "hands_behind" },
       "across": 0.9,
       "distance": 5.6
     },
