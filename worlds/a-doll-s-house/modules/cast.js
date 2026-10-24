@@ -15,7 +15,7 @@ function houseDress(F) {
   const m = F.fit.h;
   const [sd, uc, fc] = chestAxes(F);
   const hips = [F.side('Hips'), F.up('Hips'), F.fwd('Hips')];
-  F.ball(add(F.P('Neck1'), mul(uc, -0.01 * m)), [sd, uc, fc], [0.075 * m, 0.018 * m, 0.066 * m], F.colors.accent, 16);
+  F.ball(add(F.P('Neck1'), mul(uc, -0.025 * m)), [sd, uc, fc], [0.064 * m, 0.016 * m, 0.058 * m], F.colors.accent, 16);
   const back = add(F.P('Hips'), add(mul(hips[1], 0.06 * m), mul(hips[2], -0.13 * m)));
   F.ball(back, hips, [0.15 * m, 0.11 * m, 0.1 * m], F.colors.top, 14);
   F.ball(add(back, add(mul(hips[1], -0.14 * m), mul(hips[2], -0.03 * m))), hips, [0.17 * m, 0.13 * m, 0.1 * m], F.colors.top, 14);
