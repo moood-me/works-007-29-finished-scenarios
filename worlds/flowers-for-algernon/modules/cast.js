@@ -1,7 +1,7 @@
 // The people of «Flowers for Algernon» as people in a scene (an element with "person"): who they are — figures of
 // shapes in this world's style, soft rounded shapes in quiet colours, lit by the scene — and what they move by (the
 // motions in cast.data.json). cast.md says who is who.
-const { add, mul } = MooodShapes.V;
+const { add, mul, mix } = MooodShapes.V;
 // Strauss's spectacles: two round rims before the eyes and a bridge between them (points on the head's face, a
 // little out of it), thin dark wire
 const RIM = 10;
@@ -36,6 +36,15 @@ const tie = F => {
   F.bar(knot, low, 0.012 * k, 0.02 * k, [[0, TIE]], 8, sd, 0.3);
   F.ball(knot, [sd, up, fw], [0.018 * k, 0.016 * k, 0.012 * k], TIE, 8);
 };
+// Miss Kinnian's exercise book held to her chest in both hands: a dark blue cover, its pages' cream edge, upright
+// before the chest between the hands and it
+const COVER = [0.25, 0.3, 0.42, 1], PAGES = [0.93, 0.9, 0.82, 1];
+const notebook = F => {
+  const m = F.fit.h, fw = F.fwd('Chest'), axes = [F.side('Chest'), F.up('Chest'), fw];
+  const c = add(add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(fw, -0.035 * m)), mul(axes[1], 0.03 * m));
+  F.ball(add(c, mul(fw, -0.008 * m)), axes, [0.085 * m, 0.11 * m, 0.008 * m], PAGES, 4, 8);
+  F.ball(c, axes, [0.09 * m, 0.115 * m, 0.004 * m], COVER, 4, 8);
+};
 // Charlie's crew cut: hair cropped close to the head (a shell standing a little off it), the hairline high over the
 // brow, lower at the temples, down to the nape behind
 const step = (a, b, x) => { const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
@@ -57,7 +66,7 @@ return {
     // Alice Kinnian, thirty-four: slight and upright, brown hair up in a low bun, a plain dress of dusty rose — the
     // evening class's teacher
     kinnian: {
-      kind: 'shapes', style: 'lab', who: 'woman', garment: 'frock', hair: 'bun',
+      kind: 'shapes', style: 'lab', who: 'woman', garment: 'frock', hair: 'bun', parts: ['notebook'],
       body: { height: 0.92, thick: 0.8, shoulders: 0.86, hips: 1.0 },
       colors: { skin: '#f0cfb6', hair: '#5b3b2b', top: '#b9807a', garment: '#b9807a', shoes: '#3e302b' },
     },
@@ -79,6 +88,9 @@ return {
       frock: { name: 'day dress', hang: [{ to: 1.35, from: 'waist', flare: 0.16, off: 0.94 }], short: true, bare: true, bodice: true },
     },
     hair: { crewcut: { name: 'crew cut', draw: crewcut } },
-    parts: { spectacles: { name: 'spectacles', draw: spectacles }, tie: { name: 'shirt and tie', draw: tie } },
+    parts: {
+      spectacles: { name: 'spectacles', draw: spectacles }, tie: { name: 'shirt and tie', draw: tie },
+      notebook: { name: 'exercise book', draw: notebook },
+    },
   },
 };
