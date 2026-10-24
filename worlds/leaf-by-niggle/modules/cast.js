@@ -22,12 +22,12 @@ const BRUSH = F => {
     tip: [[0, [0.32, 0.45, 0.27, 1]]],
   };
 };
-// Parish's stick: a plain ash stick with a crook, from under his right hand to the floor beside his right foot
+// Parish's stick: a plain pale ash stick with a crook, from under his right hand to the floor beside his right foot
 const STICK = F => {
   const h = F.fit.h;
   return {
     h,
-    wood: [[0, [0.36, 0.26, 0.17, 1]]],
+    wood: [[0, [0.52, 0.4, 0.28, 1]]],
     hook: [[0, 0.016 * h], [3, 0.015 * h]],
     curl: [null, null, null, null],
   };

@@ -23,7 +23,7 @@ standing as they stand in the story. No one moves but a look; no camera moves.
   dust in it (`motes`), Parish's shadow; the daylight of the doorway and the window (`door_day`, `window_day`); the
   lantern. `dusk` 0…1 — the afternoon toward sunset (a look).
 - **People** (modules/cast, style `niggle`): Niggle on the platform, brush in hand, turned to us, looking aside at
-  nothing — not at Parish (`niggle_look` a point by the door), tired; Parish in the doorway, leaning on his stick, not
+  nothing — not at Parish (`niggle_look` a point by the door), tired; Parish in the doorway, standing on his stick, not
   coming in, looking at Niggle; Mrs Parish at her window across the yard, by the lamp, looking at the shed.
 - **Showcase**: the afternoon; Niggle's eyes go to his leaf, Parish's to the thistles at his feet (never the canvas);
   the light goes to sunset; back.

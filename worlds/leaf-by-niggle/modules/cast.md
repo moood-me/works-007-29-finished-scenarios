@@ -18,4 +18,4 @@ reads across the shed; a simple face (eyes, brows, nose, mouth — `<id>_mood` s
 ## Motions (Kimodo)
 
 The engine's `stand` and `walk`, and: `hold_brush` — stands holding something small at chest height in the right hand,
-breathing (a loop); `lean_stick` — stands leaning on a stick in the right hand, the weight on the left leg (a loop).
+breathing (a loop).
