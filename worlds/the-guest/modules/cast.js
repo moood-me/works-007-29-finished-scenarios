@@ -36,6 +36,8 @@ return {
     // with a simple face (eyes, brows, nose, mouth) so the faces read
     styles: { plateau: { from: 'flat', name: 'The Guest', line: 0.8, face: 'simple' } },
     garments: {
+      // Daru's jacket: a short worn wool jacket, close to the body, its hem just below the hips
+      jacket: { name: 'jacket', hang: [{ to: 0.32, from: 'shoulders', flare: 0.03, folds: false }], sleeves: 'garment' },
       // a jellaba: a long loose robe from the shoulders to the ankles, its sleeves wide
       jellaba: { name: 'jellaba', hang: [{ to: 1.75, from: 'shoulders', flare: 0.26 }], sleeves: 'garment', wide: 0.35 },
     },

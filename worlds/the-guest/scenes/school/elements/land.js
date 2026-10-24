@@ -8,7 +8,7 @@ const D0 = 2900;
 const X = a => a - A0;
 const Y = d => D0 - d;
 // where the land begins to fall (t = 0) and how far past that line a point is: t (relief.js)
-const edge = (d, c) => -3 - 0.35 * (d - 6) - c;
+const edge = (d, c) => -4.2 - 0.15 * (d - 6) - c;
 // the snow
 g.fillStyle = '#e4e9ef';
 g.fillRect(-3000, -3000, 6000, 6000);
@@ -40,7 +40,7 @@ for (let i = 0; i < 420; i++) {
   g.lineCap = 'round';
   g.beginPath();
   g.moveTo(X(a), Y(d));
-  g.lineTo(X(a - 0.35 * len), Y(d + len));
+  g.lineTo(X(a - 0.15 * len), Y(d + len));
   g.stroke();
 }
 // snow lying on the plain in patches, and long drifts on the hill behind the school
@@ -123,26 +123,52 @@ for (let i = 0; i < 90; i++) {
   g.fill();
 }
 g.globalAlpha = 1;
-// the path: trodden snow and mud from the foot of the terrace down past the lip to the horse, and on down the slope
-const path = [[1.8, 4.5], [0.3, 5.6], [-1.2, 6.6], [-3.0, 7.4], [-5.0, 8.4], [-7.4, 9.8], [-10.5, 13], [-14.5, 18], [-19.5, 24], [-25.5, 31],
-  [-32, 40], [-39, 50], [-45, 62], [-49, 74], [-55, 88], [-64, 105], [-79, 130], [-99, 165], [-124, 205]];
-function trace(width, color) {
+// the path: up from the slope past the lip to the shed and the terrace's steps — the snow trodden and greyed along it,
+// the footprints of the two who came up it (and of the boy who ran down), and lower down the slope, where the snow is
+// thin, the mud showing
+const path = [[2.0, 4.9], [0.5, 6.4], [-0.8, 7.8], [-2.5, 9.5], [-4.5, 11.5], [-6.5, 14], [-8.5, 17], [-10.5, 21], [-12, 26],
+  [-13.8, 31], [-16, 38], [-20, 50], [-26, 65], [-35, 85], [-48, 110], [-65, 140], [-85, 180]];
+function trace(width, color, alpha, from) {
   g.strokeStyle = color;
+  g.globalAlpha = alpha;
   g.lineWidth = width;
   g.lineCap = 'round';
   g.lineJoin = 'round';
   g.beginPath();
-  g.moveTo(X(path[0][0]), Y(path[0][1]));
-  for (let i = 1; i < path.length - 1; i++) {
+  g.moveTo(X(path[from][0]), Y(path[from][1]));
+  for (let i = from + 1; i < path.length - 1; i++) {
     const [a, d] = path[i];
     const [a2, d2] = path[i + 1];
     g.quadraticCurveTo(X(a), Y(d), X((a + a2) / 2), Y((d + d2) / 2));
   }
   g.lineTo(X(path[path.length - 1][0]), Y(path[path.length - 1][1]));
   g.stroke();
+  g.globalAlpha = 1;
 }
-trace(0.9, '#d8d8d4');
-trace(0.4, '#ada392');
+trace(0.8, '#d9dfe6', 0.7, 0);
+trace(0.3, '#b3aa98', 0.55, 6);
+// the footprints: three trails along the path, each step a small pressed oval, the snow bluish in it
+g.fillStyle = '#c9d1db';
+for (let i = 0; i < 12; i++) {
+  const [a0, d0] = path[i];
+  const [a1, d1] = path[i + 1];
+  const len = Math.hypot(a1 - a0, d1 - d0);
+  const ux = (a1 - a0) / len;
+  const uy = (d1 - d0) / len;
+  for (let k = 0; k < 3; k++) {
+    const off = (k - 1) * 0.22;
+    for (let s = e.rnd() * 0.35; s < len; s += 0.32 + e.rnd() * 0.08) {
+      const side = (Math.round(s / 0.34) % 2 ? 1 : -1) * 0.08;
+      const a = a0 + ux * s - uy * (off + side);
+      const d = d0 + uy * s + ux * (off + side);
+      g.globalAlpha = 0.45 + 0.3 * e.rnd();
+      g.beginPath();
+      g.ellipse(X(a), Y(d), 0.06, 0.14, Math.atan2(ux, uy), 0, Math.PI * 2);
+      g.fill();
+    }
+  }
+}
+g.globalAlpha = 1;
 // stones: limestone coming through the snow
 for (let i = 0; i < 90; i++) {
   const a = -28 + e.rnd() * 50;
