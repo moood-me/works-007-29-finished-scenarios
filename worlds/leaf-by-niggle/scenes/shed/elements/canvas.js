@@ -109,6 +109,9 @@ const WASH = 'rgba(126,108,88,0.5)';
 const PENCIL = 'rgba(86,78,68,0.8)';
 const joints = [];
 const tips = [];
+const sides = [];
+// a limb: its wash added to the one path of them all (one fill: no darker overlaps at the forks), its two sides kept
+// for the pencil; its children from its end
 const limb = (x, y, a, len, w, depth) => {
   const bend = (e.rnd() - 0.5) * 0.4;
   const ex = x + Math.cos(a + bend) * len;
@@ -119,16 +122,14 @@ const limb = (x, y, a, len, w, depth) => {
   const nx = -Math.sin(a);
   const ny = Math.cos(a);
   const wm = (w + w2) / 4;
-  g.beginPath();
-  g.moveTo(x + nx * w / 2, y + ny * w / 2);
-  g.quadraticCurveTo(mx + nx * wm, my + ny * wm, ex + nx * w2 / 2, ey + ny * w2 / 2);
-  g.lineTo(ex - nx * w2 / 2, ey - ny * w2 / 2);
-  g.quadraticCurveTo(mx - nx * wm, my - ny * wm, x - nx * w / 2, y - ny * w / 2);
-  g.fillStyle = WASH;
-  g.fill();
-  g.strokeStyle = PENCIL;
-  g.lineWidth = Math.max(0.004, Math.min(0.01, w * 0.12));
-  g.stroke();
+  const left = [x + nx * w / 2, y + ny * w / 2, mx + nx * wm, my + ny * wm, ex + nx * w2 / 2, ey + ny * w2 / 2, w];
+  const right = [x - nx * w / 2, y - ny * w / 2, mx - nx * wm, my - ny * wm, ex - nx * w2 / 2, ey - ny * w2 / 2, w];
+  g.moveTo(left[0], left[1]);
+  g.quadraticCurveTo(left[2], left[3], left[4], left[5]);
+  g.lineTo(right[4], right[5]);
+  g.quadraticCurveTo(right[2], right[3], right[0], right[1]);
+  g.closePath();
+  sides.push(left, right);
   joints.push([ex, ey]);
   if (depth === 0) {
     tips.push([ex, ey, a + bend]);
@@ -136,8 +137,8 @@ const limb = (x, y, a, len, w, depth) => {
   }
   const n = depth > 2 ? 3 : 2 + (e.rnd() < 0.5 ? 1 : 0);
   for (let k = 0; k < n; k++) {
-    const spread = n === 3 ? (k - 1) * 0.55 : (k - 0.5) * 0.8;
-    limb(ex, ey, a + bend + spread + (e.rnd() - 0.5) * 0.3, len * (0.68 + e.rnd() * 0.14), w2, depth - 1);
+    const spread = n === 3 ? (k - 1) * 0.5 : (k - 0.5) * 0.75;
+    limb(ex, ey, a + bend + spread + (e.rnd() - 0.5) * 0.3, len * (0.66 + e.rnd() * 0.12), w2, depth - 1);
   }
 };
 // the roots: a few strokes spreading over the canvas's foot
@@ -150,12 +151,23 @@ for (const [rx, ry] of [[-0.75, -0.42], [-0.45, -0.46], [0.3, -0.45], [0.6, -0.4
   g.quadraticCurveTo(-0.1 + rx * 0.5, -0.5, -0.1 + rx, ry);
   g.stroke();
 }
-limb(-0.1, Y1, -Math.PI / 2, 1.2, 0.36, 0);
+g.beginPath();
+limb(-0.1, Y1, -Math.PI / 2, 1.15, 0.36, 0);
 tips.length = 0;
 const [fx, fy] = joints[0];
-limb(fx, fy, -Math.PI / 2 - 0.5, 0.62, 0.21, 4);
-limb(fx, fy, -Math.PI / 2 + 0.05, 0.6, 0.22, 4);
-limb(fx, fy, -Math.PI / 2 + 0.6, 0.6, 0.2, 4);
+limb(fx, fy, -Math.PI / 2 - 0.6, 0.5, 0.21, 4);
+limb(fx, fy, -Math.PI / 2 + 0.05, 0.46, 0.22, 4);
+limb(fx, fy, -Math.PI / 2 + 0.7, 0.5, 0.2, 4);
+g.fillStyle = WASH;
+g.fill();
+g.strokeStyle = PENCIL;
+for (const [x0, y0, cx, cy, x1, y1, w] of sides) {
+  g.lineWidth = Math.max(0.004, Math.min(0.01, w * 0.12));
+  g.beginPath();
+  g.moveTo(x0, y0);
+  g.quadraticCurveTo(cx, cy, x1, y1);
+  g.stroke();
+}
 // the finished leaf's stalk: from the nearest joint of a limb to its base
 const LEAF = [0.08, -2.02];
 let near = joints[0];
