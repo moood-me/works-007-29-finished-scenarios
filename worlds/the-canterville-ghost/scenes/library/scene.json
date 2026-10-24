@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Library",
   "caption": "Canterville Chase, past midnight. The bloodstain by the fireplace is back again.",
-  "horizon": 0.52,
+  "horizon": 0.4,
   "camera": {
     "mode": "picture"
   },
@@ -47,17 +47,18 @@
       "id": "lamp",
       "of": "desk_lamp#flame",
       "color": "#ffd08a",
-      "strength": 1.4,
+      "strength": 2.0,
       "reach": 5,
       "on": "lamp"
     },
     {
       "id": "ghost",
-      "at": "simon#chest",
+      "across": 0.95,
+      "distance": 2.75,
+      "elevation": 1.6,
       "color": "#bdf0df",
-      "strength": 2.2,
-      "reach": 3.6,
-      "glow": 0.6
+      "strength": 2.0,
+      "reach": 3.6
     }
   ],
   "modules": [
@@ -70,7 +71,10 @@
     "otis_mood": "smile",
     "virginia_look": "simon",
     "virginia_mood": "sad",
-    "simon_mood": "angry"
+    "simon_mood": "angry",
+    "otis_with": [
+      "bottle"
+    ]
   },
   "states": {
     "fire": {
@@ -216,27 +220,27 @@
           0.16
         ],
         "source": [
-          0.06,
-          0.55,
-          0.02
+          0.12,
+          0.6,
+          0.04
         ],
         "amount": "fire",
         "size": [
-          0.13,
-          0.03
+          0.26,
+          0.06
         ],
-        "rate": 80,
+        "rate": 140,
         "speed": [
-          0.5,
-          1.1
+          0.35,
+          0.8
         ],
         "life": [
-          0.3,
-          0.7
+          0.4,
+          0.8
         ],
         "glow": [
-          2.2,
-          0.5
+          1.8,
+          0.4
         ]
       }
     },
@@ -327,11 +331,11 @@
       "person": {
         "cast": "cast",
         "who": "virginia",
-        "turn": 145,
+        "turn": 150,
         "does": "clasped"
       },
-      "across": -0.5,
-      "distance": 5.2
+      "across": -0.35,
+      "distance": 3.7
     },
     {
       "id": "simon",
@@ -339,11 +343,11 @@
       "person": {
         "cast": "cast",
         "who": "simon",
-        "turn": 200,
-        "does": "spread"
+        "turn": 205,
+        "does": "loom"
       },
-      "across": 1.6,
-      "distance": 4.3
+      "across": 1.25,
+      "distance": 3.35
     },
     {
       "id": "otis",
@@ -351,11 +355,11 @@
       "person": {
         "cast": "cast",
         "who": "otis",
-        "turn": 130,
-        "does": "hands_behind"
+        "turn": 125,
+        "does": "offer"
       },
-      "across": -2.1,
-      "distance": 5.8
+      "across": -2.3,
+      "distance": 4.9
     }
   ],
   "music": {
