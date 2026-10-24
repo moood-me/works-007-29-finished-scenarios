@@ -7,7 +7,7 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.7,
+    "ambient": 0.78,
     "ambientColor": "#c9b8a4",
     "inside": 0.7,
     "bounce": 0.6,
@@ -96,7 +96,7 @@
       0.43
     ],
     "gran_mood": "smile",
-    "boy_mood": "thinking",
+    "boy_mood": "neutral",
     "camera_h": -0.55
   },
   "states": {
