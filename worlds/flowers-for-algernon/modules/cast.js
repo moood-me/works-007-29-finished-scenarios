@@ -87,9 +87,10 @@ return {
     // the world's style: soft rounded shapes and tinted lines (soft), the head a little smaller so the grown-ups read
     // as grown-ups, a simple face (eyes, brows, nose, mouth — <id>_mood shows on it) so faces read across the room
     styles: { lab: { from: 'soft', name: 'Flowers for Algernon', head: 1.3, neck: 0.55, legs: 0.92, line: 1.8 } },
-    // a laboratory coat: white, from the shoulders to above the knee, straight, its sleeves white
+    // a laboratory coat: white, its skirt straight from the waist to above the knee (hung from the shoulders, it
+    // would flare into a bell over arms held before the chest), the body and sleeves white over it
     garments: {
-      labcoat: { name: 'laboratory coat', hang: [{ to: 0.8, from: 'shoulders', flare: 0 }], sleeves: 'garment' },
+      labcoat: { name: 'laboratory coat', hang: [{ to: 0.8, from: 'waist', flare: 0.04, off: 1.02, folds: false }, { to: 0.3, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
       // a plain day dress: fitted to the waist, the skirt falling straight to below the knee
       frock: { name: 'day dress', hang: [{ to: 1.35, from: 'waist', flare: 0.16, off: 0.94 }], short: true, bare: true, bodice: true },
     },
