@@ -3,6 +3,7 @@
 const WINE = [0.46, 0.06, 0.1, 1];
 const GLASS = [0.86, 0.88, 0.86, 1];
 const WHITE = [0.95, 0.94, 0.91, 1];
+const UP = [0, 1, 0], DOWN = [0, -1, 0];
 // (what a part keeps from one frame to the next: the world's axes, its sizes at the person's size)
 const BOW = F => ({ axes: [null, null, null], wing: [0.022 * F.k, 0.015 * F.k, 0.01 * F.k], knot: [0.008 * F.k, 0.009 * F.k, 0.012 * F.k] });
 const FRINGE = F => ({ side: [F.head.r * 0.3, F.head.r * 0.36, F.head.r * 0.5], back: [F.head.r * 0.72, F.head.r * 0.36, F.head.r * 0.32] });
@@ -10,7 +11,8 @@ const TIE = F => ({ pts: [null, null, null], profile: [[0, 0.014 * F.fit.h], [1,
 const TASH = F => ({ r: [F.head.r * 0.17, F.head.r * 0.07, F.head.r * 0.07] });
 const GLASS_SIZES = F => ({
   axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
-  wine: [0.032 * F.fit.h, 0.036 * F.fit.h, 0.032 * F.fit.h],
+  bowl: [0.036 * F.fit.h, 0.04 * F.fit.h, 0.036 * F.fit.h],
+  wine: [0.035 * F.fit.h, 0.034 * F.fit.h, 0.035 * F.fit.h],
   foot: [0.03 * F.fit.h, 0.004 * F.fit.h, 0.03 * F.fit.h],
   stem: [[0, GLASS]],
   low: [0, -0.03 * F.fit.h, 0],
@@ -65,15 +67,17 @@ return {
       },
     },
     parts: {
-      // a stemmed glass of red wine (the bowl its wine) in the right hand, standing upright whatever the hand does
+      // a stemmed glass half full of red wine in the right hand, standing upright whatever the hand does: the wine the
+      // bowl's lower half, the glass above it
       glass: {
         name: 'glass of wine',
         draw: F => {
-          const { add, mul } = MooodShapes.V;
-          const K = F.keep(GLASS_SIZES), hand = F.P('RightHand');
+          const { add } = MooodShapes.V;
+          const K = F.keep(GLASS_SIZES), hand = F.P('RightHand'), at = add(hand, K.wineAt);
           F.ball(add(hand, K.low), K.axes, K.foot, GLASS, 12);
           F.bar(add(hand, K.low), add(hand, K.high), 0.005 * F.fit.h, 0.005 * F.fit.h, K.stem, 6, K.axes[0]);
-          F.ball(add(hand, K.wineAt), K.axes, K.wine, WINE, 14);
+          F.cap(at, K.axes, K.wine, DOWN, 0, WINE, 14);
+          F.cap(at, K.axes, K.bowl, UP, 0.05, GLASS, 14);
         },
       },
       // a tie from the collar down the shirt's front, kept before whatever is worn over it
@@ -83,8 +87,8 @@ return {
           const { add, mul } = MooodShapes.V;
           const K = F.keep(TIE), k = F.k, fw = F.fwd('Chest'), up = F.up('Chest');
           K.pts[0] = F.clear(add(F.P('Neck1'), add(mul(fw, 0.07 * k), mul(up, -0.03 * F.fit.h))), 1, 0.006 * k);
-          K.pts[1] = F.clear(add(F.P('Chest'), mul(fw, 0.13 * k)), 1, 0.006 * k);
-          K.pts[2] = F.clear(add(F.P('Spine1'), mul(fw, 0.13 * k)), 1, 0.006 * k);
+          K.pts[1] = F.clear(add(F.P('Chest'), mul(fw, 0.1 * k)), 1, 0.006 * k);
+          K.pts[2] = F.clear(add(F.P('Spine1'), mul(fw, 0.1 * k)), 1, 0.006 * k);
           F.tube(K.pts, K.profile, K.colors, 8, F.side('Chest'), 0.35);
         },
       },
