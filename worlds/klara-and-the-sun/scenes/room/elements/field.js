@@ -1,6 +1,6 @@
-// The field from above (metres, its middle 205 m ahead; y toward the viewer — its near edge, y 200, under the
-// window): waist-high summer grass gone gold, lighter and darker drifts of it, a trodden path from the house's side
-// out toward the barn.
+// The field from above (metres, its middle 206.2 m ahead; y toward the viewer — its near edge, y 200, under the
+// house's west wall, a little past the room's): waist-high summer grass gone gold, lighter and darker drifts of it, a
+// trodden path from the gate out toward the barn; this side of the fence (y 191…200) the mown lawn under the window.
 g.fillStyle = '#b6a565';
 g.fillRect(-250, -200, 500, 400);
 const tones = ['rgba(150,140,80,0.45)', 'rgba(205,190,120,0.45)', 'rgba(140,150,90,0.4)', 'rgba(190,170,100,0.4)'];
@@ -10,11 +10,25 @@ for (let i = 0; i < 160; i++) {
   g.ellipse(-250 + e.rnd() * 500, -200 + e.rnd() * 400, 6 + e.rnd() * 30, 3 + e.rnd() * 14, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();
 }
+// the lawn between the house and the fence: short green grass, mown in strips running out to the fence, a few
+// worn patches
+g.fillStyle = '#7a8550';
+g.fillRect(-250, 191, 500, 9);
+for (let x = -30; x < 30; x += 1.2) {
+  g.fillStyle = (Math.round(x / 1.2) % 2) ? 'rgba(146,152,94,0.55)' : 'rgba(104,116,70,0.5)';
+  g.fillRect(x, 191, 1.2, 9);
+}
+for (let i = 0; i < 260; i++) {
+  g.fillStyle = ['rgba(92,104,60,0.5)', 'rgba(160,156,100,0.5)', 'rgba(124,132,78,0.5)'][i % 3];
+  g.beginPath();
+  g.ellipse(-30 + e.rnd() * 60, 191 + e.rnd() * 9, 0.1 + e.rnd() * 0.5, 0.04 + e.rnd() * 0.15, e.rnd() * 3, 0, Math.PI * 2);
+  g.fill();
+}
 // the path: a pale trodden line, wandering from near the gate (across 3) out to the barn (across −14, 170 m on)
 g.strokeStyle = 'rgba(214,196,150,0.8)';
 g.lineWidth = 0.7;
 g.beginPath();
-g.moveTo(3, 190);
-g.bezierCurveTo(2, 150, -10, 120, -9, 80);
+g.moveTo(4.7, 191);
+g.bezierCurveTo(4, 150, -10, 120, -9, 80);
 g.bezierCurveTo(-8, 50, -15, 20, -14, -30);
 g.stroke();
