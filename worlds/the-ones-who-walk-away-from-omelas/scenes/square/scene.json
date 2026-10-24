@@ -120,9 +120,6 @@
         2.78,
         1.07
       ]
-    },
-    "mev_reach": {
-      "r": "ila#head"
     }
   },
   "states": {
@@ -1849,10 +1846,10 @@
       "person": {
         "cast": "cast",
         "who": "mev",
-        "turn": 205
+        "turn": 140
       },
-      "across": -0.31,
-      "distance": 2.79,
+      "across": -2.15,
+      "distance": 3.1,
       "shadow": true
     },
     {
