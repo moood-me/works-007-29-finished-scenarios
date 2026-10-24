@@ -9,10 +9,10 @@ old men read as men; a simple face (eyes, brows, nose, mouth — `<id>_mood` sho
 
 ## Who
 
-- `traps` — Alfredo Traps, forty-five: well fed, dark hair, a new cream summer suit, a red tie (part `tie`); a glass of red wine in the right
-  hand (part `glass`).
-- `judge` — the judge, the host: small, bald with a white fringe (hair `fringe`) and a white moustache (part
-  `moustache`), a black suit, a dark red bow tie (part `bowtie`).
+- `traps` — Alfredo Traps, forty-five: well fed (narrow shoulders, a paunch), dark hair, a new cream summer suit
+  (garment `suit`), a red tie (part `tie`); a glass of red wine half full in the right hand (part `glass`).
+- `judge` — the judge, the host: small, a little paunch, bald with a white fringe (hair `fringe`) and a white moustache (part
+  `moustache`), a black suit (garment `suit`), a dark red bow tie (part `bowtie`).
 - `zorn` — Zorn, the prosecutor: tall and thin, silver hair, a long black frock coat (garment `frock`), a wine-red
   cravat (the scarf, colour `accent`).
 
