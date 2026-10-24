@@ -5,8 +5,8 @@ lengths are a man's metres times `F.fit.h`.
 
 ## Style
 
-`macondo` — the engine's graphic figures (`graphic`: flat colours, long limbs) toned by the scene's light, with a
-simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it), so faces read across the room.
+`macondo` — the engine's toy figurines (`toy`: soft matte volumes, lit by the scene's light), with a simple face
+(eyes, brows, nose, mouth — `<id>_mood` shows on it), so faces read across the room.
 
 ## Who
 
@@ -21,5 +21,6 @@ the floor). `moustache` — the colonel's (a look's).
 
 ## Motions (Kimodo)
 
-The engine's `stand` and `walk`, and: `sit_upright` — sits upright on a bench (the edge of a bed), the hands resting
-in the lap, breathing calmly (a loop).
+The engine's `stand` and `walk`, and: `stand_cane` — stands upright and still, the right hand resting on a cane (the
+umbrella) planted by the right foot, breathing calmly (a loop); `sit_upright` — sits upright on a bench (the edge of a
+bed), the hands folded in the lap, breathing calmly (a loop).

@@ -107,9 +107,9 @@
       "name": "The yard in the rain",
       "plane": true,
       "across": 0.0,
-      "distance": 33.0,
-      "width": 80.0,
-      "depth": 54.6
+      "distance": 13.0,
+      "width": 40.0,
+      "depth": 16.0
     },
     {
       "id": "yard_side",
@@ -188,8 +188,16 @@
           5.15,
           20.0
         ],
-        "count": 5000,
-        "amount": "rain"
+        "count": 8000,
+        "amount": "rain",
+        "reach": 16,
+        "size": [
+          0.011,
+          0.011
+        ],
+        "opacity": 0.55,
+        "streak": 0.05,
+        "color": "#7f8c98"
       }
     },
     {
@@ -203,8 +211,16 @@
           -2.0,
           20.0
         ],
-        "count": 5000,
-        "amount": "rain"
+        "count": 8000,
+        "amount": "rain",
+        "reach": 16,
+        "size": [
+          0.011,
+          0.011
+        ],
+        "opacity": 0.55,
+        "streak": 0.05,
+        "color": "#7f8c98"
       }
     },
     {
@@ -352,15 +368,33 @@
           "on": "stove",
           "at": [
             -0.12,
-            0.08,
-            0.86
+            -0.03,
+            0.9
           ]
         },
         "size": [
-          0.07,
-          0.015
+          0.1,
+          0.025
         ],
-        "amount": "fire"
+        "amount": "fire",
+        "source": [
+          0.16,
+          0.06,
+          0.02
+        ],
+        "rate": 70,
+        "speed": [
+          0.2,
+          0.5
+        ],
+        "life": [
+          0.3,
+          0.7
+        ],
+        "glow": [
+          2,
+          0.5
+        ]
       }
     },
     {
@@ -462,8 +496,8 @@
       "name": "The rooster",
       "inside": true,
       "shadow": true,
-      "across": 0.75,
-      "distance": 3.0,
+      "across": 0.4,
+      "distance": 3.35,
       "height": 0.6,
       "box": [
         -0.35,
@@ -479,10 +513,11 @@
       "person": {
         "cast": "cast",
         "who": "colonel",
-        "turn": 150
+        "turn": 140,
+        "does": "stand_cane"
       },
-      "across": -0.55,
-      "distance": 2.7
+      "across": -0.75,
+      "distance": 3.15
     },
     {
       "id": "wife",
@@ -491,7 +526,7 @@
       "person": {
         "cast": "cast",
         "who": "wife",
-        "turn": 200,
+        "turn": 225,
         "does": "sit_upright"
       },
       "across": 1.6,
