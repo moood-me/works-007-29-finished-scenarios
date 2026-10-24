@@ -13,7 +13,7 @@ return {
     // Daru, the teacher: forty, lean, short dark hair, a sun-darkened face; a worn brown wool jacket over a grey jumper
     daru: {
       kind: 'shapes', style: 'plateau', who: 'man', garment: 'jacket', hair: 'short', face: 'simple',
-      body: { height: 1, thick: 0.9, shoulders: 1 },
+      body: { height: 1, thick: 1, shoulders: 1 },
       colors: { skin: '#cf9f7c', hair: '#2b221d', top: '#9a958c', garment: '#5a4a3c', bottom: '#3a3836', shoes: '#2a2420' },
     },
     // Balducci, the old Corsican gendarme: heavy, broad, a grey moustache, a dark blue kepi, the gendarme's dark blue

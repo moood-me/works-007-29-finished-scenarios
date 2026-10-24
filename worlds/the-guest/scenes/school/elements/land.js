@@ -1,5 +1,5 @@
 // The land seen from above, draped on the relief (metres; x across from across −1000, y toward the viewer from distance
-// 2900; the plane spans across −4000…2000, distance −100…5900), in its daylight colours. The plateau under snow, thin
+// 2900; the plane spans across −6000…4000, distance −100…5900), in its daylight colours. The plateau under snow, thin
 // and wind-scoured where it falls away on the left — grey limestone and dun earth showing in streaks along the slope —
 // and the plain far below, dun with patches of snow, a douar's houses by its well; near, stones through the snow and the
 // trodden path from the school down the slope to where the horse is left.
@@ -11,7 +11,7 @@ const Y = d => D0 - d;
 const edge = (d, c) => -4.2 - 0.15 * (d - 6) - c;
 // the snow
 g.fillStyle = '#e4e9ef';
-g.fillRect(-3000, -3000, 6000, 6000);
+g.fillRect(-5000, -3000, 10000, 6000);
 // a band of the land past the lip: from t = c0 to t = c1, as a polygon along its two edge lines
 function band(c0, c1, color) {
   g.fillStyle = color;
@@ -44,10 +44,10 @@ for (let i = 0; i < 420; i++) {
   g.stroke();
 }
 // snow lying on the plain in patches, and long drifts on the hill behind the school
-for (let i = 0; i < 260; i++) {
+for (let i = 0; i < 380; i++) {
   const d = 300 + e.rnd() * 5500;
-  const a = edge(d, 300 + e.rnd() * 3000);
-  if (a < -3990) continue;
+  const a = edge(d, 300 + e.rnd() * 5000);
+  if (a < -5990) continue;
   g.fillStyle = e.rnd() < 0.6 ? '#e2e5e8' : '#d6d4cc';
   g.globalAlpha = 0.6 + 0.4 * e.rnd();
   g.beginPath();
@@ -70,10 +70,10 @@ for (const [w, c] of [[60, '#9d8f78'], [40, '#cbbfa6']]) {
   g.stroke();
 }
 // dark scrub scattered over the plain
-for (let i = 0; i < 300; i++) {
+for (let i = 0; i < 450; i++) {
   const d = 400 + e.rnd() * 5400;
-  const a = edge(d, 330 + e.rnd() * 3500);
-  if (a < -3990) continue;
+  const a = edge(d, 330 + e.rnd() * 5300);
+  if (a < -5990) continue;
   g.fillStyle = e.rnd() < 0.5 ? '#8b7f69' : '#7c735f';
   g.globalAlpha = 0.6;
   g.beginPath();
