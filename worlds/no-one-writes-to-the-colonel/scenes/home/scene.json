@@ -462,8 +462,8 @@
       "name": "The rooster",
       "inside": true,
       "shadow": true,
-      "across": 0.75,
-      "distance": 3.0,
+      "across": 0.4,
+      "distance": 3.35,
       "height": 0.6,
       "box": [
         -0.35,
