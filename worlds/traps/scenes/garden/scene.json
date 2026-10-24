@@ -93,6 +93,18 @@
       1.5
     ],
     "judge_mood": "smile",
+    "judge_reach": {
+      "r": [
+        1.044,
+        2.971,
+        0.86
+      ],
+      "l": [
+        1.088,
+        2.931,
+        0.86
+      ]
+    },
     "zorn_look": "traps",
     "zorn_mood": "thinking",
     "zorn_reach": {
@@ -505,7 +517,7 @@
         "does": "lean_on_hands"
       },
       "across": -0.2,
-      "distance": 5.1,
+      "distance": 5.4,
       "shadow": true
     }
   ],
