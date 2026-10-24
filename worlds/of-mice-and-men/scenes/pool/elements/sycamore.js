@@ -57,7 +57,7 @@ const twigs = [
   [-3.1, -7.6, -2.1, -6.8, 0.6], [-3.6, -8.4, -4.6, -8.1, 0.6],
   // low, over the water along the lean: what of the crown the viewer sees from under it
   [-2.9, -6.6, -5.2, -7.4, 1.1], [-3.4, -7.4, -6.6, -8.6, 1.2], [-2.4, -5.8, -3.6, -5.2, 0.8], [-3.9, -8.2, -7.8, -9.4, 1],
-  [-2.2, -5.4, -0.6, -6.6, 0.9], [-3.2, -7.2, -1.4, -8.4, 1], [-4, -8.6, -5.6, -9.9, 1.1], [-1.7, -4.6, -2.6, -3.8, 0.6]];
+  [-2.2, -5.4, -0.6, -6.6, 0.9], [-3.2, -7.2, -1.4, -8.4, 1], [-4, -8.6, -5.6, -9.9, 1.1]];
 const LEAF = ['#4e5c35', '#66763d', '#83924a', '#a3aa58'], YELLOW = '#c3a64f';
 e.layer('crown', { pivot: [-2.74, -6.48], wind: { strength: 0.18, gust: 0.4, scale: 1 } }, g => {
   g.scale(0.72, 0.72);
@@ -73,8 +73,8 @@ e.layer('crown', { pivot: [-2.74, -6.48], wind: { strength: 0.18, gust: 0.4, sca
   // the leaves, shade by shade from beneath: broad, a little pointed, each turned its own way
   LEAF.forEach((shade, k) => {
     twigs.forEach(([, , cx, cy, r], j) => {
-      for (let i = 0; i < 16; i++) {
-        const n = i + j * 61 + k * 977, a = A.hash(n, 7) * 6.28, d = r * Math.sqrt(A.hash(n, 8)) * (1 - 0.18 * k);
+      for (let i = 0; i < 22; i++) {
+        const n = i + j * 61 + k * 977, a = A.hash(n, 7) * 6.28, d = 1.15 * r * Math.sqrt(A.hash(n, 8)) * (1 - 0.18 * k);
         const x = cx + Math.cos(a) * d, y = cy + Math.sin(a) * d * 0.75 + (0.3 - 0.22 * k) * r, s = 0.2 + 0.14 * A.hash(n, 9);
         g.fillStyle = k > 0 && A.hash(n, 11) < 0.08 ? YELLOW : shade;
         g.save();

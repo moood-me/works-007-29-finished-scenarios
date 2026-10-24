@@ -14,10 +14,10 @@ for (let i = 0; i < 7; i++) {
 e.layer('leaves', { pivot: [0, 0], wind: { strength: 0.3, gust: 0.5 } }, g => {
   for (const [shade, k] of [['#566338', 0], ['#6f7c43', 1], ['#8a9752', 2], ['#a4ad66', 3]]) {
     g.fillStyle = shade;
-    for (let i = 0; i < 70; i++) {
-      const n = i + k * 97, x = (A.hash(n, 3) - 0.5) * 4.6 * (1 - 0.15 * k), y = -0.5 - A.hash(n, 4) * (3.3 - 0.25 * k) - 0.2 * k;
+    for (let i = 0; i < 150; i++) {
+      const n = i + k * 197, x = (A.hash(n, 3) - 0.5) * 4.6 * (1 - 0.15 * k), y = -0.5 - A.hash(n, 4) * (3.3 - 0.25 * k) - 0.2 * k;
       g.beginPath();
-      g.ellipse(x, y, 0.08 + 0.05 * A.hash(n, 5), 0.32 + 0.2 * A.hash(n, 6), (A.hash(n, 7) - 0.5) * 0.6, 0, Math.PI * 2);
+      g.ellipse(x, y, 0.045 + 0.03 * A.hash(n, 5), 0.26 + 0.16 * A.hash(n, 6), (A.hash(n, 7) - 0.5) * 0.6, 0, Math.PI * 2);
       g.fill();
     }
   }
