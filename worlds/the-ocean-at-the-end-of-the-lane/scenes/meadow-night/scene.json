@@ -185,7 +185,7 @@
       "name": "The circle of dark grass",
       "plane": true,
       "across": 0.2,
-      "distance": 5.0,
+      "distance": 4.5,
       "elevation": 0.004,
       "width": 3.0,
       "depth": 3.0
@@ -193,8 +193,8 @@
     {
       "id": "bucket",
       "name": "The bucket with the ocean in it",
-      "across": 0.95,
-      "distance": 3.7,
+      "across": 0.85,
+      "distance": 3.3,
       "height": 0.3,
       "box": [
         -0.17,
@@ -208,7 +208,7 @@
       "id": "birds",
       "name": "The hunger birds round the circle",
       "across": -1.9,
-      "distance": 6.0,
+      "distance": 5.5,
       "height": 0.7,
       "box": [
         -0.38,
@@ -219,38 +219,38 @@
       "copies": [
         {
           "across": -1.9,
-          "distance": 6.0
+          "distance": 5.5
         },
         {
           "across": -1.0,
-          "distance": 7.1,
+          "distance": 6.6,
           "flip": true,
           "scale": 0.9
         },
         {
           "across": 0.5,
-          "distance": 7.5,
+          "distance": 7.0,
           "scale": 1.1
         },
         {
           "across": 1.8,
-          "distance": 6.9,
+          "distance": 6.4,
           "flip": true
         },
         {
           "across": 2.7,
-          "distance": 5.5,
+          "distance": 5.0,
           "flip": true,
           "scale": 0.95
         },
         {
           "across": -2.3,
-          "distance": 4.3,
+          "distance": 3.8,
           "scale": 0.85
         },
         {
           "across": 2.6,
-          "distance": 4.1,
+          "distance": 3.6,
           "flip": true,
           "scale": 0.8
         }
@@ -260,7 +260,7 @@
       "id": "near_grass",
       "name": "Long grass at the near edge",
       "across": 0,
-      "distance": 2.4,
+      "distance": 1.85,
       "height": 0.4,
       "box": [
         -4.8,
@@ -278,8 +278,8 @@
         "turn": 145,
         "does": "hug_cold"
       },
-      "across": -0.25,
-      "distance": 5.2
+      "across": -0.3,
+      "distance": 4.7
     },
     {
       "id": "lettie",
@@ -290,8 +290,8 @@
         "turn": 240,
         "does": "kneel"
       },
-      "across": 1.25,
-      "distance": 3.9
+      "across": 1.15,
+      "distance": 3.5
     },
     {
       "id": "ginnie",
@@ -303,7 +303,7 @@
         "does": "lantern_up"
       },
       "across": 4.5,
-      "distance": 15.7
+      "distance": 15.0
     }
   ]
 }

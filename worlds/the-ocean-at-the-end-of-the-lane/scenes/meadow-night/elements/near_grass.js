@@ -1,4 +1,4 @@
-// The grass at the near edge of the view (2.4 m off, along the whole width): low dense tufts of blades and a few seed
+// The grass at the near edge of the view (1.85 m off, its foot at the frame's bottom edge, along the whole width): low dense tufts of blades and a few seed
 // heads, swaying in the night air (layers in the wind).
 for (let c = 0; c < 18; c++) {
   const cx = -4.6 + 9.2 * (c + e.rnd() * 0.7) / 18;

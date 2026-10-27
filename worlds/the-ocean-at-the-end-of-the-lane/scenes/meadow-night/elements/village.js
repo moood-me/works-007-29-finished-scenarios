@@ -32,9 +32,9 @@ g.moveTo(-16.4, -27);
 g.lineTo(-14.4, -33);
 g.lineTo(-12.4, -27);
 g.fill();
-for (let k = 0; k < 16; k++) {
+for (let k = 0; k < 12; k++) {
   const [x, base, w, h] = roofs[Math.floor(e.rnd() * roofs.length)];
-  e.light(x + (e.rnd() - 0.5) * w * 0.6, base - h * (0.3 + 0.4 * e.rnd()), 0.55, '#ffc27a', 0.6, 'w' + k);
+  e.light(x + (e.rnd() - 0.5) * w * 0.6, base - h * (0.3 + 0.4 * e.rnd()), 1.3, '#ffc27a', 0.8, 'w' + k);
 }
 // the boy's house, nearer this side of the rise: a plain two-storey house, its roof, its chimney
 g.fillStyle = '#3e4a56';
@@ -45,6 +45,6 @@ g.lineTo(35, -17);
 g.lineTo(43, -12);
 g.fill();
 g.fillRect(38, -18, 1.4, 4);
-e.light(31.5, -8.5, 0.9, '#ffd08a', 0.9, 'sister');
-e.light(37, -3, 0.8, '#ffc27a', 0.6, 'hall');
+e.light(31.5, -8.5, 1.8, '#ffd08a', 1.0, 'sister');
+e.light(37, -3, 1.5, '#ffc27a', 0.8, 'hall');
 e.at(31.5, -8.5, 'sister');
