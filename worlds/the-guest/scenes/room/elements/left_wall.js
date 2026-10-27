@@ -16,7 +16,7 @@ for (let k = 0; k < 5; k++) {
   g.fillRect(x + 0.195, -2.06, 0.01, 2.06);
   for (let i = 0; i < 4; i++) {
     g.fillStyle = 'rgba(70,60,50,0.3)';
-    g.fillRect(x + 0.02 + e.rnd() * 0.14, -2.0 + e.rnd() * 1.9, 0.006, 0.2 + e.rnd() * 0.4);
+    g.fillRect(x + 0.02 + e.rnd() * 0.14, -2.0 + e.rnd() * 1.3, 0.006, 0.2 + e.rnd() * 0.4);
   }
 }
 // the ledges and the brace
