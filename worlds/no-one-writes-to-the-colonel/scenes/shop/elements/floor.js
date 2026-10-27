@@ -1,12 +1,12 @@
 // The floor from above (metres; its middle at distance 3.75, y toward the viewer): cement tiles pressed with a
 // pattern, ochre and brick-red and grey, worn plain where feet go; wet footprints in from the street door; scraps of
 // cloth and ends of thread under the machines, chalk dust by the cutting.
-const T = 0.25;
+const T = 0.2;
 for (let x = -3.4; x < 3.4; x += T) {
   for (let y = -2.45; y < 2.45; y += T) {
     g.fillStyle = '#a48a68';
     g.fillRect(x, y, T, T);
-    g.fillStyle = '#8c4a38';
+    g.fillStyle = '#946652';
     g.beginPath();
     g.moveTo(x + T / 2, y + 0.03);
     g.lineTo(x + T - 0.03, y + T / 2);
@@ -14,9 +14,9 @@ for (let x = -3.4; x < 3.4; x += T) {
     g.lineTo(x + 0.03, y + T / 2);
     g.closePath();
     g.fill();
-    g.fillStyle = '#b8a888';
+    g.fillStyle = '#a89474';
     g.beginPath();
-    g.arc(x + T / 2, y + T / 2, 0.035, 0, Math.PI * 2);
+    g.arc(x + T / 2, y + T / 2, 0.03, 0, Math.PI * 2);
     g.fill();
     g.fillStyle = 'rgba(60,48,38,0.5)';
     g.fillRect(x, y, T, 0.006);

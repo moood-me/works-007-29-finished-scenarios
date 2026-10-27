@@ -9,7 +9,7 @@
   "light": {
     "ambient": 0.78,
     "ambientColor": "#b8c2c6",
-    "inside": 0.5,
+    "inside": 0.6,
     "bounce": 0.55,
     "haze": 0.1,
     "hazeColor": "#aab4b2",
@@ -75,12 +75,12 @@
     "alfonso_mood": "neutral",
     "alfonso_reach": {
       "r": [
-        1.42,
+        1.72,
         4.62,
         0.84
       ],
       "l": [
-        1.75,
+        2.02,
         4.62,
         0.84
       ]
@@ -89,12 +89,12 @@
     "alvaro_mood": "thinking",
     "alvaro_reach": {
       "r": [
-        2.67,
+        2.97,
         4.62,
         0.84
       ],
       "l": [
-        3.0,
+        3.25,
         4.62,
         0.84
       ]
@@ -165,9 +165,9 @@
       "height": 3.6,
       "box": [
         -4.0,
-        -3.6,
-        4.0,
-        0.05
+        -4.7,
+        5.3,
+        0.3
       ]
     },
     {
@@ -253,7 +253,7 @@
       "height": 3.3,
       "box": [
         -3.4,
-        -3.32,
+        -3.6,
         3.4,
         0.02
       ]
@@ -468,8 +468,8 @@
       "name": "The tailor's dummy",
       "inside": true,
       "shadow": true,
-      "across": 2.85,
-      "distance": 2.5,
+      "across": 2.45,
+      "distance": 3.0,
       "height": 1.65,
       "box": [
         -0.32,
@@ -482,9 +482,9 @@
       "id": "bulb",
       "name": "The bulb over the machines",
       "inside": true,
-      "across": 0.7,
-      "distance": 4.4,
-      "elevation": 2.25,
+      "across": 0.35,
+      "distance": 4.1,
+      "elevation": 2.3,
       "height": 1.1,
       "box": [
         -0.18,
@@ -500,11 +500,11 @@
       "person": {
         "cast": "cast",
         "who": "colonel",
-        "turn": 150,
+        "turn": 125,
         "does": "stand_bundle"
       },
-      "across": -1.75,
-      "distance": 3.0
+      "across": -1.45,
+      "distance": 4.0
     },
     {
       "id": "herman",
@@ -529,7 +529,7 @@
         "turn": 180,
         "does": "sit_machine"
       },
-      "across": 1.6,
+      "across": 1.92,
       "distance": 5.0
     },
     {
@@ -542,7 +542,7 @@
         "turn": 190,
         "does": "sit_machine"
       },
-      "across": 2.85,
+      "across": 3.12,
       "distance": 5.0
     }
   ],
