@@ -1,10 +1,10 @@
 // The city's backs below and beyond the window: from the yards 12 m under the storeroom's floor (the card's foot),
-// the rear walls of tenements and lofts in faded brick and soot, their roofs and parapets, water tanks on their
+// the rear walls (a gap of low sheds just right of the middle, where the harbour shows through) of tenements and lofts in faded brick and soot, their roofs and parapets, water tanks on their
 // stilts, a tall factory chimney (its top the point `stack`, where the smoke comes out), fire escapes in thin dark
 // lines, a few washing lines; metres across from the card's anchor, y up negative.
 const blocks = [
   [-30, 6, 15, '#9b7563'], [-24, 7, 19, '#8a6a5c'], [-17, 5, 13, '#a3836d'], [-12, 6, 17, '#7f6458'],
-  [-6, 5, 11, '#a88a72'], [-1, 4, 14, '#94725f'], [3, 7, 12, '#8c766a'], [10, 6, 16, '#9a7a66'],
+  [-6, 5, 11, '#a88a72'], [-1, 4, 6, '#94725f'], [3, 7, 5, '#8c766a'], [10, 6, 16, '#9a7a66'],
   [16, 5, 10, '#a78a76'], [21, 8, 18, '#866659'], [29, 6, 13, '#9c806c'],
 ];
 for (const [x, w, h, c] of blocks) {
@@ -41,19 +41,19 @@ for (const [x, h] of [[-23, 19], [11, 16]]) {
     g.stroke();
   }
 }
-// washing on a line between two backs
+// washing on a line strung across one of the backs
 g.strokeStyle = 'rgba(60,50,50,0.6)';
 g.lineWidth = 0.05;
 g.beginPath();
-g.moveTo(-6, -8);
-g.quadraticCurveTo(-3.5, -7.3, -1, -8.2);
+g.moveTo(-11, -9);
+g.quadraticCurveTo(-8.5, -8.3, -6, -9.2);
 g.stroke();
-for (const [x, c] of [[-5.2, '#e9e3d6'], [-4.3, '#c9d2dc'], [-3.2, '#e2cfc6'], [-2.2, '#ecebe2']]) {
+for (const [x, c] of [[-10.2, '#e9e3d6'], [-9.3, '#c9d2dc'], [-8.2, '#e2cfc6'], [-7.2, '#ecebe2']]) {
   g.fillStyle = c;
-  g.fillRect(x, -7.75, 0.6, 0.9);
+  g.fillRect(x, -8.75, 0.6, 0.9);
 }
 // water tanks on their stilts
-for (const [x, h] of [[-21, 19], [4, 12], [23, 18]]) {
+for (const [x, h] of [[-21, 19], [12, 16], [23, 18]]) {
   g.fillStyle = '#4e423c';
   g.fillRect(x - 0.9, -h - 2.6, 0.15, 2.6);
   g.fillRect(x + 0.75, -h - 2.6, 0.15, 2.6);

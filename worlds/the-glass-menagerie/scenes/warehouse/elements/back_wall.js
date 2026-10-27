@@ -33,7 +33,7 @@ for (let i = 0; i < 22; i++) {
   const y = T + 0.3 + e.rnd() * 3.2;
   const w = 0.15 + e.rnd() * 0.45;
   const h = 0.08 + e.rnd() * 0.2;
-  g.fillStyle = 'rgba(160,96,74,0.45)';
+  g.fillStyle = 'rgba(160,96,74,0.22)';
   g.beginPath();
   g.ellipse(x, y, w / 2, h / 2, (e.rnd() - 0.5) * 0.4, 0, Math.PI * 2);
   g.fill();
