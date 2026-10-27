@@ -1,5 +1,6 @@
 // The mist at the Tree's roots, like unprimed canvas (about its foot: from 5.5 m left of it to 4.2 right, 1.4 high):
-// a low pale band lying on the grass round the roots, thickest at the ground, fading upward and toward its ends. It sways a little along (its animate); `mist` fades it.
+// a low pale band lying on the grass round the roots, thickest at the ground, fading upward and toward its ends.
+// It sways a little along (its animate); `mist` fades it.
 e.layer('mist', {}, l => {
   const band = l.createLinearGradient(0, -1.2, 0, 0.05);
   band.addColorStop(0, 'rgba(172,182,186,0)');
