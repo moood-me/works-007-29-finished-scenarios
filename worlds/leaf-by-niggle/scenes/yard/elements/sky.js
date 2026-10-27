@@ -28,7 +28,7 @@ e.layer('clouds', { drift: [0.003, 0], box: [-0.3, -0.3, e.aspect + 0.3, 0.3] },
 });
 // the storm's bank over the hills to the right, behind the cottage: heaped slate rounds over a flat dark underside,
 // their tops caught by the sun, rain hanging under it in streaks; its left edge thins into the clear sky
-e.layer('bank', { box: [e.aspect * 0.42, -0.35, e.aspect + 1.6, 0.47] }, l => {
+e.layer('bank', { box: [e.aspect * 0.15, -0.35, e.aspect + 1.6, 0.47] }, l => {
   const left = e.aspect * 0.55;
   const end = e.aspect + 1.6;
   // all of it soft-edged, as cloud is
