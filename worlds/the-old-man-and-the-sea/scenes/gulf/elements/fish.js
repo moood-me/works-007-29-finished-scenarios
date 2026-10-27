@@ -13,45 +13,45 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
     return 0.14 + 0.86 * Math.sin(Math.PI * u ** 0.75) ** 0.6 * (1 - 0.45 * u ** 4);
   };
   const body = () => {
-    g.beginPath();
+    const path = new Path2D();
     for (let i = 0; i <= 40; i++) {
       const x = X0 + ((X1 - X0) * i) / 40;
-      g.lineTo(x, C - 0.44 * p(x));
+      path.lineTo(x, C - 0.44 * p(x));
     }
-    g.quadraticCurveTo(X1 + 0.12, C - 0.02, X1, C + 0.1);
+    path.quadraticCurveTo(X1 + 0.12, C - 0.02, X1, C + 0.1);
     for (let i = 40; i >= 0; i--) {
       const x = X0 + ((X1 - X0) * i) / 40;
-      g.lineTo(x, C + 0.44 * p(x));
+      path.lineTo(x, C + 0.44 * p(x));
     }
-    g.closePath();
+    path.closePath();
+    return path;
   };
   const tail = () => {
-    g.beginPath();
-    g.moveTo(X0 + 0.1, C - 0.05);
-    g.quadraticCurveTo(-2.75, -0.1, -3.0, -0.6);
-    g.quadraticCurveTo(-2.72, -0.1, -2.62, C);
-    g.quadraticCurveTo(-2.7, 0.85, -3.0, 1.4);
-    g.quadraticCurveTo(-2.7, 0.8, X0 + 0.1, C + 0.08);
-    g.closePath();
+    const path = new Path2D();
+    path.moveTo(X0 + 0.1, C - 0.05);
+    path.quadraticCurveTo(-2.75, -0.1, -3.0, -0.6);
+    path.quadraticCurveTo(-2.72, -0.1, -2.62, C);
+    path.quadraticCurveTo(-2.7, 0.85, -3.0, 1.4);
+    path.quadraticCurveTo(-2.7, 0.8, X0 + 0.1, C + 0.08);
+    path.closePath();
+    return path;
   };
   const fins = () => {
     // the pectoral spread wide under him, and the folded dorsal a low ridge along the back
-    g.beginPath();
-    g.moveTo(1.15, C + 0.12);
-    g.quadraticCurveTo(0.7, C + 0.5, 0.2, C + 0.95);
-    g.quadraticCurveTo(0.75, C + 0.45, 1.3, C + 0.2);
-    g.closePath();
-    g.moveTo(1.25, C - 0.38);
-    g.quadraticCurveTo(0.6, C - 0.6, -0.35, C - 0.47);
-    g.lineTo(-0.35, C - 0.42);
-    g.lineTo(1.25, C - 0.35);
-    g.closePath();
+    const path = new Path2D();
+    path.moveTo(1.15, C + 0.12);
+    path.quadraticCurveTo(0.7, C + 0.5, 0.2, C + 0.95);
+    path.quadraticCurveTo(0.75, C + 0.45, 1.3, C + 0.2);
+    path.closePath();
+    path.moveTo(1.25, C - 0.38);
+    path.quadraticCurveTo(0.6, C - 0.6, -0.35, C - 0.47);
+    path.lineTo(-0.35, C - 0.42);
+    path.lineTo(1.25, C - 0.35);
+    path.closePath();
+    return path;
   };
-  const all = () => {
-    body();
-    tail();
-    fins();
-  };
+  const all = new Path2D();
+  for (const part of [body(), tail(), fins()]) all.addPath(part);
   // the sword, long and thin, a little up out of the water at its point
   g.fillStyle = '#2f3560';
   g.beginPath();
@@ -61,17 +61,15 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   g.closePath();
   g.fill();
   // the flank silver, the belly paler, the back dark
-  body();
   const flank = g.createLinearGradient(0, C - 0.44, 0, C + 0.44);
   flank.addColorStop(0, '#2b346a');
   flank.addColorStop(0.22, '#4a4f8a');
   flank.addColorStop(0.4, '#b9bcd8');
   flank.addColorStop(1, '#e8e6f0');
   g.fillStyle = flank;
-  g.fill();
+  g.fill(body());
   g.save();
-  body();
-  g.clip();
+  g.clip(body());
   // the wide stripes, pale lavender, down the flank
   g.fillStyle = 'rgba(136,124,196,0.5)';
   for (let x = -1.9; x < 1.25; x += 0.3 + e.rnd() * 0.12) {
@@ -85,12 +83,10 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
     g.fill();
   }
   g.restore();
-  tail();
   g.fillStyle = '#2b3164';
-  g.fill();
-  fins();
+  g.fill(tail());
   g.fillStyle = '#3a3a78';
-  g.fill();
+  g.fill(fins());
   // the eye, big and dark
   g.fillStyle = '#121528';
   g.beginPath();
@@ -103,8 +99,7 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   e.at(1.98, C + 0.02, 'mouth');
   // what is under the water seen through it: sinking into its blue the deeper it lies
   g.save();
-  all();
-  g.clip();
+  g.clip(all);
   const veil = g.createLinearGradient(0, 0, 0, 1.4);
   veil.addColorStop(0, 'rgba(38,47,114,0.35)');
   veil.addColorStop(0.18, 'rgba(38,47,114,0.75)');
