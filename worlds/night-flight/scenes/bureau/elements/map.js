@@ -95,9 +95,12 @@ const fy = Y(field[1]);
 flag(g, fx - 0.03, fy, '#c9a83a');
 flag(g, fx + 0.01, fy + 0.01, '#5d7d3a');
 flag(g, fx + 0.05, fy - 0.005, '#b02a24');
-e.at(fx, fy, 'field');
+e.at(fx, fy + 0.2, 'field');
 const bx = X(-65.3);
 const by = Y(-43.25);
-e.layer('blue', {}, c => flag(c, bx, by, '#2f56a6'));
-e.at(bx, by - 0.09, 'blue');
-e.at(0, -1.95);
+e.layer('blue', {}, c => {
+  c.translate(0, 0.2);
+  flag(c, bx, by, '#2f56a6');
+});
+e.at(bx, by + 0.11, 'blue');
+e.at(0, -1.75);
