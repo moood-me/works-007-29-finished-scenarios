@@ -5,9 +5,9 @@
 // sinking into its blue. He is two feet longer than the skiff. Metres, the water's level at the anchor (y 0), the
 // whole of him one layer the animate brings up from the deep (`fish`).
 e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
-  // (deeper than half a metre the water hides him: nothing of him is painted there)
+  // (deeper than a few hands the water hides him: nothing of him is painted there)
   g.beginPath();
-  g.rect(-3.1, -0.95, 6.05, 1.45);
+  g.rect(-3.1, -0.95, 6.05, 1.17);
   g.clip();
   const C = 0.26;
   const X0 = -2.4;
@@ -105,10 +105,10 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   g.save();
   g.clip(all);
   const veil = g.createLinearGradient(0, 0, 0, 1.4);
-  veil.addColorStop(0, 'rgba(32,39,94,0.4)');
-  veil.addColorStop(0.1, 'rgba(32,39,94,0.72)');
-  veil.addColorStop(0.25, 'rgba(32,39,94,0.94)');
-  veil.addColorStop(0.35, 'rgba(32,39,94,1)');
+  veil.addColorStop(0, 'rgba(26,32,80,0.45)');
+  veil.addColorStop(0.07, 'rgba(26,32,80,0.75)');
+  veil.addColorStop(0.15, 'rgba(26,32,80,0.95)');
+  veil.addColorStop(0.2, 'rgba(26,32,80,1)');
   g.fillStyle = veil;
   g.fillRect(-3.1, 0, 6.1, 1.5);
   g.restore();
