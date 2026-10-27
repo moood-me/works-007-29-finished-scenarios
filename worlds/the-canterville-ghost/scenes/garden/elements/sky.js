@@ -38,7 +38,7 @@ g.fillStyle = disc;
 g.beginPath();
 g.arc(mx, my, R, 0, Math.PI * 2);
 g.fill();
-g.fillStyle = 'rgba(150,162,186,0.35)';
+g.fillStyle = 'rgba(160,172,196,0.16)';
 for (const [dx, dy, r] of [[-0.018, -0.012, 0.016], [0.012, 0.01, 0.022], [0.024, -0.02, 0.01], [-0.008, 0.026, 0.012]]) {
   g.beginPath();
   g.arc(mx + dx, my + dy, r, 0, Math.PI * 2);

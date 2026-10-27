@@ -55,10 +55,11 @@ const tier = (c, cx, cy, w, h, n, tones) => {
 const DARK = ['#16221c', '#1a2620', '#1e2c24', '#14201a'];
 const LIT = ['#22342a', '#28392e', '#2e4234', '#344a3a'];
 e.layer('far', { pivot: [0, -2.4], wind: 0.04, depth: -0.5 }, c => {
-  tier(c, -0.2, -5.4, 2.6, 0.7, 220, DARK);
-  tier(c, -3.2, -3.9, 2.4, 0.6, 180, DARK);
-  tier(c, 3.2, -4.2, 2.6, 0.6, 180, DARK);
-  tier(c, 0.2, -4.4, 1.8, 0.6, 140, DARK);
+  tier(c, -0.2, -5.4, 2.8, 1.0, 360, DARK);
+  tier(c, -3.0, -3.9, 2.6, 0.8, 300, DARK);
+  tier(c, 3.0, -4.2, 2.8, 0.8, 300, DARK);
+  tier(c, 0.1, -4.3, 2.2, 0.9, 260, DARK);
+  tier(c, 0, -6.3, 1.8, 0.6, 160, DARK);
 });
 e.layer('near', { pivot: [0, -2.4], wind: 0.06, depth: 0.4 }, c => {
   tier(c, -4.4, -2.9, 1.8, 0.45, 150, LIT);
