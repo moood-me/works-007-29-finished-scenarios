@@ -31,11 +31,10 @@ old men read as men; a simple face (eyes, brows, nose, mouth — `<id>_mood` sho
   onto his belly).
 - `lean_on_hands` — Zorn: bent a little forward, both hands down before him on something waist-high (`zorn_reach`
   sets them on his chair's back).
-- `sit_forearms` — Traps at table: sitting wide, leaning forward, the forearms on the table, elbows out (`_on` a
-  seat; `_reach` sets the hands on the cloth).
+- `sit_forearms` — at table: sitting wide, leaning forward, the forearms on the table, elbows out (`_on` a seat;
+  `_reach` sets the hands on the cloth) — Traps; Pile too, hunched over his plate (begun at another moment of the
+  loop, `{"motion", "loop": true, "from"}`, so the two do not breathe in step).
 - `sit_upright` — the judge at table: sitting upright, the hands forward on the table (`_reach`).
-- `sit_heavy` — Pile at table: sitting heavily, leaning a little forward, both hands forward on the table (his knife
-  and fork upright in his fists).
 - `lean_to_shoulder` — Kummer standing by a seated man: leaning to his left, the left hand out to the other's
   shoulder (`kummer_reach` `l`: `"traps#shoulder_r"`), the right down on his cane (`r`: a point at his hip).
 

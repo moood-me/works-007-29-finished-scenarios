@@ -144,6 +144,11 @@
         2.42,
         0.81
       ]
+    },
+    "pile_do": {
+      "motion": "sit_forearms",
+      "loop": true,
+      "from": 2.3
     }
   },
   "objects": [
