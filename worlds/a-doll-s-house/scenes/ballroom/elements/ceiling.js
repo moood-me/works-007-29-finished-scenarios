@@ -1,7 +1,7 @@
 // The ceiling seen from below (the card laid face down, its foot at the back wall, y −5.85 at the open front): white
 // plaster in coffers framed with gilt, and the great plaster rose over the middle of the room (y −2.95) the
 // chandelier hangs from.
-g.fillStyle = '#efe9db';
+g.fillStyle = '#e4dccb';
 g.fillRect(-3.55, -5.92, 7.1, 5.97);
 g.strokeStyle = '#dcd1b8';
 g.lineWidth = 0.08;
