@@ -1,0 +1,340 @@
+{
+  "engine": 3,
+  "title": "The Cockpit",
+  "caption": "Dusk over Patagonia. Below, the windows are lighting up.",
+  "horizon": 0.5,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.55,
+    "ambientColor": "#b49ab4",
+    "bounce": 0.45,
+    "haze": 0.04,
+    "hazeColor": "#8a7690",
+    "tint": "#e8a888",
+    "tintStrength": 0.06,
+    "saturation": 0.95,
+    "vignette": 0.35,
+    "grain": 0.08,
+    "wind": [
+      1,
+      0,
+      1.2
+    ],
+    "looks": {
+      "storm": {
+        "ambient": 0.4,
+        "ambientColor": "#6a6494",
+        "tint": "#8f88c0",
+        "tintStrength": 0.08,
+        "saturation": 0.8,
+        "haze": 0.1,
+        "hazeColor": "#1c1a2a",
+        "wind": [
+          1,
+          0,
+          3
+        ],
+        "lights": {
+          "sun": 0
+        }
+      },
+      "above": {
+        "ambient": 0.42,
+        "ambientColor": "#8a9ad0",
+        "tint": "#a8b8ff",
+        "tintStrength": 0.07,
+        "saturation": 0.85,
+        "haze": 0.03,
+        "hazeColor": "#4a5a8a",
+        "wind": [
+          1,
+          0,
+          1
+        ],
+        "lights": {
+          "sun": 0
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        285,
+        4
+      ],
+      "color": "#ffb07a",
+      "strength": 1.6
+    },
+    {
+      "id": "moon",
+      "from": [
+        215,
+        38
+      ],
+      "color": "#c8d4ff",
+      "strength": 1.1,
+      "on": "above"
+    },
+    {
+      "id": "lightning",
+      "from": [
+        320,
+        12
+      ],
+      "color": "#cfcaff",
+      "strength": 2.2,
+      "on": "flash"
+    },
+    {
+      "id": "panel",
+      "across": -0.25,
+      "distance": 3.6,
+      "elevation": 1.55,
+      "color": "#ffcf8a",
+      "strength": 1.5,
+      "reach": 1.4,
+      "on": "panel"
+    },
+    {
+      "id": "radio_lamp",
+      "across": 1.45,
+      "distance": 3.6,
+      "elevation": 1.5,
+      "color": "#ffd59a",
+      "strength": 0.9,
+      "reach": 1.1,
+      "on": "panel"
+    },
+    {
+      "id": "exhaust",
+      "of": "fuselage#exhaust",
+      "color": "#ff9a50",
+      "strength": 0.7,
+      "reach": 2,
+      "flicker": 0.5
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "storm": 0,
+    "rain": 0,
+    "above": 0,
+    "flash": 0,
+    "panel": 0,
+    "fabien_on": {
+      "on": "plane",
+      "at": [
+        -0.55,
+        0.4,
+        1.28
+      ]
+    },
+    "fabien_look": [
+      -3,
+      0.8,
+      1.9
+    ],
+    "fabien_mood": "neutral",
+    "radioman_on": {
+      "on": "plane",
+      "at": [
+        1.05,
+        0.4,
+        1.28
+      ]
+    },
+    "radioman_look": [
+      -1.5,
+      0.5,
+      0.2
+    ],
+    "radioman_mood": "neutral",
+    "bob": 0
+  },
+  "states": {
+    "storm": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the storm: 0 — none (the dusk over the steppe), 1 — in the storm: black-violet cloud all round, rain driven past, lightning (with above 1 — the storm is below, flickering in the cloud sea)"
+    },
+    "rain": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the rain driven past the plane: 0 none … 1 the storm's downpour (with storm 1 inside it; 0 again once the plane is over the clouds)"
+    },
+    "above": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "over the clouds: 0 — no, 1 — the plane has climbed out of the storm into the clear night: stars overhead, the sea of cloud white under the moon below"
+    },
+    "flash": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lightning's light now (set by the scene's script while storm is 1): 0 dark, 1 the flash"
+    },
+    "panel": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the lamps in the cockpits — the instrument lamp before Fabien, lighting his face from below, and the radio's small lamp before the operator: 0 off, 1 lit"
+    },
+    "bob": {
+      "range": [
+        -0.4,
+        0.4
+      ],
+      "smooth": true,
+      "means": "how far the plane has risen (+) or sunk (−) in the air from where it flies, metres: moved by the scene's script — a slow few centimetres at dusk and over the clouds, jolts in the storm"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The sky and what lies below",
+      "sky": true
+    },
+    {
+      "id": "rain",
+      "name": "Rain driven past",
+      "particles": {
+        "kind": "rain",
+        "amount": "rain",
+        "count": 6000,
+        "reach": 14
+      }
+    },
+    {
+      "id": "plane",
+      "name": "Fabien's plane: the anchor its parts and its people are on, rising and falling a little in the air",
+      "unseen": true,
+      "across": 0.7,
+      "distance": 3.2,
+      "place": {
+        "elevation": "bob"
+      }
+    },
+    {
+      "id": "wing",
+      "name": "The parasol wing over the front cockpit",
+      "across": -2.5,
+      "distance": 7.4,
+      "elevation": 2.75,
+      "facing": 180,
+      "tilt": -90,
+      "height": 14,
+      "box": [
+        -1.15,
+        -14.05,
+        1.15,
+        0.05
+      ],
+      "on": "plane"
+    },
+    {
+      "id": "far_wall",
+      "name": "The fuselage's far side, inside",
+      "across": 0.0,
+      "distance": 0.8,
+      "facing": 180,
+      "height": 1.6,
+      "box": [
+        -1.35,
+        -1.44,
+        1.75,
+        -0.6
+      ],
+      "on": "plane"
+    },
+    {
+      "id": "cockpit_floor",
+      "name": "The cockpits' floor",
+      "plane": true,
+      "unseen": true,
+      "across": 0.25,
+      "distance": 0.4,
+      "elevation": 0.85,
+      "width": 2.8,
+      "depth": 0.7,
+      "walk": true,
+      "on": "plane"
+    },
+    {
+      "id": "deck",
+      "name": "The top of the fuselage, the cockpits cut through it",
+      "plane": true,
+      "across": 0.4,
+      "distance": 0.4,
+      "elevation": 1.5,
+      "width": 5.2,
+      "depth": 0.8,
+      "on": "plane"
+    },
+    {
+      "id": "tailplane",
+      "name": "The tailplane",
+      "plane": true,
+      "across": 5.15,
+      "distance": 0.4,
+      "elevation": 1.32,
+      "width": 1.1,
+      "depth": 3.4,
+      "on": "plane"
+    },
+    {
+      "id": "fuselage",
+      "name": "Fabien's plane, its right side",
+      "across": 0.0,
+      "distance": 0.0,
+      "facing": 180,
+      "height": 2.6,
+      "box": [
+        -3.55,
+        -2.62,
+        6.35,
+        0.05
+      ],
+      "on": "plane"
+    },
+    {
+      "id": "fabien",
+      "name": "Fabien",
+      "person": {
+        "cast": "cast",
+        "who": "fabien",
+        "turn": 245,
+        "does": "fly_seated"
+      },
+      "across": 0.15,
+      "distance": 3.6
+    },
+    {
+      "id": "radioman",
+      "name": "The radio operator",
+      "person": {
+        "cast": "cast",
+        "who": "radioman",
+        "turn": 270,
+        "does": "write_seated"
+      },
+      "across": 1.75,
+      "distance": 3.6
+    }
+  ]
+}

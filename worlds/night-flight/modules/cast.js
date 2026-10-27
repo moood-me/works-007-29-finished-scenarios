@@ -59,6 +59,20 @@ return {
       body: { height: 0.97, shoulders: 0.98, thick: 1.0 },
       colors: { skin: '#d9b294', hair: '#8f8a84', top: '#e2ded2', bottom: '#3a3d44', shoes: '#22201e', hat: '#3f7a56' },
     },
+    // Fabien, the Patagonian mail's pilot: thirty, calm and exact; a black-brown leather coat, a white scarf, a leather
+    // flying helmet with its goggles pushed up on the brow
+    fabien: {
+      kind: 'shapes', style: 'aero', who: 'man', garment: 'jacket', hair: 'short', hat: 'aviator', scarf: true,
+      body: { height: 1.0, shoulders: 1.04, thick: 0.98 },
+      colors: { skin: '#d8ab88', hair: '#4a3626', top: '#ece7dc', garment: '#3a2c24', bottom: '#4a4034', shoes: '#1f1813', accent: '#ece7dc', hat: '#4e3626' },
+    },
+    // Fabien's radio operator: young, a sheepskin-collared tan jacket, his helmet lighter, the headphones over it;
+    // a message pad in his left hand
+    radioman: {
+      kind: 'shapes', style: 'aero', who: 'man', garment: 'jacket', hair: 'short', hat: 'aviator', parts: ['headphones', 'pad'],
+      body: { height: 0.97, shoulders: 0.98, thick: 0.96 },
+      colors: { skin: '#e2b896', hair: '#6a4e34', top: '#d8cdb8', garment: '#8a6a48', bottom: '#4f4636', shoes: '#241c16', accent: '#e4dccb', hat: '#7a5a3c' },
+    },
   },
   shapes: {
     // the world's style: an airline poster's figures — the engine's flat geometry (straight edges, a coat a clean
@@ -103,6 +117,26 @@ return {
           F.ball(c, axes, [0.14 * m, 0.115 * m, 0.03 * m], F.colors.hat, 20);
         },
       },
+      // a radio operator's headphones over his helmet: a band over the crown, a round black earpiece on each ear
+      headphones: {
+        name: 'headphones',
+        draw: F => {
+          const { add, mul } = V();
+          const { at: head, axes: [hs, hu, hf], r: rh } = F.head;
+          F.ball(add(head, mul(hu, rh * 1.1)), [hs, hu, hf], [rh * 1.0, rh * 0.08, rh * 0.14], [0.16, 0.16, 0.17, 1], F.sides);
+          for (const s of [-1, 1]) F.ball(add(head, add(mul(hs, s * rh * 1.12), mul(hu, -rh * 0.12))), [hs, hu, hf], [rh * 0.14, rh * 0.34, rh * 0.34], [0.14, 0.14, 0.15, 1], F.sides);
+        },
+      },
+      // a message pad in the left hand: a small block of pale sheets, held up to write on
+      pad: {
+        name: 'message pad',
+        draw: F => {
+          const { add, mul } = V();
+          const m = F.fit.h;
+          const axes = [F.side('LeftHand'), F.up('LeftHand'), F.fwd('LeftHand')];
+          F.ball(add(F.P('LeftHand'), mul(axes[2], 0.06 * m)), axes, [0.07 * m, 0.012 * m, 0.1 * m], [0.92, 0.9, 0.84, 1], 4, 10);
+        },
+      },
       // a pilot's leather helmet hanging from his right hand by its strap: the round leather shell, the goggles on
       // its brow
       helmet_held: {
@@ -119,6 +153,22 @@ return {
       },
     },
     hats: {
+      // a pilot's leather flying helmet worn: a close leather shell over the skull and down over the ears, a strap
+      // under the chin, the goggles pushed up on the brow (their glass catching the light)
+      aviator: {
+        name: 'flying helmet',
+        draw: F => {
+          const { add, mul } = V();
+          const { at: head, axes: [hs, hu, hf], egg, r: rh, out, sides, square } = F.head;
+          // the shell over the crown and the back of the head, its edge at the brow before and low at the nape
+          F.cap(head, [hs, hu, hf], egg.map(e => e * rh * out * 1.08), [0, 0.55, -0.84], -0.3, F.colors.hat, sides, square);
+          // the ear flaps
+          for (const s of [-1, 1]) F.ball(add(head, add(mul(hs, s * rh * 0.95), mul(hu, -rh * 0.2))), [hs, hu, hf], [rh * 0.2, rh * 0.42, rh * 0.36], F.colors.hat, F.sides);
+          // the goggles pushed up on the brow: their strap, two round glasses catching the light
+          F.ball(add(head, add(mul(hu, rh * 0.6), mul(hf, rh * 0.62))), [hs, hu, hf], [rh * 1.0, rh * 0.09, rh * 0.5], [0.2, 0.17, 0.15, 1], F.sides);
+          for (const s of [-1, 1]) F.ball(add(head, add(add(mul(hs, s * rh * 0.36), mul(hu, rh * 0.62)), mul(hf, rh * 0.86))), [hs, hu, hf], [rh * 0.28, rh * 0.2, rh * 0.12], [0.62, 0.7, 0.74, 1], 12);
+        },
+      },
       // a telegraphist's green celluloid eyeshade: a band round the head, its peak out over the eyes
       visor: {
         name: 'eyeshade',
