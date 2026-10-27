@@ -1,9 +1,9 @@
 // The pavement from above (metres, its middle at distance 2; y toward the viewer, the far edge y −4.1 under the
 // shop front): big pale stone slabs in courses along the street, a little uneven in tone, a narrow gutter of setts
 // along the houses' feet.
-g.fillStyle = '#b9b0a2';
+g.fillStyle = '#a99f90';
 g.fillRect(-15, -4.1, 30, 8.2);
-const tones = ['#cfc7b9', '#c9c0b1', '#d5cdc0', '#c4bcae', '#d0c9bd'];
+const tones = ['#bdb3a3', '#b6ad9d', '#c4baab', '#b1a796', '#bfb6a8'];
 const H = 0.9;
 for (let y = -3.8; y < 4.1; y += H) {
   let x = -15 - e.rnd() * 1.2;
