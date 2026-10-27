@@ -13,6 +13,7 @@ grown-ups; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it),
 - `josie` — Josie, fourteen and ill: thin, pale, long honey-brown hair, a big oatmeal cardigan over a pale-blue top,
   grey leggings, socks; her sketchbook with her (part `sketchbook`, point `josie#sketchbook`).
 - `mother` — the Mother (Chrissie): tall, upright, dark hair in a bun, a short straight charcoal work jacket (garment `blazer`), dark trousers.
+- `manager` — the Manager of the shop: middle-aged, a little stout, short greying hair, a plain plum-grey dress to below the knee, long-sleeved (garment `frock`).
 
 ## Parts
 
@@ -22,4 +23,6 @@ grown-ups; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it),
 
 The engine's `stand` and `walk`, and: `hands_clasped` — stands upright and still, hands clasped before her (a loop);
 `hand_to_chin` — stands upright, one arm across the waist holding the other elbow, that hand at the chin, watching (a loop); `drawing` — sits on a bed's
-edge, a sketchbook on the knees, drawing with the right hand (a loop; seated — `<id>_on` a seat).
+edge, a sketchbook on the knees, drawing with the right hand (a loop; seated — `<id>_on` a seat); `still` — stands upright and
+still, arms hanging at the sides (a loop: under a reach — a palm on a glass); `arms_folded` — stands still, both feet flat,
+arms folded low across the waist, waiting (a loop).

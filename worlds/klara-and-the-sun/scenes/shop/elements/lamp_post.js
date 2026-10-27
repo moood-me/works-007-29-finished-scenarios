@@ -1,0 +1,32 @@
+// A street lamp on the kerb side of the pavement (metres from its foot; 4.5 m): a slim iron post, dark green, a
+// fluted base, a lantern with four panes on top — unlit in the morning.
+g.fillStyle = '#34413b';
+g.beginPath();
+g.moveTo(-0.16, 0);
+g.lineTo(0.16, 0);
+g.lineTo(0.11, -0.5);
+g.lineTo(0.05, -0.62);
+g.lineTo(0.045, -3.95);
+g.lineTo(-0.045, -3.95);
+g.lineTo(-0.05, -0.62);
+g.lineTo(-0.11, -0.5);
+g.closePath();
+g.fill();
+g.fillRect(-0.09, -4.0, 0.18, 0.06);
+g.beginPath();
+g.moveTo(-0.15, -4.0);
+g.lineTo(0.15, -4.0);
+g.lineTo(0.2, -4.42);
+g.lineTo(-0.2, -4.42);
+g.closePath();
+g.fill();
+g.fillStyle = '#d9dcd2';
+g.fillRect(-0.12, -4.36, 0.24, 0.3);
+g.fillStyle = '#34413b';
+g.fillRect(-0.01, -4.36, 0.02, 0.3);
+g.beginPath();
+g.moveTo(-0.25, -4.42);
+g.lineTo(0.25, -4.42);
+g.lineTo(0, -4.6);
+g.closePath();
+g.fill();
