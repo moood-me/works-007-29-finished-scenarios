@@ -105,9 +105,9 @@
       "name": "The stubble field",
       "plane": true,
       "across": 0,
-      "distance": 161,
-      "width": 600,
-      "depth": 278
+      "distance": 560,
+      "width": 2400,
+      "depth": 1080
     },
     {
       "id": "hedge",
@@ -189,7 +189,7 @@
       "name": "The two yards",
       "plane": true,
       "across": 0,
-      "distance": 11,
+      "distance": 9,
       "width": 40,
       "depth": 22
     },
@@ -198,7 +198,7 @@
       "name": "The puddle on the path",
       "plane": true,
       "across": -0.95,
-      "distance": 6.1,
+      "distance": 4.1,
       "elevation": 0.005,
       "width": 1.4,
       "depth": 0.8,
@@ -211,7 +211,7 @@
       "id": "cottage",
       "name": "Parish's cottage",
       "across": 5.2,
-      "distance": 15.6,
+      "distance": 13.6,
       "facing": 196,
       "height": 6,
       "box": [
@@ -242,7 +242,7 @@
       "id": "apple",
       "name": "The old apple tree",
       "across": 10.5,
-      "distance": 13.5,
+      "distance": 11.5,
       "height": 5.2,
       "box": [
         -2.4,
@@ -259,7 +259,7 @@
         "kind": "leaves",
         "at": [
           10.5,
-          13.5,
+          11.5,
           3.3
         ],
         "source": [
@@ -279,7 +279,7 @@
       "id": "cabbages",
       "name": "Parish's cabbages",
       "across": 4.5,
-      "distance": 12.2,
+      "distance": 10.2,
       "facing": 185,
       "height": 0.4,
       "box": [
@@ -293,7 +293,7 @@
       "id": "fence",
       "name": "The fence and its gate",
       "across": 4,
-      "distance": 11.2,
+      "distance": 9.2,
       "facing": 182,
       "height": 1.2,
       "box": [
@@ -308,7 +308,7 @@
       "id": "shed",
       "name": "Niggle's shed",
       "across": -3.3,
-      "distance": 8,
+      "distance": 6,
       "facing": 160,
       "height": 4.8,
       "box": [
@@ -354,8 +354,8 @@
     {
       "id": "thistles",
       "name": "Niggle's thistles",
-      "across": -1.3,
-      "distance": 7.4,
+      "across": -5.6,
+      "distance": 4.8,
       "height": 1.4,
       "box": [
         -0.7,
@@ -365,32 +365,32 @@
       ],
       "copies": [
         {
-          "across": -1.3,
-          "distance": 7.4
+          "across": -5.6,
+          "distance": 4.8
         },
         {
-          "across": -5.4,
-          "distance": 5.2,
+          "across": -6.3,
+          "distance": 2.8,
           "flip": true,
           "scale": 1.1
         },
         {
-          "across": 2.4,
-          "distance": 10.6,
-          "scale": 0.85
+          "across": 3.4,
+          "distance": 2.6,
+          "flip": true
         },
         {
-          "across": 3.6,
-          "distance": 4.6,
-          "flip": true
+          "across": 4.2,
+          "distance": 8.2,
+          "scale": 0.8
         }
       ]
     },
     {
       "id": "weeds",
       "name": "Rank grass in Niggle's yard",
-      "across": -1.5,
-      "distance": 3,
+      "across": -1.8,
+      "distance": 2.2,
       "height": 0.7,
       "box": [
         -1.6,
@@ -400,33 +400,28 @@
       ],
       "copies": [
         {
-          "across": -1.6,
-          "distance": 3
+          "across": -1.8,
+          "distance": 2.2,
+          "scale": 0.8
         },
         {
-          "across": 2.8,
-          "distance": 3.4,
-          "flip": true
+          "across": 2.6,
+          "distance": 2.6,
+          "flip": true,
+          "scale": 0.8
         },
         {
           "across": -5,
-          "distance": 6.2,
-          "scale": 1.2
+          "distance": 4.2
         },
         {
           "across": 4.6,
-          "distance": 6.4
-        },
-        {
-          "across": -0.1,
-          "distance": 1.9,
-          "scale": 0.8,
-          "flip": true
+          "distance": 4.4
         },
         {
           "across": 1.8,
-          "distance": 9.2,
-          "scale": 0.9
+          "distance": 7.2,
+          "scale": 0.8
         }
       ]
     },
@@ -440,7 +435,7 @@
         "does": "hold_brush"
       },
       "across": -2.35,
-      "distance": 8.03
+      "distance": 6.03
     },
     {
       "id": "inspector",
@@ -452,7 +447,7 @@
         "does": "hold_book"
       },
       "across": -0.4,
-      "distance": 7.5
+      "distance": 5.5
     },
     {
       "id": "parish",
@@ -464,7 +459,7 @@
         "does": "lean_stick"
       },
       "across": 6.65,
-      "distance": 13.94
+      "distance": 11.94
     },
     {
       "id": "mrs_parish",
@@ -476,7 +471,7 @@
       },
       "inside": true,
       "across": 5.18,
-      "distance": 16.07
+      "distance": 14.07
     }
   ],
   "music": {

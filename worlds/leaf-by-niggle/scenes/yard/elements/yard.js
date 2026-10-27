@@ -1,8 +1,8 @@
-// The two yards from above (its middle 11 m ahead; y toward us: a point `d` metres ahead is at y = 11 − d). Niggle's,
+// The two yards from above (its middle 9 m ahead; y toward us: a point `d` metres ahead is at y = 9 − d). Niggle's,
 // this side of the fence (d < 11.2): rank autumn grass, the bare earth of the old potato bed round the shed, a trodden
 // path from the shed's door to the gate and on toward us, puddles from the night's storm in it. Parish's, beyond:
 // neat dug beds, a swept patch of earth before his door.
-const Y = d => 11 - d;
+const Y = d => 9 - d;
 g.fillStyle = '#7f8a50';
 g.fillRect(-20, -11, 40, 22);
 for (let i = 0; i < 420; i++) {

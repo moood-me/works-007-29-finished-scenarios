@@ -12,7 +12,7 @@ g.lineTo(2.2, 0);
 g.closePath();
 g.rect(0.3, -2.3, 1.2, 2.3);
 g.clip('evenodd');
-L.planks(g, e, -2.2, -4.7, 2.2, 0, true, ['#8f877a', '#978e80', '#867e72', '#9b9384']);
+L.planks(g, e, -2.2, -4.7, 2.2, 0, true, ['#7d776e', '#857e74', '#746e66', '#8a8378']);
 // damp at the foot, a green stain under the eaves' drip
 const damp = g.createLinearGradient(0, -0.8, 0, 0);
 damp.addColorStop(0, 'rgba(70,74,52,0)');

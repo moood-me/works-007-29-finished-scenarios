@@ -60,6 +60,10 @@ for (let y = -3.75; y > -5.9; y -= 0.22) {
   g.beginPath();
   g.moveTo(-half, y);
   g.lineTo(half, y);
+  g.stroke();
+}
+g.fillStyle = '#7a6b5c';
+g.fillRect(2.0, -5.6, 0.45, 1.2);
 // the hole: tiles gone over the bedroom, the laths bare across the dark, a few tiles hanging askew at its edge
 g.fillStyle = '#2e2622';
 g.beginPath();
