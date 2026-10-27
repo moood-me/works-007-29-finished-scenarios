@@ -22,6 +22,9 @@ for (const [row, y] of [[0, -1.25], [1, -1.75], [2, -2.25]]) {
     g.fillRect(x + w - 0.03, y - hgt, 0.03, hgt);
     g.fillStyle = 'rgba(255,255,255,0.12)';
     g.fillRect(x + 0.02, y - hgt, 0.02, hgt);
+    // the folds of the cloth wound on the board, seen at its edge
+    g.fillStyle = 'rgba(0,0,0,0.16)';
+    for (let f = y - hgt + 0.025; f < y - 0.01; f += 0.025) g.fillRect(x, f, w, 0.005);
     x += w + 0.02;
     i++;
   }
