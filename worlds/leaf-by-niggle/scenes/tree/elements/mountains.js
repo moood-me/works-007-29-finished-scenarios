@@ -25,7 +25,7 @@ const range = (x0, x1, base, peaks, rough) => {
 };
 // the farthest, palest range
 const far = range(-9000, 9000, 850, [[-3800, 1900, 2600], [900, 2250, 2400], [4200, 2050, 2000], [7600, 1750, 2200]], 70);
-ridge(far, '#aebccb');
+ridge(far, '#8fa2b8');
 // its snow: the upper part of each peak, clipped to the ridge
 g.save();
 g.beginPath();
@@ -43,7 +43,7 @@ g.lineTo(-9000, -2400);
 g.closePath();
 g.fill();
 // the snow's shaded sides: soft grey-blue streaks down from the peaks
-g.fillStyle = 'rgba(150,166,186,0.45)';
+g.fillStyle = 'rgba(128,146,170,0.5)';
 for (const [px, ph] of [[-3800, 1900], [900, 2250], [4200, 2050], [7600, 1750]]) {
   g.beginPath();
   g.moveTo(px, -ph);
@@ -55,7 +55,7 @@ for (const [px, ph] of [[-3800, 1900], [900, 2250], [4200, 2050], [7600, 1750]])
 g.restore();
 // a nearer, darker range below it, snow only in its gullies
 const near = range(-9000, 9000, 480, [[-1600, 1100, 1700], [2600, 1300, 1500], [6000, 1000, 1600]], 60);
-ridge(near, '#8c9db0');
+ridge(near, '#72869b');
 g.strokeStyle = 'rgba(240,244,246,0.55)';
 g.lineWidth = 22;
 for (const [px, ph] of [[-1600, 1100], [2600, 1300], [6000, 1000]]) {

@@ -10,7 +10,7 @@ const BARK_DARK = 'rgba(70,60,50,0.55)';
 const GREENS = ['#6d8a4c', '#7f9b56', '#5f7c48', '#93a862', '#7a8c6c', '#889a74', '#a7ad66', '#c0a85a'];
 const crowns = { crown_l: [], crown_m: [], crown_top: [], crown_r: [] };
 // a limb: a tapering wash of bark from (x, y) at angle a (radians, y down: −π/2 straight up), `len` long, `w` wide;
-// it forks `depth` times more; each last twig leaves a tip for leaves
+// it forks `depth` times more; its smaller limbs and its twigs leave points for leaves
 const tips = [];
 const limb = (path, x, y, a, len, w, depth) => {
   const bend = (e.rnd() - 0.5) * 0.35;
@@ -27,10 +27,9 @@ const limb = (path, x, y, a, len, w, depth) => {
   path.lineTo(ex - (nx * w2) / 2, ey - (ny * w2) / 2);
   path.quadraticCurveTo(mx - nx * wm, my - ny * wm, x - (nx * w) / 2, y - (ny * w) / 2);
   path.closePath();
-  if (depth === 0) {
-    tips.push([ex, ey]);
-    return;
-  }
+  // leaves at every twig's end and along the smaller limbs, so the crown is full within, not a ring
+  if (depth <= 2) tips.push([ex, ey]);
+  if (depth === 0) return;
   const n = depth > 2 ? 3 : 2 + (e.rnd() < 0.4 ? 1 : 0);
   for (let k = 0; k < n; k++) {
     const spread = n === 3 ? (k - 1) * 0.55 : (k - 0.5) * 0.8;
@@ -91,7 +90,7 @@ const foliage = (l, pts, n) => {
   const byColour = GREENS.map(() => []);
   for (const [x, y] of pts) {
     for (let k = 0; k < n; k++) {
-      const r = Math.sqrt(e.rnd()) * 0.58;
+      const r = Math.sqrt(e.rnd()) * 0.55;
       const t = e.rnd() * Math.PI * 2;
       // the gold ones few, the greys and greens many
       const c = e.rnd() < 0.06 ? 7 : Math.floor(e.rnd() * 7);
@@ -105,10 +104,10 @@ const foliage = (l, pts, n) => {
     l.fill();
   });
 };
-e.layer('crown_l', { pivot: [-1.2, -3.8], wind: { strength: 0.05, gust: 0.4 } }, l => foliage(l, crowns.crown_l, 12));
-e.layer('crown_m', { pivot: [0, -4.4], wind: { strength: 0.04, gust: 0.4 } }, l => foliage(l, crowns.crown_m, 12));
-e.layer('crown_r', { pivot: [1.2, -3.8], wind: { strength: 0.05, gust: 0.4 } }, l => foliage(l, crowns.crown_r, 12));
-e.layer('crown_top', { pivot: [0, -6.2], wind: { strength: 0.06, gust: 0.5 } }, l => foliage(l, crowns.crown_top, 12));
+e.layer('crown_l', { pivot: [-1.2, -3.8], wind: { strength: 0.05, gust: 0.4 } }, l => foliage(l, crowns.crown_l, 8));
+e.layer('crown_m', { pivot: [0, -4.4], wind: { strength: 0.04, gust: 0.4 } }, l => foliage(l, crowns.crown_m, 8));
+e.layer('crown_r', { pivot: [1.2, -3.8], wind: { strength: 0.05, gust: 0.4 } }, l => foliage(l, crowns.crown_r, 8));
+e.layer('crown_top', { pivot: [0, -6.2], wind: { strength: 0.06, gust: 0.5 } }, l => foliage(l, crowns.crown_top, 8));
 // the long low bough: out of the trunk at 2.7 m, reaching right over the grass and sagging toward its tip at
 // (4.2, −2.3); twigs along it with their leaves; it sways a little as one
 e.layer('bough', { pivot: [0.2, -2.7], wind: { strength: 0.035, gust: 0.4 } }, l => {
@@ -148,7 +147,7 @@ e.layer('first', { pivot: [4.2, -2.3], wind: { strength: 0.12, gust: 0.6 } }, l 
   l.beginPath();
   L.leafPath(l, 4.18, -2.22, 0.3, Math.PI * 0.42);
   l.lineWidth = 0.014;
-  l.strokeStyle = 'rgba(206,176,88,0.9)';
+  l.strokeStyle = 'rgba(176,160,84,0.85)';
   l.stroke();
 });
 e.at(4.2, -2.08, 'leaf');

@@ -1,16 +1,31 @@
 // The mist at the Tree's roots, like unprimed canvas (about its foot: from 5.5 m left of it to 4.2 right, 1.4 high):
-// a low pale band, thick round the roots, fading upward and to its ends. It sways (its animate); `mist` (its animate) fades it.
+// a low pale band lying on the grass round the roots, thickest at the ground, fading upward and toward its ends, a
+// few soft swells on it. It sways a little along (its animate); `mist` fades it.
 e.layer('mist', {}, l => {
-  for (let i = 0; i < 26; i++) {
-    const x = -4.4 + e.rnd() * 7;
-    const y = -0.1 - e.rnd() * 0.3;
-    const r = 0.35 + e.rnd() * 0.3;
-    const grad = l.createRadialGradient(x, y, 0, x, y, r);
-    grad.addColorStop(0, 'rgba(236,232,218,0.3)');
-    grad.addColorStop(1, 'rgba(236,232,218,0)');
+  const band = l.createLinearGradient(0, -1.2, 0, 0.05);
+  band.addColorStop(0, 'rgba(238,234,220,0)');
+  band.addColorStop(0.6, 'rgba(238,234,220,0.32)');
+  band.addColorStop(1, 'rgba(238,234,220,0.5)');
+  l.fillStyle = band;
+  l.fillRect(-5.2, -1.2, 9.1, 1.25);
+  for (let i = 0; i < 9; i++) {
+    const x = -4 + e.rnd() * 6.4;
+    const r = 0.4 + e.rnd() * 0.35;
+    const grad = l.createRadialGradient(x, -0.45, 0, x, -0.45, r);
+    grad.addColorStop(0, 'rgba(238,234,220,0.22)');
+    grad.addColorStop(1, 'rgba(238,234,220,0)');
     l.fillStyle = grad;
     l.beginPath();
-    l.ellipse(x, y, r * 1.3, r, 0, 0, Math.PI * 2);
+    l.arc(x, -0.45, r, 0, Math.PI * 2);
     l.fill();
   }
+  // its ends fade into the air
+  l.globalCompositeOperation = 'destination-out';
+  const ends = l.createLinearGradient(-5.2, 0, 3.9, 0);
+  ends.addColorStop(0, 'rgba(0,0,0,1)');
+  ends.addColorStop(0.3, 'rgba(0,0,0,0)');
+  ends.addColorStop(0.75, 'rgba(0,0,0,0)');
+  ends.addColorStop(1, 'rgba(0,0,0,1)');
+  l.fillStyle = ends;
+  l.fillRect(-5.2, -1.2, 9.1, 1.25);
 });

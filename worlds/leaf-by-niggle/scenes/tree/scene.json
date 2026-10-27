@@ -10,7 +10,7 @@
     "ambient": 0.78,
     "ambientColor": "#c9d2d4",
     "bounce": 0.55,
-    "haze": 0.12,
+    "haze": 0.09,
     "hazeColor": "#d6dde0",
     "hazeGlow": 0.3,
     "shafts": 0.35,
@@ -40,8 +40,8 @@
     {
       "id": "sun",
       "from": [
-        150,
-        36
+        118,
+        32
       ],
       "color": "#fff0d4",
       "strength": 1.3
