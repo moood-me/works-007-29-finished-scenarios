@@ -1,0 +1,615 @@
+{
+  "engine": 3,
+  "title": "The Dining Room",
+  "caption": "Soup by candlelight. The defender leans to his client's ear: say nothing, for God's sake.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.62,
+    "ambientColor": "#9088aa",
+    "inside": 0.45,
+    "bounce": 0.6,
+    "haze": 0.05,
+    "hazeColor": "#d9b48c",
+    "hazeGlow": 0.45,
+    "tint": "#ffb070",
+    "tintStrength": 0.06,
+    "vignette": 0.45,
+    "grain": 0.08
+  },
+  "lights": [
+    {
+      "id": "chandelier_a",
+      "of": "chandelier#f1",
+      "color": "#ffc27a",
+      "strength": 1.0,
+      "reach": 6.5
+    },
+    {
+      "id": "chandelier_b",
+      "of": "chandelier#f4",
+      "color": "#ffc27a",
+      "strength": 1.0,
+      "reach": 6.5
+    },
+    {
+      "id": "candles_l",
+      "of": "candelabra_l#f1",
+      "color": "#ffbe74",
+      "strength": 0.9,
+      "reach": 3.2
+    },
+    {
+      "id": "candles_r",
+      "of": "candelabra_r#f1",
+      "color": "#ffbe74",
+      "strength": 0.9,
+      "reach": 3.2
+    },
+    {
+      "id": "hall_lamp",
+      "of": "hall_back#lamp",
+      "color": "#ffc982",
+      "strength": 0.9,
+      "reach": 4.5
+    },
+    {
+      "id": "dusk",
+      "of": "opening",
+      "daylight": 0.9,
+      "reach": 6
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "pile_look": [
+      -0.55,
+      3.62,
+      0.95
+    ],
+    "pile_mood": "neutral",
+    "pile_on": [
+      -1.35,
+      4.42,
+      0.48
+    ],
+    "pile_reach": {
+      "r": [
+        -1.12,
+        4.02,
+        0.8
+      ],
+      "l": [
+        -1.58,
+        4.02,
+        0.8
+      ]
+    },
+    "kummer_look": "traps#head",
+    "kummer_mood": "afraid",
+    "kummer_reach": {
+      "r": [
+        -0.5,
+        4.22,
+        0.88
+      ]
+    },
+    "traps_on": [
+      0.55,
+      4.42,
+      0.48
+    ],
+    "traps_look": [
+      0.6,
+      2.4,
+      1.2
+    ],
+    "traps_mood": "smile",
+    "traps_reach": {
+      "r": [
+        0.33,
+        3.98,
+        0.79
+      ],
+      "l": [
+        0.78,
+        3.98,
+        0.79
+      ]
+    },
+    "judge_on": [
+      2.66,
+      3.72,
+      0.48
+    ],
+    "judge_look": [
+      1.2,
+      2.3,
+      1.2
+    ],
+    "judge_mood": "smile",
+    "judge_reach": {
+      "r": [
+        2.12,
+        3.52,
+        0.8
+      ],
+      "l": [
+        2.14,
+        3.74,
+        0.8
+      ]
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The sky after sunset, seen through the window",
+      "sky": true
+    },
+    {
+      "id": "garden_out",
+      "name": "The garden at dusk beyond the window",
+      "across": -7.3,
+      "distance": 16,
+      "height": 5,
+      "box": [
+        -3.6,
+        -5.3,
+        3.6,
+        0.1
+      ]
+    },
+    {
+      "id": "hall_back",
+      "name": "The hall's far wall with its lamp",
+      "across": 2.8,
+      "distance": 8.8,
+      "facing": 180,
+      "height": 3.3,
+      "box": [
+        -1.9,
+        -3.32,
+        1.9,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "hall_floor",
+      "name": "The hall's tiled floor",
+      "plane": true,
+      "across": 2.8,
+      "distance": 7.3,
+      "width": 3.6,
+      "depth": 3.1,
+      "inside": true
+    },
+    {
+      "id": "stairs",
+      "name": "The foot of the staircase in the hall",
+      "across": 2.3,
+      "distance": 7.6,
+      "facing": 180,
+      "height": 2.7,
+      "box": [
+        -0.3,
+        -2.7,
+        2.4,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "door_leaf",
+      "name": "The open door to the hall",
+      "across": 2.5,
+      "distance": 5.85,
+      "facing": 250,
+      "height": 2.45,
+      "box": [
+        -1.0,
+        -2.45,
+        0.02,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "back_wall",
+      "name": "The dining room's far wall",
+      "across": 0,
+      "distance": 5.8,
+      "facing": 180,
+      "height": 3.32,
+      "box": [
+        -4.45,
+        -3.34,
+        4.45,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "opening",
+      "name": "The window's opening",
+      "unseen": true,
+      "across": -2.65,
+      "distance": 5.84,
+      "facing": 180,
+      "height": 2.7,
+      "box": [
+        -0.65,
+        -2.7,
+        0.65,
+        -0.85
+      ]
+    },
+    {
+      "id": "pane",
+      "name": "The window's glass",
+      "across": -2.65,
+      "distance": 5.83,
+      "elevation": 0.85,
+      "facing": 180,
+      "height": 1.85,
+      "box": [
+        -0.66,
+        -1.86,
+        0.66,
+        0.01
+      ],
+      "glass": {
+        "strength": 0.2
+      }
+    },
+    {
+      "id": "casement",
+      "name": "The window's casement and glazing bars",
+      "across": -2.65,
+      "distance": 5.81,
+      "elevation": 0.85,
+      "facing": 180,
+      "height": 1.85,
+      "box": [
+        -0.66,
+        -1.86,
+        0.66,
+        0.01
+      ],
+      "inside": true
+    },
+    {
+      "id": "curtains",
+      "name": "The velvet curtains at the window",
+      "across": -2.65,
+      "distance": 5.7,
+      "facing": 180,
+      "height": 2.8,
+      "box": [
+        -1.1,
+        -2.82,
+        1.1,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "clock",
+      "name": "The wall clock beside the door",
+      "across": 3.25,
+      "distance": 5.76,
+      "elevation": 1.2,
+      "facing": 180,
+      "height": 1.3,
+      "box": [
+        -0.22,
+        -1.3,
+        0.22,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "side_wall",
+      "name": "A side wall of the room",
+      "height": 3.32,
+      "box": [
+        -3.05,
+        -3.34,
+        3.05,
+        0.02
+      ],
+      "inside": true,
+      "copies": [
+        {
+          "across": -4.4,
+          "distance": 2.75,
+          "facing": 90
+        },
+        {
+          "across": 4.4,
+          "distance": 2.75,
+          "facing": 270
+        }
+      ]
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "across": 0,
+      "distance": 5.8,
+      "elevation": 3.32,
+      "facing": 180,
+      "tilt": -90,
+      "height": 6.6,
+      "box": [
+        -4.45,
+        -6.62,
+        4.45,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "floor",
+      "name": "The parquet floor",
+      "plane": true,
+      "across": 0,
+      "distance": 2.5,
+      "width": 8.8,
+      "depth": 6.6,
+      "inside": true
+    },
+    {
+      "id": "rug",
+      "name": "The carpet under the table",
+      "plane": true,
+      "across": 0,
+      "distance": 3.6,
+      "elevation": 0.004,
+      "width": 5.8,
+      "depth": 2.8,
+      "inside": true
+    },
+    {
+      "id": "chandelier",
+      "name": "The brass chandelier over the table",
+      "across": 0,
+      "distance": 3.6,
+      "elevation": 2.26,
+      "height": 1.1,
+      "box": [
+        -0.75,
+        -1.08,
+        0.75,
+        0.08
+      ],
+      "inside": true,
+      "flicker": 0.15
+    },
+    {
+      "id": "table_top",
+      "name": "The long table, laid",
+      "plane": true,
+      "across": 0,
+      "distance": 3.6,
+      "elevation": 0.76,
+      "width": 4.4,
+      "depth": 1.15,
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "table_front",
+      "name": "The table's near side, the cloth hanging",
+      "across": 0,
+      "distance": 3.02,
+      "facing": 180,
+      "height": 0.8,
+      "box": [
+        -2.32,
+        -0.82,
+        2.32,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "table_things",
+      "name": "The tureen, the bottles and the glasses on the table",
+      "across": 0,
+      "distance": 3.62,
+      "elevation": 0.76,
+      "height": 0.36,
+      "box": [
+        -1.8,
+        -0.38,
+        1.8,
+        0.01
+      ],
+      "inside": true
+    },
+    {
+      "id": "candelabra_l",
+      "name": "A candelabrum on the table's left half",
+      "across": -1.0,
+      "distance": 3.5,
+      "elevation": 0.76,
+      "height": 0.6,
+      "box": [
+        -0.2,
+        -0.6,
+        0.2,
+        0.02
+      ],
+      "inside": true,
+      "flicker": 0.15
+    },
+    {
+      "id": "candelabra_r",
+      "name": "A candelabrum on the table's right half",
+      "across": 1.3,
+      "distance": 3.5,
+      "elevation": 0.76,
+      "height": 0.6,
+      "box": [
+        -0.2,
+        -0.6,
+        0.2,
+        0.02
+      ],
+      "inside": true,
+      "flicker": 0.15
+    },
+    {
+      "id": "steam",
+      "name": "Steam from the soup tureen",
+      "particles": {
+        "kind": "smoke",
+        "at": [
+          -0.55,
+          3.62,
+          0.96
+        ],
+        "source": [
+          0.12,
+          0.06,
+          0.0
+        ],
+        "rate": 5,
+        "size": [
+          0.04,
+          0.22
+        ],
+        "life": [
+          1.4,
+          2.4
+        ],
+        "speed": [
+          0.08,
+          0.16
+        ],
+        "color": "#f4f1ec",
+        "opacity": 0.28,
+        "shadow": 0
+      },
+      "inside": true
+    },
+    {
+      "id": "chair",
+      "name": "A dining chair behind its place",
+      "height": 1.26,
+      "box": [
+        -0.28,
+        -1.27,
+        0.28,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true,
+      "copies": [
+        {
+          "across": -1.35,
+          "distance": 4.78,
+          "facing": 180
+        },
+        {
+          "across": -0.3,
+          "distance": 4.95,
+          "facing": 180
+        },
+        {
+          "across": 0.55,
+          "distance": 4.78,
+          "facing": 180
+        },
+        {
+          "across": 2.88,
+          "distance": 3.86,
+          "facing": 240
+        }
+      ]
+    },
+    {
+      "id": "chair_back",
+      "name": "The prosecutor's chair pushed back from the table",
+      "across": 0.95,
+      "distance": 2.45,
+      "facing": 160,
+      "height": 1.26,
+      "box": [
+        -0.28,
+        -1.27,
+        0.28,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "pile",
+      "name": "Pile, the executioner",
+      "person": {
+        "cast": "cast",
+        "who": "pile",
+        "turn": 180,
+        "does": "sit_fists"
+      },
+      "across": -1.35,
+      "distance": 4.42,
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "kummer",
+      "name": "Kummer, the defender",
+      "person": {
+        "cast": "cast",
+        "who": "kummer",
+        "turn": 180,
+        "does": "bend_whisper"
+      },
+      "across": -0.28,
+      "distance": 4.5,
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "traps",
+      "name": "Alfredo Traps",
+      "person": {
+        "cast": "cast",
+        "who": "traps",
+        "turn": 182,
+        "does": "sit_forearms"
+      },
+      "across": 0.55,
+      "distance": 4.42,
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "judge",
+      "name": "The judge",
+      "person": {
+        "cast": "cast",
+        "who": "judge",
+        "turn": 240,
+        "does": "sit_upright"
+      },
+      "across": 2.66,
+      "distance": 3.72,
+      "inside": true,
+      "shadow": true
+    }
+  ]
+}
