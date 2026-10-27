@@ -28,7 +28,8 @@ Garments: `gown` (to the ground, long sleeves), `frock` (to the knees, long slee
 the hips), `housedress` (a dress to the ground and a white apron from the waist to the shin hanging as cloth over the
 skirt — laid where the skirt hangs from the trunk's hips section). Hats: `mobcap` — a white linen cap with a frill.
 Parts: `collar` — a white collar round the neck; `sash` — a sash round the waist in the look's `accent`; `fern` — a
-handful of russet bracken held before one in both hands (`<id>_with: ["fern"]`).
+handful of russet bracken held before one in both hands (`<id>_with: ["fern"]`); `prayerbook` — a small prayer book in
+brown calf held across both hands before one (`<id>_with: ["prayerbook"]`).
 
 ## Motions (Kimodo)
 
