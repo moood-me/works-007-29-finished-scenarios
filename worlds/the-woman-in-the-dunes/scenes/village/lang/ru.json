@@ -1,0 +1,14 @@
+{
+  "strings": [
+    {
+      "text": "The Edge of the Village",
+      "translation": "Край деревни",
+      "where": "scenes/village/scene.json title"
+    },
+    {
+      "text": "Over every pit a winch, a rope and a lantern.",
+      "translation": "Над каждой ямой — ворот, верёвка и фонарь.",
+      "where": "scenes/village/scene.json caption"
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "engine": 3,
+  "title": "The Edge of the Village",
+  "caption": "Over every pit a winch, a rope and a lantern.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "walk",
+    "area": [
+      3,
+      3,
+      0,
+      5
+    ]
+  },
+  "light": {
+    "vignette": 0.22,
+    "grain": 0.08,
+    "haze": 0.12,
+    "hazeColor": "#efe4cc",
+    "hazeGlow": 0.7,
+    "shafts": 0.2,
+    "ambient": 0.8,
+    "ambientColor": "#d6dcec",
+    "tint": "#fff0d0",
+    "tintStrength": 0.04,
+    "bounce": 0.5,
+    "wind": [
+      1,
+      0.3,
+      0.5
+    ],
+    "looks": {
+      "evening": {
+        "ambient": 0.74,
+        "ambientColor": "#b6bfe2",
+        "hazeColor": "#ecceaa",
+        "tint": "#ffcf9a",
+        "tintStrength": 0.07,
+        "lights": {
+          "sun": 0
+        }
+      },
+      "night": {
+        "ambient": 0.62,
+        "ambientColor": "#5f7bd6",
+        "haze": 0.14,
+        "hazeColor": "#34426a",
+        "hazeGlow": 1,
+        "tint": "#4a64b0",
+        "tintStrength": 0.15,
+        "saturation": 0.95,
+        "bounce": 0.35,
+        "lights": {
+          "sun": 0,
+          "low_sun": 0
+        }
+      },
+      "fog": {
+        "haze": 0.55,
+        "hazeColor": "#e2e2dc",
+        "hazeGlow": 1.2,
+        "shafts": 0.35,
+        "ambient": 0.85,
+        "ambientColor": "#dde0e6",
+        "saturation": 0.85
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        200,
+        45
+      ],
+      "color": "#fff1d8",
+      "strength": 1.1
+    },
+    {
+      "id": "low_sun",
+      "from": [
+        145,
+        7
+      ],
+      "color": "#ffc98c",
+      "strength": 1.1,
+      "on": "evening"
+    },
+    {
+      "id": "moon",
+      "from": "sky#moon",
+      "color": "#c4d2f2",
+      "strength": 0.7,
+      "on": "night"
+    },
+    {
+      "id": "lantern",
+      "of": "winch#flame",
+      "color": "#ffb766",
+      "strength": 1.4,
+      "reach": 7,
+      "flicker": 0.12,
+      "on": "lanterns"
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "evening": 1,
+    "night": 0,
+    "fog": 0,
+    "lanterns": 1,
+    "man_look": "elder",
+    "elder_look": "man",
+    "man_mood": "thinking",
+    "elder_mood": "smile"
+  },
+  "states": {
+    "evening": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — the white-gold day, the sun high; 1 — the evening: the sun low behind the eye, its warm light along the dunes, the sky peach low down"
+    },
+    "night": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — not night; 1 — the night: a blue moonlit village under stars, the lanterns over the pits"
+    },
+    "fog": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the morning fog off the sea: 0 clear, 1 the dunes going white a little way off, the near ones still clear"
+    },
+    "lanterns": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lanterns on the winches over the pits: 0 out, 1 lit"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "sand",
+      "name": "Sand",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 120,
+      "width": 600,
+      "depth": 260
+    },
+    {
+      "id": "winch",
+      "name": "The old man's winch",
+      "across": 1.4,
+      "distance": 7.4,
+      "facing": 180,
+      "height": 1.2,
+      "box": [
+        -1.7,
+        -1.3,
+        1.1,
+        0.1
+      ],
+      "flicker": 0.12,
+      "shadow": true
+    },
+    {
+      "id": "winches",
+      "name": "Winches over the other pits",
+      "facing": 180,
+      "height": 1.2,
+      "box": [
+        -1.7,
+        -1.3,
+        1.1,
+        0.1
+      ],
+      "flicker": 0.12,
+      "shadow": true,
+      "copies": [
+        {
+          "across": -11,
+          "distance": 16.14
+        },
+        {
+          "across": 0.5,
+          "distance": 30.14,
+          "flip": true
+        },
+        {
+          "across": 18,
+          "distance": 28.14
+        },
+        {
+          "across": -22,
+          "distance": 36.14,
+          "flip": true
+        },
+        {
+          "across": 7.5,
+          "distance": 47.14
+        },
+        {
+          "across": 26,
+          "distance": 50.14,
+          "flip": true
+        },
+        {
+          "across": -10.5,
+          "distance": 56.14
+        },
+        {
+          "across": -32,
+          "distance": 62.14,
+          "flip": true
+        },
+        {
+          "across": 15.5,
+          "distance": 70.14
+        },
+        {
+          "across": -2.5,
+          "distance": 80.14,
+          "flip": true
+        },
+        {
+          "across": 35,
+          "distance": 78.14
+        },
+        {
+          "across": -22.5,
+          "distance": 86.14,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "bus_stop",
+      "name": "Bus stop",
+      "across": 14,
+      "distance": 24,
+      "height": 2.62,
+      "box": [
+        -0.45,
+        -2.7,
+        0.45,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "grass",
+      "name": "Dune grass",
+      "height": 0.8,
+      "box": [
+        -0.45,
+        -0.8,
+        0.45,
+        0.08
+      ],
+      "copies": [
+        {
+          "across": -1.8,
+          "distance": 2.6,
+          "scale": 1.1
+        },
+        {
+          "across": 1.4,
+          "distance": 2.4,
+          "flip": true
+        },
+        {
+          "across": -4.6,
+          "distance": 4.0,
+          "scale": 1.3
+        },
+        {
+          "across": 3.6,
+          "distance": 4.6,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 0.2,
+          "distance": 3.6,
+          "scale": 0.7
+        },
+        {
+          "across": -5,
+          "distance": 7.5,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": 5.2,
+          "distance": 6.5
+        },
+        {
+          "across": -6.5,
+          "distance": 9.5,
+          "scale": 1.4
+        },
+        {
+          "across": -0.6,
+          "distance": 7.4,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": -3,
+          "distance": 10.5
+        },
+        {
+          "across": 9.5,
+          "distance": 7,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": -9,
+          "distance": 5,
+          "scale": 1.3
+        }
+      ]
+    },
+    {
+      "id": "drift",
+      "name": "Sand blown along the plain",
+      "particles": {
+        "kind": "puff",
+        "at": [
+          0,
+          18,
+          0.3
+        ],
+        "source": [
+          40,
+          20,
+          0.3
+        ],
+        "rate": 4,
+        "direction": [
+          1,
+          0.2,
+          0.1
+        ],
+        "spread": 25,
+        "speed": [
+          0.3,
+          0.8
+        ],
+        "gravity": -0.02,
+        "drag": 0.4,
+        "wind": 1.2,
+        "turbulence": 0.3,
+        "swirl": 2,
+        "life": [
+          4,
+          6
+        ],
+        "ground": "pass",
+        "shape": "puff",
+        "size": [
+          0.8,
+          2.4
+        ],
+        "color": "#e6cfa4",
+        "opacity": 0.14,
+        "fade": [
+          0.3,
+          0.5
+        ],
+        "glow": 0,
+        "shadow": 0
+      }
+    },
+    {
+      "id": "man",
+      "name": "The man",
+      "person": {
+        "cast": "cast",
+        "who": "man",
+        "turn": 140
+      },
+      "across": -2.5,
+      "distance": 5.2,
+      "shadow": true
+    },
+    {
+      "id": "elder",
+      "name": "The old man",
+      "person": {
+        "cast": "cast",
+        "who": "elder",
+        "turn": 215
+      },
+      "across": 3.0,
+      "distance": 6.7,
+      "shadow": true
+    }
+  ]
+}
