@@ -18,6 +18,14 @@ shadows the scene's, a fine line; the face `simple` — eyes, brows, a nose, a m
   crown, a dark band).
 - `candy` — Candy, the swamper: old, stoop-shouldered, thin, white hair cropped close; a faded grey shirt, old jeans,
   no hat. (Both hands: the cast cannot take one off.)
+- `curleys_wife` — Curley's wife: small, young, full-bodied; her hair in little rolled curls (`curls`: close over the
+  crown, a ring of sausage curls round the sides and back), a red cotton house dress, red mules with red ostrich
+  feathers on the insteps (`mules`).
+
+## Parts
+
+- `puppy` — a pup held in both hands against the chest (`with`): white with a brown patch, a brown head turned out, a
+  pale muzzle, the ears down; its point `#puppy`.
 
 ## Motions (Kimodo)
 
@@ -28,4 +36,7 @@ shadows the scene's, a fine line; the face `simple` — eyes, brows, a nose, a m
 - `arms_folded` — stands, the arms crossed over the chest, the weight shifting a little (a loop).
 - `shy` — stands like a child, the hands clasped before him, swaying a little side to side, the head tipped (a loop).
 - `pet_dog` — sits, leaning to his left, the left hand going down to an animal on the floor beside him and back (a
+  loop).
+- `hip` — stands, the left hand on the hip, the weight shifting from one leg to the other (a loop).
+- `puppy_lap` — sits (a seat: `<id>_on`), holding something small to the chest in both arms, rocking it a little (a
   loop).
