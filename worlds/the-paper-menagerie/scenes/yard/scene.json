@@ -1,0 +1,483 @@
+{
+  "engine": 3,
+  "title": "The Yard",
+  "caption": "A Sunday morning in spring. A plate of buns, and red paper on the grass.",
+  "horizon": 0.46,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.72,
+    "ambientColor": "#bccbe6",
+    "bounce": 0.55,
+    "haze": 0.06,
+    "hazeColor": "#d3dde8",
+    "hazeGlow": 0.05,
+    "tint": "#fff1da",
+    "tintStrength": 0.04,
+    "saturation": 0.95,
+    "vignette": 0.36,
+    "grain": 0.1,
+    "wind": [
+      1,
+      0.3,
+      0.5
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        220,
+        26
+      ],
+      "color": "#fff0d6",
+      "strength": 1.1
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "mom_wear": {
+      "parts": [
+        "plate"
+      ]
+    },
+    "mom_look": "jack",
+    "mom_mood": "neutral",
+    "mom_reach": {
+      "r": [
+        0.72,
+        4.3,
+        0.85
+      ]
+    },
+    "jack_with": [
+      "scraps"
+    ],
+    "jack_look": "jack#scraps",
+    "jack_mood": "sad",
+    "mark_look": "jack",
+    "mark_mood": "angry"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The spring morning sky",
+      "sky": true
+    },
+    {
+      "id": "far",
+      "name": "Gardens and roofs far off",
+      "across": 0,
+      "distance": 110,
+      "height": 8,
+      "box": [
+        -300,
+        -8.5,
+        300,
+        0.05
+      ]
+    },
+    {
+      "id": "trees",
+      "name": "The neighbours' trees behind the house, in new leaf",
+      "across": 1,
+      "distance": 17,
+      "height": 9,
+      "box": [
+        -22,
+        -10,
+        22,
+        0.05
+      ]
+    },
+    {
+      "id": "neighbour",
+      "name": "The house next door beyond the side fence",
+      "across": -15,
+      "distance": 15,
+      "height": 6,
+      "box": [
+        -6,
+        -6.4,
+        6,
+        0.05
+      ]
+    },
+    {
+      "id": "ground",
+      "name": "The yard's grass, the path to the steps",
+      "plane": true,
+      "across": 0,
+      "distance": 60,
+      "width": 400,
+      "depth": 140
+    },
+    {
+      "id": "roof",
+      "name": "The roof's near slope",
+      "plane": true,
+      "across": 0,
+      "distance": 9.55,
+      "elevation": 4.3,
+      "width": 16.6,
+      "depth": 3.2,
+      "tilt": 35
+    },
+    {
+      "id": "chimney",
+      "name": "The brick chimney",
+      "across": 3.2,
+      "distance": 10.2,
+      "elevation": 3.8,
+      "height": 2.4,
+      "box": [
+        -0.35,
+        -2.4,
+        0.35,
+        0.05
+      ]
+    },
+    {
+      "id": "house",
+      "name": "The front of the house: the clapboard, the door, the kitchen window",
+      "shadow": true,
+      "across": 0,
+      "distance": 8.5,
+      "facing": 180,
+      "height": 3.6,
+      "box": [
+        -8.2,
+        -3.62,
+        8.2,
+        0.03
+      ]
+    },
+    {
+      "id": "porch",
+      "name": "The porch's floor boards",
+      "plane": true,
+      "across": -1.0,
+      "distance": 7.75,
+      "elevation": 0.6,
+      "width": 3.0,
+      "depth": 1.5
+    },
+    {
+      "id": "porch_front",
+      "name": "The porch's posts, rail and lattice",
+      "shadow": true,
+      "across": -1.0,
+      "distance": 7.0,
+      "facing": 180,
+      "height": 3.1,
+      "box": [
+        -1.55,
+        -3.12,
+        1.55,
+        0.03
+      ]
+    },
+    {
+      "id": "treads",
+      "name": "The porch steps' treads",
+      "plane": true,
+      "across": -1.0,
+      "distance": 6.86,
+      "elevation": 0.4,
+      "width": 1.2,
+      "depth": 0.28,
+      "copies": [
+        {
+          "across": -1.0,
+          "distance": 6.86,
+          "elevation": 0.4
+        },
+        {
+          "across": -1.0,
+          "distance": 6.58,
+          "elevation": 0.2
+        }
+      ]
+    },
+    {
+      "id": "risers",
+      "name": "The porch steps' risers",
+      "shadow": true,
+      "across": -1.0,
+      "distance": 7.0,
+      "elevation": 0.4,
+      "facing": 180,
+      "height": 0.2,
+      "box": [
+        -0.6,
+        -0.2,
+        0.6,
+        0.01
+      ],
+      "copies": [
+        {
+          "across": -1.0,
+          "distance": 7.0,
+          "elevation": 0.4
+        },
+        {
+          "across": -1.0,
+          "distance": 6.72,
+          "elevation": 0.2
+        },
+        {
+          "across": -1.0,
+          "distance": 6.44,
+          "elevation": 0
+        }
+      ]
+    },
+    {
+      "id": "stringer",
+      "name": "The steps' side",
+      "across": -0.4,
+      "distance": 6.72,
+      "facing": 90,
+      "height": 0.6,
+      "box": [
+        -0.3,
+        -0.62,
+        0.3,
+        0.01
+      ]
+    },
+    {
+      "id": "onion_bed",
+      "name": "The onion bed by the porch",
+      "plane": true,
+      "across": 1.6,
+      "distance": 7.55,
+      "width": 1.9,
+      "depth": 0.75
+    },
+    {
+      "id": "onions",
+      "name": "Spring onions in a row",
+      "across": 1.6,
+      "distance": 7.3,
+      "height": 0.42,
+      "box": [
+        -0.95,
+        -0.44,
+        0.95,
+        0.01
+      ],
+      "copies": [
+        {
+          "across": 1.6,
+          "distance": 7.3
+        },
+        {
+          "across": 1.6,
+          "distance": 7.55,
+          "flip": true
+        },
+        {
+          "across": 1.6,
+          "distance": 7.8
+        }
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "The white picket fence along the side of the yard",
+      "across": -5.2,
+      "distance": 6,
+      "facing": 90,
+      "height": 1.0,
+      "box": [
+        -6,
+        -1.05,
+        4.5,
+        0.03
+      ]
+    },
+    {
+      "id": "puddle",
+      "name": "Last night's puddle at the foot of the steps",
+      "plane": true,
+      "across": -0.55,
+      "distance": 5.85,
+      "elevation": 0.004,
+      "width": 1.7,
+      "depth": 0.9,
+      "reflect": {
+        "strength": 0.5,
+        "fade": 6,
+        "ripple": 0.15
+      }
+    },
+    {
+      "id": "scraps",
+      "name": "Torn pieces of Laohu on the grass",
+      "plane": true,
+      "across": -0.3,
+      "distance": 4.3,
+      "elevation": 0.006,
+      "width": 1.8,
+      "depth": 1.2
+    },
+    {
+      "id": "apple",
+      "name": "The apple tree in blossom, the tin bucket at its foot",
+      "shadow": true,
+      "translucent": 0.3,
+      "across": 4.4,
+      "distance": 5.4,
+      "height": 4.6,
+      "box": [
+        -4,
+        -4.8,
+        2.4,
+        0.05
+      ]
+    },
+    {
+      "id": "petals",
+      "name": "Apple blossom drifting down",
+      "across": 3.2,
+      "distance": 5.5,
+      "elevation": 3.2,
+      "particles": {
+        "kind": "petals",
+        "source": [
+          3.5,
+          2,
+          1
+        ],
+        "rate": 3,
+        "colors": [
+          "#f6e4e6",
+          "#efc9d2",
+          "#f9f1ee"
+        ],
+        "size": [
+          0.07,
+          0.06
+        ],
+        "life": [
+          6,
+          10
+        ],
+        "ground": "stop",
+        "settle": 5
+      }
+    },
+    {
+      "id": "mom",
+      "name": "Mom",
+      "person": {
+        "cast": "cast",
+        "who": "mom",
+        "turn": 255,
+        "does": "offer_hand"
+      },
+      "across": 1.15,
+      "distance": 4.4
+    },
+    {
+      "id": "jack",
+      "name": "Jack",
+      "person": {
+        "cast": "cast",
+        "who": "jack",
+        "turn": 125,
+        "does": "crouch_scraps"
+      },
+      "across": 0.0,
+      "distance": 4.3
+    },
+    {
+      "id": "mark",
+      "name": "Mark",
+      "person": {
+        "cast": "cast",
+        "who": "mark",
+        "turn": 100,
+        "does": "holding_toy"
+      },
+      "across": -1.3,
+      "distance": 4.0
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "soft felt piano, a few plain chords, a spring Sunday morning, tender and a little uneasy",
+        "weight": 1.0
+      },
+      {
+        "text": "solo erhu, quiet and slow, a mother's tune held back",
+        "weight": 0.6
+      },
+      {
+        "text": "music box playing a simple folk tune, slow, a little worn",
+        "weight": 0.5
+      },
+      {
+        "text": "pizzicato strings, light and hesitant, children in a yard",
+        "weight": 0.4
+      },
+      {
+        "text": "acoustic guitar fingerpicking, early spring, simple and warm",
+        "weight": 0.4
+      },
+      {
+        "text": "guzheng plucked softly, few notes, long silences",
+        "weight": 0.3
+      },
+      {
+        "text": "solo cello, low and tender, something unsaid",
+        "weight": 0
+      },
+      {
+        "text": "celesta, a few slow notes, paper animals asleep",
+        "weight": 0
+      },
+      {
+        "text": "bamboo flute, breathy and slow, faraway village memory",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and piano duet, small-town morning, gentle",
+        "weight": 0
+      },
+      {
+        "text": "toy piano, slightly out of tune, slow, intimate",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios, gentle, luminous, blossom falling",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, very soft, bittersweet",
+        "weight": 0
+      },
+      {
+        "text": "pipa, gentle tremolo, melancholy and warm",
+        "weight": 0
+      },
+      {
+        "text": "ambient pad like morning light through blossom, slow warm swells",
+        "weight": 0
+      },
+      {
+        "text": "wordless humming, a woman's voice far away, two tigers lullaby",
+        "weight": 0
+      }
+    ],
+    "bpm": 68,
+    "density": 0.2,
+    "brightness": 0.5,
+    "scale": "G_MAJOR_E_MINOR"
+  }
+}
