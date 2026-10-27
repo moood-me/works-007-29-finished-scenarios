@@ -191,6 +191,13 @@ return {
       body: { height: 1.1, thick: 0.78, shoulders: 1.0, head: 0.92, legs: 1.06 },
       colors: { skin: '#cfe2dc', hair: '#f2f6f4', top: '#a9c4bb', garment: '#8fa9a0', bottom: '#7d958d', shoes: '#4e5d57' },
     },
+    // Sir Simon in the Garden of Death, out of time: the same old man without his irons — no manacles, no chains, no
+    // leg irons; simpler, and older
+    simon_garden: {
+      kind: 'shapes', style: 'canterville', who: 'old', garment: 'doublet', hair: 'ghost', face: 'ghost', parts: ['cloak', 'ruff', 'beard'],
+      body: { height: 1.1, thick: 0.78, shoulders: 1.0, head: 0.92, legs: 1.06 },
+      colors: { skin: '#cfe2dc', hair: '#f2f6f4', top: '#a9c4bb', garment: '#8fa9a0', bottom: '#7d958d', shoes: '#4e5d57' },
+    },
     // Mr Hiram B. Otis, the American Minister: upright, a black frock coat, a grey waistcoat, a white shirt, brown
     // hair going grey
     otis: {
