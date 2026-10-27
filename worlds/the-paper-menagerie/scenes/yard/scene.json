@@ -59,6 +59,19 @@
       "sky": true
     },
     {
+      "id": "far",
+      "name": "Gardens and roofs far off",
+      "across": 0,
+      "distance": 110,
+      "height": 8,
+      "box": [
+        -300,
+        -8.5,
+        300,
+        0.05
+      ]
+    },
+    {
       "id": "trees",
       "name": "The neighbours' trees behind the house, in new leaf",
       "across": 1,
