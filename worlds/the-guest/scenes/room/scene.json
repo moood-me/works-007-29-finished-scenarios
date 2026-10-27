@@ -27,11 +27,11 @@
     {
       "id": "afterglow",
       "from": [
-        12,
-        3
+        250,
+        4
       ],
       "color": "#f1b493",
-      "strength": 0.6
+      "strength": 1.1
     },
     {
       "id": "window_day",
