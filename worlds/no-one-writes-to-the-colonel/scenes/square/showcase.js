@@ -25,7 +25,7 @@ return [
     run: async s => {
       s.person('postmaster').look([-2.7, 7.6, 0.9]);
       await s.wait(1.2);
-      s.person('colonel').look([-0.9, 4.2, 0]);
+      s.person('colonel').look([-0.6, 3.2, 0.6]);
       s.person('colonel').mood('tired');
       await s.wait(5);
     },

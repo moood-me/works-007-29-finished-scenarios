@@ -474,7 +474,7 @@
       "person": {
         "cast": "cast",
         "who": "sabas",
-        "turn": 205,
+        "turn": 235,
         "does": "stand_umbrella_left"
       },
       "across": 1.6,
@@ -510,23 +510,23 @@
     "prompts": [
       {
         "text": "a lone nylon-string guitar in a small wet room, slow bolero phrases, bittersweet and dry",
-        "weight": 1.2
+        "weight": 1.0
       },
       {
         "text": "soft rain on a zinc roof, a few plucked tiple notes far apart, waiting",
-        "weight": 0.9
+        "weight": 0.6
       },
       {
         "text": "a slow Colombian pasillo on solo guitar, nostalgic, a little out of tune",
-        "weight": 0.7
-      },
-      {
-        "text": "a distant river boat's horn under quiet marimba, hazy and still",
         "weight": 0.4
       },
       {
+        "text": "a distant river boat's horn under quiet marimba, hazy and still",
+        "weight": 0.9
+      },
+      {
         "text": "a brass funeral band heard from far away in the rain, out of step",
-        "weight": 0
+        "weight": 0.5
       },
       {
         "text": "solo accordion, vallenato played very slowly and sadly",
