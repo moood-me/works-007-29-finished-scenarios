@@ -18,6 +18,8 @@ lengths are a man's metres times `F.fit.h`.
   and leaves his front dark).
 - `virginia_habit` — Virginia back from riding (the same girl, another look of hers): a riding habit of bottle-green
   cloth (the garment `habit`), a white stock at her throat (`stock`).
+- `simon_garden` — Sir Simon in the Garden of Death, out of time: the same look without his irons (no `shackles`, no
+  `fetters`).
 - `otis` — Mr Hiram B. Otis, the American Minister: a black frock coat, a grey waistcoat, brown hair going grey.
 
 ## Parts
@@ -32,4 +34,6 @@ only before a garment) — Sir Simon's; `sash`, `stock` — Virginia's; `bottle`
 The engine's `stand` and `walk`, and: `clasped` — stands, both hands clasped at the chest, a loop; `loom` — stands
 with both arms raised over the head (the ghost's frightening), a loop; `offer` — stands, the right forearm held out
 before the chest (holding something out), a loop; `upright` — stands upright, both hands clasped behind the back, a
-loop; `brood` — sits (on a seat: `<id>_on`), the right hand to the brow, the left on the knee, tired, a loop.
+loop; `brood` — sits (on a seat: `<id>_on`), the right hand to the brow, the left on the knee, tired, a loop; `sit_ground` —
+sits on the ground, the knees up, the arms loose on them, looking ahead, a loop; `pray` — kneels upright, the hands
+together at the chin, a loop.
