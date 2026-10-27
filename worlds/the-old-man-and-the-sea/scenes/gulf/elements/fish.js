@@ -9,7 +9,7 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   g.beginPath();
   g.rect(-3.1, -0.95, 6.05, 1.17);
   g.clip();
-  const C = 0.26;
+  const C = 0.2;
   const X0 = -2.4;
   const X1 = 1.9;
   const p = x => {
@@ -66,8 +66,8 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   g.fill();
   // the flank silver, the belly paler, the back dark
   const flank = g.createLinearGradient(0, C - 0.44, 0, C + 0.44);
-  flank.addColorStop(0, '#2b346a');
-  flank.addColorStop(0.22, '#4a4f8a');
+  flank.addColorStop(0, '#1f2552');
+  flank.addColorStop(0.25, '#3c4282');
   flank.addColorStop(0.4, '#b9bcd8');
   flank.addColorStop(1, '#e8e6f0');
   g.fillStyle = flank;
@@ -89,7 +89,7 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   g.restore();
   g.fillStyle = '#2b3164';
   g.fill(tail());
-  g.fillStyle = '#3a3a78';
+  g.fillStyle = '#25295a';
   g.fill(fins());
   // the eye, big and dark
   g.fillStyle = '#121528';
@@ -111,12 +111,12 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   g.fillStyle = veil;
   g.fillRect(-3.1, 0, 6.1, 1.5);
   // and he goes out of sight into it, the sea's own paint showing where he is too deep to be seen
-  const out = g.createLinearGradient(0, 0.04, 0, 0.22);
+  const out = g.createLinearGradient(0, 0.06, 0, 0.3);
   out.addColorStop(0, 'rgba(0,0,0,0)');
   out.addColorStop(1, 'rgba(0,0,0,1)');
   g.globalCompositeOperation = 'destination-out';
   g.fillStyle = out;
-  g.fillRect(-3.1, 0.04, 6.1, 1.5);
+  g.fillRect(-3.1, 0.06, 6.1, 1.5);
   g.globalCompositeOperation = 'source-over';
   g.restore();
   // the water breaking over his back: a broken line of foam along it
