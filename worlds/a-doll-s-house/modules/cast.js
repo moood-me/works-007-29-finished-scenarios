@@ -6,7 +6,6 @@ const V = () => MooodShapes.V;
 const PAPER = [0.78, 0.66, 0.5, 1];
 const STRING = [0.62, 0.16, 0.14, 1];
 const TIE = [0.12, 0.11, 0.12, 1];
-const CORSELET = [0.1, 0.09, 0.1, 1];
 const SASH_STRIPE = [0.86, 0.68, 0.24, 1];
 const WHITE = [0.95, 0.94, 0.9, 1];
 const HOOP = [0.5, 0.32, 0.17, 1];
@@ -51,14 +50,13 @@ function parcel(F) {
   F.ball(c, axes, [0.012 * m, 0.079 * m, 0.094 * m], STRING, 16, 8);
 }
 // Nora's Neapolitan costume for the tarantella: a long red skirt and bodice (garment), the white blouse's sleeves rolled
-// to the elbow (top, short), a black laced corselet over the bodice and a striped sash at the waist (accent)
+// to the elbow and its neckline (top, short), a striped sash at the waist (accent)
 function naples(F) {
   const { add, mul } = V();
   const m = F.fit.h;
   const [sd, uc, fc] = chestAxes(F);
   const hips = [F.side('Hips'), F.up('Hips'), F.fwd('Hips')];
   F.ball(add(F.P('Neck1'), mul(uc, -0.02 * m)), [sd, uc, fc], [0.07 * m, 0.016 * m, 0.06 * m], F.colors.top, 16);
-  F.ball(F.clear(add(F.P('Chest'), mul(uc, -0.07 * m)), 1, 0.004 * m), [sd, uc, fc], [0.135 * m, 0.11 * m, 0.1 * m], CORSELET, 16);
   F.ball(add(F.P('Hips'), mul(hips[1], 0.09 * m)), hips, [0.148 * m, 0.03 * m, 0.112 * m], F.colors.accent, 16);
   F.ball(add(F.P('Hips'), mul(hips[1], 0.06 * m)), hips, [0.15 * m, 0.008 * m, 0.114 * m], SASH_STRIPE, 16);
 }
@@ -178,7 +176,7 @@ return {
       colors: { skin: '#d8b399', hair: '#3b342e', top: '#5d574e', garment: '#4c4841', bottom: '#38352f', shoes: '#211e1c', hat: '#262321', accent: '#6a3f35' },
     },
     // Nora at the Stenborgs' ball, in the Neapolitan fisher-girl's costume Torvald had made for her in Capri: a red
-    // skirt and bodice, a black corselet, a white blouse, a sash of yellow and green
+    // skirt and bodice, a white blouse, a sash of green and yellow
     nora_naples: {
       kind: 'shapes', style: 'doll', who: 'woman', garment: 'naples', hair: 'bun',
       body: { height: 0.93, thick: 0.92, head: 1.12 },
