@@ -156,7 +156,7 @@
       "id": "glow_water",
       "name": "The water glowing at night",
       "plane": true,
-      "across": -2.6,
+      "across": -3.3,
       "distance": 6.8,
       "elevation": 0.31,
       "width": 7,
@@ -167,7 +167,7 @@
       "id": "boat",
       "name": "The old man's skiff",
       "unseen": true,
-      "across": -0.2,
+      "across": -0.9,
       "distance": 6.2,
       "elevation": 0.3,
       "onLand": false,
@@ -247,7 +247,7 @@
       "person": {
         "cast": "cast",
         "who": "santiago",
-        "turn": 135,
+        "turn": 160,
         "does": "hold_line"
       },
       "across": -1.5,

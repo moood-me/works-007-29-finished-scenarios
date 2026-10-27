@@ -1,12 +1,13 @@
 // The line laid from the old man's hands to the water each frame (to the fish's mouth as the fish comes up), trembling
-// a little as it does under the pull; the ring where it cuts the water breathes with the swell.
-const hands = e.point('santiago#hands');
-const water = e.point({ on: 'boat', at: [0.35, -2.06, 0] });
-const mouth = e.point('fish#mouth');
-if (!e.mem.said && e.t > 1) {
-  e.mem.said = true;
-  e.warn(`debug t ${e.t.toFixed(2)} line ${JSON.stringify([e.layer("line").x, e.layer("line").y, e.layer("line").rotate, e.layer("line").scaleX])} hands ${JSON.stringify(hands)} water ${JSON.stringify(water)} mouth ${JSON.stringify(mouth)}`);
-}
+// a little as it does under the pull; the ring where it cuts the water breathes with the swell. (e.point gives the same
+// array each time: each point is copied before the next is asked.)
+const at = ref => {
+  const p = e.point(ref);
+  return p ? [p[0], p[1]] : null;
+};
+const hands = at('santiago#hands');
+const water = at({ on: 'boat', at: [0.35, -2.06, 0] });
+const mouth = at('fish#mouth');
 if (!hands || !water) return;
 const f = e.anim.ease.smooth(e.anim.span(e.state.fish, 0.4, 1));
 const end = mouth ? [water[0] + (mouth[0] - water[0]) * f, water[1] + (mouth[1] - water[1]) * f] : water;
