@@ -531,8 +531,8 @@
         "turn": 155,
         "does": "hold_before"
       },
-      "across": -1.0,
-      "distance": 4.5
+      "across": -0.8,
+      "distance": 3.6
     },
     {
       "id": "grose",
@@ -543,8 +543,8 @@
         "turn": 195,
         "does": "hands_clasped"
       },
-      "across": 0.2,
-      "distance": 5.1
+      "across": 0.3,
+      "distance": 4.15
     },
     {
       "id": "governess",
@@ -555,8 +555,8 @@
         "turn": 330,
         "does": "hand_at_waist"
       },
-      "across": 1.45,
-      "distance": 4.0
+      "across": 1.35,
+      "distance": 3.5
     },
     {
       "id": "jessel",

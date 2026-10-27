@@ -115,7 +115,7 @@ return {
       // a housekeeper's dress: a skirt from the waist to the ground, fuller than a gown's, long sleeves; and over it a
       // white apron from the waist to the shin, hanging as cloth clear of the skirt before it
       housedress: {
-        name: 'dress and apron', hang: [{ to: 2.1, from: 'waist', flare: 0.35, off: 0.98 }], sleeves: 'garment', bare: true, bodice: true,
+        name: 'dress and apron', hang: [{ to: 2.1, from: 'waist', flare: 0.3, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true,
         draw: F => {
           const { add, mul, mix, dot, sub, level } = V();
           const P = F.P;
@@ -126,12 +126,12 @@ return {
           const waist = P('Spine1')[1];
           const knee = mix(P('LeftShin'), P('RightShin'), 0.5);
           const foot = mix(P('LeftFoot'), P('RightFoot'), 0.5);
-          const hem = knee[1] + (foot[1] - knee[1]) * 0.6;
+          const hem = knee[1] + (foot[1] - knee[1]) * 0.45;
           // the front of the body at the waist, the skirt's front below it — out by its flare as it goes down to the
           // ground: the apron lies on them, a little off
           const d0 = 0.11 * k * F.look.body.hips;
           const body = Math.max(...['Spine1', 'Hips'].map(j => dot(sub(P(j), hips), f))) + 0.12 * k;
-          const skirt = y => d0 * (1 + 0.35 * Math.max(0, Math.min(1, (hips[1] - y) / (hips[1] - foot[1])))) * 1.3 + 0.05 * k;
+          const skirt = y => d0 * (1 + 0.3 * Math.max(0, Math.min(1, (hips[1] - y) / (hips[1] - foot[1])))) * 1.12 + 0.025 * k;
           const rows = [];
           const held = 2;
           const hanging = 6;
@@ -140,7 +140,7 @@ return {
             const u = (waist - y) / (waist - hem);
             const front = Math.max(body, skirt(y));
             const c = add(hips, add(mul(f, front), [0, y - hips[1], 0]));
-            const half = 0.13 * k * F.look.body.hips * (1 + 0.2 * u);
+            const half = 0.11 * k * F.look.body.hips * (1 + 0.15 * u);
             const row = [];
             for (let q = 0; q < 9; q++) {
               const x = (q / 8) * 2 - 1;
