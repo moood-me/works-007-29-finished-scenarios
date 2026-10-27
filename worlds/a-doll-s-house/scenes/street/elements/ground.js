@@ -60,6 +60,18 @@ for (const o of [2.2, 2.9, 3.6, 4.3]) {
   g.lineTo(...lane(24, o + 0.2 * Math.sin(o * 3)));
   g.stroke();
 }
+// the hill's drifts: soft blue-grey crests lying across its slope, closer together as it steepens
+g.strokeStyle = 'rgba(176,186,206,0.45)';
+g.lineWidth = 0.35;
+for (const s of [23, 26.5, 29.5, 32, 34.5, 37, 40, 43.5, 47.5]) {
+  g.beginPath();
+  for (let o = -26; o <= 30; o += 2) {
+    const [x, y] = lane(s + 0.8 * Math.sin(o * 0.3 + s), o);
+    if (o === -26) g.moveTo(x, y);
+    else g.lineTo(x, y);
+  }
+  g.stroke();
+}
 // the sledges' tracks down the hill: pairs of thin lines, a little wandering
 g.strokeStyle = 'rgba(160,172,190,0.6)';
 g.lineWidth = 0.06;
