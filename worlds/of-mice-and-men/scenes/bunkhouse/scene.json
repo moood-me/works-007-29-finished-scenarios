@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Bunkhouse",
   "caption": "Friday evening. The light over the table, the cards, the old dog at Candy's feet.",
-  "horizon": 0.4,
+  "horizon": 0.44,
   "camera": {
     "mode": "picture"
   },
@@ -546,7 +546,7 @@
       "person": {
         "cast": "cast",
         "who": "slim",
-        "turn": 250,
+        "turn": 235,
         "does": "forearms_on_table"
       },
       "across": 1.22,
