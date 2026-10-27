@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Dining Room",
   "caption": "Soup by candlelight. The defender leans to his client's ear: say nothing, for God's sake.",
-  "horizon": 0.36,
+  "horizon": 0.45,
   "camera": {
     "mode": "picture"
   },
@@ -24,28 +24,28 @@
       "id": "chandelier_a",
       "of": "chandelier#f1",
       "color": "#ffc27a",
-      "strength": 1.0,
+      "strength": 0.85,
       "reach": 6.5
     },
     {
       "id": "chandelier_b",
       "of": "chandelier#f4",
       "color": "#ffc27a",
-      "strength": 1.0,
+      "strength": 0.85,
       "reach": 6.5
     },
     {
       "id": "candles_l",
       "of": "candelabra_l#f1",
       "color": "#ffbe74",
-      "strength": 0.9,
+      "strength": 0.6,
       "reach": 3.2
     },
     {
       "id": "candles_r",
       "of": "candelabra_r#f1",
       "color": "#ffbe74",
-      "strength": 0.9,
+      "strength": 0.6,
       "reach": 3.2
     },
     {
@@ -74,18 +74,18 @@
     "pile_mood": "neutral",
     "pile_on": [
       -1.25,
-      3.44,
+      3.58,
       0.48
     ],
     "pile_reach": {
       "r": [
-        -1.05,
-        3.02,
+        -1.5,
+        3.0,
         0.8
       ],
       "l": [
-        -1.45,
-        3.02,
+        -1.0,
+        3.0,
         0.8
       ]
     },
@@ -144,7 +144,8 @@
         3.0,
         0.8
       ]
-    }
+    },
+    "camera_h": -0.35
   },
   "objects": [
     {
@@ -416,9 +417,9 @@
       "facing": 180,
       "height": 0.8,
       "box": [
-        -1.92,
+        -2.02,
         -0.82,
-        1.92,
+        2.02,
         0.02
       ],
       "inside": true,
@@ -520,7 +521,7 @@
       "copies": [
         {
           "across": -1.25,
-          "distance": 3.78,
+          "distance": 3.92,
           "facing": 180
         },
         {
@@ -550,7 +551,7 @@
         "does": "sit_fists"
       },
       "across": -1.25,
-      "distance": 3.44,
+      "distance": 3.58,
       "inside": true,
       "shadow": true
     },
@@ -596,5 +597,14 @@
       "inside": true,
       "shadow": true
     }
-  ]
+  ],
+  "states": {
+    "camera_h": {
+      "range": [
+        -0.6,
+        0.5
+      ],
+      "means": "the viewer's eye over a standing man's: −0.35 a seated guest's, level with the faces across the table"
+    }
+  }
 }
