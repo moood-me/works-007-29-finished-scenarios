@@ -25,4 +25,5 @@ standing stooped, the knees a little bent, the shoulders rounded; `hands_behind`
 the back, shifting his weight; `stand_easy` — stands, the arms hanging; `sit_table` — sitting at a table, the forearms
 forward on it (`_on` a seat, `_reach` the hands onto the top); `sit_laugh` — sitting, leaning back, laughing;
 `lean_counter` — stands leaning the right forearm on a counter at his right (`_reach` r onto its top);
-`behind_counter` — stands behind a counter (`_reach` the hands onto its top).
+`behind_counter` — stands behind a counter (`_reach` the hands onto its top); `hold_line` — sitting on a bench, holding
+a rope before him with both hands (`_reach` the hands onto the line).
