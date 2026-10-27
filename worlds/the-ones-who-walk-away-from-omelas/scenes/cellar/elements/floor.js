@@ -6,7 +6,7 @@ g.fillStyle = '#5b4939';
 g.fillRect(-2.1, -2.7, 4.2, 5.4);
 for (let i = 0; i < 70; i++) {
   const x = -2.1 + 4.2 * A.hash(i, 1), y = -2.7 + 5.4 * A.hash(i, 2);
-  g.fillStyle = A.hash(i, 3) < 0.5 ? 'rgba(78, 62, 48, 0.6)' : 'rgba(110, 92, 72, 0.45)';
+  g.fillStyle = A.hash(i, 3) < 0.5 ? 'rgba(78, 62, 48, 0.35)' : 'rgba(110, 92, 72, 0.25)';
   g.beginPath();
   g.ellipse(x, y, 0.15 + 0.35 * A.hash(i, 4), 0.1 + 0.25 * A.hash(i, 5), A.hash(i, 6) * 3, 0, Math.PI * 2);
   g.fill();

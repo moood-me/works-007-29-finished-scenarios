@@ -7,7 +7,7 @@ const stones = (g, rects, seed) => {
   let top = 0.02, bottom = 0.02;
   for (const r of rects) top = Math.min(top, r[1]);
   for (const r of rects) {
-    g.fillStyle = '#6c604f';
+    g.fillStyle = '#74685a';
     g.fillRect(r[0], r[1], r[2] - r[0], r[3] - r[1]);
   }
   for (let row = 0, y = bottom; y > top; row++) {

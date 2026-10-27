@@ -14,7 +14,7 @@
     "haze": 0.05,
     "hazeColor": "#3b3340",
     "hazeGlow": 1.3,
-    "ambient": 0.22,
+    "ambient": 0.16,
     "ambientColor": "#5a6894",
     "bounce": 0.4
   },
@@ -320,7 +320,7 @@
       "person": {
         "cast": "cast",
         "who": "mev",
-        "turn": 272,
+        "turn": 235,
         "does": "hold_bowl"
       },
       "across": -1.3,
