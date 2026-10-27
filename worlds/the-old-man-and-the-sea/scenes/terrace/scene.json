@@ -53,24 +53,24 @@
       "id": "lamp_a",
       "of": "lamp_a#flame",
       "color": "#ffc27a",
-      "strength": 1.1,
-      "reach": 5.5,
+      "strength": 1.6,
+      "reach": 6,
       "flicker": 0.06
     },
     {
       "id": "lamp_b",
       "of": "lamp_b#flame",
       "color": "#ffc27a",
-      "strength": 1.1,
-      "reach": 5.5,
+      "strength": 1.6,
+      "reach": 6,
       "flicker": 0.06
     },
     {
       "id": "lamp_c",
       "of": "lamp_c#flame",
       "color": "#ffc27a",
-      "strength": 1.1,
-      "reach": 5.5,
+      "strength": 1.6,
+      "reach": 6,
       "flicker": 0.06
     }
   ],
@@ -461,12 +461,12 @@
           "distance": 4.25
         },
         {
-          "across": -0.65,
-          "distance": 7.0
+          "across": -0.88,
+          "distance": 6.9
         },
         {
-          "across": -0.3,
-          "distance": 7.2,
+          "across": -0.2,
+          "distance": 6.85,
           "flip": true
         },
         {
@@ -538,7 +538,7 @@
       "person": {
         "cast": "cast",
         "who": "manolin",
-        "turn": 100,
+        "turn": 130,
         "does": "stand_easy"
       },
       "across": 0.15,

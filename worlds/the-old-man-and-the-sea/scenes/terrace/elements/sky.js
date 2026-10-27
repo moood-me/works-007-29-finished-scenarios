@@ -15,15 +15,15 @@ e.layer('day', {}, g => {
   sky.addColorStop(0, '#4a5c94');
   sky.addColorStop(0.4, '#7f86b6');
   sky.addColorStop(0.68, '#c99aa8');
-  sky.addColorStop(0.86, '#efb48c');
-  sky.addColorStop(1, '#f6c98e');
+  sky.addColorStop(0.86, '#eea47c');
+  sky.addColorStop(1, '#f2ae70');
   g.fillStyle = sky;
   g.fillRect(X0, Y0, W, H - Y0);
   g.fillStyle = '#e8b892';
   g.fillRect(X0, H, W, 1.25 - H);
   // the gold round the sun, wide along the horizon
-  glow(g, SX, SY, 0.9, 0.22, '255,214,150', 0.75);
-  glow(g, SX, SY, 0.25, 0.09, '255,236,190', 0.8);
+  glow(g, SX, SY, 0.9, 0.22, '252,190,120', 0.7);
+  glow(g, SX, SY, 0.25, 0.09, '255,210,150', 0.7);
 });
 e.layer('dusk', {}, g => {
   const sky = g.createLinearGradient(0, Y0, 0, H);
@@ -50,11 +50,11 @@ e.layer('dusk', {}, g => {
 // the sun: a low disc flattened a little by the air, and its glow (the light the sea's mirror draws its path from)
 e.layer('sun', { box: [SX - 0.06, SY - 0.06, SX + 0.06, SY + 0.06] }, g => {
   glow(g, SX, SY, 0.06, 0.05, '255,236,190', 1);
-  g.fillStyle = '#fff1cc';
+  g.fillStyle = '#fff8e2';
   g.beginPath();
   g.ellipse(SX, SY, 0.024, 0.021, 0, 0, Math.PI * 2);
   g.fill();
-  e.light(SX, SY, 0.04, '#ffd59a', 4, 'sun');
+  e.light(SX, SY, 0.04, '#ffd59a', 8, 'sun');
 });
 e.layer('clouds', { drift: [0.001, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g => {
   // long banks lying low over the sea: violet-grey bodies, their undersides gilded by the sun below them — brightest
