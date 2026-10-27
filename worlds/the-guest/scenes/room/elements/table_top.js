@@ -25,7 +25,8 @@ for (const [x, y] of [[0.05, -0.05], [0.2, 0.0], [-0.1, -0.2]]) {
 // the revolver, its muzzle to the right
 g.save();
 g.translate(0.0, 0.2);
-g.rotate(-0.12);
+g.rotate(-0.4);
+g.scale(1.25, 1.25);
 g.fillStyle = '#1f2125';
 g.fillRect(0.0, -0.02, 0.15, 0.036);
 g.fillRect(-0.07, -0.04, 0.08, 0.075);
