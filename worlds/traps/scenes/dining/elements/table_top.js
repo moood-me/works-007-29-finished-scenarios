@@ -1,8 +1,8 @@
 // The long table from above under its white damask cloth: a place laid for each of the five — a soup plate on a
 // flat plate, silver either side, a glass, a folded napkin — and down the middle a runner, the bread on its board, a
 // salt cellar; at the near side, at the prosecutor's place, his little notebook open and a pencil on it.
-const W = 2.2;
-const D = 0.575;
+const W = 1.8;
+const D = 0.55;
 g.fillStyle = '#f2ece0';
 g.fillRect(-W, -D, W * 2, D * 2);
 g.strokeStyle = '#e2d9c6';
@@ -47,24 +47,25 @@ const place = (x, y, turn, soup) => {
   g.fillRect(-0.3, -0.06, 0.08, 0.12);
   g.restore();
 };
-// the far side: Pile, Kummer's place pushed aside, Traps; the judge's at the right end; the near side's three
-place(-1.35, -0.3, 0, true);
-place(-0.3, -0.32, 0.2, false);
-place(0.55, -0.3, 0, true);
-place(1.95, 0.0, -Math.PI / 2, true);
-place(-1.3, 0.32, Math.PI, false);
-place(0.55, 0.32, Math.PI, true);
-place(1.4, 0.32, Math.PI, false);
+// the far side: Pile, Kummer's place pushed aside, Traps, the judge; the near side's three, the prosecutor's
+// opposite Traps
+place(-1.25, -0.28, 0, true);
+place(-0.35, -0.3, 0.2, false);
+place(0.5, -0.28, 0, true);
+place(1.4, -0.28, 0, true);
+place(-1.2, 0.3, Math.PI, false);
+place(0.62, 0.3, Math.PI, true);
+place(1.45, 0.3, Math.PI, false);
 // the bread on its board and the salt
 g.fillStyle = '#8d6a45';
-g.fillRect(-0.95, -0.09, 0.32, 0.18);
+g.fillRect(-0.36, -0.09, 0.32, 0.18);
 g.fillStyle = '#c99a5a';
 g.beginPath();
-g.ellipse(-0.79, 0, 0.12, 0.07, 0, 0, Math.PI * 2);
+g.ellipse(-0.2, 0, 0.12, 0.07, 0, 0, Math.PI * 2);
 g.fill();
 g.fillStyle = '#dcdad4';
 g.beginPath();
-g.arc(0.95, 0.02, 0.035, 0, Math.PI * 2);
+g.arc(1.0, 0.02, 0.035, 0, Math.PI * 2);
 g.fill();
 // the notebook open at Zorn's place and his pencil across it
 g.fillStyle = '#fbf6e6';

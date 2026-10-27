@@ -1,8 +1,8 @@
 // The table's near side: the white cloth hanging nearly to the floor in heavy folds, its hem embroidered, the turned
 // walnut legs' feet showing under it.
-const W = 2.3;
+const W = 1.9;
 g.fillStyle = '#3a271d';
-for (const x of [-2.05, 2.05]) {
+for (const x of [-1.7, 1.7]) {
   g.beginPath();
   g.ellipse(x, -0.06, 0.05, 0.06, 0, 0, Math.PI * 2);
   g.fill();
