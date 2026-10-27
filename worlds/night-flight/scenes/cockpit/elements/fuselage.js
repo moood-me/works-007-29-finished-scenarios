@@ -44,12 +44,8 @@ for (let x = -1.8; x < 5.6; x += 0.5) {
   g.lineTo(x, -0.66 - Math.max(0, x - 0.4) * 0.1);
   g.stroke();
 }
-// the two cockpits: their leather-rolled rims along the top edge, a step down into each
+// the two cockpits: their leather-rolled rims along the top edge
 for (const x of [-0.55, 1.05]) {
-  g.fillStyle = '#3a2a1f';
-  g.beginPath();
-  g.ellipse(x, TOP + 0.005, 0.44, 0.06, 0, 0, Math.PI);
-  g.fill();
   g.fillStyle = '#5a3f2b';
   g.fillRect(x - 0.46, TOP - 0.035, 0.92, 0.05);
 }

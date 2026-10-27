@@ -176,7 +176,7 @@ if (above) {
     }
   });
   // the steppe's patches and dry riverbeds, two bands at two speeds: the far one slow by the horizon, the near quicker
-  const ground = (name, y0, y1, speed, n, scale) =>
+  const ground = (name, y0, y1, speed, n, scale, river) =>
     e.layer(name, { box: [X0, y0, X0 + W, y1], drift: [speed, 0] }, c => {
       for (let i = 0; i < n; i++) {
         const u = e.rnd();
@@ -185,24 +185,26 @@ if (above) {
         const tone = e.rnd();
         wrap(X0 + W * e.rnd(), x => glow(c, x, y, s * 3, s * 0.35, tone > 0.5 ? '#6e5d4a' : '#3d3830', 0.35));
       }
-      // a dry riverbed winding across, pale, catching the sky
-      c.strokeStyle = 'rgba(176,150,150,0.45)';
-      c.lineWidth = 0.003 + (y1 - y0) * 0.01;
-      c.lineCap = 'round';
-      for (const d of [0, W]) {
-        c.beginPath();
-        for (let k = 0; k <= 40; k++) {
-          const t = k / 40;
-          const x = X0 + W * t - d;
-          const y = y0 + (y1 - y0) * (0.45 + 0.3 * Math.sin(t * Math.PI * 6 + 1.3) * Math.sin(t * Math.PI * 2));
-          if (k) c.lineTo(x, y);
-          else c.moveTo(x, y);
+      // a dry riverbed winding along the far band, pale, catching the sky: thin, flattened by the distance
+      if (river) {
+        c.strokeStyle = 'rgba(190,160,165,0.4)';
+        c.lineWidth = 0.0018;
+        c.lineCap = 'round';
+        for (const d of [0, W]) {
+          c.beginPath();
+          for (let k = 0; k <= 90; k++) {
+            const t = k / 90;
+            const x = X0 + W * t - d;
+            const y = y0 + (y1 - y0) * (0.55 + 0.25 * Math.sin(t * Math.PI * 14 + 1.3) * Math.sin(t * Math.PI * 4) + 0.15 * Math.sin(t * Math.PI * 2));
+            if (k) c.lineTo(x, y);
+            else c.moveTo(x, y);
+          }
+          c.stroke();
         }
-        c.stroke();
       }
     });
-  ground('far_steppe', H + 0.004, H + 0.08, 0.002, 90, 0.012);
-  ground('near_steppe', H + 0.08, Y1, 0.012, 70, 0.05);
+  ground('far_steppe', H + 0.004, H + 0.08, 0.002, 90, 0.012, true);
+  ground('near_steppe', H + 0.08, Y1, 0.012, 70, 0.05, false);
   // the lights below: a little town far ahead on the horizon, and one lone house nearer, its window just lit — on the
   // far band, drifting with it
   e.layer('lights', { blend: 'add', box: [X0, H, X0 + W, H + 0.1], drift: [0.002, 0] }, c => {
