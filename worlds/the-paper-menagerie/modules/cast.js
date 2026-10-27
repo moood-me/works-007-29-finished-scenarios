@@ -66,7 +66,7 @@ return {
       body: { height: 1.0, thick: 0.84, shoulders: 0.94 },
       colors: { skin: '#e8c4a2', hair: '#2b2220', top: '#6f8c63', bottom: '#3d4558', shoes: '#5a4232', accent: '#33384a' },
     },
-    // Mom in hospital, forty-five: thin, a dusty-rose kerchief over her head, a pale hospital gown and trousers, her
+    // Mom in hospital, forty-five: thin, an ochre kerchief over her head, a pale hospital gown and trousers, her
     // own blue-grey cardigan over them, slippers
     mom_ill: {
       kind: 'shapes',
@@ -83,7 +83,7 @@ return {
         bottom: '#cdd5da',
         garment: '#7a8fa6',
         shoes: '#b8aa98',
-        hat: '#c98f86',
+        hat: '#d8a35a',
       },
     },
     // Dad at fifty-six: the sandy hair gone grey, the pale blue work shirt under a brown cardigan; his old phrasebook
@@ -131,9 +131,9 @@ return {
         draw: F => {
           const { at: head, axes, egg, r: rh, out, sides, square } = F.head;
           const [hs, hu, hf] = axes;
-          F.cap(head, axes, F.keep(KERCHIEF), [0, 0.5, -0.87], -0.42, F.colors.hat, sides, square);
-          const knot = add(head, add(mul(hu, -rh * 0.42), mul(hf, -rh * 1.02)));
-          F.ball(knot, axes, [rh * 0.2, rh * 0.16, rh * 0.16], F.colors.hat, sides);
+          F.cap(head, axes, F.keep(KERCHIEF), [0, 0.35, -0.94], -0.55, F.colors.hat, sides, square);
+          const knot = add(head, add(mul(hu, -rh * 0.55), mul(hf, -rh * 1.05)));
+          F.ball(knot, axes, [rh * 0.28, rh * 0.2, rh * 0.2], F.colors.hat, sides);
           for (const s of [-1, 1]) {
             const end = add(knot, add(mul(hs, s * rh * 0.14), mul(hu, -rh * 0.36)));
             F.bar(knot, end, rh * 0.1, rh * 0.06, [[0, F.colors.hat]], 6, hf, 0.3);
@@ -156,11 +156,11 @@ return {
           const hook = add(hand, mul(down, 0.07 * h));
           F.bar(hand, hook, 0.006 * h, 0.006 * h, [[0, ZIP]], 6, fwd, 1);
           const top = add(hook, mul(down, 0.06 * h));
-          F.ball(top, [across, [0, 1, 0], fwd], [0.2 * h, 0.06 * h, 0.03 * h], F.colors.accent, 4, 6);
+          F.ball(top, [across, [0, 1, 0], fwd], [0.17 * h, 0.06 * h, 0.03 * h], F.colors.accent, 4, 6);
           const mid = add(hook, mul(down, 0.52 * h));
-          F.ball(mid, [across, [0, 1, 0], fwd], [0.26 * h, 0.42 * h, 0.035 * h], F.colors.accent, 4, 8);
+          F.ball(mid, [across, [0, 1, 0], fwd], [0.21 * h, 0.42 * h, 0.035 * h], F.colors.accent, 4, 8);
           F.bar(add(top, mul(fwd, 0.036 * h)), add(mid, add(mul(down, 0.4 * h), mul(fwd, 0.036 * h))), 0.004 * h, 0.004 * h, [[0, ZIP]], 4, fwd, 0.3);
-          F.ball(add(top, add(mul(across, 0.12 * h), add(mul(down, 0.1 * h), mul(fwd, 0.04 * h)))), [across, [0, 1, 0], fwd], [0.025 * h, 0.035 * h, 0.003 * h], TAG, 4, 6);
+          F.ball(add(top, add(mul(across, 0.1 * h), add(mul(down, 0.1 * h), mul(fwd, 0.04 * h)))), [across, [0, 1, 0], fwd], [0.025 * h, 0.035 * h, 0.003 * h], TAG, 4, 6);
           F.point('bag', mid);
         },
       },

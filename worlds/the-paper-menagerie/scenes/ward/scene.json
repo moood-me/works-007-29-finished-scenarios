@@ -7,7 +7,7 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.72,
+    "ambient": 0.8,
     "ambientColor": "#b9bce0",
     "inside": 0.4,
     "bounce": 0.55,
@@ -25,8 +25,8 @@
       "id": "lamp",
       "of": "lamp#bulb",
       "color": "#ffd29a",
-      "strength": 1.5,
-      "reach": 4.5,
+      "strength": 1.7,
+      "reach": 5,
       "on": "lamp",
       "flicker": 0.015
     },
@@ -106,10 +106,10 @@
       "elevation": -9,
       "height": 48,
       "box": [
-        -150,
-        -50,
-        150,
-        0.5
+        -155,
+        -51,
+        165,
+        0.6
       ]
     },
     {
@@ -121,10 +121,10 @@
       "elevation": -9,
       "height": 48,
       "box": [
-        -150,
-        -50,
-        150,
-        0.5
+        -155,
+        -51,
+        165,
+        0.6
       ]
     },
     {
@@ -135,10 +135,10 @@
       "elevation": -9,
       "height": 12,
       "box": [
-        -5,
-        -12.5,
-        5,
-        0.2
+        -7.5,
+        -14.5,
+        7,
+        0.3
       ]
     },
     {
@@ -271,9 +271,9 @@
       "facing": 180,
       "height": 1.4,
       "box": [
-        -0.79,
+        -0.86,
         -1.44,
-        0.79,
+        0.86,
         0.06
       ]
     },
@@ -413,9 +413,9 @@
       "elevation": 0.58,
       "height": 0.5,
       "box": [
-        -1.5,
+        -1.6,
         -0.5,
-        1.5,
+        1.6,
         0.01
       ]
     },
@@ -532,11 +532,11 @@
       "person": {
         "cast": "cast",
         "who": "jack_grown",
-        "turn": 240,
+        "turn": 200,
         "does": "showing_suit"
       },
-      "across": 1.75,
-      "distance": 2.85
+      "across": 1.8,
+      "distance": 2.75
     },
     {
       "id": "dad",

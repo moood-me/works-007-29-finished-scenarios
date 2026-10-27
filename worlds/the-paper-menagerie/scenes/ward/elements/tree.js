@@ -1,5 +1,5 @@
 // The maple in the hospital garden, 11 m off, rooted 9 m below the ward's floor (metres from its foot): a dark trunk
-// and branches, its crown — what the window shows of it — half bare, the rest of its leaves orange and gold in clumps
+// and branches, its crown — what the window shows of it — half bare, the leaves left on it orange and gold in small clumps
 // (a layer that sways in the wind).
 g.strokeStyle = '#3c3236';
 g.lineCap = 'round';
@@ -17,16 +17,17 @@ const branch = (x, y, a, len, w) => {
 };
 branch(0, 0, 0, 4.5, 0.45);
 e.layer('crown', { pivot: [0, -6], wind: { strength: 0.25, gust: 0.4 } }, l => {
-  for (let i = 0; i < 70; i++) {
+  for (let i = 0; i < 26; i++) {
     const a = e.rnd() * Math.PI * 2,
-      r = Math.sqrt(e.rnd()) * 4.2,
-      x = Math.cos(a) * r * 1.1,
-      y = -8 + Math.sin(a) * r * 0.85;
-    l.fillStyle = ['#d98a3a', '#c4622e', '#e2b04a', '#b95a34'][i % 4];
-    l.globalAlpha = 0.85;
-    l.beginPath();
-    l.ellipse(x, y, 0.35 + e.rnd() * 0.5, 0.25 + e.rnd() * 0.35, e.rnd() * 3, 0, Math.PI * 2);
-    l.fill();
+      r = Math.sqrt(e.rnd()) * 4.6,
+      cx = Math.cos(a) * r * 1.1,
+      cy = -8 + Math.sin(a) * r * 0.85;
+    for (let k = 0; k < 9; k++) {
+      l.fillStyle = ['#d98a3a', '#c4622e', '#e2b04a', '#b95a34'][(i + k) % 4];
+      l.beginPath();
+      l.ellipse(cx + (e.rnd() - 0.5) * 0.9, cy + (e.rnd() - 0.5) * 0.7, 0.09 + e.rnd() * 0.08, 0.06 + e.rnd() * 0.05, e.rnd() * 3, 0, Math.PI * 2);
+      l.fill();
+    }
   }
   l.globalAlpha = 1;
 });

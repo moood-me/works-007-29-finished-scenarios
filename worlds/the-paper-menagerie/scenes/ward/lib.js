@@ -8,7 +8,7 @@ function wall(g, x0, x1) {
   g.fillStyle = '#a9bca4';
   g.fillRect(x0, -1.2, w, 1.22);
   g.fillStyle = 'rgba(255,255,255,0.08)';
-  for (let x = x0; x < x1; x += 0.9) g.fillRect(x, -1.18, 0.3, 1.0);
+  for (let x = x0; x < x1 - 0.3; x += 0.9) g.fillRect(x, -1.18, 0.3, 1.0);
   g.fillStyle = '#8fa48f';
   g.fillRect(x0, -1.25, w, 0.06);
   g.fillStyle = '#c9d3c0';
