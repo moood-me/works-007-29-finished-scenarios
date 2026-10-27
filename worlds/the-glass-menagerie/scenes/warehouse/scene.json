@@ -1,0 +1,482 @@
+{
+  "engine": 3,
+  "title": "The Warehouse",
+  "caption": "A week later, in the shoe warehouse. Tom writes on a shoebox lid; Jim has a foot up on a carton.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.6,
+    "ambientColor": "#a9a3b8",
+    "inside": 0.4,
+    "bounce": 0.55,
+    "haze": 0.12,
+    "hazeColor": "#c9b28e",
+    "hazeGlow": 0.5,
+    "shafts": 0.9,
+    "tint": "#ffd9a8",
+    "tintStrength": 0.06,
+    "saturation": 0.95,
+    "vignette": 0.55,
+    "grain": 0.14,
+    "wind": [
+      1,
+      0,
+      0.6
+    ],
+    "looks": {
+      "cloud": {
+        "lights": {
+          "sun": 0.3
+        },
+        "shafts": 0.25,
+        "brightness": 0.92
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        -14,
+        24
+      ],
+      "color": "#ffdcaa",
+      "strength": 1.8,
+      "through": [
+        "window"
+      ]
+    },
+    {
+      "id": "day",
+      "daylight": true,
+      "of": "window",
+      "strength": 0.9
+    },
+    {
+      "id": "bulb",
+      "of": "bulb#bulb",
+      "color": "#ffd49a",
+      "strength": 1.0,
+      "reach": 5,
+      "on": "bulb"
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "cloud": 0,
+    "bulb": 1,
+    "tom_on": [
+      -0.55,
+      5.1,
+      0.42
+    ],
+    "tom_with": [
+      "lid",
+      "pencil"
+    ],
+    "tom_look": "tom#lid",
+    "tom_mood": "thinking",
+    "jim_look": "tom",
+    "jim_mood": "smile"
+  },
+  "states": {
+    "cloud": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "a cloud over the sun: 0 the afternoon sun full through the window (its beam, its patch on the floor), 1 behind a cloud — the beam faint"
+    },
+    "bulb": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lamp hanging over the aisle: 0 off, 1 on"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The afternoon sky over the city",
+      "sky": true
+    },
+    {
+      "id": "harbour",
+      "name": "The harbour far off: sheds, cranes, a steamer at the pier",
+      "across": 14,
+      "distance": 150,
+      "height": 30,
+      "box": [
+        -62,
+        -30,
+        62,
+        0.05
+      ]
+    },
+    {
+      "id": "city",
+      "name": "The city's backs below the window",
+      "across": 2,
+      "distance": 40,
+      "height": 28,
+      "box": [
+        -31,
+        -28,
+        36,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall: the window, the calendar, the fire bucket",
+      "across": 0,
+      "distance": 6.4,
+      "inside": true,
+      "facing": 180,
+      "height": 3.92,
+      "box": [
+        -3.4,
+        -3.94,
+        3.6,
+        0.02
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The tall steel window",
+      "across": 0,
+      "distance": 6.38,
+      "inside": true,
+      "facing": 180,
+      "elevation": 0.95,
+      "translucent": 0.5,
+      "height": 2.4,
+      "box": [
+        -1.32,
+        -2.47,
+        1.32,
+        0.04
+      ]
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "across": 0.1,
+      "distance": 6.4,
+      "inside": true,
+      "facing": 180,
+      "tilt": -90,
+      "elevation": 3.92,
+      "height": 5.2,
+      "box": [
+        -3.45,
+        -5.25,
+        3.65,
+        0.05
+      ]
+    },
+    {
+      "id": "shelves",
+      "name": "The shelving, shoeboxes floor to ceiling",
+      "inside": true,
+      "across": -3.35,
+      "distance": 3.9,
+      "facing": 90,
+      "height": 3.9,
+      "box": [
+        -2.6,
+        -3.92,
+        2.6,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -3.35,
+          "distance": 3.9,
+          "facing": 90
+        },
+        {
+          "across": 3.55,
+          "distance": 3.9,
+          "facing": 270,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "inside": true,
+      "walk": true,
+      "across": 0.1,
+      "distance": 3.9,
+      "width": 7.2,
+      "depth": 5.4
+    },
+    {
+      "id": "stacks",
+      "name": "Stacks of shoeboxes on the floor",
+      "across": 0,
+      "distance": 5.8,
+      "inside": true,
+      "shadow": true,
+      "height": 2.45,
+      "box": [
+        -3.3,
+        -2.5,
+        3.3,
+        0.02
+      ]
+    },
+    {
+      "id": "truck",
+      "name": "A hand truck by the shelves",
+      "across": 2.85,
+      "distance": 2.2,
+      "inside": true,
+      "facing": 190,
+      "tilt": 10,
+      "shadow": true,
+      "height": 1.45,
+      "box": [
+        -0.36,
+        -1.5,
+        0.36,
+        0.02
+      ]
+    },
+    {
+      "id": "crate_front",
+      "name": "The crate Tom sits on, its front",
+      "across": -0.55,
+      "distance": 4.9,
+      "inside": true,
+      "facing": 180,
+      "shadow": true,
+      "height": 0.42,
+      "box": [
+        -0.31,
+        -0.43,
+        0.31,
+        0.02
+      ]
+    },
+    {
+      "id": "crate_side",
+      "name": "The crate's side",
+      "across": -0.25,
+      "distance": 5.1,
+      "inside": true,
+      "facing": 90,
+      "height": 0.42,
+      "box": [
+        -0.21,
+        -0.43,
+        0.21,
+        0.02
+      ]
+    },
+    {
+      "id": "crate_top",
+      "name": "The crate's lid",
+      "plane": true,
+      "inside": true,
+      "across": -0.55,
+      "distance": 5.1,
+      "elevation": 0.42,
+      "width": 0.6,
+      "depth": 0.4
+    },
+    {
+      "id": "carton_front",
+      "name": "The carton Jim has his foot on",
+      "across": 1.16,
+      "distance": 3.36,
+      "inside": true,
+      "facing": 180,
+      "shadow": true,
+      "height": 0.27,
+      "box": [
+        -0.26,
+        -0.28,
+        0.26,
+        0.02
+      ]
+    },
+    {
+      "id": "carton_top",
+      "name": "The carton's top",
+      "plane": true,
+      "inside": true,
+      "across": 1.16,
+      "distance": 3.56,
+      "elevation": 0.27,
+      "width": 0.5,
+      "depth": 0.4
+    },
+    {
+      "id": "bulb",
+      "name": "The lamp on its flex",
+      "across": 0.45,
+      "distance": 3.3,
+      "inside": true,
+      "elevation": 2.42,
+      "height": 1.5,
+      "box": [
+        -0.22,
+        -1.52,
+        0.22,
+        0.05
+      ]
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the sunlight",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0,
+          4.4,
+          1.5
+        ],
+        "source": [
+          3.0,
+          3.2,
+          2.6
+        ]
+      }
+    },
+    {
+      "id": "smoke",
+      "name": "The factory chimney's smoke",
+      "particles": {
+        "kind": "smoke",
+        "at": "city#stack",
+        "rate": 0.7,
+        "life": [
+          8,
+          14
+        ],
+        "size": [
+          1.2,
+          6
+        ],
+        "speed": [
+          0.4,
+          0.9
+        ],
+        "gravity": -0.25,
+        "wind": 0.7,
+        "opacity": 0.45,
+        "color": "#9b908a"
+      }
+    },
+    {
+      "id": "tom",
+      "name": "Tom",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "tom",
+        "turn": 150,
+        "does": "writes_on_knees"
+      },
+      "across": -0.55,
+      "distance": 5.1
+    },
+    {
+      "id": "jim",
+      "name": "Jim",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "jim_work",
+        "turn": 238,
+        "does": "foot_up"
+      },
+      "across": 1.45,
+      "distance": 3.95
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a slow waltz played on a faraway dance-hall band, muffled through a window, 1930s, bittersweet",
+        "weight": 0
+      },
+      {
+        "text": "solo upright piano in a small room, tender and plain, slow, a little out of tune",
+        "weight": 0.8
+      },
+      {
+        "text": "glass celesta and music box, delicate, fragile, faraway memory",
+        "weight": 0.3
+      },
+      {
+        "text": "a lone clarinet, soft and wistful, slow, jazz-age ballad",
+        "weight": 1.1
+      },
+      {
+        "text": "scratchy old gramophone record of a sentimental 1920s song, crackle, warm",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, restrained, longing, very soft",
+        "weight": 0
+      },
+      {
+        "text": "muted trumpet in a distant alley at night, blue and lonely",
+        "weight": 0
+      },
+      {
+        "text": "soft brushed drums and double bass, slow, late-night",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios, gentle and luminous, dreamlike",
+        "weight": 0
+      },
+      {
+        "text": "accordion waltz, nostalgic, slow, small-town dance",
+        "weight": 0
+      },
+      {
+        "text": "ambient pad like dusty lamplight, slow swells, warm and hazy",
+        "weight": 0.7
+      },
+      {
+        "text": "solo violin, high and thin, tender lament",
+        "weight": 0
+      },
+      {
+        "text": "vibraphone and soft piano, gentle, dreamy, slow",
+        "weight": 0
+      },
+      {
+        "text": "rain on a window, soft piano chords under it, melancholy",
+        "weight": 0
+      },
+      {
+        "text": "wordless choir humming very softly, far away",
+        "weight": 0
+      },
+      {
+        "text": "toy piano and glockenspiel, small and breakable, slow",
+        "weight": 0
+      }
+    ],
+    "bpm": 84,
+    "density": 0.25,
+    "brightness": 0.4,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}

@@ -42,8 +42,16 @@ return {
       body: { height: 1.0, thick: 0.98, shoulders: 1.08 },
       colors: { skin: '#eebd9c', hair: '#9a5a32', top: '#e9e2d0', garment: '#9b7a55', bottom: '#33302e', shoes: '#2a1f1a' },
     },
+    // Jim at work in the warehouse: his jacket off, a pale-blue work shirt with the sleeves rolled up, grey trousers
+    jim_work: {
+      kind: 'shapes', style: 'memory', who: 'man', garment: 'rolled', hair: 'short',
+      body: { height: 1.0, thick: 0.98, shoulders: 1.08 },
+      colors: { skin: '#eebd9c', hair: '#9a5a32', top: '#bccbd8', bottom: '#4b4642', shoes: '#2a1f1a' },
+    },
   },
   shapes: {
+    // a shirt with its sleeves rolled up above the elbow: the forearms bare
+    garments: { rolled: { name: 'shirt, sleeves rolled up', short: true } },
     // what they hold: Laura's little glass deer, cupped in both hands — clear glass that keeps its own light (it glows,
     // whatever lights it); its point `deer` ("laura#deer")
     parts: {
@@ -64,6 +72,20 @@ return {
         const coal = add(b, mul(along, 0.004 * m));
         F.ball(coal, [along, F.up('RightHand'), F.fwd('RightHand')], [0.006 * m, 0.006 * m, 0.006 * m], [1, 0.42, 0.16, 2], 6);
         F.point('ember', coal);
+      } },
+      // a shoebox lid lying across the knees of one sitting, cardboard; its point `lid` ("tom#lid") — what he writes on
+      lid: { name: 'shoebox lid', draw: F => {
+        const { add, mix, mean } = MooodShapes.V, m = F.fit.h;
+        const knees = mean([mix(F.P('LeftShin'), F.P('LeftLeg'), 0.3), mix(F.P('RightShin'), F.P('RightLeg'), 0.3)]);
+        const c = add(knees, [0, 0.075 * m, 0]), axes = [F.side('Hips'), [0, 1, 0], F.fwd('Hips')];
+        F.ball(c, axes, [0.17 * m, 0.012 * m, 0.105 * m], [0.84, 0.76, 0.6, 1], 12, 8);
+        F.point('lid', c);
+      } },
+      // a yellow pencil in the right hand, its point down toward what it writes on
+      pencil: { name: 'pencil', draw: F => {
+        const { add, mul, sub, unit } = MooodShapes.V, m = F.fit.h, hand = F.P('RightHand');
+        const grip = add(hand, mul(sub(F.P('RightHandMiddle1'), hand), 1.2)), along = unit(F.fwd('RightHand'));
+        F.bar(add(grip, mul(along, -0.05 * m)), add(grip, mul(along, 0.07 * m)), 0.0045 * m, 0.003 * m, [[0, [0.85, 0.68, 0.22, 1]], [0.9, [0.3, 0.26, 0.24, 1]]], 6, F.up('RightHand'));
       } },
     },
     // the world's style: soft rounded shapes and tinted lines (soft), the head a shade smaller so the grown-ups read
