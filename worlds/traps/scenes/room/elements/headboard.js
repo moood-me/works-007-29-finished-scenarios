@@ -1,0 +1,23 @@
+// The bed's head: a tall walnut board with an arched top and a carved shell, seen edge-on to its long side.
+const W = 0.47;
+g.fillStyle = '#4a3226';
+g.beginPath();
+g.moveTo(-W, 0);
+g.lineTo(-W, -0.95);
+g.quadraticCurveTo(0, -1.2, W, -0.95);
+g.lineTo(W, 0);
+g.closePath();
+g.fill();
+g.strokeStyle = '#3a271d';
+g.lineWidth = 0.025;
+g.beginPath();
+g.moveTo(-W + 0.08, -0.55);
+g.lineTo(-W + 0.08, -0.88);
+g.quadraticCurveTo(0, -1.08, W - 0.08, -0.88);
+g.lineTo(W - 0.08, -0.55);
+g.closePath();
+g.stroke();
+g.fillStyle = '#6a4a36';
+g.beginPath();
+g.arc(0, -0.92, 0.07, Math.PI, 0);
+g.fill();

@@ -39,6 +39,21 @@ const CUTLERY = F => ({
   tineTop: [0, 0.24 * F.fit.h, 0],
   r: 0.007 * F.fit.h,
 });
+// the judge's chamberstick: a brass dish held in the right hand, a white candle standing upright in it, its flame (a
+// colour that glows; the point "flame" for the scene's light)
+const FLAME = [1.0, 0.78, 0.4, 2];
+const WAX = [0.95, 0.92, 0.84, 1];
+const CHAMBER = F => ({
+  axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+  dish: [0.05 * F.fit.h, 0.008 * F.fit.h, 0.05 * F.fit.h],
+  base: [0, 0.035 * F.fit.h, 0],
+  top: [0, 0.15 * F.fit.h, 0],
+  flame: [0, 0.178 * F.fit.h, 0],
+  glow: [0.012 * F.fit.h, 0.028 * F.fit.h, 0.012 * F.fit.h],
+  brass: [[0, GOLD]],
+  wax: [[0, WAX]],
+  r: 0.011 * F.fit.h,
+});
 const GLASS_SIZES = F => ({
   axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
   bowl: [0.035 * F.fit.h, 0.022 * F.fit.h, 0.035 * F.fit.h],
@@ -214,6 +229,19 @@ return {
               }
             }
           }
+        },
+      },
+      // the judge's chamberstick in his right hand, the candle upright whatever the hand does
+      chamberstick: {
+        name: 'chamberstick',
+        draw: F => {
+          const { add } = MooodShapes.V;
+          const K = F.keep(CHAMBER), hand = F.P('RightHand'), base = add(hand, K.base);
+          F.ball(base, K.axes, K.dish, GOLD, 14);
+          F.bar(base, add(hand, K.top), K.r, K.r, K.wax, 8, K.axes[0]);
+          const flame = add(hand, K.flame);
+          F.ball(flame, K.axes, K.glow, FLAME, 8);
+          F.point('flame', flame);
         },
       },
       // a white moustache under the nose
