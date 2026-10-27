@@ -69,18 +69,22 @@
     "herman_look": "colonel",
     "herman_mood": "neutral",
     "herman_reach": {
-      "l": "cover#cover"
+      "r": [
+        0.62,
+        4.42,
+        0.98
+      ]
     },
     "alfonso_look": "colonel",
     "alfonso_mood": "neutral",
     "alfonso_reach": {
       "r": [
-        1.72,
+        1.8,
         4.62,
         0.84
       ],
       "l": [
-        2.02,
+        2.1,
         4.62,
         0.84
       ]
@@ -89,12 +93,12 @@
     "alvaro_mood": "thinking",
     "alvaro_reach": {
       "r": [
-        2.97,
+        3.05,
         4.62,
         0.84
       ],
       "l": [
-        3.25,
+        3.3,
         4.62,
         0.84
       ]
@@ -401,15 +405,18 @@
       "copies": [
         {
           "across": -0.9,
-          "distance": 4.52
+          "distance": 4.52,
+          "scale": 0.85
         },
         {
           "across": 1.6,
-          "distance": 4.52
+          "distance": 4.52,
+          "scale": 0.85
         },
         {
           "across": 2.85,
-          "distance": 4.52
+          "distance": 4.52,
+          "scale": 0.85
         }
       ]
     },
@@ -500,11 +507,11 @@
       "person": {
         "cast": "cast",
         "who": "colonel",
-        "turn": 125,
+        "turn": 115,
         "does": "stand_bundle"
       },
-      "across": -1.45,
-      "distance": 4.0
+      "across": -1.25,
+      "distance": 3.7
     },
     {
       "id": "herman",
@@ -513,11 +520,11 @@
       "person": {
         "cast": "cast",
         "who": "herman",
-        "turn": 216,
+        "turn": 245,
         "does": "stand_side"
       },
-      "across": -0.3,
-      "distance": 4.95
+      "across": 0.95,
+      "distance": 3.95
     },
     {
       "id": "alfonso",
@@ -529,7 +536,7 @@
         "turn": 180,
         "does": "sit_machine"
       },
-      "across": 1.92,
+      "across": 2.02,
       "distance": 5.0
     },
     {
@@ -542,7 +549,7 @@
         "turn": 190,
         "does": "sit_machine"
       },
-      "across": 3.12,
+      "across": 3.22,
       "distance": 5.0
     }
   ],
