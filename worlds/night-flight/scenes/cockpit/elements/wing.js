@@ -1,7 +1,7 @@
 // The parasol wing over the front cockpit, a card laid face down: its underside seen from below, doped silver fabric,
 // the ribs running from the leading edge (left) to the trailing edge, the aileron's line near the tip, the line's blue
 // on its tip; the fuselage's shadow across it. y 0 at the far tip (11 m ahead), y −14 the near tip, behind the viewer.
-g.fillStyle = '#b4b2aa';
+g.fillStyle = '#c6c3ba';
 g.fillRect(-1.15, -14.05, 2.3, 14.1);
 g.strokeStyle = 'rgba(140,138,130,0.8)';
 g.lineWidth = 0.025;

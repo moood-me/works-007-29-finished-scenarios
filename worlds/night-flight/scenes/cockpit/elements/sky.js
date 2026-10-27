@@ -187,7 +187,7 @@ if (above) {
       }
       // a dry riverbed winding along the far band, pale, catching the sky: thin, flattened by the distance
       if (river) {
-        c.strokeStyle = 'rgba(190,160,165,0.4)';
+        c.strokeStyle = 'rgba(190,160,165,0.22)';
         c.lineWidth = 0.0018;
         c.lineCap = 'round';
         for (const d of [0, W]) {

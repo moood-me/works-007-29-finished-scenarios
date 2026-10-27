@@ -51,7 +51,10 @@ for (const x of [-0.55, 1.05]) {
 }
 // the windscreens before them: small panes in their frames
 for (const x of [-1.08, 0.52]) {
-  g.fillStyle = 'rgba(200,214,224,0.42)';
+  const pane = g.createLinearGradient(0, TOP - 0.3, 0, TOP);
+  pane.addColorStop(0, 'rgba(226,190,190,0.55)');
+  pane.addColorStop(1, 'rgba(170,180,206,0.35)');
+  g.fillStyle = pane;
   g.beginPath();
   g.moveTo(x - 0.06, TOP - 0.02);
   g.lineTo(x + 0.04, TOP - 0.3);
@@ -106,9 +109,9 @@ g.strokeStyle = '#6f7376';
 g.lineWidth = 0.06;
 g.beginPath();
 g.moveTo(-2.0, TOP + 0.02);
-g.lineTo(-2.5, -2.55);
-g.moveTo(-1.25, TOP + 0.02);
-g.lineTo(-1.35, -2.55);
+g.lineTo(-2.85, -2.75);
+g.moveTo(-1.35, TOP + 0.02);
+g.lineTo(-1.7, -2.75);
 g.stroke();
 // the landing gear: V struts down to the axle, the near wheel, spoked
 g.strokeStyle = '#55595c';
