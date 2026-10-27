@@ -42,7 +42,7 @@ bent over his table, the inker running. People only stand (their loops); no came
   back to us, though at 200 in the field he faces us — the known trouble of a Kimodo motion turning toward the wall in a
   scene. Here he has the engine's `stand` instead.
 - **Sitting.** Every Kimodo take of someone seated at a desk (tapping a key, writing, typing) leaned back as in an
-  armchair; only “leans forward with their elbows on the table” sat at the table. The telegraphist's hands are not on
-  the key: a hand at a point on the table is a `reach`, not tried yet.
+  armchair; only “leans forward with their elbows on the table” sat at the table. His right hand is put on the key by
+  `telegraphist_reach`; it does not tap.
 - **The pilot's jacket** in the flat style flares at the thighs like a short skirt when his hip is shifted.
 - The map's flags are small at this distance: they read only as specks of colour by the field.
