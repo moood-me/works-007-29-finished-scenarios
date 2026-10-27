@@ -89,9 +89,9 @@
       "name": "The yard's grass, the path to the steps",
       "plane": true,
       "across": 0,
-      "distance": 28,
-      "width": 120,
-      "depth": 70
+      "distance": 60,
+      "width": 400,
+      "depth": 140
     },
     {
       "id": "roof",
@@ -297,8 +297,8 @@
       "id": "scraps",
       "name": "Torn pieces of Laohu on the grass",
       "plane": true,
-      "across": -0.7,
-      "distance": 5.0,
+      "across": -0.55,
+      "distance": 4.3,
       "elevation": 0.006,
       "width": 1.8,
       "depth": 1.2
@@ -308,8 +308,8 @@
       "name": "The apple tree in blossom, the tin bucket at its foot",
       "shadow": true,
       "translucent": 0.3,
-      "across": 3.7,
-      "distance": 4.4,
+      "across": 4.4,
+      "distance": 5.4,
       "height": 4.6,
       "box": [
         -4,
@@ -321,8 +321,8 @@
     {
       "id": "petals",
       "name": "Apple blossom drifting down",
-      "across": 2.4,
-      "distance": 4.6,
+      "across": 3.2,
+      "distance": 5.5,
       "elevation": 3.2,
       "particles": {
         "kind": "petals",
@@ -383,8 +383,8 @@
         "turn": 235,
         "does": "kneel_offer"
       },
-      "across": 0.35,
-      "distance": 5.65
+      "across": 0.5,
+      "distance": 4.85
     },
     {
       "id": "jack",
@@ -395,8 +395,8 @@
         "turn": 150,
         "does": "crouch_scraps"
       },
-      "across": -0.5,
-      "distance": 5.0
+      "across": -0.35,
+      "distance": 4.3
     },
     {
       "id": "mark",
@@ -407,8 +407,8 @@
         "turn": 105,
         "does": "holding_toy"
       },
-      "across": -1.95,
-      "distance": 4.55
+      "across": -1.55,
+      "distance": 3.85
     }
   ],
   "music": {

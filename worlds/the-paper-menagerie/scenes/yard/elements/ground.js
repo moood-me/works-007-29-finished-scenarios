@@ -1,8 +1,9 @@
-// The ground from above (metres, its middle at distance 28, y toward the viewer — distance d is y 28 − d): the yard's
-// spring grass, clover and a few dandelions, the trodden path coming from the gate behind us to the porch steps
-// (y 28 − 6.4 on), muddy at their foot, and the neighbours' lawns beyond.
+// The ground from above (metres, its middle at distance 60, y toward the viewer; drawn shifted so that distance d is
+// y 28 − d): the yard's spring grass, clover and a few dandelions, the trodden path coming from the gate behind us to
+// the porch steps (y 28 − 6.4 on), muddy at their foot, and the neighbours' lawns beyond, on to the far distance.
 g.fillStyle = '#8cab6a';
-g.fillRect(-60, -35, 120, 70);
+g.fillRect(-200, -70, 400, 140);
+g.translate(0, 32);
 for (let i = 0; i < 1600; i++) {
   const x = -14 + e.rnd() * 22,
     y = 14 + e.rnd() * 21;
