@@ -7,7 +7,7 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.55,
+    "ambient": 0.68,
     "ambientColor": "#8890c4",
     "inside": 0.25,
     "bounce": 0.5,
@@ -31,7 +31,7 @@
       "id": "sign",
       "of": "sign#neon",
       "color": "#ff5aa0",
-      "strength": 1.3,
+      "strength": 1.5,
       "reach": 12,
       "on": "neon",
       "flicker": 0.12
@@ -49,7 +49,7 @@
       "id": "hall",
       "of": "hall#windows",
       "color": "#ffc483",
-      "strength": 0.75,
+      "strength": 1.2,
       "reach": 9
     },
     {
@@ -73,9 +73,9 @@
       "cigarette"
     ],
     "tom_look": [
-      -7,
-      -1,
-      4.5
+      -6,
+      1,
+      2.6
     ],
     "tom_mood": "tired",
     "jim_look": "tom",
@@ -414,7 +414,7 @@
       "person": {
         "cast": "cast",
         "who": "tom_coat",
-        "turn": 130,
+        "turn": 165,
         "does": "smokes"
       },
       "across": -0.3,
