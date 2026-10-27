@@ -9,8 +9,8 @@ sky.addColorStop(1, '#2a3858');
 g.fillStyle = sky;
 g.fillRect(-0.4, -0.4, e.aspect + 0.8, 1.7);
 // the stars: fewer and fainter toward the moon and down near the woods
-const mx = e.aspect * 0.3;
-const my = 0.15;
+const mx = e.aspect * 0.24;
+const my = 0.19;
 for (let i = 0; i < 260; i++) {
   const x = -0.4 + e.rnd() * (e.aspect + 0.8);
   const y = -0.35 + e.rnd() * 0.85;

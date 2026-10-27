@@ -33,8 +33,8 @@
     },
     {
       "id": "ghost",
-      "across": 0.55,
-      "distance": 6.6,
+      "across": 1.0,
+      "distance": 5.85,
       "elevation": 0.7,
       "color": "#bdf0df",
       "strength": 0.9,
@@ -108,12 +108,12 @@
     {
       "id": "yew",
       "name": "The old yew",
-      "across": 1.8,
-      "distance": 8.5,
-      "height": 8,
+      "across": 3.0,
+      "distance": 8.0,
+      "height": 7,
       "box": [
         -7,
-        -8,
+        -7,
         7,
         0.2
       ],
@@ -123,8 +123,8 @@
       "id": "earth",
       "name": "The soft open earth under the yew",
       "plane": true,
-      "across": 2.3,
-      "distance": 7.5,
+      "across": 2.8,
+      "distance": 6.8,
       "elevation": 0.01,
       "width": 1.2,
       "depth": 2.2,
@@ -133,8 +133,8 @@
     {
       "id": "hemlock",
       "name": "Hemlock in flower",
-      "across": 6.98,
-      "distance": 11.72,
+      "across": 3.34,
+      "distance": 12.68,
       "height": 1.45,
       "box": [
         -0.4,
@@ -144,159 +144,159 @@
       ],
       "copies": [
         {
-          "across": 6.98,
-          "distance": 11.72,
-          "scale": 1.09,
-          "flip": false
+          "across": 3.34,
+          "distance": 12.68,
+          "scale": 1.12,
+          "flip": true
         },
         {
-          "across": 5.31,
-          "distance": 6.63,
+          "across": 11.99,
+          "distance": 13.5,
           "scale": 1.24,
           "flip": false
         },
         {
-          "across": 5.46,
-          "distance": 9.87,
-          "scale": 0.94,
+          "across": -4.15,
+          "distance": 12.41,
+          "scale": 1.21,
           "flip": false
         },
         {
-          "across": -3.67,
-          "distance": 13.06,
+          "across": -6.5,
+          "distance": 7.99,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": -0.29,
+          "distance": 12.18,
+          "scale": 0.81,
+          "flip": false
+        },
+        {
+          "across": 3.22,
+          "distance": 5.14,
+          "scale": 0.88,
+          "flip": true
+        },
+        {
+          "across": -8.28,
+          "distance": 12.38,
+          "scale": 0.87,
+          "flip": false
+        },
+        {
+          "across": 7.46,
+          "distance": 11.74,
+          "scale": 1.11,
+          "flip": false
+        },
+        {
+          "across": 8.1,
+          "distance": 9.43,
           "scale": 0.84,
           "flip": true
         },
         {
-          "across": 5.1,
-          "distance": 10.0,
-          "scale": 1.02,
-          "flip": true
-        },
-        {
-          "across": -10.2,
-          "distance": 12.59,
-          "scale": 1.16,
-          "flip": true
-        },
-        {
-          "across": 4.42,
-          "distance": 7.85,
-          "scale": 0.86,
-          "flip": true
-        },
-        {
-          "across": 4.12,
-          "distance": 9.67,
-          "scale": 1.18,
-          "flip": false
-        },
-        {
-          "across": -0.19,
-          "distance": 13.96,
-          "scale": 1.23,
-          "flip": true
-        },
-        {
-          "across": 0.47,
-          "distance": 10.89,
-          "scale": 1.18,
-          "flip": false
-        },
-        {
-          "across": -1.78,
-          "distance": 7.62,
-          "scale": 1.18,
-          "flip": false
-        },
-        {
-          "across": 4.63,
-          "distance": 6.58,
-          "scale": 1.24,
-          "flip": false
-        },
-        {
-          "across": -5.8,
-          "distance": 10.23,
-          "scale": 1.04,
-          "flip": false
-        },
-        {
-          "across": -9.42,
-          "distance": 10.55,
-          "scale": 1.24,
-          "flip": false
-        },
-        {
-          "across": 4.96,
-          "distance": 8.51,
-          "scale": 1.05,
-          "flip": true
-        },
-        {
-          "across": -9.29,
-          "distance": 11.41,
-          "scale": 1.04,
-          "flip": true
-        },
-        {
-          "across": 10.97,
-          "distance": 14.07,
-          "scale": 0.92,
-          "flip": true
-        },
-        {
-          "across": 9.42,
-          "distance": 12.66,
-          "scale": 1.01,
-          "flip": true
-        },
-        {
-          "across": -9.4,
-          "distance": 13.75,
-          "scale": 1.15,
-          "flip": true
-        },
-        {
-          "across": -3.53,
-          "distance": 6.44,
-          "scale": 1.11,
-          "flip": true
-        },
-        {
-          "across": 0.12,
-          "distance": 5.73,
-          "scale": 0.91,
-          "flip": true
-        },
-        {
-          "across": -1.18,
-          "distance": 9.8,
-          "scale": 0.97,
-          "flip": true
-        },
-        {
-          "across": -6.35,
-          "distance": 9.79,
-          "scale": 0.89,
-          "flip": false
-        },
-        {
-          "across": 0.61,
-          "distance": 10.88,
-          "scale": 1.18,
-          "flip": false
-        },
-        {
-          "across": -6.47,
-          "distance": 13.07,
+          "across": -3.9,
+          "distance": 9.77,
           "scale": 1.13,
           "flip": false
         },
         {
-          "across": -4.6,
-          "distance": 13.53,
+          "across": 6.37,
+          "distance": 9.73,
+          "scale": 1.05,
+          "flip": true
+        },
+        {
+          "across": 5.57,
+          "distance": 8.31,
+          "scale": 1.21,
+          "flip": true
+        },
+        {
+          "across": 11.3,
+          "distance": 13.01,
+          "scale": 1.04,
+          "flip": false
+        },
+        {
+          "across": 0.47,
+          "distance": 6.51,
+          "scale": 1.03,
+          "flip": false
+        },
+        {
+          "across": 4.75,
+          "distance": 4.78,
+          "scale": 1.03,
+          "flip": true
+        },
+        {
+          "across": 1.46,
+          "distance": 12.51,
+          "scale": 1.02,
+          "flip": false
+        },
+        {
+          "across": 7.62,
+          "distance": 8.64,
+          "scale": 1.22,
+          "flip": true
+        },
+        {
+          "across": -6.6,
+          "distance": 9.23,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": -0.59,
+          "distance": 13.51,
           "scale": 0.94,
+          "flip": true
+        },
+        {
+          "across": 8.57,
+          "distance": 10.68,
+          "scale": 0.86,
+          "flip": false
+        },
+        {
+          "across": -3.07,
+          "distance": 4.73,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": -2.19,
+          "distance": 7.72,
+          "scale": 1.08,
+          "flip": true
+        },
+        {
+          "across": -8.33,
+          "distance": 11.81,
+          "scale": 1.03,
+          "flip": true
+        },
+        {
+          "across": 0.39,
+          "distance": 6.48,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": 0.49,
+          "distance": 8.63,
+          "scale": 0.87,
+          "flip": true
+        },
+        {
+          "across": 2.82,
+          "distance": 10.81,
+          "scale": 1.04,
           "flip": false
         }
       ]
@@ -304,8 +304,8 @@
     {
       "id": "grass",
       "name": "Tufts of long grass",
-      "across": -1.04,
-      "distance": 13.86,
+      "across": 1.15,
+      "distance": 8.05,
       "height": 1.0,
       "box": [
         -0.6,
@@ -315,460 +315,442 @@
       ],
       "copies": [
         {
-          "across": -1.04,
-          "distance": 13.86,
-          "scale": 1.1,
-          "flip": false
-        },
-        {
-          "across": 0.14,
-          "distance": 4.15,
-          "scale": 1.18,
-          "flip": false
-        },
-        {
-          "across": -2.11,
-          "distance": 3.55,
-          "scale": 0.85,
-          "flip": false
-        },
-        {
-          "across": -10.65,
-          "distance": 10.13,
-          "scale": 1.39,
-          "flip": false
-        },
-        {
-          "across": 2.56,
-          "distance": 9.55,
-          "scale": 0.89,
+          "across": 1.15,
+          "distance": 8.05,
+          "scale": 1.35,
           "flip": true
         },
         {
-          "across": -8.3,
-          "distance": 7.81,
+          "across": 1.79,
+          "distance": 8.68,
           "scale": 0.91,
-          "flip": true
-        },
-        {
-          "across": -0.37,
-          "distance": 3.26,
-          "scale": 1.06,
           "flip": false
         },
         {
-          "across": -3.8,
-          "distance": 6.91,
+          "across": 6.8,
+          "distance": 10.12,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": 3.84,
+          "distance": 4.42,
+          "scale": 1.22,
+          "flip": true
+        },
+        {
+          "across": 14.72,
+          "distance": 14.57,
+          "scale": 1.19,
+          "flip": false
+        },
+        {
+          "across": -6.54,
+          "distance": 5.0,
+          "scale": 1.12,
+          "flip": true
+        },
+        {
+          "across": -3.63,
+          "distance": 5.3,
+          "scale": 0.82,
+          "flip": true
+        },
+        {
+          "across": 6.52,
+          "distance": 7.91,
+          "scale": 1.11,
+          "flip": false
+        },
+        {
+          "across": -4.3,
+          "distance": 8.1,
           "scale": 1.4,
           "flip": false
         },
         {
-          "across": 5.74,
-          "distance": 12.44,
+          "across": 5.86,
+          "distance": 12.73,
           "scale": 0.99,
           "flip": true
         },
         {
-          "across": -5.85,
-          "distance": 5.06,
+          "across": -6.85,
+          "distance": 6.28,
           "scale": 1.26,
           "flip": true
         },
         {
-          "across": -3.16,
-          "distance": 12.55,
+          "across": -3.22,
+          "distance": 12.81,
           "scale": 1.37,
           "flip": false
         },
         {
-          "across": -2.93,
-          "distance": 3.2,
+          "across": -3.26,
+          "distance": 3.8,
           "scale": 1.35,
           "flip": true
         },
         {
-          "across": -3.3,
-          "distance": 14.85,
+          "across": -3.24,
+          "distance": 14.54,
           "scale": 0.84,
           "flip": false
         },
         {
-          "across": -5.93,
-          "distance": 11.44,
+          "across": -6.15,
+          "distance": 11.95,
           "scale": 0.85,
           "flip": true
         },
         {
-          "across": 8.17,
-          "distance": 14.56,
+          "across": 8.06,
+          "distance": 14.33,
           "scale": 0.87,
           "flip": true
         },
         {
-          "across": -4.76,
-          "distance": 3.59,
+          "across": -5.53,
+          "distance": 4.5,
           "scale": 1.28,
           "flip": true
         },
         {
-          "across": -1.03,
-          "distance": 8.22,
+          "across": -1.14,
+          "distance": 9.28,
           "scale": 0.91,
           "flip": false
         },
         {
-          "across": 1.6,
-          "distance": 3.77,
-          "scale": 0.87,
-          "flip": true
-        },
-        {
-          "across": -2.84,
-          "distance": 4.38,
-          "scale": 1.38,
-          "flip": false
-        },
-        {
-          "across": 5.35,
-          "distance": 5.21,
+          "across": -1.01,
+          "distance": 4.63,
           "scale": 0.93,
           "flip": true
         },
         {
-          "across": 3.98,
-          "distance": 12.68,
-          "scale": 0.86,
-          "flip": false
-        },
-        {
-          "across": -2.98,
-          "distance": 4.38,
-          "scale": 1.26,
-          "flip": true
-        },
-        {
-          "across": -5.87,
-          "distance": 5.14,
-          "scale": 0.85,
-          "flip": false
-        },
-        {
-          "across": 1.3,
-          "distance": 4.64,
-          "scale": 1.02,
-          "flip": true
-        },
-        {
-          "across": -0.51,
-          "distance": 14.47,
-          "scale": 1.14,
-          "flip": false
-        },
-        {
-          "across": -4.1,
-          "distance": 4.14,
-          "scale": 1.35,
-          "flip": false
-        },
-        {
-          "across": -4.01,
-          "distance": 4.7,
-          "scale": 1.24,
-          "flip": false
-        },
-        {
-          "across": 5.43,
-          "distance": 4.25,
-          "scale": 1.33,
-          "flip": false
-        },
-        {
-          "across": -6.46,
-          "distance": 6.48,
-          "scale": 0.82,
-          "flip": false
-        },
-        {
-          "across": 2.61,
-          "distance": 4.6,
-          "scale": 0.95,
-          "flip": false
-        },
-        {
-          "across": -4.25,
-          "distance": 8.73,
-          "scale": 0.91,
-          "flip": false
-        },
-        {
-          "across": -2.85,
-          "distance": 3.42,
-          "scale": 1.14,
-          "flip": false
-        },
-        {
-          "across": -4.63,
-          "distance": 8.98,
-          "scale": 1.35,
-          "flip": true
-        },
-        {
-          "across": -2.34,
-          "distance": 3.23,
-          "scale": 1.07,
-          "flip": true
-        },
-        {
-          "across": -1.54,
-          "distance": 4.09,
-          "scale": 1.14,
-          "flip": true
-        },
-        {
-          "across": 5.88,
-          "distance": 5.82,
-          "scale": 1.39,
-          "flip": false
-        },
-        {
-          "across": 1.96,
-          "distance": 10.1,
-          "scale": 0.88,
-          "flip": true
-        },
-        {
-          "across": 4.16,
-          "distance": 3.23,
-          "scale": 1.22,
-          "flip": false
-        },
-        {
-          "across": 1.38,
-          "distance": 3.24,
-          "scale": 1.09,
-          "flip": false
-        },
-        {
-          "across": 7.08,
-          "distance": 5.36,
-          "scale": 0.85,
-          "flip": false
-        },
-        {
-          "across": 9.81,
-          "distance": 10.79,
-          "scale": 1.24,
-          "flip": false
-        },
-        {
-          "across": 10.87,
-          "distance": 11.68,
-          "scale": 1.01,
-          "flip": false
-        },
-        {
-          "across": 10.97,
-          "distance": 13.46,
-          "scale": 1.05,
-          "flip": false
-        },
-        {
-          "across": 2.07,
-          "distance": 12.83,
-          "scale": 1.17,
-          "flip": true
-        },
-        {
-          "across": 1.48,
-          "distance": 3.47,
-          "scale": 1.4,
-          "flip": false
-        },
-        {
-          "across": -2.71,
-          "distance": 10.66,
-          "scale": 1.24,
-          "flip": false
-        },
-        {
-          "across": 5.67,
-          "distance": 6.71,
-          "scale": 0.85,
-          "flip": false
-        },
-        {
-          "across": 1.03,
-          "distance": 3.26,
-          "scale": 1.09,
-          "flip": true
-        },
-        {
-          "across": -0.06,
-          "distance": 10.2,
-          "scale": 1.17,
-          "flip": false
-        },
-        {
-          "across": -6.37,
-          "distance": 4.75,
+          "across": 9.53,
+          "distance": 14.42,
           "scale": 0.98,
           "flip": false
         },
         {
-          "across": -4.02,
-          "distance": 4.29,
-          "scale": 1.34,
+          "across": -1.53,
+          "distance": 5.5,
+          "scale": 1.31,
           "flip": false
         },
         {
-          "across": 6.57,
-          "distance": 6.73,
-          "scale": 1.0,
+          "across": 6.14,
+          "distance": 4.5,
+          "scale": 0.93,
+          "flip": true
+        },
+        {
+          "across": -4.54,
+          "distance": 11.87,
+          "scale": 0.98,
+          "flip": true
+        },
+        {
+          "across": -0.82,
+          "distance": 7.15,
+          "scale": 1.38,
+          "flip": true
+        },
+        {
+          "across": 8.05,
+          "distance": 9.46,
+          "scale": 0.91,
+          "flip": true
+        },
+        {
+          "across": 9.48,
+          "distance": 13.6,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": 11.35,
+          "distance": 11.46,
+          "scale": 0.92,
+          "flip": false
+        },
+        {
+          "across": 3.02,
+          "distance": 13.26,
+          "scale": 1.05,
+          "flip": true
+        },
+        {
+          "across": 5.39,
+          "distance": 4.02,
+          "scale": 0.94,
+          "flip": false
+        },
+        {
+          "across": 4.96,
+          "distance": 5.95,
+          "scale": 1.16,
+          "flip": true
+        },
+        {
+          "across": -3.28,
+          "distance": 4.24,
+          "scale": 1.14,
+          "flip": false
+        },
+        {
+          "across": -5.03,
+          "distance": 9.93,
+          "scale": 1.35,
+          "flip": true
+        },
+        {
+          "across": -2.62,
+          "distance": 3.88,
+          "scale": 1.07,
+          "flip": true
+        },
+        {
+          "across": -1.81,
+          "distance": 5.17,
+          "scale": 1.14,
+          "flip": true
+        },
+        {
+          "across": 6.8,
+          "distance": 7.05,
+          "scale": 1.39,
+          "flip": false
+        },
+        {
+          "across": 2.08,
+          "distance": 10.86,
+          "scale": 0.88,
+          "flip": true
+        },
+        {
+          "across": 4.67,
+          "distance": 3.89,
+          "scale": 1.22,
+          "flip": false
+        },
+        {
+          "across": 1.56,
+          "distance": 3.91,
+          "scale": 1.09,
+          "flip": false
+        },
+        {
+          "across": 8.25,
+          "distance": 6.59,
+          "scale": 0.85,
+          "flip": false
+        },
+        {
+          "across": 10.29,
+          "distance": 11.43,
+          "scale": 1.24,
+          "flip": false
+        },
+        {
+          "across": 11.23,
+          "distance": 12.13,
+          "scale": 1.01,
           "flip": false
         },
         {
           "across": 11.01,
-          "distance": 11.88,
-          "scale": 1.33,
+          "distance": 13.5,
+          "scale": 1.05,
+          "flip": false
+        },
+        {
+          "across": 2.09,
+          "distance": 13.02,
+          "scale": 1.17,
           "flip": true
         },
         {
-          "across": -3.71,
-          "distance": 8.54,
-          "scale": 0.88,
+          "across": 2.41,
+          "distance": 9.55,
+          "scale": 0.85,
+          "flip": false
+        },
+        {
+          "across": 12.14,
+          "distance": 14.71,
+          "scale": 1.24,
           "flip": true
         },
         {
-          "across": 9.6,
-          "distance": 12.39,
+          "across": 2.08,
+          "distance": 11.4,
+          "scale": 1.06,
+          "flip": false
+        },
+        {
+          "across": 3.07,
+          "distance": 4.36,
+          "scale": 0.82,
+          "flip": false
+        },
+        {
+          "across": -5.37,
+          "distance": 8.37,
+          "scale": 1.22,
+          "flip": true
+        },
+        {
+          "across": 9.62,
+          "distance": 9.93,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": -4.72,
+          "distance": 5.42,
+          "scale": 1.34,
+          "flip": false
+        },
+        {
+          "across": 7.47,
+          "distance": 7.93,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": -0.98,
+          "distance": 5.38,
+          "scale": 1.28,
+          "flip": false
+        },
+        {
+          "across": -3.37,
+          "distance": 13.24,
+          "scale": 1.15,
+          "flip": true
+        },
+        {
+          "across": 9.8,
+          "distance": 12.69,
           "scale": 1.23,
           "flip": false
         },
         {
-          "across": -4.43,
-          "distance": 4.95,
+          "across": -5.19,
+          "distance": 6.15,
           "scale": 1.07,
           "flip": true
         },
         {
-          "across": -1.06,
-          "distance": 4.39,
+          "across": -1.25,
+          "distance": 5.53,
           "scale": 1.18,
           "flip": true
         },
         {
-          "across": 4.79,
-          "distance": 5.33,
+          "across": 5.58,
+          "distance": 6.55,
           "scale": 1.39,
           "flip": true
         },
         {
-          "across": -4.94,
-          "distance": 3.44,
+          "across": -5.69,
+          "distance": 4.29,
           "scale": 1.32,
           "flip": true
         },
         {
-          "across": 1.67,
-          "distance": 10.36,
+          "across": 1.77,
+          "distance": 11.08,
           "scale": 0.99,
           "flip": false
         },
         {
-          "across": -3.69,
-          "distance": 3.23,
+          "across": -4.15,
+          "distance": 3.9,
           "scale": 1.07,
           "flip": true
         },
         {
-          "across": -7.17,
-          "distance": 12.27,
+          "across": -7.33,
+          "distance": 12.59,
           "scale": 0.88,
           "flip": true
         },
         {
-          "across": -1.15,
-          "distance": 9.19,
+          "across": -1.24,
+          "distance": 10.11,
           "scale": 1.18,
           "flip": false
         },
         {
-          "across": 12.2,
-          "distance": 11.91,
+          "across": 12.56,
+          "distance": 12.31,
           "scale": 1.21,
           "flip": true
         },
         {
-          "across": -5.64,
-          "distance": 7.13,
+          "across": -6.35,
+          "distance": 8.3,
           "scale": 0.81,
           "flip": true
         },
         {
-          "across": -7.65,
-          "distance": 10.44,
+          "across": -8.08,
+          "distance": 11.14,
           "scale": 0.96,
           "flip": true
         },
         {
-          "across": 0.48,
-          "distance": 10.19,
+          "across": 0.51,
+          "distance": 10.94,
           "scale": 1.17,
           "flip": false
         },
         {
-          "across": 4.59,
-          "distance": 6.16,
+          "across": 5.27,
+          "distance": 7.39,
           "scale": 1.34,
           "flip": true
         },
         {
-          "across": 6.81,
-          "distance": 14.01,
+          "across": 6.77,
+          "distance": 13.92,
           "scale": 0.88,
           "flip": true
         },
         {
-          "across": 8.76,
-          "distance": 9.14,
+          "across": 9.48,
+          "distance": 10.06,
           "scale": 1.03,
           "flip": false
         },
         {
-          "across": -3.2,
-          "distance": 3.4,
-          "scale": 1.4,
-          "flip": false
+          "across": 8.65,
+          "distance": 13.23,
+          "scale": 1.37,
+          "flip": true
         },
         {
-          "across": -2.1,
-          "distance": 3.1,
+          "across": -3.2,
+          "distance": 3.4,
           "scale": 1.2,
           "flip": false
         },
         {
-          "across": 2.6,
-          "distance": 3.3,
-          "scale": 1.35,
-          "flip": false
-        },
-        {
-          "across": 3.6,
-          "distance": 3.8,
-          "scale": 1.5,
+          "across": 3.4,
+          "distance": 3.6,
+          "scale": 1.25,
           "flip": true
         },
         {
-          "across": -4.4,
-          "distance": 4.0,
-          "scale": 1.5,
+          "across": -4.6,
+          "distance": 4.2,
+          "scale": 1.3,
           "flip": false
-        },
-        {
-          "across": 0.6,
-          "distance": 3.0,
-          "scale": 1.0,
-          "flip": true
         }
       ]
     },
@@ -781,8 +763,8 @@
         "turn": 235,
         "does": "hunch"
       },
-      "across": 1.0,
-      "distance": 7.1
+      "across": 1.5,
+      "distance": 6.3
     },
     {
       "id": "virginia",
@@ -793,8 +775,8 @@
         "turn": 125,
         "does": "pray"
       },
-      "across": -0.6,
-      "distance": 6.4
+      "across": 0.0,
+      "distance": 5.6
     }
   ],
   "music": {
