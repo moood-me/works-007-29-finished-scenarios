@@ -49,12 +49,12 @@ e.layer('dusk', {}, g => {
 });
 // the sun: a low disc flattened a little by the air, and its glow (the light the sea's mirror draws its path from)
 e.layer('sun', { box: [SX - 0.06, SY - 0.06, SX + 0.06, SY + 0.06] }, g => {
-  glow(g, SX, SY, 0.05, 0.045, '255,240,200', 0.9);
+  glow(g, SX, SY, 0.06, 0.05, '255,236,190', 1);
   g.fillStyle = '#fff1cc';
   g.beginPath();
-  g.ellipse(SX, SY, 0.018, 0.016, 0, 0, Math.PI * 2);
+  g.ellipse(SX, SY, 0.024, 0.021, 0, 0, Math.PI * 2);
   g.fill();
-  e.light(SX, SY, 0.03, '#ffd59a', 3, 'sun');
+  e.light(SX, SY, 0.04, '#ffd59a', 4, 'sun');
 });
 e.layer('clouds', { drift: [0.001, 0], box: [X0, Y0, A + 0.3, H + 0.01] }, g => {
   // long banks lying low over the sea: violet-grey bodies, their undersides gilded by the sun below them — brightest

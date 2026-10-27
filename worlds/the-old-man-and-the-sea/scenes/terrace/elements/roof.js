@@ -3,6 +3,10 @@
 // from. Metres, as the card stands before it is laid flat (tilt −90): x across, y 0 at the eave over the front edge,
 // −11 behind the viewer; the beams at y −4.4 (5.3 m ahead) and −6.3 (3.4 m ahead).
 const W = 12;
+g.save();
+g.beginPath();
+g.rect(-W, -11, 2 * W, 11.3);
+g.clip();
 g.fillStyle = '#7a6749';
 g.fillRect(-W, -11, 2 * W, 11.3);
 // the thatch: layer on layer of palm leaves lying across, each bundle a band of strokes, lighter at its lower edge
@@ -34,3 +38,4 @@ for (const y of [-4.4, -6.3]) {
   g.fillStyle = '#6c5640';
   g.fillRect(-W, y - 0.09, 2 * W, 0.05);
 }
+g.restore();

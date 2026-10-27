@@ -30,14 +30,7 @@ g.fillRect(-11, -0.52, 22, 0.06);
 // the deck's edge board
 g.fillStyle = '#5f4d3a';
 g.fillRect(-11, -0.08, 22, 0.1);
-// a coil of line and a net hung over the rail by the middle post
-g.strokeStyle = '#b9a986';
-g.lineWidth = 0.025;
-for (let k = 0; k < 6; k++) {
-  g.beginPath();
-  g.ellipse(2.4, -0.62, 0.22 - k * 0.012, 0.3 - k * 0.012, 0, 0, Math.PI * 2);
-  g.stroke();
-}
+// a net hung over the rail to dry, by the middle post
 g.strokeStyle = 'rgba(120,110,90,0.75)';
 g.lineWidth = 0.012;
 for (let x = -3.6; x <= -2.4; x += 0.08) {
