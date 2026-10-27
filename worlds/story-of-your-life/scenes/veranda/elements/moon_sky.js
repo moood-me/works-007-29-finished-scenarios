@@ -1,7 +1,7 @@
 // A clear summer night over the back yard (screen heights; the horizon at 0.42): deep blue above, paler and greyer
 // low down; stars, fewer toward the moon; the full moon high on the left (its point `disc`, the moonlight's source),
 // a soft halo round it; one thin cloud below it drifting slowly (the layer `cloud`).
-const A = e.aspect, MX = 0.3, MY = 0.13;
+const A = e.aspect, MX = 0.37, MY = 0.07;
 const sky = g.createLinearGradient(0, -0.35, 0, 0.7);
 sky.addColorStop(0, '#141d3a');
 sky.addColorStop(0.4, '#25335c');

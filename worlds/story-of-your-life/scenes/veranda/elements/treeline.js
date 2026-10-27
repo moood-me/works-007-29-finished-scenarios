@@ -13,9 +13,9 @@ g.fillStyle = '#f2c98a';
 g.fillRect(0.4, -3.4, 0.7, 0.8);
 e.light(0.75, -3.0, 0.35, '#ffcf8a', 0.5, 'window');
 for (let i = 0; i < 70; i++) {
-  const x = -20 + e.rnd() * 40, r = 1.2 + e.rnd() * 1.8;
+  const x = -22 + e.rnd() * 44, r = 1.2 + e.rnd() * 1.8;
   if (x > -1.8 && x < 6.2 && e.rnd() < 0.85) continue;
-  const top = -(4.5 + e.rnd() * 4.5);
+  const top = -(4.0 + e.rnd() * 3.6);
   g.fillStyle = e.rnd() < 0.5 ? '#2f4536' : '#3a5440';
   g.beginPath();
   g.ellipse(x, top + r, r, r * 1.1, 0, 0, Math.PI * 2);
