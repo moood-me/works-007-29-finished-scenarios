@@ -19,9 +19,9 @@ return [
     run: async s => {
       s.set('above', 1);
       s.set('rain', 0);
-      s.person('fabien').look([-3, 6, 7]);
+      s.person('fabien').look([-4, 2.5, 3.6]);
       s.person('fabien').mood('neutral');
-      s.person('radioman').look([-1, 5, 7]);
+      s.person('radioman').look([-1.5, 3.5, 4.2]);
       s.person('radioman').mood('surprised');
       await s.wait(10);
     },
