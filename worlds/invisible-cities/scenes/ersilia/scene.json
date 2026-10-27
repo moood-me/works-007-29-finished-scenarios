@@ -1,0 +1,1822 @@
+{
+  "engine": 3,
+  "title": "Ersilia",
+  "caption": "Everyone has left. The threads stayed.",
+  "horizon": 0.52,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.75,
+    "ambientColor": "#a596bd",
+    "haze": 0.1,
+    "hazeColor": "#cba7a2",
+    "hazeGlow": 0.25,
+    "shafts": 0.1,
+    "vignette": 0.25,
+    "grain": 0.1,
+    "bounce": 0.5,
+    "saturation": 0.95,
+    "wind": [
+      1,
+      0.2,
+      0.6
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        150,
+        6
+      ],
+      "color": "#ffbf88",
+      "strength": 1.4
+    },
+    {
+      "id": "lamp",
+      "of": "lamp_glass#flame",
+      "color": "#ffcc88",
+      "strength": 0.8,
+      "reach": 5,
+      "flicker": 0.06
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "steppe",
+      "name": "Steppe",
+      "plane": true,
+      "across": 0,
+      "distance": 1000,
+      "elevation": 0,
+      "width": 4000,
+      "depth": 2000
+    },
+    {
+      "id": "track",
+      "name": "Railway",
+      "plane": true,
+      "across": -1.6,
+      "distance": 750,
+      "elevation": 0.03,
+      "width": 3.2,
+      "depth": 1510
+    },
+    {
+      "id": "poles",
+      "name": "Telegraph poles",
+      "across": -3.6,
+      "distance": 14,
+      "height": 7,
+      "box": [
+        -0.75,
+        -7.05,
+        0.75,
+        0.02
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -3.6,
+          "distance": 14
+        },
+        {
+          "across": -3.6,
+          "distance": 44
+        },
+        {
+          "across": -3.6,
+          "distance": 74
+        },
+        {
+          "across": -3.6,
+          "distance": 104
+        },
+        {
+          "across": -3.6,
+          "distance": 134
+        },
+        {
+          "across": -3.6,
+          "distance": 164
+        },
+        {
+          "across": -3.6,
+          "distance": 194
+        },
+        {
+          "across": -3.6,
+          "distance": 224
+        },
+        {
+          "across": -3.6,
+          "distance": 254
+        },
+        {
+          "across": -3.6,
+          "distance": 284
+        },
+        {
+          "across": -3.6,
+          "distance": 314
+        },
+        {
+          "across": -3.6,
+          "distance": 344
+        },
+        {
+          "across": -3.6,
+          "distance": 374
+        },
+        {
+          "across": -3.6,
+          "distance": 404
+        },
+        {
+          "across": -3.6,
+          "distance": 434
+        }
+      ]
+    },
+    {
+      "id": "water_tower",
+      "name": "Water tower",
+      "across": -10,
+      "distance": 28,
+      "height": 10.5,
+      "box": [
+        -3.2,
+        -10.5,
+        3.2,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "house_front",
+      "name": "The taken-apart house, front",
+      "across": 4.6,
+      "distance": 11.5,
+      "facing": 180,
+      "height": 2.8,
+      "box": [
+        -0.05,
+        -2.8,
+        5.25,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "house_side",
+      "name": "The taken-apart house, sides",
+      "across": 4.6,
+      "distance": 16,
+      "facing": 270,
+      "height": 2.8,
+      "box": [
+        -0.05,
+        -2.8,
+        4.55,
+        0.02
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 4.6,
+          "distance": 16
+        },
+        {
+          "across": 9.8,
+          "distance": 16
+        }
+      ]
+    },
+    {
+      "id": "truss",
+      "name": "Roof trusses",
+      "across": 4.6,
+      "distance": 11.55,
+      "facing": 180,
+      "height": 4.5,
+      "box": [
+        -0.35,
+        -4.45,
+        5.55,
+        -2.55
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 4.6,
+          "distance": 11.55
+        },
+        {
+          "across": 4.6,
+          "distance": 13
+        },
+        {
+          "across": 4.6,
+          "distance": 14.5
+        },
+        {
+          "across": 4.6,
+          "distance": 15.95
+        }
+      ]
+    },
+    {
+      "id": "ridge",
+      "name": "Ridge beam",
+      "across": 7.2,
+      "distance": 16,
+      "facing": 270,
+      "height": 4.5,
+      "box": [
+        -0.25,
+        -4.5,
+        4.75,
+        -4.2
+      ],
+      "shadow": true
+    },
+    {
+      "id": "stakes",
+      "name": "Stakes",
+      "across": 6.2,
+      "distance": 7.2,
+      "height": 1.4,
+      "box": [
+        -0.06,
+        -1.38,
+        0.06,
+        0.02
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 6.2,
+          "distance": 7.2
+        },
+        {
+          "across": 8.6,
+          "distance": 8
+        },
+        {
+          "across": 11.5,
+          "distance": 9.5
+        },
+        {
+          "across": 5,
+          "distance": 18.5
+        },
+        {
+          "across": 0.9,
+          "distance": 13.5
+        },
+        {
+          "across": 2.8,
+          "distance": 14.5
+        },
+        {
+          "across": 4.2,
+          "distance": 6.2
+        },
+        {
+          "across": 7,
+          "distance": 5.6
+        },
+        {
+          "across": 12.5,
+          "distance": 12.5
+        }
+      ]
+    },
+    {
+      "id": "sleepers",
+      "name": "Sleepers to the bench",
+      "plane": true,
+      "across": -0.4,
+      "distance": 8,
+      "elevation": 0.01,
+      "width": 0.24,
+      "depth": 2.4,
+      "copies": [
+        {
+          "across": -0.4,
+          "distance": 8
+        },
+        {
+          "across": 0.15,
+          "distance": 8.1
+        },
+        {
+          "across": 0.7,
+          "distance": 8.2
+        },
+        {
+          "across": 1.25,
+          "distance": 8.3
+        },
+        {
+          "across": 1.8,
+          "distance": 8.45
+        }
+      ]
+    },
+    {
+      "id": "grass",
+      "name": "Grass",
+      "across": -4.29,
+      "distance": 6.65,
+      "height": 0.6,
+      "box": [
+        -0.45,
+        -0.62,
+        0.45,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -4.29,
+          "distance": 6.65,
+          "scale": 0.81
+        },
+        {
+          "across": 5.53,
+          "distance": 4.49,
+          "scale": 1.11,
+          "flip": true
+        },
+        {
+          "across": 2.08,
+          "distance": 12.56,
+          "scale": 0.93,
+          "flip": true
+        },
+        {
+          "across": -12.26,
+          "distance": 16.45,
+          "scale": 0.98,
+          "flip": true
+        },
+        {
+          "across": -12.88,
+          "distance": 14.43,
+          "scale": 1.22
+        },
+        {
+          "across": -11.9,
+          "distance": 4.99,
+          "scale": 1.03,
+          "flip": true
+        },
+        {
+          "across": -10.29,
+          "distance": 8.64,
+          "scale": 0.84,
+          "flip": true
+        },
+        {
+          "across": 4.82,
+          "distance": 28.56,
+          "scale": 0.97,
+          "flip": true
+        },
+        {
+          "across": 3.31,
+          "distance": 13.41,
+          "scale": 1.21,
+          "flip": true
+        },
+        {
+          "across": 15.29,
+          "distance": 3.78,
+          "scale": 0.81
+        },
+        {
+          "across": 11.75,
+          "distance": 10.46,
+          "scale": 1.06,
+          "flip": true
+        },
+        {
+          "across": -9.67,
+          "distance": 5.74,
+          "scale": 1.07,
+          "flip": true
+        },
+        {
+          "across": -4.75,
+          "distance": 24.94,
+          "scale": 1.06
+        },
+        {
+          "across": -8.58,
+          "distance": 18.49,
+          "scale": 1.23
+        },
+        {
+          "across": 2.43,
+          "distance": 4.23,
+          "scale": 0.93,
+          "flip": true
+        },
+        {
+          "across": -12.21,
+          "distance": 8.16,
+          "scale": 0.88
+        },
+        {
+          "across": -4.58,
+          "distance": 18.6,
+          "scale": 1.07
+        },
+        {
+          "across": 9.83,
+          "distance": 21.72,
+          "scale": 0.96,
+          "flip": true
+        },
+        {
+          "across": -6.68,
+          "distance": 18.3,
+          "scale": 1.21
+        },
+        {
+          "across": 1.76,
+          "distance": 26.57,
+          "scale": 1.23
+        },
+        {
+          "across": 7.88,
+          "distance": 10.42,
+          "scale": 1.21
+        },
+        {
+          "across": 15.41,
+          "distance": 5.75,
+          "scale": 0.91
+        },
+        {
+          "across": -9.44,
+          "distance": 15.95,
+          "scale": 0.98,
+          "flip": true
+        },
+        {
+          "across": -12.82,
+          "distance": 20.88,
+          "scale": 0.81,
+          "flip": true
+        },
+        {
+          "across": 8.94,
+          "distance": 18.26,
+          "scale": 0.93
+        },
+        {
+          "across": 12.26,
+          "distance": 11.13,
+          "scale": 1.28,
+          "flip": true
+        },
+        {
+          "across": 6.86,
+          "distance": 18.85,
+          "scale": 1.27
+        },
+        {
+          "across": 3.4,
+          "distance": 15.05,
+          "scale": 1.28,
+          "flip": true
+        },
+        {
+          "across": 11.2,
+          "distance": 28.48,
+          "scale": 0.91,
+          "flip": true
+        },
+        {
+          "across": -12.18,
+          "distance": 21.79,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 5.41,
+          "distance": 29.81,
+          "scale": 1.11
+        },
+        {
+          "across": 10.66,
+          "distance": 10.33,
+          "scale": 1.22,
+          "flip": true
+        },
+        {
+          "across": -13.32,
+          "distance": 15.2,
+          "scale": 1.13
+        },
+        {
+          "across": -8.96,
+          "distance": 5.72,
+          "scale": 0.84
+        },
+        {
+          "across": -12.23,
+          "distance": 23.63,
+          "scale": 1.25
+        },
+        {
+          "across": -10.12,
+          "distance": 9.31,
+          "scale": 1.18,
+          "flip": true
+        },
+        {
+          "across": -11.58,
+          "distance": 14.85,
+          "scale": 0.89
+        },
+        {
+          "across": 2.48,
+          "distance": 26.79,
+          "scale": 0.97
+        },
+        {
+          "across": 10.58,
+          "distance": 26.26,
+          "scale": 1.29,
+          "flip": true
+        },
+        {
+          "across": -5.65,
+          "distance": 13.92,
+          "scale": 1
+        },
+        {
+          "across": 14.73,
+          "distance": 6.65,
+          "scale": 1.16,
+          "flip": true
+        },
+        {
+          "across": -8.71,
+          "distance": 8.88,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": -7,
+          "distance": 15.84,
+          "scale": 1.25
+        },
+        {
+          "across": 3.67,
+          "distance": 9.73,
+          "scale": 0.87
+        },
+        {
+          "across": -13.88,
+          "distance": 14.02,
+          "scale": 1.29
+        },
+        {
+          "across": 14.59,
+          "distance": 21.49,
+          "scale": 0.98
+        },
+        {
+          "across": 1.46,
+          "distance": 19.48,
+          "scale": 0.87,
+          "flip": true
+        },
+        {
+          "across": 6.29,
+          "distance": 3.98,
+          "scale": 1.29
+        },
+        {
+          "across": 12.99,
+          "distance": 23.95,
+          "scale": 1.06
+        },
+        {
+          "across": 12.24,
+          "distance": 24.44,
+          "scale": 1.02
+        },
+        {
+          "across": -10.89,
+          "distance": 19.94,
+          "scale": 1.21,
+          "flip": true
+        },
+        {
+          "across": -12.13,
+          "distance": 4.35,
+          "scale": 0.93,
+          "flip": true
+        },
+        {
+          "across": -7.74,
+          "distance": 6.96,
+          "scale": 0.92
+        },
+        {
+          "across": -3.8,
+          "distance": 3.95,
+          "scale": 0.93,
+          "flip": true
+        },
+        {
+          "across": -13.99,
+          "distance": 6.66,
+          "scale": 0.87
+        },
+        {
+          "across": -10.96,
+          "distance": 12.5,
+          "scale": 0.98,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "feather_grass",
+      "name": "Feather grass",
+      "across": 4,
+      "distance": 20.18,
+      "height": 0.95,
+      "box": [
+        -0.6,
+        -0.95,
+        0.6,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": 4,
+          "distance": 20.18,
+          "scale": 0.93
+        },
+        {
+          "across": 2.04,
+          "distance": 13.1,
+          "scale": 0.99,
+          "flip": true
+        },
+        {
+          "across": 2.56,
+          "distance": 3.36,
+          "scale": 1.2
+        },
+        {
+          "across": -9.91,
+          "distance": 18.18,
+          "scale": 0.91,
+          "flip": true
+        },
+        {
+          "across": -5.86,
+          "distance": 12,
+          "scale": 1.03,
+          "flip": true
+        },
+        {
+          "across": 3.33,
+          "distance": 17.9,
+          "scale": 0.92,
+          "flip": true
+        },
+        {
+          "across": -7.45,
+          "distance": 13.65,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": -4.04,
+          "distance": 8.26,
+          "scale": 1.04,
+          "flip": true
+        },
+        {
+          "across": 3.48,
+          "distance": 17.44,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": 11.9,
+          "distance": 11.42,
+          "scale": 1.07
+        },
+        {
+          "across": 2.29,
+          "distance": 16.16,
+          "scale": 0.87
+        },
+        {
+          "across": 0.86,
+          "distance": 13.13,
+          "scale": 1.13
+        },
+        {
+          "across": 1.47,
+          "distance": 20.89,
+          "scale": 0.89,
+          "flip": true
+        },
+        {
+          "across": 6.78,
+          "distance": 19.65,
+          "scale": 0.86
+        },
+        {
+          "across": 12.61,
+          "distance": 7.93,
+          "scale": 0.94,
+          "flip": true
+        },
+        {
+          "across": 3.43,
+          "distance": 20.92,
+          "scale": 1
+        },
+        {
+          "across": 10.16,
+          "distance": 5.61,
+          "scale": 1.14,
+          "flip": true
+        },
+        {
+          "across": -7.08,
+          "distance": 11.4,
+          "scale": 0.9
+        },
+        {
+          "across": -8.26,
+          "distance": 7.57,
+          "scale": 1.05
+        },
+        {
+          "across": -8.25,
+          "distance": 15.72,
+          "scale": 0.88,
+          "flip": true
+        },
+        {
+          "across": 8.81,
+          "distance": 20.04,
+          "scale": 1.09,
+          "flip": true
+        },
+        {
+          "across": -6.29,
+          "distance": 16.61,
+          "scale": 0.88
+        },
+        {
+          "across": 5.85,
+          "distance": 5.72,
+          "scale": 1.07
+        },
+        {
+          "across": 11.19,
+          "distance": 21.38,
+          "scale": 0.88
+        }
+      ]
+    },
+    {
+      "id": "lamppost",
+      "name": "Lamp post",
+      "across": 1.6,
+      "distance": 9.6,
+      "height": 4.3,
+      "box": [
+        -0.2,
+        -4.3,
+        0.75,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "lamp_glass",
+      "name": "Lamp",
+      "glows": true,
+      "flicker": 0.1,
+      "inFront": [
+        "lamppost"
+      ],
+      "across": 2.15,
+      "distance": 9.6,
+      "elevation": 3.6,
+      "height": 0.32,
+      "box": [
+        -0.1,
+        -0.32,
+        0.1,
+        0.02
+      ]
+    },
+    {
+      "id": "bench",
+      "name": "Bench",
+      "across": 3.1,
+      "distance": 8.95,
+      "facing": 180,
+      "height": 0.92,
+      "box": [
+        -0.8,
+        -0.92,
+        0.8,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "motes",
+      "particles": {
+        "kind": "dust",
+        "at": [
+          2,
+          10,
+          1.6
+        ],
+        "source": [
+          14,
+          10,
+          2.4
+        ],
+        "rate": 5,
+        "wind": 0.6
+      }
+    },
+    {
+      "id": "last_man",
+      "name": "The last man of Ersilia",
+      "person": {
+        "cast": "cast",
+        "who": "ersilian",
+        "turn": 245,
+        "does": "stand"
+      },
+      "across": 2.2,
+      "distance": 7.95
+    },
+    {
+      "id": "marco",
+      "name": "Marco",
+      "person": {
+        "cast": "cast",
+        "who": "marco",
+        "turn": 135,
+        "does": "stand"
+      },
+      "across": 0.4,
+      "distance": 7.6
+    },
+    {
+      "id": "thread_01",
+      "name": "A white thread",
+      "across": 1.6,
+      "distance": 9.6,
+      "facing": 148.33,
+      "height": 3.55,
+      "box": [
+        -0.05,
+        -3.55,
+        3.669,
+        -2.523
+      ]
+    },
+    {
+      "id": "thread_02",
+      "name": "A grey thread",
+      "across": 1.6,
+      "distance": 9.6,
+      "facing": 148.33,
+      "height": 2.65,
+      "box": [
+        -0.05,
+        -2.65,
+        3.669,
+        -1.423
+      ]
+    },
+    {
+      "id": "thread_03",
+      "name": "A grey thread",
+      "across": 1.6,
+      "distance": 9.6,
+      "facing": 217.405,
+      "height": 1.75,
+      "box": [
+        -0.05,
+        -1.75,
+        1.12,
+        -0.734
+      ]
+    },
+    {
+      "id": "thread_04",
+      "name": "A black thread",
+      "across": 1.6,
+      "distance": 9.6,
+      "facing": 166.83,
+      "height": 3.55,
+      "box": [
+        -0.05,
+        -3.55,
+        8.389,
+        -2.41
+      ]
+    },
+    {
+      "id": "thread_05",
+      "name": "A white thread",
+      "across": 1.6,
+      "distance": 9.6,
+      "facing": 180.579,
+      "height": 2.65,
+      "box": [
+        -0.05,
+        -2.65,
+        9.951,
+        -0.872
+      ]
+    },
+    {
+      "id": "thread_06",
+      "name": "A black thread",
+      "across": 4.68,
+      "distance": 11.5,
+      "facing": 250.532,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        4.611,
+        -1.001
+      ]
+    },
+    {
+      "id": "thread_07",
+      "name": "A white thread",
+      "across": 4.68,
+      "distance": 11.5,
+      "facing": 221.76,
+      "height": 1.65,
+      "box": [
+        -0.05,
+        -1.65,
+        5.305,
+        -0.984
+      ]
+    },
+    {
+      "id": "thread_08",
+      "name": "A grey thread",
+      "across": 6.16,
+      "distance": 11.5,
+      "facing": 269.467,
+      "height": 2.15,
+      "box": [
+        -0.05,
+        -2.15,
+        4.35,
+        -1.007
+      ]
+    },
+    {
+      "id": "thread_09",
+      "name": "A grey thread",
+      "across": 8.6,
+      "distance": 8,
+      "facing": 107.745,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        3.725,
+        -1.022
+      ]
+    },
+    {
+      "id": "thread_10",
+      "name": "A white thread",
+      "across": 9.72,
+      "distance": 11.5,
+      "facing": 228.331,
+      "height": 1.45,
+      "box": [
+        -0.05,
+        -1.45,
+        2.727,
+        -1.046
+      ]
+    },
+    {
+      "id": "thread_11",
+      "name": "A white thread",
+      "across": 0.9,
+      "distance": 13.5,
+      "facing": 207.883,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        4.326,
+        -1.007
+      ]
+    },
+    {
+      "id": "thread_12",
+      "name": "A black thread",
+      "across": 0.9,
+      "distance": 13.5,
+      "facing": 259.824,
+      "height": 3.55,
+      "box": [
+        -0.05,
+        -3.55,
+        4.012,
+        -1.015
+      ]
+    },
+    {
+      "id": "thread_13",
+      "name": "A grey thread",
+      "across": 1.6,
+      "distance": 9.6,
+      "facing": 103.761,
+      "height": 2.65,
+      "box": [
+        -0.05,
+        -2.65,
+        5.095,
+        -0.989
+      ]
+    },
+    {
+      "id": "thread_14",
+      "name": "A black thread",
+      "across": 2.8,
+      "distance": 14.5,
+      "facing": 237.926,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        3.59,
+        -0.725
+      ]
+    },
+    {
+      "id": "thread_15",
+      "name": "A white thread",
+      "across": 2.8,
+      "distance": 14.5,
+      "facing": 141.415,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        2.455,
+        -1.052
+      ]
+    },
+    {
+      "id": "thread_16",
+      "name": "A grey thread",
+      "across": 4.68,
+      "distance": 16,
+      "facing": 97.294,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        2.57,
+        -1.05
+      ]
+    },
+    {
+      "id": "thread_17",
+      "name": "A black thread",
+      "across": 5,
+      "distance": 18.5,
+      "facing": 207.908,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        5.391,
+        -0.982
+      ]
+    },
+    {
+      "id": "thread_18",
+      "name": "A white thread",
+      "across": 9.72,
+      "distance": 16,
+      "facing": 254.685,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        6.789,
+        -0.948
+      ]
+    },
+    {
+      "id": "thread_19",
+      "name": "A white thread",
+      "across": -7.6,
+      "distance": 28,
+      "facing": 243.435,
+      "height": 3.55,
+      "box": [
+        -0.05,
+        -3.55,
+        20.622,
+        -2.916
+      ]
+    },
+    {
+      "id": "thread_20",
+      "name": "A grey thread",
+      "across": -7.2,
+      "distance": 28,
+      "facing": 244.44,
+      "height": 6.05,
+      "box": [
+        -0.05,
+        -6.05,
+        20.446,
+        -2.92
+      ]
+    },
+    {
+      "id": "thread_21",
+      "name": "A black thread",
+      "across": -7.2,
+      "distance": 28,
+      "facing": 255.579,
+      "height": 6.45,
+      "box": [
+        -0.05,
+        -6.45,
+        14.505,
+        -5.563
+      ]
+    },
+    {
+      "id": "thread_22",
+      "name": "A white thread",
+      "across": -3.6,
+      "distance": 14,
+      "facing": 220.236,
+      "height": 4.05,
+      "box": [
+        -0.05,
+        -4.05,
+        6.862,
+        -2.347
+      ]
+    },
+    {
+      "id": "thread_23",
+      "name": "A grey thread",
+      "across": -3.6,
+      "distance": 14,
+      "facing": 196.801,
+      "height": 6.45,
+      "box": [
+        -0.05,
+        -6.45,
+        8.699,
+        -2.402
+      ]
+    },
+    {
+      "id": "thread_24",
+      "name": "A black thread",
+      "across": -3.6,
+      "distance": 14,
+      "facing": 175.533,
+      "height": 4.05,
+      "box": [
+        -0.05,
+        -4.05,
+        6.47,
+        -0.956
+      ]
+    },
+    {
+      "id": "thread_25",
+      "name": "A white thread",
+      "across": -7.6,
+      "distance": 28,
+      "facing": 254.055,
+      "height": 4.05,
+      "box": [
+        -0.05,
+        -4.05,
+        14.61,
+        -3.061
+      ]
+    },
+    {
+      "id": "thread_26",
+      "name": "A white thread",
+      "across": 3.75,
+      "distance": 8.95,
+      "facing": 215.538,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        3.061,
+        -0.688
+      ]
+    },
+    {
+      "id": "thread_27",
+      "name": "A grey thread",
+      "across": 2.45,
+      "distance": 8.95,
+      "facing": 131.17,
+      "height": 0.95,
+      "box": [
+        -0.05,
+        -0.95,
+        3.438,
+        -0.679
+      ]
+    },
+    {
+      "id": "thread_28",
+      "name": "A black thread",
+      "across": 6.2,
+      "distance": 7.2,
+      "facing": 161.565,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        2.58,
+        -1.049
+      ]
+    },
+    {
+      "id": "thread_29",
+      "name": "A grey thread",
+      "across": 8.6,
+      "distance": 8,
+      "facing": 152.65,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        3.315,
+        -1.032
+      ]
+    },
+    {
+      "id": "thread_30",
+      "name": "A white thread",
+      "across": 6.16,
+      "distance": 11.5,
+      "facing": 128.348,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        5.788,
+        -1.872
+      ]
+    },
+    {
+      "id": "thread_31",
+      "name": "A black thread",
+      "across": 4.68,
+      "distance": 11.5,
+      "facing": 90,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        4.55,
+        -0.702
+      ]
+    },
+    {
+      "id": "thread_32",
+      "name": "A white thread",
+      "across": 0.9,
+      "distance": 13.5,
+      "facing": 152.241,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        2.197,
+        -1.058
+      ]
+    },
+    {
+      "id": "thread_33",
+      "name": "A white thread",
+      "across": 4.68,
+      "distance": 11.5,
+      "facing": 180,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        5.09,
+        -1.189
+      ]
+    },
+    {
+      "id": "thread_34",
+      "name": "A black thread",
+      "across": 4.68,
+      "distance": 11.5,
+      "facing": 180,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        5.09,
+        -1.389
+      ]
+    },
+    {
+      "id": "thread_35",
+      "name": "A grey thread",
+      "across": 8.6,
+      "distance": 8,
+      "facing": 97.97,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        8.128,
+        -0.916
+      ]
+    },
+    {
+      "id": "thread_36",
+      "name": "A white thread",
+      "across": 2.8,
+      "distance": 14.5,
+      "facing": 118.811,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        4.615,
+        -1
+      ]
+    },
+    {
+      "id": "thread_37",
+      "name": "A grey thread",
+      "across": 1.6,
+      "distance": 9.6,
+      "facing": 157.38,
+      "height": 3.55,
+      "box": [
+        -0.05,
+        -3.55,
+        4.99,
+        -1.891
+      ]
+    },
+    {
+      "id": "thread_38",
+      "name": "A black thread",
+      "across": 3.75,
+      "distance": 8.95,
+      "facing": 191.083,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        4.992,
+        -0.641
+      ]
+    },
+    {
+      "id": "thread_39",
+      "name": "A white thread",
+      "across": 9.72,
+      "distance": 16,
+      "facing": 254.685,
+      "height": 1.45,
+      "box": [
+        -0.05,
+        -1.45,
+        6.789,
+        -0.948
+      ]
+    },
+    {
+      "id": "thread_40",
+      "name": "A white thread",
+      "across": 6.16,
+      "distance": 11.5,
+      "facing": 235.118,
+      "height": 2.15,
+      "box": [
+        -0.05,
+        -2.15,
+        4.317,
+        -1.008
+      ]
+    },
+    {
+      "id": "thread_41",
+      "name": "A white thread",
+      "across": -7.2,
+      "distance": 28,
+      "facing": 234.246,
+      "height": 6.05,
+      "box": [
+        -0.05,
+        -6.05,
+        20.382,
+        -2.122
+      ]
+    },
+    {
+      "id": "thread_42",
+      "name": "A grey thread",
+      "across": 3.75,
+      "distance": 8.95,
+      "facing": 260.707,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        2.837,
+        -0.693
+      ]
+    },
+    {
+      "id": "thread_43",
+      "name": "A white thread",
+      "across": 4.2,
+      "distance": 6.2,
+      "facing": 153.435,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        2.286,
+        -1.056
+      ]
+    },
+    {
+      "id": "thread_44",
+      "name": "A black thread",
+      "across": 4.2,
+      "distance": 6.2,
+      "facing": 95.175,
+      "height": 1.65,
+      "box": [
+        -0.05,
+        -1.65,
+        5.372,
+        -0.982
+      ]
+    },
+    {
+      "id": "thread_45",
+      "name": "A grey thread",
+      "across": 6.2,
+      "distance": 7.2,
+      "facing": 243.435,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        1.839,
+        -1.067
+      ]
+    },
+    {
+      "id": "thread_46",
+      "name": "A white thread",
+      "across": 7,
+      "distance": 5.6,
+      "facing": 123.69,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        2.934,
+        -1.041
+      ]
+    },
+    {
+      "id": "thread_47",
+      "name": "A grey thread",
+      "across": 7,
+      "distance": 5.6,
+      "facing": 114.751,
+      "height": 1.45,
+      "box": [
+        -0.05,
+        -1.45,
+        6.547,
+        -0.954
+      ]
+    },
+    {
+      "id": "thread_48",
+      "name": "A white thread",
+      "across": 1.6,
+      "distance": 9.6,
+      "facing": 232.595,
+      "height": 1.75,
+      "box": [
+        -0.05,
+        -1.75,
+        4.33,
+        -1.007
+      ]
+    },
+    {
+      "id": "thread_49",
+      "name": "A grey thread",
+      "across": 4.68,
+      "distance": 11.5,
+      "facing": 250.532,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        4.611,
+        -0.701
+      ]
+    },
+    {
+      "id": "thread_50",
+      "name": "A white thread",
+      "across": 4.2,
+      "distance": 6.2,
+      "facing": 110.295,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        5.701,
+        -0.774
+      ]
+    },
+    {
+      "id": "thread_51",
+      "name": "A black thread",
+      "across": 7,
+      "distance": 5.6,
+      "facing": 114.751,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        6.547,
+        -0.554
+      ]
+    },
+    {
+      "id": "thread_52",
+      "name": "A white thread",
+      "across": 0.9,
+      "distance": 13.5,
+      "facing": 146.52,
+      "height": 1.45,
+      "box": [
+        -0.05,
+        -1.45,
+        4.582,
+        -1.001
+      ]
+    },
+    {
+      "id": "thread_53",
+      "name": "A grey thread",
+      "across": 9.72,
+      "distance": 11.5,
+      "facing": 160.216,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        3.004,
+        -1.039
+      ]
+    },
+    {
+      "id": "thread_54",
+      "name": "A black thread",
+      "across": 11.5,
+      "distance": 9.5,
+      "facing": 108.435,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        3.212,
+        -1.034
+      ]
+    },
+    {
+      "id": "thread_55",
+      "name": "A white thread",
+      "across": 9.72,
+      "distance": 16,
+      "facing": 231.54,
+      "height": 1.45,
+      "box": [
+        -0.05,
+        -1.45,
+        4.52,
+        -1.003
+      ]
+    },
+    {
+      "id": "thread_56",
+      "name": "A grey thread",
+      "across": 2.8,
+      "distance": 14.5,
+      "facing": 245.026,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        8.103,
+        -0.917
+      ]
+    },
+    {
+      "id": "thread_57",
+      "name": "A white thread",
+      "across": 4.68,
+      "distance": 16,
+      "facing": 97.294,
+      "height": 1.45,
+      "box": [
+        -0.05,
+        -1.45,
+        2.57,
+        -1.05
+      ]
+    },
+    {
+      "id": "thread_58",
+      "name": "A white thread",
+      "across": 2.45,
+      "distance": 8.95,
+      "facing": 93.608,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        5.611,
+        -0.627
+      ]
+    },
+    {
+      "id": "thread_59",
+      "name": "A grey thread",
+      "across": 3.75,
+      "distance": 8.95,
+      "facing": 110.037,
+      "height": 2.75,
+      "box": [
+        -0.05,
+        -2.75,
+        2.764,
+        -0.695
+      ]
+    },
+    {
+      "id": "thread_60",
+      "name": "A white thread",
+      "across": 4.2,
+      "distance": 6.2,
+      "facing": 192.095,
+      "height": 1.25,
+      "box": [
+        -0.05,
+        -1.25,
+        2.914,
+        -1.041
+      ]
+    },
+    {
+      "id": "thread_61",
+      "name": "A white thread",
+      "across": 1.6,
+      "distance": 9.6,
+      "facing": 148.33,
+      "height": 1.75,
+      "box": [
+        -0.05,
+        -1.75,
+        3.669,
+        -0.723
+      ]
+    }
+  ],
+  "state": {
+    "marco_look": "last_man",
+    "last_man_look": "marco"
+  },
+  "music": {
+    "prompts": [
+      {
+        "text": "Solo oud, slow and dry, open fifths, an evening steppe, wind between phrases",
+        "weight": 1
+      },
+      {
+        "text": "Soft sustained string pad, warm and fading, a sunset over empty land, timeless",
+        "weight": 0.8
+      },
+      {
+        "text": "A single plucked string instrument, sparse, a man packing up the last of his house",
+        "weight": 0.6
+      },
+      {
+        "text": "Low bowed drone with a quiet ney flute, meditative, wide open space",
+        "weight": 0.3
+      },
+      {
+        "text": "Hushed felt piano, a few notes, threads and silence",
+        "weight": 0
+      },
+      {
+        "text": "Distant train horn far off, softened by reverb, ambient and calm",
+        "weight": 0
+      },
+      {
+        "text": "Kalimba notes slow and uneven, gentle, minimalist",
+        "weight": 0
+      },
+      {
+        "text": "Warm low cello holding long notes, restrained, a farewell without words",
+        "weight": 0
+      },
+      {
+        "text": "Granular textures of wind through dry grass, slow breathing pads, almost silent",
+        "weight": 0
+      },
+      {
+        "text": "Hammered dulcimer, slow and delicate, golden evening light",
+        "weight": 0
+      },
+      {
+        "text": "Glassy synth swells with long tails, violet dusk, modern indie game score",
+        "weight": 0
+      },
+      {
+        "text": "Solo clarinet, quiet and wandering, a traveller between towns",
+        "weight": 0
+      },
+      {
+        "text": "Frame drum pulse very soft and slow, like footsteps on sleepers",
+        "weight": 0
+      },
+      {
+        "text": "Neo-classical string quartet, sustained harmonics, dusty and pale",
+        "weight": 0
+      },
+      {
+        "text": "Wordless distant choir, almost inaudible, a town that moved away",
+        "weight": 0
+      }
+    ],
+    "bpm": 62,
+    "density": 0.22,
+    "brightness": 0.4,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}

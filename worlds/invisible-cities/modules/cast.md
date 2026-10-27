@@ -13,10 +13,15 @@ age: long plain clothes.
   red scarf (the one colour accent).
 - `marco_young` — Marco at twenty: the same coat, darker (wet), no grey.
 - `boatman` — the Khan's boatman: no age, a plain dark tunic.
+- `ferrywoman` — the ferrywoman of Valdrada, about seventy: small, a long plain dress the grey-blue of lake water, a
+  brown kerchief (`kerchief`) over grey hair.
+- `ersilian` — the last man of Ersilia, about fifty: broad, weathered, a long brown coat, his sack on his back (`sack`).
 
 ## Parts
 
-`beard` — a full beard in the hair's colour. `stick` — a walking stick, its brass knob by the right knee, its foot on the
+`kerchief` (a hat) — a kerchief over the crown and the back of the head, the face open.
+
+`sack` — a sackcloth sack on the back between the shoulder blades. `beard` — a full beard in the hair's colour. `stick` — a walking stick, its brass knob by the right knee, its foot on the
 floor beside the right foot (standing or sitting).
 
 ## Motions

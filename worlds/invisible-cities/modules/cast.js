@@ -5,6 +5,7 @@
 const V = () => MooodShapes.V;
 const WOOD = [0.36, 0.26, 0.18, 1];
 const BRASS = [0.66, 0.52, 0.3, 1];
+const SACKCLOTH = [0.6, 0.52, 0.4, 1];
 return {
   ...data,
   characters: {
@@ -32,6 +33,16 @@ return {
     boatman: { kind: 'shapes', style: 'cities', who: 'man', garment: 'tunic', hair: 'short',
       body: { height: 0.97, thick: 1.04 },
       colors: { skin: '#b88866', hair: '#2a2420', top: '#5b5650', bottom: '#3a3632', shoes: '#26211e' } },
+    // the ferrywoman of Valdrada, about seventy: small and straight, a long plain dress with sleeves the grey-blue of
+    // lake water, a brown kerchief over grey hair
+    ferrywoman: { kind: 'shapes', style: 'cities', who: 'woman', garment: 'robe', hair: 'bun', hat: 'kerchief',
+      body: { height: 0.9, shoulders: 0.9, hips: 1.04, thick: 0.92 },
+      colors: { skin: '#c79a7c', hair: '#bdb6ac', top: '#cfc6b4', garment: '#4d5a68', bottom: '#4d5a68', shoes: '#2a2624',
+        hat: '#8a6f4e' } },
+    // the last man of Ersilia, about fifty: broad, weathered, a long brown coat, his sack on his back
+    ersilian: { kind: 'shapes', style: 'cities', who: 'man', garment: 'coat', hair: 'short', parts: ['sack'],
+      body: { height: 0.99, shoulders: 1.06, thick: 1.06 },
+      colors: { skin: '#c08c68', hair: '#5d554c', top: '#c9bca2', garment: '#6b5642', bottom: '#4a4037', shoes: '#2c2520' } },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, plain colours, lit by the scene; a simple face
@@ -46,12 +57,24 @@ return {
         const { at, axes, egg, r, out, sides, square } = F.head;
         F.cap(at, axes, egg.map(e => e * r * out * 1.07), [0, 1, -0.12], 0.2, F.colors.hat, sides, square);
       } },
+      // a kerchief over the crown and the back of the head down to the nape, the face left open
+      kerchief: { name: 'kerchief', draw: F => {
+        const { at, axes, egg, r, out, sides, square } = F.head;
+        F.cap(at, axes, egg.map(e => e * r * out * 1.08), [0, 0.8, -0.6], -0.15, F.colors.hat, sides, square);
+      } },
     },
     parts: {
       // a beard falling long from under the chin onto the chest (the face left clear)
       beard: { name: 'beard', draw: F => {
         const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
         F.ball(add(h.at, add(mul(hu, -r * 1.3), mul(hf, r * 0.42))), h.axes, [r * 0.5, r * 0.8, r * 0.38], F.colors.hair, h.sides);
+      } },
+      // a sack of sackcloth on the back between the shoulder blades, what a man takes when he leaves a town
+      sack: { name: 'sack', draw: F => {
+        const { add, mul } = V(), m = F.fit.h, axes = [F.side('Chest'), F.up('Chest'), F.fwd('Chest')];
+        const c = add(F.P('Chest'), add(mul(axes[2], -0.24 * m), mul(axes[1], -0.06 * m)));
+        F.ball(c, axes, [0.21 * m, 0.27 * m, 0.14 * m], SACKCLOTH, 12);
+        F.ball(add(c, mul(axes[1], 0.27 * m)), axes, [0.07 * m, 0.06 * m, 0.06 * m], SACKCLOTH, 8);
       } },
       // a walking stick, its brass knob by the right knee, its foot on the floor beside the right foot: standing or
       // sitting, it leans there
