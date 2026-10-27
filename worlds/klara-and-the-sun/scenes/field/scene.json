@@ -10,10 +10,10 @@
     "ambient": 0.85,
     "ambientColor": "#cdbcc8",
     "bounce": 0.6,
-    "haze": 0.05,
+    "haze": 0.035,
     "hazeColor": "#f0bd8a",
     "hazeGlow": 0.12,
-    "shafts": 0.35,
+    "shafts": 0.25,
     "tint": "#ff9c5c",
     "tintStrength": 0.05,
     "saturation": 1.0,
@@ -4957,7 +4957,8 @@
           "flip": false,
           "tint": "#e8e4cc"
         }
-      ]
+      ],
+      "translucent": 0.3
     },
     {
       "id": "fence",
@@ -5024,7 +5025,7 @@
       "person": {
         "cast": "cast",
         "who": "klara",
-        "turn": 140,
+        "turn": 165,
         "does": "hands_clasped"
       },
       "across": -1.0,
