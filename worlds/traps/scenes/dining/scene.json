@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Dining Room",
   "caption": "Soup by candlelight. The defender leans to his client's ear: say nothing, for God's sake.",
-  "horizon": 0.45,
+  "horizon": 0.4,
   "camera": {
     "mode": "picture"
   },
@@ -144,8 +144,7 @@
         3.0,
         0.8
       ]
-    },
-    "camera_h": -0.35
+    }
   },
   "objects": [
     {
