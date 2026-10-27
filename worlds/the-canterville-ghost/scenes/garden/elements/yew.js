@@ -50,6 +50,18 @@ const tier = (c, cx, cy, w, h, n, tones) => {
     c.beginPath();
     c.ellipse(x, y, 0.16 + e.rnd() * 0.22, 0.08 + e.rnd() * 0.1, (e.rnd() - 0.5) * 0.4 + u * 0.25, 0, Math.PI * 2);
     c.fill();
+    // its needles: short fine strokes hanging from the spray's edge
+    if (e.rnd() < 0.5) {
+      c.strokeStyle = c.fillStyle;
+      c.lineWidth = 0.025;
+      for (let k = 0; k < 5; k++) {
+        const nx = x + (e.rnd() - 0.5) * 0.4;
+        c.beginPath();
+        c.moveTo(nx, y);
+        c.lineTo(nx + (e.rnd() - 0.5) * 0.1, y + 0.12 + e.rnd() * 0.16);
+        c.stroke();
+      }
+    }
   }
 };
 const DARK = ['#16221c', '#1a2620', '#1e2c24', '#14201a'];

@@ -1,11 +1,11 @@
 // The pine woods far off beyond the garden (70 m away, 300 m wide): one long dark wood against the paler sky low down,
 // its edge ragged with the pointed crowns of pines of every height, crowded together.
-for (const [tone, base, h, step] of [['#202a3a', 8, 9, 1.4], ['#18202e', 5, 7, 1.1]]) {
+for (const [tone, base, h, step] of [['#202a3a', 8, 5, 1.6], ['#18202e', 5, 4.5, 1.3]]) {
   g.fillStyle = tone;
   g.fillRect(-150, -base - 1, 300, base + 1.5);
   for (let x = -150; x <= 150; x += step * (0.6 + e.rnd() * 0.8)) {
     const top = base + h * (0.3 + e.rnd() * 0.7);
-    const w = 0.9 + e.rnd() * 1.1;
+    const w = 1.3 + e.rnd() * 1.3;
     // a crown: a narrow ragged cone, its sides notched by the whorls of its branches
     g.beginPath();
     g.moveTo(x - w * 1.3, -base + 0.5);
