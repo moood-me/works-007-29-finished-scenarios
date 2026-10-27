@@ -58,8 +58,8 @@
       "id": "bulb",
       "of": "bulb#bulb",
       "color": "#ffd49a",
-      "strength": 1.0,
-      "reach": 5,
+      "strength": 1.6,
+      "reach": 6,
       "on": "bulb"
     }
   ],
@@ -78,7 +78,11 @@
       "lid",
       "pencil"
     ],
-    "tom_look": "jim",
+    "tom_look": [
+      0,
+      0,
+      1.7
+    ],
     "tom_mood": "thinking",
     "jim_look": "tom",
     "jim_mood": "smile"
@@ -156,7 +160,7 @@
       "inside": true,
       "facing": 180,
       "elevation": 0.95,
-      "translucent": 0.5,
+      "translucent": 0.3,
       "height": 2.4,
       "box": [
         -1.32,
@@ -176,9 +180,9 @@
       "elevation": 3.92,
       "height": 5.2,
       "box": [
-        -3.45,
+        -3.65,
         -5.25,
-        3.65,
+        3.85,
         0.05
       ]
     },
@@ -189,10 +193,10 @@
       "across": -3.35,
       "distance": 3.9,
       "facing": 90,
-      "height": 3.9,
+      "height": 4.0,
       "box": [
         -2.6,
-        -3.92,
+        -4.02,
         2.6,
         0.02
       ],

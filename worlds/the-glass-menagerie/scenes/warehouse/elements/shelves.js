@@ -3,7 +3,7 @@
 // the warehouse's own pattern. Both side walls are this painting (left and right).
 const X0 = -2.6;
 const X1 = 2.6;
-const T = -3.9;
+const T = -4.0;
 g.fillStyle = '#4a4038';
 g.fillRect(X0, T, X1 - X0, -T + 0.02);
 for (let y = -0.12; y > T + 0.3; y -= 0.4) {
