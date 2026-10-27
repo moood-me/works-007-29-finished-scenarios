@@ -1,4 +1,4 @@
-// The great fish up alongside on the third morning, on the skiff's far side, lying just under the surface, the head
+// The great fish up alongside on the third morning, by the skiff's near side, lying just under the surface, the head
 // toward the skiff's bow — his tail out past its stern, his head and sword past its bow:
 // his back and the top of his tail out of the water, dark purple-blue; his long silver flank under the water with its
 // wide lavender stripes, his pectoral fins spread, his sword out ahead — the part under the water seen through it,

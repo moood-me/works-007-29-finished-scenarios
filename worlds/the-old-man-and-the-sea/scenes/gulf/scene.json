@@ -271,8 +271,8 @@
     {
       "id": "fish",
       "name": "The great fish",
-      "across": -0.35,
-      "distance": 7.0,
+      "across": -0.2,
+      "distance": 4.3,
       "elevation": 0.3,
       "onLand": false,
       "facing": 200,
