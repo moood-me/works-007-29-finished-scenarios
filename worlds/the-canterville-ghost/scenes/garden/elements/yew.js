@@ -58,7 +58,7 @@ const tier = (c, cx, cy, w, h, n, tones) => {
         const nx = x + (e.rnd() - 0.5) * 0.4;
         c.beginPath();
         c.moveTo(nx, y);
-        c.lineTo(nx + (e.rnd() - 0.5) * 0.1, y + 0.12 + e.rnd() * 0.16);
+        c.lineTo(nx + (e.rnd() - 0.5) * 0.12, y + 0.05 + e.rnd() * 0.07);
         c.stroke();
       }
     }
