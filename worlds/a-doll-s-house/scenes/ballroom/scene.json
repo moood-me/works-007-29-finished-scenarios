@@ -1,0 +1,732 @@
+{
+  "engine": 3,
+  "title": "The Stenborgs' Ballroom",
+  "caption": "Upstairs, the night of the fancy-dress ball. Nora is to dance the tarantella.",
+  "horizon": 0.55,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.38,
+    "ambientColor": "#a9aac4",
+    "inside": 0.15,
+    "bounce": 0.55,
+    "haze": 0.04,
+    "hazeColor": "#e0c79c",
+    "hazeGlow": 0.8,
+    "tint": "#f6e3c4",
+    "tintStrength": 0.05,
+    "vignette": 0.45,
+    "grain": 0.05
+  },
+  "lights": [
+    {
+      "id": "chandelier",
+      "of": "chandelier#glow",
+      "color": "#ffdca0",
+      "strength": 1.8,
+      "reach": 9,
+      "on": "candles",
+      "flicker": 0.04
+    },
+    {
+      "id": "landing",
+      "across": 3.95,
+      "distance": 10.5,
+      "elevation": 2.2,
+      "color": "#ffd28a",
+      "strength": 1.0,
+      "reach": 3
+    },
+    {
+      "id": "room",
+      "across": 0.6,
+      "distance": 1.2,
+      "elevation": 4.2,
+      "color": "#ffe6c4",
+      "strength": 0.9,
+      "reach": 15
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "camera_z": 0.6,
+    "candles": 1,
+    "nora_with": [
+      "tambourine"
+    ],
+    "nora_mood": "smile",
+    "nora_look": [
+      0,
+      1.0,
+      1.7
+    ],
+    "torvald_with": [
+      "glass"
+    ],
+    "torvald_look": "nora",
+    "torvald_mood": "smile",
+    "rank_with": [
+      "cigar"
+    ],
+    "rank_look": "nora",
+    "rank_mood": "sad",
+    "pianist_on": [
+      -0.48,
+      10.25,
+      0.52
+    ],
+    "pianist_look": "piano#keys",
+    "guest_dove_with": [
+      "fan"
+    ],
+    "guest_dove_look": "nora",
+    "guest_dove_mood": "smile",
+    "guest_consul_look": "nora",
+    "guest_rose_with": [
+      "fan"
+    ],
+    "guest_rose_look": "nora",
+    "guest_rose_do": {
+      "motion": "fan",
+      "loop": true,
+      "from": 3
+    },
+    "guest_officer_with": [
+      "glass"
+    ],
+    "guest_officer_look": "nora",
+    "guest_officer_do": {
+      "motion": "toast",
+      "loop": true,
+      "from": 4
+    }
+  },
+  "states": {
+    "candles": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the candles of the chandelier and the sconces: 0 out, 1 lit (their flames, the crystal's glints, their light)"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "houses",
+      "name": "The houses across the street",
+      "across": 0,
+      "distance": 22,
+      "height": 10.8,
+      "box": [
+        -9.1,
+        -10.85,
+        9.1,
+        0.1
+      ]
+    },
+    {
+      "id": "house_windows",
+      "name": "The lit windows across the street",
+      "glows": true,
+      "across": 0,
+      "distance": 22,
+      "height": 10.8,
+      "box": [
+        -9.1,
+        -10.85,
+        9.1,
+        0.1
+      ],
+      "inFront": [
+        "houses"
+      ]
+    },
+    {
+      "id": "snowfall",
+      "name": "Snow falling in the street",
+      "particles": {
+        "kind": "snow",
+        "area": [
+          -30,
+          30,
+          11.3,
+          45
+        ]
+      }
+    },
+    {
+      "id": "front",
+      "name": "The doll's house's open front, a storey up",
+      "across": 0,
+      "distance": 5.2,
+      "facing": 180,
+      "height": 4.6,
+      "box": [
+        -7.5,
+        -4.62,
+        7.5,
+        0.02
+      ]
+    },
+    {
+      "id": "ledge",
+      "name": "The cabinet's base before the front",
+      "plane": true,
+      "across": 0,
+      "distance": 4.6,
+      "elevation": 0,
+      "width": 15,
+      "depth": 1.2
+    },
+    {
+      "id": "floor",
+      "name": "The ballroom's parquet",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 8.1,
+      "elevation": 0,
+      "width": 7.1,
+      "depth": 5.86,
+      "reflect": {
+        "strength": 0.2,
+        "fade": 2.5,
+        "rough": 0.3
+      }
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 11.05,
+      "elevation": 3.4,
+      "facing": 180,
+      "tilt": -90,
+      "height": 5.9,
+      "box": [
+        -3.55,
+        -5.92,
+        3.55,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall: the two windows and the pier glass",
+      "inside": true,
+      "across": 0,
+      "distance": 11.0,
+      "facing": 180,
+      "height": 3.4,
+      "box": [
+        -3.55,
+        -3.42,
+        3.55,
+        0.02
+      ]
+    },
+    {
+      "id": "mirror",
+      "name": "The pier glass",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 10.97,
+      "elevation": 1.6,
+      "tilt": 90,
+      "width": 1.4,
+      "depth": 2.5,
+      "reflect": {
+        "strength": 0.7,
+        "fade": 0
+      }
+    },
+    {
+      "id": "window",
+      "name": "The windows' casements",
+      "inside": true,
+      "across": -2.2,
+      "distance": 11.02,
+      "elevation": 0.55,
+      "facing": 180,
+      "height": 2.3,
+      "box": [
+        -0.57,
+        -2.32,
+        0.57,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -2.2,
+          "distance": 11.02
+        },
+        {
+          "across": 2.2,
+          "distance": 11.02
+        }
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall",
+      "inside": true,
+      "across": -3.5,
+      "distance": 8.1,
+      "facing": 90,
+      "height": 3.4,
+      "box": [
+        -2.95,
+        -3.42,
+        2.95,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall, with the doorway to the landing",
+      "inside": true,
+      "across": 3.5,
+      "distance": 8.1,
+      "facing": 270,
+      "height": 3.4,
+      "box": [
+        -2.95,
+        -3.42,
+        2.95,
+        0.02
+      ]
+    },
+    {
+      "id": "landing",
+      "name": "The landing's side wall: the stairs going down",
+      "inside": true,
+      "across": 4.4,
+      "distance": 9.7,
+      "facing": 270,
+      "height": 3,
+      "box": [
+        -1.32,
+        -3.02,
+        1.32,
+        0.02
+      ]
+    },
+    {
+      "id": "landing_end",
+      "name": "The landing's end wall: the wall lamp, the coat stand",
+      "inside": true,
+      "across": 3.95,
+      "distance": 11.0,
+      "facing": 180,
+      "height": 3,
+      "box": [
+        -0.47,
+        -3.02,
+        0.47,
+        0.02
+      ]
+    },
+    {
+      "id": "landing_floor",
+      "name": "The landing's floor",
+      "plane": true,
+      "inside": true,
+      "across": 3.95,
+      "distance": 9.7,
+      "elevation": 0,
+      "width": 0.9,
+      "depth": 2.6
+    },
+    {
+      "id": "chandelier",
+      "name": "The crystal chandelier",
+      "glows": true,
+      "inside": true,
+      "across": 0,
+      "distance": 8.1,
+      "elevation": 1.95,
+      "height": 1.45,
+      "box": [
+        -0.8,
+        -1.47,
+        0.8,
+        0.05
+      ]
+    },
+    {
+      "id": "sconce",
+      "name": "The wall sconces",
+      "inside": true,
+      "across": -1.2,
+      "distance": 10.95,
+      "elevation": 1.95,
+      "height": 0.4,
+      "box": [
+        -0.2,
+        -0.32,
+        0.2,
+        0.16
+      ],
+      "copies": [
+        {
+          "across": -1.2,
+          "distance": 10.95
+        },
+        {
+          "across": 1.2,
+          "distance": 10.95
+        },
+        {
+          "across": -3.42,
+          "distance": 6.8
+        },
+        {
+          "across": -3.42,
+          "distance": 8.75
+        },
+        {
+          "across": 3.42,
+          "distance": 6.8
+        },
+        {
+          "across": 3.42,
+          "distance": 7.95
+        }
+      ]
+    },
+    {
+      "id": "sconce_flames",
+      "name": "The sconces' candle flames",
+      "glows": true,
+      "inside": true,
+      "across": -1.2,
+      "distance": 10.94,
+      "elevation": 1.95,
+      "height": 0.4,
+      "box": [
+        -0.2,
+        -0.32,
+        0.2,
+        0.0
+      ],
+      "copies": [
+        {
+          "across": -1.2,
+          "distance": 10.94
+        },
+        {
+          "across": 1.2,
+          "distance": 10.94
+        },
+        {
+          "across": -3.41,
+          "distance": 6.8
+        },
+        {
+          "across": -3.41,
+          "distance": 8.75
+        },
+        {
+          "across": 3.41,
+          "distance": 6.8
+        },
+        {
+          "across": 3.41,
+          "distance": 7.95
+        }
+      ]
+    },
+    {
+      "id": "piano",
+      "name": "The grand piano and its bench",
+      "inside": true,
+      "across": -2.15,
+      "distance": 10.25,
+      "height": 1.7,
+      "box": [
+        -1.3,
+        -1.7,
+        1.95,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "palm",
+      "name": "The potted palms",
+      "inside": true,
+      "across": 2.85,
+      "distance": 10.45,
+      "height": 2.65,
+      "box": [
+        -0.95,
+        -2.65,
+        0.95,
+        0.02
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 2.85,
+          "distance": 10.45
+        },
+        {
+          "across": -3.1,
+          "distance": 5.75,
+          "flip": true,
+          "scale": 0.75
+        }
+      ]
+    },
+    {
+      "id": "chair",
+      "name": "The gilt chairs along the walls",
+      "inside": true,
+      "across": -3.25,
+      "distance": 6.4,
+      "height": 1.0,
+      "box": [
+        -0.25,
+        -1.0,
+        0.25,
+        0.02
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -3.25,
+          "distance": 6.4
+        },
+        {
+          "across": -3.25,
+          "distance": 7.1
+        },
+        {
+          "across": -3.25,
+          "distance": 7.8
+        },
+        {
+          "across": 3.25,
+          "distance": 6.1,
+          "flip": true
+        },
+        {
+          "across": 3.25,
+          "distance": 6.8,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "nora",
+      "name": "Nora",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "nora_naples",
+        "turn": 180,
+        "does": "tambourine"
+      },
+      "across": 0.3,
+      "distance": 6.1
+    },
+    {
+      "id": "torvald",
+      "name": "Torvald",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "torvald_evening",
+        "turn": 150,
+        "does": "toast"
+      },
+      "across": -1.55,
+      "distance": 7.6
+    },
+    {
+      "id": "rank",
+      "name": "Doctor Rank",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "rank",
+        "turn": 210,
+        "does": "cigar"
+      },
+      "across": 1.85,
+      "distance": 7.4
+    },
+    {
+      "id": "cigar_smoke",
+      "name": "The smoke of Rank's cigar",
+      "inside": true,
+      "particles": {
+        "kind": "smoke",
+        "at": "rank#tip",
+        "rate": 5,
+        "life": [
+          3,
+          5
+        ],
+        "size": [
+          0.05,
+          0.4
+        ],
+        "speed": [
+          0.04,
+          0.12
+        ],
+        "opacity": 0.6,
+        "wind": 0
+      }
+    },
+    {
+      "id": "pianist",
+      "name": "The pianist",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "pianist",
+        "turn": 270,
+        "does": "playing"
+      },
+      "across": -0.48,
+      "distance": 10.25
+    },
+    {
+      "id": "guest_dove",
+      "name": "A guest in dove-grey silk",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "guest_dove",
+        "turn": 185,
+        "does": "fan"
+      },
+      "across": 0.95,
+      "distance": 10.35
+    },
+    {
+      "id": "guest_consul",
+      "name": "Consul Stenborg",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "guest_consul",
+        "turn": 200,
+        "does": "arms_folded"
+      },
+      "across": 1.6,
+      "distance": 10.55
+    },
+    {
+      "id": "guest_rose",
+      "name": "A guest in rose silk",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "guest_rose",
+        "turn": 235,
+        "does": "fan"
+      },
+      "across": 2.7,
+      "distance": 8.7
+    },
+    {
+      "id": "guest_officer",
+      "name": "A young officer",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "guest_officer",
+        "turn": 135,
+        "does": "toast"
+      },
+      "across": -2.75,
+      "distance": 8.75
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "tarantella for piano, fast 6/8, Neapolitan, brilliant and a little desperate, nineteenth-century salon",
+        "weight": 1.2
+      },
+      {
+        "text": "tambourine and piano tarantella heard in a ballroom, rising tempo",
+        "weight": 0.8
+      },
+      {
+        "text": "waltz for small orchestra, nineteenth-century ballroom, chandeliers, champagne",
+        "weight": 0.6
+      },
+      {
+        "text": "solo piano, Grieg-like, glittering and nervous, a party upstairs",
+        "weight": 0.4
+      },
+      {
+        "text": "string quartet minuet, polite society, candlelit",
+        "weight": 0
+      },
+      {
+        "text": "distant chatter-like woodwinds, a festive crowd, muffled",
+        "weight": 0
+      },
+      {
+        "text": "solo cello under a cheerful melody, a man who knows he is dying",
+        "weight": 0
+      },
+      {
+        "text": "music box tarantella, slowing down, fragile",
+        "weight": 0
+      },
+      {
+        "text": "Norwegian folk fiddle, hardanger, a fast springar",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, snow falling past a lit window at night",
+        "weight": 0
+      },
+      {
+        "text": "mandolin and guitar, Capri, a memory of the south",
+        "weight": 0
+      },
+      {
+        "text": "ticking pulse with pizzicato strings, six hours to midnight",
+        "weight": 0
+      },
+      {
+        "text": "romantic piano nocturne, rubato, after the ball",
+        "weight": 0
+      },
+      {
+        "text": "tense low strings drone under a dance",
+        "weight": 0
+      },
+      {
+        "text": "brass band polka from another house, far away",
+        "weight": 0
+      },
+      {
+        "text": "glass harmonica, crystal, a chandelier trembling",
+        "weight": 0
+      }
+    ],
+    "bpm": 120,
+    "density": 0.5,
+    "brightness": 0.6,
+    "scale": "C_MAJOR_A_MINOR"
+  }
+}
