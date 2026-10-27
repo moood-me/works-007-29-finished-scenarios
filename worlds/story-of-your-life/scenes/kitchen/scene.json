@@ -50,7 +50,7 @@
       "id": "lamp_light",
       "of": "lamp",
       "color": "#ffd59a",
-      "strength": 0.9,
+      "strength": 1.1,
       "reach": 4
     }
   ],
@@ -59,8 +59,8 @@
   ],
   "state": {
     "louise_on": [
-      0.72,
-      3.78,
+      0.6,
+      3.45,
       0.46
     ],
     "louise_reach": {
@@ -110,7 +110,7 @@
       "id": "car",
       "name": "The friend's car, waiting",
       "shadow": true,
-      "across": 1.6,
+      "across": 2.6,
       "distance": 9.6,
       "height": 1.45,
       "box": [
@@ -158,7 +158,7 @@
       "facing": 180,
       "height": 2.55,
       "box": [
-        -3.05,
+        -2.45,
         -2.57,
         3.05,
         0.02
@@ -217,14 +217,14 @@
       "id": "counter",
       "name": "The counter's cupboards",
       "inside": true,
-      "across": -0.6,
+      "across": -0.29,
       "distance": 4.42,
       "facing": 180,
       "height": 0.92,
       "box": [
-        -2.45,
+        -2.15,
         -0.95,
-        2.45,
+        2.15,
         0.02
       ]
     },
@@ -233,17 +233,17 @@
       "name": "The worktop and the sink",
       "plane": true,
       "inside": true,
-      "across": -0.6,
+      "across": -0.29,
       "distance": 4.71,
       "elevation": 0.92,
-      "width": 4.84,
+      "width": 4.22,
       "depth": 0.6
     },
     {
       "id": "counter_things",
       "name": "The kettle, the bread bin, the spoons",
       "inside": true,
-      "across": -1.6,
+      "across": -1.05,
       "distance": 4.78,
       "elevation": 0.92,
       "facing": 180,
@@ -260,7 +260,7 @@
       "name": "The old fridge",
       "inside": true,
       "shadow": true,
-      "across": 2.5,
+      "across": 2.62,
       "distance": 4.62,
       "facing": 200,
       "height": 1.72,
@@ -275,7 +275,7 @@
       "id": "left_wall",
       "name": "The left wall: the door to the hall, the jacket, the shelves",
       "inside": true,
-      "across": -3.0,
+      "across": -2.4,
       "distance": 2.9,
       "facing": 90,
       "height": 2.55,
@@ -312,7 +312,7 @@
       "tilt": -90,
       "height": 4.4,
       "box": [
-        -3.05,
+        -2.45,
         -4.42,
         3.05,
         0.02
@@ -333,8 +333,8 @@
       "id": "lamp",
       "name": "The lamp over the table",
       "inside": true,
-      "across": 0.9,
-      "distance": 3.3,
+      "across": 0.75,
+      "distance": 3.0,
       "elevation": 1.62,
       "height": 0.93,
       "box": [
@@ -349,8 +349,8 @@
       "name": "The kitchen table",
       "inside": true,
       "shadow": true,
-      "across": 0.9,
-      "distance": 3.3,
+      "across": 0.75,
+      "distance": 3.0,
       "facing": 180,
       "height": 0.75,
       "box": [
@@ -366,8 +366,8 @@
       "plane": true,
       "inside": true,
       "shadow": true,
-      "across": 0.9,
-      "distance": 3.3,
+      "across": 0.75,
+      "distance": 3.0,
       "elevation": 0.75,
       "width": 1.3,
       "depth": 0.8
@@ -377,8 +377,8 @@
       "name": "The teapot and her cup",
       "inside": true,
       "shadow": true,
-      "across": 1.3,
-      "distance": 3.45,
+      "across": 1.1,
+      "distance": 3.15,
       "elevation": 0.75,
       "height": 0.26,
       "box": [
@@ -392,14 +392,14 @@
       "id": "mug",
       "name": "Louise's mug",
       "inside": true,
-      "across": 0.68,
-      "distance": 3.32,
+      "across": 0.55,
+      "distance": 3.13,
       "elevation": 0.75,
       "height": 0.11,
       "box": [
         -0.075,
         -0.115,
-        0.075,
+        0.085,
         0.005
       ]
     },
@@ -436,8 +436,8 @@
       "name": "The kitchen chairs",
       "inside": true,
       "shadow": true,
-      "across": 0.72,
-      "distance": 3.98,
+      "across": 0.6,
+      "distance": 3.68,
       "facing": 180,
       "height": 0.95,
       "box": [
@@ -448,14 +448,14 @@
       ],
       "copies": [
         {
-          "across": 0.72,
-          "distance": 3.98,
+          "across": 0.6,
+          "distance": 3.68,
           "facing": 180
         },
         {
-          "across": 1.9,
-          "distance": 2.8,
-          "facing": 232
+          "across": 1.22,
+          "distance": 3.7,
+          "facing": 180
         }
       ]
     },
@@ -464,9 +464,9 @@
       "name": "The stepladder in the corner",
       "inside": true,
       "shadow": true,
-      "across": -2.45,
-      "distance": 3.35,
-      "facing": 145,
+      "across": -2.0,
+      "distance": 3.6,
+      "facing": 120,
       "height": 1.02,
       "box": [
         -0.32,
@@ -482,8 +482,8 @@
       "particles": {
         "kind": "dust",
         "at": [
-          0.5,
-          3.4,
+          0.4,
+          3.2,
           1.3
         ],
         "source": [
@@ -503,8 +503,8 @@
         "turn": 195,
         "does": "seated_mug"
       },
-      "across": 0.72,
-      "distance": 3.78
+      "across": 0.6,
+      "distance": 3.45
     },
     {
       "id": "daughter",
@@ -516,8 +516,8 @@
         "turn": 150,
         "does": "hand_on_hip"
       },
-      "across": -1.85,
-      "distance": 3.45
+      "across": -1.55,
+      "distance": 3.6
     }
   ],
   "music": {

@@ -2,7 +2,7 @@
 // cream and sage checks, worn paler in front of the sink and round the table.
 g.fillStyle = '#e5dac2';
 g.fillRect(-3.05, -2.35, 6.1, 4.7);
-g.fillStyle = '#a9b59a';
+g.fillStyle = '#bcc4aa';
 for (let i = 0; i < 21; i++) {
   for (let j = 0; j < 16; j++) {
     if ((i + j) % 2) g.fillRect(-3.05 + i * 0.3, -2.35 + j * 0.3, 0.3, 0.3);

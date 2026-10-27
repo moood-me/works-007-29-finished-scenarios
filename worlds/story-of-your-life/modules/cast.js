@@ -29,12 +29,14 @@ const rope = F => {
   const mid = mix(shoulder, hip, 0.5), half = sub(shoulder, mid), along = unit(half);
   const a = Math.hypot(half[0], half[1], half[2]) * 1.06, n = unit(cross(along, fwd));
   for (let k = 0; k < 6; k++) {
-    const off = mul(n, (k - 2.5) * 0.017 * m), b = (0.15 + 0.008 * k) * m, pts = [];
-    for (let i = 0; i <= 28; i++) {
-      const t = (i / 28) * Math.PI * 2;
-      pts.push(add(add(add(mid, mul(along, Math.cos(t) * a)), mul(fwd, Math.sin(t) * b)), off));
+    const off = mul(n, (k - 2.5) * 0.017 * m), b = (0.15 + 0.008 * k) * m;
+    const at = t => add(add(add(mid, mul(along, Math.cos(t) * a)), mul(fwd, Math.sin(t) * b)), off);
+    // a loop as four tubes of eight points (a tube takes eight at most), each quarter meeting the next
+    for (let q = 0; q < 4; q++) {
+      const pts = [];
+      for (let i = 0; i < 8; i++) pts.push(at(((q + i / 7) / 4) * Math.PI * 2));
+      F.tube(pts, [[0, 0.011 * m], [1, 0.011 * m]], [[0, ROPE[k % 2]]], 6, n);
     }
-    F.tube(pts, [[0, 0.011 * m], [1, 0.011 * m]], [[0, ROPE[k % 2]]], 6, n);
   }
 };
 return {

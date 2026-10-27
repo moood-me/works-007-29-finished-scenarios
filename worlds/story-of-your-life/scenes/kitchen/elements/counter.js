@@ -1,11 +1,11 @@
-// The counter's cupboards, from their foot (x −2.42…2.42; the worktop at 0.92 m): sage-green doors under a row of
-// drawers, brass knobs, the dark toe-kick; a tea towel hung over the oven door's rail.
+// The counter's cupboards, from their foot (x −2.11…2.11; the worktop at 0.92 m): sage-green doors under a row of
+// drawers, brass knobs, the dark toe-kick; a tea towel hung over a door.
 g.fillStyle = '#4c473f';
-g.fillRect(-2.42, -0.1, 4.84, 0.12);
+g.fillRect(-2.11, -0.1, 4.22, 0.12);
 g.fillStyle = '#7f927b';
-g.fillRect(-2.42, -0.92, 4.84, 0.82);
-for (let i = 0; i < 8; i++) {
-  const x = -2.42 + i * 0.605;
+g.fillRect(-2.11, -0.92, 4.22, 0.82);
+for (let i = 0; i < 7; i++) {
+  const x = -2.11 + i * 0.6;
   g.fillStyle = '#8fa18b';
   g.fillRect(x + 0.02, -0.9, 0.565, 0.16);
   g.fillRect(x + 0.02, -0.71, 0.565, 0.6);

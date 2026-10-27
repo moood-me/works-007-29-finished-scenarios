@@ -1,4 +1,4 @@
-// On the worktop, from its face (x −1.4…1.4; the counter's left part): a cream enamel kettle, a bread bin, a jar of
+// On the worktop, from its face (x −1.4…1.4; the counter's left part, the window from x 0.85): a cream enamel kettle, a bread bin, a jar of
 // wooden spoons, a small radio.
 // the kettle
 g.fillStyle = '#ece4d0';
@@ -49,11 +49,11 @@ g.fillRect(0.12, -0.15, 0.2, 0.15);
 // the radio
 g.fillStyle = '#6e5a46';
 g.beginPath();
-g.roundRect(0.7, -0.18, 0.34, 0.18, 0.03);
+g.roundRect(0.42, -0.18, 0.34, 0.18, 0.03);
 g.fill();
 g.fillStyle = '#d9cfb8';
-g.fillRect(0.74, -0.15, 0.16, 0.11);
+g.fillRect(0.46, -0.15, 0.16, 0.11);
 g.fillStyle = '#2e2a26';
 g.beginPath();
-g.arc(0.97, -0.09, 0.03, 0, Math.PI * 2);
+g.arc(0.69, -0.09, 0.03, 0, Math.PI * 2);
 g.fill();
