@@ -66,7 +66,7 @@ return {
       shift: { name: 'shift dress', hang: [{ to: 1.1, from: 'waist', flare: 0.2, off: 0.94 }], short: true, bodice: true },
       // the Manager's plain dress: straight from the waist to below the knee, long sleeves
       frock: { name: 'frock', hang: [{ to: 1.3, from: 'waist', flare: 0.14, off: 0.95 }], bodice: true, sleeves: 'garment' },
-      // Rick's old canvas jacket: short and boxy, to the hips, worn open-handed
+      // Rick's old canvas jacket: short and boxy, to the hips
       canvas: { name: 'canvas jacket', hang: [{ to: 0.36, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment' },
       // the Mother's work jacket: straight, short, to the waist
       blazer: { name: 'blazer', hang: [{ to: 0.3, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
