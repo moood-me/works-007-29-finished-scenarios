@@ -12,10 +12,15 @@ const holes = c => {
 };
 g.save();
 g.beginPath();
-g.rect(-10, -12.4, 20, 12.45);
+g.rect(-18, -12.4, 36, 12.45);
 holes(g);
 g.clip('evenodd');
-// the houses above and either side: stucco, ochre plaster, stone
+// the houses above and either side: stucco, ochre plaster, stone; farther along, a pale blue-grey house to the left
+// and a red-brown brick one to the right
+g.fillStyle = '#c9cfd0';
+g.fillRect(-18, -10.4, 8.1, 10.45);
+g.fillStyle = '#b98f78';
+g.fillRect(9.9, -11.6, 8.1, 11.65);
 g.fillStyle = '#e8dbc3';
 g.fillRect(-3.4, -12.4, 6.7, 12.45);
 g.fillStyle = '#dcc49c';
@@ -51,6 +56,18 @@ const sash = (x, y, w, h) => {
 for (const y of [-6.4, -9.5]) for (const x of [-2.6, -0.5, 1.6]) sash(x, y, 0.9, 1.75);
 for (const y of [-6.1, -9.2]) for (const x of [-8.6, -6.6, -4.7]) sash(x, y, 0.85, 1.6);
 for (const y of [-6.2, -9.1]) for (const x of [4.0, 6.1, 8.1]) sash(x, y, 0.9, 1.6);
+for (const y of [-5.9, -8.8]) for (const x of [-16.6, -14.4, -12.2]) sash(x, y, 0.9, 1.6);
+for (const y of [-6.3, -9.6]) for (const x of [11.0, 13.2, 15.4]) sash(x, y, 0.9, 1.7);
+sash(-15.6, -2.5, 1.2, 1.6);
+sash(12.4, -2.6, 1.3, 1.7);
+g.fillStyle = '#efe2c6';
+g.fillRect(-13.0, -2.65, 1.3, 2.67);
+g.fillStyle = '#6b4a3f';
+g.fillRect(-12.85, -2.3, 1.0, 2.32);
+g.fillStyle = '#efe2c6';
+g.fillRect(15.0, -2.65, 1.3, 2.67);
+g.fillStyle = '#3e4c5e';
+g.fillRect(15.15, -2.3, 1.0, 2.32);
 // the ochre house: its green door, a step, a fanlight; a small window beside it
 g.fillStyle = '#efe2c6';
 g.fillRect(-5.75, -2.65, 1.3, 2.67);
