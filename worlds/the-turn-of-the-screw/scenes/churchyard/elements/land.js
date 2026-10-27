@@ -94,8 +94,8 @@ const leaf = ['#c9a640', '#b58b34', '#d8bb58', '#9c7a33', '#a8933e'];
 for (let i = 0; i < 2600; i++) {
   const r = Math.pow(e.rnd(), 0.7) * 9;
   const a = e.rnd() * Math.PI * 2;
-  const x = 8.5 + Math.cos(a) * r * 1.2;
-  const d = 8.5 + Math.sin(a) * r;
+  const x = 10 + Math.cos(a) * r * 1.2;
+  const d = 14 + Math.sin(a) * r;
   g.fillStyle = leaf[Math.floor(e.rnd() * leaf.length)];
   g.beginPath();
   g.ellipse(x, Y(d), 0.04 + e.rnd() * 0.04, 0.025 + e.rnd() * 0.025, e.rnd() * 3, 0, Math.PI * 2);

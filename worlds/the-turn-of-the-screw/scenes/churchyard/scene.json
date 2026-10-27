@@ -589,8 +589,8 @@
     {
       "id": "lime",
       "name": "The lime near on the right",
-      "across": 8.5,
-      "distance": 8.5,
+      "across": 13,
+      "distance": 16,
       "height": 16,
       "box": [
         -10,
@@ -606,9 +606,9 @@
       "particles": {
         "kind": "leaves",
         "at": [
-          5.5,
-          8.5,
-          9
+          9,
+          16,
+          8
         ],
         "source": [
           7,
