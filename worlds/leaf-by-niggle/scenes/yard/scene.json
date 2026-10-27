@@ -64,7 +64,7 @@
     "storm": 0,
     "niggle_look": "inspector",
     "niggle_mood": "sad",
-    "inspector_look": "shed_inside#canvas",
+    "inspector_look": "inspector#book",
     "inspector_mood": "neutral",
     "parish_look": "cottage#hole",
     "parish_mood": "neutral",
@@ -233,9 +233,9 @@
       "height": 2.6,
       "box": [
         -1.65,
-        -2.65,
+        -2.8,
         1.65,
-        0.03
+        0.05
       ]
     },
     {
@@ -329,9 +329,9 @@
       "facing": 180,
       "height": 3.2,
       "box": [
-        -1.6,
+        -1.3,
         -3.25,
-        1.6,
+        1.25,
         0.05
       ]
     },
@@ -443,7 +443,7 @@
       "person": {
         "cast": "cast",
         "who": "inspector",
-        "turn": 250,
+        "turn": 222,
         "does": "hold_book"
       },
       "across": -0.4,

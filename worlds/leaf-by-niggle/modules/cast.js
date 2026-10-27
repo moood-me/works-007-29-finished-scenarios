@@ -95,13 +95,13 @@ return {
       body: { height: 1.05, thick: 0.86, shoulders: 1.0 },
       colors: { skin: '#d4ab8c', hair: '#9b968c', top: '#c6bba2', garment: '#6f7a70', bottom: '#5b5247', shoes: '#3e342b', hat: '#5e594f' },
     },
-    // The Inspector of Houses: grey and exact, not unkind — the law; a long grey town coat, a grey hat with a brim,
-    // a grey waistcoat and collar; his book open in both hands
+    // The Inspector of Houses: grey and exact, not unkind — the law; a long grey town coat, a dark grey bowler, a
+    // grey waistcoat and collar; his book open in both hands
     inspector: {
-      kind: 'shapes', style: 'niggle', who: 'man', garment: 'coat', hair: 'short', hat: 'hat', face: 'simple',
+      kind: 'shapes', style: 'niggle', who: 'man', garment: 'coat', hair: 'short', hat: 'bowler', face: 'simple',
       parts: ['book'],
       body: { height: 1.02, thick: 0.9, shoulders: 0.96 },
-      colors: { skin: '#dcbfa8', hair: '#8a8780', top: '#b9b8b2', garment: '#6d7072', bottom: '#4e5052', shoes: '#26262a', hat: '#55585b' },
+      colors: { skin: '#dcbfa8', hair: '#8a8780', top: '#b9b8b2', garment: '#6d7072', bottom: '#4e5052', shoes: '#26262a', hat: '#3e4144' },
     },
     // Mrs Parish: small, ill since summer; a kerchief over her hair, a faded rose house dress
     mrs_parish: {
@@ -135,6 +135,14 @@ return {
       } },
     },
     hats: {
+      // a town hat: a round hard crown, a narrow brim all round
+      bowler: { name: 'bowler', draw: F => {
+        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r } = F.head;
+        const tilt = unit(add(hu, mul(hf, 0.06)));
+        const axes = [hs, tilt, cross(hs, tilt)];
+        F.ball(add(at, mul(hu, r * 0.4)), axes, [r * 1.3, r * 0.05, r * 1.25], F.colors.hat, F.sides * 2);
+        F.ball(add(at, mul(hu, r * 0.5)), axes, [r * 0.95, r * 0.72, r * 0.93], F.colors.hat, F.sides);
+      } },
       // a kerchief over the hair, tied at the nape
       kerchief: { name: 'kerchief', draw: F => {
         const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
@@ -217,7 +225,7 @@ return {
           const fwd = F.fwd('Chest');
           const spine = add(mean([r, l]), add(mul(fwd, 0.05 * h), mul(UP, 0.02 * h)));
           // the pages' height runs from the reader's side up and away: tipped toward his face
-          const tall = unit(add(mul(fwd, 0.75), mul(UP, 0.66)));
+          const tall = unit(add(mul(fwd, 0.85), mul(UP, 0.5)));
           const half = 0.12 * h;
           const reader = unit(cross(across, tall));
           const lift = mul(reader, 0.012 * h);

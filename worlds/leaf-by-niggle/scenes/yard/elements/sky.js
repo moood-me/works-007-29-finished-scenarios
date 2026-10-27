@@ -38,21 +38,25 @@ e.layer('bank', { box: [e.aspect * 0.42, -0.35, e.aspect + 1.6, 0.47] }, l => {
   l.fillRect(left, -0.35, 0.5, 0.63);
   l.fillStyle = 'rgba(86,94,108,0.92)';
   l.fillRect(left + 0.5, -0.35, end - left - 0.5, 0.63);
-  for (let i = 0; i < 46; i++) {
+  // its strata: long low rolls one over another, soft-edged, their tops caught by the sun
+  l.filter = 'blur(0.012px)';
+  for (let i = 0; i < 34; i++) {
     const x = left - 0.1 + e.rnd() * (end - left + 0.1);
-    const y = 0.2 - e.rnd() * 0.5;
-    const r = 0.06 + e.rnd() * 0.12;
+    const y = 0.24 - e.rnd() * e.rnd() * 0.55;
+    const w = 0.25 + e.rnd() * 0.5;
+    const t = 0.03 + e.rnd() * 0.05;
     const a = Math.max(0, Math.min(1, (x - left) / 0.6));
     const k = e.rnd();
-    l.fillStyle = `rgba(${96 + Math.floor(k * 22)},${104 + Math.floor(k * 20)},${118 + Math.floor(k * 18)},${0.9 * a})`;
+    l.fillStyle = `rgba(${84 + Math.floor(k * 24)},${92 + Math.floor(k * 22)},${108 + Math.floor(k * 18)},${0.85 * a})`;
     l.beginPath();
-    l.ellipse(x, y, r * 1.4, r, 0, 0, Math.PI * 2);
+    l.ellipse(x, y, w, t, 0, 0, Math.PI * 2);
     l.fill();
-    l.fillStyle = `rgba(236,216,180,${0.4 * a})`;
+    l.fillStyle = `rgba(232,212,176,${0.3 * a})`;
     l.beginPath();
-    l.ellipse(x - r * 0.2, y - r * 0.7, r * 0.9, r * 0.25, 0, 0, Math.PI * 2);
+    l.ellipse(x - w * 0.1, y - t * 0.75, w * 0.7, t * 0.22, 0, 0, Math.PI * 2);
     l.fill();
   }
+  l.filter = 'none';
   // the flat underside and the rain under it, toward the hills
   l.fillStyle = 'rgba(70,76,88,0.9)';
   l.fillRect(left + 0.6, 0.26, end - left - 0.6, 0.05);

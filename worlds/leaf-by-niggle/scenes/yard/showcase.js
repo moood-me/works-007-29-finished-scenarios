@@ -1,7 +1,8 @@
-// The yard after the storm: the Inspector of Houses before the shed's door, his book open, looking past Niggle at the
-// canvas inside; Niggle in the doorway, his brush still in his hand; Parish at his own door, looking up at the hole in
-// his roof, not at them; Mrs Parish at the bedroom window. Then the Inspector looks down at his book and Niggle back
-// at his Tree; the next storm comes over from the hills, Parish looks up at it; back.
+// The yard after the storm: the Inspector of Houses before the shed's door, his book open, looks up from it past
+// Niggle at the canvas inside; Niggle in the doorway, his brush still in his hand, looks at him; Parish at his own
+// door looks up at the hole in his roof, not at them; Mrs Parish at the bedroom window. Then the Inspector looks down
+// at his book and Niggle back at his Tree; the next storm comes over from the hills, Parish and the Inspector look up
+// at it; back.
 return [
   {
     name: 'the Inspector',
