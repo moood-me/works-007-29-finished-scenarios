@@ -35,4 +35,6 @@ handful of russet bracken held before one in both hands (`<id>_with: ["fern"]`).
 The engine's `stand` and `walk`, and (loops, standing still): `hands_behind` — the hands clasped behind the back,
 looking ahead; `hands_clasped` — the hands clasped low before the waist; `stand_still` — the arms hanging, the head a
 little forward, tired; `hand_at_waist` — upright, the right hand across the waist; `hold_before` — a child's both
-hands before her at the waist, holding something small.
+hands before her at the waist, holding something small; `book_before` — upright and still, both hands before the
+waist holding a small book; `hand_on_stone` — standing, the left hand forward-left at the hip as if resting on
+something there (put it there by `<id>_reach`).

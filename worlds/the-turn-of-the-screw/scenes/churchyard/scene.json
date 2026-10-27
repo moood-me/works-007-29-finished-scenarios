@@ -1,0 +1,833 @@
+{
+  "engine": 3,
+  "title": "The Churchyard",
+  "caption": "Late October, a Sunday. The bell is ringing for church.",
+  "horizon": 0.5,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.56,
+    "ambientColor": "#b0b8c8",
+    "bounce": 0.3,
+    "haze": 0.2,
+    "hazeColor": "#d6d8d6",
+    "hazeGlow": 0.2,
+    "shafts": 0,
+    "tint": "#ffeacc",
+    "tintStrength": 0.05,
+    "saturation": 0.82,
+    "vignette": 0.3,
+    "grain": 0.07,
+    "wind": [
+      1,
+      0.2,
+      0.25
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        145,
+        16
+      ],
+      "color": "#ffe6c0",
+      "strength": 1.05
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The October morning sky",
+      "sky": true
+    },
+    {
+      "id": "far_land",
+      "name": "The low country far off",
+      "across": 0,
+      "distance": 700,
+      "height": 30,
+      "box": [
+        -2500,
+        -40,
+        2500,
+        10
+      ]
+    },
+    {
+      "id": "land",
+      "name": "The churchyard, the path and the fields beyond",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 150,
+      "width": 600,
+      "depth": 320
+    },
+    {
+      "id": "elms",
+      "name": "Old elms beyond the churchyard",
+      "across": -34,
+      "distance": 42,
+      "height": 18,
+      "box": [
+        -7.5,
+        -18.5,
+        7.5,
+        0.3
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -34,
+          "distance": 42,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -22,
+          "distance": 50,
+          "scale": 1.1,
+          "flip": true,
+          "tint": "#f0e2c0"
+        },
+        {
+          "across": -9,
+          "distance": 55,
+          "scale": 0.85,
+          "flip": false,
+          "tint": "#e8dcc8"
+        },
+        {
+          "across": 12,
+          "distance": 52,
+          "scale": 1.0,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 24,
+          "distance": 47,
+          "scale": 1.15,
+          "flip": false,
+          "tint": "#f0e2c0"
+        },
+        {
+          "across": 38,
+          "distance": 55,
+          "scale": 1.1,
+          "flip": true,
+          "tint": "#e8dcc8"
+        },
+        {
+          "across": -50,
+          "distance": 52,
+          "scale": 1.2,
+          "flip": true,
+          "tint": "#f0e2c0"
+        },
+        {
+          "across": 52,
+          "distance": 62,
+          "scale": 1.2,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 2,
+          "distance": 66,
+          "scale": 1.0,
+          "flip": true,
+          "tint": "#e8dcc8"
+        }
+      ]
+    },
+    {
+      "id": "rooks",
+      "name": "Rooks over the elms",
+      "across": -20,
+      "distance": 48,
+      "elevation": 17,
+      "height": 6,
+      "box": [
+        -14,
+        -8,
+        14,
+        4
+      ]
+    },
+    {
+      "id": "wall",
+      "name": "The churchyard's wall and its gate",
+      "across": 0,
+      "distance": 33,
+      "height": 1.8,
+      "box": [
+        -80,
+        -1.8,
+        80,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "church",
+      "name": "The church",
+      "unseen": true,
+      "across": 3,
+      "distance": 24,
+      "facing": 150
+    },
+    {
+      "id": "south_wall",
+      "name": "The nave's south wall",
+      "on": "church",
+      "across": 0,
+      "distance": 0,
+      "facing": 180,
+      "height": 5.3,
+      "box": [
+        -8.1,
+        -5.3,
+        8.1,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "roof",
+      "name": "The nave's roof",
+      "on": "church",
+      "plane": true,
+      "distance": 1.5,
+      "elevation": 6.8,
+      "width": 16.4,
+      "depth": 4.8,
+      "tilt": 46.8,
+      "shadow": true
+    },
+    {
+      "id": "west_end",
+      "name": "The west end and its bellcote",
+      "on": "church",
+      "across": -8,
+      "distance": 3,
+      "facing": 270,
+      "height": 11.6,
+      "box": [
+        -3.4,
+        -11.7,
+        3.4,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "chancel",
+      "name": "The chancel",
+      "on": "church",
+      "across": 10.5,
+      "distance": 0.7,
+      "facing": 180,
+      "height": 4.5,
+      "box": [
+        -2.6,
+        -4.5,
+        2.6,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "chancel_roof",
+      "name": "The chancel's roof",
+      "on": "church",
+      "plane": true,
+      "across": 10.5,
+      "distance": 1.85,
+      "elevation": 5.6,
+      "width": 5.2,
+      "depth": 3.6,
+      "tilt": 46,
+      "shadow": true
+    },
+    {
+      "id": "doorway",
+      "name": "The south door, open on the candles",
+      "on": "church",
+      "across": -4.5,
+      "distance": -0.05,
+      "facing": 180,
+      "height": 2.6,
+      "box": [
+        -0.6,
+        -2.65,
+        0.6,
+        0.05
+      ],
+      "glows": true
+    },
+    {
+      "id": "porch_floor",
+      "name": "The porch's floor",
+      "on": "church",
+      "plane": true,
+      "across": -4.5,
+      "distance": -1.5,
+      "elevation": 0.02,
+      "width": 3,
+      "depth": 3
+    },
+    {
+      "id": "porch_left",
+      "name": "The porch's left wall",
+      "on": "church",
+      "across": -6.1,
+      "distance": -1.5,
+      "facing": 270,
+      "height": 2.85,
+      "box": [
+        -1.8,
+        -2.9,
+        1.85,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "porch_right",
+      "name": "The porch's right wall",
+      "on": "church",
+      "across": -2.9,
+      "distance": -1.5,
+      "facing": 90,
+      "height": 2.85,
+      "box": [
+        -1.8,
+        -2.9,
+        1.85,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "porch",
+      "name": "The porch",
+      "on": "church",
+      "across": -4.5,
+      "distance": -3,
+      "facing": 180,
+      "height": 4.7,
+      "box": [
+        -2,
+        -4.8,
+        2,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "yew",
+      "name": "The great yew",
+      "across": -14,
+      "distance": 17,
+      "height": 11,
+      "box": [
+        -6.5,
+        -11.5,
+        6.5,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "stone_round",
+      "name": "Round-topped headstones",
+      "across": -4.6,
+      "distance": 8.2,
+      "height": 1.0,
+      "box": [
+        -0.45,
+        -1.05,
+        0.45,
+        0.2
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -4.6,
+          "distance": 8.2,
+          "facing": 178,
+          "tilt": 4,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -7.6,
+          "distance": 11.2,
+          "facing": 186,
+          "tilt": -6,
+          "scale": 1.05,
+          "flip": true,
+          "tint": "#e8ecdc"
+        },
+        {
+          "across": 4.4,
+          "distance": 9.5,
+          "facing": 172,
+          "tilt": 0,
+          "scale": 0.95,
+          "flip": false,
+          "tint": "#f2eee2"
+        },
+        {
+          "across": 6.8,
+          "distance": 14.5,
+          "facing": 190,
+          "tilt": 8,
+          "scale": 1.1,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -3.6,
+          "distance": 17.5,
+          "facing": 180,
+          "tilt": 0,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#e8ecdc"
+        },
+        {
+          "across": -9.5,
+          "distance": 18,
+          "facing": 176,
+          "tilt": -4,
+          "scale": 1.1,
+          "flip": true,
+          "tint": "#f2eee2"
+        },
+        {
+          "across": 9.2,
+          "distance": 11.5,
+          "facing": 166,
+          "tilt": 5,
+          "scale": 1.15,
+          "flip": false,
+          "tint": "#e8ecdc"
+        }
+      ]
+    },
+    {
+      "id": "stone_shoulder",
+      "name": "Shouldered headstones",
+      "across": -2.8,
+      "distance": 7.0,
+      "height": 1.12,
+      "box": [
+        -0.5,
+        -1.2,
+        0.5,
+        0.2
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -2.8,
+          "distance": 7.0,
+          "facing": 184,
+          "tilt": -3,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 3.2,
+          "distance": 12.8,
+          "facing": 176,
+          "tilt": 5,
+          "scale": 1.0,
+          "flip": true,
+          "tint": "#efe8dc"
+        },
+        {
+          "across": -8.6,
+          "distance": 9.6,
+          "facing": 170,
+          "tilt": -7,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#e6eade"
+        },
+        {
+          "across": 5.6,
+          "distance": 18,
+          "facing": 186,
+          "tilt": 0,
+          "scale": 1.05,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -5.5,
+          "distance": 20.5,
+          "facing": 180,
+          "tilt": 6,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#efe8dc"
+        },
+        {
+          "across": 3.6,
+          "distance": 7.2,
+          "facing": 172,
+          "tilt": 2,
+          "scale": 0.95,
+          "flip": false,
+          "tint": "#e6eade"
+        }
+      ]
+    },
+    {
+      "id": "stone_cross",
+      "name": "Stone crosses",
+      "across": -6.2,
+      "distance": 13.6,
+      "height": 1.3,
+      "box": [
+        -0.4,
+        -1.35,
+        0.4,
+        0.2
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -6.2,
+          "distance": 13.6,
+          "facing": 182,
+          "tilt": 0,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 7.8,
+          "distance": 9.0,
+          "facing": 176,
+          "tilt": -5,
+          "scale": 1.05,
+          "flip": true,
+          "tint": "#ece8dc"
+        },
+        {
+          "across": -11,
+          "distance": 13,
+          "facing": 180,
+          "tilt": 3,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#e4e8dc"
+        }
+      ]
+    },
+    {
+      "id": "tomb",
+      "name": "The old table tomb",
+      "unseen": true,
+      "across": -1.0,
+      "distance": 4.5,
+      "facing": 180
+    },
+    {
+      "id": "tomb_end",
+      "name": "The table tomb's end",
+      "on": "tomb",
+      "facing": 180,
+      "height": 0.7,
+      "box": [
+        -0.55,
+        -0.72,
+        0.55,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tomb_side",
+      "name": "The table tomb's side",
+      "on": "tomb",
+      "across": 0.45,
+      "distance": 1.05,
+      "facing": 90,
+      "height": 0.7,
+      "box": [
+        -1.2,
+        -0.74,
+        1.15,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tomb_top",
+      "name": "The table tomb's lid",
+      "on": "tomb",
+      "plane": true,
+      "distance": 1.05,
+      "elevation": 0.69,
+      "width": 1.04,
+      "depth": 2.2,
+      "shadow": true
+    },
+    {
+      "id": "lime",
+      "name": "The lime near on the right",
+      "across": 13,
+      "distance": 16,
+      "height": 16,
+      "box": [
+        -10,
+        -16,
+        5,
+        0.3
+      ],
+      "shadow": true
+    },
+    {
+      "id": "leaves",
+      "name": "Leaves falling from the lime",
+      "particles": {
+        "kind": "leaves",
+        "at": [
+          9,
+          16,
+          8
+        ],
+        "source": [
+          7,
+          4,
+          3
+        ],
+        "rate": 0.5,
+        "colors": [
+          "#c9a640",
+          "#b58b34",
+          "#d8bb58",
+          "#9c7a33"
+        ]
+      }
+    },
+    {
+      "id": "tufts",
+      "name": "Longer grass by the stones",
+      "across": -3.2,
+      "distance": 3.2,
+      "height": 0.55,
+      "box": [
+        -0.5,
+        -0.55,
+        0.5,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -3.2,
+          "distance": 3.2,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": 2.9,
+          "distance": 2.8,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": -4.6,
+          "distance": 7.6,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": 4.0,
+          "distance": 8.8,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": 1.5,
+          "distance": 6.2,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": -2.2,
+          "distance": 6.2,
+          "scale": 1.0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "grose",
+      "name": "Mrs Grose",
+      "person": {
+        "cast": "cast",
+        "who": "grose",
+        "turn": 330
+      },
+      "across": 1.05,
+      "distance": 18.25
+    },
+    {
+      "id": "flora",
+      "name": "Flora",
+      "person": {
+        "cast": "cast",
+        "who": "flora",
+        "turn": 200
+      },
+      "across": 0.45,
+      "distance": 18.15
+    },
+    {
+      "id": "governess",
+      "name": "The governess",
+      "person": {
+        "cast": "cast",
+        "who": "governess",
+        "turn": 225,
+        "does": "book_before"
+      },
+      "across": 1.0,
+      "distance": 4.1
+    },
+    {
+      "id": "miles",
+      "name": "Miles",
+      "person": {
+        "cast": "cast",
+        "who": "miles",
+        "turn": 135,
+        "does": "hand_on_stone"
+      },
+      "across": -1.68,
+      "distance": 4.5
+    }
+  ],
+  "state": {
+    "bell": 1,
+    "miles_look": "governess",
+    "miles_mood": "neutral",
+    "miles_reach": {
+      "l": "tomb_top#corner"
+    },
+    "governess_look": "miles",
+    "governess_mood": "thinking",
+    "governess_with": [
+      "prayerbook"
+    ],
+    "grose_look": "doorway#door",
+    "grose_reach": {
+      "l": "flora#hand_l"
+    },
+    "flora_look": "miles",
+    "flora_mood": "neutral",
+    "flora_reach": {
+      "l": "grose#hand_l"
+    }
+  },
+  "states": {
+    "bell": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — the bell still, 1 — rung, swinging full; the swing dies away as it falls"
+    }
+  },
+  "music": {
+    "prompts": [
+      {
+        "text": "solo piano, a light quick Victorian parlour piece played far off in a house, slightly out of tune, summer evening",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, quiet and pastoral, English country house, warm but uneasy, unresolved harmonies",
+        "weight": 0
+      },
+      {
+        "text": "music box melody, slow and innocent, a child's tune with one wrong note",
+        "weight": 0
+      },
+      {
+        "text": "solo viola, long sustained notes, gothic stillness, golden evening light",
+        "weight": 0.4
+      },
+      {
+        "text": "celesta and harp, gentle, dreamlike, a nursery at dusk",
+        "weight": 0
+      },
+      {
+        "text": "Benjamin Britten-like chamber orchestra, sparse, eerie, glassy percussion",
+        "weight": 0
+      },
+      {
+        "text": "harmonium chord held softly, a country church far away",
+        "weight": 0.7
+      },
+      {
+        "text": "low cello drone with high violin harmonics, suspense held very quietly",
+        "weight": 0.5
+      },
+      {
+        "text": "solo flute, pastoral and thin, evening birdsong feel",
+        "weight": 0
+      },
+      {
+        "text": "piano left hand ostinato, two notes, patient, something waiting",
+        "weight": 0
+      },
+      {
+        "text": "distant church bell, slow, summer air, nostalgic",
+        "weight": 1.0
+      },
+      {
+        "text": "English folk song melody on a solo violin, plain and tender",
+        "weight": 0
+      },
+      {
+        "text": "glass harmonica, fragile, ghostly shimmer",
+        "weight": 0
+      },
+      {
+        "text": "string orchestra swell, romantic and restrained, late Victorian",
+        "weight": 0
+      },
+      {
+        "text": "prepared piano plucks, quiet and uncanny, sparse",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and bassoon, a lullaby gone slightly strange",
+        "weight": 0
+      },
+      {
+        "text": "ambient pad, warm golden haze, very slow",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
