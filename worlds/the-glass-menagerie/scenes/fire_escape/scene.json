@@ -1,0 +1,515 @@
+{
+  "engine": 3,
+  "title": "The Fire Escape",
+  "caption": "Friday, seven o'clock. Two men smoke on the landing; in the window a yellow dress.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.55,
+    "ambientColor": "#8890c4",
+    "inside": 0.25,
+    "bounce": 0.5,
+    "haze": 0.1,
+    "hazeColor": "#3b3f6c",
+    "hazeGlow": 0.8,
+    "tint": "#a8b0ff",
+    "tintStrength": 0.05,
+    "saturation": 0.95,
+    "vignette": 0.55,
+    "grain": 0.12
+  },
+  "lights": [
+    {
+      "id": "moon",
+      "from": "sky#disc",
+      "color": "#aebcff",
+      "strength": 0.6
+    },
+    {
+      "id": "sign",
+      "of": "sign#neon",
+      "color": "#ff5aa0",
+      "strength": 1.3,
+      "reach": 12,
+      "on": "neon",
+      "flicker": 0.12
+    },
+    {
+      "id": "sign_green",
+      "across": -1.0,
+      "distance": -2.5,
+      "elevation": 1.5,
+      "color": "#3fdc9c",
+      "strength": 0.45,
+      "reach": 9,
+      "on": "neon",
+      "flicker": 0.2
+    },
+    {
+      "id": "hall",
+      "across": 1.4,
+      "distance": -2.4,
+      "elevation": 0.7,
+      "color": "#ffc483",
+      "strength": 0.75,
+      "reach": 9
+    },
+    {
+      "id": "room",
+      "across": -0.5,
+      "distance": 6.9,
+      "elevation": 1.9,
+      "color": "#ffc98a",
+      "strength": 1.6,
+      "reach": 6,
+      "on": "lamp"
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "neon": 1,
+    "lamp": 1,
+    "tom_with": [
+      "cigarette"
+    ],
+    "tom_look": [
+      -7,
+      -1,
+      4.5
+    ],
+    "tom_mood": "tired",
+    "jim_look": "tom",
+    "jim_mood": "smile",
+    "amanda_look": "jim",
+    "amanda_mood": "smile"
+  },
+  "states": {
+    "neon": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the Paradise Dance Hall's sign across the alley, behind the viewer: 0 dark, 1 lit — its pink and green light on the landing, its letters mirrored in the window"
+    },
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lamp in the Wingfields' living room, seen through the window: 0 out, 1 lit — the warm light on Amanda and out onto the landing"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The night sky and the moon",
+      "sky": true
+    },
+    {
+      "id": "city",
+      "name": "The roofs beyond the corner",
+      "across": -15,
+      "distance": 24,
+      "height": 15,
+      "box": [
+        -10.5,
+        -15,
+        10.5,
+        0.05
+      ]
+    },
+    {
+      "id": "hall",
+      "name": "The dance hall's building across the alley (behind the viewer, seen in the window)",
+      "across": 0,
+      "distance": -2.6,
+      "facing": 0,
+      "height": 2.2,
+      "box": [
+        -7,
+        -2.2,
+        7,
+        0.02
+      ]
+    },
+    {
+      "id": "sign",
+      "name": "The Paradise's neon sign",
+      "glows": true,
+      "across": -1.6,
+      "distance": -2.65,
+      "facing": 0,
+      "elevation": 1.6,
+      "height": 1,
+      "box": [
+        -1.4,
+        -1.0,
+        1.4,
+        0.05
+      ]
+    },
+    {
+      "id": "wall",
+      "name": "The tenement's back wall: the window, the door",
+      "across": 0,
+      "distance": 4.6,
+      "facing": 180,
+      "height": 12.3,
+      "box": [
+        -1.95,
+        -12.25,
+        6.2,
+        0.02
+      ]
+    },
+    {
+      "id": "room",
+      "name": "The living room's far wall, seen through the window",
+      "inside": true,
+      "across": 0.6,
+      "distance": 7.4,
+      "facing": 180,
+      "height": 2.8,
+      "box": [
+        -1.8,
+        -2.82,
+        1.8,
+        0.02
+      ]
+    },
+    {
+      "id": "photo",
+      "name": "The father's photograph",
+      "inside": true,
+      "across": 1.2,
+      "distance": 7.37,
+      "elevation": 1.25,
+      "facing": 180,
+      "height": 0.78,
+      "box": [
+        -0.32,
+        -0.78,
+        0.32,
+        0.02
+      ]
+    },
+    {
+      "id": "table",
+      "name": "The table laid for the caller",
+      "inside": true,
+      "across": 0.75,
+      "distance": 6.15,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -0.95,
+        -1.0,
+        0.95,
+        0.03
+      ]
+    },
+    {
+      "id": "curtain",
+      "name": "The lace curtains",
+      "inside": true,
+      "translucent": 0.5,
+      "across": 0.55,
+      "distance": 4.68,
+      "elevation": 0.75,
+      "facing": 180,
+      "height": 1.5,
+      "box": [
+        -0.6,
+        -1.52,
+        0.6,
+        0.02
+      ]
+    },
+    {
+      "id": "pane",
+      "name": "The window's glass",
+      "glass": {
+        "strength": 0.3
+      },
+      "across": 0.55,
+      "distance": 4.64,
+      "elevation": 0.75,
+      "facing": 180,
+      "height": 1.5,
+      "box": [
+        -0.56,
+        -1.51,
+        0.56,
+        0.01
+      ]
+    },
+    {
+      "id": "sash",
+      "name": "The window's sash",
+      "across": 0.55,
+      "distance": 4.62,
+      "elevation": 0.75,
+      "facing": 180,
+      "height": 1.5,
+      "box": [
+        -0.58,
+        -1.52,
+        0.58,
+        0.02
+      ]
+    },
+    {
+      "id": "landing",
+      "name": "The fire escape's landing",
+      "plane": true,
+      "walk": true,
+      "across": 1.5,
+      "distance": 3.92,
+      "elevation": 9,
+      "width": 4.2,
+      "depth": 1.36
+    },
+    {
+      "id": "treads",
+      "name": "The stair's treads",
+      "plane": true,
+      "across": -0.73,
+      "distance": 3.92,
+      "elevation": 8.8,
+      "width": 0.24,
+      "depth": 1.0,
+      "copies": [
+        {
+          "across": -0.73,
+          "distance": 3.92,
+          "elevation": 8.8
+        },
+        {
+          "across": -0.97,
+          "distance": 3.92,
+          "elevation": 8.58
+        },
+        {
+          "across": -1.21,
+          "distance": 3.92,
+          "elevation": 8.360000000000001
+        },
+        {
+          "across": -1.45,
+          "distance": 3.92,
+          "elevation": 8.14
+        },
+        {
+          "across": -1.69,
+          "distance": 3.92,
+          "elevation": 7.920000000000001
+        },
+        {
+          "across": -1.93,
+          "distance": 3.92,
+          "elevation": 7.700000000000001
+        },
+        {
+          "across": -2.17,
+          "distance": 3.92,
+          "elevation": 7.48
+        },
+        {
+          "across": -2.41,
+          "distance": 3.92,
+          "elevation": 7.260000000000001
+        },
+        {
+          "across": -2.65,
+          "distance": 3.92,
+          "elevation": 7.040000000000001
+        }
+      ]
+    },
+    {
+      "id": "stair_rail",
+      "name": "The stair's stringer and handrail",
+      "across": -0.6,
+      "distance": 3.42,
+      "elevation": 6.8,
+      "facing": 180,
+      "height": 3.2,
+      "box": [
+        -2.65,
+        -3.2,
+        0.1,
+        0.02
+      ]
+    },
+    {
+      "id": "railing",
+      "name": "The landing's railing",
+      "across": 1.5,
+      "distance": 3.24,
+      "elevation": 8.92,
+      "facing": 180,
+      "height": 1.06,
+      "box": [
+        -2.12,
+        -1.06,
+        2.12,
+        0.02
+      ]
+    },
+    {
+      "id": "railing_end",
+      "name": "The railing's right end",
+      "across": 3.6,
+      "distance": 3.24,
+      "elevation": 8.92,
+      "facing": 90,
+      "height": 1.06,
+      "box": [
+        -0.02,
+        -1.06,
+        1.38,
+        0.02
+      ]
+    },
+    {
+      "id": "smoke",
+      "name": "Tom's cigarette smoke",
+      "particles": {
+        "kind": "smoke",
+        "at": "tom#ember",
+        "rate": 3,
+        "life": [
+          3,
+          6
+        ],
+        "size": [
+          0.02,
+          0.32
+        ],
+        "speed": [
+          0.02,
+          0.07
+        ],
+        "gravity": -0.12,
+        "opacity": 0.22,
+        "wind": 0.25,
+        "color": "#cfd0de"
+      }
+    },
+    {
+      "id": "tom",
+      "name": "Tom",
+      "person": {
+        "cast": "cast",
+        "who": "tom_coat",
+        "turn": 130,
+        "does": "smokes"
+      },
+      "across": -0.3,
+      "distance": 3.78
+    },
+    {
+      "id": "jim",
+      "name": "Jim",
+      "person": {
+        "cast": "cast",
+        "who": "jim",
+        "turn": 215,
+        "does": "hands_in_pockets"
+      },
+      "across": 1.75,
+      "distance": 3.86
+    },
+    {
+      "id": "amanda",
+      "name": "Amanda",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "amanda_jonquils",
+        "turn": 185,
+        "does": "hands_clasped"
+      },
+      "across": 0.55,
+      "distance": 6.6
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a slow waltz played on a faraway dance-hall band, muffled through a window, 1930s, bittersweet",
+        "weight": 1.2
+      },
+      {
+        "text": "solo upright piano in a small room, tender and plain, slow, a little out of tune",
+        "weight": 0.9
+      },
+      {
+        "text": "glass celesta and music box, delicate, fragile, faraway memory",
+        "weight": 0.7
+      },
+      {
+        "text": "a lone clarinet, soft and wistful, slow, jazz-age ballad",
+        "weight": 0.4
+      },
+      {
+        "text": "scratchy old gramophone record of a sentimental 1920s song, crackle, warm",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, restrained, longing, very soft",
+        "weight": 0
+      },
+      {
+        "text": "muted trumpet in a distant alley at night, blue and lonely",
+        "weight": 0
+      },
+      {
+        "text": "soft brushed drums and double bass, slow, late-night",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios, gentle and luminous, dreamlike",
+        "weight": 0
+      },
+      {
+        "text": "accordion waltz, nostalgic, slow, small-town dance",
+        "weight": 0
+      },
+      {
+        "text": "ambient pad like dusty lamplight, slow swells, warm and hazy",
+        "weight": 0
+      },
+      {
+        "text": "solo violin, high and thin, tender lament",
+        "weight": 0
+      },
+      {
+        "text": "vibraphone and soft piano, gentle, dreamy, slow",
+        "weight": 0
+      },
+      {
+        "text": "rain on a window, soft piano chords under it, melancholy",
+        "weight": 0
+      },
+      {
+        "text": "wordless choir humming very softly, far away",
+        "weight": 0
+      },
+      {
+        "text": "toy piano and glockenspiel, small and breakable, slow",
+        "weight": 0
+      }
+    ],
+    "bpm": 84,
+    "density": 0.25,
+    "brightness": 0.4,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}
