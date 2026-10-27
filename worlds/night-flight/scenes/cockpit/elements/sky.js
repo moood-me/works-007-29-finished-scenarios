@@ -81,14 +81,14 @@ if (above) {
         const y = y0 + (y1 - y0) * u;
         const s = size * (0.5 + u) * (0.7 + 0.6 * e.rnd());
         wrap(X0 + W * e.rnd(), x => {
-          glow(c, x, y + s * 0.25, s * 2.2, s * 0.6, '#5d6a96', 0.5);
-          glow(c, x, y, s * 1.6, s * 0.55, '#dfe6f7', 0.85);
-          glow(c, x - s * 0.3, y - s * 0.15, s * 0.9, s * 0.35, '#f4f7ff', 0.6);
+          glow(c, x, y + s * 0.35, s * 2.6, s * 0.7, '#6a77a2', 0.35);
+          glow(c, x, y, s * 2.2, s * 0.6, '#d3dbef', 0.55);
+          glow(c, x - s * 0.3, y - s * 0.2, s * 1.4, s * 0.35, '#eef2fc', 0.35);
         });
       }
     });
-  band('far_sea', H + 0.005, H + 0.12, 0.018, 70);
-  band('near_sea', H + 0.12, Y1, 0.07, 60);
+  band('far_sea', H + 0.005, H + 0.12, 0.03, 80);
+  band('near_sea', H + 0.12, Y1, 0.11, 70);
   // the lightning deep in the cloud sea, when the storm is under it (the script flashes it only then)
   e.layer('flash', { blend: 'add', box: [X0, H, X0 + W, Y1] }, c => {
     glow(c, A * 0.25, H + 0.2, 0.35, 0.1, '#b9b4f0', 0.5);
@@ -114,8 +114,8 @@ if (above) {
         wrap(X0 + W * e.rnd(), x => glow(c, x, y, s * 1.8, s, color, 0.75));
       }
     });
-  mass('far_cloud', 40, 0.12, 0.02, '#2e2944');
-  mass('near_cloud', 24, 0.2, 0.07, '#17141f');
+  mass('far_cloud', 40, 0.12, 0.02, '#3a3456');
+  mass('near_cloud', 24, 0.2, 0.07, '#1c1826');
   // the light of the lightning inside the cloud — three places, flashed together
   e.layer('flash', { blend: 'add', box: [X0, Y0, X0 + W, Y1] }, c => {
     glow(c, A * 0.12, 0.3, 0.45, 0.3, '#c9c4f0', 0.6);

@@ -24,12 +24,12 @@
     ],
     "looks": {
       "storm": {
-        "ambient": 0.3,
-        "ambientColor": "#55507a",
+        "ambient": 0.4,
+        "ambientColor": "#6a6494",
         "tint": "#8f88c0",
         "tintStrength": 0.08,
         "saturation": 0.8,
-        "haze": 0.15,
+        "haze": 0.1,
         "hazeColor": "#1c1a2a",
         "wind": [
           1,
@@ -113,6 +113,7 @@
   ],
   "state": {
     "storm": 0,
+    "rain": 0,
     "above": 0,
     "flash": 0,
     "panel": 0,
@@ -146,6 +147,14 @@
         1
       ],
       "means": "the storm: 0 — none (the dusk over the steppe), 1 — in the storm: black-violet cloud all round, rain driven past, lightning (with above 1 — the storm is below, flickering in the cloud sea)"
+    },
+    "rain": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the rain driven past the plane: 0 none … 1 the storm's downpour (with storm 1 inside it; 0 again once the plane is over the clouds)"
     },
     "above": {
       "values": [
@@ -181,7 +190,7 @@
       "name": "Rain driven past",
       "particles": {
         "kind": "rain",
-        "amount": "storm",
+        "amount": "rain",
         "count": 6000,
         "reach": 14
       }

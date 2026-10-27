@@ -6,6 +6,7 @@ return [
     name: 'the storm',
     run: async s => {
       s.set('storm', 1);
+      s.set('rain', 1);
       s.set('panel', 1);
       s.person('fabien').look([-8, 4.2, 1.9]);
       s.person('fabien').mood('thinking');
@@ -17,6 +18,7 @@ return [
     name: 'the stars',
     run: async s => {
       s.set('above', 1);
+      s.set('rain', 0);
       s.person('fabien').look([-3, 6, 7]);
       s.person('fabien').mood('neutral');
       s.person('radioman').look([-1, 5, 7]);
