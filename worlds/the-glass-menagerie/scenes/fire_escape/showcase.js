@@ -6,7 +6,7 @@ return [
     name: 'the landing',
     run: async s => {
       s.set('neon', 1);
-      s.person('tom').look([-6, 1, 2.6]);
+      s.person('tom').look([-3.5, -1.5, 1.9]);
       s.person('jim').look('tom');
       s.person('amanda').look('jim');
       await s.wait(8);
@@ -37,7 +37,7 @@ return [
     run: async s => {
       s.person('jim').look('tom');
       await s.wait(1);
-      s.person('tom').look([-6, 1, 2.6]);
+      s.person('tom').look([-3.5, -1.5, 1.9]);
       await s.wait(6);
     },
   },
