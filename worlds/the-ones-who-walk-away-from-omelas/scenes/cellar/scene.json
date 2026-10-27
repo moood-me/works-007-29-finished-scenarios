@@ -59,11 +59,6 @@
       "key_cord",
       "bowl"
     ],
-    "mev_look": [
-      -1.1,
-      5.8,
-      0.9
-    ],
     "mev_mood": "tired",
     "kor_look": "child",
     "kor_mood": "afraid",
@@ -75,6 +70,13 @@
     "mev_wear": {
       "parts": [
         "key_cord"
+      ]
+    },
+    "ila_reach": {
+      "r": [
+        -0.3,
+        3.4,
+        1.65
       ]
     }
   },
