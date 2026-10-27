@@ -93,28 +93,11 @@
       1.4
     ],
     "kummer_look": "traps#head",
-    "zorn_reach": {
-      "r": [
-        1.08,
-        4.2,
-        1.55
-      ],
-      "l": [
-        1.5,
-        4.0,
-        1.42
-      ]
-    },
     "kummer_reach": {
       "r": [
-        1.98,
-        4.58,
+        1.42,
+        4.62,
         0.82
-      ],
-      "l": [
-        1.8,
-        4.6,
-        0.95
       ]
     }
   },
@@ -166,14 +149,14 @@
     {
       "id": "door_leaf",
       "name": "The door to the corridor, open",
-      "across": 2.05,
+      "across": 1.05,
       "distance": 4.22,
-      "facing": 250,
+      "facing": 110,
       "height": 2.15,
       "box": [
-        -1.0,
+        -0.02,
         -2.15,
-        0.02,
+        1.0,
         0.02
       ],
       "inside": true,
@@ -404,11 +387,11 @@
       "person": {
         "cast": "cast",
         "who": "kummer",
-        "turn": 200,
+        "turn": 165,
         "does": "stand_tired"
       },
-      "across": 1.85,
-      "distance": 4.75,
+      "across": 1.28,
+      "distance": 4.8,
       "inside": true,
       "shadow": true
     },
@@ -418,10 +401,10 @@
       "person": {
         "cast": "cast",
         "who": "zorn",
-        "turn": 190,
+        "turn": 195,
         "does": "stand_proud"
       },
-      "across": 1.35,
+      "across": 1.72,
       "distance": 4.3,
       "inside": true,
       "shadow": true
