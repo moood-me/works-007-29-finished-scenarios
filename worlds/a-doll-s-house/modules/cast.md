@@ -36,7 +36,7 @@ evening dress: a black tailcoat (`garment`) over a white waistcoat and shirt fro
 `parcel` — a Christmas parcel in brown paper tied with red string, held in both hands before the chest (with `hold`).
 `moustache` — Torvald's and Rank's (a look's).
 `tambourine` — Nora's, held up in the right hand, the hoop going on up the forearm's line, its skin to the front.
-`glass` — a coupe of champagne in the right hand. `cigar` — Rank's, across the fingers of his right hand, its tip
+`glass` — a coupe of champagne in the right hand. `cigar` — Rank's, out of his right fist, its tip
 glowing (the point `tip`: its smoke rises from it). `fan` — a lady's closed fan held in both hands before the waist.
 
 ## Motions (Kimodo)

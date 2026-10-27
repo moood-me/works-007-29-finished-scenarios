@@ -118,23 +118,25 @@ function coupe(F) {
   F.ball(add(top, mul(K.axes[1], 0.015 * K.m)), K.axes, K.bowl, GLASS, 14);
   F.ball(add(top, mul(K.axes[1], 0.03 * K.m)), K.axes, K.wine, WINE, 14);
 }
-// Rank's cigar between the fingers of his right hand, its tip glowing (the point `tip`: the smoke rises from it)
+// Rank's cigar in his right hand, its tip glowing (the point `tip`: the smoke rises from it)
 const CIGAR = F => {
   const m = F.fit.h;
   return { m, leaf: [[0, TOBACCO]], ash: [0.014 * m, 0.014 * m, 0.014 * m], axes: [null, null, null] };
 };
 function cigar(F) {
-  const { add, mul } = V();
+  const { add, mul, sub, unit, cross } = V();
   const K = F.keep(CIGAR);
   const hand = F.P('RightHand');
-  // held across the fingers: out of the hand on the thumb's side
-  const sd = F.side('RightHand');
-  const back = add(hand, mul(sd, -0.04 * K.m));
-  const tip = add(hand, mul(sd, 0.21 * K.m));
-  F.bar(back, tip, 0.015 * K.m, 0.013 * K.m, K.leaf, 8, F.up('RightHand'));
-  K.axes[0] = sd;
-  K.axes[1] = F.up('RightHand');
-  K.axes[2] = F.fwd('RightHand');
+  // out of the fist, on along the forearm's line and away from the chest
+  const along = unit(sub(hand, F.P('RightForeArm')));
+  const out = unit(add(along, F.fwd('Chest')));
+  const back = add(hand, mul(out, 0.03 * K.m));
+  const tip = add(hand, mul(out, 0.2 * K.m));
+  const across = unit(cross(out, F.up('Chest')));
+  F.bar(back, tip, 0.013 * K.m, 0.012 * K.m, K.leaf, 8, across);
+  K.axes[0] = across;
+  K.axes[1] = out;
+  K.axes[2] = unit(cross(across, out));
   F.ball(tip, K.axes, K.ash, EMBER, 8);
   F.point('tip', tip);
 }
