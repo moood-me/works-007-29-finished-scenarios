@@ -489,8 +489,8 @@
       "id": "bulb",
       "name": "The bulb over the machines",
       "inside": true,
-      "across": 0.35,
-      "distance": 4.1,
+      "across": 0.1,
+      "distance": 4.0,
       "elevation": 2.3,
       "height": 1.1,
       "box": [
