@@ -7,17 +7,17 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.78,
+    "ambient": 0.72,
     "ambientColor": "#e6dccd",
-    "inside": 0.5,
+    "inside": 0.36,
     "bounce": 0.55,
-    "haze": 0.05,
+    "haze": 0.03,
     "hazeColor": "#f0dcb8",
     "hazeGlow": 0.15,
     "shafts": 0.45,
     "tint": "#ffe2b8",
-    "tintStrength": 0.04,
-    "saturation": 1.0,
+    "tintStrength": 0.03,
+    "saturation": 1.08,
     "vignette": 0.3,
     "grain": 0.08,
     "wind": [
@@ -35,7 +35,7 @@
         38
       ],
       "color": "#ffd59a",
-      "strength": 1.4,
+      "strength": 1.5,
       "on": "sun",
       "through": [
         "pane"
@@ -45,7 +45,7 @@
     {
       "id": "daylight",
       "of": "pane",
-      "daylight": 0.5
+      "daylight": 0.35
     },
     {
       "id": "lamp",
@@ -349,10 +349,10 @@
         "cast": "cast",
         "who": "josie",
         "turn": 110,
-        "does": "peer"
+        "does": "still"
       },
-      "across": -0.95,
-      "distance": 5.8
+      "across": -0.86,
+      "distance": 5.83
     },
     {
       "id": "manager",

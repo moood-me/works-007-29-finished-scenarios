@@ -32,7 +32,7 @@ return {
     // the Manager of the shop of Artificial Friends: middle-aged, kind and tired, short greying hair, a plain dress
     // of soft plum-grey to below the knee, sensible shoes
     manager: {
-      kind: 'shapes', style: 'sun', who: 'woman', garment: 'dress', hair: 'short',
+      kind: 'shapes', style: 'sun', who: 'woman', garment: 'frock', hair: 'short',
       body: { height: 0.95, thick: 0.96, shoulders: 0.9, hips: 1.04 },
       colors: { skin: '#e8cdb6', hair: '#8f8780', top: '#6c5d66', garment: '#6c5d66', bottom: '#6c5d66', shoes: '#3a3234' },
     },
@@ -44,6 +44,8 @@ return {
     garments: {
       // Klara's plain dress: a straight shift to the knee, short sleeves, over tights (the legs the bottom's colour)
       shift: { name: 'shift dress', hang: [{ to: 1.1, from: 'waist', flare: 0.2, off: 0.94 }], short: true, bodice: true },
+      // the Manager's plain dress: straight from the waist to below the knee, long sleeves
+      frock: { name: 'frock', hang: [{ to: 1.3, from: 'waist', flare: 0.14, off: 0.95 }], bodice: true, sleeves: 'garment' },
       // the Mother's work jacket: straight, short, to the waist
       blazer: { name: 'blazer', hang: [{ to: 0.3, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
     },
