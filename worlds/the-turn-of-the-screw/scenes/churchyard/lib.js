@@ -2,7 +2,7 @@
 // The church's walls: coursed rubble of a warm grey limestone, the stone mended in other tones over centuries, damp
 // dark at the foot; dressed quoins at the corners.
 function rubble(g, rnd, x0, x1, top) {
-  g.fillStyle = '#aaa18c';
+  g.fillStyle = '#9d9684';
   g.fillRect(x0, top, x1 - x0, 0.3 - top);
   for (let y = -0.32, row = 0; y > top; y -= 0.32, row++) {
     let x = x0 + (row % 2) * 0.25;
@@ -10,7 +10,7 @@ function rubble(g, rnd, x0, x1, top) {
       const w = 0.35 + rnd() * 0.45;
       const t = rnd();
       if (t < 0.45) {
-        g.fillStyle = t < 0.2 ? 'rgba(150,140,120,0.55)' : 'rgba(190,182,162,0.5)';
+        g.fillStyle = t < 0.2 ? 'rgba(150,140,120,0.55)' : 'rgba(178,170,150,0.5)';
         g.fillRect(x + 0.02, y + 0.02, Math.min(w, x1 - x) - 0.04, 0.28);
       }
       x += w;
@@ -41,7 +41,7 @@ function rubble(g, rnd, x0, x1, top) {
 }
 // quoins up a corner at x (side −1: the blocks run left of it, +1 right), long and short in turn
 function quoins(g, x, side, top) {
-  g.fillStyle = '#c3bba6';
+  g.fillStyle = '#b6af9b';
   for (let y = 0, k = 0; y > top + 0.05; y -= 0.38, k++) {
     const w = k % 2 ? 0.32 : 0.55;
     g.fillRect(side < 0 ? x - w : x, y - 0.36, w, 0.36);
