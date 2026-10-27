@@ -7,6 +7,7 @@ const V = () => MooodShapes.V;
 const ROPE = [0.6, 0.52, 0.38, 1];
 const VISOR = [0.1, 0.1, 0.11, 1];
 const BAND = [0.62, 0.62, 0.6, 1];
+const KERCHIEF = [0.6, 0.33, 0.27, 1];
 return {
   ...data,
   characters: {
@@ -77,6 +78,26 @@ return {
       },
     },
     parts: {
+      // the bundle Daru made up for the road (dates, bread, sugar, the banknote) in a faded red kerchief, tied at the top,
+      // hanging by its knot from his right hand; its middle is the person's point `bundle`
+      bundle: {
+        name: 'bundle',
+        draw: F => {
+          const { add, mul, unit, cross } = V();
+          const hand = F.P('RightHand');
+          const up = [0, 1, 0];
+          const side = unit(cross(F.fwd('Hips'), up));
+          const fwd = cross(up, side);
+          const h = F.fit.h;
+          const knot = add(hand, mul(up, -0.05 * h));
+          const mid = add(hand, add(mul(up, -0.16 * h), mul(side, 0.02 * h)));
+          F.ball(mid, [side, up, fwd], [0.12 * h, 0.1 * h, 0.09 * h], KERCHIEF, 10);
+          F.ball(knot, [side, up, fwd], [0.04 * h, 0.035 * h, 0.035 * h], KERCHIEF, 8);
+          F.ball(add(knot, add(mul(side, 0.045 * h), mul(up, 0.02 * h))), [side, up, fwd], [0.03 * h, 0.012 * h, 0.02 * h], KERCHIEF, 6);
+          F.ball(add(knot, add(mul(side, -0.045 * h), mul(up, 0.02 * h))), [side, up, fwd], [0.03 * h, 0.012 * h, 0.02 * h], KERCHIEF, 6);
+          F.point('bundle', mid);
+        },
+      },
       // a heavy moustache under the nose, drooping at its ends (the colour of the hair)
       moustache: {
         name: 'moustache',
