@@ -14,7 +14,7 @@ for (let i = 0; i < 400; i++) {
   g.fill();
 }
 // worn before the gate, where Rick stands and the path begins
-g.fillStyle = 'rgba(170,150,104,0.6)';
+g.fillStyle = 'rgba(120,124,76,0.55)';
 g.beginPath();
 g.ellipse(1.0, -1.7, 1.3, 0.7, 0, 0, Math.PI * 2);
 g.fill();
