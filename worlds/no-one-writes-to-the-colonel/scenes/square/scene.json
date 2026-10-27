@@ -347,8 +347,8 @@
       "box": [
         -3.6,
         -2.95,
-        3.6,
-        0.02
+        3.9,
+        0.12
       ]
     },
     {
@@ -453,8 +453,8 @@
         "turn": 160,
         "does": "stand_umbrella"
       },
-      "across": -2.15,
-      "distance": 5.6
+      "across": -1.55,
+      "distance": 5.4
     },
     {
       "id": "doctor",
@@ -465,8 +465,8 @@
         "turn": 205,
         "does": "stand_papers"
       },
-      "across": -0.7,
-      "distance": 6.8
+      "across": -0.3,
+      "distance": 7.0
     },
     {
       "id": "sabas",
@@ -477,8 +477,8 @@
         "turn": 228,
         "does": "stand_umbrella_left"
       },
-      "across": 1.0,
-      "distance": 6.0
+      "across": 1.3,
+      "distance": 6.1
     },
     {
       "id": "postmaster",

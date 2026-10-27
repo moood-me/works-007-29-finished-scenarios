@@ -25,7 +25,7 @@ for (const off of [-0.7, 0.7]) {
   g.stroke();
 }
 // footprints, bare and shod, going in to the post office
-g.fillStyle = 'rgba(64,52,40,0.4)';
+g.fillStyle = 'rgba(64,52,40,0.22)';
 for (let i = 0; i < 40; i++) {
   const t = e.rnd();
   const x = -1 - t * 4 + (i % 2) * 0.18;
