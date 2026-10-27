@@ -70,7 +70,7 @@
     "louise_look": "daughter",
     "louise_mood": "thinking",
     "daughter_reach": {
-      "r": "stepladder#top"
+      "l": "stepladder#top"
     },
     "daughter_look": "stepladder#top",
     "daughter_mood": "laugh"
@@ -458,16 +458,16 @@
     },
     {
       "id": "stepladder",
-      "name": "The stepladder in the corner",
+      "name": "The stepladder, pulled out, the sleeping bag on it",
       "inside": true,
       "shadow": true,
-      "across": -1.67,
-      "distance": 2.9,
-      "facing": 110,
-      "height": 1.02,
+      "across": -0.72,
+      "distance": 2.6,
+      "facing": 200,
+      "height": 1.27,
       "box": [
         -0.32,
-        -1.04,
+        -1.3,
         0.32,
         0.02
       ]
@@ -510,11 +510,11 @@
       "person": {
         "cast": "cast",
         "who": "daughter_25",
-        "turn": 160,
+        "turn": 165,
         "does": "hand_on_hip"
       },
-      "across": -1.15,
-      "distance": 2.9
+      "across": -1.2,
+      "distance": 2.95
     }
   ],
   "music": {
