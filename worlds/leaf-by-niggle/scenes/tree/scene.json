@@ -10,10 +10,10 @@
     "ambient": 0.6,
     "ambientColor": "#c9d2d4",
     "bounce": 0.55,
-    "haze": 0.09,
+    "haze": 0.07,
     "hazeColor": "#d6dde0",
     "hazeGlow": 0.3,
-    "shafts": 0.35,
+    "shafts": 0.1,
     "tint": "#f2e8c8",
     "tintStrength": 0.06,
     "vignette": 0.35,
@@ -26,15 +26,16 @@
     "looks": {
       "glow": {
         "ambient": 0.62,
-        "ambientColor": "#b8a6b4",
+        "ambientColor": "#c6b2aa",
         "hazeColor": "#e6cdb8",
-        "tint": "#ffb784",
-        "tintStrength": 0.16,
+        "tint": "#ffbf86",
+        "tintStrength": 0.12,
         "lights": {
           "sun": 0.85
         }
       }
-    }
+    },
+    "saturation": 1.12
   },
   "lights": [
     {
