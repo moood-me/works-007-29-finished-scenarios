@@ -1,0 +1,442 @@
+{
+  "engine": 3,
+  "title": "The Shop Window",
+  "caption": "Morning. The Sun lies in squares on the floor of the shop window.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 1,
+    "ambientColor": "#e6dccd",
+    "inside": 0.42,
+    "bounce": 0.75,
+    "haze": 0.05,
+    "hazeColor": "#f0dcb8",
+    "hazeGlow": 0.3,
+    "shafts": 0.55,
+    "tint": "#ffe2b8",
+    "tintStrength": 0.04,
+    "saturation": 0.95,
+    "vignette": 0.3,
+    "grain": 0.08,
+    "wind": [
+      1,
+      0.2,
+      0.3
+    ],
+    "brightness": 1.04
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        135,
+        30
+      ],
+      "color": "#ffd59a",
+      "strength": 2.0,
+      "on": "sun",
+      "through": [
+        "pane"
+      ],
+      "soft": 0.1
+    },
+    {
+      "id": "daylight",
+      "of": "pane",
+      "daylight": 0.5
+    },
+    {
+      "id": "lamp",
+      "of": "lamp#bulb",
+      "color": "#ffd29a",
+      "strength": 1.0,
+      "reach": 6
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "sun": 1,
+    "klara_look": "josie",
+    "klara_reach": {
+      "l": [
+        -0.6,
+        6.03,
+        1.4
+      ]
+    },
+    "josie_look": "klara",
+    "josie_reach": {
+      "l": [
+        -0.6,
+        5.97,
+        1.4
+      ]
+    },
+    "josie_mood": "smile",
+    "manager_look": "klara",
+    "manager_mood": "thinking"
+  },
+  "states": {
+    "sun": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the morning Sun on the street and through the shop window: 1 full sun (its squares on the window's floor), 0 behind a cloud"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The morning sky over the street",
+      "sky": true
+    },
+    {
+      "id": "front",
+      "name": "The street front: the shop and the houses either side",
+      "across": 0,
+      "distance": 6.0,
+      "facing": 180,
+      "height": 12.4,
+      "box": [
+        -10,
+        -12.4,
+        10,
+        0.05
+      ]
+    },
+    {
+      "id": "pane",
+      "name": "The shop window's glass",
+      "across": -0.7,
+      "distance": 6.0,
+      "elevation": 0.45,
+      "facing": 180,
+      "height": 2.15,
+      "box": [
+        -2.0,
+        -2.15,
+        2.0,
+        0
+      ],
+      "glass": {
+        "strength": 0.16
+      }
+    },
+    {
+      "id": "window",
+      "name": "The shop window's frame",
+      "shadow": {
+        "light": "sun"
+      },
+      "across": -0.7,
+      "distance": 5.97,
+      "elevation": 0.45,
+      "facing": 180,
+      "height": 2.2,
+      "box": [
+        -2.06,
+        -2.2,
+        2.06,
+        0.04
+      ]
+    },
+    {
+      "id": "door",
+      "name": "The shop door",
+      "across": 2.15,
+      "distance": 6.0,
+      "facing": 180,
+      "height": 2.42,
+      "box": [
+        -0.46,
+        -2.42,
+        0.46,
+        0.02
+      ]
+    },
+    {
+      "id": "pavement",
+      "name": "The pavement",
+      "plane": true,
+      "across": 0,
+      "distance": 2.0,
+      "width": 30,
+      "depth": 8.2
+    },
+    {
+      "id": "lamp_post",
+      "name": "A street lamp",
+      "shadow": true,
+      "across": 3.7,
+      "distance": 4.3,
+      "height": 4.6,
+      "box": [
+        -0.4,
+        -4.7,
+        0.4,
+        0.05
+      ]
+    },
+    {
+      "id": "display",
+      "name": "The floor of the shop window",
+      "plane": true,
+      "walk": true,
+      "inside": true,
+      "shadow": true,
+      "across": -0.7,
+      "distance": 6.72,
+      "elevation": 0.45,
+      "width": 4.0,
+      "depth": 1.44
+    },
+    {
+      "id": "shop_floor",
+      "name": "The shop's floor",
+      "plane": true,
+      "inside": true,
+      "across": -0.2,
+      "distance": 9.3,
+      "width": 7.0,
+      "depth": 6.6
+    },
+    {
+      "id": "back_wall",
+      "name": "The back of the shop, its alcoves",
+      "inside": true,
+      "across": -0.2,
+      "distance": 12.6,
+      "facing": 180,
+      "height": 3.2,
+      "box": [
+        -3.6,
+        -3.22,
+        3.6,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The shop's left wall",
+      "inside": true,
+      "across": -3.7,
+      "distance": 9.3,
+      "facing": 90,
+      "height": 3.2,
+      "box": [
+        -3.32,
+        -3.22,
+        3.32,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The shop's right wall",
+      "inside": true,
+      "across": 3.3,
+      "distance": 9.3,
+      "facing": 270,
+      "height": 3.2,
+      "box": [
+        -3.32,
+        -3.22,
+        3.32,
+        0.02
+      ]
+    },
+    {
+      "id": "ceiling",
+      "name": "The shop's ceiling",
+      "inside": true,
+      "across": -0.2,
+      "distance": 12.6,
+      "elevation": 3.2,
+      "facing": 180,
+      "tilt": -90,
+      "height": 6.6,
+      "box": [
+        -3.6,
+        -6.62,
+        3.6,
+        0.05
+      ]
+    },
+    {
+      "id": "counter",
+      "name": "The counter",
+      "inside": true,
+      "shadow": true,
+      "across": 1.9,
+      "distance": 10.4,
+      "facing": 180,
+      "height": 0.95,
+      "box": [
+        -1.1,
+        -0.97,
+        1.1,
+        0.02
+      ]
+    },
+    {
+      "id": "counter_top",
+      "name": "The counter's top",
+      "plane": true,
+      "inside": true,
+      "across": 1.9,
+      "distance": 10.7,
+      "elevation": 0.95,
+      "width": 2.24,
+      "depth": 0.62
+    },
+    {
+      "id": "lamp",
+      "name": "The lamp over the shop",
+      "inside": true,
+      "across": 0.4,
+      "distance": 9.6,
+      "elevation": 3.2,
+      "height": 1.0,
+      "box": [
+        -0.3,
+        0,
+        0.3,
+        0.95
+      ]
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the sunlight",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          -1.4,
+          7.4,
+          1.4
+        ],
+        "source": [
+          3.2,
+          2.4,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "klara",
+      "name": "Klara",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "klara",
+        "turn": 248,
+        "does": "still"
+      },
+      "across": -0.15,
+      "distance": 6.32
+    },
+    {
+      "id": "josie",
+      "name": "Josie",
+      "person": {
+        "cast": "cast",
+        "who": "josie",
+        "turn": 100,
+        "does": "peer"
+      },
+      "across": -1.05,
+      "distance": 5.74
+    },
+    {
+      "id": "manager",
+      "name": "The Manager",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "manager",
+        "turn": 222,
+        "does": "arms_folded"
+      },
+      "across": 0.75,
+      "distance": 8.7
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "sparse solo piano, slow and luminous, gentle repeated notes like sunlight moving on a floor",
+        "weight": 1.2
+      },
+      {
+        "text": "soft analog synth pad, warm and glowing, very slow swells, hopeful and fragile",
+        "weight": 0.9
+      },
+      {
+        "text": "celesta and glockenspiel, small and clear, childlike and tender",
+        "weight": 0.6
+      },
+      {
+        "text": "string quartet, quiet sustained chords, restrained longing, late afternoon",
+        "weight": 0.4
+      },
+      {
+        "text": "acoustic guitar harmonics, delicate, slow, pastoral",
+        "weight": 0
+      },
+      {
+        "text": "minimalist marimba patterns, soft mallets, slowly shifting, calm",
+        "weight": 0
+      },
+      {
+        "text": "music box melody, slightly out of tune, nostalgic and sad",
+        "weight": 0
+      },
+      {
+        "text": "warm cello solo, low and tender, a lullaby for someone ill",
+        "weight": 0
+      },
+      {
+        "text": "ambient electronic hum, gentle machine warmth, clean and bright",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios, golden and light, dreamlike",
+        "weight": 0
+      },
+      {
+        "text": "soft felt piano and tape hiss, intimate, close, quiet room",
+        "weight": 0
+      },
+      {
+        "text": "wordless female voice humming far away, airy, serene",
+        "weight": 0
+      },
+      {
+        "text": "slow vibraphone chords with long decay, sunlit and still",
+        "weight": 0
+      },
+      {
+        "text": "solo clarinet, soft and wistful, a simple melody",
+        "weight": 0
+      },
+      {
+        "text": "field recording of wind in tall grass, with distant soft piano",
+        "weight": 0
+      },
+      {
+        "text": "glassy bell tones and shimmering pads, slow, the sun coming out",
+        "weight": 0
+      }
+    ],
+    "bpm": 70,
+    "density": 0.22,
+    "brightness": 0.6,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}

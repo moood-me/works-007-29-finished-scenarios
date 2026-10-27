@@ -29,6 +29,13 @@ return {
       body: { height: 0.98, thick: 0.86, shoulders: 0.9, hips: 1.0 },
       colors: { skin: '#e6c3a6', hair: '#2a1f1b', top: '#ece7df', garment: '#3b3e48', bottom: '#2f3139', shoes: '#1e1c1f' },
     },
+    // the Manager of the shop of Artificial Friends: middle-aged, kind and tired, short greying hair, a plain dress
+    // of soft plum-grey to below the knee, sensible shoes
+    manager: {
+      kind: 'shapes', style: 'sun', who: 'woman', garment: 'dress', hair: 'short',
+      body: { height: 0.95, thick: 0.96, shoulders: 0.9, hips: 1.04 },
+      colors: { skin: '#e8cdb6', hair: '#8f8780', top: '#6c5d66', garment: '#6c5d66', bottom: '#6c5d66', shoes: '#3a3234' },
+    },
   },
   shapes: {
     // the world's style: soft rounded shapes and tinted lines (soft), the head a little smaller so the grown-ups read
