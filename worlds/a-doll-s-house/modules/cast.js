@@ -73,7 +73,7 @@ function whiteTie(F) {
   const m = F.fit.h;
   const axes = chestAxes(F);
   const front = F.clear(add(F.P('Neck1'), mul(axes[1], -0.12 * m)), 1, 0.002 * m);
-  F.ball(front, axes, [0.08 * m, 0.13 * m, 0.016 * m], F.colors.top, 12);
+  F.ball(front, axes, [0.06 * m, 0.11 * m, 0.016 * m], F.colors.top, 12);
   F.ball(add(F.clear(add(F.P('Neck1'), mul(axes[1], -0.03 * m)), 1, 0.01 * m), mul(axes[2], 0.004 * m)), axes, [0.034 * m, 0.014 * m, 0.012 * m], WHITE, 10);
 }
 // the tambourine Nora holds up in her right hand: a round wooden hoop, the skin across it, little brass jingles in its rim
@@ -129,9 +129,9 @@ function cigar(F) {
   const hand = F.P('RightHand');
   const along = unit(sub(hand, F.P('RightForeArm')));
   const sd = F.side('RightHand');
-  const back = add(hand, mul(sd, -0.02 * K.m));
-  const tip = add(back, add(mul(along, 0.05 * K.m), mul(sd, 0.11 * K.m)));
-  F.bar(back, tip, 0.008 * K.m, 0.007 * K.m, K.leaf, 8, along);
+  const back = add(hand, mul(along, 0.02 * K.m));
+  const tip = add(hand, mul(along, 0.15 * K.m));
+  F.bar(back, tip, 0.009 * K.m, 0.008 * K.m, K.leaf, 8, sd);
   K.axes[0] = sd;
   K.axes[1] = along;
   K.axes[2] = F.fwd('RightHand');
