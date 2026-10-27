@@ -38,6 +38,27 @@ return {
       body: { height: 0.96, shoulders: 1.02, thick: 1.04, arms: 1.03 },
       colors: { skin: '#c69273', hair: '#b9b4ab', top: '#9aa3a8', garment: '#4c6f93', bottom: '#3d5470', shoes: '#2b2420', hat: '#9c805a' },
     },
+    // Madame Fabien: twenty-two, married six weeks; a coat thrown on over a house dress, no hat, her dark hair put up
+    // in haste
+    madame: {
+      kind: 'shapes', style: 'aero', who: 'woman', garment: 'coat', hair: 'bun', hat: 'none',
+      body: { height: 0.94, shoulders: 0.92, thick: 0.9 },
+      colors: { skin: '#e8c6a8', hair: '#3a2a20', top: '#cdbba2', garment: '#7c6870', bottom: '#cdbba2', shoes: '#3a2c28' },
+    },
+    // the European mail's pilot: young, a brown leather flying jacket, breeches and boots, a white scarf, fair hair;
+    // his leather helmet in his hand
+    pilot: {
+      kind: 'shapes', style: 'aero', who: 'man', garment: 'jacket', hair: 'short', scarf: true, parts: ['helmet_held'],
+      body: { height: 1.01, shoulders: 1.06, thick: 0.96 },
+      colors: { skin: '#dcb08e', hair: '#a8835a', top: '#ece7dc', garment: '#6b4a32', bottom: '#8c8166', shoes: '#2a1f18', accent: '#ece7dc', hat: '#5a3c28' },
+    },
+    // the telegraphist: twenty years at the key, in shirtsleeves and a dark waistcoat, a green eyeshade, thin grey hair,
+    // a small moustache
+    telegraphist: {
+      kind: 'shapes', style: 'aero', who: 'man', garment: 'none', hair: 'short', hat: 'visor', parts: ['moustache'],
+      body: { height: 0.97, shoulders: 0.98, thick: 1.0 },
+      colors: { skin: '#d9b294', hair: '#8f8a84', top: '#e2ded2', bottom: '#3a3d44', shoes: '#22201e', hat: '#3f7a56' },
+    },
   },
   shapes: {
     // the world's style: an airline poster's figures — the engine's flat geometry (straight edges, a coat a clean
@@ -82,8 +103,32 @@ return {
           F.ball(c, axes, [0.14 * m, 0.115 * m, 0.03 * m], F.colors.hat, 20);
         },
       },
+      // a pilot's leather helmet hanging from his right hand by its strap: the round leather shell, the goggles on
+      // its brow
+      helmet_held: {
+        name: 'helmet in the hand',
+        draw: F => {
+          const { add, mul } = V();
+          const m = F.fit.h;
+          const axes = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+          const c = add(F.P('RightHand'), [0, -0.1 * m, 0.02 * m]);
+          F.ball(c, axes, [0.085 * m, 0.105 * m, 0.095 * m], F.colors.hat, 14);
+          for (const s of [-1, 1]) F.ball(add(c, [s * 0.035 * m, 0.03 * m, 0.085 * m]), axes, [0.028 * m, 0.024 * m, 0.012 * m], [0.32, 0.36, 0.38, 1], 10);
+          F.bar(add(c, [0, -0.1 * m, 0]), add(c, [0, -0.17 * m, 0.02 * m]), 0.012 * m, 0.01 * m, [[0, F.colors.hat]], 6, [1, 0, 0], 0.3);
+        },
+      },
     },
     hats: {
+      // a telegraphist's green celluloid eyeshade: a band round the head, its peak out over the eyes
+      visor: {
+        name: 'eyeshade',
+        draw: F => {
+          const { add, mul } = V();
+          const { at: head, axes: [hs, hu, hf], r: rh } = F.head;
+          F.ball(add(head, mul(hu, rh * 0.42)), [hs, hu, hf], [rh * 1.03, rh * 0.12, rh * 1.03], F.colors.hat, F.sides);
+          F.ball(add(head, add(mul(hu, rh * 0.4), mul(hf, rh * 0.85))), [hs, hu, hf], [rh * 0.9, rh * 0.035, rh * 0.55], F.colors.hat, F.sides);
+        },
+      },
       // a hat of the 'twenties: a brim, a high rounded crown
       fedora: {
         name: 'fedora',
