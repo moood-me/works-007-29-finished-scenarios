@@ -33,6 +33,27 @@ const STICK = F => {
     curl: [null, null, null, null],
   };
 };
+// The Guide's staff: a tall pale shepherd's staff, upright through his right fist from the ground to well over his
+// head, a crook at its top
+const STAFF = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    wood: [[0, [0.6, 0.5, 0.36, 1]]],
+    crook: [[0, 0.013 * h], [4, 0.011 * h]],
+    curl: [null, null, null, null, null],
+  };
+};
+// Parish's spade in that country: a plain wooden shaft and grip, the iron blade pushed into the earth beside his
+// right foot, his right hand on the grip
+const SPADE = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    wood: [[0, [0.54, 0.43, 0.31, 1]]],
+    iron: [[0, [0.55, 0.56, 0.56, 1]]],
+  };
+};
 return {
   ...data,
   characters: {
@@ -51,6 +72,14 @@ return {
       body: { height: 1.0, thick: 0.82, shoulders: 0.98 },
       colors: { skin: '#c9977a', hair: '#7e7466', top: '#cdbfa5', garment: '#5f6447', bottom: '#4d4236', shoes: '#2e241d', hat: '#4a4134' },
     },
+    // The Guide: tall, lean, grave and kind; a long grey-green shepherd's cloak over an undyed tunic, a broad hat, a
+    // shepherd's staff in his right hand
+    guide: {
+      kind: 'shapes', style: 'niggle', who: 'man', garment: 'cloak', hair: 'short', hat: 'hat', face: 'simple',
+      parts: ['staff'],
+      body: { height: 1.05, thick: 0.86, shoulders: 1.0 },
+      colors: { skin: '#d4ab8c', hair: '#9b968c', top: '#c6bba2', garment: '#6f7a70', bottom: '#5b5247', shoes: '#3e342b', hat: '#5e594f' },
+    },
     // Mrs Parish: small, ill since summer; a kerchief over her hair, a faded rose house dress
     mrs_parish: {
       kind: 'shapes', style: 'niggle', who: 'woman', garment: 'dress', hair: 'bun', hat: 'kerchief', face: 'simple',
@@ -65,6 +94,8 @@ return {
     garments: {
       // a painter's smock: loose from the shoulders to the thigh, long sleeves
       smock: { name: 'smock', hang: [{ to: 0.6, from: 'shoulders', flare: 0.1 }], sleeves: 'garment' },
+      // a shepherd's cloak: from the shoulders to the shins, wide at the hem, long sleeves
+      cloak: { name: 'cloak', hang: [{ to: 1.1, from: 'shoulders', flare: 0.3 }], sleeves: 'garment' },
     },
     hair: {
       // untidy: thin on the crown, a fluff of tufts sticking out over the ears and round the back
@@ -110,6 +141,45 @@ return {
           F.bar(back, neck, 0.007 * h, 0.006 * h, K.handle, 6, side);
           F.bar(neck, head, 0.0065 * h, 0.0065 * h, K.ferrule, 6, side);
           F.bar(head, end, 0.008 * h, 0.002 * h, K.tip, 6, side);
+        },
+      },
+      spade: {
+        name: 'spade',
+        draw: F => {
+          const { add, mul, sub } = V();
+          const K = F.keep(SPADE);
+          const h = K.h;
+          const hand = F.P('RightHand');
+          const side = F.side('Hips');
+          const fwd = F.fwd('Hips');
+          const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.07 * h;
+          const foot = add([hand[0], floor, hand[2]], add(mul(fwd, 0.04 * h), mul(side, 0.05 * h)));
+          const tip = sub(foot, mul(UP, 0.08 * h));
+          const bladeTop = add(foot, mul(UP, 0.18 * h));
+          F.bar(sub(hand, mul(UP, 0.02 * h)), bladeTop, 0.013 * h, 0.014 * h, K.wood, 6, side);
+          F.bar(add(hand, mul(side, -0.055 * h)), add(hand, mul(side, 0.055 * h)), 0.014 * h, 0.014 * h, K.wood, 6, fwd);
+          F.bar(bladeTop, tip, 0.075 * h, 0.065 * h, K.iron, 6, side, 0.12);
+        },
+      },
+      staff: {
+        name: 'staff',
+        draw: F => {
+          const { add, mul } = V();
+          const K = F.keep(STAFF);
+          const h = K.h;
+          const hand = F.P('RightHand');
+          const across = F.side('Hips');
+          const fwd = F.fwd('Hips');
+          const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.07 * h;
+          const foot = [hand[0], floor, hand[2]];
+          const top = add(hand, mul(UP, 0.42 * h));
+          F.bar(foot, top, 0.012 * h, 0.014 * h, K.wood, 6, across);
+          K.curl[0] = top;
+          K.curl[1] = add(top, mul(UP, 0.06 * h));
+          K.curl[2] = add(add(top, mul(UP, 0.1 * h)), mul(fwd, 0.05 * h));
+          K.curl[3] = add(add(top, mul(UP, 0.07 * h)), mul(fwd, 0.1 * h));
+          K.curl[4] = add(add(top, mul(UP, 0.02 * h)), mul(fwd, 0.1 * h));
+          F.tube(K.curl, K.crook, K.wood, 6, across);
         },
       },
       stick: {
