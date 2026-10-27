@@ -22,6 +22,9 @@ old men read as men; a simple face (eyes, brows, nose, mouth — `<id>_mood` sho
   napkin tucked into his collar (part `napkin`), a knife upright in his right fist and a fork in his left (part
   `cutlery`).
 
+Parts held only in some scenes (the person's `_with`): `chamberstick` — the judge's brass candlestick with a burning
+candle in the right hand (its point `flame`: a light `"at": "judge#flame"`).
+
 ## Motions
 
 `cast.data.json` (Kimodo's, put there with put_motion), each a loop of standing as the person stands in the story:
@@ -37,5 +40,12 @@ old men read as men; a simple face (eyes, brows, nose, mouth — `<id>_mood` sho
 - `sit_upright` — the judge at table: sitting upright, the hands forward on the table (`_reach`).
 - `lean_to_shoulder` — Kummer standing by a seated man: leaning to his left, the left hand out to the other's
   shoulder (`kummer_reach` `l`: `"traps#shoulder_r"`), the right down on his cane (`r`: a point at his hip).
+
+- `sit_bed` — Traps on the edge of a bed, slumped, tired (`_on` the bed's edge; `_reach` sets the hands on the sheet
+  beside him).
+- `stand_proud` — Zorn: upright and still, the chest out, the chin up.
+- `stand_tired` — Kummer: standing still, a little hunched, breathing heavily (`kummer_reach` `r` down to his hip,
+  on the cane).
+- `stand_candle` — the judge: upright, both hands at his chest, the right holding the candle (part `chamberstick`).
 
 The engine's `walk` for walking.
