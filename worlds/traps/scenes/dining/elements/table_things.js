@@ -40,7 +40,7 @@ const bottle = (x, body, label) => {
   g.fillStyle = '#7a1f25';
   g.fillRect(x - 0.015, -0.355, 0.03, 0.025);
 };
-// the tureen: white porcelain, a gold rim, its lid set aside on the cloth, the ladle's handle out of it
+// the tureen: white porcelain, a blue band and a gold rim, its lid set aside on the cloth, the ladle's handle out of it
 const tx = -0.62;
 g.fillStyle = '#f4f0e8';
 g.beginPath();
@@ -51,6 +51,16 @@ g.quadraticCurveTo(tx + 0.2, -0.03, tx + 0.2, -0.17);
 g.closePath();
 g.fill();
 g.fillRect(tx - 0.07, -0.025, 0.14, 0.025);
+g.fillStyle = '#d8d0c0';
+g.beginPath();
+g.moveTo(tx - 0.19, -0.09);
+g.quadraticCurveTo(tx - 0.18, -0.03, tx - 0.08, -0.02);
+g.lineTo(tx + 0.08, -0.02);
+g.quadraticCurveTo(tx + 0.18, -0.03, tx + 0.19, -0.09);
+g.closePath();
+g.fill();
+g.fillStyle = '#5d7a9a';
+g.fillRect(tx - 0.2, -0.13, 0.4, 0.012);
 g.fillStyle = '#c9a050';
 g.fillRect(tx - 0.205, -0.18, 0.41, 0.015);
 g.fillStyle = '#e5ddcd';
