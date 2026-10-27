@@ -1,0 +1,621 @@
+{
+  "engine": 3,
+  "title": "The Tailors' Shop",
+  "caption": "Friday, after the launch. Under the cover is Agustín's machine; nobody sits at it.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.78,
+    "ambientColor": "#b8c2c6",
+    "inside": 0.5,
+    "bounce": 0.55,
+    "haze": 0.1,
+    "hazeColor": "#aab4b2",
+    "hazeGlow": 0.35,
+    "tint": "#cfd8d2",
+    "tintStrength": 0.06,
+    "saturation": 0.95,
+    "vignette": 0.45,
+    "grain": 0.14,
+    "wind": [
+      1,
+      0.3,
+      0.4
+    ]
+  },
+  "lights": [
+    {
+      "id": "door_day",
+      "of": "door",
+      "daylight": 1.5
+    },
+    {
+      "id": "window_day",
+      "of": "window",
+      "daylight": 0.9
+    },
+    {
+      "id": "bulb",
+      "of": "bulb#glow",
+      "color": "#ffc98a",
+      "strength": 0.9,
+      "reach": 3.6,
+      "on": "bulb",
+      "flicker": 0.03
+    },
+    {
+      "id": "day",
+      "from": [
+        330,
+        40
+      ],
+      "color": "#d4dce2",
+      "strength": 0.5
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "rain": 1,
+    "bulb": 1,
+    "colonel_look": "herman",
+    "colonel_mood": "neutral",
+    "colonel_with": [
+      "bundle"
+    ],
+    "herman_look": "colonel",
+    "herman_mood": "neutral",
+    "herman_reach": {
+      "l": "cover#cover"
+    },
+    "alfonso_look": "colonel",
+    "alfonso_mood": "neutral",
+    "alfonso_reach": {
+      "r": [
+        1.42,
+        4.62,
+        0.84
+      ],
+      "l": [
+        1.75,
+        4.62,
+        0.84
+      ]
+    },
+    "alvaro_look": "machine:2#needle",
+    "alvaro_mood": "thinking",
+    "alvaro_reach": {
+      "r": [
+        2.67,
+        4.62,
+        0.84
+      ],
+      "l": [
+        3.0,
+        4.62,
+        0.84
+      ]
+    }
+  },
+  "states": {
+    "rain": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the rain over the street and the alley: 0 none, 1 the October rain"
+    },
+    "bulb": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the bulb over the machines: 0 off, 1 on against the rainy day"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The rain sky",
+      "sky": true
+    },
+    {
+      "id": "street",
+      "name": "The street outside",
+      "plane": true,
+      "across": 0.0,
+      "distance": 13.0,
+      "width": 30.0,
+      "depth": 13.4
+    },
+    {
+      "id": "opposite",
+      "name": "The houses across the street",
+      "across": -2.0,
+      "distance": 19.5,
+      "height": 4.3,
+      "box": [
+        -9.2,
+        -4.3,
+        9.2,
+        0.05
+      ]
+    },
+    {
+      "id": "alley_ground",
+      "name": "The side alley's ground",
+      "plane": true,
+      "across": 5.2,
+      "distance": 3.9,
+      "width": 3.6,
+      "depth": 6.0,
+      "code": "g.fillStyle = '#6a5c48'; g.fillRect(-1.8, -3.0, 3.6, 6.0); g.fillStyle = 'rgba(160,168,170,0.6)'; g.beginPath(); g.ellipse(0.2, 0.3, 0.8, 0.3, 0, 0, Math.PI * 2); g.fill();"
+    },
+    {
+      "id": "alley",
+      "name": "The next yard's wall across the alley",
+      "across": 7.0,
+      "distance": 3.9,
+      "facing": 270,
+      "height": 3.6,
+      "box": [
+        -4.0,
+        -3.6,
+        4.0,
+        0.05
+      ]
+    },
+    {
+      "id": "rain_street",
+      "name": "Rain over the street",
+      "particles": {
+        "kind": "rain",
+        "area": [
+          -14.0,
+          14.0,
+          6.4,
+          30.0
+        ],
+        "count": 8000,
+        "amount": "rain",
+        "reach": 16,
+        "size": [
+          0.011,
+          0.011
+        ],
+        "opacity": 0.55,
+        "streak": 0.05,
+        "color": "#7f8c98"
+      }
+    },
+    {
+      "id": "rain_alley",
+      "name": "Rain over the alley",
+      "particles": {
+        "kind": "rain",
+        "area": [
+          3.5,
+          12.0,
+          0.0,
+          8.0
+        ],
+        "count": 5000,
+        "amount": "rain",
+        "reach": 10,
+        "size": [
+          0.011,
+          0.011
+        ],
+        "opacity": 0.55,
+        "streak": 0.05,
+        "color": "#7f8c98"
+      }
+    },
+    {
+      "id": "floor",
+      "name": "The tiled floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 3.75,
+      "width": 6.8,
+      "depth": 4.9
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling seen from below",
+      "inside": true,
+      "across": 0,
+      "distance": 6.2,
+      "elevation": 3.3,
+      "facing": 180,
+      "tilt": -90,
+      "height": 5.0,
+      "box": [
+        -3.6,
+        -5.0,
+        3.6,
+        0.1
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall and the street door",
+      "inside": true,
+      "across": 0,
+      "distance": 6.2,
+      "facing": 180,
+      "height": 3.3,
+      "box": [
+        -3.4,
+        -3.32,
+        3.4,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall, the cloth and the mirror",
+      "inside": true,
+      "across": -3.4,
+      "distance": 3.75,
+      "facing": 90,
+      "height": 3.3,
+      "box": [
+        -2.45,
+        -3.32,
+        2.45,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall and the window",
+      "inside": true,
+      "across": 3.4,
+      "distance": 3.75,
+      "facing": 270,
+      "height": 3.3,
+      "box": [
+        -2.45,
+        -3.32,
+        2.45,
+        0.02
+      ]
+    },
+    {
+      "id": "door",
+      "name": "The street door",
+      "inside": true,
+      "across": -1.95,
+      "distance": 6.18,
+      "facing": 180,
+      "height": 2.72,
+      "box": [
+        -0.74,
+        -2.74,
+        0.74,
+        0.03
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The window onto the alley",
+      "inside": true,
+      "across": 3.38,
+      "distance": 3.9,
+      "elevation": 1.15,
+      "facing": 270,
+      "height": 1.25,
+      "box": [
+        -0.7,
+        -1.26,
+        0.7,
+        0.04
+      ]
+    },
+    {
+      "id": "table",
+      "name": "The machines' tables",
+      "inside": true,
+      "shadow": true,
+      "across": -0.9,
+      "distance": 4.27,
+      "facing": 180,
+      "height": 0.8,
+      "box": [
+        -0.48,
+        -0.8,
+        0.48,
+        0.03
+      ],
+      "copies": [
+        {
+          "across": -0.9,
+          "distance": 4.27
+        },
+        {
+          "across": 0.35,
+          "distance": 4.27
+        },
+        {
+          "across": 1.6,
+          "distance": 4.27
+        },
+        {
+          "across": 2.85,
+          "distance": 4.27
+        }
+      ]
+    },
+    {
+      "id": "table_top",
+      "name": "The tables' tops",
+      "plane": true,
+      "inside": true,
+      "across": -0.9,
+      "distance": 4.52,
+      "elevation": 0.78,
+      "width": 0.92,
+      "depth": 0.5,
+      "copies": [
+        {
+          "across": -0.9,
+          "distance": 4.52
+        },
+        {
+          "across": 0.35,
+          "distance": 4.52
+        },
+        {
+          "across": 1.6,
+          "distance": 4.52
+        },
+        {
+          "across": 2.85,
+          "distance": 4.52
+        }
+      ]
+    },
+    {
+      "id": "machine",
+      "name": "The sewing machines",
+      "inside": true,
+      "shadow": true,
+      "across": -0.9,
+      "distance": 4.52,
+      "elevation": 0.78,
+      "facing": 180,
+      "height": 0.42,
+      "box": [
+        -0.34,
+        -0.43,
+        0.44,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -0.9,
+          "distance": 4.52
+        },
+        {
+          "across": 1.6,
+          "distance": 4.52
+        },
+        {
+          "across": 2.85,
+          "distance": 4.52
+        }
+      ]
+    },
+    {
+      "id": "cover",
+      "name": "Agustín's machine under its cover",
+      "inside": true,
+      "shadow": true,
+      "across": 0.35,
+      "distance": 4.5,
+      "elevation": 0.78,
+      "facing": 180,
+      "height": 0.45,
+      "box": [
+        -0.38,
+        -0.45,
+        0.39,
+        0.06
+      ]
+    },
+    {
+      "id": "stool",
+      "name": "The stools",
+      "inside": true,
+      "shadow": true,
+      "across": -0.9,
+      "distance": 5.2,
+      "height": 0.52,
+      "box": [
+        -0.2,
+        -0.55,
+        0.2,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -0.9,
+          "distance": 5.2
+        },
+        {
+          "across": 0.35,
+          "distance": 4.85
+        },
+        {
+          "across": 1.6,
+          "distance": 5.0
+        },
+        {
+          "across": 2.85,
+          "distance": 5.0
+        }
+      ]
+    },
+    {
+      "id": "dummy",
+      "name": "The tailor's dummy",
+      "inside": true,
+      "shadow": true,
+      "across": 2.85,
+      "distance": 2.5,
+      "height": 1.65,
+      "box": [
+        -0.32,
+        -1.66,
+        0.32,
+        0.03
+      ]
+    },
+    {
+      "id": "bulb",
+      "name": "The bulb over the machines",
+      "inside": true,
+      "across": 0.7,
+      "distance": 4.4,
+      "elevation": 2.25,
+      "height": 1.1,
+      "box": [
+        -0.18,
+        -1.08,
+        0.18,
+        0.1
+      ]
+    },
+    {
+      "id": "colonel",
+      "name": "The colonel",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "colonel",
+        "turn": 150,
+        "does": "stand_bundle"
+      },
+      "across": -1.75,
+      "distance": 3.0
+    },
+    {
+      "id": "herman",
+      "name": "Germán",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "herman",
+        "turn": 216,
+        "does": "stand_side"
+      },
+      "across": -0.3,
+      "distance": 4.95
+    },
+    {
+      "id": "alfonso",
+      "name": "Alfonso",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "alfonso",
+        "turn": 180,
+        "does": "sit_machine"
+      },
+      "across": 1.6,
+      "distance": 5.0
+    },
+    {
+      "id": "alvaro",
+      "name": "Álvaro",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "alvaro",
+        "turn": 190,
+        "does": "sit_machine"
+      },
+      "across": 2.85,
+      "distance": 5.0
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a lone nylon-string guitar in a small shop on a rainy day, slow bolero phrases, bittersweet and dry",
+        "weight": 1.0
+      },
+      {
+        "text": "the soft clatter of a treadle sewing machine as a slow rhythm under plucked tiple notes, patient",
+        "weight": 1.0
+      },
+      {
+        "text": "a slow Colombian pasillo on solo guitar, nostalgic, a little out of tune",
+        "weight": 0.6
+      },
+      {
+        "text": "rain on a tiled roof, a far radio playing a son very low, muffled",
+        "weight": 0.5
+      },
+      {
+        "text": "a distant river boat's horn under quiet marimba, hazy and still",
+        "weight": 0
+      },
+      {
+        "text": "solo accordion, vallenato played very slowly and sadly",
+        "weight": 0
+      },
+      {
+        "text": "muted trumpet bolero, late-night, lonely, Caribbean",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and tuba, a small-town band rehearsing a march, faint",
+        "weight": 0
+      },
+      {
+        "text": "maracas and soft hand drum, slow cumbia heartbeat, sparse",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, restrained and proud, slow, with long silences",
+        "weight": 0
+      },
+      {
+        "text": "upright piano in an empty dance hall, slow danzón, dusty",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios like dripping water, gentle, grey midday",
+        "weight": 0
+      },
+      {
+        "text": "cello alone, low and dignified, an old man's pride",
+        "weight": 0
+      },
+      {
+        "text": "music box waltz slowing down, tender and absurd",
+        "weight": 0
+      },
+      {
+        "text": "bandoneon tango, slow, resigned, warm",
+        "weight": 0
+      },
+      {
+        "text": "a ticking clock and a single low piano note repeating, waiting",
+        "weight": 0
+      }
+    ],
+    "bpm": 76,
+    "density": 0.25,
+    "brightness": 0.4,
+    "scale": "E_MAJOR_D_FLAT_MINOR"
+  }
+}

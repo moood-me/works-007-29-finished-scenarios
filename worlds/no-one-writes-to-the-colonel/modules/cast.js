@@ -92,6 +92,18 @@ const CLOTH_NEW = [0.05, 0.05, 0.06, 1];
 const NEWSPRINT = [0.86, 0.83, 0.74, 1];
 const STOCK = [0.36, 0.22, 0.12, 1];
 const STEEL = [0.16, 0.16, 0.17, 1];
+const SACKING = [0.78, 0.72, 0.6, 1];
+const KNOT = [0.66, 0.6, 0.48, 1];
+const TAPE = [0.78, 0.66, 0.25, 1];
+const BUNDLE = F => {
+  const h = F.fit.h;
+  return {
+    h, sack: [[0, SACKING]], knot: [[0, KNOT]], tape: [[0, TAPE]],
+    axes: [null, UP, null], radii: [0.17 * h, 0.25 * h, 0.08 * h], ear: [0.035 * h, 0.05 * h, 0.03 * h],
+    neck: [[0, 0.03 * h], [1, 0.045 * h]],
+    pts: [null, null, null, null, null], r: [[0, 0.007 * h], [4, 0.007 * h]],
+  };
+};
 const PAPERS = F => ({ h: F.fit.h, paper: [[0, NEWSPRINT]] });
 const RIFLE = F => ({ h: F.fit.h, wood: [[0, STOCK]], steel: [[0, STEEL]] });
 return {
@@ -129,6 +141,25 @@ return {
       kind: 'shapes', style: 'macondo', who: 'man', garment: 'none', hair: 'short', face: 'simple',
       body: { height: 0.97, thick: 1.0 },
       colors: { skin: '#b98a66', hair: '#5a4c44', top: '#b9c0bc', bottom: '#3a3a40', shoes: '#2a2422' },
+    },
+    // Germán, the tailor, Agustín's friend, in his twenties: slight, black hair, a white shirt with the sleeves rolled,
+    // dark trousers, a tape measure round his neck
+    herman: {
+      kind: 'shapes', style: 'macondo', who: 'man', garment: 'none', hair: 'short', face: 'simple', parts: ['tape'],
+      body: { height: 0.99, thick: 0.78, shoulders: 0.92 },
+      colors: { skin: '#b07a52', hair: '#1c1816', top: '#ece8de', bottom: '#34302c', shoes: '#2a221c' },
+    },
+    // Alfonso, the tailor at the next machine: thickset, forty, a pale blue shirt, brown trousers
+    alfonso: {
+      kind: 'shapes', style: 'macondo', who: 'man', garment: 'none', hair: 'short', face: 'simple',
+      body: { height: 0.95, thick: 1.15, shoulders: 1.02 },
+      colors: { skin: '#a8714a', hair: '#2a2420', top: '#9fb4c2', bottom: '#5a4a3c', shoes: '#2a221c' },
+    },
+    // Álvaro, the oldest of them: long and thin, his hair going grey, a cream shirt buttoned to the neck, grey trousers
+    alvaro: {
+      kind: 'shapes', style: 'macondo', who: 'man', garment: 'none', hair: 'short', face: 'simple', parts: ['moustache'],
+      body: { height: 1.01, thick: 0.82, neck: 1.05 },
+      colors: { skin: '#c08c64', hair: '#6e665e', top: '#ddd3bc', bottom: '#4a4a50', shoes: '#1e1a18' },
     },
     // the policeman on the barracks' balcony: young, in a khaki uniform and a peaked cap, his rifle across his chest
     policeman: {
@@ -184,6 +215,45 @@ return {
           const hand = F.P('LeftHand');
           const along = open(F, K, hand, SCALLOP, SCALLOP, NONE, CLOTH_NEW);
           F.bar(sub(hand, mul(along, 0.1 * h)), sub(hand, mul(along, 0.01 * h)), 0.016 * h, 0.014 * h, K.crook, 6, F.side('Hips'));
+        },
+      },
+      // the wall clock wrapped in a piece of sacking, carried by its knot in the colonel's right hand: the bundle hangs
+      // under the hand, the two ears of the knot over it
+      bundle: {
+        name: 'the clock in its sacking',
+        draw: F => {
+          const { add, mul, unit, cross, level } = V();
+          const K = F.keep(BUNDLE);
+          const h = K.h;
+          const hand = F.P('RightHand');
+          const fwd = unit(level(F.fwd('Hips')));
+          K.axes[0] = cross(UP, fwd);
+          K.axes[2] = fwd;
+          const top = add(hand, mul(UP, -0.05 * h));
+          F.bar(add(hand, mul(UP, 0.02 * h)), add(top, mul(UP, -0.06 * h)), 0.03 * h, 0.05 * h, K.knot, 6, fwd);
+          F.ball(add(top, mul(UP, -0.3 * h)), K.axes, K.radii, SACKING, 14, 3);
+          F.ball(add(hand, add(mul(K.axes[0], 0.04 * h), mul(UP, 0.03 * h))), K.axes, K.ear, KNOT, 8);
+          F.ball(add(hand, add(mul(K.axes[0], -0.04 * h), mul(UP, 0.03 * h))), K.axes, K.ear, KNOT, 8);
+        },
+      },
+      // Germán's tape measure round his neck, its two ends hanging down his chest
+      tape: {
+        name: 'tape measure',
+        draw: F => {
+          const { add, mul, mix } = V();
+          const K = F.keep(BUNDLE);
+          const h = K.h;
+          const neck = F.P('Neck1');
+          const fwd = F.fwd('Chest');
+          const up = F.up('Chest');
+          const l = mix(neck, F.P('LeftArm'), 0.4);
+          const r = mix(neck, F.P('RightArm'), 0.4);
+          K.pts[0] = add(add(l, mul(fwd, 0.1 * h)), mul(up, -0.3 * h));
+          K.pts[1] = add(l, mul(fwd, 0.05 * h));
+          K.pts[2] = add(neck, mul(fwd, -0.05 * h));
+          K.pts[3] = add(r, mul(fwd, 0.05 * h));
+          K.pts[4] = add(add(r, mul(fwd, 0.1 * h)), mul(up, -0.26 * h));
+          F.tube(K.pts, K.r, K.tape, 6, fwd, 0.25);
         },
       },
       // the doctor's newspapers, folded, held along his left forearm against his chest

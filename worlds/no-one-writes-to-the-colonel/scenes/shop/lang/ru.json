@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"No talk of politics here","translation":"Здесь о политике не говорят","where":"scenes/shop/elements/back_wall.js"},
+  {"text":"The Tailors' Shop","translation":"Портновская мастерская","where":"scenes/shop/scene.json title"},
+  {"text":"Friday, after the launch. Under the cover is Agustín's machine; nobody sits at it.","translation":"Пятница, после катера. Под чехлом машинка Агустина; за неё никто не садится.","where":"scenes/shop/scene.json caption"}
+]}
