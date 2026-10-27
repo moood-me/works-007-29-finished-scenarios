@@ -9,7 +9,7 @@
   "light": {
     "ambient": 0.92,
     "ambientColor": "#e6dccd",
-    "inside": 0.42,
+    "inside": 0.5,
     "bounce": 0.75,
     "haze": 0.05,
     "hazeColor": "#f0dcb8",
@@ -63,7 +63,7 @@
     "klara_look": "josie",
     "klara_reach": {
       "l": [
-        -0.6,
+        -0.5,
         6.03,
         1.25
       ]
@@ -71,7 +71,7 @@
     "josie_look": "klara",
     "josie_reach": {
       "l": [
-        -0.6,
+        -0.5,
         5.97,
         1.25
       ]
@@ -79,7 +79,7 @@
     "josie_mood": "smile",
     "manager_look": "klara",
     "manager_mood": "thinking",
-    "camera_z": 2.3
+    "camera_z": 1.6
   },
   "states": {
     "sun": {
@@ -300,8 +300,8 @@
       "id": "lamp",
       "name": "The lamp over the shop",
       "inside": true,
-      "across": 0.4,
-      "distance": 9.6,
+      "across": 1.0,
+      "distance": 8.9,
       "elevation": 3.2,
       "height": 1.0,
       "box": [
@@ -339,8 +339,8 @@
         "turn": 248,
         "does": "still"
       },
-      "across": -0.15,
-      "distance": 6.32
+      "across": 0.1,
+      "distance": 6.26
     },
     {
       "id": "josie",
@@ -348,11 +348,11 @@
       "person": {
         "cast": "cast",
         "who": "josie",
-        "turn": 100,
+        "turn": 115,
         "does": "peer"
       },
-      "across": -1.0,
-      "distance": 5.66
+      "across": -1.1,
+      "distance": 5.75
     },
     {
       "id": "manager",
@@ -361,11 +361,11 @@
       "person": {
         "cast": "cast",
         "who": "manager",
-        "turn": 222,
+        "turn": 235,
         "does": "arms_folded"
       },
-      "across": 0.75,
-      "distance": 8.7
+      "across": 1.3,
+      "distance": 8.6
     }
   ],
   "music": {
