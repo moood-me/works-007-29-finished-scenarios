@@ -1,10 +1,10 @@
-// Mev's house, its front onto the yard (x −3.5 … 4.7, the eaves at 7.3 m): limewashed, two floors; on the ground floor
+// Mev's house, its front onto the yard (x −3.5 … 4.7, the eaves at 4.6 m): limewashed, one floor and a loft; on the ground floor
 // the kitchen door standing open (x 0.5 … 1.6, 2.15 m high, a worn wooden lintel over it) and the kitchen window to its
-// left with green shutters open and a box of geraniums; two small windows above, their shutters half closed; the
+// left with green shutters open and a box of geraniums; two small loft windows under the eaves, their shutters half closed; the
 // tiles' ends along the eaves; a vine climbing the left corner and along under the eaves (layer `vine`, in the wind).
 // Points "house#door", "house#window".
 const A = e.anim;
-e.lib.plaster(g, [[-3.5, -7.0, 0.5, 0], [0.5, -7.0, 1.6, -2.15], [1.6, -7.0, 4.7, 0]], 21, '#f1e9d8');
+e.lib.plaster(g, [[-3.5, -4.3, 0.5, 0], [0.5, -4.3, 1.6, -2.15], [1.6, -4.3, 4.7, 0]], 21, '#f1e9d8');
 // the door's stone surround and the lintel
 g.fillStyle = '#d9cdb5';
 g.fillRect(0.36, -2.28, 0.14, 2.28);
@@ -45,26 +45,26 @@ for (let f = 0; f < 5; f++) {
   g.fill();
 }
 e.at((wx0 + wx1) / 2, (wy0 + wy1) / 2, 'window');
-// the windows upstairs, their shutters half closed against the coming heat
-for (const ux of [-2.3, 1.6]) {
+// the loft's windows, their shutters half closed against the coming heat
+for (const ux of [-2.2, 1.9]) {
   g.fillStyle = '#d9cdb5';
-  g.fillRect(ux - 0.08, -5.78, 0.96, 1.36);
+  g.fillRect(ux - 0.07, -3.77, 0.84, 0.92);
   g.fillStyle = '#4e4a44';
-  g.fillRect(ux, -5.7, 0.8, 1.2);
-  shutter(ux, 0.3, -5.7, -4.5);
-  shutter(ux + 0.5, 0.3, -5.7, -4.5);
+  g.fillRect(ux, -3.7, 0.7, 0.78);
+  shutter(ux, 0.26, -3.7, -2.92);
+  shutter(ux + 0.44, 0.26, -3.7, -2.92);
   g.fillStyle = '#d9cdb5';
-  g.fillRect(ux - 0.1, -4.5, 1.0, 0.08);
+  g.fillRect(ux - 0.09, -2.92, 0.88, 0.07);
 }
 // the eaves: a strip of shade under them, then the ends of the curved tiles
 g.fillStyle = '#ddd0b8';
-g.fillRect(-3.5, -7.0, 8.2, 0.18);
+g.fillRect(-3.5, -4.3, 8.2, 0.16);
 g.fillStyle = '#a9553a';
-g.fillRect(-3.6, -7.3, 8.4, 0.3);
+g.fillRect(-3.6, -4.6, 8.4, 0.3);
 for (let x = -3.6; x < 4.8; x += 0.24) {
   g.fillStyle = A.hash(Math.round(x * 10), 3) < 0.5 ? '#c0674a' : '#b45d41';
   g.beginPath();
-  g.arc(x + 0.12, -7.02, 0.11, 0, Math.PI);
+  g.arc(x + 0.12, -4.32, 0.11, 0, Math.PI);
   g.fill();
 }
 e.at(1.05, -1.1, 'door');
@@ -74,19 +74,19 @@ g.lineCap = 'round';
 g.lineWidth = 0.07;
 g.beginPath();
 g.moveTo(-3.3, 0);
-g.bezierCurveTo(-3.1, -2, -3.45, -4, -3.2, -6.6);
-g.quadraticCurveTo(-2.4, -6.85, -0.6, -6.7);
+g.bezierCurveTo(-3.1, -1.4, -3.45, -2.8, -3.2, -4.0);
+g.quadraticCurveTo(-2.4, -4.2, -0.6, -4.05);
 g.stroke();
-e.layer('vine', { pivot: [-3.2, -6.7], wind: { strength: 0.06, gust: 0.4 }, box: [-3.9, -7.3, 0.2, -1.4] }, g => {
-  for (let i = 0; i < 120; i++) {
+e.layer('vine', { pivot: [-3.2, -4.0], wind: { strength: 0.06, gust: 0.4 }, box: [-3.9, -4.6, 0.2, -1.2] }, g => {
+  for (let i = 0; i < 90; i++) {
     const u = A.hash(i, 5);
     let x, y;
     if (u < 0.45) {
       x = -3.3 + 0.5 * (A.hash(i, 6) - 0.5);
-      y = -1.6 - 5.2 * (u / 0.45);
+      y = -1.4 - 2.6 * (u / 0.45);
     } else {
       x = -3.2 + 2.9 * ((u - 0.45) / 0.55);
-      y = -6.65 + 0.5 * A.hash(i, 6) * (1 - (u - 0.45) / 0.55);
+      y = -4.0 + 0.4 * A.hash(i, 6) * (1 - (u - 0.45) / 0.55);
     }
     g.fillStyle = ['#4f7a3a', '#6c9448', '#86a85a', '#5e8541'][i % 4];
     g.beginPath();
@@ -94,7 +94,7 @@ e.layer('vine', { pivot: [-3.2, -6.7], wind: { strength: 0.06, gust: 0.4 }, box:
     g.fill();
   }
   // a few bunches of green grapes under the eaves
-  for (const [x, y] of [[-2.6, -6.3], [-1.4, -6.35]]) {
+  for (const [x, y] of [[-2.6, -3.75], [-1.4, -3.8]]) {
     g.fillStyle = '#a9b86a';
     for (let k = 0; k < 9; k++) {
       g.beginPath();

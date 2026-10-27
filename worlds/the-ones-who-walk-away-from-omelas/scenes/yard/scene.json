@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "Mev's Yard",
   "caption": "Five years on: a morning a month before the festival.",
-  "horizon": 0.5,
+  "horizon": 0.42,
   "camera": {
     "mode": "picture"
   },
@@ -15,7 +15,7 @@
     "hazeColor": "#d8e2ea",
     "hazeGlow": 0.3,
     "shafts": 0,
-    "ambient": 0.55,
+    "ambient": 0.5,
     "ambientColor": "#c3cce0",
     "bounce": 0.5,
     "inside": 0.4,
@@ -33,7 +33,7 @@
         22
       ],
       "color": "#ffe1b5",
-      "strength": 1.4
+      "strength": 1.15
     },
     {
       "id": "hearth",
@@ -338,10 +338,10 @@
       "across": 0,
       "distance": 8,
       "facing": 180,
-      "height": 7.3,
+      "height": 4.6,
       "box": [
         -3.62,
-        -7.32,
+        -4.62,
         4.82,
         0.02
       ],
@@ -381,10 +381,10 @@
       "across": -3.5,
       "distance": 8,
       "facing": 90,
-      "height": 9.5,
+      "height": 6.4,
       "box": [
         -0.3,
-        -10.1,
+        -6.7,
         5.3,
         0.02
       ]
@@ -394,12 +394,12 @@
       "name": "The kitchen chimney",
       "across": 2.4,
       "distance": 9.2,
-      "height": 9.4,
+      "height": 5.8,
       "box": [
         -0.52,
-        -9.4,
+        -5.8,
         0.52,
-        -6.8
+        -3.8
       ]
     },
     {
