@@ -294,14 +294,14 @@ return {
       body: { height: 0.98, thick: 1.08, shoulders: 1.04, head: 1.1 },
       colors: { skin: '#e6b596', hair: '#6b4a30', top: '#7a5b3c', garment: '#7a5b3c', bottom: '#3a3530', shoes: '#241f1b', hat: '#34363c', accent: '#ddd0b4' },
     },
-    // Anne-Marie, the nurse: grey-haired, in a long dark dress, a grey knitted shawl over the shoulders, a white cap
+    // Anne-Marie, the nurse: in a long dark dress, a grey knitted shawl over the shoulders, a dark woollen hood
     anne_marie: {
       kind: 'shapes', style: 'doll', who: 'woman', garment: 'nanny', hair: 'bun', hat: 'bonnet',
       body: { height: 0.91, thick: 1.08, shoulders: 0.94, head: 1.1 },
-      colors: { skin: '#ebcfb8', hair: '#c9c2b6', top: '#8d877c', garment: '#3a3136', bottom: '#3a3136', shoes: '#211d1c', hat: '#efe9df' },
+      colors: { skin: '#ebcfb8', hair: '#c9c2b6', top: '#77716a', garment: '#3a3136', bottom: '#3a3136', shoes: '#211d1c', hat: '#4d4440' },
     },
     // the Helmers' children in their winter things: Ivar, the eldest, and Bob in coats and knitted caps, little Emmy in
-    // a red coat and a white bonnet
+    // a red coat and a dark red bonnet
     ivar: {
       kind: 'shapes', style: 'doll', who: 'child', garment: 'kidcoat', hair: 'short', hat: 'stocking', scarf: true,
       body: { height: 0.74 },
@@ -314,7 +314,7 @@ return {
     },
     emmy: {
       kind: 'shapes', style: 'doll', who: 'toddler', garment: 'kidcoat', hair: 'short', hat: 'bonnet',
-      colors: { skin: '#f4d8c2', hair: '#d0a060', top: '#b2362f', garment: '#b2362f', bottom: '#f1ebe0', shoes: '#3a2a24', hat: '#f1ebe0' },
+      colors: { skin: '#f4d8c2', hair: '#d0a060', top: '#b2362f', garment: '#b2362f', bottom: '#f1ebe0', shoes: '#3a2a24', hat: '#7a2a26' },
     },
   },
   shapes: {
@@ -376,7 +376,7 @@ return {
           F.ball(add(at, add(mul(hu, r * 0.62), mul(hf, -r * 0.2))), axes, [r * 0.98, r * 0.5, r * 0.98], F.colors.hat, sides);
         },
       },
-      // a white cap (the nurse's) or a child's bonnet: over the crown and the back of the head, the face left open
+      // a hood of wool (the nurse's) or a child's bonnet: over the crown and the back of the head, the face left open
       bonnet: {
         name: 'bonnet',
         draw: F => {

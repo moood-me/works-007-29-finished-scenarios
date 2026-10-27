@@ -44,8 +44,8 @@
   "lights": [
     {
       "id": "lamp_front",
-      "across": -4.2,
-      "distance": 6.2,
+      "across": -3.7,
+      "distance": 6.7,
       "elevation": 4.17,
       "color": "#ffd9a0",
       "strength": 1.3,
@@ -88,6 +88,7 @@
     "cast"
   ],
   "state": {
+    "camera_z": 1.2,
     "day": 0,
     "nora_with": [
       "parcels"
@@ -273,8 +274,8 @@
       "id": "gas_lamp",
       "name": "The gas lamps",
       "glows": true,
-      "across": -4.2,
-      "distance": 6.2,
+      "across": -3.7,
+      "distance": 6.7,
       "height": 4.7,
       "box": [
         -0.32,
@@ -285,8 +286,8 @@
       "shadow": true,
       "copies": [
         {
-          "across": -4.2,
-          "distance": 6.2
+          "across": -3.7,
+          "distance": 6.7
         },
         {
           "across": -5.48,
@@ -343,7 +344,7 @@
         "does": "armful"
       },
       "across": 0.3,
-      "distance": 5.0
+      "distance": 5.6
     },
     {
       "id": "porter",
