@@ -6,6 +6,17 @@ const V = () => MooodShapes.V;
 const PAPER = [0.78, 0.66, 0.5, 1];
 const STRING = [0.62, 0.16, 0.14, 1];
 const TIE = [0.12, 0.11, 0.12, 1];
+const CORSELET = [0.1, 0.09, 0.1, 1];
+const SASH_STRIPE = [0.86, 0.68, 0.24, 1];
+const WHITE = [0.95, 0.94, 0.9, 1];
+const HOOP = [0.5, 0.32, 0.17, 1];
+const SKIN_DRUM = [0.9, 0.83, 0.68, 1];
+const BRASS = [0.82, 0.66, 0.32, 1];
+const GLASS = [0.86, 0.9, 0.9, 1];
+const WINE = [0.95, 0.84, 0.5, 1];
+const TOBACCO = [0.36, 0.22, 0.13, 1];
+const EMBER = [1, 0.45, 0.15, 2];
+const IVORY = [0.93, 0.89, 0.8, 1];
 // the chest's axes: across it, up it, out of it
 const chestAxes = F => [F.side('Chest'), F.up('Chest'), F.fwd('Chest')];
 // Nora's house dress, 1879: a fitted bodice and a long skirt (garment), an overskirt draped over it to the knee
@@ -39,6 +50,110 @@ function parcel(F) {
   F.ball(c, axes, [0.134 * m, 0.079 * m, 0.012 * m], STRING, 16, 8);
   F.ball(c, axes, [0.012 * m, 0.079 * m, 0.094 * m], STRING, 16, 8);
 }
+// Nora's Neapolitan costume for the tarantella: a long red skirt and bodice (garment), the white blouse's sleeves rolled
+// to the elbow (top, short), a black laced corselet over the bodice and a striped sash at the waist (accent)
+function naples(F) {
+  const { add, mul } = V();
+  const m = F.fit.h;
+  const [sd, uc, fc] = chestAxes(F);
+  const hips = [F.side('Hips'), F.up('Hips'), F.fwd('Hips')];
+  F.ball(add(F.P('Neck1'), mul(uc, -0.02 * m)), [sd, uc, fc], [0.07 * m, 0.016 * m, 0.06 * m], F.colors.top, 16);
+  F.ball(F.clear(add(F.P('Chest'), mul(uc, -0.07 * m)), 1, 0.004 * m), [sd, uc, fc], [0.135 * m, 0.11 * m, 0.1 * m], CORSELET, 16);
+  F.ball(add(F.P('Hips'), mul(hips[1], 0.09 * m)), hips, [0.148 * m, 0.03 * m, 0.112 * m], F.colors.accent, 16);
+  F.ball(add(F.P('Hips'), mul(hips[1], 0.06 * m)), hips, [0.15 * m, 0.008 * m, 0.114 * m], SASH_STRIPE, 16);
+}
+// a lady's ball gown: a low bodice (the garment's), a pale lace bertha round the shoulders (accent)
+function gown(F) {
+  const { add, mul } = V();
+  const m = F.fit.h;
+  const [sd, uc, fc] = chestAxes(F);
+  F.ball(add(F.P('Neck1'), mul(uc, -0.05 * m)), [sd, uc, fc], [0.1 * m, 0.022 * m, 0.075 * m], F.colors.accent, 16);
+}
+// a tailcoat's front: the white waistcoat and the shirt front (top), a white tie
+function whiteTie(F) {
+  const { add, mul } = V();
+  const m = F.fit.h;
+  const axes = chestAxes(F);
+  const front = F.clear(add(F.P('Neck1'), mul(axes[1], -0.12 * m)), 1, 0.002 * m);
+  F.ball(front, axes, [0.08 * m, 0.13 * m, 0.016 * m], F.colors.top, 12);
+  F.ball(add(F.clear(add(F.P('Neck1'), mul(axes[1], -0.03 * m)), 1, 0.01 * m), mul(axes[2], 0.004 * m)), axes, [0.034 * m, 0.014 * m, 0.012 * m], WHITE, 10);
+}
+// the tambourine Nora holds up in her right hand: a round wooden hoop, the skin across it, little brass jingles in its rim
+const TAMBOURINE = F => {
+  const m = F.fit.h;
+  return { m, rim: [0.032 * m, 0.13 * m, 0.13 * m], skin: [0.022 * m, 0.122 * m, 0.122 * m], bell: [0.014 * m, 0.02 * m, 0.02 * m], axes: [null, null, null] };
+};
+function tambourine(F) {
+  const { add, mul } = V();
+  const K = F.keep(TAMBOURINE);
+  const hand = F.P('RightHand');
+  const sd = F.side('RightHand');
+  const up = F.up('RightHand');
+  const fw = F.fwd('RightHand');
+  K.axes[0] = sd;
+  K.axes[1] = up;
+  K.axes[2] = fw;
+  // the hand holds the hoop at its rim: its middle a radius on from the hand
+  const c = add(hand, mul(fw, 0.12 * K.m));
+  F.ball(c, K.axes, K.rim, HOOP, 20, 8);
+  F.ball(add(c, mul(sd, 0.006 * K.m)), K.axes, K.skin, SKIN_DRUM, 20, 8);
+  for (let i = 0; i < 5; i++) {
+    const a = (i / 5) * Math.PI * 2 + 0.6;
+    F.ball(add(c, add(mul(up, Math.cos(a) * 0.13 * K.m), mul(fw, Math.sin(a) * 0.13 * K.m))), K.axes, K.bell, BRASS, 8);
+  }
+}
+// a coupe of champagne in the right hand: the shallow bowl on its stem
+const COUPE = F => {
+  const m = F.fit.h;
+  return { m, bowl: [0.045 * m, 0.02 * m, 0.045 * m], wine: [0.04 * m, 0.008 * m, 0.04 * m], stem: [[0, GLASS]], axes: [null, null, null] };
+};
+function coupe(F) {
+  const { add, mul } = V();
+  const K = F.keep(COUPE);
+  const hand = F.P('RightHand');
+  K.axes[0] = [1, 0, 0];
+  K.axes[1] = [0, 1, 0];
+  K.axes[2] = [0, 0, 1];
+  const foot = add(hand, mul(K.axes[1], -0.01 * K.m));
+  const top = add(hand, mul(K.axes[1], 0.07 * K.m));
+  F.bar(foot, top, 0.005 * K.m, 0.005 * K.m, K.stem, 6, K.axes[0]);
+  F.ball(add(top, mul(K.axes[1], 0.015 * K.m)), K.axes, K.bowl, GLASS, 14);
+  F.ball(add(top, mul(K.axes[1], 0.03 * K.m)), K.axes, K.wine, WINE, 14);
+}
+// Rank's cigar between the fingers of his right hand, its tip glowing (the point `tip`: the smoke rises from it)
+const CIGAR = F => {
+  const m = F.fit.h;
+  return { m, leaf: [[0, TOBACCO]], ash: [0.0075 * m, 0.0075 * m, 0.0075 * m], axes: [null, null, null] };
+};
+function cigar(F) {
+  const { add, mul, sub, unit } = V();
+  const K = F.keep(CIGAR);
+  const hand = F.P('RightHand');
+  const along = unit(sub(hand, F.P('RightForeArm')));
+  const sd = F.side('RightHand');
+  const back = add(hand, mul(sd, -0.02 * K.m));
+  const tip = add(back, add(mul(along, 0.05 * K.m), mul(sd, 0.11 * K.m)));
+  F.bar(back, tip, 0.008 * K.m, 0.007 * K.m, K.leaf, 8, along);
+  K.axes[0] = sd;
+  K.axes[1] = along;
+  K.axes[2] = F.fwd('RightHand');
+  F.ball(tip, K.axes, K.ash, EMBER, 8);
+  F.point('tip', tip);
+}
+// a lady's closed fan held in both hands before the waist
+const FAN = F => {
+  const m = F.fit.h;
+  return { m, ribs: [[0, IVORY]] };
+};
+function fan(F) {
+  const { add, mul, sub, unit, mean } = V();
+  const K = F.keep(FAN);
+  const l = F.P('LeftHand');
+  const r = F.P('RightHand');
+  const mid = mean([l, r]);
+  const across = unit(sub(r, l));
+  F.bar(add(mid, mul(across, -0.05 * K.m)), add(mid, add(mul(across, 0.12 * K.m), mul(F.up('Hips'), 0.1 * K.m))), 0.012 * K.m, 0.022 * K.m, K.ribs, 8, F.fwd('Hips'), 0.35);
+}
 return {
   ...data,
   characters: {
@@ -62,6 +177,52 @@ return {
       body: { height: 1, thick: 0.88, shoulders: 0.96, head: 1.1 },
       colors: { skin: '#d8b399', hair: '#3b342e', top: '#5d574e', garment: '#4c4841', bottom: '#38352f', shoes: '#211e1c', hat: '#262321', accent: '#6a3f35' },
     },
+    // Nora at the Stenborgs' ball, in the Neapolitan fisher-girl's costume Torvald had made for her in Capri: a red
+    // skirt and bodice, a black corselet, a white blouse, a sash of yellow and green
+    nora_naples: {
+      kind: 'shapes', style: 'doll', who: 'woman', garment: 'naples', hair: 'bun',
+      body: { height: 0.93, thick: 0.92, head: 1.12 },
+      colors: { skin: '#f1d3bb', hair: '#bf8a48', top: '#f2ece0', garment: '#a8302a', bottom: '#a8302a', shoes: '#2a2220', accent: '#3f7a52' },
+    },
+    // Torvald at the ball: evening dress — a black tailcoat, a white waistcoat and tie
+    torvald_evening: {
+      kind: 'shapes', style: 'doll', who: 'man', garment: 'tailcoat', hair: 'short', parts: ['moustache'],
+      body: { height: 1.03, shoulders: 1.04, head: 1.1 },
+      colors: { skin: '#e9c6a8', hair: '#7b5a3a', top: '#efebe2', garment: '#1d1e24', bottom: '#1d1e24', shoes: '#141313' },
+    },
+    // Doctor Rank: tall and thin, a little stooped, grey hair, pale; in evening dress like the rest
+    rank: {
+      kind: 'shapes', style: 'doll', who: 'man', garment: 'tailcoat', hair: 'short', parts: ['moustache'],
+      body: { height: 1.02, thick: 0.84, shoulders: 0.95, head: 1.08 },
+      colors: { skin: '#e2cdbd', hair: '#a9a49c', top: '#e8e4da', garment: '#26262b', bottom: '#26262b', shoes: '#151414' },
+    },
+    // the Stenborgs' hired pianist: a young man in a plain black coat
+    pianist: {
+      kind: 'shapes', style: 'doll', who: 'man', garment: 'frockcoat', hair: 'short',
+      body: { height: 0.98, thick: 0.9, head: 1.1 },
+      colors: { skin: '#e8c9ad', hair: '#3a2c22', top: '#d9d2c3', garment: '#2a2a30', bottom: '#2a2a30', shoes: '#151414' },
+    },
+    // the Stenborgs' guests: two ladies in pale silk gowns, two gentlemen in evening dress
+    guest_dove: {
+      kind: 'shapes', style: 'doll', who: 'woman', garment: 'gown', hair: 'bun',
+      body: { height: 0.95, thick: 0.98, head: 1.1 },
+      colors: { skin: '#efd3be', hair: '#5b3d28', top: '#b9bfd0', garment: '#b9bfd0', bottom: '#b9bfd0', shoes: '#2a2220', accent: '#f1ece2' },
+    },
+    guest_rose: {
+      kind: 'shapes', style: 'doll', who: 'woman', garment: 'gown', hair: 'bun',
+      body: { height: 0.92, thick: 1.04, head: 1.1 },
+      colors: { skin: '#f0d6c2', hair: '#d4b27a', top: '#d9b4a8', garment: '#d9b4a8', bottom: '#d9b4a8', shoes: '#2a2220', accent: '#f1ece2' },
+    },
+    guest_consul: {
+      kind: 'shapes', style: 'doll', who: 'man', garment: 'tailcoat', hair: 'short', parts: ['moustache'],
+      body: { height: 0.99, thick: 1.18, shoulders: 1.06, head: 1.12 },
+      colors: { skin: '#e6c0a2', hair: '#cfcac0', top: '#efebe2', garment: '#202127', bottom: '#202127', shoes: '#141313' },
+    },
+    guest_officer: {
+      kind: 'shapes', style: 'doll', who: 'man', garment: 'tailcoat', hair: 'short',
+      body: { height: 1.04, thick: 0.95, shoulders: 1.08, head: 1.08 },
+      colors: { skin: '#e9c9ae', hair: '#8a6a44', top: '#efebe2', garment: '#1f2a3d', bottom: '#1f2a3d', shoes: '#141313' },
+    },
   },
   shapes: {
     // the world's style: dolls — the toys' chunky clay figurines with simple faces (eyes, brows, nose, mouth), so the
@@ -73,6 +234,17 @@ return {
         hang: [{ to: 1.95, from: 'waist', flare: 0.4, off: 0.94 }, { to: 0.85, from: 'waist', flare: 0.3, off: 1.02, color: 'top', folds: false }],
         sleeves: 'garment', bare: true, bodice: true, draw: houseDress,
       },
+      naples: {
+        name: 'Neapolitan costume',
+        hang: [{ to: 1.9, from: 'waist', flare: 0.42, off: 0.94 }],
+        short: true, bare: true, bodice: true, draw: naples,
+      },
+      gown: {
+        name: 'ball gown',
+        hang: [{ to: 2.0, from: 'waist', flare: 0.55, off: 0.94 }],
+        sleeves: 'garment', short: true, bare: true, bodice: true, draw: gown,
+      },
+      tailcoat: { name: 'tailcoat', hang: [{ to: 0.9, from: 'shoulders', flare: 0.08 }], sleeves: 'garment', draw: whiteTie },
       frockcoat: { name: 'frock coat', hang: [{ to: 0.95, from: 'shoulders', flare: 0.14 }], sleeves: 'garment', draw: shirtFront },
     },
     hats: {
@@ -102,6 +274,10 @@ return {
         },
       },
       parcel: { name: 'parcel', draw: parcel },
+      tambourine: { name: 'tambourine', draw: tambourine },
+      glass: { name: 'coupe of champagne', draw: coupe },
+      cigar: { name: 'cigar', draw: cigar },
+      fan: { name: 'closed fan', draw: fan },
     },
   },
 };
