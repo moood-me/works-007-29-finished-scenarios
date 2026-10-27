@@ -15,10 +15,10 @@
     "hazeColor": "#8a7356",
     "hazeGlow": 0.3,
     "shafts": 0.9,
-    "ambient": 0.5,
+    "ambient": 0.62,
     "ambientColor": "#8f7a66",
     "inside": 0.3,
-    "bounce": 0.45,
+    "bounce": 0.6,
     "wind": [
       0,
       1,

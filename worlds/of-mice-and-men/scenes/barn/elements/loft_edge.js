@@ -12,13 +12,17 @@ g.lineTo(4.95, 0.02);
 g.closePath();
 g.fill();
 e.layer('wisps', { pivot: [0, 0.05], wind: { strength: 0.15, gust: 0.5 } }, g => {
-  g.strokeStyle = '#c4a45e';
-  g.lineWidth = 0.012;
-  for (let i = 0; i < 140; i++) {
-    const x = -4.9 + e.rnd() * 9.8, l = 0.1 + e.rnd() * 0.32;
-    g.beginPath();
-    g.moveTo(x, 0.02);
-    g.quadraticCurveTo(x + (e.rnd() - 0.5) * 0.08, 0.02 + l * 0.5, x + (e.rnd() - 0.5) * 0.12, 0.02 + l);
-    g.stroke();
+  g.lineWidth = 0.008;
+  // in tufts where the hay over the beam is heaped most, a few long stalks, many short ones
+  for (let t = 0; t < 22; t++) {
+    const cx = -4.8 + e.rnd() * 9.6, n = 3 + Math.floor(e.rnd() * 7);
+    for (let i = 0; i < n; i++) {
+      const x = cx + (e.rnd() - 0.5) * 0.25, l = 0.05 + e.rnd() * e.rnd() * 0.3;
+      g.strokeStyle = ['#c4a45e', '#a98c4c', '#d6bb76'][Math.floor(e.rnd() * 3)];
+      g.beginPath();
+      g.moveTo(x, 0.02);
+      g.quadraticCurveTo(x + (e.rnd() - 0.5) * 0.1, 0.02 + l * 0.5, x + (e.rnd() - 0.5) * 0.16, 0.02 + l);
+      g.stroke();
+    }
   }
 });
