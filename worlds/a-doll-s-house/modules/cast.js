@@ -158,8 +158,7 @@ function fan(F) {
   const across = unit(sub(r, l));
   F.bar(add(mid, mul(across, -0.05 * K.m)), add(mid, add(mul(across, 0.12 * K.m), mul(F.up('Hips'), 0.1 * K.m))), 0.012 * K.m, 0.022 * K.m, K.ribs, 8, F.fwd('Hips'), 0.35);
 }
-// Nora's winter coat: fitted to the waist and long to the ground (garment), its sleeves; a band of fur at the hem
-// showing under it (the first hang) and a fur collar (accent)
+// Nora's winter coat: fitted to the waist and long to the ground (garment), its sleeves; a fur collar (accent)
 function paletot(F) {
   const { add, mul } = V();
   const m = F.fit.h;
@@ -342,7 +341,7 @@ return {
       frockcoat: { name: 'frock coat', hang: [{ to: 0.95, from: 'shoulders', flare: 0.14 }], sleeves: 'garment', draw: shirtFront },
       paletot: {
         name: 'winter coat',
-        hang: [{ to: 1.97, from: 'waist', flare: 0.42, off: 0.95, color: 'accent', folds: false }, { to: 1.82, from: 'waist', flare: 0.4, off: 0.98 }],
+        hang: [{ to: 1.95, from: 'waist', flare: 0.4, off: 0.95 }],
         sleeves: 'garment', bodice: true, draw: paletot,
       },
       sheepskin: { name: 'sheepskin coat', hang: [{ to: 1.0, from: 'shoulders', flare: 0.22 }], sleeves: 'garment', draw: sheepskin },
@@ -366,15 +365,15 @@ return {
           F.ball(add(at, mul(hu, r * 0.78)), axes, [r * 0.98, r * 0.62, r * 0.96], F.colors.hat, F.sides);
         },
       },
-      // Nora's toque: a small round fur hat set high on the knot of her hair
+      // Nora's toque: a round fur hat over the crown and the knot of her hair, its top a little flattened
       toque: {
         name: 'fur toque',
         draw: F => {
-          const { add, mul, unit, cross } = V();
-          const { at, axes: [hs, hu, hf], r } = F.head;
-          const tilt = unit(add(hu, mul(hf, -0.25)));
-          const axes = [hs, tilt, cross(hs, tilt)];
-          F.ball(add(at, add(mul(hu, r * 0.78), mul(hf, -r * 0.12))), axes, [r * 0.86, r * 0.42, r * 0.8], F.colors.hat, F.sides);
+          const { add, mul } = V();
+          const { at, axes, egg, r, out, sides, square } = F.head;
+          const [, hu, hf] = axes;
+          F.cap(at, axes, egg.map(v => v * r * out * 1.14), [0, 0.95, -0.3], 0.5, F.colors.hat, sides, square);
+          F.ball(add(at, add(mul(hu, r * 0.62), mul(hf, -r * 0.2))), axes, [r * 0.98, r * 0.5, r * 0.98], F.colors.hat, sides);
         },
       },
       // a white cap (the nurse's) or a child's bonnet: over the crown and the back of the head, the face left open
