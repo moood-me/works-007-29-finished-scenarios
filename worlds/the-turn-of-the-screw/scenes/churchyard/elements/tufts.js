@@ -15,7 +15,7 @@ e.layer('blades', { pivot: [0, 0], wind: { strength: 0.5, gust: 0.6 }, box: [-0.
   for (let i = 0; i < 2; i++) {
     const x = (e.rnd() - 0.5) * 0.3;
     const s = e.rnd() < 0.5 ? -1 : 1;
-    c.fillStyle = i ? '#8c5a2c' : '#6f6a32';
+    c.fillStyle = i ? '#7a6a3a' : '#66682f';
     c.beginPath();
     c.moveTo(x, 0);
     c.quadraticCurveTo(x + s * 0.12, -0.12, x + s * 0.1, -0.3);

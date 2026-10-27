@@ -7,16 +7,16 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.6,
+    "ambient": 0.56,
     "ambientColor": "#b0b8c8",
     "bounce": 0.3,
-    "haze": 0.14,
-    "hazeColor": "#dcdcd8",
+    "haze": 0.2,
+    "hazeColor": "#d6d8d6",
     "hazeGlow": 0.2,
     "shafts": 0,
     "tint": "#ffeacc",
     "tintStrength": 0.05,
-    "saturation": 0.86,
+    "saturation": 0.82,
     "vignette": 0.3,
     "grain": 0.07,
     "wind": [
@@ -33,7 +33,7 @@
         16
       ],
       "color": "#ffe6c0",
-      "strength": 1.2
+      "strength": 1.05
     }
   ],
   "modules": [
@@ -292,9 +292,9 @@
       "facing": 270,
       "height": 2.85,
       "box": [
-        -1.65,
+        -1.8,
         -2.9,
-        1.65,
+        1.85,
         0.3
       ],
       "shadow": true
@@ -308,9 +308,9 @@
       "facing": 90,
       "height": 2.85,
       "box": [
-        -1.65,
+        -1.8,
         -2.9,
-        1.65,
+        1.85,
         0.3
       ],
       "shadow": true
@@ -568,9 +568,9 @@
       "facing": 90,
       "height": 0.7,
       "box": [
-        -1.12,
-        -0.72,
-        1.12,
+        -1.2,
+        -0.74,
+        1.15,
         0.3
       ],
       "shadow": true
@@ -703,7 +703,7 @@
       "person": {
         "cast": "cast",
         "who": "governess",
-        "turn": 250,
+        "turn": 225,
         "does": "book_before"
       },
       "across": 1.0,
@@ -718,8 +718,8 @@
         "turn": 135,
         "does": "hand_on_stone"
       },
-      "across": -1.85,
-      "distance": 4.55
+      "across": -1.68,
+      "distance": 4.5
     }
   ],
   "state": {
