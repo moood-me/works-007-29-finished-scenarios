@@ -15,12 +15,16 @@ light (`paint: lit`), simple faces (`<id>_mood` shows on them).
 - `ursula` — Ursula Monkton as people see her: young, long honey hair, a grey dress below the knee (`shift`, the cast's
   garment), a pink scarf at her throat. Her pink coat is not on her: it hangs in the hall (the house's scene).
 - `sister` — the boy's sister, five: a fair ponytail, a red pinafore (`frock`) over a white blouse, white socks, red shoes.
+- `ginnie` — Ginnie Hempstock, Lettie's mother: round and warm, brown hair in a bun, a long brick-brown dress to the
+  ankle, black boots; her lantern given with `ginnie_with: ["lantern"]`.
 
 ## Parts
 
 - `tie` — Dad's tie (in his look).
 - `book` — the boy's book, open in both hands before his chest, tipped away from him: given with `boy_with: ["book"]`
   (with a motion that holds the hands so — `reading`); its middle the point `boy#book`.
+- `lantern` — Ginnie's hurricane lamp hanging from her right hand by its bail, swinging a little late, its glass lit;
+  its flame the point `ginnie#lamp` (a scene's light there).
 
 ## Motions (Kimodo, put with put_motion)
 
@@ -32,3 +36,7 @@ light (`paint: lit`), simple faces (`<id>_mood` shows on them).
 - `shy_sway` — a child standing shyly, the hands clasped before her, swaying a little (a loop).
 - `hands_clasped` — stands demurely, the hands clasped before her at the waist, the head a little to one side (a loop).
 - `arms_folded` — stands at ease with the arms folded across the chest (a loop).
+- `hug_cold` — a cold, scared child standing hunched, hugging himself with both arms, shivering (a loop).
+- `kneel` — kneels on both knees, sitting back on the heels, the hands by the knees (a loop).
+- `lantern_up` — stands still, the right hand raised before her at the chest as if holding a lantern up, watching (a
+  loop; with the part `lantern`).
