@@ -1,0 +1,791 @@
+{
+  "engine": 3,
+  "title": "The Night Class",
+  "caption": "A Tuesday evening in April. \"Charlie, read.\"",
+  "horizon": 0.4,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.5,
+    "ambientColor": "#8a90b8",
+    "inside": 0.3,
+    "bounce": 0.6,
+    "haze": 0.05,
+    "hazeColor": "#5e6488",
+    "hazeGlow": 0.3,
+    "shafts": 0,
+    "tint": "#ffe3b8",
+    "tintStrength": 0.04,
+    "saturation": 0.95,
+    "vignette": 0.45,
+    "grain": 0.08,
+    "brightness": 1.05,
+    "wind": [
+      1,
+      0,
+      0.35
+    ]
+  },
+  "lights": [
+    {
+      "id": "near_left",
+      "of": "globes#near_left",
+      "color": "#ffe2b0",
+      "strength": 0.9,
+      "reach": 5
+    },
+    {
+      "id": "near_right",
+      "of": "globes#near_right",
+      "color": "#ffe2b0",
+      "strength": 0.9,
+      "reach": 5
+    },
+    {
+      "id": "far_left",
+      "of": "globes#far_left",
+      "color": "#ffe2b0",
+      "strength": 0.9,
+      "reach": 5
+    },
+    {
+      "id": "far_right",
+      "of": "globes#far_right",
+      "color": "#ffe2b0",
+      "strength": 0.9,
+      "reach": 5
+    },
+    {
+      "id": "desk_lamp",
+      "of": "desk_things#lamp",
+      "color": "#ffd59a",
+      "strength": 0.6,
+      "reach": 2.2
+    },
+    {
+      "id": "corridor",
+      "of": "right_wall#glass",
+      "color": "#ffe2b0",
+      "strength": 0.5,
+      "reach": 3
+    },
+    {
+      "id": "evening",
+      "of": "windows",
+      "daylight": 0.8,
+      "reach": 7
+    },
+    {
+      "id": "street",
+      "of": "street_lamp#lamp",
+      "color": "#ffc878",
+      "strength": 1.4,
+      "reach": 12
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "camera_z": 0.7,
+    "camera_h": -0.15,
+    "charlie_with": [
+      "tie",
+      "primer"
+    ],
+    "charlie_look": "charlie#book",
+    "charlie_mood": "smile",
+    "kinnian_with": [
+      "chalk"
+    ],
+    "kinnian_look": "charlie",
+    "kinnian_mood": "smile",
+    "young_student_on": [
+      1.25,
+      3.3,
+      0.47
+    ],
+    "young_student_look": "charlie",
+    "young_student_mood": "neutral",
+    "young_student_reach": {
+      "r": [
+        0.85,
+        3.45,
+        0.78
+      ],
+      "l": [
+        0.85,
+        3.15,
+        0.78
+      ]
+    },
+    "old_student_on": [
+      1.25,
+      5.9,
+      0.47
+    ],
+    "old_student_look": "charlie",
+    "old_student_mood": "smile"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The evening sky over the roofs",
+      "sky": true
+    },
+    {
+      "id": "houses",
+      "name": "The houses beyond the schoolyard",
+      "across": 0,
+      "distance": 26,
+      "height": 21,
+      "box": [
+        -18.5,
+        -21.2,
+        18.5,
+        0.06
+      ]
+    },
+    {
+      "id": "house_windows",
+      "name": "The lit windows of the houses",
+      "glows": true,
+      "across": 0,
+      "distance": 25.95,
+      "height": 9,
+      "box": [
+        -18.5,
+        -9.0,
+        18.5,
+        0.06
+      ],
+      "inFront": [
+        "houses"
+      ]
+    },
+    {
+      "id": "yard",
+      "name": "The schoolyard and the street",
+      "plane": true,
+      "across": 0,
+      "distance": 18,
+      "width": 60,
+      "depth": 23
+    },
+    {
+      "id": "tree",
+      "name": "An elm in the schoolyard",
+      "shadow": true,
+      "across": -3.6,
+      "distance": 11,
+      "height": 10,
+      "box": [
+        -4.2,
+        -10.4,
+        4.2,
+        0.05
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "The schoolyard's railing",
+      "across": 0,
+      "distance": 16.5,
+      "height": 1.6,
+      "box": [
+        -30.1,
+        -1.6,
+        30.1,
+        0.02
+      ]
+    },
+    {
+      "id": "street_lamp",
+      "name": "The street lamp at the corner",
+      "shadow": true,
+      "across": 4.2,
+      "distance": 17.2,
+      "height": 5.2,
+      "box": [
+        -0.95,
+        -5.2,
+        0.3,
+        0.03
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 3.85,
+      "width": 6.6,
+      "depth": 5.7
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 6.7,
+      "elevation": 3.2,
+      "facing": 180,
+      "tilt": -90,
+      "height": 5.7,
+      "box": [
+        -3.3,
+        -5.7,
+        3.3,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall and its windows",
+      "inside": true,
+      "across": 0,
+      "distance": 6.7,
+      "facing": 180,
+      "height": 3.2,
+      "box": [
+        -3.3,
+        -3.22,
+        3.3,
+        0.02
+      ]
+    },
+    {
+      "id": "pane",
+      "name": "The windows' glass",
+      "inside": true,
+      "across": 0,
+      "distance": 6.69,
+      "elevation": 0.95,
+      "facing": 180,
+      "height": 1.8,
+      "box": [
+        -2.05,
+        -1.82,
+        2.05,
+        0.02
+      ],
+      "glass": {
+        "strength": 0.2
+      }
+    },
+    {
+      "id": "windows",
+      "name": "The windows' sashes",
+      "inside": true,
+      "across": 0,
+      "distance": 6.67,
+      "elevation": 0.95,
+      "facing": 180,
+      "height": 1.8,
+      "box": [
+        -2.15,
+        -1.82,
+        2.15,
+        0.08
+      ]
+    },
+    {
+      "id": "blinds",
+      "name": "The roller blinds",
+      "inside": true,
+      "translucent": 0.6,
+      "across": 0,
+      "distance": 6.62,
+      "elevation": 2.0,
+      "facing": 180,
+      "height": 0.8,
+      "box": [
+        -2.1,
+        -0.8,
+        2.1,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall",
+      "inside": true,
+      "across": -3.3,
+      "distance": 3.85,
+      "facing": 90,
+      "height": 3.2,
+      "box": [
+        -2.85,
+        -3.22,
+        2.85,
+        0.02
+      ]
+    },
+    {
+      "id": "blackboard",
+      "name": "The blackboard",
+      "inside": true,
+      "across": -3.28,
+      "distance": 4.3,
+      "elevation": 0.85,
+      "facing": 90,
+      "height": 1.27,
+      "box": [
+        -1.63,
+        -1.28,
+        1.63,
+        0.04
+      ]
+    },
+    {
+      "id": "clock",
+      "name": "The school clock",
+      "inside": true,
+      "across": -3.27,
+      "distance": 4.3,
+      "elevation": 2.3,
+      "facing": 90,
+      "height": 0.34,
+      "box": [
+        -0.18,
+        -0.35,
+        0.18,
+        0.01
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall and the door to the corridor",
+      "inside": true,
+      "across": 3.3,
+      "distance": 3.85,
+      "facing": 270,
+      "height": 3.2,
+      "box": [
+        -2.85,
+        -3.22,
+        2.85,
+        0.02
+      ]
+    },
+    {
+      "id": "teacher_chair",
+      "name": "Miss Kinnian's chair",
+      "inside": true,
+      "shadow": true,
+      "across": -3.0,
+      "distance": 5.6,
+      "facing": 90,
+      "height": 1.0,
+      "box": [
+        -0.25,
+        -1.0,
+        0.25,
+        0.02
+      ]
+    },
+    {
+      "id": "teacher_desk",
+      "name": "The teacher's desk",
+      "inside": true,
+      "shadow": true,
+      "across": -2.2,
+      "distance": 5.5,
+      "facing": 90,
+      "height": 0.76,
+      "box": [
+        -0.66,
+        -0.77,
+        0.66,
+        0.02
+      ]
+    },
+    {
+      "id": "teacher_top",
+      "name": "The teacher's desk top",
+      "plane": true,
+      "inside": true,
+      "across": -2.55,
+      "distance": 5.5,
+      "elevation": 0.76,
+      "width": 0.72,
+      "depth": 1.32
+    },
+    {
+      "id": "desk_things",
+      "name": "What stands on the teacher's desk",
+      "inside": true,
+      "shadow": true,
+      "across": -2.55,
+      "distance": 5.5,
+      "elevation": 0.76,
+      "facing": 90,
+      "height": 0.45,
+      "box": [
+        -0.45,
+        -0.45,
+        0.55,
+        0.02
+      ]
+    },
+    {
+      "id": "desks",
+      "name": "The pupils' desks",
+      "inside": true,
+      "shadow": true,
+      "height": 0.76,
+      "box": [
+        -0.28,
+        -0.77,
+        0.28,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -1.15,
+          "distance": 3.01
+        },
+        {
+          "across": -1.15,
+          "distance": 3.59
+        },
+        {
+          "across": 0.75,
+          "distance": 3.01
+        },
+        {
+          "across": 0.75,
+          "distance": 3.59
+        },
+        {
+          "across": -1.15,
+          "distance": 4.31
+        },
+        {
+          "across": -1.15,
+          "distance": 4.89
+        },
+        {
+          "across": 0.75,
+          "distance": 4.31
+        },
+        {
+          "across": 0.75,
+          "distance": 4.89
+        },
+        {
+          "across": -1.15,
+          "distance": 5.61
+        },
+        {
+          "across": -1.15,
+          "distance": 6.19
+        },
+        {
+          "across": 0.75,
+          "distance": 5.61
+        },
+        {
+          "across": 0.75,
+          "distance": 6.19
+        }
+      ]
+    },
+    {
+      "id": "desk_tops",
+      "name": "The pupils' desk tops",
+      "plane": true,
+      "inside": true,
+      "elevation": 0.76,
+      "width": 0.54,
+      "depth": 0.62,
+      "copies": [
+        {
+          "across": -1.15,
+          "distance": 3.3,
+          "flip": false
+        },
+        {
+          "across": 0.75,
+          "distance": 3.3,
+          "flip": true
+        },
+        {
+          "across": -1.15,
+          "distance": 4.6,
+          "flip": true
+        },
+        {
+          "across": 0.75,
+          "distance": 4.6,
+          "flip": false
+        },
+        {
+          "across": -1.15,
+          "distance": 5.9,
+          "flip": false
+        },
+        {
+          "across": 0.75,
+          "distance": 5.9,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "chairs",
+      "name": "The pupils' chairs",
+      "inside": true,
+      "shadow": true,
+      "height": 0.9,
+      "box": [
+        -0.21,
+        -0.91,
+        0.21,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -0.3,
+          "distance": 3.11
+        },
+        {
+          "across": -0.3,
+          "distance": 3.49
+        },
+        {
+          "across": 1.25,
+          "distance": 3.11
+        },
+        {
+          "across": 1.25,
+          "distance": 3.49
+        },
+        {
+          "across": -0.65,
+          "distance": 4.41
+        },
+        {
+          "across": -0.65,
+          "distance": 4.79
+        },
+        {
+          "across": 1.25,
+          "distance": 4.41
+        },
+        {
+          "across": 1.25,
+          "distance": 4.79
+        },
+        {
+          "across": -0.65,
+          "distance": 5.71
+        },
+        {
+          "across": -0.65,
+          "distance": 6.09
+        },
+        {
+          "across": 1.25,
+          "distance": 5.71
+        },
+        {
+          "across": 1.25,
+          "distance": 6.09
+        }
+      ]
+    },
+    {
+      "id": "seats",
+      "name": "The chairs' seats",
+      "plane": true,
+      "inside": true,
+      "elevation": 0.47,
+      "width": 0.4,
+      "depth": 0.38,
+      "copies": [
+        {
+          "across": -0.3,
+          "distance": 3.3
+        },
+        {
+          "across": 1.25,
+          "distance": 3.3
+        },
+        {
+          "across": -0.65,
+          "distance": 4.6
+        },
+        {
+          "across": 1.25,
+          "distance": 4.6
+        },
+        {
+          "across": -0.65,
+          "distance": 5.9
+        },
+        {
+          "across": 1.25,
+          "distance": 5.9
+        }
+      ]
+    },
+    {
+      "id": "lamp_rods",
+      "name": "The lamps' rods",
+      "inside": true,
+      "across": 0,
+      "distance": 3.0,
+      "elevation": 2.0,
+      "height": 1.2,
+      "box": [
+        -1.7,
+        -1.22,
+        1.0,
+        0.01
+      ]
+    },
+    {
+      "id": "globes",
+      "name": "The lamps' globes",
+      "glows": true,
+      "inside": true,
+      "across": 0,
+      "distance": 3.0,
+      "elevation": 2.0,
+      "height": 0.4,
+      "box": [
+        -1.76,
+        -0.4,
+        1.06,
+        0.0
+      ]
+    },
+    {
+      "id": "charlie",
+      "name": "Charlie",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "charlie",
+        "turn": 235,
+        "does": "book_read"
+      },
+      "across": -0.68,
+      "distance": 3.3
+    },
+    {
+      "id": "kinnian",
+      "name": "Miss Kinnian",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "kinnian",
+        "turn": 118,
+        "does": "chalk_held"
+      },
+      "across": -2.0,
+      "distance": 4.55
+    },
+    {
+      "id": "young_student",
+      "name": "A young student",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "young_student",
+        "turn": 270,
+        "does": "seated_listen"
+      },
+      "across": 1.25,
+      "distance": 3.3
+    },
+    {
+      "id": "old_student",
+      "name": "An old student",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "old_student",
+        "turn": 270,
+        "does": "seated_chin"
+      },
+      "across": 1.25,
+      "distance": 5.9
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "gentle solo piano, simple and hopeful, a little hesitant, like a grown man learning to read a line, slow",
+        "weight": 1.1
+      },
+      {
+        "text": "clarinet melody over soft pizzicato strings, light, curious, a small quiet pride",
+        "weight": 0.7
+      },
+      {
+        "text": "music box melody, delicate, slightly sad underneath",
+        "weight": 0.3
+      },
+      {
+        "text": "string quartet, warm, restrained, an evening schoolroom under lamps",
+        "weight": 0.4
+      },
+      {
+        "text": "solo cello, slow and warm, bittersweet",
+        "weight": 0
+      },
+      {
+        "text": "upright piano in an empty school hall, a hymn-like tune, soft",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, twilight, the first star",
+        "weight": 0
+      },
+      {
+        "text": "acoustic guitar fingerpicking, tender, small-town spring evening",
+        "weight": 0
+      },
+      {
+        "text": "oboe and strings, pastoral, tentative and kind",
+        "weight": 0
+      },
+      {
+        "text": "vibraphone and soft brushes, late evening, quiet",
+        "weight": 0
+      },
+      {
+        "text": "toy piano and glockenspiel, small and fragile",
+        "weight": 0
+      },
+      {
+        "text": "muted trumpet ballad far away, nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "accordion waltz, slow and fond",
+        "weight": 0
+      },
+      {
+        "text": "choir humming without words, distant, gentle",
+        "weight": 0
+      },
+      {
+        "text": "minimalist piano arpeggios, steady, rising, wonder",
+        "weight": 0
+      },
+      {
+        "text": "flute and harp, light, springtime air through an open window",
+        "weight": 0
+      }
+    ],
+    "bpm": 72,
+    "density": 0.3,
+    "brightness": 0.5,
+    "scale": "G_MAJOR_E_MINOR"
+  }
+}
