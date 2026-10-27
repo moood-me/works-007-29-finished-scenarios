@@ -312,11 +312,11 @@
       "person": {
         "cast": "cast",
         "who": "niggle",
-        "turn": 165,
+        "turn": 250,
         "does": "reach_up"
       },
-      "across": 0.55,
-      "distance": 11.6
+      "across": 1.0,
+      "distance": 11.75
     },
     {
       "id": "parish",
