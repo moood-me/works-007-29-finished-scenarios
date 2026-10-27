@@ -1,22 +1,22 @@
 // The right wall, seen from the room (its +x runs toward the viewer): the same distemper and green dado; a board of
 // the three lines' timetables — three columns of pinned sheets; a cast-iron radiator under it.
 g.fillStyle = '#bcb69e';
-g.fillRect(-3.5, -3.55, 7, 3.6);
+g.fillRect(-2.9, -3.35, 5.8, 3.4);
 g.fillStyle = '#485948';
-g.fillRect(-3.5, -1.1, 7, 1.1);
+g.fillRect(-2.9, -1.1, 5.8, 1.1);
 g.fillStyle = '#364335';
-g.fillRect(-3.5, -1.14, 7, 0.06);
+g.fillRect(-2.9, -1.14, 5.8, 0.06);
 g.fillStyle = '#2e2620';
-g.fillRect(-3.5, -0.14, 7, 0.14);
+g.fillRect(-2.9, -0.14, 5.8, 0.14);
 // the timetable board
 g.fillStyle = '#5a4532';
-g.fillRect(-1.6, -2.55, 1.9, 1.05);
+g.fillRect(-1.6, -2.45, 1.9, 1.05);
 g.fillStyle = '#8a6e52';
-g.fillRect(-1.54, -2.49, 1.78, 0.93);
+g.fillRect(-1.54, -2.39, 1.78, 0.93);
 for (let c = 0; c < 3; c++) {
   for (let r = 0; r < 2; r++) {
     const x = -1.46 + c * 0.58;
-    const y = -2.42 + r * 0.44;
+    const y = -2.32 + r * 0.44;
     g.fillStyle = r === 0 ? '#ebe6d8' : '#e2dccb';
     g.fillRect(x, y, 0.46, 0.38);
     g.fillStyle = 'rgba(60,55,50,0.6)';

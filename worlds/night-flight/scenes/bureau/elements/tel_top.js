@@ -1,8 +1,8 @@
-// The telegraph table's top seen from above (x across, y toward the viewer; 1.9 × 0.7 m): oak, a green blotter, the
+// The telegraph table's top seen from above (x across, y toward the viewer; 1.6 × 0.7 m): oak, a green blotter, the
 // key — a brass lever on its black base — before the telegraphist's right hand (x −0.15), a pad of telegram forms, a
 // spike of the night's messages, an inkwell.
 g.fillStyle = '#6e4e33';
-g.fillRect(-0.95, -0.35, 1.9, 0.7);
+g.fillRect(-0.8, -0.35, 1.6, 0.7);
 g.fillStyle = '#3f5a44';
 g.fillRect(-0.55, -0.2, 0.75, 0.42);
 // the key
@@ -27,5 +27,5 @@ g.fill();
 // the inkwell
 g.fillStyle = '#1c2230';
 g.beginPath();
-g.arc(-0.78, -0.2, 0.035, 0, Math.PI * 2);
+g.arc(-0.68, -0.2, 0.035, 0, Math.PI * 2);
 g.fill();

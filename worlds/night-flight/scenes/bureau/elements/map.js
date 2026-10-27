@@ -3,7 +3,8 @@
 // never named — the three lines in red ink: south down the coast to Patagonia, west over the mountains to Chile,
 // north up the river to Paraguay; at each stop a small black dot. The flags on their pins: at the field the west's
 // (yellow), the north's (green) and the European mail's (red); the Patagonian's blue alone far down the south line
-// (its own layer, `blue`). Points: `field`, `blue`.
+// (its own layer, `blue`). Points: `field`, `blue`. All of it hung 0.2 m lower than drawn (under the clock).
+g.translate(0, 0.2);
 const X = lon => -1.2 + (lon + 80) * 0.0533;
 const Y = lat => -2.82 + (-14 - lat) * 0.0402;
 // the frame and the paper

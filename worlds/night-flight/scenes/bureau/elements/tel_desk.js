@@ -2,18 +2,18 @@
 // behind it), a drawer; the inker's paper tape coming over the edge and down to the floor in loose loops — the hanging
 // strip its own layer `tape`, creeping down while the inker runs (`tape`).
 g.fillStyle = '#6a4a30';
-g.fillRect(-0.95, -0.81, 1.9, 0.05);
+g.fillRect(-0.8, -0.81, 1.6, 0.05);
 g.fillStyle = '#563c27';
-g.fillRect(-0.92, -0.76, 1.84, 0.76);
+g.fillRect(-0.77, -0.76, 1.54, 0.76);
 g.fillStyle = '#4a3322';
-g.fillRect(-0.92, -0.76, 0.05, 0.76);
-g.fillRect(0.87, -0.76, 0.05, 0.76);
+g.fillRect(-0.77, -0.76, 0.05, 0.76);
+g.fillRect(0.72, -0.76, 0.05, 0.76);
 g.fillStyle = '#62452e';
-g.fillRect(-0.8, -0.7, 0.9, 0.16);
+g.fillRect(-0.65, -0.7, 0.8, 0.16);
 g.fillStyle = '#b89a5a';
 g.fillRect(-0.4, -0.63, 0.1, 0.02);
 g.fillStyle = '#3c2a1c';
-g.fillRect(-0.92, -0.04, 1.84, 0.04);
+g.fillRect(-0.77, -0.04, 1.54, 0.04);
 // the tape's loops on the floor
 g.strokeStyle = '#e9e3d2';
 g.lineWidth = 0.022;

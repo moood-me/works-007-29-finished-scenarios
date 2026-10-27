@@ -1,13 +1,13 @@
-// The window's frame on the field: white-painted wood round the opening (x −1.1…1.1, y −2.65…−1.05), two casements
+// The window's frame on the field: white-painted wood round the opening (x −1…1, y −2.55…−1.05), two casements
 // and a fanlight over them, a deep sill.
-const W = 1.1;
+const W = 1;
 g.fillStyle = '#d7d1bd';
 g.beginPath();
-g.rect(-W - 0.1, -2.75, 2 * W + 0.2, 1.7);
-g.rect(-W + 0.04, -2.61, 2 * W - 0.08, 1.52);
+g.rect(-W - 0.1, -2.65, 2 * W + 0.2, 1.6);
+g.rect(-W + 0.04, -2.51, 2 * W - 0.08, 1.42);
 g.fill('evenodd');
-g.fillRect(-0.035, -2.61, 0.07, 1.52);
-g.fillRect(-W + 0.04, -2.2, 2 * W - 0.08, 0.06);
+g.fillRect(-0.035, -2.51, 0.07, 1.42);
+g.fillRect(-W + 0.04, -2.12, 2 * W - 0.08, 0.06);
 g.fillRect(-W + 0.04, -1.65, 2 * W - 0.08, 0.04);
 // the sill, its edge catching the light
 g.fillStyle = '#cfc8b2';

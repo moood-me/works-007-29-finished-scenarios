@@ -1,6 +1,6 @@
 // The office clock over the map: a dark wooden case, a white face with its hour marks, the hands at the scene's
 // `time` (minutes after midnight); the second hand its own layer, ticking (animate).
-const C = [0, -3.12];
+const C = [0, -3.0];
 const R = 0.21;
 g.fillStyle = '#3a2a1e';
 g.beginPath();

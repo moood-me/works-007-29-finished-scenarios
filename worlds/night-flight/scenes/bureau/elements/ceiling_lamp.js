@@ -1,7 +1,7 @@
-// The lamp hanging over the room on its cord from the ceiling (3.5 m up): a white enamel shade, dark green outside, the
+// The lamp hanging over the room on its cord from the ceiling (3.3 m up): a white enamel shade, dark green outside, the
 // bulb under it (`bulb`, by `lamps`). All of it the layer `lamp`, swaying a little on its cord in the draught from the
 // open door (animate).
-const top = -3.5;
+const top = -3.3;
 e.layer('lamp', { pivot: [0, top] }, c => {
   c.strokeStyle = '#2a2622';
   c.lineWidth = 0.012;
