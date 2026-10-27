@@ -54,8 +54,6 @@ const CHAMBER = F => ({
   wax: [[0, WAX]],
   r: 0.011 * F.fit.h,
 });
-// the verdict's draft: a few sheets held flat against the stomach in the left hand
-const DRAFT = F => ({ paper: [[0, [0.93, 0.9, 0.82, 1]]], w: 0.075 * F.fit.h, h: 0.11 * F.fit.h });
 const GLASS_SIZES = F => ({
   axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
   bowl: [0.035 * F.fit.h, 0.022 * F.fit.h, 0.035 * F.fit.h],
@@ -244,16 +242,6 @@ return {
           const flame = add(hand, K.flame);
           F.ball(flame, K.axes, K.glow, FLAME, 8);
           F.point('flame', flame);
-        },
-      },
-      // the draft of the verdict: sheets in the left hand, held flat against the stomach
-      draft: {
-        name: 'draft of the verdict',
-        draw: F => {
-          const { add, mul } = MooodShapes.V;
-          const K = F.keep(DRAFT), hand = F.P('LeftHand'), up = F.up('Chest'), fw = F.fwd('Chest');
-          const at = add(hand, mul(fw, 0.02 * F.k));
-          F.bar(add(at, mul(up, -K.h * 0.5)), add(at, mul(up, K.h * 0.5)), K.w, K.w, K.paper, 4, F.side('Chest'), 0.06, 4);
         },
       },
       // a white moustache under the nose
