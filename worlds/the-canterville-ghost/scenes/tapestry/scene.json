@@ -376,6 +376,16 @@
       ]
     },
     {
+      "id": "corridor_floor",
+      "name": "The corridor's floor",
+      "plane": true,
+      "across": -3.55,
+      "distance": 4.7,
+      "elevation": 0.002,
+      "width": 0.8,
+      "depth": 1.4
+    },
+    {
       "id": "door",
       "name": "The door, ajar",
       "across": -3.2,
