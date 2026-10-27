@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Churchyard","translation":"Церковный двор","where":"scenes/churchyard/scene.json title"},
+  {"text":"Late October, a Sunday. The bell is ringing for church.","translation":"Конец октября, воскресенье. Колокол зовёт в церковь.","where":"scenes/churchyard/scene.json caption"}
+]}
