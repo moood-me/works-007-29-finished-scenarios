@@ -74,21 +74,9 @@
     "pile_mood": "neutral",
     "pile_on": [
       -1.25,
-      3.58,
+      3.5,
       0.48
     ],
-    "pile_reach": {
-      "r": [
-        -1.5,
-        3.0,
-        0.8
-      ],
-      "l": [
-        -1.0,
-        3.0,
-        0.8
-      ]
-    },
     "kummer_look": "traps#head",
     "kummer_mood": "afraid",
     "kummer_reach": {
@@ -550,7 +538,7 @@
         "does": "sit_fists"
       },
       "across": -1.25,
-      "distance": 3.58,
+      "distance": 3.5,
       "inside": true,
       "shadow": true
     },
