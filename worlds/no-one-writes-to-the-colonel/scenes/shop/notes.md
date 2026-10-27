@@ -41,7 +41,6 @@ camera moves.
   lie as a reach lays them, not as a sewer's do. The tailors' feet are not on the treadles.
 - Germán's hand on the cover is a reach from a motion whose hand rests at the thigh: the arm is straight, a little
   stiff.
-- The cloth bolts on the shelves read nearly as books from here.
 - Known in the engine and not met here (no fire, no rope, no cloth hung behind, no skirt): a Kimodo motion put in a
   scene turning to a wall; hands in the lap sliding to the sides in a module's clip (here the hands are on the table
   by `reach`, so it does not show).
