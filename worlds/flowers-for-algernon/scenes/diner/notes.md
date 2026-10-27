@@ -5,7 +5,7 @@ the warm, yellow, neon-lit evening against the white daylit laboratory; Charlie 
 Frank Reilly, and Halloran behind his counter, all standing as they stand in the story. No one moves but a look and a
 face; no camera moves.
 
-- **Where things are.** The viewer stands in the room (camera `picture`). Floor at 0 (`floor`: cream and oxblood
+- **Where things are.** The viewer stands in the room (camera `picture`), brought 0.7 m in and 0.15 m down by the state (`camera_z`, `camera_h`). Floor at 0 (`floor`: cream and oxblood
   tiles), ceiling 3.0 (`ceiling`, pressed tin, a card laid face down); the back wall — the diner's front onto the
   street, seen from inside — at distance 6.2 (`back_wall`, the window x −2.2…−0.4, sill 0.9, head 2.6, a radiator
   under it); side walls at across ±3.2 from 1.0 to 6.2 (`left_wall`: the street door, coat hooks, a team photograph,
@@ -39,7 +39,7 @@ face; no camera moves.
   at someone farther from the viewer turns the head (and the waist) away from the viewer — the first layout, all
   three in a row, showed the backs of their heads.
 - **The showcase**: everyone laughing; Frank looks round at Halloran over the counter, Joe after him; Charlie, left in
-  it alone, looks down at his glass, the laugh gone (`sad`), then looks up again and smiles.
+  it alone, looks down at his glass, the laugh gone (`sad`); Frank and Joe turn back to him, and he looks up and laughs again.
 
 What is not right yet / what the engine lacks:
 - Frank's jacket (the built-in `jacket`) flares out from the waist like a skirt over his bent knees.

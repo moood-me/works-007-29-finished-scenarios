@@ -104,6 +104,8 @@
     "cast"
   ],
   "state": {
+    "camera_z": 0.7,
+    "camera_h": -0.15,
     "charlie_look": null,
     "charlie_mood": "laugh",
     "charlie_with": [

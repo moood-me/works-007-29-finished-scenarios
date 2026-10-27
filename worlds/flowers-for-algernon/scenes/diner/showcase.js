@@ -1,6 +1,6 @@
 // A Friday night at Halloran's: Joe's hand on Charlie's shoulder, Frank pointing at him, everyone laughing; then
 // Frank looks round at Halloran over the counter (the joke passed on), Joe after him — and Charlie, left alone in it,
-// looks down at his glass, the laugh gone off his face; then he looks up again and smiles.
+// looks down at his glass, the laugh gone off his face; Frank and Joe turn back to him, and he looks up and laughs again.
 return [
   {
     name: 'friday',
@@ -28,9 +28,13 @@ return [
       s.person('charlie').look('charlie#beer');
       s.person('charlie').mood('sad');
       await s.wait(5);
+      s.person('frank').look('charlie');
+      s.person('joe').look('charlie');
+      await s.wait(0.8);
       s.person('charlie').look(null);
       await s.wait(0.5);
-      s.person('charlie').mood('smile');
+      s.person('charlie').mood('laugh');
+      s.person('halloran').look('charlie');
       await s.wait(5);
     },
   },
