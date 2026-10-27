@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Ali","translation":"Али","where":"scenes/room/elements/plaque.js"},
+  {"text":"Daru's Room","translation":"Комната Дарю","where":"scenes/room/scene.json title"},
+  {"text":"The gendarme has gone. His revolver on the table, his rope on the nail.","translation":"Жандарм ушёл. Его револьвер на столе, его верёвка на гвозде.","where":"scenes/room/scene.json caption"}
+]}
