@@ -18,6 +18,25 @@ const marker = F => {
   F.bar(a, b, 0.009 * m, 0.009 * m, [[0, CAPWHITE]], 6, s);
   F.bar(b, add(b, mul(f, 0.03 * m)), 0.0095 * m, 0.007 * m, [[0, MARKER]], 6, s);
 };
+// a climbing rope coiled and slung over the left shoulder, across the chest and the back to the right hip: six loops
+// side by side, orange with a darker fleck
+const ROPE = [[0.8, 0.36, 0.2, 1], [0.66, 0.27, 0.15, 1]];
+const rope = F => {
+  const { add, sub, mul, unit, cross, mix } = V(), m = F.fit.h, fwd = F.fwd('Chest');
+  const shoulder = add(F.P('LeftArm'), mul(F.up('Chest'), 0.05 * m));
+  const out = unit(sub(F.P('RightLeg'), F.P('LeftLeg')));
+  const hip = add(F.P('RightLeg'), mul(out, 0.07 * m));
+  const mid = mix(shoulder, hip, 0.5), half = sub(shoulder, mid), along = unit(half);
+  const a = Math.hypot(half[0], half[1], half[2]) * 1.06, n = unit(cross(along, fwd));
+  for (let k = 0; k < 6; k++) {
+    const off = mul(n, (k - 2.5) * 0.017 * m), b = (0.15 + 0.008 * k) * m, pts = [];
+    for (let i = 0; i <= 28; i++) {
+      const t = (i / 28) * Math.PI * 2;
+      pts.push(add(add(add(mid, mul(along, Math.cos(t) * a)), mul(fwd, Math.sin(t) * b)), off));
+    }
+    F.tube(pts, [[0, 0.011 * m], [1, 0.011 * m]], [[0, ROPE[k % 2]]], 6, n);
+  }
+};
 return {
   ...data,
   characters: {
@@ -33,6 +52,19 @@ return {
       kind: 'shapes', style: 'glass', who: 'man', garment: 'none', hair: 'spiky',
       body: { height: 1.01, thick: 0.94, shoulders: 1.0 },
       colors: { skin: '#e6bd9b', hair: '#8a6240', top: '#b0603a', bottom: '#6e6656', shoes: '#3a2c22' },
+    },
+    // Louise at sixty-one: the same woman, a little heavier, her hair cut short and grey; a faded slate cardigan
+    louise_61: {
+      kind: 'shapes', style: 'glass', who: 'woman', garment: 'cardigan', hair: 'short',
+      body: { height: 0.93, thick: 0.88, shoulders: 0.87, hips: 1.03 },
+      colors: { skin: '#e8c3a6', hair: '#cdc8c0', top: '#ebe4d6', garment: '#66768a', bottom: '#4a4a50', shoes: '#2a2622' },
+    },
+    // their daughter at twenty-five: her father's height and his light-brown hair (in a ponytail), her mother's
+    // slightness; a teal shell jacket over a cream top, jeans, boots — dressed for the rocks
+    daughter_25: {
+      kind: 'shapes', style: 'glass', who: 'woman', garment: 'jacket', hair: 'ponytail',
+      body: { height: 0.97, thick: 0.8, shoulders: 0.9, hips: 0.98 },
+      colors: { skin: '#eac6aa', hair: '#86603e', top: '#e2dac8', garment: '#2f6064', bottom: '#3c4458', shoes: '#5e4a38' },
     },
     // Colonel Weber: square, upright, greying, close-cropped; the army's olive field jacket and cap
     weber: {
@@ -60,6 +92,7 @@ return {
     parts: {
       cup: { name: 'cup of coffee', draw: cup },
       marker: { name: 'marker', draw: marker },
+      rope: { name: 'coiled rope', draw: rope },
     },
   },
 };
