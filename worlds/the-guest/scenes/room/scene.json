@@ -7,15 +7,13 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.42,
-    "ambientColor": "#8a9cc4",
-    "inside": 0.3,
+    "ambient": 0.3,
+    "ambientColor": "#7b8fbe",
+    "inside": 0.25,
     "bounce": 0.5,
     "haze": 0.04,
     "hazeColor": "#59688a",
     "hazeGlow": 0.45,
-    "tint": "#fff1de",
-    "tintStrength": 0.04,
     "saturation": 0.95,
     "vignette": 0.4,
     "grain": 0.08,
@@ -38,7 +36,7 @@
     {
       "id": "window_day",
       "of": "window",
-      "daylight": 1
+      "daylight": 1.4
     },
     {
       "id": "class_day",
@@ -49,8 +47,8 @@
       "id": "lamp",
       "of": "lamp#flame",
       "color": "#ffb061",
-      "strength": 1.5,
-      "reach": 6,
+      "strength": 1.2,
+      "reach": 4.2,
       "on": "lamp",
       "flicker": 0.06
     },
@@ -361,7 +359,7 @@
       "elevation": 0.76,
       "height": 0.22,
       "box": [
-        -0.2,
+        -0.24,
         -0.24,
         0.24,
         0.01
@@ -372,9 +370,9 @@
       "name": "The chair",
       "inside": true,
       "shadow": true,
-      "across": -1.12,
-      "distance": 3.3,
-      "facing": 150,
+      "across": 0.3,
+      "distance": 4.2,
+      "facing": 180,
       "height": 0.95,
       "box": [
         -0.25,
@@ -491,21 +489,6 @@
         -2.24,
         0.66,
         0.03
-      ]
-    },
-    {
-      "id": "door_leaf",
-      "name": "The classroom door's leaf, swung back",
-      "inside": true,
-      "across": 2.98,
-      "distance": 5.04,
-      "facing": 180,
-      "height": 2.08,
-      "box": [
-        -0.48,
-        -2.1,
-        0.48,
-        0.02
       ]
     },
     {

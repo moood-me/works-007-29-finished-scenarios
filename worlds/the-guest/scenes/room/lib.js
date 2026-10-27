@@ -14,7 +14,7 @@ function whitewash(g, e, x0, x1, h) {
   for (let i = 0; i < w * 10; i++) {
     g.fillStyle = e.rnd() < 0.5 ? 'rgba(214,206,190,0.35)' : 'rgba(250,247,240,0.45)';
     g.beginPath();
-    g.ellipse(x0 + e.rnd() * w, -h + e.rnd() * h, 0.15 + e.rnd() * 0.35, 0.06 + e.rnd() * 0.12, e.rnd() - 0.5, 0, Math.PI * 2);
+    g.ellipse(x0 + e.rnd() * w, -h + 0.15 + e.rnd() * (h - 1.1), 0.15 + e.rnd() * 0.35, 0.06 + e.rnd() * 0.08, e.rnd() - 0.5, 0, Math.PI * 2);
     g.fill();
   }
   // the ochre band and its line

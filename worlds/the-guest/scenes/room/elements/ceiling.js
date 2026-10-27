@@ -13,7 +13,7 @@ const soot = g.createRadialGradient(0.75, -0.55, 0.05, 0.75, -0.55, 0.9);
 soot.addColorStop(0, 'rgba(40,34,30,0.75)');
 soot.addColorStop(1, 'rgba(40,34,30,0)');
 g.fillStyle = soot;
-g.fillRect(-0.3, -1.6, 2.1, 2.1);
+g.fillRect(-0.3, -1.6, 2.1, 1.62);
 // the beams
 for (const y of [-0.45, -1.4, -2.35, -3.3, -4.25, -5.15]) {
   g.fillStyle = '#4b3a2c';
