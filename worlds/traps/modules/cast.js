@@ -39,6 +39,23 @@ const CUTLERY = F => ({
   tineTop: [0, 0.24 * F.fit.h, 0],
   r: 0.007 * F.fit.h,
 });
+// the judge's chamberstick: a brass dish held in the right hand, a white candle standing upright in it, its flame (a
+// colour that glows; the point "flame" for the scene's light)
+const FLAME = [1.0, 0.78, 0.4, 2];
+const WAX = [0.95, 0.92, 0.84, 1];
+const CHAMBER = F => ({
+  axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+  dish: [0.05 * F.fit.h, 0.008 * F.fit.h, 0.05 * F.fit.h],
+  base: [0, 0.035 * F.fit.h, 0],
+  top: [0, 0.15 * F.fit.h, 0],
+  flame: [0, 0.172 * F.fit.h, 0],
+  glow: [0.009 * F.fit.h, 0.02 * F.fit.h, 0.009 * F.fit.h],
+  brass: [[0, GOLD]],
+  wax: [[0, WAX]],
+  r: 0.011 * F.fit.h,
+});
+// the verdict's draft: a few sheets held flat against the stomach in the left hand
+const DRAFT = F => ({ paper: [[0, [0.93, 0.9, 0.82, 1]]], w: 0.075 * F.fit.h, h: 0.11 * F.fit.h });
 const GLASS_SIZES = F => ({
   axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
   bowl: [0.035 * F.fit.h, 0.022 * F.fit.h, 0.035 * F.fit.h],
@@ -214,6 +231,29 @@ return {
               }
             }
           }
+        },
+      },
+      // the judge's chamberstick in his right hand, the candle upright whatever the hand does
+      chamberstick: {
+        name: 'chamberstick',
+        draw: F => {
+          const { add } = MooodShapes.V;
+          const K = F.keep(CHAMBER), hand = F.P('RightHand'), base = add(hand, K.base);
+          F.ball(base, K.axes, K.dish, GOLD, 14);
+          F.bar(base, add(hand, K.top), K.r, K.r, K.wax, 8, K.axes[0]);
+          const flame = add(hand, K.flame);
+          F.ball(flame, K.axes, K.glow, FLAME, 8);
+          F.point('flame', flame);
+        },
+      },
+      // the draft of the verdict: sheets in the left hand, held flat against the stomach
+      draft: {
+        name: 'draft of the verdict',
+        draw: F => {
+          const { add, mul } = MooodShapes.V;
+          const K = F.keep(DRAFT), hand = F.P('LeftHand'), up = F.up('Chest'), fw = F.fwd('Chest');
+          const at = add(hand, mul(fw, 0.02 * F.k));
+          F.bar(add(at, mul(up, -K.h * 0.5)), add(at, mul(up, K.h * 0.5)), K.w, K.w, K.paper, 4, F.side('Chest'), 0.05);
         },
       },
       // a white moustache under the nose
