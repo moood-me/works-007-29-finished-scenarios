@@ -54,6 +54,21 @@ const SPADE = F => {
     iron: [[0, [0.55, 0.56, 0.56, 1]]],
   };
 };
+// The Inspector's book: an open ledger held in both hands before his chest — two pale pages in a dark grey cover,
+// its spine between the hands, the pages tipped toward his face
+const BOOK = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    cover: [[0, [0.3, 0.31, 0.32, 1]]],
+    page: [[0, [0.9, 0.87, 0.8, 1]]],
+    coverR: [[0, 0.085 * h], [1, 0.085 * h]],
+    pageR: [[0, 0.078 * h], [1, 0.078 * h]],
+    coverAt: [null, null],
+    leftAt: [null, null],
+    rightAt: [null, null],
+  };
+};
 return {
   ...data,
   characters: {
@@ -79,6 +94,14 @@ return {
       parts: ['staff'],
       body: { height: 1.05, thick: 0.86, shoulders: 1.0 },
       colors: { skin: '#d4ab8c', hair: '#9b968c', top: '#c6bba2', garment: '#6f7a70', bottom: '#5b5247', shoes: '#3e342b', hat: '#5e594f' },
+    },
+    // The Inspector of Houses: grey and exact, not unkind — the law; a long grey town coat, a grey hat with a brim,
+    // a grey waistcoat and collar; his book open in both hands
+    inspector: {
+      kind: 'shapes', style: 'niggle', who: 'man', garment: 'coat', hair: 'short', hat: 'hat', face: 'simple',
+      parts: ['book'],
+      body: { height: 1.02, thick: 0.9, shoulders: 0.96 },
+      colors: { skin: '#dcbfa8', hair: '#8a8780', top: '#b9b8b2', garment: '#6d7072', bottom: '#4e5052', shoes: '#26262a', hat: '#55585b' },
     },
     // Mrs Parish: small, ill since summer; a kerchief over her hair, a faded rose house dress
     mrs_parish: {
@@ -180,6 +203,34 @@ return {
           K.curl[3] = add(add(top, mul(UP, 0.07 * h)), mul(fwd, 0.1 * h));
           K.curl[4] = add(add(top, mul(UP, 0.02 * h)), mul(fwd, 0.1 * h));
           F.tube(K.curl, K.crook, K.wood, 6, across);
+        },
+      },
+      book: {
+        name: 'book',
+        draw: F => {
+          const { add, mul, sub, unit, mean, cross } = V();
+          const K = F.keep(BOOK);
+          const h = K.h;
+          const r = F.P('RightHand');
+          const l = F.P('LeftHand');
+          const across = unit(sub(l, r));
+          const fwd = F.fwd('Chest');
+          const spine = add(mean([r, l]), add(mul(fwd, 0.05 * h), mul(UP, 0.02 * h)));
+          // the pages' height runs from the reader's side up and away: tipped toward his face
+          const tall = unit(add(mul(fwd, 0.75), mul(UP, 0.66)));
+          const half = 0.12 * h;
+          const reader = unit(cross(across, tall));
+          const lift = mul(reader, 0.012 * h);
+          K.coverAt[0] = add(spine, mul(across, -half * 1.05));
+          K.coverAt[1] = add(spine, mul(across, half * 1.05));
+          F.tube(K.coverAt, K.coverR, K.cover, 6, tall, 0.06, 3, true);
+          K.leftAt[0] = add(add(spine, lift), mul(across, -half));
+          K.leftAt[1] = add(spine, lift);
+          K.rightAt[0] = add(spine, lift);
+          K.rightAt[1] = add(add(spine, lift), mul(across, half));
+          F.tube(K.leftAt, K.pageR, K.page, 6, tall, 0.08, 3, true);
+          F.tube(K.rightAt, K.pageR, K.page, 6, tall, 0.08, 3, true);
+          F.point('book', spine);
         },
       },
       stick: {

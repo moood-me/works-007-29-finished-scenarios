@@ -1,0 +1,550 @@
+{
+  "engine": 3,
+  "title": "The Yard",
+  "caption": "After the storm the Inspector of Houses came round.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.66,
+    "ambientColor": "#c4c6cc",
+    "inside": 0.35,
+    "bounce": 0.55,
+    "haze": 0.06,
+    "hazeColor": "#d4d2c6",
+    "hazeGlow": 0.3,
+    "shafts": 0.2,
+    "tint": "#f2dcae",
+    "tintStrength": 0.07,
+    "vignette": 0.42,
+    "grain": 0.1,
+    "wind": [
+      1,
+      0.3,
+      0.55
+    ],
+    "saturation": 1.05,
+    "looks": {
+      "storm": {
+        "ambient": 0.52,
+        "ambientColor": "#8e98a8",
+        "inside": 0.25,
+        "tint": "#9eaabb",
+        "tintStrength": 0.12,
+        "saturation": 0.85,
+        "haze": 0.12,
+        "hazeColor": "#9aa2ac",
+        "wind": [
+          1,
+          0.3,
+          1.1
+        ],
+        "lights": {
+          "sun": 0.22
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        150,
+        18
+      ],
+      "color": "#ffe2b0",
+      "strength": 1.5
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "storm": 0,
+    "niggle_look": "inspector",
+    "niggle_mood": "sad",
+    "inspector_look": "shed_inside#canvas",
+    "inspector_mood": "neutral",
+    "parish_look": "cottage#hole",
+    "parish_mood": "neutral",
+    "mrs_parish_look": "niggle",
+    "mrs_parish_mood": "sad"
+  },
+  "states": {
+    "storm": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the next storm coming from the hills: 0 the washed afternoon after the night's storm, the low sun on the yard, the slate-grey bank over the hills at the left; 1 the bank has come over, the sun gone, the light grey and cold, the wind up"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The sky after the storm",
+      "sky": true
+    },
+    {
+      "id": "hills",
+      "name": "The low hills beyond the field",
+      "across": 0,
+      "distance": 700,
+      "height": 80,
+      "box": [
+        -1800,
+        -80,
+        1800,
+        1
+      ]
+    },
+    {
+      "id": "field",
+      "name": "The stubble field",
+      "plane": true,
+      "across": 0,
+      "distance": 161,
+      "width": 600,
+      "depth": 278
+    },
+    {
+      "id": "hedge",
+      "name": "The hedge trees along the field",
+      "across": 0,
+      "distance": 60,
+      "height": 6,
+      "box": [
+        -3.2,
+        -6.2,
+        3.2,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -34,
+          "distance": 48,
+          "scale": 1,
+          "flip": false
+        },
+        {
+          "across": -22,
+          "distance": 55,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": -12,
+          "distance": 62,
+          "scale": 1.1,
+          "flip": false
+        },
+        {
+          "across": -2,
+          "distance": 70,
+          "scale": 0.85,
+          "flip": true
+        },
+        {
+          "across": 9,
+          "distance": 66,
+          "scale": 1,
+          "flip": false
+        },
+        {
+          "across": 20,
+          "distance": 58,
+          "scale": 1.15,
+          "flip": true
+        },
+        {
+          "across": 31,
+          "distance": 52,
+          "scale": 0.95,
+          "flip": false
+        },
+        {
+          "across": 44,
+          "distance": 60,
+          "scale": 1,
+          "flip": true
+        },
+        {
+          "across": -48,
+          "distance": 72,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": 56,
+          "distance": 80,
+          "scale": 0.8,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "yard",
+      "name": "The two yards",
+      "plane": true,
+      "across": 0,
+      "distance": 11,
+      "width": 40,
+      "depth": 22
+    },
+    {
+      "id": "puddle",
+      "name": "The puddle on the path",
+      "plane": true,
+      "across": -0.95,
+      "distance": 6.1,
+      "elevation": 0.005,
+      "width": 1.4,
+      "depth": 0.8,
+      "reflect": {
+        "strength": 0.6,
+        "fade": 8
+      }
+    },
+    {
+      "id": "cottage",
+      "name": "Parish's cottage",
+      "across": 5.2,
+      "distance": 15.6,
+      "facing": 196,
+      "height": 6,
+      "box": [
+        -4.4,
+        -6.05,
+        4.4,
+        0.6
+      ],
+      "shadow": true
+    },
+    {
+      "id": "cottage_room",
+      "name": "The Parishes' bedroom",
+      "on": "cottage",
+      "inside": true,
+      "across": -0.15,
+      "distance": 0.9,
+      "facing": 180,
+      "height": 2.6,
+      "box": [
+        -1.65,
+        -2.65,
+        1.65,
+        0.03
+      ]
+    },
+    {
+      "id": "apple",
+      "name": "The old apple tree",
+      "across": 10.5,
+      "distance": 13.5,
+      "height": 5.2,
+      "box": [
+        -2.4,
+        -5.3,
+        2.4,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "leaves",
+      "name": "Leaves off the apple tree",
+      "particles": {
+        "kind": "leaves",
+        "at": [
+          10.5,
+          13.5,
+          3.3
+        ],
+        "source": [
+          3,
+          2,
+          1.5
+        ],
+        "rate": 0.5,
+        "colors": [
+          "#c2a64c",
+          "#b98e48",
+          "#a8a24e"
+        ]
+      }
+    },
+    {
+      "id": "cabbages",
+      "name": "Parish's cabbages",
+      "across": 4.5,
+      "distance": 12.2,
+      "facing": 185,
+      "height": 0.4,
+      "box": [
+        -5.6,
+        -0.45,
+        5.6,
+        0.03
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "The fence and its gate",
+      "across": 4,
+      "distance": 11.2,
+      "facing": 182,
+      "height": 1.2,
+      "box": [
+        -7.1,
+        -1.25,
+        7.1,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "shed",
+      "name": "Niggle's shed",
+      "across": -3.3,
+      "distance": 8,
+      "facing": 160,
+      "height": 4.8,
+      "box": [
+        -2.5,
+        -4.95,
+        2.5,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "shed_inside",
+      "name": "The shed seen through its door",
+      "on": "shed",
+      "inside": true,
+      "across": 0.9,
+      "distance": 1.3,
+      "facing": 180,
+      "height": 3.2,
+      "box": [
+        -1.6,
+        -3.25,
+        1.6,
+        0.05
+      ]
+    },
+    {
+      "id": "bicycle",
+      "name": "Niggle's bicycle",
+      "on": "shed",
+      "across": -1.3,
+      "distance": -0.2,
+      "facing": 180,
+      "height": 1,
+      "box": [
+        -0.95,
+        -1.05,
+        0.95,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "thistles",
+      "name": "Niggle's thistles",
+      "across": -1.3,
+      "distance": 7.4,
+      "height": 1.4,
+      "box": [
+        -0.7,
+        -1.55,
+        0.7,
+        0.03
+      ],
+      "copies": [
+        {
+          "across": -1.3,
+          "distance": 7.4
+        },
+        {
+          "across": -5.4,
+          "distance": 5.2,
+          "flip": true,
+          "scale": 1.1
+        },
+        {
+          "across": 2.4,
+          "distance": 10.6,
+          "scale": 0.85
+        },
+        {
+          "across": 3.6,
+          "distance": 4.6,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "weeds",
+      "name": "Rank grass in Niggle's yard",
+      "across": -1.5,
+      "distance": 3,
+      "height": 0.7,
+      "box": [
+        -1.6,
+        -0.8,
+        1.6,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -1.6,
+          "distance": 3
+        },
+        {
+          "across": 2.8,
+          "distance": 3.4,
+          "flip": true
+        },
+        {
+          "across": -5,
+          "distance": 6.2,
+          "scale": 1.2
+        },
+        {
+          "across": 4.6,
+          "distance": 6.4
+        },
+        {
+          "across": -0.1,
+          "distance": 1.9,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": 1.8,
+          "distance": 9.2,
+          "scale": 0.9
+        }
+      ]
+    },
+    {
+      "id": "niggle",
+      "name": "Niggle",
+      "person": {
+        "cast": "cast",
+        "who": "niggle",
+        "turn": 135,
+        "does": "hold_brush"
+      },
+      "across": -2.35,
+      "distance": 8.03
+    },
+    {
+      "id": "inspector",
+      "name": "The Inspector of Houses",
+      "person": {
+        "cast": "cast",
+        "who": "inspector",
+        "turn": 250,
+        "does": "hold_book"
+      },
+      "across": -0.4,
+      "distance": 7.5
+    },
+    {
+      "id": "parish",
+      "name": "Parish",
+      "person": {
+        "cast": "cast",
+        "who": "parish",
+        "turn": 215,
+        "does": "lean_stick"
+      },
+      "across": 6.65,
+      "distance": 13.94
+    },
+    {
+      "id": "mrs_parish",
+      "name": "Mrs Parish",
+      "person": {
+        "cast": "cast",
+        "who": "mrs_parish",
+        "turn": 196
+      },
+      "inside": true,
+      "across": 5.18,
+      "distance": 16.07
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "Gentle English pastoral chamber music, solo clarinet over soft strings, autumnal and wistful",
+        "weight": 1.0
+      },
+      {
+        "text": "Low muted strings holding one long chord, a storm far off, waiting",
+        "weight": 0.8
+      },
+      {
+        "text": "A plain woodwind tune, a little stiff, like someone reading out a rule kindly",
+        "weight": 0.5
+      },
+      {
+        "text": "Quiet felt piano, slow, unhurried, a small tune that never quite resolves, warm room tone",
+        "weight": 0.3
+      },
+      {
+        "text": "Solo cello, low and patient, a man working alone",
+        "weight": 0
+      },
+      {
+        "text": "Distant thunder under soft timpani rolls, grey afternoon",
+        "weight": 0
+      },
+      {
+        "text": "Folk-like oboe melody over a hushed string quartet, late afternoon light, tender melancholy",
+        "weight": 0
+      },
+      {
+        "text": "Harmonium and a single violin, a village chapel, plain and sad",
+        "weight": 0
+      },
+      {
+        "text": "Pizzicato strings ticking like a clock, small town bureaucracy, gentle irony",
+        "weight": 0
+      },
+      {
+        "text": "Celesta and harp, small glinting figures like dew on a leaf, sparse",
+        "weight": 0
+      },
+      {
+        "text": "English brass band far away, muted, an old town in autumn",
+        "weight": 0
+      },
+      {
+        "text": "Rain on a tin roof turned into soft marimba and brushed snare",
+        "weight": 0
+      },
+      {
+        "text": "Vaughan Williams-like modal strings, English countryside, wide and hopeful",
+        "weight": 0
+      },
+      {
+        "text": "Slow accordion waltz, worn and kind, a neighbour's kitchen",
+        "weight": 0
+      },
+      {
+        "text": "Bass clarinet and low flute in a minor mode, wind over a stubble field",
+        "weight": 0
+      }
+    ],
+    "bpm": 72,
+    "density": 0.35,
+    "brightness": 0.4,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}
