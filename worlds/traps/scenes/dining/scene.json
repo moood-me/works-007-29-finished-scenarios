@@ -535,7 +535,7 @@
         "cast": "cast",
         "who": "pile",
         "turn": 180,
-        "does": "sit_fists"
+        "does": "sit_heavy"
       },
       "across": -1.25,
       "distance": 2.88,
