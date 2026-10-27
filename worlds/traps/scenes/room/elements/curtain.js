@@ -1,7 +1,7 @@
 // The heavy curtain of the window: dark green wool on a wooden pole, drawn aside to the right of the window and
 // hanging straight in deep folds to the floor; its fellow, a narrow strip, on the left.
 const fold = (x0, x1, n) => {
-  g.fillStyle = '#34483a';
+  g.fillStyle = '#4c6a54';
   g.fillRect(x0, -2.38, x1 - x0, 2.38);
   for (let k = 0; k < n; k++) {
     const x = x0 + ((x1 - x0) * (k + 0.5)) / n;
@@ -11,7 +11,7 @@ const fold = (x0, x1, n) => {
     g.fillStyle = 'rgba(110, 140, 112, 0.25)';
     g.fillRect(x - w * 0.3, -2.38, w * 0.14, 2.38);
   }
-  g.fillStyle = '#2a3a2f';
+  g.fillStyle = '#3a5040';
   g.fillRect(x0, -0.05, x1 - x0, 0.05);
 };
 fold(-0.72, -0.5, 2);

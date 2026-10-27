@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Room Upstairs",
   "caption": "After the verdict. The prosecutor in the doorway: the best defendant in ten years! The judge with his candle: the sentence, fair copy, by morning.",
-  "horizon": 0.47,
+  "horizon": 0.37,
   "camera": {
     "mode": "picture"
   },
@@ -91,7 +91,11 @@
     "zorn_mood": "smile",
     "judge_mood": "smile",
     "kummer_mood": "tired",
-    "judge_look": "traps#head",
+    "judge_look": [
+      0.4,
+      1.6,
+      1.2
+    ],
     "zorn_look": [
       -0.2,
       2.0,
