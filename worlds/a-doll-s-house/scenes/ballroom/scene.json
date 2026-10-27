@@ -7,7 +7,7 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.45,
+    "ambient": 0.38,
     "ambientColor": "#a9aac4",
     "inside": 0.15,
     "bounce": 0.55,
@@ -31,7 +31,9 @@
     },
     {
       "id": "landing",
-      "of": "landing#lamp",
+      "across": 4.1,
+      "distance": 9.0,
+      "elevation": 2.2,
       "color": "#ffd28a",
       "strength": 1.0,
       "reach": 3
@@ -446,10 +448,10 @@
       "inside": true,
       "across": 2.85,
       "distance": 10.45,
-      "height": 2.3,
+      "height": 2.65,
       "box": [
         -0.95,
-        -2.3,
+        -2.65,
         0.95,
         0.02
       ],
@@ -460,10 +462,10 @@
           "distance": 10.45
         },
         {
-          "across": -2.95,
+          "across": -3.1,
           "distance": 5.75,
           "flip": true,
-          "scale": 0.9
+          "scale": 0.75
         }
       ]
     },

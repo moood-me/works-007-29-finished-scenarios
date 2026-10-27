@@ -84,22 +84,22 @@ const TAMBOURINE = F => {
   return { m, rim: [0.032 * m, 0.13 * m, 0.13 * m], skin: [0.022 * m, 0.122 * m, 0.122 * m], bell: [0.014 * m, 0.02 * m, 0.02 * m], axes: [null, null, null] };
 };
 function tambourine(F) {
-  const { add, mul } = V();
+  const { add, mul, sub, unit, dot, cross } = V();
   const K = F.keep(TAMBOURINE);
   const hand = F.P('RightHand');
-  const sd = F.side('RightHand');
-  const up = F.up('RightHand');
-  const fw = F.fwd('RightHand');
-  K.axes[0] = sd;
-  K.axes[1] = up;
-  K.axes[2] = fw;
-  // the hand holds the hoop at its rim: its middle a radius on from the hand
-  const c = add(hand, mul(fw, 0.12 * K.m));
+  // the hand holds the hoop at its rim, the hoop going on up the forearm's line from it, its skin to the front
+  const along = unit(sub(hand, F.P('RightForeArm')));
+  const front = F.fwd('Chest');
+  const face = unit(sub(front, mul(along, dot(front, along))));
+  K.axes[0] = face;
+  K.axes[1] = along;
+  K.axes[2] = cross(face, along);
+  const c = add(hand, mul(along, 0.12 * K.m));
   F.ball(c, K.axes, K.rim, HOOP, 20, 8);
-  F.ball(add(c, mul(sd, 0.006 * K.m)), K.axes, K.skin, SKIN_DRUM, 20, 8);
+  F.ball(add(c, mul(face, 0.006 * K.m)), K.axes, K.skin, SKIN_DRUM, 20, 8);
   for (let i = 0; i < 5; i++) {
     const a = (i / 5) * Math.PI * 2 + 0.6;
-    F.ball(add(c, add(mul(up, Math.cos(a) * 0.13 * K.m), mul(fw, Math.sin(a) * 0.13 * K.m))), K.axes, K.bell, BRASS, 8);
+    F.ball(add(c, add(mul(along, Math.cos(a) * 0.13 * K.m), mul(K.axes[2], Math.sin(a) * 0.13 * K.m))), K.axes, K.bell, BRASS, 8);
   }
 }
 // a coupe of champagne in the right hand: the shallow bowl on its stem

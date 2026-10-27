@@ -1,6 +1,6 @@
 // The landing beyond the doorway (its +x runs to the front, as the right wall's): a warm ochre wall, the stairs' dark
 // banister going down to the Helmers' floor, a wall lamp (its light the glow `lamp`) — where the guests come up from
-// and where Torvald takes Nora down after the dance.
+// and where Torvald takes Nora down after the dance. Its lamp lights the landing as the light "landing", before it.
 g.fillStyle = '#c99d63';
 g.fillRect(-1.0, -3.0, 2.0, 3.02);
 g.fillStyle = '#7d5a35';
