@@ -16,16 +16,26 @@ a fine line; the face `simple` — eyes, brows, a nose, a mouth, so that a face 
 - `mev` — Mev, her grandmother, about seventy: small and solid, white hair in a bun, a dark blue-grey dress; the cellar's
   key on a cord on her breast (`key_cord`), a basket of flowers on her left arm (`basket`).
 - `kor` — Kor at twelve: sunburnt, sturdy, dark short hair, an oat-coloured shirt, brown breeches, barefoot.
+- `the_child` — the child in the cellar: it looks six, perhaps it is nearly ten; small and thin, the hair matted, a
+  grey-brown rag of a smock (`rag`), barefoot, pale.
 - The townsfolk: `rose_woman` (a woman in rose), `blue_man` (a man in pale blue), `old_man` (an old man in cream),
   `flower_girl` (a little girl in yellow).
 
 ## Parts
 
 `flute` — the wooden flute held across between the hands (point `#flute`). `key_cord` — an old iron key on a cord round
-the neck (point `#key`). `basket` — a wicker basket of flowers hanging from the left hand, swinging a little late.
+the neck (point `#key`). `basket` — a wicker basket of flowers hanging from the left hand, swinging a little late. `lamp` — the cellar's small iron
+lantern hanging from the right hand by its bail, its glass glowing (point `#lamp`: a scene's light there). `bowl` — a
+small wooden bowl of porridge held before the waist in both hands (point `#bowl`). A scene says who has what
+(`<id>_with`): in the cellar Ila has the lamp, Mev the key and the bowl.
 
 ## Motions (Kimodo)
 
 `sit_flute` — sits on a low wall, knees together, feet on the floor, holding a small thing up to the mouth with both
 hands (a loop; Ila on the fountain's rim, her hands then set by `reach`); `hands_behind` — stands, the hands clasped
 behind the back, breathing (a loop).
+`lamp_up` — stands holding a lantern raised before the face in the right hand, arm forward (a loop; Ila in the cellar,
+the part `lamp`); `huddle` — sits on the floor, knees drawn up to the chest, arms round the legs, rocking a little (a
+loop; the child); `hold_bowl` — an old person standing bowed over a bowl held in both hands before the waist (a loop;
+Mev in the cellar, the part `bowl`); `stiff` — stands stiff, arms hanging, the hands balled into fists (a loop; Kor in
+the cellar).

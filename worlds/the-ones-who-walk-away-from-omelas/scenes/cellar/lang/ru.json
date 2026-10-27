@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Cellar","translation":"Подвал","where":"scenes/cellar/scene.json title"},
+  {"text":"Under one of the beautiful buildings of Omelas there is a room.","translation":"Под одним из красивых домов Омеласа есть комната.","where":"scenes/cellar/scene.json caption"}
+]}
