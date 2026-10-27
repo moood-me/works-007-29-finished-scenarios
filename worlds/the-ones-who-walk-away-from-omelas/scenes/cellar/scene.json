@@ -23,7 +23,7 @@
       "id": "lamp",
       "at": "ila#lamp",
       "color": "#ffc27a",
-      "strength": 1.6,
+      "strength": 2,
       "reach": 4.5,
       "flicker": 0.12,
       "glow": 0.22
@@ -74,8 +74,8 @@
     },
     "ila_reach": {
       "r": [
-        -0.75,
-        3.35,
+        -0.6,
+        3.25,
         1.45
       ]
     }
