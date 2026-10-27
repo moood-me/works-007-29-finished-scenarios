@@ -3,12 +3,42 @@
 const WINE = [0.46, 0.06, 0.1, 1];
 const GLASS = [0.86, 0.88, 0.86, 1];
 const WHITE = [0.95, 0.94, 0.91, 1];
+const GOLD = [0.72, 0.58, 0.3, 1];
+const STEEL = [0.78, 0.79, 0.8, 1];
 const UP = [0, 1, 0], DOWN = [0, -1, 0];
 // (what a part keeps from one frame to the next: the world's axes, its sizes at the person's size)
 const BOW = F => ({ axes: [null, null, null], wing: [0.022 * F.k, 0.015 * F.k, 0.01 * F.k], knot: [0.008 * F.k, 0.009 * F.k, 0.012 * F.k] });
 const FRINGE = F => ({ side: [F.head.r * 0.3, F.head.r * 0.36, F.head.r * 0.5], back: [F.head.r * 0.72, F.head.r * 0.36, F.head.r * 0.32] });
 const TIE = F => ({ pts: [null, null, null], profile: [[0, 0.014 * F.fit.h], [1, 0.022 * F.fit.h], [2, 0.026 * F.fit.h]], colors: [[0, F.colors.accent]] });
 const TASH = F => ({ r: [F.head.r * 0.17, F.head.r * 0.07, F.head.r * 0.07] });
+// Kummer's cane: dark wood with a crook, from under his right hand to the floor a little before his feet
+const CANE = F => ({ h: F.fit.h, wood: [[0, [0.23, 0.16, 0.12, 1]]], hook: [[0, 0.016 * F.fit.h], [3, 0.015 * F.fit.h]], curl: [null, null, null, null] });
+// Kummer's pince-nez: two small round rims before the eyes and a bridge, thin gold wire (points on the head's face)
+const RIM = 10;
+const PINCE = F => ({
+  dirs: [-1, 1].map(sx => Array.from({ length: RIM + 1 }, (_, i) => {
+    const a = (i / RIM) * Math.PI * 2;
+    return [sx * 0.3 + 0.16 * Math.cos(a), 0.05 + 0.14 * Math.sin(a), 0.95];
+  })),
+  rims: [0, 1].map(() => new Array(RIM + 1).fill(null)),
+  bridge: [[-0.14, 0.07, 0.99], [0.14, 0.07, 0.99]],
+  profile: [[0, F.head.r * 0.02], [RIM, F.head.r * 0.02]],
+  wire: F.head.r * 0.02,
+  colors: [[0, GOLD]],
+});
+// Pile's napkin tucked into his collar, hanging down over his chest and belly
+const NAPKIN = F => ({ pts: [null, null, null, null], profile: [[0, 0.03 * F.fit.h], [1, 0.1 * F.fit.h], [2, 0.12 * F.fit.h], [3, 0.11 * F.fit.h]], colors: [[0, WHITE]] });
+// Pile's knife and fork held upright in his fists on the table: steel blades and tines over dark handles
+const CUTLERY = F => ({
+  handle: [[0, [0.2, 0.14, 0.1, 1]]],
+  steel: [[0, STEEL]],
+  low: [0, -0.035 * F.fit.h, 0],
+  grip: [0, 0.06 * F.fit.h, 0],
+  top: [0, 0.2 * F.fit.h, 0],
+  tines: [-1, 0, 1].map(k => [k * 0.008 * F.fit.h, 0, 0]),
+  tineTop: [0, 0.24 * F.fit.h, 0],
+  r: 0.007 * F.fit.h,
+});
 const GLASS_SIZES = F => ({
   axes: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
   bowl: [0.035 * F.fit.h, 0.022 * F.fit.h, 0.035 * F.fit.h],
@@ -40,6 +70,20 @@ return {
       kind: 'shapes', style: 'traps', who: 'old', garment: 'frock', hair: 'short', face: 'simple', scarf: true,
       body: { height: 1.05, thick: 0.8, shoulders: 0.92, head: 0.96, neck: 1.15 },
       colors: { skin: '#e4b99c', hair: '#c9c5be', top: '#f0ece4', garment: '#25252b', bottom: '#2a2a30', shoes: '#18171a', accent: '#6e2232' },
+    },
+    // Kummer, the defender: an old man, short and stout, red in the face, untidy white hair, a pince-nez, a crumpled
+    // grey-brown suit and a green tie; his cane in his right hand
+    kummer: {
+      kind: 'shapes', style: 'traps', who: 'old', garment: 'suit', hair: 'short', face: 'simple', parts: ['cane', 'pincenez', 'tie'],
+      body: { height: 0.9, thick: 1.16, shoulders: 0.88, hips: 1.12, head: 1.06 },
+      colors: { skin: '#eaa58c', hair: '#ece8e0', top: '#ece6da', garment: '#6d6556', bottom: '#625b4e', shoes: '#3a2c22', accent: '#3d5a3c' },
+    },
+    // Pile, the executioner: huge and slow, a heavy neck, grey hair cropped close, a dark brown suit stretched over
+    // him, a white napkin tucked into his collar, a knife and a fork upright in his fists
+    pile: {
+      kind: 'shapes', style: 'traps', who: 'man', garment: 'suit', hair: 'short', face: 'simple', parts: ['napkin', 'cutlery'],
+      body: { height: 1.1, thick: 1.5, shoulders: 1.22, hips: 1.25, head: 1.0, neck: 0.7 },
+      colors: { skin: '#dcae8e', hair: '#8f8a84', top: '#ebe6dc', garment: '#3e3128', bottom: '#382c24', shoes: '#1d1714', accent: '#3e3128' },
     },
   },
   shapes: {
@@ -105,6 +149,71 @@ return {
           K.axes[2] = fw;
           for (const sx of [-1, 1]) F.ball(add(at, mul(sd, sx * 0.024 * k)), K.axes, K.wing, F.colors.accent, 10);
           F.ball(at, K.axes, K.knot, F.colors.accent, 8);
+        },
+      },
+      // a cane in the right hand: from under the hand straight down to the floor a little before the foot, its crook
+      // over the hand
+      cane: {
+        name: 'cane',
+        draw: F => {
+          const { add, mul, sub, unit } = MooodShapes.V;
+          const K = F.keep(CANE), h = K.h, hand = F.P('RightHand'), fwd = F.fwd('Hips'), across = F.side('Hips');
+          const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.07 * h;
+          const tip = sub(add(hand, mul(fwd, 0.04 * h)), mul(UP, hand[1] - floor));
+          const along = unit(sub(hand, tip));
+          const top = add(hand, mul(along, 0.04 * h));
+          F.bar(top, tip, 0.012 * h, 0.009 * h, K.wood, 6, across);
+          const back = mul(fwd, -1);
+          K.curl[0] = top;
+          K.curl[1] = add(top, mul(along, 0.04 * h));
+          K.curl[2] = add(K.curl[1], add(mul(along, 0.01 * h), mul(back, 0.05 * h)));
+          K.curl[3] = add(top, add(mul(along, 0.015 * h), mul(back, 0.09 * h)));
+          F.tube(K.curl, K.hook, K.wood, 6, across);
+        },
+      },
+      // a pince-nez before the eyes
+      pincenez: {
+        name: 'pince-nez',
+        draw: F => {
+          const h = F.head, K = F.keep(PINCE);
+          for (let k = 0; k < 2; k++) {
+            const rim = K.rims[k], dirs = K.dirs[k];
+            for (let i = 0; i <= RIM; i++) rim[i] = h.on(dirs[i], 1.07);
+            F.tube(rim, K.profile, K.colors, 5, h.axes[1]);
+          }
+          F.bar(h.on(K.bridge[0], 1.08), h.on(K.bridge[1], 1.08), K.wire, K.wire, K.colors, 5, h.axes[1]);
+        },
+      },
+      // a white napkin tucked into the collar, down the chest and over the belly, kept before the jacket
+      napkin: {
+        name: 'napkin',
+        draw: F => {
+          const { add, mul } = MooodShapes.V;
+          const K = F.keep(NAPKIN), k = F.k, fw = F.fwd('Chest'), up = F.up('Chest');
+          K.pts[0] = F.clear(add(F.P('Neck1'), add(mul(fw, 0.08 * k), mul(up, -0.03 * F.fit.h))), 1, 0.008 * k);
+          K.pts[1] = F.clear(add(F.P('Chest'), mul(fw, 0.12 * k)), 1, 0.008 * k);
+          K.pts[2] = F.clear(add(F.P('Spine1'), mul(fw, 0.14 * k)), 1, 0.008 * k);
+          K.pts[3] = F.clear(add(F.P('Hips'), add(mul(fw, 0.16 * k), mul(up, 0.06 * F.fit.h))), 1, 0.008 * k);
+          F.tube(K.pts, K.profile, K.colors, 8, F.side('Chest'), 0.2);
+        },
+      },
+      // a fork upright in the left fist, a knife upright in the right, whatever the hands do
+      cutlery: {
+        name: 'knife and fork',
+        draw: F => {
+          const { add } = MooodShapes.V;
+          const K = F.keep(CUTLERY);
+          for (const side of ['Left', 'Right']) {
+            const hand = F.P(`${side}Hand`), across = F.side('Chest');
+            F.bar(add(hand, K.low), add(hand, K.grip), K.r * 1.4, K.r * 1.4, K.handle, 6, across);
+            if (side === 'Right') F.bar(add(hand, K.grip), add(hand, K.top), K.r * 1.6, K.r * 0.6, K.steel, 6, across, 0.25);
+            else {
+              F.bar(add(hand, K.grip), add(hand, K.top), K.r * 0.8, K.r, K.steel, 6, across);
+              for (const t of K.tines) {
+                F.bar(add(add(hand, K.top), t), add(add(hand, K.tineTop), t), K.r * 0.35, K.r * 0.25, K.steel, 4, across);
+              }
+            }
+          }
         },
       },
       // a white moustache under the nose
