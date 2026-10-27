@@ -3,9 +3,10 @@
 // bright summer city by the sea), faces simple enough to read across a square — and how they move: the motions in
 // cast.data.json (Kimodo's, put there with put_motion). cast.md says who is who, what each carries and what each motion
 // is. A part's lengths are a man's metres times F.fit.h (the person's height as a share of a man's 1.76 m); the points
-// a part names (F.point) are the person's: "ila#flute", "mev#key".
+// a part names (F.point) are the person's: "ila#flute", "mev#key", "ila#lamp", "mev#bowl".
 const V = () => MooodShapes.V;
 const WOOD = [0.66, 0.5, 0.32, 1], IRON = [0.24, 0.23, 0.22, 1], CORD = [0.36, 0.28, 0.2, 1], WICKER = [0.66, 0.53, 0.34, 1];
+const GLASS = [1, 0.8, 0.5, 2], PORRIDGE = [0.86, 0.78, 0.62, 1], BOWL = [0.52, 0.38, 0.24, 1];
 const FLOWERS = [[0.86, 0.42, 0.38, 1], [0.95, 0.86, 0.55, 1], [0.93, 0.92, 0.9, 1], [0.78, 0.55, 0.7, 1]];
 return {
   ...data,
@@ -35,6 +36,11 @@ return {
     old_man: { kind: 'shapes', style: 'omelas', who: 'old', garment: 'coat', hair: 'short',
       body: { height: 0.95, thick: 0.92 },
       colors: { skin: '#d6ab8d', hair: '#ece8e0', garment: '#e7dcc4', bottom: '#8c8170', shoes: '#4a3f35' } },
+    // the child in the cellar: it looks six, perhaps it is nearly ten — small and thin, the hair matted, a grey-brown rag
+    // of a smock, barefoot, the skin pale from never seeing the sun
+    the_child: { kind: 'shapes', style: 'omelas', who: 'child', garment: 'rag', hair: 'bob', barefoot: 'both',
+      body: { height: 0.66, head: 0.96, thick: 0.6, shoulders: 0.8, arms: 0.98 },
+      colors: { skin: '#cdb6a4', hair: '#4b3b2d', top: '#7a7062', garment: '#7a7062' } },
     flower_girl: { kind: 'shapes', style: 'omelas', who: 'child', garment: 'shift', hair: 'long',
       body: { height: 0.68, thick: 0.8 },
       colors: { skin: '#e7bb98', hair: '#c79a55', top: '#f0d98a', garment: '#f0d98a', shoes: '#9a7452' } },
@@ -46,6 +52,8 @@ return {
     garments: {
       // a girl's summer dress: from the waist to below the knee, bare arms
       shift: { name: 'summer dress', hang: [{ to: 1.3, from: 'waist', flare: 0.32, off: 0.94 }], short: true, bare: true, bodice: true },
+      // the child's smock: a rag hanging from the shoulders to the thighs, its hem torn, the arms and legs bare
+      rag: { name: 'rag smock', hang: [{ to: 0.55, from: 'shoulders', flare: 0.1, ragged: true }], short: true, bare: true },
     },
     parts: {
       // the mother's wooden flute: a plain pale tube held across, from beyond the left hand through the right
@@ -78,6 +86,27 @@ return {
           const f = [-0.1, -0.03, 0.04, 0.11][i], s2 = [0.03, -0.04, 0.04, -0.02][i];
           F.ball(add(add(mid, mul(up, 0.085 * m)), add(mul(fwd, f * m), mul(axes[0], s2 * m))), axes, [0.04 * m, 0.03 * m, 0.04 * m], col, 8);
         });
+      } },
+      // the cellar's lamp carried down: a small iron lantern hanging from the right hand by its bail, its glass lit
+      // (it glows); it swings a little late as the hand moves (point "#lamp": where its flame is — the scene's light there)
+      lamp: { name: 'lamp', draw: F => {
+        const { add, sub, mul, cross, unit } = V(), m = F.fit.h, h = F.P('RightHand');
+        const mid = F.swing('lamp', add(h, [0, -0.16 * m, 0]), 90), up = unit(sub(h, mid));
+        const side = unit(cross(up, F.fwd('Hips'))), axes = [side, up, cross(side, up)];
+        F.bar(h, add(mid, mul(up, 0.08 * m)), 0.004 * m, 0.004 * m, [[0, IRON]], 4, axes[2]);
+        F.ball(add(mid, mul(up, 0.07 * m)), axes, [0.045 * m, 0.022 * m, 0.045 * m], IRON, 10);
+        F.ball(mid, axes, [0.036 * m, 0.055 * m, 0.036 * m], GLASS, 12);
+        F.ball(add(mid, mul(up, -0.062 * m)), axes, [0.047 * m, 0.016 * m, 0.047 * m], IRON, 10);
+        F.point('lamp', mid);
+      } },
+      // the bowl carried down: a small wooden bowl held before the waist in both hands, half full of porridge
+      bowl: { name: 'bowl', draw: F => {
+        const { add, sub, mul, cross, level } = V(), m = F.fit.h, l = F.P('LeftHand'), r = F.P('RightHand');
+        const side = level(sub(l, r)), up = [0, 1, 0], axes = [side, up, cross(side, up)];
+        const mid = add(mul(add(l, r), 0.5), mul(up, 0.02 * m));
+        F.ball(mid, axes, [0.085 * m, 0.04 * m, 0.085 * m], BOWL, 14);
+        F.ball(add(mid, mul(up, 0.024 * m)), axes, [0.068 * m, 0.02 * m, 0.068 * m], PORRIDGE, 12);
+        F.point('bowl', mid);
       } },
     },
   },
