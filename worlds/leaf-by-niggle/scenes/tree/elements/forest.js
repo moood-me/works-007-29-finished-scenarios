@@ -4,7 +4,7 @@
 const tones = ['#71886a', '#7d936f', '#66805f', '#899c78', '#6e8466'];
 // back row: taller, paler
 for (let i = 0; i < 9; i++) {
-  const x = -15 + i * 3.6 + (e.rnd() - 0.5) * 1.5;
+  const x = -13 + i * 3.25 + (e.rnd() - 0.5) * 1.2;
   const h = 11 + e.rnd() * 4;
   const r = 2.2 + e.rnd() * 1.2;
   g.fillStyle = '#869a86';
@@ -17,12 +17,12 @@ for (let i = 0; i < 9; i++) {
 // trunks
 g.fillStyle = '#5a5848';
 for (let i = 0; i < 14; i++) {
-  const x = -15.5 + e.rnd() * 31;
+  const x = -14 + e.rnd() * 28;
   g.fillRect(x - 0.15, -5, 0.3, 5.1);
 }
 // front row: fuller crowns down to the ground's shade
 for (let i = 0; i < 12; i++) {
-  const x = -15 + i * 2.7 + (e.rnd() - 0.5) * 1.2;
+  const x = -13.5 + i * 2.45 + (e.rnd() - 0.5) * 1.0;
   const h = 8 + e.rnd() * 4;
   const r = 1.8 + e.rnd() * 1.1;
   for (let k = 0; k < 6; k++) {

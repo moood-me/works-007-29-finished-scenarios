@@ -44,6 +44,16 @@ const STAFF = F => {
     curl: [null, null, null, null, null],
   };
 };
+// Parish's spade in that country: a plain wooden shaft and grip, the iron blade pushed into the earth beside his
+// right foot, his right hand on the grip
+const SPADE = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    wood: [[0, [0.54, 0.43, 0.31, 1]]],
+    iron: [[0, [0.55, 0.56, 0.56, 1]]],
+  };
+};
 return {
   ...data,
   characters: {
@@ -131,6 +141,24 @@ return {
           F.bar(back, neck, 0.007 * h, 0.006 * h, K.handle, 6, side);
           F.bar(neck, head, 0.0065 * h, 0.0065 * h, K.ferrule, 6, side);
           F.bar(head, end, 0.008 * h, 0.002 * h, K.tip, 6, side);
+        },
+      },
+      spade: {
+        name: 'spade',
+        draw: F => {
+          const { add, mul, sub } = V();
+          const K = F.keep(SPADE);
+          const h = K.h;
+          const hand = F.P('RightHand');
+          const side = F.side('Hips');
+          const fwd = F.fwd('Hips');
+          const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.07 * h;
+          const foot = add([hand[0], floor, hand[2]], add(mul(fwd, 0.04 * h), mul(side, 0.05 * h)));
+          const tip = sub(foot, mul(UP, 0.08 * h));
+          const bladeTop = add(foot, mul(UP, 0.18 * h));
+          F.bar(sub(hand, mul(UP, 0.02 * h)), bladeTop, 0.013 * h, 0.014 * h, K.wood, 6, side);
+          F.bar(add(hand, mul(side, -0.055 * h)), add(hand, mul(side, 0.055 * h)), 0.014 * h, 0.014 * h, K.wood, 6, fwd);
+          F.bar(bladeTop, tip, 0.075 * h, 0.065 * h, K.iron, 6, side, 0.12);
         },
       },
       staff: {

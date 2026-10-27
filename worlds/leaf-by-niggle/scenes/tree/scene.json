@@ -18,7 +18,11 @@
     "tintStrength": 0.06,
     "vignette": 0.35,
     "grain": 0.08,
-    "wind": [1, 0.2, 0.45],
+    "wind": [
+      1,
+      0.2,
+      0.45
+    ],
     "looks": {
       "glow": {
         "ambient": 0.62,
@@ -35,32 +39,48 @@
   "lights": [
     {
       "id": "sun",
-      "from": [150, 36],
+      "from": [
+        150,
+        36
+      ],
       "color": "#fff0d4",
       "strength": 1.3
     }
   ],
-  "modules": ["cast"],
+  "modules": [
+    "cast"
+  ],
   "state": {
     "mist": 1,
     "glow": 0,
     "niggle_look": "tree#leaf",
     "niggle_mood": "smile",
-    "niggle_reach": { "r": "tree#leaf" },
+    "niggle_reach": {
+      "r": "tree#leaf"
+    },
     "parish_look": "tree",
     "parish_mood": "surprised",
-    "parish_with": ["moustache", "spade"],
+    "parish_with": [
+      "moustache",
+      "spade"
+    ],
     "guide_look": "niggle",
     "guide_mood": "neutral"
   },
   "states": {
     "mist": {
-      "range": [0, 1],
+      "range": [
+        0,
+        1
+      ],
       "smooth": true,
       "means": "the unfinished edges round the Tree: 1 the mist like unprimed canvas lies at its roots and over the far edge beyond the forest; 0 it has lifted"
     },
     "glow": {
-      "range": [0, 1],
+      "range": [
+        0,
+        1
+      ],
       "smooth": true,
       "means": "the light of the country: 0 a clear, timeless morning; 1 the light gone golden and the snow on the Mountains burning"
     }
@@ -77,10 +97,15 @@
     {
       "id": "mountains",
       "name": "The Mountains",
-      "across": 1500,
-      "distance": 8000,
-      "height": 1900,
-      "box": [-9000, -1950, 9000, 0.5],
+      "across": 3000,
+      "distance": 6000,
+      "height": 2300,
+      "box": [
+        -9000,
+        -2450,
+        9000,
+        0.5
+      ],
       "redraw": {
         "glow": 0.25
       }
@@ -91,7 +116,12 @@
       "across": 0,
       "distance": 1400,
       "height": 160,
-      "box": [-2600, -170, 2600, 1]
+      "box": [
+        -2600,
+        -170,
+        2600,
+        1
+      ]
     },
     {
       "id": "meadow",
@@ -108,12 +138,36 @@
       "across": -24,
       "distance": 46,
       "height": 15,
-      "box": [-16, -15.5, 16, 0.1],
+      "box": [
+        -19.5,
+        -16,
+        19.5,
+        0.5
+      ],
       "copies": [
-        { "across": -24, "distance": 46 },
-        { "across": -2, "distance": 58, "flip": true, "scale": 1.1 },
-        { "across": -48, "distance": 52, "scale": 0.95, "tint": "#e8ece8" },
-        { "across": 18, "distance": 90, "scale": 1.2, "flip": true, "tint": "#e4ebee" }
+        {
+          "across": -24,
+          "distance": 46
+        },
+        {
+          "across": -2,
+          "distance": 58,
+          "flip": true,
+          "scale": 1.1
+        },
+        {
+          "across": -48,
+          "distance": 52,
+          "scale": 0.95,
+          "tint": "#e8ece8"
+        },
+        {
+          "across": 18,
+          "distance": 90,
+          "scale": 1.2,
+          "flip": true,
+          "tint": "#e4ebee"
+        }
       ]
     },
     {
@@ -122,7 +176,12 @@
       "across": -30,
       "distance": 40,
       "height": 14,
-      "box": [-22, -14, 22, 0.1]
+      "box": [
+        -22,
+        -14,
+        22,
+        0.1
+      ]
     },
     {
       "id": "tree",
@@ -131,7 +190,12 @@
       "across": -3.6,
       "distance": 12,
       "height": 9.6,
-      "box": [-6.4, -10.3, 5.6, 0.15]
+      "box": [
+        -6.6,
+        -10.4,
+        7.4,
+        0.15
+      ]
     },
     {
       "id": "root_mist",
@@ -139,7 +203,12 @@
       "across": -4.4,
       "distance": 11.4,
       "height": 1.3,
-      "box": [-5.5, -1.4, 4.2, 0.1]
+      "box": [
+        -5.5,
+        -1.4,
+        4.2,
+        0.1
+      ]
     },
     {
       "id": "beds",
@@ -168,7 +237,12 @@
       "across": 2.5,
       "distance": 9.1,
       "height": 1.5,
-      "box": [-0.45, -1.55, 0.45, 0.05]
+      "box": [
+        -0.45,
+        -1.55,
+        0.45,
+        0.05
+      ]
     },
     {
       "id": "boards",
@@ -178,7 +252,12 @@
       "distance": 7.4,
       "facing": 196,
       "height": 0.32,
-      "box": [-0.95, -0.36, 0.95, 0.03]
+      "box": [
+        -0.95,
+        -0.36,
+        0.95,
+        0.03
+      ]
     },
     {
       "id": "grass",
@@ -186,14 +265,44 @@
       "across": -2,
       "distance": 5,
       "height": 0.6,
-      "box": [-1.6, -0.7, 1.6, 0.05],
+      "box": [
+        -1.6,
+        -0.7,
+        1.6,
+        0.05
+      ],
       "copies": [
-        { "across": -5.2, "distance": 5.2 },
-        { "across": -2.4, "distance": 4.8, "flip": true, "scale": 0.9 },
-        { "across": 0.6, "distance": 5.4, "scale": 0.8 },
-        { "across": 6.6, "distance": 5.0, "flip": true },
-        { "across": 8.4, "distance": 7.2, "scale": 1.1 },
-        { "across": -7.6, "distance": 8.5, "flip": true, "scale": 1.1 }
+        {
+          "across": -5.2,
+          "distance": 5.2
+        },
+        {
+          "across": -2.4,
+          "distance": 4.8,
+          "flip": true,
+          "scale": 0.9
+        },
+        {
+          "across": 0.6,
+          "distance": 5.4,
+          "scale": 0.8
+        },
+        {
+          "across": 6.6,
+          "distance": 5.0,
+          "flip": true
+        },
+        {
+          "across": 8.4,
+          "distance": 7.2,
+          "scale": 1.1
+        },
+        {
+          "across": -7.6,
+          "distance": 8.5,
+          "flip": true,
+          "scale": 1.1
+        }
       ]
     },
     {
@@ -215,7 +324,7 @@
         "cast": "cast",
         "who": "parish",
         "turn": 235,
-        "does": "lean_spade"
+        "does": "stand_spade"
       },
       "across": 3.3,
       "distance": 6.7
@@ -235,24 +344,78 @@
   ],
   "music": {
     "prompts": [
-      { "text": "Vaughan Williams-like modal strings, English countryside, wide and hopeful", "weight": 1.2 },
-      { "text": "Choir humming without words, far mountains, snow, awe", "weight": 0.6 },
-      { "text": "Gentle English pastoral chamber music, solo clarinet over soft strings, autumnal and wistful", "weight": 0.5 },
-      { "text": "Celesta and harp, small glinting figures like dew on a leaf, sparse", "weight": 0.5 },
-      { "text": "Quiet felt piano, slow, unhurried, a small tune that never quite resolves, warm room tone", "weight": 0 },
-      { "text": "Folk-like oboe melody over a hushed string quartet, late afternoon light, tender melancholy", "weight": 0 },
-      { "text": "Solo cello, low and patient, a man working alone", "weight": 0 },
-      { "text": "Music box waltz, faded, nostalgic", "weight": 0 },
-      { "text": "Recorder and lute, quaint village dance, light", "weight": 0 },
-      { "text": "Soft brass chorale in the distance, evening bells", "weight": 0 },
-      { "text": "Ambient pads, rain on a wooden roof, drowsy", "weight": 0 },
-      { "text": "Accordion, slow, a little town street in autumn", "weight": 0 },
-      { "text": "Flute and pizzicato strings, a fussy busy little man, comic", "weight": 0 },
-      { "text": "String trio, worried, a knock at the door, restless", "weight": 0 },
-      { "text": "Guitar fingerpicking, folk, simple and kind", "weight": 0 },
-      { "text": "Piano and clarinet duet, two neighbours who never quite talk", "weight": 0 },
-      { "text": "Harmonium drone, church hall, plain and solemn", "weight": 0 },
-      { "text": "Glockenspiel and soft woodwinds, a train whistle far off, a journey", "weight": 0 }
+      {
+        "text": "Vaughan Williams-like modal strings, English countryside, wide and hopeful",
+        "weight": 1.2
+      },
+      {
+        "text": "Choir humming without words, far mountains, snow, awe",
+        "weight": 0.6
+      },
+      {
+        "text": "Gentle English pastoral chamber music, solo clarinet over soft strings, autumnal and wistful",
+        "weight": 0.5
+      },
+      {
+        "text": "Celesta and harp, small glinting figures like dew on a leaf, sparse",
+        "weight": 0.5
+      },
+      {
+        "text": "Quiet felt piano, slow, unhurried, a small tune that never quite resolves, warm room tone",
+        "weight": 0
+      },
+      {
+        "text": "Folk-like oboe melody over a hushed string quartet, late afternoon light, tender melancholy",
+        "weight": 0
+      },
+      {
+        "text": "Solo cello, low and patient, a man working alone",
+        "weight": 0
+      },
+      {
+        "text": "Music box waltz, faded, nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "Recorder and lute, quaint village dance, light",
+        "weight": 0
+      },
+      {
+        "text": "Soft brass chorale in the distance, evening bells",
+        "weight": 0
+      },
+      {
+        "text": "Ambient pads, rain on a wooden roof, drowsy",
+        "weight": 0
+      },
+      {
+        "text": "Accordion, slow, a little town street in autumn",
+        "weight": 0
+      },
+      {
+        "text": "Flute and pizzicato strings, a fussy busy little man, comic",
+        "weight": 0
+      },
+      {
+        "text": "String trio, worried, a knock at the door, restless",
+        "weight": 0
+      },
+      {
+        "text": "Guitar fingerpicking, folk, simple and kind",
+        "weight": 0
+      },
+      {
+        "text": "Piano and clarinet duet, two neighbours who never quite talk",
+        "weight": 0
+      },
+      {
+        "text": "Harmonium drone, church hall, plain and solemn",
+        "weight": 0
+      },
+      {
+        "text": "Glockenspiel and soft woodwinds, a train whistle far off, a journey",
+        "weight": 0
+      }
     ],
     "bpm": 72,
     "density": 0.35,

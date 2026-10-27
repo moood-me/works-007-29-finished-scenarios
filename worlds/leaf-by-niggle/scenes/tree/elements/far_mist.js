@@ -3,15 +3,16 @@
 // `mist` (its animate) fades it.
 e.layer('mist', {}, l => {
   for (let i = 0; i < 26; i++) {
-    const x = -16 + e.rnd() * 32;
-    const y = -1 - e.rnd() * 11;
+    const x = -15 + e.rnd() * 30;
+    const y = -2 - e.rnd() * 7;
     const left = 1 - (x + 22) / 44;
-    const grad = l.createRadialGradient(x, y, 0, x, y, 3 + e.rnd() * 4);
-    grad.addColorStop(0, `rgba(232,228,214,${0.2 + left * 0.5})`);
+    const r = 3 + e.rnd() * 3;
+    const grad = l.createRadialGradient(x, y, 0, x, y, r);
+    grad.addColorStop(0, `rgba(232,228,214,${0.12 + left * 0.3})`);
     grad.addColorStop(1, 'rgba(232,228,214,0)');
     l.fillStyle = grad;
     l.beginPath();
-    l.arc(x, y, 7, 0, Math.PI * 2);
+    l.arc(x, y, r, 0, Math.PI * 2);
     l.fill();
   }
 });
