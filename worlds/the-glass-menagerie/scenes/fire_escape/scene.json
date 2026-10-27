@@ -38,9 +38,7 @@
     },
     {
       "id": "sign_green",
-      "across": -1.0,
-      "distance": -2.5,
-      "elevation": 1.5,
+      "of": "sign#green",
       "color": "#3fdc9c",
       "strength": 0.45,
       "reach": 9,
@@ -49,9 +47,7 @@
     },
     {
       "id": "hall",
-      "across": 1.4,
-      "distance": -2.4,
-      "elevation": 0.7,
+      "of": "hall#windows",
       "color": "#ffc483",
       "strength": 0.75,
       "reach": 9
@@ -123,6 +119,16 @@
         10.5,
         0.05
       ]
+    },
+    {
+      "id": "street",
+      "name": "The street past the corner, far below",
+      "plane": true,
+      "drape": true,
+      "across": -22,
+      "distance": 24,
+      "width": 40,
+      "depth": 46
     },
     {
       "id": "hall",
@@ -206,10 +212,10 @@
       "across": 0.75,
       "distance": 6.15,
       "facing": 180,
-      "height": 1.0,
+      "height": 1.22,
       "box": [
         -0.95,
-        -1.0,
+        -1.22,
         0.95,
         0.03
       ]
@@ -271,7 +277,7 @@
       "walk": true,
       "across": 1.5,
       "distance": 3.92,
-      "elevation": 9,
+      "elevation": 0,
       "width": 4.2,
       "depth": 1.36
     },
@@ -281,54 +287,54 @@
       "plane": true,
       "across": -0.73,
       "distance": 3.92,
-      "elevation": 8.8,
+      "elevation": -0.2,
       "width": 0.24,
       "depth": 1.0,
       "copies": [
         {
           "across": -0.73,
           "distance": 3.92,
-          "elevation": 8.8
+          "elevation": -0.2
         },
         {
           "across": -0.97,
           "distance": 3.92,
-          "elevation": 8.58
+          "elevation": -0.42
         },
         {
           "across": -1.21,
           "distance": 3.92,
-          "elevation": 8.360000000000001
+          "elevation": -0.64
         },
         {
           "across": -1.45,
           "distance": 3.92,
-          "elevation": 8.14
+          "elevation": -0.86
         },
         {
           "across": -1.69,
           "distance": 3.92,
-          "elevation": 7.920000000000001
+          "elevation": -1.08
         },
         {
           "across": -1.93,
           "distance": 3.92,
-          "elevation": 7.700000000000001
+          "elevation": -1.3
         },
         {
           "across": -2.17,
           "distance": 3.92,
-          "elevation": 7.48
+          "elevation": -1.52
         },
         {
           "across": -2.41,
           "distance": 3.92,
-          "elevation": 7.260000000000001
+          "elevation": -1.74
         },
         {
           "across": -2.65,
           "distance": 3.92,
-          "elevation": 7.040000000000001
+          "elevation": -1.96
         }
       ]
     },

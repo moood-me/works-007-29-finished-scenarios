@@ -14,3 +14,4 @@ for (let i = 0; i < 6; i++) {
   g.fillStyle = '#3a2c30';
   g.fillRect(x + 0.43, -1.7, 0.04, 1.45);
 }
+e.light(0, -1.0, 2.5, '#ffc483', 0.6, 'windows');

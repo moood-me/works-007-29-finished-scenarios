@@ -37,4 +37,5 @@ e.layer('tubes', { flicker: 0.25 }, c => {
   c.restore();
 });
 e.light(0, -0.5, 0.9, '#ff5aa0', 1, 'neon');
+e.light(0, -0.22, 0.6, '#54f0b2', 0.5, 'green');
 e.at(0, -0.5);
