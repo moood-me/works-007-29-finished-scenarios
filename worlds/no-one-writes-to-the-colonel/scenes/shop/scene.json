@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Tailors' Shop",
   "caption": "Friday, after the launch. Under the cover is Agustín's machine; nobody sits at it.",
-  "horizon": 0.36,
+  "horizon": 0.42,
   "camera": {
     "mode": "picture"
   },
@@ -40,8 +40,8 @@
       "id": "bulb",
       "of": "bulb#glow",
       "color": "#ffc98a",
-      "strength": 0.9,
-      "reach": 3.6,
+      "strength": 1.4,
+      "reach": 4.2,
       "on": "bulb",
       "flicker": 0.03
     },
