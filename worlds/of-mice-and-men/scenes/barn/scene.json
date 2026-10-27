@@ -672,7 +672,7 @@
       "height": 0.5,
       "box": [
         -0.42,
-        -0.55,
+        -0.6,
         0.42,
         0.03
       ],
@@ -717,10 +717,10 @@
       "person": {
         "cast": "cast",
         "who": "curleys_wife",
-        "turn": 135,
+        "turn": 160,
         "does": "hip"
       },
-      "across": -1.65,
+      "across": -1.3,
       "distance": 5.75,
       "shadow": true
     }

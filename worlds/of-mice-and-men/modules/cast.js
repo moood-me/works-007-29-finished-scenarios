@@ -81,16 +81,20 @@ return {
           F.ball(at, [F.side(j), F.up(j), F.fwd(j)], [0.035, 0.026, 0.04].map(v => v * F.fit.h), F.colors.accent, 8);
         }
       } },
-      // a puppy held in both hands: white with brown patches, its brown head with the ears down; its point "#puppy"
+      // a puppy held in both hands against the chest: white with a brown patch, lying across the arms, its brown head
+      // at one end turned out, a pale muzzle, a black nose, the ears down; its point "#puppy"
       puppy: { name: 'puppy', draw: F => {
         const { add, mul, mean } = MooodShapes.V, c = mean([F.P('LeftHand'), F.P('RightHand')]);
-        const axes = [F.side('Chest'), F.up('Chest'), F.fwd('Chest')], k = F.fit.h;
-        const body = add(c, add(mul(axes[1], 0.05 * k), mul(axes[2], 0.02 * k)));
-        F.ball(body, axes, [0.12 * k, 0.065 * k, 0.07 * k], [0.88, 0.84, 0.77], 10);
-        F.ball(add(body, mul(axes[0], -0.04 * k)), axes, [0.06 * k, 0.05 * k, 0.06 * k], [0.47, 0.33, 0.21], 8);
-        const head = add(body, add(mul(axes[0], 0.12 * k), mul(axes[1], 0.04 * k)));
-        F.ball(head, axes, [0.05 * k, 0.045 * k, 0.05 * k], [0.47, 0.33, 0.21], 10);
-        for (const sz of [-1, 1]) F.ball(add(head, add(mul(axes[2], sz * 0.04 * k), mul(axes[1], -0.01 * k))), axes, [0.015 * k, 0.035 * k, 0.012 * k], [0.3, 0.2, 0.13], 6);
+        const [hs, hu, hf] = [F.side('Chest'), F.up('Chest'), F.fwd('Chest')], axes = [hs, hu, hf], k = F.fit.h;
+        const at = (o, s, u, f) => add(o, add(mul(hs, s * k), add(mul(hu, u * k), mul(hf, f * k))));
+        const body = at(c, 0, 0.04, 0.06);
+        F.ball(body, axes, [0.13, 0.07, 0.075].map(v => v * k), [0.9, 0.86, 0.79], 10);
+        F.ball(at(body, -0.05, 0.03, 0.02), axes, [0.06, 0.045, 0.055].map(v => v * k), [0.47, 0.33, 0.21], 8);
+        const head = at(body, 0.11, 0.05, 0.04);
+        F.ball(head, axes, [0.055, 0.05, 0.055].map(v => v * k), [0.47, 0.33, 0.21], 10);
+        F.ball(at(head, 0.01, -0.012, 0.045), axes, [0.03, 0.025, 0.03].map(v => v * k), [0.9, 0.86, 0.79], 8);
+        F.ball(at(head, 0.01, -0.005, 0.075), axes, [0.01, 0.009, 0.008].map(v => v * k), [0.08, 0.06, 0.05], 6);
+        for (const sx of [-1, 1]) F.ball(at(head, sx * 0.045, -0.015, -0.005), axes, [0.012, 0.035, 0.018].map(v => v * k), [0.3, 0.2, 0.13], 6);
         F.point('puppy', head);
       } },
     },
