@@ -1,0 +1,549 @@
+{
+  "engine": 3,
+  "title": "The Tapestry Chamber",
+  "caption": "Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.45,
+    "ambientColor": "#9a8a78",
+    "bounce": 0.6,
+    "haze": 0.08,
+    "hazeColor": "#d6b07c",
+    "hazeGlow": 0.4,
+    "shafts": 1.4,
+    "tint": "#ffd8a0",
+    "tintStrength": 0.06,
+    "vignette": 0.45,
+    "grain": 0.06,
+    "wind": [
+      1,
+      0,
+      0.4
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        20,
+        14
+      ],
+      "color": "#ffc47a",
+      "strength": 2.2,
+      "through": [
+        [
+          [
+            0.65,
+            7.1,
+            0.55
+          ],
+          [
+            2.55,
+            7.1,
+            0.55
+          ],
+          [
+            2.55,
+            7.1,
+            2.66
+          ],
+          [
+            0.65,
+            7.1,
+            2.66
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "daylight",
+      "across": 1.6,
+      "distance": 6.8,
+      "elevation": 1.6,
+      "color": "#ffd9a0",
+      "strength": 0.8,
+      "reach": 6
+    },
+    {
+      "id": "ghost",
+      "across": 1.3,
+      "distance": 6.0,
+      "elevation": 1.0,
+      "color": "#bdf0df",
+      "strength": 0.8,
+      "reach": 2.2
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "simon_on": [
+      1.35,
+      6.72,
+      0.48
+    ],
+    "simon_mood": "tired",
+    "simon_look": [
+      0.2,
+      5.0,
+      0.2
+    ],
+    "virginia_look": "simon",
+    "virginia_mood": "sad"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The autumn sky",
+      "sky": true
+    },
+    {
+      "id": "park",
+      "name": "The park's woods far off",
+      "across": 10,
+      "distance": 90,
+      "height": 25,
+      "box": [
+        -120,
+        -25,
+        120,
+        0.5
+      ]
+    },
+    {
+      "id": "lawn",
+      "name": "The lawn",
+      "plane": true,
+      "across": 5,
+      "distance": 30,
+      "width": 60,
+      "depth": 44
+    },
+    {
+      "id": "avenue",
+      "name": "The avenue's gravel walk",
+      "plane": true,
+      "across": 5,
+      "distance": 30,
+      "elevation": 0.01,
+      "width": 3,
+      "depth": 44
+    },
+    {
+      "id": "lime",
+      "name": "The limes of the avenue",
+      "across": 2.6,
+      "distance": 12,
+      "height": 11,
+      "box": [
+        -3.6,
+        -11.2,
+        3.6,
+        0.1
+      ],
+      "copies": [
+        {
+          "across": 2.6,
+          "distance": 12,
+          "flip": false,
+          "scale": 0.9
+        },
+        {
+          "across": 7.4,
+          "distance": 13,
+          "flip": true,
+          "scale": 1.0
+        },
+        {
+          "across": 2.4,
+          "distance": 18,
+          "flip": false,
+          "scale": 1.1
+        },
+        {
+          "across": 7.6,
+          "distance": 19,
+          "flip": true,
+          "scale": 0.9
+        },
+        {
+          "across": 2.6,
+          "distance": 24,
+          "flip": false,
+          "scale": 1.0
+        },
+        {
+          "across": 7.4,
+          "distance": 25,
+          "flip": true,
+          "scale": 1.1
+        },
+        {
+          "across": 2.5,
+          "distance": 30,
+          "flip": false,
+          "scale": 0.9
+        },
+        {
+          "across": 7.5,
+          "distance": 31,
+          "flip": true,
+          "scale": 1.0
+        },
+        {
+          "across": 2.6,
+          "distance": 36,
+          "flip": false,
+          "scale": 1.1
+        },
+        {
+          "across": 7.4,
+          "distance": 37,
+          "flip": true,
+          "scale": 0.9
+        },
+        {
+          "across": 2.5,
+          "distance": 42,
+          "flip": false,
+          "scale": 1.0
+        },
+        {
+          "across": 7.5,
+          "distance": 43,
+          "flip": true,
+          "scale": 1.1
+        },
+        {
+          "across": 2.6,
+          "distance": 48,
+          "flip": false,
+          "scale": 0.9
+        },
+        {
+          "across": 7.4,
+          "distance": 49,
+          "flip": true,
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "leaves",
+      "name": "Leaves falling in the avenue",
+      "particles": {
+        "kind": "leaves",
+        "at": [
+          4.5,
+          15,
+          5
+        ],
+        "source": [
+          7,
+          10,
+          4
+        ],
+        "colors": [
+          "#d8a838",
+          "#c8862c",
+          "#e2bc52",
+          "#a86a24"
+        ],
+        "rate": 14
+      }
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "across": 0,
+      "distance": 3.75,
+      "width": 6.5,
+      "depth": 5.8
+    },
+    {
+      "id": "ceiling",
+      "name": "The beamed ceiling",
+      "across": 0,
+      "distance": 6.65,
+      "elevation": 3.1,
+      "facing": 180,
+      "tilt": -90,
+      "height": 5.8,
+      "box": [
+        -3.25,
+        -5.8,
+        3.25,
+        0.05
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The window: six lights of old leaded glass",
+      "across": 1.6,
+      "distance": 7.1,
+      "facing": 180,
+      "height": 3.0,
+      "box": [
+        -1.3,
+        -3.0,
+        1.3,
+        -0.3
+      ]
+    },
+    {
+      "id": "embrasure",
+      "name": "The sides of the window's embrasure",
+      "across": 0.6,
+      "distance": 6.85,
+      "facing": 90,
+      "height": 2.72,
+      "box": [
+        -0.25,
+        -2.72,
+        0.25,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": 0.6,
+          "distance": 6.85,
+          "facing": 90
+        },
+        {
+          "across": 2.6,
+          "distance": 6.85,
+          "facing": 270
+        }
+      ]
+    },
+    {
+      "id": "seat",
+      "name": "The window seat",
+      "plane": true,
+      "across": 1.6,
+      "distance": 6.75,
+      "elevation": 0.48,
+      "width": 2.0,
+      "depth": 0.7
+    },
+    {
+      "id": "seat_front",
+      "name": "The window seat's front",
+      "across": 1.6,
+      "distance": 6.4,
+      "facing": 180,
+      "height": 0.52,
+      "box": [
+        -1.0,
+        -0.52,
+        1.0,
+        0.02
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The far wall: a tapestry and the deep window",
+      "across": 0,
+      "distance": 6.6,
+      "facing": 180,
+      "height": 3.1,
+      "box": [
+        -3.25,
+        -3.12,
+        3.25,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall: tapestries and the door",
+      "across": -3.2,
+      "distance": 3.75,
+      "facing": 90,
+      "height": 3.1,
+      "box": [
+        -2.85,
+        -3.12,
+        2.85,
+        0.02
+      ]
+    },
+    {
+      "id": "corridor",
+      "name": "The corridor seen through the door",
+      "across": -3.9,
+      "distance": 4.5,
+      "facing": 90,
+      "height": 2.6,
+      "box": [
+        -1.0,
+        -2.6,
+        1.0,
+        0.02
+      ]
+    },
+    {
+      "id": "door",
+      "name": "The door, ajar",
+      "across": -3.2,
+      "distance": 5.0,
+      "facing": 120,
+      "height": 2.12,
+      "box": [
+        -1.0,
+        -2.14,
+        0.02,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall: the old mirror and a tapestry",
+      "across": 3.2,
+      "distance": 3.75,
+      "facing": 270,
+      "height": 3.1,
+      "box": [
+        -2.85,
+        -3.12,
+        2.85,
+        0.02
+      ]
+    },
+    {
+      "id": "mirror",
+      "name": "The old mirror",
+      "plane": true,
+      "across": 3.17,
+      "distance": 5.05,
+      "elevation": 1.65,
+      "width": 0.8,
+      "depth": 1.22,
+      "tilt": 90,
+      "rotation": 90,
+      "reflect": {
+        "strength": 0.45,
+        "fade": 0,
+        "rough": 0.15
+      }
+    },
+    {
+      "id": "motes",
+      "name": "Dust in the sunlight",
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0.6,
+          5.2,
+          1.3
+        ],
+        "source": [
+          3,
+          3.2,
+          2.4
+        ]
+      }
+    },
+    {
+      "id": "simon",
+      "name": "Sir Simon",
+      "person": {
+        "cast": "cast",
+        "who": "simon",
+        "turn": 215,
+        "does": "brood"
+      },
+      "across": 1.35,
+      "distance": 6.72
+    },
+    {
+      "id": "virginia",
+      "name": "Virginia",
+      "person": {
+        "cast": "cast",
+        "who": "virginia_habit",
+        "turn": 115,
+        "does": "upright"
+      },
+      "across": -1.5,
+      "distance": 4.0
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "chamber gothic comedy, pizzicato strings tiptoeing, a harpsichord, sly and dry, Victorian manor at night",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, slow and tender, a lament for someone three hundred years tired",
+        "weight": 1.1
+      },
+      {
+        "text": "music box waltz, slightly out of tune, old English country house, moonlight",
+        "weight": 0
+      },
+      {
+        "text": "distant church organ, low and soft, through thick stone walls",
+        "weight": 0
+      },
+      {
+        "text": "bassoon and clarinet, comic and pompous, a theatrical villain's entrance",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, a girl's quiet pity, glassy and clear",
+        "weight": 0
+      },
+      {
+        "text": "low string drone with clanking metallic percussion, chains in a corridor",
+        "weight": 0
+      },
+      {
+        "text": "Elizabethan lute galliard, faded, as if remembered",
+        "weight": 0.3
+      },
+      {
+        "text": "ragtime piano, American, cheerful, very far away in another wing",
+        "weight": 0
+      },
+      {
+        "text": "thunderstorm rumble under a slow minor piano",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, Victorian, restrained melancholy",
+        "weight": 0.5
+      },
+      {
+        "text": "boys' choir, a single held note, a garden under the moon",
+        "weight": 0
+      },
+      {
+        "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom",
+        "weight": 0
+      },
+      {
+        "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense",
+        "weight": 0
+      },
+      {
+        "text": "mock-heroic brass fanfare, muted, slightly ridiculous",
+        "weight": 0
+      },
+      {
+        "text": "slow harpsichord pavane, dignified and dusty",
+        "weight": 0.6
+      }
+    ],
+    "bpm": 66,
+    "density": 0.25,
+    "brightness": 0.45,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
