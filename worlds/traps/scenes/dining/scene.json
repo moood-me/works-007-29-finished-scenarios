@@ -597,14 +597,5 @@
       "inside": true,
       "shadow": true
     }
-  ],
-  "states": {
-    "camera_h": {
-      "range": [
-        -0.6,
-        0.5
-      ],
-      "means": "the viewer's eye over a standing man's: −0.35 a seated guest's, level with the faces across the table"
-    }
-  }
+  ]
 }
