@@ -5,5 +5,5 @@ g.fillRect(-1.3, -1.45, 3.0, 0.85);
 g.fillStyle = 'rgba(15,10,8,0.5)';
 for (const y of [-1.3, -1.05]) g.fillRect(-1.3, y, 3.0, 0.03);
 g.fillStyle = '#1e1813';
-g.fillRect(-1.08, -1.52, 0.1, 0.6);
-g.fillRect(0.5, -1.52, 0.1, 0.6);
+g.fillRect(-1.08, -1.42, 0.1, 0.5);
+g.fillRect(0.5, -1.42, 0.1, 0.5);

@@ -117,28 +117,35 @@
     "above": 0,
     "flash": 0,
     "panel": 0,
-    "fabien_on": [
-      0.15,
-      3.6,
-      1.28
-    ],
+    "fabien_on": {
+      "on": "plane",
+      "at": [
+        -0.55,
+        0.4,
+        1.28
+      ]
+    },
     "fabien_look": [
       -3,
       0.8,
       1.9
     ],
     "fabien_mood": "neutral",
-    "radioman_on": [
-      1.75,
-      3.6,
-      1.28
-    ],
+    "radioman_on": {
+      "on": "plane",
+      "at": [
+        1.05,
+        0.4,
+        1.28
+      ]
+    },
     "radioman_look": [
       -1.5,
       0.5,
       0.2
     ],
-    "radioman_mood": "neutral"
+    "radioman_mood": "neutral",
+    "bob": 0
   },
   "states": {
     "storm": {
@@ -177,6 +184,14 @@
         1
       ],
       "means": "the instrument lamp in the front cockpit, lighting Fabien's face from below: 0 off, 1 lit"
+    },
+    "bob": {
+      "range": [
+        -0.4,
+        0.4
+      ],
+      "smooth": true,
+      "means": "how far the plane has risen (+) or sunk (−) in the air from where it flies, metres: moved by the scene's script — a slow few centimetres at dusk and over the clouds, jolts in the storm"
     }
   },
   "objects": [
@@ -196,10 +211,20 @@
       }
     },
     {
+      "id": "plane",
+      "name": "Fabien's plane: the anchor its parts and its people are on, rising and falling a little in the air",
+      "unseen": true,
+      "across": 0.7,
+      "distance": 3.2,
+      "place": {
+        "elevation": "bob"
+      }
+    },
+    {
       "id": "wing",
       "name": "The parasol wing over the front cockpit",
-      "across": -1.8,
-      "distance": 10.6,
+      "across": -2.5,
+      "distance": 7.4,
       "elevation": 2.75,
       "facing": 180,
       "tilt": -90,
@@ -209,13 +234,14 @@
         -14.05,
         1.15,
         0.05
-      ]
+      ],
+      "on": "plane"
     },
     {
       "id": "far_wall",
       "name": "The fuselage's far side, inside",
-      "across": 0.7,
-      "distance": 4.0,
+      "across": 0.0,
+      "distance": 0.8,
       "facing": 180,
       "height": 1.6,
       "box": [
@@ -223,45 +249,49 @@
         -1.44,
         1.75,
         -0.6
-      ]
+      ],
+      "on": "plane"
     },
     {
       "id": "cockpit_floor",
       "name": "The cockpits' floor",
       "plane": true,
       "unseen": true,
-      "across": 0.95,
-      "distance": 3.6,
+      "across": 0.25,
+      "distance": 0.4,
       "elevation": 0.85,
       "width": 2.8,
       "depth": 0.7,
-      "walk": true
+      "walk": true,
+      "on": "plane"
     },
     {
       "id": "deck",
       "name": "The top of the fuselage, the cockpits cut through it",
       "plane": true,
-      "across": 1.1,
-      "distance": 3.6,
+      "across": 0.4,
+      "distance": 0.4,
       "elevation": 1.5,
       "width": 5.2,
-      "depth": 0.8
+      "depth": 0.8,
+      "on": "plane"
     },
     {
       "id": "tailplane",
       "name": "The tailplane",
       "plane": true,
-      "across": 5.85,
-      "distance": 3.6,
+      "across": 5.15,
+      "distance": 0.4,
       "elevation": 1.32,
       "width": 1.1,
-      "depth": 3.4
+      "depth": 3.4,
+      "on": "plane"
     },
     {
       "id": "fuselage",
       "name": "Fabien's plane, its right side",
-      "across": 0.7,
-      "distance": 3.2,
+      "across": 0.0,
+      "distance": 0.0,
       "facing": 180,
       "height": 2.6,
       "box": [
@@ -269,7 +299,8 @@
         -2.62,
         6.35,
         0.05
-      ]
+      ],
+      "on": "plane"
     },
     {
       "id": "fabien",
