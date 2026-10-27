@@ -9,7 +9,7 @@
   "light": {
     "tint": "#ffd9a0",
     "tintStrength": 0.06,
-    "vignette": 0.4,
+    "vignette": 0.3,
     "grain": 0.1,
     "haze": 0.1,
     "hazeColor": "#8a7356",
