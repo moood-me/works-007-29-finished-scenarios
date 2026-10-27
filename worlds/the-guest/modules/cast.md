@@ -25,4 +25,8 @@ line; a simple face (eyes, brows, nose, mouth — `<id>_mood` shows on it), so f
 
 The engine's `stand` and `walk`, and, made for this story with make_motion (each a loop, standing still, breathing):
 `hands_behind` — the hands clasped behind the back; `hands_bound` — both hands held together before the body (the
-wrists tied); `hold_rope` — a tired man holding a lead in the right hand at his side.
+wrists tied); `hold_rope` — a tired man holding a lead in the right hand at his side; `arms_folded` — the arms crossed over the chest,
+the weight shifting a little; `hands_down` — a tired man standing with the arms hanging at his sides, the head a little
+lowered (its first second has an arm lifting: the loop is played from where it settles).
+
+The Arab untied: `arab_with: []` takes the `bonds` off him.
