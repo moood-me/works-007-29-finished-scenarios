@@ -191,7 +191,7 @@ return {
             const dir = add(add(up, mul(fw, lean)), mul(sd, sx));
             const p1 = add(c, mul(dir, len * 0.45 * h));
             const p2 = add(add(c, mul(dir, len * h)), mul(fw, 0.05 * h));
-            F.tube([add(c, mul(up, -0.04 * h)), p1, p2], [[0, 0.005 * h], [0.4, 0.008 * h], [0.6, 0.05 * h], [1.3, 0.045 * h], [2, 0.003 * h]], [[0, STALK], [0.5, BRACKEN]], 6, sd, 0.2);
+            F.tube([add(c, mul(up, -0.04 * h)), p1, p2], [[0, 0.004 * h], [0.4, 0.006 * h], [0.6, 0.03 * h], [1.3, 0.026 * h], [2, 0.002 * h]], [[0, STALK], [0.5, BRACKEN]], 6, sd, 0.2);
           }
         },
       },

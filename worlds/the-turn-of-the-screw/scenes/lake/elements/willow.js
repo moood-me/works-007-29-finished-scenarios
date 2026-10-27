@@ -12,16 +12,20 @@ e.layer('crown', { pivot: [3, -5.2], wind: { strength: 0.2, gust: 0.5 }, box: [-
   e.lib.crown(c, e.rnd, 'willow', 3.2, -7.2, 5, 2.8, 200, 0.42);
 });
 e.layer('fronds', { pivot: [3, -6], wind: { strength: 0.45, gust: 0.6 }, box: [-2.5, -7.5, 9, 0] }, c => {
-  for (let i = 0; i < 160; i++) {
+  // each frond a string of narrow leaves hanging from the crown, longest under its middle, tapering toward the water
+  for (let i = 0; i < 110; i++) {
     const x = -1.4 + e.rnd() * 9.4;
     const top = -6.6 + Math.abs(x - 3.2) * 0.25 + e.rnd() * 0.6;
-    const len = 2.8 + e.rnd() * 3.2 - Math.abs(x - 3.2) * 0.25;
-    c.strokeStyle = ['#a59b44', '#8c8538', '#bcae50', '#7a7434'][Math.floor(e.rnd() * 4)];
-    c.lineWidth = 0.035 + e.rnd() * 0.035;
-    c.lineCap = 'round';
-    c.beginPath();
-    c.moveTo(x, top);
-    c.quadraticCurveTo(x + 0.15, top + len * 0.5, x + 0.05, Math.min(-0.3, top + len));
-    c.stroke();
+    const len = 2.4 + e.rnd() * 3 - Math.abs(x - 3.2) * 0.25;
+    const bow = (e.rnd() - 0.5) * 0.3;
+    const tone = Math.floor(e.rnd() * 4);
+    for (let t = 0; t < 1; t += 0.06) {
+      const y = Math.min(-0.3, top + len * t);
+      const lx = x + bow * Math.sin(t * Math.PI);
+      c.fillStyle = ['#a59b44', '#8c8538', '#bcae50', '#7a7434'][(tone + (e.rnd() < 0.3 ? 1 : 0)) % 4];
+      c.beginPath();
+      c.ellipse(lx + (e.rnd() - 0.5) * 0.08, y, 0.035 * (1.2 - t * 0.6), 0.11, (e.rnd() - 0.5) * 0.6, 0, Math.PI * 2);
+      c.fill();
+    }
   }
 });
