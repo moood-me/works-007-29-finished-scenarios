@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Veranda at Night",
   "caption": "A full moon over the back yard. In a minute he will ask her the question.",
-  "horizon": 0.42,
+  "horizon": 0.5,
   "camera": {
     "mode": "picture"
   },
@@ -123,9 +123,9 @@
       "name": "The back yard's lawn",
       "plane": true,
       "across": 0,
-      "distance": 15,
-      "width": 44,
-      "depth": 40
+      "distance": 30,
+      "width": 90,
+      "depth": 70
     },
     {
       "id": "maple",
@@ -355,11 +355,11 @@
       "person": {
         "cast": "cast",
         "who": "gary",
-        "turn": 75,
+        "turn": 95,
         "does": "sway"
       },
-      "across": 0.13,
-      "distance": 3.95
+      "across": 0.12,
+      "distance": 4.0
     },
     {
       "id": "louise",
@@ -367,11 +367,11 @@
       "person": {
         "cast": "cast",
         "who": "louise",
-        "turn": 255,
+        "turn": 275,
         "does": "sway"
       },
       "across": 0.48,
-      "distance": 4.04
+      "distance": 3.97
     }
   ],
   "music": {

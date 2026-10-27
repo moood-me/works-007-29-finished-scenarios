@@ -26,8 +26,8 @@ g.fillStyle = '#f4f1e4';
 g.beginPath();
 g.arc(MX, MY, 0.036, 0, Math.PI * 2);
 g.fill();
-g.fillStyle = 'rgba(176,180,186,0.45)';
-for (const [dx, dy, r] of [[-0.011, -0.008, 0.011], [0.009, -0.012, 0.007], [0.006, 0.008, 0.012], [-0.014, 0.012, 0.006]]) {
+g.fillStyle = 'rgba(196,198,200,0.3)';
+for (const [dx, dy, r] of [[-0.012, -0.006, 0.009], [0.008, -0.013, 0.006], [0.007, 0.009, 0.01], [-0.013, 0.014, 0.005]]) {
   g.beginPath();
   g.arc(MX + dx, MY + dy, r, 0, Math.PI * 2);
   g.fill();
