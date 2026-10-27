@@ -72,8 +72,8 @@
     "daughter_reach": {
       "r": "stepladder#top"
     },
-    "daughter_look": "louise",
-    "daughter_mood": "smile"
+    "daughter_look": "stepladder#top",
+    "daughter_mood": "laugh"
   },
   "objects": [
     {
