@@ -513,7 +513,7 @@
         "cast": "cast",
         "who": "pile",
         "turn": 180,
-        "does": "sit_heavy"
+        "does": "sit_forearms"
       },
       "across": -1.25,
       "distance": 2.88,

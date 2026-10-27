@@ -1,8 +1,8 @@
 // Supper by candlelight: Traps beaming across the table at the prosecutor's empty place, Kummer bent to his ear,
 // Pile over his soup with his knife and fork up, the judge smiling down the table; then Traps half turns his eyes to
 // his defender (as far as his face still reads), the defender's worry, Traps's smile back to the table.
-const ACROSS = [0.6, 2.4, 1.2];
-const DEFENDER = [0.1, 3.2, 1.35];
+const ACROSS = [0.5, 0.88, 1.2];
+const DEFENDER = [-0.15, 2.2, 1.3];
 return [
   {
     name: 'supper',
