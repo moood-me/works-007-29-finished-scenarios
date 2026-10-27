@@ -1,0 +1,680 @@
+{
+  "engine": 3,
+  "title": "The Terrace",
+  "caption": "Many of the fishermen made fun of the old man, and he was not angry.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.72,
+    "ambientColor": "#cbbfd6",
+    "bounce": 0.5,
+    "haze": 0.08,
+    "hazeColor": "#eac4a4",
+    "hazeGlow": 0.6,
+    "shafts": 0.35,
+    "tint": "#ffc590",
+    "tintStrength": 0.08,
+    "vignette": 0.4,
+    "grain": 0.08,
+    "wind": [
+      -1,
+      0.4,
+      0.5
+    ],
+    "looks": {
+      "dusk": {
+        "ambient": 0.5,
+        "ambientColor": "#8a8cc4",
+        "haze": 0.1,
+        "hazeColor": "#8f86ad",
+        "hazeGlow": 1,
+        "saturation": 0.85,
+        "tint": "#b9a0c8",
+        "tintStrength": 0.1,
+        "lights": {
+          "sun": 0
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        28,
+        3
+      ],
+      "color": "#ffbe82",
+      "strength": 1.1
+    },
+    {
+      "id": "lamp_a",
+      "of": "lamp_a#flame",
+      "color": "#ffc27a",
+      "strength": 1.6,
+      "reach": 6,
+      "flicker": 0.06
+    },
+    {
+      "id": "lamp_b",
+      "of": "lamp_b#flame",
+      "color": "#ffc27a",
+      "strength": 1.6,
+      "reach": 6,
+      "flicker": 0.06
+    },
+    {
+      "id": "lamp_c",
+      "of": "lamp_c#flame",
+      "color": "#ffc27a",
+      "strength": 1.6,
+      "reach": 6,
+      "flicker": 0.06
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "dusk": 0,
+    "santiago_on": [
+      1.0,
+      4.8,
+      0.46
+    ],
+    "santiago_reach": {
+      "r": [
+        0.8,
+        4.5,
+        0.78
+      ],
+      "l": [
+        1.2,
+        4.52,
+        0.78
+      ]
+    },
+    "santiago_look": "manolin",
+    "santiago_mood": "smile",
+    "manolin_look": "santiago",
+    "manolin_mood": "neutral",
+    "father_reach": {
+      "r": [
+        -2.62,
+        6.95,
+        1.06
+      ]
+    },
+    "father_look": "manolin",
+    "father_mood": "neutral",
+    "martin_reach": {
+      "r": [
+        -2.85,
+        6.15,
+        1.06
+      ],
+      "l": [
+        -2.85,
+        6.65,
+        1.06
+      ]
+    },
+    "martin_look": "santiago",
+    "martin_mood": "neutral",
+    "fisher_a_on": [
+      -0.55,
+      7.75,
+      0.46
+    ],
+    "fisher_a_reach": {
+      "r": [
+        -0.75,
+        7.3,
+        0.78
+      ],
+      "l": [
+        -0.35,
+        7.3,
+        0.78
+      ]
+    },
+    "fisher_a_look": "santiago",
+    "fisher_a_mood": "laugh",
+    "fisher_b_on": [
+      -1.2,
+      7.2,
+      0.46
+    ],
+    "fisher_b_do": {
+      "motion": "sit_laugh",
+      "loop": true,
+      "from": 2.5
+    },
+    "fisher_b_look": "santiago",
+    "fisher_b_mood": "laugh",
+    "elder_on": [
+      3.95,
+      8.6,
+      0.46
+    ],
+    "elder_do": {
+      "motion": "sit_table",
+      "loop": true,
+      "from": 3
+    },
+    "elder_reach": {
+      "r": [
+        3.62,
+        8.1,
+        0.78
+      ],
+      "l": [
+        3.9,
+        8.15,
+        0.78
+      ]
+    },
+    "elder_look": "santiago",
+    "elder_mood": "neutral"
+  },
+  "states": {
+    "dusk": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — sundown, the sun on the sea ahead and to the right; 1 — the blue evening after it, the lamps under the roof and the village's windows across the bay lit"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "sea",
+      "name": "The bay and the Gulf",
+      "plane": true,
+      "across": 0,
+      "distance": 1500,
+      "elevation": -1.6,
+      "width": 8000,
+      "depth": 3000,
+      "reflect": {
+        "strength": 0.5,
+        "fade": 40,
+        "rough": 0.5,
+        "ripple": 0.4
+      }
+    },
+    {
+      "id": "far_shore",
+      "name": "The village across the bay",
+      "across": -120,
+      "distance": 380,
+      "onLand": false,
+      "elevation": -1.6,
+      "height": 45,
+      "box": [
+        -230,
+        -48,
+        200,
+        1
+      ]
+    },
+    {
+      "id": "moored_a",
+      "name": "A skiff at anchor",
+      "across": 30,
+      "distance": 90,
+      "onLand": false,
+      "elevation": -1.88,
+      "facing": 150,
+      "height": 4.3,
+      "box": [
+        -2.9,
+        -4.3,
+        2.9,
+        0.15
+      ]
+    },
+    {
+      "id": "moored_b",
+      "name": "Another skiff at anchor",
+      "across": 60,
+      "distance": 160,
+      "onLand": false,
+      "elevation": -1.88,
+      "facing": 215,
+      "height": 1.1,
+      "box": [
+        -2.9,
+        -1.4,
+        2.9,
+        0.15
+      ]
+    },
+    {
+      "id": "deck",
+      "name": "The Terrace's floor",
+      "plane": true,
+      "across": 1,
+      "distance": 4.3,
+      "elevation": 0,
+      "width": 24,
+      "depth": 10.6
+    },
+    {
+      "id": "frame",
+      "name": "The posts, the rail and the eave over the water",
+      "across": 1,
+      "distance": 9.7,
+      "height": 3.25,
+      "box": [
+        -11,
+        -3.25,
+        11,
+        0.12
+      ],
+      "shadow": true
+    },
+    {
+      "id": "roof",
+      "name": "The roof overhead",
+      "across": 1,
+      "distance": 9.7,
+      "elevation": 3.1,
+      "facing": 180,
+      "tilt": -90,
+      "height": 11,
+      "box": [
+        -12,
+        -11,
+        12,
+        0.3
+      ]
+    },
+    {
+      "id": "bar_wall",
+      "name": "The wall behind the counter",
+      "across": -3.7,
+      "distance": 6.5,
+      "facing": 90,
+      "height": 3.2,
+      "box": [
+        -3.85,
+        -3.2,
+        3.85,
+        0.06
+      ]
+    },
+    {
+      "id": "counter",
+      "name": "Martin's counter",
+      "across": -2.55,
+      "distance": 6.0,
+      "facing": 90,
+      "height": 1.4,
+      "box": [
+        -1.96,
+        -1.4,
+        1.96,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "counter_end",
+      "name": "The counter's end",
+      "across": -2.85,
+      "distance": 4.1,
+      "facing": 180,
+      "height": 1.1,
+      "box": [
+        -0.36,
+        -1.1,
+        0.36,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "counter_top",
+      "name": "The counter's top",
+      "plane": true,
+      "across": -2.85,
+      "distance": 6.0,
+      "elevation": 1.05,
+      "width": 0.6,
+      "depth": 3.9
+    },
+    {
+      "id": "table_top",
+      "name": "The tables' tops",
+      "plane": true,
+      "across": 0.95,
+      "distance": 4.35,
+      "elevation": 0.77,
+      "width": 0.9,
+      "depth": 0.8,
+      "shadow": true,
+      "copies": [
+        {
+          "across": 0.95,
+          "distance": 4.35
+        },
+        {
+          "across": -0.55,
+          "distance": 7.05
+        },
+        {
+          "across": 3.75,
+          "distance": 7.95
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "The tables",
+      "across": 0.95,
+      "distance": 3.95,
+      "height": 0.78,
+      "box": [
+        -0.48,
+        -0.8,
+        0.48,
+        0.02
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 0.95,
+          "distance": 3.95
+        },
+        {
+          "across": -0.55,
+          "distance": 6.65
+        },
+        {
+          "across": 3.75,
+          "distance": 7.55
+        }
+      ]
+    },
+    {
+      "id": "chair",
+      "name": "The chairs",
+      "across": 1.0,
+      "distance": 5.1,
+      "facing": 195,
+      "height": 0.95,
+      "box": [
+        -0.26,
+        -0.97,
+        0.26,
+        0.02
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 1.0,
+          "distance": 5.1,
+          "facing": 195
+        },
+        {
+          "across": -0.55,
+          "distance": 8.05,
+          "facing": 170
+        },
+        {
+          "across": -1.45,
+          "distance": 7.35,
+          "facing": 120
+        },
+        {
+          "across": 3.95,
+          "distance": 8.9,
+          "facing": 215
+        }
+      ]
+    },
+    {
+      "id": "cans",
+      "name": "Beer tins",
+      "across": 1.1,
+      "distance": 4.25,
+      "elevation": 0.77,
+      "height": 0.13,
+      "box": [
+        -0.12,
+        -0.14,
+        0.12,
+        0.01
+      ],
+      "copies": [
+        {
+          "across": 1.1,
+          "distance": 4.25
+        },
+        {
+          "across": -0.88,
+          "distance": 6.9
+        },
+        {
+          "across": -0.2,
+          "distance": 6.85,
+          "flip": true
+        },
+        {
+          "across": 3.7,
+          "distance": 7.9
+        }
+      ]
+    },
+    {
+      "id": "lamp_a",
+      "name": "A hurricane lamp under the roof",
+      "across": -2.65,
+      "distance": 5.3,
+      "elevation": 2.2,
+      "height": 0.9500000000000001,
+      "box": [
+        -0.2,
+        -0.9500000000000001,
+        0.2,
+        0.05
+      ],
+      "glows": true
+    },
+    {
+      "id": "lamp_b",
+      "name": "A hurricane lamp under the roof",
+      "across": 0.95,
+      "distance": 3.4,
+      "elevation": 2.25,
+      "height": 0.9,
+      "box": [
+        -0.2,
+        -0.9,
+        0.2,
+        0.05
+      ],
+      "glows": true
+    },
+    {
+      "id": "lamp_c",
+      "name": "A hurricane lamp under the roof",
+      "across": -0.2,
+      "distance": 5.3,
+      "elevation": 2.35,
+      "height": 0.8,
+      "box": [
+        -0.2,
+        -0.8,
+        0.2,
+        0.05
+      ],
+      "glows": true
+    },
+    {
+      "id": "santiago",
+      "name": "Santiago",
+      "person": {
+        "cast": "cast",
+        "who": "santiago",
+        "turn": 195,
+        "does": "sit_table"
+      },
+      "across": 1.0,
+      "distance": 4.8
+    },
+    {
+      "id": "manolin",
+      "name": "Manolin",
+      "person": {
+        "cast": "cast",
+        "who": "manolin",
+        "turn": 130,
+        "does": "stand_easy"
+      },
+      "across": 0.15,
+      "distance": 4.45
+    },
+    {
+      "id": "father",
+      "name": "The boy's father",
+      "person": {
+        "cast": "cast",
+        "who": "father",
+        "turn": 150,
+        "does": "lean_counter"
+      },
+      "across": -2.05,
+      "distance": 7.0
+    },
+    {
+      "id": "martin",
+      "name": "Martin",
+      "person": {
+        "cast": "cast",
+        "who": "martin",
+        "turn": 95,
+        "does": "behind_counter"
+      },
+      "across": -3.35,
+      "distance": 6.4
+    },
+    {
+      "id": "fisher_a",
+      "name": "A young fisherman",
+      "person": {
+        "cast": "cast",
+        "who": "fisher_a",
+        "turn": 170,
+        "does": "sit_laugh"
+      },
+      "across": -0.55,
+      "distance": 7.75
+    },
+    {
+      "id": "fisher_b",
+      "name": "Another young fisherman",
+      "person": {
+        "cast": "cast",
+        "who": "fisher_b",
+        "turn": 120,
+        "does": "sit_laugh"
+      },
+      "across": -1.2,
+      "distance": 7.2
+    },
+    {
+      "id": "elder",
+      "name": "An old fisherman",
+      "person": {
+        "cast": "cast",
+        "who": "elder",
+        "turn": 215,
+        "does": "sit_table"
+      },
+      "across": 3.95,
+      "distance": 8.6
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "solo Spanish guitar, slow fingerpicked, warm and sparse, a Cuban fishing village at evening",
+        "weight": 0.7
+      },
+      {
+        "text": "soft tres cubano and nylon guitar, slow bolero feeling, tender and plain",
+        "weight": 1.0
+      },
+      {
+        "text": "low cello and warm strings, long notes, quiet dignity, the open sea",
+        "weight": 0
+      },
+      {
+        "text": "gentle piano, few notes, sea breeze, bittersweet calm",
+        "weight": 0
+      },
+      {
+        "text": "ambient ocean pad, slow swells, soft and wide",
+        "weight": 0
+      },
+      {
+        "text": "slow son cubano, muted trumpet far away, dusk on the waterfront",
+        "weight": 1.2
+      },
+      {
+        "text": "harmonium drone and plucked bass, plain and patient",
+        "weight": 0
+      },
+      {
+        "text": "solo clarinet, low register, slow lullaby",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, restrained, light grief and warmth",
+        "weight": 0
+      },
+      {
+        "text": "marimba soft rolls, distant, warm evening air",
+        "weight": 0
+      },
+      {
+        "text": "acoustic bass and brushed drums, very slow, sparse",
+        "weight": 0
+      },
+      {
+        "text": "choir humming, wordless, very soft, sacred calm",
+        "weight": 0
+      },
+      {
+        "text": "accordion, slow waltz, nostalgic harbour",
+        "weight": 0.3
+      },
+      {
+        "text": "deep ocean drone, slow tidal pulse",
+        "weight": 0
+      },
+      {
+        "text": "solo violin, sorrowful, high and thin",
+        "weight": 0
+      },
+      {
+        "text": "music box, faraway, simple melody",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.25,
+    "brightness": 0.45,
+    "scale": "A_MAJOR_G_FLAT_MINOR"
+  }
+}

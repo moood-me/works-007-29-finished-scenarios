@@ -25,6 +25,30 @@ return {
       body: { height: 0.99, thick: 1.12, shoulders: 1.08 },
       colors: { skin: '#9c6a4b', hair: '#221c19', top: '#b9a582', bottom: '#4a4538', hat: '#4c463d', shoes: '#2b241f' },
     },
+    // Martin, who keeps the Terrace: heavy and easy, a white shirt, a long pale apron, dark trousers
+    martin: {
+      kind: 'shapes', style: 'gulf', who: 'man', garment: 'apron', hair: 'short',
+      body: { height: 0.98, thick: 1.22, shoulders: 1.06 },
+      colors: { skin: '#a8714d', hair: '#2a221d', top: '#ebe4d4', bottom: '#4b4a48', garment: '#d9d0bb', shoes: '#2b241f' },
+    },
+    // two young fishermen of the Terrace, who laugh at the old man: one bareheaded in a faded yellow shirt, one in a
+    // cap and a faded green one
+    fisher_a: {
+      kind: 'shapes', style: 'gulf', who: 'man', garment: 'none', hair: 'short', barefoot: 'both',
+      body: { height: 1.0, thick: 0.9, shoulders: 1.0 },
+      colors: { skin: '#9a6648', hair: '#1b1714', top: '#c9a650', bottom: '#56607a' },
+    },
+    fisher_b: {
+      kind: 'shapes', style: 'gulf', who: 'man', garment: 'none', hair: 'short', hat: 'cap',
+      body: { height: 0.98, thick: 0.95, shoulders: 1.02 },
+      colors: { skin: '#8d5c40', hair: '#1b1714', top: '#7f9c88', bottom: '#5c5243', hat: '#d7cdb5', shoes: '#2b241f' },
+    },
+    // an old fisherman of the Terrace, who speaks to the old man politely of the current: a straw hat, a white shirt
+    elder: {
+      kind: 'shapes', style: 'gulf', who: 'old', garment: 'none', hair: 'short', hat: 'hat',
+      body: { height: 0.96, thick: 0.92, shoulders: 1.0 },
+      colors: { skin: '#946246', hair: '#cfcac2', top: '#dcd6c6', bottom: '#6d6656', hat: '#cdb98a', shoes: '#3a3029' },
+    },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, plain colours, the scene's light and shadows —
