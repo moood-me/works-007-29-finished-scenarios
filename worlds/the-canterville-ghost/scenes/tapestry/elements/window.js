@@ -15,9 +15,9 @@ g.fillRect(-1.0, -1.98, 2.0, 0.07);
 g.save();
 e.lib.arch(g, -0.95, 0.95, -2.66, -0.55, 0.3);
 g.clip();
-g.strokeStyle = 'rgba(40,36,34,0.85)';
-g.lineWidth = 0.008;
-for (let k = -4; k < 4; k += 0.16) {
+g.strokeStyle = 'rgba(58,52,46,0.6)';
+g.lineWidth = 0.006;
+for (let k = -4; k < 4; k += 0.22) {
   g.beginPath();
   g.moveTo(-1 + k, -0.5);
   g.lineTo(-1 + k + 2.2, -2.7);

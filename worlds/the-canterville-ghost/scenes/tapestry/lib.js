@@ -9,6 +9,10 @@ const PLASTER = '#a49480';
 // the wall from x0 to x1, `top` metres high: plaster, the dado to 0.9 m, its rail and skirting
 function wall(g, x0, x1, top) {
   const w = x1 - x0;
+  g.save();
+  g.beginPath();
+  g.rect(x0, -top - 0.02, w, top + 0.04);
+  g.clip();
   g.fillStyle = PLASTER;
   g.fillRect(x0, -top - 0.02, w, top + 0.04);
   g.fillStyle = OAK;
@@ -23,6 +27,7 @@ function wall(g, x0, x1, top) {
   // the frieze under the ceiling
   g.fillStyle = '#8a7a64';
   g.fillRect(x0, -top - 0.02, w, 0.18);
+  g.restore();
 }
 
 // a tapestry from x0 to x1, from y0 (its top, negative) to y1 (its foot): `seed` picks which part of the hunt it shows
