@@ -1,8 +1,8 @@
-// The river from above (metres; its middle 120 m ahead, y toward the viewer — its near edge, at the embankment, is
-// y 105.5): broad, slow and brown with the rains, olive near, paling to the grey of the sky toward the far bank. Over
+// The river from above (metres; its middle 90 m ahead, y toward the viewer — its near edge, at the embankment, is
+// y 75.5): broad, slow and brown with the rains, olive near, paling to the grey of the sky toward the far bank. Over
 // it, a layer the current carries downriver to the right: lines of the current and clumps of water hyacinth.
 const W = 300;
-const D = 105.5;
+const D = 75.5;
 const water = g.createLinearGradient(0, D, 0, -D);
 water.addColorStop(0, '#6f6a52');
 water.addColorStop(0.25, '#827d66');
@@ -14,7 +14,7 @@ g.fillRect(-W, -D, 2 * W, 2 * D);
 for (let i = 0; i < 90; i++) {
   g.fillStyle = e.rnd() < 0.5 ? 'rgba(120,104,76,0.22)' : 'rgba(92,90,70,0.2)';
   g.beginPath();
-  g.ellipse(-W + e.rnd() * 2 * W, D - e.rnd() * 120, 6 + e.rnd() * 20, 1 + e.rnd() * 3, 0, 0, Math.PI * 2);
+  g.ellipse(-W + e.rnd() * 2 * W, D - e.rnd() * 110, 6 + e.rnd() * 20, 1 + e.rnd() * 3, 0, 0, Math.PI * 2);
   g.fill();
 }
 e.layer('current', { drift: [0.35, 0], box: [-W, -D, W, D] }, c => {
@@ -24,7 +24,7 @@ e.layer('current', { drift: [0.35, 0], box: [-W, -D, W, D] }, c => {
   // the current's lines: long thin pale streaks, denser and shorter far off
   c.lineCap = 'round';
   for (let i = 0; i < 220; i++) {
-    const y = D - Math.pow(e.rnd(), 1.6) * 150;
+    const y = D - Math.pow(e.rnd(), 1.6) * 140;
     const len = 1.5 + e.rnd() * 7 * (y + D) / (2 * D);
     const x0 = -W + e.rnd() * 2 * W;
     c.strokeStyle = e.rnd() < 0.6 ? 'rgba(190,190,176,0.32)' : 'rgba(70,64,48,0.25)';

@@ -5,7 +5,7 @@
 g.fillStyle = '#857560';
 g.fillRect(-30, -8, 60, 16);
 for (let i = 0; i < 520; i++) {
-  g.fillStyle = e.rnd() < 0.5 ? 'rgba(98,84,66,0.35)' : 'rgba(150,134,108,0.3)';
+  g.fillStyle = e.rnd() < 0.5 ? 'rgba(98,84,66,0.24)' : 'rgba(150,134,108,0.22)';
   g.beginPath();
   g.ellipse(-30 + e.rnd() * 60, -8 + e.rnd() * 16, 0.3 + e.rnd() * 1.4, 0.15 + e.rnd() * 0.6, e.rnd() * 3, 0, Math.PI * 2);
   g.fill();
