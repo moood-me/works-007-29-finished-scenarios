@@ -56,7 +56,6 @@
     ],
     "ila_look": "pim",
     "ila_mood": "smile",
-    "pim_look": "ila",
     "pim_mood": "smile",
     "mev_with": [
       "key_cord",
@@ -68,7 +67,19 @@
       ]
     },
     "mev_look": "pim",
-    "mev_mood": "thinking"
+    "mev_mood": "thinking",
+    "pim_reach": {
+      "l": [
+        0.13,
+        3.94,
+        1.18
+      ],
+      "r": [
+        0.01,
+        4.12,
+        1.17
+      ]
+    }
   },
   "objects": [
     {

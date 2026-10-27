@@ -63,14 +63,33 @@ const potBody = (g, x, size, k) => {
 };
 const potLeaves = (g, x, size, kind, seed) => {
   const w = size * 0.62, top = -size;
-  const greens = kind === 2 ? ['#5d7354', '#748a66'] : ['#4f7a3a', '#6c9448', '#86a85a'];
+  if (kind === 2) {
+    // rosemary: stiff sprigs straight up out of the jar, needles along them
+    g.strokeStyle = '#5d6e4c';
+    g.lineWidth = 0.012;
+    for (let i = 0; i < 11; i++) {
+      const bx = x + w * 0.8 * (anim.hash(i, seed) - 0.5), lean = 0.25 * (anim.hash(i, seed + 1) - 0.5);
+      const h = size * (0.55 + 0.45 * anim.hash(i, seed + 2));
+      g.beginPath();
+      g.moveTo(bx, top);
+      g.lineTo(bx + lean * h, top - h);
+      g.stroke();
+      g.fillStyle = i % 2 ? '#5d7354' : '#748a66';
+      for (let k = 1; k < 8; k++) {
+        const u = k / 8;
+        g.beginPath();
+        g.ellipse(bx + lean * h * u, top - h * u, 0.03, 0.012, (k % 2 ? 0.6 : -0.6) + lean, 0, Math.PI * 2);
+        g.fill();
+      }
+    }
+    return;
+  }
+  const greens = ['#4f7a3a', '#6c9448', '#86a85a'];
   for (let i = 0; i < 26; i++) {
-    const a = anim.hash(i, seed) * Math.PI, r = (0.3 + 0.7 * anim.hash(i, seed + 1)) * size * (kind === 2 ? 1.2 : 0.75);
-    const lx = x + Math.cos(a) * r * 0.9, ly = top - Math.sin(a) * r * 0.9;
+    const a = anim.hash(i, seed) * Math.PI, r = (0.3 + 0.7 * anim.hash(i, seed + 1)) * size * 0.75;
     g.fillStyle = greens[i % greens.length];
     g.beginPath();
-    if (kind === 2) g.ellipse(lx, ly, 0.012, 0.07, a - Math.PI / 2, 0, Math.PI * 2);
-    else g.ellipse(lx, ly, w * 0.16, w * 0.12, a, 0, Math.PI * 2);
+    g.ellipse(x + Math.cos(a) * r * 0.9, top - Math.sin(a) * r * 0.9, w * 0.16, w * 0.12, a, 0, Math.PI * 2);
     g.fill();
   }
   if (kind === 0) {
