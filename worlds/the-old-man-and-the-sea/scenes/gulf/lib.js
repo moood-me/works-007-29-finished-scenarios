@@ -3,7 +3,7 @@
 // the water, z toward its near side), and its cross-section there, a closed ring of points (the near side down the
 // outside to the keel and up the far side, over the far gunwale, down the far side's inside, across the bottom and up
 // the near side's inside to the near gunwale) — the hull's form and its transom are drawn from them.
-const WATER = 0.5;
+const WATER = 0.3;
 const LENGTH = 5;
 const SKIN = 0.035;
 // a soft round glow, stretched (sx, sy: its half-widths), falling off with no edge to its disc

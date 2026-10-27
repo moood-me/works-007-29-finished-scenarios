@@ -3,6 +3,10 @@
 const hands = e.point('santiago#hands');
 const water = e.point({ on: 'boat', at: [0.35, -2.06, 0] });
 const mouth = e.point('fish#mouth');
+if (!e.mem.said) {
+  e.mem.said = true;
+  e.warn(`debug hands ${JSON.stringify(hands)} water ${JSON.stringify(water)} mouth ${JSON.stringify(mouth)}`);
+}
 if (!hands || !water) return;
 const f = e.anim.ease.smooth(e.anim.span(e.state.fish, 0.4, 1));
 const end = mouth ? [water[0] + (mouth[0] - water[0]) * f, water[1] + (mouth[1] - water[1]) * f] : water;
