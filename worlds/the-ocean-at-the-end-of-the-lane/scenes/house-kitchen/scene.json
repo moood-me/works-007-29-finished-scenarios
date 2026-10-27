@@ -710,7 +710,7 @@
         "cast": "cast",
         "who": "ursula",
         "turn": 250,
-        "does": "hand_on_hip"
+        "does": "hands_clasped"
       },
       "across": 0.45,
       "distance": 3.2,
@@ -736,7 +736,7 @@
         "cast": "cast",
         "who": "dad",
         "turn": 245,
-        "does": "arms_folded"
+        "does": "arms_crossed"
       },
       "across": 1.45,
       "distance": 3.1,
