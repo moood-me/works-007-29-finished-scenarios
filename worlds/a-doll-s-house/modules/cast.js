@@ -121,7 +121,7 @@ function coupe(F) {
 // Rank's cigar between the fingers of his right hand, its tip glowing (the point `tip`: the smoke rises from it)
 const CIGAR = F => {
   const m = F.fit.h;
-  return { m, leaf: [[0, TOBACCO]], ash: [0.0095 * m, 0.0095 * m, 0.0095 * m], axes: [null, null, null] };
+  return { m, leaf: [[0, TOBACCO]], ash: [0.014 * m, 0.014 * m, 0.014 * m], axes: [null, null, null] };
 };
 function cigar(F) {
   const { add, mul } = V();
@@ -130,8 +130,8 @@ function cigar(F) {
   // held across the fingers: out of the hand on the thumb's side
   const sd = F.side('RightHand');
   const back = add(hand, mul(sd, -0.04 * K.m));
-  const tip = add(hand, mul(sd, 0.13 * K.m));
-  F.bar(back, tip, 0.01 * K.m, 0.009 * K.m, K.leaf, 8, F.up('RightHand'));
+  const tip = add(hand, mul(sd, 0.21 * K.m));
+  F.bar(back, tip, 0.015 * K.m, 0.013 * K.m, K.leaf, 8, F.up('RightHand'));
   K.axes[0] = sd;
   K.axes[1] = F.up('RightHand');
   K.axes[2] = F.fwd('RightHand');
