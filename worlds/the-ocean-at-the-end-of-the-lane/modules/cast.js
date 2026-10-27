@@ -88,7 +88,7 @@ return {
       frock: { name: 'frock', hang: [{ to: 1.05, from: 'waist', flare: 0.35, off: 0.94 }], short: true, bodice: true },
       // a woman's plain dress: fitted to the waist, a skirt falling straight to below the knee, long sleeves of its cloth,
       // stockinged legs under it
-      shift: { name: 'shift dress', hang: [{ to: 1.2, from: 'waist', flare: 0.22, off: 0.94 }], sleeves: 'garment', bodice: true, bare: true },
+      shift: { name: 'shift dress', hang: [{ to: 1.2, from: 'waist', flare: 0.12, off: 0.94 }], sleeves: 'garment', bodice: true, bare: true },
     },
     parts: { tie: { name: 'tie', draw: tie }, book: { name: 'open book', draw: book } },
   },

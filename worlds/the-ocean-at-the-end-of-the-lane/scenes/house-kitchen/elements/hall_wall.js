@@ -1,16 +1,16 @@
-// The hall seen through the doorway (x -1.0...1.0 about its anchor at x -2.6): a deep red paper, the foot of the
+// The hall seen through the doorway (x -1.7...1.0 about its anchor at x -2.6): a deep red paper, the foot of the
 // stairs on the left — the newel post, the first treads rising away to the left, the banister — a board of coat pegs
 // with Ursula's pink coat on its peg, Dad's dark mackintosh beside it, and the telephone on its little shelf.
 g.fillStyle = '#7b3b33';
-g.fillRect(-1.0, -2.42, 2.0, 2.44);
+g.fillRect(-1.7, -2.42, 2.7, 2.44);
 g.fillStyle = 'rgba(150, 82, 64, 0.35)';
-for (let y = -2.3; y < 0; y += 0.22) for (let x = -1.0 + ((y * 10) % 2 ? 0.11 : 0); x < 1.0; x += 0.22) {
+for (let y = -2.3, r = 0; y < 0; y += 0.22, r++) for (let x = -1.7 + (r % 2) * 0.11; x < 1.0; x += 0.22) {
   g.beginPath();
   g.ellipse(x, y, 0.035, 0.06, 0, 0, Math.PI * 2);
   g.fill();
 }
 g.fillStyle = '#e4ddc8';
-g.fillRect(-1.0, -0.1, 2.0, 0.1);
+g.fillRect(-1.7, -0.1, 2.7, 0.1);
 // the stairs: a white string rising to the left, the treads' carpet, the banister and its spindles, the newel post
 g.fillStyle = '#8c3a32';
 g.beginPath();
@@ -19,21 +19,21 @@ for (let k = 0; k < 6; k++) {
   g.lineTo(-0.45 - k * 0.24, -k * 0.19);
   g.lineTo(-0.45 - k * 0.24, -(k + 1) * 0.19);
 }
-g.lineTo(-1.0, -1.3);
-g.lineTo(-1.0, 0);
+g.lineTo(-1.7, -1.14);
+g.lineTo(-1.7, 0);
 g.closePath();
 g.fill();
 g.fillStyle = '#ece6d4';
 g.beginPath();
 g.moveTo(-0.35, 0);
 g.lineTo(-0.35, -0.24);
-g.lineTo(-1.0, -1.0);
-g.lineTo(-1.0, -0.75);
+g.lineTo(-1.7, -1.82);
+g.lineTo(-1.7, -1.57);
 g.closePath();
 g.fill();
 g.strokeStyle = '#ece6d4';
 g.lineWidth = 0.022;
-for (let k = 0; k < 6; k++) {
+for (let k = 0; k < 12; k++) {
   const x = -0.48 - k * 0.11;
   g.beginPath();
   g.moveTo(x, -0.28 - (k * 0.11) * 0.8);
@@ -43,8 +43,8 @@ for (let k = 0; k < 6; k++) {
 g.fillStyle = '#5b3a26';
 g.beginPath();
 g.moveTo(-0.38, -1.06);
-g.lineTo(-1.0, -1.58);
-g.lineTo(-1.0, -1.5);
+g.lineTo(-1.7, -2.17);
+g.lineTo(-1.7, -2.09);
 g.lineTo(-0.38, -0.98);
 g.closePath();
 g.fill();
