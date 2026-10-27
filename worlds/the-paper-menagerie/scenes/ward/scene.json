@@ -346,9 +346,6 @@
       "name": "The bed's sheet and the blanket thrown back",
       "plane": true,
       "inside": true,
-      "shadow": {
-        "light": "lamp"
-      },
       "across": 0.78,
       "distance": 3.9,
       "elevation": 0.58,
@@ -440,9 +437,6 @@
       "name": "The bedside table's top",
       "plane": true,
       "inside": true,
-      "shadow": {
-        "light": "lamp"
-      },
       "across": -0.62,
       "distance": 4.08,
       "elevation": 0.72,
@@ -532,11 +526,11 @@
       "person": {
         "cast": "cast",
         "who": "jack_grown",
-        "turn": 200,
+        "turn": 180,
         "does": "showing_suit"
       },
-      "across": 1.8,
-      "distance": 2.75
+      "across": 2.1,
+      "distance": 3.3
     },
     {
       "id": "dad",

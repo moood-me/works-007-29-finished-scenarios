@@ -86,13 +86,13 @@ return {
         hat: '#d8a35a',
       },
     },
-    // Dad at fifty-six: the sandy hair gone grey, the pale blue work shirt under a brown cardigan; his old phrasebook
+    // Dad at fifty-six: the sandy hair gone grey, a brown cardigan; his old phrasebook
     // in his hands (part `phrasebook`, its cover his `accent`)
     dad_grey: {
       kind: 'shapes',
       style: 'paper',
       who: 'man',
-      garment: 'jacket',
+      garment: 'none',
       hair: 'short',
       face: 'simple',
       parts: ['phrasebook'],
@@ -100,9 +100,8 @@ return {
       colors: {
         skin: '#e6bea0',
         hair: '#b9ae9c',
-        top: '#a9bacb',
+        top: '#7b6650',
         bottom: '#5c4f43',
-        garment: '#7b6650',
         shoes: '#3a2c24',
         accent: '#8a3b32',
       },
