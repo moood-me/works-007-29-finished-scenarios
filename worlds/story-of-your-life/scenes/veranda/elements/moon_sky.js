@@ -1,6 +1,6 @@
-// A clear summer night over the back yard (screen heights; the horizon at 0.42): deep blue above, paler and greyer
+// A clear summer night over the back yard (screen heights; the horizon at 0.5): deep blue above, paler and greyer
 // low down; stars, fewer toward the moon; the full moon high on the left (its point `disc`, the moonlight's source),
-// a soft halo round it; one thin cloud below it drifting slowly (the layer `cloud`).
+// a soft halo round it.
 const A = e.aspect, MX = 0.37, MY = 0.07;
 const sky = g.createLinearGradient(0, -0.35, 0, 0.7);
 sky.addColorStop(0, '#141d3a');
@@ -34,13 +34,3 @@ for (const [dx, dy, r] of [[-0.012, -0.006, 0.009], [0.008, -0.013, 0.006], [0.0
 }
 e.at(MX, MY, 'disc');
 e.light(MX, MY, 0.05, '#dfe6ff', 0.5, 'disc');
-e.layer('cloud', { drift: [0.003, 0], box: [-0.3, 0.12, A + 0.3, 0.3] }, c => {
-  for (const [x, y, w] of [[0.1, 0.2, 0.34], [0.95, 0.17, 0.26], [1.5, 0.23, 0.3]]) {
-    for (let k = 0; k < 7; k++) {
-      c.fillStyle = 'rgba(150,164,200,0.12)';
-      c.beginPath();
-      c.ellipse(x + (k - 3) * w * 0.13, y + Math.sin(k * 1.7) * 0.006, w * 0.2, 0.011, 0, 0, Math.PI * 2);
-      c.fill();
-    }
-  }
-});

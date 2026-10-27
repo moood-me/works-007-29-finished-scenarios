@@ -342,7 +342,7 @@
           7,
           1.2
         ],
-        "rate": 1.5,
+        "rate": 3,
         "life": [
           5,
           9
@@ -370,8 +370,8 @@
         "turn": 275,
         "does": "sway"
       },
-      "across": 0.48,
-      "distance": 3.97
+      "across": 0.54,
+      "distance": 3.96
     }
   ],
   "music": {
