@@ -36,7 +36,7 @@ evening dress: a black tailcoat (`garment`) over a white waistcoat and shirt fro
 `parcel` — a Christmas parcel in brown paper tied with red string, held in both hands before the chest (with `hold`).
 `moustache` — Torvald's and Rank's (a look's).
 `tambourine` — Nora's, held up in the right hand, the hoop going on up the forearm's line, its skin to the front.
-`glass` — a coupe of champagne in the right hand. `cigar` — Rank's, out of his right fist, its tip
+`glass` — a coupe of champagne in the right hand. `cigar` — Rank's, out of his left fist, its tip
 glowing (the point `tip`: its smoke rises from it). `fan` — a lady's closed fan held in both hands before the waist.
 
 ## Motions (Kimodo)
@@ -47,7 +47,7 @@ The engine's `stand` and `walk`, and the world's own, made for these people (mak
 `hunched` — Krogstad's: stands still, a little hunched, head forward, arms hanging, watching;
 `tambourine` — Nora's at the ball: the right arm raised high overhead (a held object), the left hanging;
 `toast` — stands upright, chest out, a glass held at chest height in the right hand;
-`cigar` — stands, a little stooped, the right hand holding a small thing at the chest, the left arm hanging;
+`cigar` — stands, a little stooped, the left hand holding a small thing at the chest, the right arm hanging;
 `fan` — stands upright holding a small thing with both hands before the waist;
 `arms_folded` — stands with the arms folded across the chest;
 `playing` — sits (on a bench: `<id>_on`), playing the piano before them, the hands at chest height.
