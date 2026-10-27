@@ -1,6 +1,6 @@
 // Rick's house, across the field to the right: a small white clapboard house, a grey shingled roof, a porch with two
 // posts, two windows, a chimney (metres from its foot; 10 m wide).
-g.fillStyle = '#e4ddd0';
+g.fillStyle = '#d9d1c4';
 g.fillRect(-5, -4.6, 10, 4.6);
 g.strokeStyle = 'rgba(150,140,128,0.5)';
 g.lineWidth = 0.05;
