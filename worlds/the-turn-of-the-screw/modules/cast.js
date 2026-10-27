@@ -50,7 +50,7 @@ return {
     // dress to the ground, long sleeves, a white apron over it
     grose: {
       kind: 'shapes', style: 'bly', who: 'woman', garment: 'housedress', hair: 'bun', hat: 'mobcap', face: 'bly',
-      body: { height: 0.88, head: 1.1, neck: 0.5, shoulders: 0.96, hips: 1.16, thick: 1.22 },
+      body: { height: 0.88, head: 1.1, neck: 0.75, shoulders: 0.92, hips: 1.16, thick: 1.12 },
       colors: { skin: '#e9c2a2', hair: '#9a948c', top: '#5b3f3a', garment: '#5b3f3a', bottom: '#5b3f3a', shoes: '#2a2624' },
     },
     // Miss Jessel, the governess before: tall, beautiful and worn; pale, her dark hair loose down her back, a black
