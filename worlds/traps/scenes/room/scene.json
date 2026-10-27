@@ -254,12 +254,12 @@
       "inside": true,
       "copies": [
         {
-          "across": -3.4,
+          "across": -3.75,
           "distance": 1.6,
           "facing": 90
         },
         {
-          "across": 3.4,
+          "across": 3.05,
           "distance": 1.6,
           "facing": 270
         }
