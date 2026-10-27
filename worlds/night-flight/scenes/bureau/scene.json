@@ -509,7 +509,7 @@
       "person": {
         "cast": "cast",
         "who": "madame",
-        "turn": 110,
+        "turn": 120,
         "does": "coat_clutch"
       },
       "across": -2.7,
@@ -526,11 +526,11 @@
           "hat": "none",
           "garment": "jacket"
         },
-        "turn": 210,
+        "turn": 235,
         "does": "stand"
       },
-      "across": -0.55,
-      "distance": 4.6,
+      "across": -0.45,
+      "distance": 6.7,
       "inside": true
     },
     {
