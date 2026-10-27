@@ -12,7 +12,8 @@ Faces (`faceOf`): almond eyes (warm whites, a dark iris, a dark upper lid), brow
 the skin's colour (its form the light's), lips a shade rosier than the skin over a dark line; each expression of
 `<id>_mood` as the engine names them. Each person's own cast of face: `eurydice` (one corner of the mouth a little
 higher — about to tease), `orpheus` (brows heavier and straight), `orpheus_sing` (his face with the lips parted —
-`orpheus_wear: {"face": "orpheus_sing"}` while he sings).
+`orpheus_wear: {"face": "orpheus_sing"}` while he sings), `persephone` (level brows, the eyes a little lidded),
+`hades` (heavy straight brows over heavy lids), `shade` (quiet, the lids low, the brows faint).
 
 The world's one red is Eurydice's ribbon: nobody and nothing else wears red.
 
@@ -20,10 +21,18 @@ The world's one red is Eurydice's ribbon: nobody and nothing else wears red.
 
 - `orpheus` — Orpheus, about thirty: lean, straight-backed; dark curling hair (`curly`) and a short dark beard (`beard`);
   a long loose tunic of faded blue to the knee (`tunic`), a dark leather belt (`belt`), dark trousers; barefoot. His
-  lyre is the scene's own element (in his hands by `<id>_reach` to its points), not a part of him.
+  lyre is the scene's own element (in his hands by `<id>_reach` to its points), not a part of him. His lantern on the
+  meadow is: `lantern` (`<id>_with: ["lantern"]`) — a small square lantern of cream paper in a dark frame hanging
+  from his left hand, swinging a little late; its point `flame` (the scene's light `"at": "orpheus#flame"`).
 - `eurydice` — Eurydice, a little over twenty: slight; long dark-brown hair round her face and loose down her back (`straight`) with a red ribbon
   tied round it, its two long ends hanging down her hair (`ribbon`); a plain long dress of undyed linen (`shift`) girded with a thin cord of darker linen (`cord`);
   barefoot.
+- `persephone` — Persephone, of no age: tall, straight, pale; black hair in a knot at the back of the head (`bun`) with a
+  thin band of silver (`circlet`); a long gown of the deep green of pomegranate leaves (`gown`); barefoot.
+- `hades` — Hades, of no age: big, heavy-shouldered; short dark hair going grey (`short`), a full beard (`full_beard`);
+  a long heavy mantle of ash-grey wool (`mantle`) over dark trousers; dark sandals.
+- `shade_man`, `shade_woman`, `shade_old` — the shades of the meadow: people as they were, every colour gone out of
+  them, pale grey-blue (a tunic, a linen dress with long hair, a mantle with white hair); barefoot.
 
 ## Motions
 

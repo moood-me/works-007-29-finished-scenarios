@@ -29,6 +29,16 @@ const RIBBON = F => ({
   colors: [[0, RED]],
 });
 
+// Persephone's silver circlet: its band's points, profile, colour
+const CIRCLET = F => ({
+  band: new Array(BAND + 1),
+  profile: [[0, 0.045 * F.head.r], [BAND, 0.045 * F.head.r]],
+  colors: [[0, [0.82, 0.83, 0.86, 1]]],
+});
+// the lantern's dark wood, its iron ring, its paper lit from within (a fourth of 2: it glows, its own colour whatever
+// the light)
+const WOOD = [0.24, 0.19, 0.15, 1], IRON = [0.16, 0.14, 0.13, 1], GLOW = [1, 0.8, 0.52, 2];
+
 // the face's expressions (the engine's names — a person's <id>_mood): the brows' inner and outer ends up (+) or down,
 // the eyes opened (1 at rest) or narrowed, the mouth's half-width, its corners up (+) or down, how open it is
 const EXPR = {
@@ -87,6 +97,29 @@ return {
       barefoot: 'both',
       body: { height: 0.92, thick: 0.88, shoulders: 0.88, hips: 1.0, neck: 1.04, head: 1.0 },
       colors: { skin: '#ebc4a2', hair: '#3b2418', top: '#ece2cd', garment: '#ece2cd', bottom: '#e4d9c2', accent: '#b8171a', shoes: '#e2b597' } },
+    // Persephone, of no age: tall, straight, still; black hair drawn back into a knot at the back of the head, a thin
+    // band of silver round it; pale from long years under the earth; a long gown of the deep green of pomegranate
+    // leaves, to the floor, long sleeves; barefoot (she works in her garden)
+    persephone: { kind: 'shapes', style: 'myth', who: 'woman', garment: 'gown', hair: 'bun', face: 'persephone', parts: ['circlet'],
+      barefoot: 'both',
+      body: { height: 0.98, thick: 0.86, shoulders: 0.9, hips: 0.98, neck: 1.08, head: 0.98 },
+      colors: { skin: '#e6cbb6', hair: '#1f1612', top: '#3f5c4b', garment: '#3f5c4b', bottom: '#34503f', accent: '#d2d4da', shoes: '#ddbfa9' } },
+    // Hades, of no age: big, heavy-shouldered, tired; short dark hair going grey, a full beard; a long heavy mantle of
+    // ash-grey wool to the floor over dark trousers; dark sandals
+    hades: { kind: 'shapes', style: 'myth', who: 'man', garment: 'mantle', hair: 'short', face: 'hades', parts: ['full_beard'],
+      body: { height: 1.07, thick: 1.18, shoulders: 1.14, head: 1.04 },
+      colors: { skin: '#cfa98c', hair: '#4b4743', top: '#4a4550', garment: '#4a4550', bottom: '#2f2c34', accent: '#3a3029', shoes: '#3a3029' } },
+    // the shades on the meadow: people of every age as they were, every colour gone out of them — pale grey-blue skin,
+    // hair and clothes, as if seen through water; barefoot
+    shade_man: { kind: 'shapes', style: 'myth', who: 'man', garment: 'tunic', hair: 'short', face: 'shade', barefoot: 'both',
+      body: { height: 1.0, thick: 0.92 },
+      colors: { skin: '#b4b9c8', hair: '#6a6f82', top: '#a0a7bb', garment: '#a0a7bb', bottom: '#7f8599', accent: '#7f8599', shoes: '#b4b9c8' } },
+    shade_woman: { kind: 'shapes', style: 'myth', who: 'woman', garment: 'shift', hair: 'long', face: 'shade', barefoot: 'both',
+      body: { height: 0.92, thick: 0.86, shoulders: 0.88 },
+      colors: { skin: '#bcc0cd', hair: '#5f6476', top: '#aeb3c4', garment: '#aeb3c4', bottom: '#a3a8ba', accent: '#8a8fa2', shoes: '#bcc0cd' } },
+    shade_old: { kind: 'shapes', style: 'myth', who: 'man', garment: 'mantle', hair: 'short', face: 'shade', barefoot: 'both',
+      body: { height: 0.95, thick: 0.95, shoulders: 0.96 },
+      colors: { skin: '#b7bac6', hair: '#c3c6d0', top: '#8d93a6', garment: '#8d93a6', bottom: '#787e92', accent: '#787e92', shoes: '#b7bac6' } },
   },
   shapes: {
     // the world's style: slender, long-limbed figures (from `shadow`), a head a little big on a neck of natural length
@@ -106,10 +139,20 @@ return {
       orpheus: { name: 'Orpheus', draw: faceOf({ brow: 1.2 }) },
       // Orpheus singing: the same face, the lips parted
       orpheus_sing: { name: 'Orpheus, singing', draw: faceOf({ brow: 1.2, sing: 0.06 }) },
+      // Persephone's: level brows, the eyes a little lidded — she looks straight and long
+      persephone: { name: 'Persephone', draw: faceOf({ brow: 0.95, lid: 0.9 }) },
+      // Hades's: heavy straight brows over heavy lids — a tired man who never raises his voice
+      hades: { name: 'Hades', draw: faceOf({ brow: 1.4, lid: 0.78 }) },
+      // a shade's: quiet, the lids a little low, the brows faint
+      shade: { name: 'a shade', draw: faceOf({ brow: 0.75, lid: 0.85 }) },
     },
     garments: {
       // a plain long dress of linen: from the shoulders, falling loose to the ankles, long sleeves
       shift: { name: 'linen dress', hang: [{ to: 1.95, from: 'shoulders', flare: 0.3 }], sleeves: 'garment' },
+      // Persephone's gown: from the shoulders to the floor, wider at the hem, long sleeves
+      gown: { name: 'gown', hang: [{ to: 2.0, from: 'shoulders', flare: 0.42 }], sleeves: 'garment' },
+      // a long heavy mantle of wool from the shoulders to the floor, long sleeves (Hades; the old among the shades)
+      mantle: { name: 'mantle', hang: [{ to: 2.05, from: 'shoulders', flare: 0.36 }], sleeves: 'garment' },
     },
     hair: {
       // dark curling hair, short over the ears: a cap off the brow and small curls sunk half into it, close round the
@@ -125,6 +168,34 @@ return {
       beard: { name: 'short beard', draw: F => {
         const h = F.head, r = h.r;
         F.ball(h.on([0, -0.74, 0.58], 0.96), h.axes, [r * 0.4, r * 0.25, r * 0.26], F.colors.hair, 12);
+      } },
+      // a full beard over the jaw, the cheeks and the chin, below the nose (the eyes and the nose clear of it) — Hades's
+      full_beard: { name: 'full beard', draw: F => {
+        const { add, mul } = V(), h = F.head, [, hu, hf] = h.axes, r = h.r * h.out;
+        F.cap(h.at, h.axes, h.egg.map(e => e * r * 1.05), [0, -0.85, 0.53], 0.65, F.colors.hair, h.sides, h.square);
+        F.ball(add(h.at, add(mul(hu, -r * 0.85), mul(hf, r * 0.45))), h.axes, [r * 0.55, r * 0.42, r * 0.38], F.colors.hair, h.sides);
+      } },
+      // Persephone's circlet: a thin band of silver round her hair above the brow
+      circlet: { name: 'circlet', draw: F => {
+        const h = F.head, K = F.keep(CIRCLET), [, hu] = h.axes;
+        for (let i = 0; i <= BAND; i++) {
+          const a = (i / BAND) * Math.PI * 2;
+          K.band[i] = h.on([Math.sin(a), 0.5 + 0.18 * Math.cos(a), Math.cos(a)], 1.07);
+        }
+        F.tube(K.band, K.profile, K.colors, 6, hu, 0.35);
+      } },
+      // the lantern Orpheus carries on the meadow: a small square lantern of cream paper in a dark wooden frame,
+      // hanging by its ring from his left hand and swinging a little late as the hand moves, a candle burning in it.
+      // Its point flame (the scene's light "at": "orpheus#flame")
+      lantern: { name: 'lantern', draw: F => {
+        const { add, mul, sub, unit } = V(), k = F.fit.h, hand = F.P('LeftHand'), side = F.side('Hips'), fw = F.fwd('Hips');
+        const ring = add(hand, [0, -0.04 * k, 0]), body = F.swing('lantern', add(ring, [0, -0.2 * k, 0]), 60);
+        const dn = unit(sub(body, ring)), ax = [side, mul(dn, -1), fw];
+        F.tube([ring, add(ring, mul(dn, 0.06 * k))], [[0, 0.004 * k], [1, 0.004 * k]], [[0, IRON]], 4, side);
+        F.ball(add(ring, mul(dn, 0.075 * k)), ax, [0.075 * k, 0.014 * k, 0.075 * k], WOOD, 4, 3);
+        F.ball(add(ring, mul(dn, 0.17 * k)), ax, [0.06 * k, 0.085 * k, 0.06 * k], GLOW, 4, 3);
+        F.ball(add(ring, mul(dn, 0.265 * k)), ax, [0.075 * k, 0.014 * k, 0.075 * k], WOOD, 4, 3);
+        F.point('flame', add(ring, mul(dn, 0.17 * k)));
       } },
       // a plain belt of dark leather round the tunic at the waist
       belt: { name: 'belt', draw: F => {
