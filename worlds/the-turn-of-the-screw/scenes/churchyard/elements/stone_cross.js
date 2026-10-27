@@ -1,0 +1,31 @@
+// A stone cross on a stepped base over an older grave, its arms worn round, lichen on them (metres: x across, y up).
+const path = () => {
+  g.beginPath();
+  g.moveTo(-0.3, 0.15);
+  g.lineTo(-0.3, -0.18);
+  g.lineTo(-0.1, -0.18);
+  g.lineTo(-0.08, -0.88);
+  g.lineTo(-0.3, -0.88);
+  g.lineTo(-0.3, -1.04);
+  g.lineTo(-0.08, -1.04);
+  g.lineTo(-0.08, -1.3);
+  g.lineTo(0.08, -1.3);
+  g.lineTo(0.08, -1.04);
+  g.lineTo(0.3, -1.04);
+  g.lineTo(0.3, -0.88);
+  g.lineTo(0.1, -0.88);
+  g.lineTo(0.12, -0.18);
+  g.lineTo(0.3, -0.18);
+  g.lineTo(0.3, 0.15);
+  g.closePath();
+};
+g.fillStyle = '#b6b09f';
+g.save();
+g.translate(0.03, 0);
+path();
+g.fill();
+g.restore();
+g.fillStyle = '#9a9486';
+path();
+g.fill();
+e.lib.weathered(g, e.rnd, path, 0.6, 1.3);
