@@ -1,5 +1,5 @@
 // The milk-glass globes of the schoolroom's lamps, lit (glows): two rows of two — the near row here, the far row a part
-// 1.9 m farther —, each globe its own light (`#near_left`, `#near_right`, `#far_left`, `#far_right`). Metres from 2.0
+// 2.1 m farther —, each globe its own light (`#near_left`, `#near_right`, `#far_left`, `#far_right`). Metres from 2.0
 // up, x across the room.
 const row = (c, which) => {
   for (const [x, side] of [[-1.6, 'left'], [0.9, 'right']]) {
@@ -15,4 +15,4 @@ const row = (c, which) => {
   }
 };
 row(g, 'near');
-e.part(0, 1.9, c => row(c, 'far'));
+e.part(0, 2.1, c => row(c, 'far'));

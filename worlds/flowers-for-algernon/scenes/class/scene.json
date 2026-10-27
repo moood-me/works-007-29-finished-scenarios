@@ -7,7 +7,7 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.5,
+    "ambient": 0.55,
     "ambientColor": "#8a90b8",
     "inside": 0.3,
     "bounce": 0.6,
@@ -32,14 +32,14 @@
       "id": "near_left",
       "of": "globes#near_left",
       "color": "#ffe2b0",
-      "strength": 0.9,
+      "strength": 1.0,
       "reach": 5
     },
     {
       "id": "near_right",
       "of": "globes#near_right",
       "color": "#ffe2b0",
-      "strength": 0.9,
+      "strength": 1.0,
       "reach": 5
     },
     {
@@ -638,7 +638,7 @@
       "name": "The lamps' rods",
       "inside": true,
       "across": 0,
-      "distance": 3.8,
+      "distance": 3.1,
       "elevation": 2.0,
       "height": 1.2,
       "box": [
@@ -654,7 +654,7 @@
       "glows": true,
       "inside": true,
       "across": 0,
-      "distance": 3.8,
+      "distance": 3.1,
       "elevation": 2.0,
       "height": 0.4,
       "box": [

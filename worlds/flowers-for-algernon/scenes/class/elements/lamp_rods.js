@@ -1,5 +1,5 @@
 // The rods of the schoolroom's lamps: two brass-capped rods hanging from the ceiling (3.2) to the fitters that hold
-// the milk-glass globes (`globes`) — the near row here, the far row a part 1.9 m farther. Metres from 2.0 up, x across
+// the milk-glass globes (`globes`) — the near row here, the far row a part 2.1 m farther. Metres from 2.0 up, x across
 // the room.
 const row = c => {
   for (const x of [-1.6, 0.9]) {
@@ -17,4 +17,4 @@ const row = c => {
   }
 };
 row(g);
-e.part(0, 1.9, row);
+e.part(0, 2.1, row);
