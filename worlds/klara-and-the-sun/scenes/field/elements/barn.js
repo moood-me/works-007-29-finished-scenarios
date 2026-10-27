@@ -13,11 +13,14 @@ outline.lineTo(7.5, 0);
 outline.closePath();
 g.fillStyle = '#76604f';
 g.fill(outline);
-// the boards: thin vertical seams, some paler
+// the boards: thin vertical seams, some paler (within the outline)
+g.save();
+g.clip(outline);
 for (let bx = -7.3; bx < 7.4; bx += 0.55) {
   g.fillStyle = e.rnd() < 0.3 ? 'rgba(160,140,120,0.35)' : 'rgba(60,48,40,0.35)';
-  g.fillRect(bx, -10.6, 0.08, 10.6);
+  g.fillRect(bx, -11, 0.08, 11);
 }
+g.restore();
 // the roof's edge
 g.strokeStyle = '#4a3c33';
 g.lineWidth = 0.35;
