@@ -3,9 +3,9 @@
 const hands = e.point('santiago#hands');
 const water = e.point({ on: 'boat', at: [0.35, -2.06, 0] });
 const mouth = e.point('fish#mouth');
-if (!e.mem.said) {
+if (!e.mem.said && e.t > 1) {
   e.mem.said = true;
-  e.warn(`debug hands ${JSON.stringify(hands)} water ${JSON.stringify(water)} mouth ${JSON.stringify(mouth)}`);
+  e.warn(`debug t ${e.t.toFixed(2)} line ${JSON.stringify([e.layer("line").x, e.layer("line").y, e.layer("line").rotate, e.layer("line").scaleX])} hands ${JSON.stringify(hands)} water ${JSON.stringify(water)} mouth ${JSON.stringify(mouth)}`);
 }
 if (!hands || !water) return;
 const f = e.anim.ease.smooth(e.anim.span(e.state.fish, 0.4, 1));
