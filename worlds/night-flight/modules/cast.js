@@ -159,13 +159,14 @@ return {
         name: 'flying helmet',
         draw: F => {
           const { add, mul } = V();
-          const { at: head, axes: [hs, hu, hf], r: rh } = F.head;
-          F.ball(add(head, add(mul(hu, rh * 0.16), mul(hf, -rh * 0.06))), [hs, hu, hf], [rh * 1.07, rh * 0.98, rh * 1.08], F.colors.hat, F.sides);
-          for (const s of [-1, 1]) {
-            F.ball(add(head, add(mul(hs, s * rh * 0.98), mul(hu, -rh * 0.28))), [hs, hu, hf], [rh * 0.2, rh * 0.42, rh * 0.36], F.colors.hat, F.sides);
-            F.ball(add(head, add(add(mul(hs, s * rh * 0.36), mul(hu, rh * 0.62)), mul(hf, rh * 0.86))), [hs, hu, hf], [rh * 0.3, rh * 0.22, rh * 0.12], [0.62, 0.7, 0.74, 1], 12);
-          }
-          F.ball(add(head, add(mul(hu, rh * 0.62), mul(hf, rh * 0.8))), [hs, hu, hf], [rh * 0.95, rh * 0.09, rh * 0.3], [0.2, 0.17, 0.15, 1], F.sides);
+          const { at: head, axes: [hs, hu, hf], egg, r: rh, out, sides, square } = F.head;
+          // the shell over the crown and the back of the head, its edge at the brow before and low at the nape
+          F.cap(head, [hs, hu, hf], egg.map(e => e * rh * out * 1.08), [0, 0.55, -0.84], -0.3, F.colors.hat, sides, square);
+          // the ear flaps
+          for (const s of [-1, 1]) F.ball(add(head, add(mul(hs, s * rh * 0.95), mul(hu, -rh * 0.2))), [hs, hu, hf], [rh * 0.2, rh * 0.42, rh * 0.36], F.colors.hat, F.sides);
+          // the goggles pushed up on the brow: their strap, two round glasses catching the light
+          F.ball(add(head, add(mul(hu, rh * 0.6), mul(hf, rh * 0.62))), [hs, hu, hf], [rh * 1.0, rh * 0.09, rh * 0.5], [0.2, 0.17, 0.15, 1], F.sides);
+          for (const s of [-1, 1]) F.ball(add(head, add(add(mul(hs, s * rh * 0.36), mul(hu, rh * 0.62)), mul(hf, rh * 0.86))), [hs, hu, hf], [rh * 0.28, rh * 0.2, rh * 0.12], [0.62, 0.7, 0.74, 1], 12);
         },
       },
       // a telegraphist's green celluloid eyeshade: a band round the head, its peak out over the eyes
