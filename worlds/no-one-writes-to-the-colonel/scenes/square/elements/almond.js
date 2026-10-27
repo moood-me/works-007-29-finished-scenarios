@@ -14,7 +14,7 @@ g.fillRect(-0.04, -3.4, 0.05, 3.4);
 // the tiers' branches, level
 g.strokeStyle = '#4e463e';
 g.lineCap = 'round';
-const tiers = [[-3.5, 3.3], [-4.9, 2.7], [-6.2, 2.0], [-7.4, 1.2]];
+const tiers = [[-3.4, 3.5], [-4.4, 3.2], [-5.4, 2.6], [-6.3, 1.7], [-7.0, 0.9]];
 for (const [y, w] of tiers) {
   g.lineWidth = 0.09;
   g.beginPath();
@@ -25,15 +25,15 @@ for (const [y, w] of tiers) {
 g.lineWidth = 0.12;
 g.beginPath();
 g.moveTo(0, -3.6);
-g.lineTo(0, -7.6);
+g.lineTo(0, -7.2);
 g.stroke();
 e.layer('crown', { pivot: [0, -3.6], wind: { strength: 0.18, gust: 0.4 } }, c => {
   const greens = ['#3e5a30', '#4a6a36', '#557a3e', '#36502a'];
   const reds = ['#b0442c', '#c8702e', '#a85a28'];
   for (const [y, w] of tiers) {
-    for (let i = 0; i < 70 * w; i++) {
+    for (let i = 0; i < 95 * w; i++) {
       const x = (e.rnd() * 2 - 1) * w;
-      const yy = y - 0.15 - e.rnd() * 0.55 * (1 - Math.abs(x) / w * 0.5);
+      const yy = y - 0.1 - e.rnd() * 0.85 * (1 - Math.abs(x) / w * 0.6);
       c.fillStyle = e.rnd() < 0.1 ? reds[Math.floor(e.rnd() * 3)] : greens[Math.floor(e.rnd() * 4)];
       c.beginPath();
       c.ellipse(x, yy, 0.16 + e.rnd() * 0.1, 0.08 + e.rnd() * 0.05, (e.rnd() - 0.5) * 0.8, 0, Math.PI * 2);

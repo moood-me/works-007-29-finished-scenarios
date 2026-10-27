@@ -450,7 +450,7 @@
       "person": {
         "cast": "cast",
         "who": "colonel",
-        "turn": 160,
+        "turn": 150,
         "does": "stand_umbrella"
       },
       "across": -1.55,
