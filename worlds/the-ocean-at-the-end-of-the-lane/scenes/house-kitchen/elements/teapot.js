@@ -1,0 +1,43 @@
+// The brown teapot under its knitted cosy (orange and mustard stripes, a bobble on top), the spout and the handle
+// showing, a milk bottle beside it.
+g.fillStyle = '#6b3f26';
+g.beginPath();
+g.moveTo(-0.13, -0.06);
+g.quadraticCurveTo(-0.2, -0.1, -0.21, -0.16);
+g.lineTo(-0.18, -0.17);
+g.quadraticCurveTo(-0.16, -0.11, -0.11, -0.1);
+g.closePath();
+g.fill();
+g.beginPath();
+g.ellipse(0.0, -0.05, 0.12, 0.05, 0, 0, Math.PI * 2);
+g.fill();
+g.fillStyle = '#d07a34';
+g.beginPath();
+g.moveTo(-0.11, -0.03);
+g.bezierCurveTo(-0.12, -0.2, 0.12, -0.2, 0.11, -0.03);
+g.closePath();
+g.fill();
+g.save();
+g.clip();
+g.fillStyle = '#d6aa3c';
+for (let y = -0.2; y < 0; y += 0.04) g.fillRect(-0.13, y, 0.26, 0.02);
+g.restore();
+g.fillStyle = '#b5443a';
+g.beginPath();
+g.arc(0, -0.17, 0.025, 0, Math.PI * 2);
+g.fill();
+// the milk bottle and its silver top
+g.fillStyle = '#f4f1ea';
+g.beginPath();
+g.moveTo(0.17, 0);
+g.lineTo(0.17, -0.12);
+g.quadraticCurveTo(0.17, -0.16, 0.19, -0.19);
+g.lineTo(0.19, -0.22);
+g.lineTo(0.23, -0.22);
+g.lineTo(0.23, -0.19);
+g.quadraticCurveTo(0.25, -0.16, 0.25, -0.12);
+g.lineTo(0.25, 0);
+g.closePath();
+g.fill();
+g.fillStyle = '#c9cccc';
+g.fillRect(0.188, -0.235, 0.044, 0.016);
