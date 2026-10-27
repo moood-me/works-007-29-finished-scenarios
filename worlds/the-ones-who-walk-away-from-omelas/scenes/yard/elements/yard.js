@@ -1,7 +1,7 @@
-// The yard from above (x across, y toward the viewer; the house at y −4.4): big uneven flagstones, packed earth between
+// The yard from above (x across, y toward the viewer; the house at y −4): big uneven flagstones, packed earth between
 // them with small weeds, a path worn paler from the gate side to the kitchen door (x 1, the far edge), a ring of damp
 // where the washing drips
-const A = e.anim, W = 9.2, D = 9;
+const A = e.anim, W = 9.2, D = 8.2;
 g.fillStyle = '#b9a98b';
 g.fillRect(-W / 2, -D / 2, W, D);
 const greys = ['#d6ccb8', '#cfc4ae', '#dcd3c0', '#c8bda6', '#d2c6b0'];
@@ -39,8 +39,8 @@ g.lineTo(0.8, D / 2);
 g.lineTo(-1.2, D / 2);
 g.closePath();
 g.fill();
-const damp = g.createRadialGradient(3, -3.1, 0.1, 3, -3.1, 1.1);
+const damp = g.createRadialGradient(3, -2.8, 0.1, 3, -2.8, 1.1);
 damp.addColorStop(0, 'rgba(120, 105, 85, 0.35)');
 damp.addColorStop(1, 'rgba(120, 105, 85, 0)');
 g.fillStyle = damp;
-g.fillRect(1.8, -4.3, 2.4, 2.4);
+g.fillRect(1.8, -4, 2.4, 2.4);

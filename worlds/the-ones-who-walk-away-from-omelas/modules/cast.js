@@ -25,7 +25,7 @@ return {
     // barefoot; a flute of his own (`flute`)
     pim: { kind: 'shapes', style: 'omelas', who: 'child', garment: 'tunic', hair: 'short', barefoot: 'both', parts: ['flute'],
       body: { height: 0.76, head: 0.96, thick: 0.8, shoulders: 0.86 },
-      colors: { skin: '#e6b893', hair: '#d6b06a', top: '#b4cde0', bottom: '#7a6650' } },
+      colors: { skin: '#e6b893', hair: '#d6b06a', top: '#94b9d8', bottom: '#7a6650' } },
     // Mev, her grandmother, about seventy: small and solid, white hair in a bun, a dark blue-grey dress, a basket of
     // flowers from the market on her arm; the cellar's key on a cord round her neck
     mev: { kind: 'shapes', style: 'omelas', who: 'woman', garment: 'dress', hair: 'bun', parts: ['key_cord', 'basket'],
