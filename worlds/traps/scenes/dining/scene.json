@@ -474,22 +474,23 @@
           0.06,
           0.0
         ],
-        "rate": 5,
+        "rate": 9,
         "size": [
-          0.04,
-          0.22
+          0.02,
+          0.12
         ],
         "life": [
-          1.4,
-          2.4
+          1.2,
+          2.0
         ],
         "speed": [
           0.08,
           0.16
         ],
         "color": "#f4f1ec",
-        "opacity": 0.28,
-        "shadow": 0
+        "opacity": 0.18,
+        "shadow": 0,
+        "turbulence": 0.03
       },
       "inside": true
     },
