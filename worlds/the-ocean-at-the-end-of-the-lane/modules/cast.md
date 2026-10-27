@@ -30,3 +30,5 @@ light (`paint: lit`), simple faces (`<id>_mood` shows on them).
 - `sit_calm` — sits upright on a chair, the hands folded in the lap (a loop; the seat through `<id>_on`).
 - `reading` — stands holding an open book before the chest in both hands, reading (a loop; with the part `book`).
 - `shy_sway` — a child standing shyly, the hands clasped before her, swaying a little (a loop).
+- `hands_clasped` — stands demurely, the hands clasped before her at the waist, the head a little to one side (a loop).
+- `arms_folded` — stands at ease with the arms folded across the chest (a loop).
