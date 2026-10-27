@@ -1,0 +1,355 @@
+{
+  "engine": 3,
+  "title": "The Height",
+  "caption": "East, the roofs of Tingit. South, the stones, and no road.",
+  "horizon": 0.34,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.5,
+    "ambientColor": "#b9c8e2",
+    "bounce": 0.55,
+    "haze": 0.025,
+    "hazeColor": "#d4dce6",
+    "hazeGlow": 0.2,
+    "shafts": 0,
+    "tint": "#fff0dc",
+    "tintStrength": 0.04,
+    "saturation": 0.95,
+    "vignette": 0.22,
+    "grain": 0.06,
+    "wind": [
+      1,
+      0.3,
+      0.7
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        290,
+        20
+      ],
+      "color": "#ffeccf",
+      "strength": 1.6
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "daru_with": [
+      "bundle"
+    ],
+    "daru_look": "arab#chest",
+    "daru_mood": "thinking",
+    "arab_with": [],
+    "arab_look": "tingit#gate",
+    "arab_mood": "neutral"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "land",
+      "name": "The hill, the valley and the tableland",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 9900,
+      "width": 40000,
+      "depth": 20200
+    },
+    {
+      "id": "ridges",
+      "name": "The far hills to the south",
+      "across": 4000,
+      "distance": 30000,
+      "height": 400,
+      "box": [
+        -30000,
+        -420,
+        30000,
+        60
+      ]
+    },
+    {
+      "id": "far_side",
+      "name": "The valley's far side",
+      "across": -6000,
+      "distance": 9000,
+      "height": 900,
+      "box": [
+        -9800,
+        -920,
+        9800,
+        60
+      ]
+    },
+    {
+      "id": "tingit",
+      "name": "Tingit",
+      "across": -900,
+      "distance": 2250,
+      "height": 50,
+      "box": [
+        -430,
+        -56,
+        430,
+        14
+      ]
+    },
+    {
+      "id": "puddles",
+      "name": "Meltwater in the rock",
+      "plane": true,
+      "across": 0.6,
+      "distance": 4.0,
+      "elevation": 0.04,
+      "width": 5,
+      "depth": 2.4,
+      "reflect": {
+        "strength": 0.55,
+        "fade": 8,
+        "rough": 0.05,
+        "ripple": 0.12
+      }
+    },
+    {
+      "id": "rock",
+      "name": "Limestone through the hilltop",
+      "across": 4.2,
+      "distance": 3.2,
+      "height": 0.6,
+      "box": [
+        -1.05,
+        -0.7,
+        1.05,
+        0.1
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 4.2,
+          "distance": 3.2,
+          "scale": 1.2
+        },
+        {
+          "across": -2.9,
+          "distance": 1.6,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 5.5,
+          "distance": 9.0,
+          "scale": 1.5
+        },
+        {
+          "across": 10,
+          "distance": 6,
+          "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": -9,
+          "distance": -1,
+          "scale": 1.2
+        }
+      ]
+    },
+    {
+      "id": "cairn",
+      "name": "The cairn at the head of the spur",
+      "across": -3.0,
+      "distance": 8.6,
+      "height": 0.9,
+      "box": [
+        -0.5,
+        -0.95,
+        0.5,
+        0.06
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tufts",
+      "name": "Alfa grass",
+      "across": -2,
+      "distance": 3,
+      "height": 0.5,
+      "box": [
+        -0.45,
+        -0.6,
+        0.45,
+        0.06
+      ],
+      "copies": [
+        {
+          "across": -2.6,
+          "distance": 2.2
+        },
+        {
+          "across": 2.2,
+          "distance": 2.4,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": 3.4,
+          "distance": 4.6,
+          "scale": 0.9
+        },
+        {
+          "across": -5.4,
+          "distance": 4.4,
+          "scale": 1.3,
+          "flip": true
+        },
+        {
+          "across": -1.8,
+          "distance": 9.5,
+          "scale": 1.1
+        },
+        {
+          "across": 5.2,
+          "distance": 7.8,
+          "scale": 1.2
+        },
+        {
+          "across": -6.8,
+          "distance": 8.2,
+          "scale": 1
+        },
+        {
+          "across": 1.1,
+          "distance": 1.8,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": 7.6,
+          "distance": 3.2,
+          "scale": 1.3
+        },
+        {
+          "across": -8.6,
+          "distance": 5.6,
+          "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": 3.2,
+          "distance": 12,
+          "scale": 1.4
+        },
+        {
+          "across": -4.2,
+          "distance": 15,
+          "scale": 1.5
+        }
+      ]
+    },
+    {
+      "id": "daru",
+      "name": "Daru",
+      "person": {
+        "cast": "cast",
+        "who": "daru",
+        "turn": 235,
+        "does": "hands_down"
+      },
+      "across": 1.8,
+      "distance": 6.4
+    },
+    {
+      "id": "arab",
+      "name": "The Arab",
+      "person": {
+        "cast": "cast",
+        "who": "arab",
+        "turn": 318,
+        "does": "stare"
+      },
+      "across": -0.9,
+      "distance": 5.2
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "solo oud, sparse slow phrases, long silences, cold dry wind, North African high plateau",
+        "weight": 1.0
+      },
+      {
+        "text": "low ney flute, breathy and lonely, slow, wide open space",
+        "weight": 1.1
+      },
+      {
+        "text": "sparse felt piano, a few cold notes, winter morning, restrained",
+        "weight": 0.5
+      },
+      {
+        "text": "bowed double bass drone, very slow, austere",
+        "weight": 0
+      },
+      {
+        "text": "distant frame drum, a slow heartbeat, desert silence",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, plain and grave, long notes",
+        "weight": 0
+      },
+      {
+        "text": "guitar harmonics, glassy and thin, snow light",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, quiet and dry, unresolved, 1950s French film",
+        "weight": 0
+      },
+      {
+        "text": "ambient wind pad, cold air, minimal",
+        "weight": 0.6
+      },
+      {
+        "text": "clarinet in the low register, slow and dignified, melancholy",
+        "weight": 0
+      },
+      {
+        "text": "qanun plucked softly, a few notes, distant",
+        "weight": 0
+      },
+      {
+        "text": "harmonium chord held, bare and austere",
+        "weight": 0
+      },
+      {
+        "text": "solo violin, high and thin, sorrow without tears",
+        "weight": 0
+      },
+      {
+        "text": "music box, faraway, a classroom memory",
+        "weight": 0
+      },
+      {
+        "text": "low brass chorale, slow, solemn",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano ostinato, waiting, tension held",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.4,
+    "scale": "E_FLAT_MAJOR_C_MINOR"
+  }
+}
