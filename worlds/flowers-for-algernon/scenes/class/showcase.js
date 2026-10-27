@@ -1,6 +1,6 @@
 // A Tuesday evening in the night class: Charlie, on his feet at his desk, reads aloud from his reader; Miss Kinnian
-// listens by the blackboard, smiling, and the two students watch him. He looks up from the page to her — has he got it
-// right? — and she smiles him on; the old student glances at the young one, and the young one smiles too; Charlie goes
+// listens by the blackboard, smiling, and the two students watch him. He looks up from the page at the room — has he
+// got it right? — and, seeing them all listening, smiles; the old student glances at the young one, and the young one smiles too; Charlie goes
 // back to the page.
 return [
   {
@@ -16,7 +16,7 @@ return [
   {
     name: 'he looks up',
     run: async s => {
-      s.person('charlie').look('kinnian');
+      s.person('charlie').look([0.6, 1.6, 1.5]);
       s.person('charlie').mood('surprised');
       await s.wait(1.2);
       s.person('charlie').mood('smile');
