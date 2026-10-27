@@ -14,7 +14,7 @@
     "inside": 0.25,
     "haze": 0.1,
     "hazeColor": "#2e3d61",
-    "hazeGlow": 0.6,
+    "hazeGlow": 0.3,
     "tint": "#c7b08a",
     "tintStrength": 0.05,
     "saturation": 0.95,
@@ -50,7 +50,7 @@
       "distance": 0.8,
       "elevation": 2.5,
       "color": "#ffd9a6",
-      "strength": 1.3,
+      "strength": 1.0,
       "reach": 8,
       "on": "lamps"
     },
@@ -346,7 +346,7 @@
       "box": [
         -0.82,
         -0.85,
-        1.0,
+        1.1,
         0.1
       ],
       "shadow": true
@@ -553,7 +553,7 @@
         "cast": "cast",
         "who": "telegraphist",
         "turn": 190,
-        "does": "key_tap"
+        "does": "desk_lean"
       },
       "across": 2.15,
       "distance": 6.3,
