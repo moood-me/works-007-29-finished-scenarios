@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Stenborgs' Ballroom","translation":"Бальная зала Стенборгов","where":"scenes/ballroom/scene.json title"},
+  {"text":"Upstairs, the night of the fancy-dress ball. Nora is to dance the tarantella.","translation":"Этажом выше, ночь маскарада. Норе танцевать тарантеллу.","where":"scenes/ballroom/scene.json caption"}
+]}
