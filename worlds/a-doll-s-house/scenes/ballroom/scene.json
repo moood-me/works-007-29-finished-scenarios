@@ -31,8 +31,8 @@
     },
     {
       "id": "landing",
-      "across": 4.1,
-      "distance": 9.0,
+      "across": 3.95,
+      "distance": 10.5,
       "elevation": 2.2,
       "color": "#ffd28a",
       "strength": 1.0,
@@ -309,16 +309,31 @@
     },
     {
       "id": "landing",
-      "name": "The landing beyond the doorway",
+      "name": "The landing's side wall: the stairs going down",
       "inside": true,
-      "across": 4.5,
-      "distance": 9.4,
+      "across": 4.4,
+      "distance": 9.7,
       "facing": 270,
       "height": 3,
       "box": [
-        -1.0,
+        -1.32,
         -3.02,
-        1.0,
+        1.32,
+        0.02
+      ]
+    },
+    {
+      "id": "landing_end",
+      "name": "The landing's end wall: the wall lamp, the coat stand",
+      "inside": true,
+      "across": 3.95,
+      "distance": 11.0,
+      "facing": 180,
+      "height": 3,
+      "box": [
+        -0.47,
+        -3.02,
+        0.47,
         0.02
       ]
     },
@@ -327,11 +342,11 @@
       "name": "The landing's floor",
       "plane": true,
       "inside": true,
-      "across": 4.0,
-      "distance": 9.4,
+      "across": 3.95,
+      "distance": 9.7,
       "elevation": 0,
-      "width": 1.0,
-      "depth": 1.4
+      "width": 0.9,
+      "depth": 2.6
     },
     {
       "id": "chandelier",

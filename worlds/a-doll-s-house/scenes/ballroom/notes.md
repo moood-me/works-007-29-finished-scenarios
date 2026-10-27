@@ -13,8 +13,9 @@ storey: the place, its light and its people standing. No motion of people but a 
   curtains; between them the pier glass — its glass the plane `mirror` (`reflect`, upright) before the wall, which
   paints its frame and the console under it. **Left wall** (`left_wall`, +x running back): the portrait over the
   grand piano (`piano`, side-on, lid up, keyboard toward the room, `piano#keys`; the bench beyond it). **Right wall**
-  (+x running to the front): the doorway to the landing (`right_wall#door`) — beyond it `landing` (stairs down, a wall
-  lamp, light `landing`) and `landing_floor`. Gilt chairs along the side walls (`chair`, copies, flipped on the right),
+  (+x running to the front): the doorway to the landing (`right_wall#door`) — beyond it the landing: its side wall `landing`
+  (the stairs down), its end wall `landing_end` (a wall lamp, light `landing`, a coat stand — what the doorway shows
+  from the front) and `landing_floor`. Gilt chairs along the side walls (`chair`, copies, flipped on the right),
   potted palms (`palm`, copies) in the back right corner and the front left. The parquet (`floor`) is polished: it
   mirrors the room a little.
 - **Outside the windows** the land drops 6.6 m to the street (`relief.js`): the houses across at 22 m — their upper

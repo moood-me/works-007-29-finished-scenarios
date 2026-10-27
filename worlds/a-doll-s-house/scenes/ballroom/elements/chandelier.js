@@ -4,7 +4,7 @@
 // its animate), `glints` (the crystal catching the flames, shown with them); its light `glow` is the scene's light
 // "chandelier".
 const GILT = '#c9a75c';
-const CRYSTAL = '#e6eef2';
+const CRYSTAL = '#d3dade';
 // the candles round the hoop: x, y on the painting, and whether before the hoop (larger) or behind it
 const ring = [];
 for (let i = 0; i < 12; i++) {
@@ -41,11 +41,18 @@ e.layer('body', {}, c => {
   c.stroke();
   c.fillStyle = GILT;
   c.fillRect(-0.03, -1.06, 0.06, 0.95);
+  // strings of crystal drops from the hoop down to the finial, a bead every few centimetres
   c.fillStyle = CRYSTAL;
-  for (let k = 0; k < 5; k++) {
-    c.beginPath();
-    c.ellipse(0, -0.45 + k * 0.1, 0.24 - k * 0.045, 0.05, 0, 0, Math.PI);
-    c.fill();
+  for (let i = 0; i < 24; i++) {
+    const a = (i / 24) * Math.PI * 2;
+    const x0 = Math.cos(a) * 0.62;
+    const y0 = -0.64 + Math.sin(a) * 0.1;
+    for (let k = 1; k < 9; k++) {
+      const u = k / 9;
+      c.beginPath();
+      c.arc(x0 * (1 - u) * (1 - u * 0.3), y0 + (-0.1 - y0) * u + Math.sin(u * Math.PI) * 0.06, 0.009, 0, Math.PI * 2);
+      c.fill();
+    }
   }
   c.fillStyle = GILT;
   c.beginPath();
