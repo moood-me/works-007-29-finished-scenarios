@@ -10,10 +10,10 @@
     "ambient": 0.6,
     "ambientColor": "#9a8a78",
     "bounce": 0.6,
-    "haze": 0.12,
+    "haze": 0.15,
     "hazeColor": "#d6b07c",
     "hazeGlow": 0.4,
-    "shafts": 1.4,
+    "shafts": 2.4,
     "tint": "#ffd8a0",
     "tintStrength": 0.06,
     "vignette": 0.45,
@@ -32,7 +32,7 @@
         14
       ],
       "color": "#ffc47a",
-      "strength": 2.6,
+      "strength": 3.4,
       "through": [
         [
           [
@@ -468,7 +468,7 @@
         "turn": 120,
         "does": "upright"
       },
-      "across": -2.0,
+      "across": -1.7,
       "distance": 4.8
     }
   ],
