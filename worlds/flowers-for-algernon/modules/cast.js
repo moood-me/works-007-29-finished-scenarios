@@ -32,7 +32,42 @@ const spectacles = F => {
 // dark tie on it from its knot under the chin (on the chest's front, kept before the jacket)
 const TIE_SIZES = F => {
   const m = F.fit.h, k = F.k;
+  // Charlie's reader, open in both hands before his chest and tipped up to his eyes: a dark red cloth cover and its two
+// cream pages opening a little toward him, each a flat sheet from the spine. Metres of a man (F.fit.h).
+const PRIMER = F => {
+  const m = F.fit.h, a = 0.9;
   return {
+    ca: Math.cos(a), sa: Math.sin(a), lift: 0.035 * m, out: 0.012 * m, h: 0.075 * m, page: 0.006 * m,
+    cover: { pts: [null, null], profile: [[0, 0.16 * m], [1, 0.16 * m]], flat: 0.03, colors: [[0, [0.45, 0.2, 0.17, 1]]] },
+    leaves: [-1, 1].map(s => ({ s, pts: [null, null], profile: [[0, 0.072 * m], [1, 0.072 * m]], flat: 0.06, colors: [[0, [0.94, 0.91, 0.82, 1]]] })),
+    d: null, n: null, c: null,
+  };
+};
+const primer = F => {
+  const K = F.keep(PRIMER), fw = F.fwd('Chest'), up = F.up('Chest'), sd = F.side('Chest');
+  const d = add(mul(fw, K.ca), mul(up, K.sa)), n = add(mul(up, K.ca), mul(fw, -K.sa));
+  const c = add(add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(d, K.lift)), mul(n, K.out));
+  K.cover.pts[0] = add(c, mul(d, -K.h));
+  K.cover.pts[1] = add(c, mul(d, K.h));
+  F.tube(K.cover.pts, K.cover.profile, K.cover.colors, 8, sd, K.cover.flat, 8, true);
+  for (const L of K.leaves) {
+    const across = add(mul(sd, L.s), mul(n, 0.2)), at = add(add(c, mul(n, K.page)), mul(across, 0.036 * F.fit.h));
+    L.pts[0] = add(at, mul(d, -K.h * 0.94));
+    L.pts[1] = add(at, mul(d, K.h * 0.94));
+    F.tube(L.pts, L.profile, L.colors, 8, across, L.flat, 8, true);
+  }
+  F.point('book', add(c, mul(n, K.page)));
+};
+// A stick of chalk between the fingers of Miss Kinnian's right hand, white, pointing on from the hand
+const CHALK = F => ({ from: 0.06 * F.fit.h, to: 0.1 * F.fit.h, r: 0.007 * F.k, white: [[0, [0.97, 0.96, 0.92, 1]]], a: null, b: null });
+const chalk = F => {
+  const K = F.keep(CHALK), hand = F.P('RightHand'), fw = F.fwd('RightHand');
+  K.a = add(hand, mul(fw, K.from));
+  K.b = add(hand, mul(fw, K.to));
+  F.bar(K.a, K.b, K.r, K.r, K.white, 6, F.up('RightHand'));
+  F.point('chalk', K.b);
+};
+return {
     neck: -0.035 * m, low: -0.06 * m, top: 0.02 * m, knotOut: 0.05 * k, vOut: 0.045 * k, chestOut: 0.11 * k,
     clearKnot: 0.012 * k, clearV: 0.003 * k, knotR: 0.012 * k, lowR: 0.02 * k,
     knot: [0.018 * k, 0.016 * k, 0.012 * k], axes: [null, null, null], pts: [null, null],
@@ -151,6 +186,19 @@ return {
       body: { height: 0.96, thick: 1.22, shoulders: 1.02, hips: 1.1 },
       colors: { skin: '#e2b496', hair: '#b4ada4', top: '#ece9e1', garment: '#f3f1ea', bottom: '#38383b', shoes: '#231f1c' },
     },
+    // two of the evening class's students, grown men learning to read after work: an older one, grey, in spectacles
+    // and a knitted grey-blue pullover; a young one, black-haired, in a rust work shirt and jeans (no jackets: they sit,
+    // and a jacket's skirt stands out over bent knees)
+    old_student: {
+      kind: 'shapes', style: 'lab', who: 'man', garment: 'none', hair: 'short', parts: ['spectacles'],
+      body: { height: 0.95, thick: 1.0, shoulders: 0.95, hips: 1.0 },
+      colors: { skin: '#d9ad8c', hair: '#c9c4bb', top: '#6f7f92', bottom: '#4a4640', shoes: '#2a2420' },
+    },
+    young_student: {
+      kind: 'shapes', style: 'lab', who: 'man', garment: 'none', hair: 'short',
+      body: { height: 0.98, thick: 0.9, shoulders: 1.0, hips: 0.92 },
+      colors: { skin: '#c99872', hair: '#1c1714', top: '#9a5a3c', bottom: '#3d4e66', shoes: '#2a221c' },
+    },
     strauss: {
       kind: 'shapes', style: 'lab', who: 'man', garment: 'labcoat', hair: 'short', parts: ['spectacles'],
       body: { height: 1.01, thick: 0.84, shoulders: 0.98, hips: 0.88 },
@@ -172,7 +220,7 @@ return {
     parts: {
       spectacles: { name: 'spectacles', draw: spectacles }, tie: { name: 'shirt and tie', draw: tie },
       notebook: { name: 'exercise book', draw: notebook }, beer: { name: 'glass of beer', draw: beer },
-      mug: { name: 'mug of beer', draw: mug },
+      mug: { name: 'mug of beer', draw: mug }, primer: { name: 'reader', draw: primer }, chalk: { name: 'chalk', draw: chalk },
     },
   },
 };
