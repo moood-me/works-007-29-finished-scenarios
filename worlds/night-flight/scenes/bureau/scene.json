@@ -526,8 +526,8 @@
           "hat": "none",
           "garment": "jacket"
         },
-        "turn": 215,
-        "does": "hands_behind"
+        "turn": 210,
+        "does": "stand"
       },
       "across": -0.55,
       "distance": 4.6,
