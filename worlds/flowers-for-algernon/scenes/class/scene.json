@@ -671,7 +671,7 @@
       "person": {
         "cast": "cast",
         "who": "charlie",
-        "turn": 235,
+        "turn": 212,
         "does": "book_read"
       },
       "across": -0.68,
