@@ -3,7 +3,7 @@
 g.fillStyle = '#e6dccb';
 g.fillRect(-3.26, -3.22, 6.58, 3.24);
 g.fillStyle = '#d6cbb7';
-g.fillRect(-3.32, -0.14, 6.64, 0.16);
+g.fillRect(-3.26, -0.14, 6.58, 0.16);
 g.fillStyle = '#efe7d9';
 g.fillRect(-2.6, -1.62, 4.8, 0.05);
 const colors = ['#9fb0b8', '#d9c7a6', '#b8a99a', '#e9e2d4'];

@@ -3,7 +3,7 @@
 g.fillStyle = '#e2d8c7';
 g.fillRect(-3.32, -3.22, 6.58, 3.24);
 g.fillStyle = '#d3c8b4';
-g.fillRect(-3.32, -0.14, 6.64, 0.16);
+g.fillRect(-3.32, -0.14, 6.58, 0.16);
 g.fillStyle = '#cfc4ae';
 g.fillRect(-2.9, -2.15, 0.85, 2.17);
 g.fillStyle = '#c3b79f';
