@@ -62,9 +62,10 @@ return {
       colors: { skin: '#e8c3a6', hair: '#cdc8c0', top: '#ebe4d6', garment: '#66768a', bottom: '#4a4a50', shoes: '#2a2622' },
     },
     // their daughter at twenty-five: her father's height and his light-brown hair (in a ponytail), her mother's
-    // slightness; a teal shell jacket over a cream top, jeans, boots — dressed for the rocks
+    // slightness; a teal shell jacket over a cream top, jeans, boots, the rope slung over her shoulder — dressed for
+    // the rocks
     daughter_25: {
-      kind: 'shapes', style: 'glass', who: 'woman', garment: 'jacket', hair: 'ponytail',
+      kind: 'shapes', style: 'glass', who: 'woman', garment: 'jacket', hair: 'ponytail', parts: ['rope'],
       body: { height: 0.97, thick: 0.8, shoulders: 0.9, hips: 0.98 },
       colors: { skin: '#eac6aa', hair: '#86603e', top: '#e2dac8', garment: '#2f6064', bottom: '#3c4458', shoes: '#5e4a38' },
     },

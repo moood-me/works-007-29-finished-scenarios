@@ -60,7 +60,7 @@
   "state": {
     "louise_on": [
       0.6,
-      3.45,
+      3.2,
       0.46
     ],
     "louise_reach": {
@@ -69,9 +69,6 @@
     },
     "louise_look": "daughter",
     "louise_mood": "thinking",
-    "daughter_with": [
-      "rope"
-    ],
     "daughter_reach": {
       "r": "stepladder#top"
     },
@@ -334,7 +331,7 @@
       "name": "The lamp over the table",
       "inside": true,
       "across": 0.75,
-      "distance": 3.0,
+      "distance": 2.75,
       "elevation": 1.62,
       "height": 0.93,
       "box": [
@@ -350,7 +347,7 @@
       "inside": true,
       "shadow": true,
       "across": 0.75,
-      "distance": 3.0,
+      "distance": 2.75,
       "facing": 180,
       "height": 0.75,
       "box": [
@@ -367,7 +364,7 @@
       "inside": true,
       "shadow": true,
       "across": 0.75,
-      "distance": 3.0,
+      "distance": 2.75,
       "elevation": 0.75,
       "width": 1.3,
       "depth": 0.8
@@ -378,7 +375,7 @@
       "inside": true,
       "shadow": true,
       "across": 1.1,
-      "distance": 3.15,
+      "distance": 2.9,
       "elevation": 0.75,
       "height": 0.26,
       "box": [
@@ -393,7 +390,7 @@
       "name": "Louise's mug",
       "inside": true,
       "across": 0.55,
-      "distance": 3.13,
+      "distance": 2.88,
       "elevation": 0.75,
       "height": 0.11,
       "box": [
@@ -437,7 +434,7 @@
       "inside": true,
       "shadow": true,
       "across": 0.6,
-      "distance": 3.68,
+      "distance": 3.43,
       "facing": 180,
       "height": 0.95,
       "box": [
@@ -449,12 +446,12 @@
       "copies": [
         {
           "across": 0.6,
-          "distance": 3.68,
+          "distance": 3.43,
           "facing": 180
         },
         {
           "across": 1.22,
-          "distance": 3.7,
+          "distance": 3.45,
           "facing": 180
         }
       ]
@@ -465,7 +462,7 @@
       "inside": true,
       "shadow": true,
       "across": -2.0,
-      "distance": 3.6,
+      "distance": 3.3,
       "facing": 120,
       "height": 1.02,
       "box": [
@@ -483,7 +480,7 @@
         "kind": "dust",
         "at": [
           0.4,
-          3.2,
+          3.0,
           1.3
         ],
         "source": [
@@ -504,7 +501,7 @@
         "does": "seated_mug"
       },
       "across": 0.6,
-      "distance": 3.45
+      "distance": 3.2
     },
     {
       "id": "daughter",
