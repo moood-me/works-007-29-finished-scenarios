@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Lake","translation":"Озеро","where":"scenes/lake/scene.json title"},
+  {"text":"Late October. The boat drawn up in the reeds on the far side.","translation":"Конец октября. Лодка вытащена в камыш на том берегу.","where":"scenes/lake/scene.json caption"}
+]}
