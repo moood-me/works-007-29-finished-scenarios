@@ -23,7 +23,8 @@ storey: the place, its light and its people standing. No motion of people but a 
   there).
 - **People** (cast: modules/cast, the `doll` style; characters made for this scene: `nora_naples`,
   `torvald_evening`, `rank`, `pianist`, `guest_*`), every face turned to the open front: Nora downstage just right of
-  the middle, in the Neapolitan costume, the tambourine raised (`tambourine`), smiling out; Torvald upstage left in
+  the middle, in the Neapolitan costume, the tambourine raised (`tambourine`), smiling out (her motion tips her head
+  back to the raised hand: `nora_look` sets it on the viewer); Torvald upstage left in
   evening dress, a coupe of champagne at his chest (`toast`), smiling at her; Doctor Rank right, in evening dress, the
   cigar at his chest (`cigar`, its smoke `cigar_smoke` from `rank#tip`), looking at her, sad; the pianist at the
   piano, seated (`pianist_on` — the bench), playing (`playing`); guests by the walls looking at Nora — two ladies with
@@ -39,9 +40,14 @@ storey: the place, its light and its people standing. No motion of people but a 
 
 ## What is not right, and what the engine lacks
 
+- Known for this world's scenes (not got round here): a motion from Kimodo may come turned to the wall in a scene;
+  a hand on the knees in a module's clip goes to the sides; cloth does not hang behind the back; a sitting woman's
+  skirt is a lump (so no lady sits on the gilt chairs); the particle fire is balls; no rope between two people.
+
 - Torvald at the ball wears a black domino over his evening dress (the play): a cloak hanging behind the back — the
   engine does not hang cloth behind the back, so he is in plain evening dress.
-- Nora's left hand was asked on her hip; Kimodo gives it hanging at her side. The tambourine's ribbons are not there
+- Nora's left hand was asked on her hip; Kimodo gives it hanging at her side. Rank's cigar was asked in his right
+  hand, the left in his pocket; Kimodo raised the left one — the cigar is in that. The tambourine's ribbons are not there
   (no loose cloth on a held part).
 - The pianist's hands play in the air before the keys of a flat, side-on piano card: they come to its keyboard only
   roughly (no contact between a person and a painted thing).
