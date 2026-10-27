@@ -28,7 +28,7 @@ bent over his table, the inker running. People only stand (their loops); no came
 - **People.** Cast `modules/cast`. Madame Fabien (`coat_clutch` — her arms wrapped round her, holding her coat shut) by
   the door, looking at Rivière; Rivière (the engine's `stand`; indoors — no hat, a jacket over his own look) before the
   map, looking at her; the pilot (`stand_easy`, the helmet hanging from his right hand — part `helmet_held`) by the
-  bench, looking at her; the telegraphist (`desk_lean` — leaning over the table on his elbows) at the table, looking at
+  bench, looking at her; the telegraphist (`desk_lean` — leaning over the table on his elbows, his right hand on the key by `telegraphist_reach`) at the table, looking at
   Rivière.
 - **Keys.** `lamps` (the three lamps), `office` (the office door's glass), `tape` (the inker running), `time` (the
   clock, minutes after midnight: 105 now; the scenario's 22:05, 23:20, 00:30, 01:35, 02:10, 02:45 are all one key).
