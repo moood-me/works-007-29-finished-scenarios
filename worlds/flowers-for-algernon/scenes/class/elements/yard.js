@@ -1,4 +1,4 @@
-// The land behind the school, from above (metres, its middle at distance 27, y toward the viewer): the schoolyard of
+// The land behind the school, laid over the relief (metres, its middle at distance 27, y toward the viewer): the schoolyard of
 // packed earth worn bare up to the railing (distance 12.5), the sidewalk, the street, and across it the lawns before
 // the houses, young grass.
 g.fillStyle = '#7a7166';

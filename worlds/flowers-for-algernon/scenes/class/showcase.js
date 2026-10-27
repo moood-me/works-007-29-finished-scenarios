@@ -6,7 +6,7 @@ return [
   {
     name: 'reading',
     run: async s => {
-      s.person('charlie').look('charlie#book');
+      s.person('charlie').look(null);
       s.person('kinnian').look('charlie');
       s.person('young_student').look('charlie');
       s.person('old_student').look('charlie');
@@ -36,7 +36,7 @@ return [
   {
     name: 'the page again',
     run: async s => {
-      s.person('charlie').look('charlie#book');
+      s.person('charlie').look(null);
       await s.wait(0.6);
       s.person('young_student').look('charlie');
       s.person('old_student').look('charlie');

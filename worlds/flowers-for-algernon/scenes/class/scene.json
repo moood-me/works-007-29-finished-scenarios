@@ -91,14 +91,9 @@
     "camera_z": 0.7,
     "camera_h": -0.15,
     "charlie_with": [
-      "tie",
       "primer"
     ],
-    "charlie_look": "charlie#book",
     "charlie_mood": "smile",
-    "kinnian_with": [
-      "chalk"
-    ],
     "kinnian_look": "charlie",
     "kinnian_mood": "smile",
     "young_student_on": [
@@ -126,7 +121,12 @@
       0.47
     ],
     "old_student_look": "charlie",
-    "old_student_mood": "smile"
+    "old_student_mood": "smile",
+    "kinnian_wear": {
+      "parts": [
+        "chalk"
+      ]
+    }
   },
   "objects": [
     {
@@ -171,7 +171,8 @@
       "across": 0,
       "distance": 27,
       "width": 80,
-      "depth": 42
+      "depth": 42,
+      "drape": true
     },
     {
       "id": "tree",
