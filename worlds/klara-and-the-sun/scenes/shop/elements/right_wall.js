@@ -1,7 +1,7 @@
 // The shop's right wall (facing into the shop; its x runs toward the viewer: x 0 at distance 9.3): pale plaster and
 // the skirting, a framed print of a sun over hills, a door into the back of the shop near the far end.
 g.fillStyle = '#e2d8c7';
-g.fillRect(-3.32, -3.22, 6.64, 3.24);
+g.fillRect(-3.32, -3.22, 6.58, 3.24);
 g.fillStyle = '#d3c8b4';
 g.fillRect(-3.32, -0.14, 6.64, 0.16);
 g.fillStyle = '#cfc4ae';

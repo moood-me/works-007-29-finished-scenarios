@@ -1,7 +1,7 @@
 // The shop's left wall (facing into the shop; its x runs away from the viewer: x 0 at distance 9.3): pale plaster,
 // the skirting, a long shelf with a few small boxed things on it.
 g.fillStyle = '#e6dccb';
-g.fillRect(-3.32, -3.22, 6.64, 3.24);
+g.fillRect(-3.26, -3.22, 6.58, 3.24);
 g.fillStyle = '#d6cbb7';
 g.fillRect(-3.32, -0.14, 6.64, 0.16);
 g.fillStyle = '#efe7d9';
