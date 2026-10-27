@@ -15,13 +15,27 @@ return {
     lennie: { kind: 'shapes', style: 'dust', who: 'man', garment: 'denim', hair: 'short', hat: 'slouch',
       body: { height: 1.12, head: 1.04, thick: 1.25, shoulders: 1.2, arms: 1.08, neck: 0.8 },
       colors: { skin: '#d8b092', hair: '#8b6c48', top: '#b5a88e', garment: '#6a7f9e', bottom: '#3e4c68', hat: '#2e2b29', shoes: '#3b2c21' } },
+    // Slim, the jerkline skinner: tall and lean, a long hatchet face, black hair combed straight back; a dark leather
+    // vest over a pale work shirt, jeans, a light Stetson — the prince of the ranch
+    slim: { kind: 'shapes', style: 'dust', who: 'man', garment: 'vest', hair: 'short', hat: 'stetson',
+      body: { height: 1.07, head: 0.98, thick: 0.86, shoulders: 1.02, arms: 1.04, neck: 1.1 },
+      colors: { skin: '#b98a66', hair: '#1c1714', top: '#d9cfb8', garment: '#4a3326', bottom: '#3d4a63', hat: '#b49a74', shoes: '#3b2c21' } },
+    // Candy, the swamper: a tall stoop-shouldered old man, white stubble and white hair cropped close; a faded grey
+    // shirt, old jeans
+    candy: { kind: 'shapes', style: 'dust', who: 'man', garment: 'none', hair: 'short', hat: 'none',
+      body: { height: 0.98, head: 1.04, thick: 0.85, shoulders: 0.94, neck: 0.85 },
+      colors: { skin: '#c99f82', hair: '#e2ddd2', top: '#9b9a8f', bottom: '#4f5a70', shoes: '#3b2c21' } },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, plain colours under the scene's light — with
     // limbs a working man's, heavier than its own, and a simple face (eyes, brows, a nose, a mouth) that takes a mood
     styles: { dust: { from: 'flat', name: 'Dust', limb: 1.1, line: 0.8, face: 'simple' } },
     // a denim work jacket, short: to the hips, straight (the engine's jacket hangs halfway down the thighs, a smock)
-    garments: { denim: { name: 'denim jacket', hang: [{ to: 0.14, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment' } },
+    garments: {
+      denim: { name: 'denim jacket', hang: [{ to: 0.14, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment' },
+      // a vest: the same cut to the hips, no sleeves — the shirt's own
+      vest: { name: 'leather vest', hang: [{ to: 0.12, from: 'shoulders', flare: 0.03, folds: false }] },
+    },
     hats: {
       // a black shapeless hat: a soft crown, a brim not so wide, pushed back off the brow — the face under it seen
       slouch: { name: 'slouch hat', draw: F => {
@@ -29,6 +43,14 @@ return {
         const tilt = unit(add(hu, mul(hf, -0.1))), axes = [hs, tilt, cross(hs, tilt)];
         F.ball(add(at, mul(hu, rh * 0.5)), axes, [rh * 1.58, rh * 0.05, rh * 1.48], F.colors.hat, F.sides * 2);
         F.ball(add(at, add(mul(hu, rh * 0.72), mul(hf, -rh * 0.08))), axes, [rh * 0.9, rh * 0.5, rh * 0.88], F.colors.hat, F.sides, 2.4);
+      } },
+      // a Stetson: a wide flat brim level over the brow, a tall squared crown, a dark band round its foot
+      stetson: { name: 'Stetson', draw: F => {
+        const { add, mul, unit, cross } = MooodShapes.V, { at, axes: [hs, hu, hf], r: rh } = F.head;
+        const tilt = unit(add(hu, mul(hf, -0.04))), axes = [hs, tilt, cross(hs, tilt)];
+        F.ball(add(at, mul(hu, rh * 0.52)), axes, [rh * 1.95, rh * 0.05, rh * 1.8], F.colors.hat, F.sides * 2);
+        F.ball(add(at, mul(hu, rh * 0.62)), axes, [rh * 0.93, rh * 0.12, rh * 0.98], F.colors.garment, F.sides, 3);
+        F.ball(add(at, mul(hu, rh * 0.9)), axes, [rh * 0.86, rh * 0.48, rh * 0.94], F.colors.hat, F.sides, 3);
       } },
     },
   },
