@@ -105,12 +105,19 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   g.save();
   g.clip(all);
   const veil = g.createLinearGradient(0, 0, 0, 1.4);
-  veil.addColorStop(0, 'rgba(26,32,80,0.45)');
-  veil.addColorStop(0.07, 'rgba(26,32,80,0.75)');
-  veil.addColorStop(0.15, 'rgba(26,32,80,0.95)');
-  veil.addColorStop(0.2, 'rgba(26,32,80,1)');
+  veil.addColorStop(0, 'rgba(30,38,92,0.45)');
+  veil.addColorStop(0.08, 'rgba(30,38,92,0.7)');
+  veil.addColorStop(0.2, 'rgba(30,38,92,0.8)');
   g.fillStyle = veil;
   g.fillRect(-3.1, 0, 6.1, 1.5);
+  // and he goes out of sight into it, the sea's own paint showing where he is too deep to be seen
+  const out = g.createLinearGradient(0, 0.04, 0, 0.22);
+  out.addColorStop(0, 'rgba(0,0,0,0)');
+  out.addColorStop(1, 'rgba(0,0,0,1)');
+  g.globalCompositeOperation = 'destination-out';
+  g.fillStyle = out;
+  g.fillRect(-3.1, 0.04, 6.1, 1.5);
+  g.globalCompositeOperation = 'source-over';
   g.restore();
   // the water breaking over his back: a broken line of foam along it
   for (let i = 0; i < 70; i++) {
