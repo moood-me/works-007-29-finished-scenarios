@@ -127,24 +127,24 @@ return {
           const knee = mix(P('LeftShin'), P('RightShin'), 0.5);
           const foot = mix(P('LeftFoot'), P('RightFoot'), 0.5);
           const hem = knee[1] + (foot[1] - knee[1]) * 0.45;
-          // the front of the body at the waist, the skirt's front below it — out by its flare as it goes down to the
-          // ground: the apron lies on them, a little off
-          const d0 = 0.11 * k * F.look.body.hips;
-          const body = Math.max(...['Spine1', 'Hips'].map(j => dot(sub(P(j), hips), f))) + 0.12 * k;
-          const skirt = y => d0 * (1 + 0.3 * Math.max(0, Math.min(1, (hips[1] - y) / (hips[1] - foot[1])))) * 1.12 + 0.025 * k;
+          // the skirt's front at a height — its hips' section (the trunk's, as far off it as the skirt hangs), out by its
+          // flare as it goes down to the ground — and the apron lying on it, a little off
+          const sec = F.trunk(0.96)[1];
+          const d0 = sec[4] + dot(sub(sec[0], hips), f);
+          const skirt = y => d0 * (1 + 0.3 * Math.max(0, Math.min(1, (waist - y) / (waist - foot[1])))) * 1.03 + 0.02 * k;
           const rows = [];
           const held = 2;
           const hanging = 6;
           for (let r = 0; r < held + hanging; r++) {
             const y = r < held ? waist + 0.02 * F.fit.h * (1 - r) : waist + ((hem - waist) * (r - held + 1)) / hanging;
             const u = (waist - y) / (waist - hem);
-            const front = Math.max(body, skirt(y));
+            const front = skirt(y);
             const c = add(hips, add(mul(f, front), [0, y - hips[1], 0]));
             const half = 0.11 * k * F.look.body.hips * (1 + 0.15 * u);
             const row = [];
             for (let q = 0; q < 9; q++) {
               const x = (q / 8) * 2 - 1;
-              row.push(add(c, add(mul(s, x * half), mul(f, -0.45 * half * x * x))));
+              row.push(add(c, add(mul(s, x * half), mul(f, -0.2 * half * x * x))));
             }
             rows.push(row);
           }
