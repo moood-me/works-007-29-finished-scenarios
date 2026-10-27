@@ -16,17 +16,20 @@ lengths are a man's metres times `F.fit.h`.
   hair, beard, brows and ruff glow with his own pale light (`GHOSTLY`, a glowing colour), his eyes are red coals in dark
   sockets (the face `ghost`). A scene gives him a light of his own just before him (a light at his chest is inside him
   and leaves his front dark).
+- `virginia_habit` — Virginia back from riding (the same girl, another look of hers): a riding habit of bottle-green
+  cloth (the garment `habit`), a white stock at her throat (`stock`).
 - `otis` — Mr Hiram B. Otis, the American Minister: a black frock coat, a grey waistcoat, brown hair going grey.
 
 ## Parts
 
 `ruff`, `beard`, `shackles` (manacles and the chain sagging from wrist to wrist), `fetters` (irons on the ankles, a
 chain on the floor between), `cloak` (a flat swinging tube down the back: the engine hangs a sheet of cloth, `F.cloth`,
-only before a garment) — Sir Simon's; `sash` — Virginia's; `bottle` — the bottle of oil for the chains in the right hand
+only before a garment) — Sir Simon's; `sash`, `stock` — Virginia's; `bottle` — the bottle of oil for the chains in the right hand
 (Mr Otis's, by `otis_with`).
 
 ## Motions (Kimodo)
 
 The engine's `stand` and `walk`, and: `clasped` — stands, both hands clasped at the chest, a loop; `loom` — stands
 with both arms raised over the head (the ghost's frightening), a loop; `offer` — stands, the right forearm held out
-before the chest (holding something out), a loop.
+before the chest (holding something out), a loop; `upright` — stands upright, both hands clasped behind the back, a
+loop; `brood` — sits (on a seat: `<id>_on`), the right hand to the brow, the left on the knee, tired, a loop.
