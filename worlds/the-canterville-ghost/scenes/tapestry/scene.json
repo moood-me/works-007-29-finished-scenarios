@@ -106,10 +106,10 @@
       "name": "The park's woods far off",
       "across": 10,
       "distance": 90,
-      "height": 25,
+      "height": 16,
       "box": [
         -120,
-        -25,
+        -16,
         120,
         0.5
       ]
