@@ -1,11 +1,11 @@
-// The storeroom's right wall (x 0 at the back … 4.6 m at the viewer): rough stone, a long crack, the damp higher
+// The storeroom's right wall (x 0 at the back … 5.2 m at the viewer): rough stone, a long crack, the damp higher
 // here, where the child sits
-e.lib.stones(g, 0, -2.36, 4.62, 0.02, 31);
-const damp = g.createRadialGradient(2.5, 0, 0.1, 2.5, 0, 1.4);
+e.lib.stones(g, [[0, -2.36, 5.22, 0.02]], 31);
+const damp = g.createRadialGradient(2.45, 0, 0.1, 2.45, 0, 1.4);
 damp.addColorStop(0, 'rgba(48, 40, 32, 0.55)');
 damp.addColorStop(1, 'rgba(48, 40, 32, 0)');
 g.fillStyle = damp;
-g.fillRect(1, -1.4, 3, 1.42);
+g.fillRect(1.05, -1.4, 2.8, 1.42);
 g.strokeStyle = '#4c4236';
 g.lineWidth = 0.012;
 g.beginPath();

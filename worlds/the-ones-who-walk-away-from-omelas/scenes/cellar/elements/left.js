@@ -1,6 +1,6 @@
-// The storeroom's left wall (x 0 at the viewer … 4.6 m at the back): rough stone; an empty plank shelf on two
+// The storeroom's left wall (x 0 at the viewer … 5.2 m at the back): rough stone; an empty plank shelf on two
 // brackets, a cracked pot and a dusty jug left on it
-e.lib.stones(g, 0, -2.36, 4.62, 0.02, 21);
+e.lib.stones(g, [[0, -2.36, 5.22, 0.02]], 21);
 g.fillStyle = '#4a3a2c';
 for (const y of [-1.42, -0.86]) {
   g.fillRect(1.3, y, 1.7, 0.05);
