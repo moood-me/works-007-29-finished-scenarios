@@ -1,0 +1,581 @@
+{
+  "engine": 3,
+  "title": "The Square by the River",
+  "caption": "Friday. The launch is in with the mail, and the colonel is at the post office, as every Friday.",
+  "horizon": 0.48,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.8,
+    "ambientColor": "#b8c2c6",
+    "inside": 0.35,
+    "bounce": 0.5,
+    "haze": 0.16,
+    "hazeColor": "#a9b3b0",
+    "hazeGlow": 0.4,
+    "tint": "#cfd8d2",
+    "tintStrength": 0.06,
+    "saturation": 0.92,
+    "vignette": 0.4,
+    "grain": 0.14,
+    "wind": [
+      1,
+      0.3,
+      0.5
+    ]
+  },
+  "lights": [
+    {
+      "id": "day",
+      "from": [
+        200,
+        55
+      ],
+      "color": "#e4e9ec",
+      "strength": 0.55
+    },
+    {
+      "id": "post_day",
+      "across": -2.6,
+      "distance": 7.75,
+      "elevation": 1.55,
+      "daylight": 0.8,
+      "reach": 2.5
+    },
+    {
+      "id": "post_lamp",
+      "of": "post_inside#lamp",
+      "color": "#ffb062",
+      "strength": 1.0,
+      "reach": 2.6,
+      "flicker": 0.12
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "rain": 1,
+    "smoke": 1,
+    "colonel_look": [
+      -1.2,
+      0.0,
+      1.4
+    ],
+    "colonel_mood": "thinking",
+    "colonel_with": [
+      "umbrella_torn"
+    ],
+    "doctor_look": "colonel",
+    "doctor_mood": "smile",
+    "doctor_with": [
+      "newspapers"
+    ],
+    "sabas_look": "colonel",
+    "sabas_mood": "smile",
+    "sabas_with": [
+      "umbrella_whole"
+    ],
+    "postmaster_look": "colonel",
+    "postmaster_mood": "neutral",
+    "policeman_look": "colonel",
+    "policeman_mood": "neutral",
+    "policeman_with": [
+      "rifle"
+    ]
+  },
+  "states": {
+    "rain": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the rain over the square and the river: 0 none, 1 the rain of the season"
+    },
+    "smoke": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "smoke from the launch's funnel: 0 her engine cold, 1 steam up"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The rain sky",
+      "sky": true
+    },
+    {
+      "id": "far_bank",
+      "name": "The far bank of the river",
+      "across": -20.0,
+      "distance": 160.0,
+      "elevation": -0.9,
+      "onLand": false,
+      "height": 14.0,
+      "box": [
+        -280.0,
+        -16.0,
+        280.0,
+        0.5
+      ]
+    },
+    {
+      "id": "river",
+      "name": "The river",
+      "plane": true,
+      "across": 0.0,
+      "distance": 90.0,
+      "elevation": -0.9,
+      "width": 600.0,
+      "depth": 151.0,
+      "reflect": {
+        "strength": 0.35,
+        "fade": 25,
+        "rough": 0.45,
+        "ripple": 0.45
+      }
+    },
+    {
+      "id": "rain_river",
+      "name": "Rain over the river",
+      "particles": {
+        "kind": "rain",
+        "area": [
+          -60.0,
+          60.0,
+          14.6,
+          60.0
+        ],
+        "count": 9000,
+        "amount": "rain",
+        "reach": 40,
+        "size": [
+          0.012,
+          0.012
+        ],
+        "opacity": 0.5,
+        "streak": 0.05,
+        "color": "#808c96"
+      }
+    },
+    {
+      "id": "rain",
+      "name": "Rain over the square",
+      "particles": {
+        "kind": "rain",
+        "area": [
+          -60.0,
+          60.0,
+          -2.0,
+          14.6
+        ],
+        "count": 9000,
+        "amount": "rain",
+        "reach": 18,
+        "size": [
+          0.011,
+          0.011
+        ],
+        "opacity": 0.55,
+        "streak": 0.05,
+        "color": "#7f8b96"
+      }
+    },
+    {
+      "id": "bank",
+      "name": "The embankment",
+      "across": 0.0,
+      "distance": 14.5,
+      "elevation": -0.9,
+      "facing": 180,
+      "onLand": false,
+      "height": 0.9,
+      "box": [
+        -40.0,
+        -0.95,
+        40.0,
+        0.05
+      ]
+    },
+    {
+      "id": "square",
+      "name": "The square",
+      "plane": true,
+      "across": 0.0,
+      "distance": 6.5,
+      "width": 60.0,
+      "depth": 16.0
+    },
+    {
+      "id": "puddles",
+      "name": "Puddles on the square",
+      "plane": true,
+      "across": 0.0,
+      "distance": 6.5,
+      "elevation": 0.01,
+      "width": 24.0,
+      "depth": 14.0,
+      "reflect": {
+        "strength": 0.55,
+        "fade": 12,
+        "rough": 0.15,
+        "ripple": 0.6
+      }
+    },
+    {
+      "id": "pier",
+      "name": "The landing stage",
+      "plane": true,
+      "walk": true,
+      "across": 3.4,
+      "distance": 18.5,
+      "elevation": 0.0,
+      "width": 2.4,
+      "depth": 8.0
+    },
+    {
+      "id": "pier_side",
+      "name": "The landing stage's piles",
+      "across": 2.2,
+      "distance": 18.5,
+      "elevation": -0.9,
+      "facing": 270,
+      "onLand": false,
+      "shadow": true,
+      "height": 1.0,
+      "box": [
+        -4.0,
+        -1.0,
+        4.0,
+        0.15
+      ]
+    },
+    {
+      "id": "launch",
+      "name": "The mail launch",
+      "across": 5.6,
+      "distance": 24.6,
+      "elevation": -0.9,
+      "facing": 180,
+      "onLand": false,
+      "shadow": true,
+      "height": 4.8,
+      "box": [
+        -6.9,
+        -4.9,
+        6.9,
+        0.3
+      ]
+    },
+    {
+      "id": "launch_smoke",
+      "name": "Smoke from the launch's funnel",
+      "particles": {
+        "kind": "smoke",
+        "at": "launch#funnel",
+        "rate": 2.5,
+        "size": [
+          0.25,
+          1.6
+        ],
+        "color": "#8d8d8a",
+        "opacity": 0.35,
+        "amount": "smoke"
+      }
+    },
+    {
+      "id": "almond",
+      "name": "The almond trees of the square",
+      "shadow": true,
+      "translucent": 0.15,
+      "across": -1.6,
+      "distance": 13.4,
+      "height": 8.5,
+      "box": [
+        -3.6,
+        -8.6,
+        3.6,
+        0.1
+      ],
+      "copies": [
+        {
+          "across": -1.6,
+          "distance": 13.4
+        },
+        {
+          "across": 14.0,
+          "distance": 13.8,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": -10.5,
+          "distance": 12.6,
+          "scale": 0.95
+        }
+      ]
+    },
+    {
+      "id": "post_office",
+      "name": "The post office",
+      "shadow": true,
+      "across": -4.0,
+      "distance": 7.2,
+      "facing": 172,
+      "height": 4.4,
+      "box": [
+        -3.7,
+        -4.45,
+        3.7,
+        0.05
+      ]
+    },
+    {
+      "id": "post_inside",
+      "name": "The post office within",
+      "on": "post_office",
+      "inside": true,
+      "across": 0.0,
+      "distance": 1.4,
+      "facing": 180,
+      "height": 2.9,
+      "box": [
+        -3.6,
+        -2.95,
+        3.9,
+        0.12
+      ]
+    },
+    {
+      "id": "wicket",
+      "name": "The post office's wicket",
+      "on": "post_office",
+      "across": 1.35,
+      "distance": -0.03,
+      "elevation": 0.95,
+      "facing": 180,
+      "height": 1.1,
+      "box": [
+        -1.0,
+        -1.12,
+        1.0,
+        0.12
+      ]
+    },
+    {
+      "id": "eave",
+      "name": "The post office's eave",
+      "on": "post_office",
+      "across": 0.0,
+      "distance": -0.03,
+      "elevation": 2.85,
+      "facing": 180,
+      "tilt": -90,
+      "height": 1.3,
+      "box": [
+        -3.75,
+        -1.32,
+        3.75,
+        0.02
+      ]
+    },
+    {
+      "id": "eave_posts",
+      "name": "The eave's posts",
+      "on": "post_office",
+      "shadow": true,
+      "across": 0.0,
+      "distance": -1.25,
+      "facing": 180,
+      "height": 2.9,
+      "box": [
+        -3.75,
+        -2.95,
+        3.75,
+        0.05
+      ]
+    },
+    {
+      "id": "barracks",
+      "name": "The barracks",
+      "shadow": true,
+      "across": 9.0,
+      "distance": 12.5,
+      "facing": 232,
+      "height": 7.2,
+      "box": [
+        -4.5,
+        -7.3,
+        4.5,
+        0.05
+      ]
+    },
+    {
+      "id": "balcony",
+      "name": "The barracks' balcony",
+      "plane": true,
+      "walk": true,
+      "on": "barracks",
+      "across": -1.6,
+      "distance": -0.55,
+      "elevation": 3.1,
+      "width": 2.6,
+      "depth": 1.1
+    },
+    {
+      "id": "balcony_rail",
+      "name": "The balcony's railing",
+      "on": "barracks",
+      "shadow": true,
+      "across": -1.6,
+      "distance": -1.1,
+      "elevation": 2.8,
+      "facing": 180,
+      "height": 1.32,
+      "box": [
+        -1.35,
+        -1.34,
+        1.35,
+        0.02
+      ]
+    },
+    {
+      "id": "colonel",
+      "name": "The colonel",
+      "person": {
+        "cast": "cast",
+        "who": "colonel",
+        "turn": 150,
+        "does": "stand_umbrella"
+      },
+      "across": -1.55,
+      "distance": 5.4
+    },
+    {
+      "id": "doctor",
+      "name": "The doctor",
+      "person": {
+        "cast": "cast",
+        "who": "doctor",
+        "turn": 215,
+        "does": "stand_papers"
+      },
+      "across": 0.35,
+      "distance": 7.7
+    },
+    {
+      "id": "sabas",
+      "name": "Don Sabas",
+      "person": {
+        "cast": "cast",
+        "who": "sabas",
+        "turn": 235,
+        "does": "stand_umbrella_left"
+      },
+      "across": 1.6,
+      "distance": 6.0
+    },
+    {
+      "id": "postmaster",
+      "name": "The postmaster",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "postmaster",
+        "turn": 172,
+        "does": "lean_counter"
+      },
+      "across": -2.74,
+      "distance": 7.93
+    },
+    {
+      "id": "policeman",
+      "name": "The policeman on the balcony",
+      "person": {
+        "cast": "cast",
+        "who": "policeman",
+        "turn": 232,
+        "does": "stand_rifle"
+      },
+      "across": 7.62,
+      "distance": 13.45
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a lone nylon-string guitar in a small wet room, slow bolero phrases, bittersweet and dry",
+        "weight": 1.0
+      },
+      {
+        "text": "soft rain on a zinc roof, a few plucked tiple notes far apart, waiting",
+        "weight": 0.6
+      },
+      {
+        "text": "a slow Colombian pasillo on solo guitar, nostalgic, a little out of tune",
+        "weight": 0.4
+      },
+      {
+        "text": "a distant river boat's horn under quiet marimba, hazy and still",
+        "weight": 0.9
+      },
+      {
+        "text": "a brass funeral band heard from far away in the rain, out of step",
+        "weight": 0.5
+      },
+      {
+        "text": "solo accordion, vallenato played very slowly and sadly",
+        "weight": 0
+      },
+      {
+        "text": "muted trumpet bolero, late-night, lonely, Caribbean",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and tuba, a small-town band rehearsing a march, faint",
+        "weight": 0
+      },
+      {
+        "text": "maracas and soft hand drum, slow cumbia heartbeat, sparse",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, restrained and proud, slow, with long silences",
+        "weight": 0
+      },
+      {
+        "text": "upright piano in an empty dance hall, slow danzón, dusty",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios like dripping water, gentle, grey morning",
+        "weight": 0
+      },
+      {
+        "text": "ambient drone of humid heat, insects, a far rooster, minimal",
+        "weight": 0
+      },
+      {
+        "text": "cello alone, low and dignified, an old man's pride",
+        "weight": 0
+      },
+      {
+        "text": "music box waltz slowing down, tender and absurd",
+        "weight": 0
+      },
+      {
+        "text": "bandoneon tango, slow, resigned, warm",
+        "weight": 0
+      }
+    ],
+    "bpm": 76,
+    "density": 0.25,
+    "brightness": 0.4,
+    "scale": "E_MAJOR_D_FLAT_MINOR"
+  }
+}
