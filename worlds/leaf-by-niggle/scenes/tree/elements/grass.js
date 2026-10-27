@@ -1,7 +1,7 @@
 // A clump of long meadow grass near the viewer (3.2 m along, 0.6 high, about its foot): blades and seed heads in
 // greens and straw, a few white and blue flowers among them; it bends in the wind.
 e.layer('blades', { pivot: [0, 0], wind: { strength: 0.3, gust: 0.6 } }, l => {
-  const tones = ['#6f8c4c', '#7f9a56', '#668446', '#8fa660', '#a4aa6c'];
+  const tones = ['#5f7d42', '#6c8a48', '#587a40', '#7d9850'];
   for (let i = 0; i < 120; i++) {
     const x = -1.5 + e.rnd() * 3;
     const h = 0.2 + e.rnd() * 0.42;

@@ -8,8 +8,8 @@ e.layer('mist', {}, l => {
     const left = 1 - (x + 22) / 44;
     const r = 3 + e.rnd() * 3;
     const grad = l.createRadialGradient(x, y, 0, x, y, r);
-    grad.addColorStop(0, `rgba(232,228,214,${0.08 + left * 0.22})`);
-    grad.addColorStop(1, 'rgba(232,228,214,0)');
+    grad.addColorStop(0, `rgba(218,220,214,${0.08 + left * 0.22})`);
+    grad.addColorStop(1, 'rgba(218,220,214,0)');
     l.fillStyle = grad;
     l.beginPath();
     l.arc(x, y, r, 0, Math.PI * 2);
