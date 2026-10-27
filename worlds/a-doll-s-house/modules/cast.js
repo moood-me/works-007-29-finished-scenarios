@@ -282,11 +282,11 @@ return {
       body: { height: 1.04, thick: 0.95, shoulders: 1.08, head: 1.08 },
       colors: { skin: '#e9c9ae', hair: '#8a6a44', top: '#efebe2', garment: '#1f2a3d', bottom: '#1f2a3d', shoes: '#141313' },
     },
-    // Nora in the street: her long winter coat in her own teal-blue, trimmed with brown fur, a little fur toque
+    // Nora in the street: her long winter coat in her own teal-blue with a brown fur collar, bareheaded, her hair up
     nora_out: {
-      kind: 'shapes', style: 'doll', who: 'woman', garment: 'paletot', hair: 'bun', hat: 'toque',
+      kind: 'shapes', style: 'doll', who: 'woman', garment: 'paletot', hair: 'bun',
       body: { height: 0.93, thick: 0.95, head: 1.12 },
-      colors: { skin: '#f1d3bb', hair: '#bf8a48', top: '#22566a', garment: '#2a6678', bottom: '#2a6678', shoes: '#2a2220', accent: '#6e4c34', hat: '#6e4c34' },
+      colors: { skin: '#f1d3bb', hair: '#bf8a48', top: '#22566a', garment: '#2a6678', bottom: '#2a6678', shoes: '#2a2220', accent: '#6e4c34' },
     },
     // the porter who carries the tree up: a sheepskin coat to the knee, a cloth cap, a grey knitted scarf
     porter: {
@@ -363,17 +363,6 @@ return {
           const axes = [hs, tilt, cross(hs, tilt)];
           F.ball(add(at, mul(hu, r * 0.6)), axes, [r * 1.32, r * 0.05, r * 1.26], F.colors.hat, F.sides * 2);
           F.ball(add(at, mul(hu, r * 0.78)), axes, [r * 0.98, r * 0.62, r * 0.96], F.colors.hat, F.sides);
-        },
-      },
-      // Nora's toque: a round fur hat over the crown and the knot of her hair, its top a little flattened
-      toque: {
-        name: 'fur toque',
-        draw: F => {
-          const { add, mul } = V();
-          const { at, axes, egg, r, out, sides, square } = F.head;
-          const [, hu, hf] = axes;
-          F.cap(at, axes, egg.map(v => v * r * out * 1.12), [0, 0.95, -0.3], 0.2, F.colors.hat, sides, square);
-          F.ball(add(at, add(mul(hu, r * 0.62), mul(hf, -r * 0.2))), axes, [r * 0.98, r * 0.5, r * 0.98], F.colors.hat, sides);
         },
       },
       // a hood of wool (the nurse's) or a child's bonnet: over the crown and the back of the head, the face left open
