@@ -372,7 +372,7 @@ return {
           const { add, mul } = V();
           const { at, axes, egg, r, out, sides, square } = F.head;
           const [, hu, hf] = axes;
-          F.cap(at, axes, egg.map(v => v * r * out * 1.14), [0, 0.95, -0.3], 0.5, F.colors.hat, sides, square);
+          F.cap(at, axes, egg.map(v => v * r * out * 1.12), [0, 0.95, -0.3], 0.2, F.colors.hat, sides, square);
           F.ball(add(at, add(mul(hu, r * 0.62), mul(hf, -r * 0.2))), axes, [r * 0.98, r * 0.5, r * 0.98], F.colors.hat, sides);
         },
       },
@@ -382,8 +382,8 @@ return {
         draw: F => {
           const { add, mul } = V();
           const { at, axes, egg, r, out, sides, square } = F.head;
-          const [, hu, hf] = axes;
-          F.cap(add(at, add(mul(hu, r * 0.06), mul(hf, -r * 0.1))), axes, egg.map(v => v * r * out * 1.1), [0, 0.55, -0.85], 0.62, F.colors.hat, sides, square);
+          const [, , hf] = axes;
+          F.cap(add(at, mul(hf, -r * 0.04)), axes, egg.map(v => v * r * out * 1.1), [0, 0.62, -0.78], -0.25, F.colors.hat, sides, square);
         },
       },
       // a knitted stocking cap pulled down to the brows, a pompom on top
