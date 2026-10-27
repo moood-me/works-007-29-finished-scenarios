@@ -1,0 +1,627 @@
+{
+  "engine": 3,
+  "title": "The Ward",
+  "caption": "An autumn evening on the third floor. A good day: she ate half a bowl of soup.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.72,
+    "ambientColor": "#b9bce0",
+    "inside": 0.4,
+    "bounce": 0.55,
+    "haze": 0.05,
+    "hazeColor": "#9c9cc4",
+    "hazeGlow": 0.1,
+    "tint": "#ffd9b4",
+    "tintStrength": 0.03,
+    "saturation": 0.95,
+    "vignette": 0.4,
+    "grain": 0.1
+  },
+  "lights": [
+    {
+      "id": "lamp",
+      "of": "lamp#bulb",
+      "color": "#ffd29a",
+      "strength": 1.5,
+      "reach": 4.5,
+      "on": "lamp",
+      "flicker": 0.015
+    },
+    {
+      "id": "dusk",
+      "of": "window",
+      "daylight": 0.8
+    },
+    {
+      "id": "afterglow",
+      "from": [
+        -25,
+        8
+      ],
+      "color": "#e9b4c0",
+      "strength": 0.5
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "lamp": 1,
+    "laohu_ear": false,
+    "mom_look": "jack#bag",
+    "mom_mood": "smile",
+    "jack_look": "mom",
+    "jack_mood": "neutral",
+    "dad_look": "dad#book",
+    "dad_mood": "neutral",
+    "dad_on": [
+      -1.85,
+      3.2,
+      0.46
+    ],
+    "mom_on": [
+      0.38,
+      3.6,
+      0.58
+    ]
+  },
+  "states": {
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lamp on the bedside table: 0 out, 1 lit — the warm light on her, the tiger and the oranges"
+    },
+    "laohu_ear": {
+      "type": "boolean",
+      "means": "Laohu has lost an ear (the game's 'Ear' mark): true — one ear, the torn one taped flat"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The autumn dusk over the town",
+      "sky": true
+    },
+    {
+      "id": "ground",
+      "name": "The town below: roofs, streets and lamps",
+      "plane": true,
+      "across": 0,
+      "distance": 220,
+      "elevation": -9,
+      "width": 700,
+      "depth": 420
+    },
+    {
+      "id": "town",
+      "name": "The town at dusk, the tall new office tower among it",
+      "across": -90,
+      "distance": 260,
+      "elevation": -9,
+      "height": 48,
+      "box": [
+        -150,
+        -50,
+        150,
+        0.5
+      ]
+    },
+    {
+      "id": "town_windows",
+      "name": "The lit windows of the town",
+      "glows": true,
+      "across": -90,
+      "distance": 259,
+      "elevation": -9,
+      "height": 48,
+      "box": [
+        -150,
+        -50,
+        150,
+        0.5
+      ]
+    },
+    {
+      "id": "tree",
+      "name": "The maple in the hospital garden, turning",
+      "across": -3.6,
+      "distance": 11,
+      "elevation": -9,
+      "height": 12,
+      "box": [
+        -5,
+        -12.5,
+        5,
+        0.2
+      ]
+    },
+    {
+      "id": "leaves",
+      "name": "Maple leaves falling past the window",
+      "across": -2.2,
+      "distance": 9.5,
+      "elevation": 1.5,
+      "particles": {
+        "kind": "leaves",
+        "source": [
+          6,
+          3,
+          2
+        ],
+        "rate": 0.6,
+        "colors": [
+          "#e0a03c",
+          "#c9682f",
+          "#d8b44a"
+        ],
+        "size": [
+          0.09,
+          0.08
+        ],
+        "life": [
+          6,
+          9
+        ],
+        "ground": "pass"
+      }
+    },
+    {
+      "id": "floor",
+      "name": "The ward's linoleum floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 2.65,
+      "width": 5.8,
+      "depth": 3.5
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 4.4,
+      "elevation": 2.7,
+      "facing": 180,
+      "tilt": -90,
+      "height": 3.6,
+      "box": [
+        -2.9,
+        -3.6,
+        2.9,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall with the window",
+      "inside": true,
+      "across": 0,
+      "distance": 4.4,
+      "facing": 180,
+      "height": 2.7,
+      "box": [
+        -2.9,
+        -2.72,
+        2.9,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall and the sink",
+      "inside": true,
+      "across": -2.85,
+      "distance": 2.65,
+      "facing": 90,
+      "height": 2.7,
+      "box": [
+        -1.8,
+        -2.72,
+        1.8,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall and the door to the corridor",
+      "inside": true,
+      "across": 2.85,
+      "distance": 2.65,
+      "facing": 270,
+      "height": 2.7,
+      "box": [
+        -1.8,
+        -2.72,
+        1.8,
+        0.02
+      ]
+    },
+    {
+      "id": "door_glass",
+      "name": "The corridor's light in the door's pane",
+      "inside": true,
+      "glows": true,
+      "across": 2.84,
+      "distance": 1.85,
+      "elevation": 1.15,
+      "facing": 270,
+      "height": 0.7,
+      "box": [
+        -0.2,
+        -0.72,
+        0.2,
+        0.02
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The tall ward window",
+      "inside": true,
+      "translucent": 0.4,
+      "across": -1.6,
+      "distance": 4.37,
+      "elevation": 0.85,
+      "facing": 180,
+      "height": 1.4,
+      "box": [
+        -0.79,
+        -1.44,
+        0.79,
+        0.06
+      ]
+    },
+    {
+      "id": "crane",
+      "name": "The paper crane on the sill, still",
+      "inside": true,
+      "across": -1.15,
+      "distance": 4.3,
+      "elevation": 0.88,
+      "facing": 180,
+      "height": 0.12,
+      "box": [
+        -0.12,
+        -0.13,
+        0.12,
+        0.01
+      ]
+    },
+    {
+      "id": "radiator",
+      "name": "The radiator under the window",
+      "inside": true,
+      "shadow": true,
+      "across": -1.6,
+      "distance": 4.3,
+      "facing": 180,
+      "height": 0.65,
+      "box": [
+        -0.6,
+        -0.7,
+        0.6,
+        0.02
+      ]
+    },
+    {
+      "id": "chair",
+      "name": "The ward's chair by the window",
+      "inside": true,
+      "shadow": true,
+      "across": -1.67,
+      "distance": 3.12,
+      "facing": 115,
+      "height": 0.9,
+      "box": [
+        -0.26,
+        -0.92,
+        0.26,
+        0.02
+      ]
+    },
+    {
+      "id": "bed",
+      "name": "The bed along the back wall: its near side, the white frame, the wheels",
+      "inside": true,
+      "shadow": true,
+      "across": 0.78,
+      "distance": 3.45,
+      "facing": 180,
+      "height": 0.6,
+      "box": [
+        -1.12,
+        -0.62,
+        1.12,
+        0.02
+      ]
+    },
+    {
+      "id": "bed_top",
+      "name": "The bed's sheet and the blanket thrown back",
+      "plane": true,
+      "inside": true,
+      "shadow": {
+        "light": "lamp"
+      },
+      "across": 0.78,
+      "distance": 3.9,
+      "elevation": 0.58,
+      "width": 2.16,
+      "depth": 0.9
+    },
+    {
+      "id": "headboard",
+      "name": "The bed's head, white tubes",
+      "inside": true,
+      "shadow": true,
+      "across": -0.33,
+      "distance": 3.9,
+      "facing": 90,
+      "height": 1.05,
+      "box": [
+        -0.47,
+        -1.07,
+        0.47,
+        0.02
+      ]
+    },
+    {
+      "id": "footboard",
+      "name": "The bed's foot, white tubes, the chart on it",
+      "inside": true,
+      "shadow": true,
+      "across": 1.89,
+      "distance": 3.9,
+      "facing": 270,
+      "height": 0.9,
+      "box": [
+        -0.47,
+        -0.92,
+        0.47,
+        0.02
+      ]
+    },
+    {
+      "id": "pillow",
+      "name": "The pillow at the bed's head",
+      "inside": true,
+      "shadow": true,
+      "across": -0.02,
+      "distance": 3.95,
+      "elevation": 0.58,
+      "height": 0.35,
+      "box": [
+        -1.02,
+        -0.35,
+        1.02,
+        0.01
+      ]
+    },
+    {
+      "id": "blanket",
+      "name": "The blanket thrown back to the bed's foot",
+      "inside": true,
+      "shadow": true,
+      "across": 1.45,
+      "distance": 3.92,
+      "elevation": 0.58,
+      "height": 0.5,
+      "box": [
+        -1.5,
+        -0.5,
+        1.5,
+        0.01
+      ]
+    },
+    {
+      "id": "nightstand",
+      "name": "The bedside table",
+      "inside": true,
+      "shadow": true,
+      "across": -0.62,
+      "distance": 3.88,
+      "facing": 180,
+      "height": 0.72,
+      "box": [
+        -0.25,
+        -0.74,
+        0.25,
+        0.02
+      ]
+    },
+    {
+      "id": "nightstand_top",
+      "name": "The bedside table's top",
+      "plane": true,
+      "inside": true,
+      "shadow": {
+        "light": "lamp"
+      },
+      "across": -0.62,
+      "distance": 4.08,
+      "elevation": 0.72,
+      "width": 0.5,
+      "depth": 0.42
+    },
+    {
+      "id": "lamp",
+      "name": "The lamp on the bedside table",
+      "inside": true,
+      "across": -0.7,
+      "distance": 4.2,
+      "elevation": 0.72,
+      "height": 0.42,
+      "box": [
+        -0.13,
+        -0.44,
+        0.13,
+        0.01
+      ]
+    },
+    {
+      "id": "oranges",
+      "name": "Oranges in a string bag and a glass of water",
+      "inside": true,
+      "shadow": true,
+      "across": -0.76,
+      "distance": 3.98,
+      "elevation": 0.72,
+      "height": 0.14,
+      "box": [
+        -0.14,
+        -0.16,
+        0.14,
+        0.01
+      ]
+    },
+    {
+      "id": "laohu",
+      "name": "Laohu, folded again, asleep",
+      "inside": true,
+      "shadow": true,
+      "across": -0.48,
+      "distance": 3.97,
+      "elevation": 0.72,
+      "height": 0.22,
+      "box": [
+        -0.22,
+        -0.26,
+        0.22,
+        0.01
+      ]
+    },
+    {
+      "id": "drip",
+      "name": "The drip stand behind the bed",
+      "inside": true,
+      "shadow": true,
+      "across": 1.15,
+      "distance": 4.3,
+      "facing": 180,
+      "height": 1.9,
+      "box": [
+        -0.26,
+        -1.92,
+        0.26,
+        0.02
+      ]
+    },
+    {
+      "id": "mom",
+      "name": "Mom",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "mom_ill",
+        "turn": 170,
+        "does": "sitting_on_bed"
+      },
+      "across": 0.38,
+      "distance": 3.6
+    },
+    {
+      "id": "jack",
+      "name": "Jack",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "jack_grown",
+        "turn": 240,
+        "does": "showing_suit"
+      },
+      "across": 1.75,
+      "distance": 2.85
+    },
+    {
+      "id": "dad",
+      "name": "Dad",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "dad_grey",
+        "turn": 115,
+        "does": "reading_seated"
+      },
+      "across": -1.85,
+      "distance": 3.2
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "solo erhu, very slow and quiet, a lullaby remembered in a hospital at night",
+        "weight": 1.0
+      },
+      {
+        "text": "soft felt piano, sparse chords, an autumn evening, tender and restrained",
+        "weight": 1.1
+      },
+      {
+        "text": "music box playing a simple folk tune, slower, a little worn",
+        "weight": 0.5
+      },
+      {
+        "text": "solo cello, low and tender, a lament held back",
+        "weight": 0.6
+      },
+      {
+        "text": "guzheng plucked softly, few notes, long silences",
+        "weight": 0.3
+      },
+      {
+        "text": "ambient pad like lamplight on a white sheet, slow warm swells",
+        "weight": 0.4
+      },
+      {
+        "text": "string quartet, very soft, bittersweet",
+        "weight": 0
+      },
+      {
+        "text": "wordless humming, a woman's voice far away, two tigers lullaby",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and piano duet, small-town evening, tender",
+        "weight": 0
+      },
+      {
+        "text": "bamboo flute, breathy and slow, faraway village memory",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios, gentle, luminous, dreamlike",
+        "weight": 0
+      },
+      {
+        "text": "acoustic guitar fingerpicking, late autumn, simple and warm",
+        "weight": 0
+      },
+      {
+        "text": "celesta, a few slow notes, paper animals asleep",
+        "weight": 0
+      },
+      {
+        "text": "distant city hum and soft electric piano, evening rain feeling",
+        "weight": 0
+      },
+      {
+        "text": "pipa, gentle tremolo, melancholy and warm",
+        "weight": 0
+      },
+      {
+        "text": "toy piano, slightly out of tune, slow, intimate",
+        "weight": 0
+      }
+    ],
+    "bpm": 64,
+    "density": 0.18,
+    "brightness": 0.38,
+    "scale": "G_MAJOR_E_MINOR"
+  }
+}
