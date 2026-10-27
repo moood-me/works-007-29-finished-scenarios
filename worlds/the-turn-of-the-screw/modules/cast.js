@@ -7,9 +7,8 @@ const LINEN = [0.95, 0.93, 0.88, 1];
 // bracken gone russet in autumn, its stalks darker
 const BRACKEN = [0.7, 0.45, 0.2, 1];
 const STALK = [0.45, 0.3, 0.16, 1];
-// a prayer book's brown calf binding and its gilt edges
+// a prayer book's brown calf binding
 const CALF = [0.2, 0.12, 0.1, 1];
-const GILT = [0.78, 0.66, 0.4, 1];
 // a handful of bracken: each frond's lean aside, forward, its length (a man's metres)
 const FRONDS = [[-0.4, 0.3, 0.42], [0.05, 0.4, 0.5], [0.45, 0.25, 0.4], [-0.15, 0.1, 0.36], [0.25, 0.05, 0.33]];
 // the face's expressions (a person's <id>_mood; the engine's names): the brows' inner and outer ends up (+) or down,
@@ -198,7 +197,7 @@ return {
           }
         },
       },
-      // a small prayer book held in both hands before her at the waist, closed, its gilt edges toward her hands
+      // a small prayer book held in both hands before her at the waist, closed, lying across her hands
       prayerbook: {
         name: 'prayer book',
         draw: F => {
@@ -207,7 +206,6 @@ return {
           const sd = F.side('Chest');
           const c = add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(F.fwd('Chest'), 0.02 * h));
           F.tube([add(c, mul(sd, -0.06 * h)), add(c, mul(sd, 0.06 * h))], [[0, 0.045 * h], [1, 0.045 * h]], [[0, CALF]], 4, F.up('Chest'), 0.3, 3, true);
-          F.tube([add(c, mul(sd, -0.055 * h)), add(c, mul(sd, 0.055 * h))], [[0, 0.041 * h], [1, 0.041 * h]], [[0, GILT]], 4, F.up('Chest'), 0.42, 3, true);
         },
       },
       // a sash round the waist in the look's accent colour
