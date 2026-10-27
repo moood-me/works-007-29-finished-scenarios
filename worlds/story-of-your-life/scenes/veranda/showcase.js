@@ -1,6 +1,6 @@
 // The night of the prologue: they dance slowly on the deck; she looks past him into the dark yard, he at her. He
-// looks up at the moon and she at him; he looks back at her, grave, the question coming, and her look goes past him
-// again; then each to the other, smiling.
+// looks out over her shoulder into the yard and she at him; he looks back at her, grave, the question coming, and
+// her look goes past him again; then each to the other, smiling.
 return [
   {
     name: 'the dance',
@@ -13,9 +13,9 @@ return [
     },
   },
   {
-    name: 'the moon',
+    name: 'over her shoulder',
     run: async s => {
-      s.person('gary').look([-7, 30, 14]);
+      s.person('gary').look([-0.6, 0.6, 1.9]);
       await s.wait(0.8);
       s.person('louise').look('gary');
       s.person('louise').mood('smile');

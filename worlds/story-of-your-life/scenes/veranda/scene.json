@@ -37,7 +37,7 @@
       "id": "porch",
       "of": "porch_lamp#bulb",
       "color": "#ffc983",
-      "strength": 1.2,
+      "strength": 1.4,
       "reach": 7
     },
     {
@@ -60,8 +60,8 @@
       "id": "candle",
       "of": "glasses#flame",
       "color": "#ffb56a",
-      "strength": 0.9,
-      "reach": 3.5,
+      "strength": 1.5,
+      "reach": 4.5,
       "flicker": 0.3
     }
   ],
@@ -99,9 +99,9 @@
       "distance": 22,
       "height": 7.6,
       "box": [
-        -24,
+        -42,
         -7.7,
-        24,
+        42,
         0.6
       ]
     },
