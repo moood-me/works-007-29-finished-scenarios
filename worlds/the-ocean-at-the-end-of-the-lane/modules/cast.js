@@ -1,6 +1,54 @@
 // The people of «The Ocean at the End of the Lane» as people in a scene (an element with "person"): figures of shapes in
 // this world's style — the engine's round, big-headed `soft` figures, lit by the scene's own light, with simple faces —
 // and the motions in cast.data.json (Kimodo's, put there with put_motion). cast.md says who is who and what each motion is.
+const { add, mul, mix, sub, unit } = MooodShapes.V;
+// (a part keeps what it would make anew each frame — its sizes, its lists — with F.keep, and builds its points of the
+// figure's vectors, the frame's own)
+// Dad's tie on his shirt front: a knot under the chin and the blade down the chest to the belt, a dark wine colour,
+// kept before the shirt; its middle is the point "dad#tie"
+const TIE = F => {
+  const m = F.fit.h, k = F.k;
+  return {
+    neck: -0.03 * m, knotOut: 0.045 * k, chestOut: 0.1 * k, bellyOut: 0.1 * k, clear: 0.006 * k,
+    pts: [null, null, null], profile: [[0, 0.011 * k], [1, 0.018 * k], [2, 0.022 * k]],
+    colors: [[0, [0.36, 0.13, 0.15, 1]]], knot: [0.017 * k, 0.015 * k, 0.012 * k], axes: [null, null, null],
+  };
+};
+const tie = F => {
+  const K = F.keep(TIE), fw = F.fwd('Chest'), up = F.up('Chest'), sd = F.side('Chest');
+  K.pts[0] = F.clear(add(add(F.P('Neck1'), mul(up, K.neck)), mul(fw, K.knotOut)), 1, K.clear);
+  K.pts[1] = F.clear(add(F.P('Chest'), mul(fw, K.chestOut)), 1, K.clear);
+  K.pts[2] = F.clear(add(F.P('Spine1'), mul(F.fwd('Spine1'), K.bellyOut)), 1, K.clear);
+  F.tube(K.pts, K.profile, K.colors, 8, sd, 0.2, 2, true);
+  K.axes[0] = sd; K.axes[1] = up; K.axes[2] = fw;
+  F.ball(K.pts[0], K.axes, K.knot, K.colors[0][1], 8);
+  F.point('tie', K.pts[1]);
+};
+// The boy's book, open in both hands before his chest, its top tipped away from him: two leaves in a shallow V, the
+// spine away from him, the pages cream on a red cloth cover; its middle is the point "boy#book"
+const BOOK = F => {
+  const m = F.fit.h, cover = [[0, [0.62, 0.2, 0.17, 1]]], leaf = [[0, [0.95, 0.92, 0.84, 1]]];
+  return {
+    out: 0.05 * m, down: -0.02 * m, half: 0.06 * m, high: 0.17 * m, open: 0.035 * m, lean: 0.7,
+    pts: [null, null], profile: [[0, 0.06 * m], [1, 0.06 * m]], sides: [-1, 1],
+    sheets: [[cover, 0.006 * m], [leaf, 0]],
+  };
+};
+const book = F => {
+  const K = F.keep(BOOK), fw = F.fwd('Chest'), up = unit(add(F.up('Chest'), mul(fw, K.lean)));
+  const spine = add(add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(fw, K.out)), mul(up, K.down));
+  const across = unit(sub(F.P('LeftHand'), F.P('RightHand')));
+  for (const s of K.sides) {
+    const dir = unit(add(mul(across, s * K.half), mul(fw, -K.open)));
+    for (const [colors, back] of K.sheets) {
+      const c = add(add(spine, mul(dir, K.half)), mul(fw, back));
+      K.pts[0] = add(c, mul(up, -K.high / 2));
+      K.pts[1] = add(c, mul(up, K.high / 2));
+      F.tube(K.pts, K.profile, colors, 6, dir, 0.08, 4, true);
+    }
+  }
+  F.point('book', spine);
+};
 return {
   ...data,
   characters: {
@@ -17,6 +65,20 @@ return {
     gran: { kind: 'shapes', style: 'lane', who: 'old', garment: 'dress', hair: 'bun', scarf: true,
       body: { height: 0.86, thick: 1.12 },
       colors: { skin: '#e8c9b3', hair: '#efebe3', top: '#4a3446', garment: '#4a3446', accent: '#8d8a84', shoes: '#2a2526' } },
+    // Dad: a man in his thirties in shirt-sleeves after work — a white shirt, a dark wine tie, grey trousers, short
+    // dark hair
+    dad: { kind: 'shapes', style: 'lane', who: 'man', garment: 'none', hair: 'short', parts: ['tie'],
+      body: { height: 1.0, thick: 0.98 },
+      colors: { skin: '#eccab0', hair: '#3a2a20', top: '#e3e4df', bottom: '#4c4d55', shoes: '#2a2420' } },
+    // Ursula Monkton, the help, as she looks among people: young and pretty, long honey hair, a grey dress below the
+    // knee, a pink scarf at her throat (her pink coat hangs in the hall)
+    ursula: { kind: 'shapes', style: 'lane', who: 'woman', garment: 'shift', hair: 'straight', scarf: true,
+      body: { height: 0.97, thick: 0.8 },
+      colors: { skin: '#f2d8c6', hair: '#c9a067', top: '#8e8c94', garment: '#8e8c94', accent: '#e39aac', shoes: '#5d4a50' } },
+    // the boy's sister, five: fair hair in a ponytail, a red pinafore over a white blouse, white socks, red shoes
+    sister: { kind: 'shapes', style: 'lane', who: 'child', garment: 'frock', hair: 'ponytail', socks: true,
+      body: { height: 0.6, thick: 0.84 },
+      colors: { skin: '#f3d8c2', hair: '#cfa866', top: '#f0eadf', garment: '#b5524a', socks: '#efeadf', shoes: '#8a2f2a' } },
   },
   shapes: {
     // the world's style: the engine's soft figures, coloured and shaded by the scene's light, simple faces
@@ -24,6 +86,10 @@ return {
     garments: {
       // a child's frock: from the waist to the knee, the cardigan's sleeves above it and the shins bare below
       frock: { name: 'frock', hang: [{ to: 1.05, from: 'waist', flare: 0.35, off: 0.94 }], short: true, bodice: true },
+      // a woman's plain dress: fitted to the waist, a skirt falling straight to below the knee, long sleeves of its cloth,
+      // stockinged legs under it
+      shift: { name: 'shift dress', hang: [{ to: 1.2, from: 'waist', flare: 0.12, off: 0.94 }], sleeves: 'garment', bodice: true, bare: true },
     },
+    parts: { tie: { name: 'tie', draw: tie }, book: { name: 'open book', draw: book } },
   },
 };
