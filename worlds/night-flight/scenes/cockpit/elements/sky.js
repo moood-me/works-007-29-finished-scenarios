@@ -207,13 +207,15 @@ if (above) {
   ground('near_steppe', H + 0.08, Y1, 0.012, 70, 0.05, false);
   // the lights below: a little town far ahead on the horizon, and one lone house nearer, its window just lit — on the
   // far band, drifting with it
-  e.layer('lights', { blend: 'add', box: [X0, H, X0 + W, H + 0.1], drift: [0.002, 0] }, c => {
+  e.layer('town', { blend: 'add', box: [X0, H, X0 + W, H + 0.03], drift: [0.002, 0] }, c => {
     for (let i = 0; i < 16; i++) glow(c, A * 0.2 + 0.05 * (e.rnd() - 0.5), H + 0.008 + 0.004 * e.rnd(), 0.0025, 0.0015, '#ffd28a', 0.9);
     glow(c, A * 0.2, H + 0.01, 0.04, 0.006, '#d89060', 0.4);
-    glow(c, A * 0.55, H + 0.05, 0.003, 0.002, '#ffdca0', 1);
-    glow(c, A * 0.55, H + 0.05, 0.012, 0.005, '#e8a060', 0.45);
   });
-  e.at(A * 0.55, H + 0.05, 'house');
+  // the lone house below the plane, under the wheel, coming slowly back past the tail
+  e.layer('house', { blend: 'add', box: [X0, 0.85, X0 + W, 0.95], drift: [0.006, 0] }, c => {
+    glow(c, A * 0.7, 0.9, 0.004, 0.003, '#ffdca0', 1);
+    glow(c, A * 0.7, 0.9, 0.02, 0.008, '#e8a060', 0.45);
+  });
   // far behind, low on the right — the south — silent lightning in a bank of cloud on the horizon
   e.layer('flash', { blend: 'add', box: [A * 0.7, H - 0.08, A + 0.3, H + 0.02] }, c => {
     glow(c, A * 0.98, H - 0.012, 0.16, 0.035, '#c9b8e0', 0.5);

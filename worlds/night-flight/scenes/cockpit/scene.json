@@ -67,7 +67,7 @@
         4
       ],
       "color": "#ffb07a",
-      "strength": 1.2
+      "strength": 1.6
     },
     {
       "id": "moon",
@@ -122,9 +122,9 @@
       1.28
     ],
     "fabien_look": [
-      -5,
-      1.5,
-      2.0
+      -3,
+      0.8,
+      1.9
     ],
     "fabien_mood": "neutral",
     "radioman_on": [
@@ -268,7 +268,7 @@
       "person": {
         "cast": "cast",
         "who": "fabien",
-        "turn": 270,
+        "turn": 245,
         "does": "fly_seated"
       },
       "across": 0.15,

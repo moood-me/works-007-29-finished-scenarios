@@ -46,8 +46,8 @@ for (let x = -1.8; x < 5.6; x += 0.5) {
 }
 // the two cockpits: their leather-rolled rims along the top edge
 for (const x of [-0.55, 1.05]) {
-  g.fillStyle = '#5a3f2b';
-  g.fillRect(x - 0.46, TOP - 0.035, 0.92, 0.05);
+  g.fillStyle = '#6e4f37';
+  g.fillRect(x - 0.42, TOP - 0.03, 0.84, 0.04);
 }
 // the windscreens before them: small panes in their frames
 for (const x of [-1.08, 0.52]) {
