@@ -1,0 +1,799 @@
+{
+  "engine": 3,
+  "title": "The Barn",
+  "caption": "Sunday afternoon. The sun comes through the cracks in lines across the hay.",
+  "horizon": 0.44,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "tint": "#ffd9a0",
+    "tintStrength": 0.06,
+    "vignette": 0.4,
+    "grain": 0.1,
+    "haze": 0.1,
+    "hazeColor": "#8a7356",
+    "hazeGlow": 0.3,
+    "shafts": 0.9,
+    "ambient": 0.5,
+    "ambientColor": "#8f7a66",
+    "inside": 0.3,
+    "bounce": 0.45,
+    "wind": [
+      0,
+      1,
+      0.15
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        110,
+        22
+      ],
+      "place": {
+        "bearing": "sun_bearing",
+        "height": "sun_height"
+      },
+      "color": "#ffdca6",
+      "strength": 1.7,
+      "through": [
+        [
+          [
+            4.6,
+            1.3,
+            0.1
+          ],
+          [
+            4.6,
+            1.34,
+            0.1
+          ],
+          [
+            4.6,
+            1.34,
+            4.7
+          ],
+          [
+            4.6,
+            1.3,
+            4.7
+          ]
+        ],
+        [
+          [
+            4.6,
+            2.05,
+            0.1
+          ],
+          [
+            4.6,
+            2.08,
+            0.1
+          ],
+          [
+            4.6,
+            2.08,
+            4.7
+          ],
+          [
+            4.6,
+            2.05,
+            4.7
+          ]
+        ],
+        [
+          [
+            4.6,
+            2.6,
+            0.1
+          ],
+          [
+            4.6,
+            2.66,
+            0.1
+          ],
+          [
+            4.6,
+            2.66,
+            4.7
+          ],
+          [
+            4.6,
+            2.6,
+            4.7
+          ]
+        ],
+        [
+          [
+            4.6,
+            3.45,
+            0.1
+          ],
+          [
+            4.6,
+            3.485,
+            0.1
+          ],
+          [
+            4.6,
+            3.485,
+            4.7
+          ],
+          [
+            4.6,
+            3.45,
+            4.7
+          ]
+        ],
+        [
+          [
+            4.6,
+            4.3,
+            0.1
+          ],
+          [
+            4.6,
+            4.35,
+            0.1
+          ],
+          [
+            4.6,
+            4.35,
+            4.7
+          ],
+          [
+            4.6,
+            4.3,
+            4.7
+          ]
+        ],
+        [
+          [
+            4.6,
+            4.85,
+            0.1
+          ],
+          [
+            4.6,
+            4.88,
+            0.1
+          ],
+          [
+            4.6,
+            4.88,
+            4.7
+          ],
+          [
+            4.6,
+            4.85,
+            4.7
+          ]
+        ],
+        [
+          [
+            4.6,
+            5.7,
+            0.1
+          ],
+          [
+            4.6,
+            5.76,
+            0.1
+          ],
+          [
+            4.6,
+            5.76,
+            4.7
+          ],
+          [
+            4.6,
+            5.7,
+            4.7
+          ]
+        ],
+        [
+          [
+            4.6,
+            6.55,
+            0.1
+          ],
+          [
+            4.6,
+            6.59,
+            0.1
+          ],
+          [
+            4.6,
+            6.59,
+            4.7
+          ],
+          [
+            4.6,
+            6.55,
+            4.7
+          ]
+        ],
+        [
+          [
+            4.6,
+            7.05,
+            0.1
+          ],
+          [
+            4.6,
+            7.08,
+            0.1
+          ],
+          [
+            4.6,
+            7.08,
+            4.7
+          ],
+          [
+            4.6,
+            7.05,
+            4.7
+          ]
+        ],
+        [
+          [
+            4.6,
+            8.0,
+            0.1
+          ],
+          [
+            4.6,
+            8.05,
+            0.1
+          ],
+          [
+            4.6,
+            8.05,
+            4.7
+          ],
+          [
+            4.6,
+            8.0,
+            4.7
+          ]
+        ]
+      ],
+      "soft": 0.03,
+      "on": "sun"
+    },
+    {
+      "id": "cracks_glow",
+      "daylight": 0.5,
+      "across": 4.2,
+      "distance": 4.6,
+      "elevation": 2.4,
+      "reach": 7,
+      "on": "sun"
+    },
+    {
+      "id": "door_gap",
+      "daylight": 0.6,
+      "across": -0.3,
+      "distance": 8.85,
+      "elevation": 1.5,
+      "reach": 4.5
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "sun": 1,
+    "sun_bearing": 110,
+    "sun_height": 22,
+    "lennie_with": [
+      "puppy"
+    ],
+    "lennie_look": "lennie#puppy",
+    "lennie_mood": "smile",
+    "wife_look": "lennie",
+    "wife_mood": "neutral"
+  },
+  "states": {
+    "sun": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the afternoon sun through the cracks in the right wall: 0 gone behind a cloud, 1 full — its lines on the floor, the hay and the people"
+    },
+    "sun_bearing": {
+      "range": [
+        90,
+        130
+      ],
+      "smooth": true,
+      "means": "where the sun stands, degrees (90 to the right, more toward behind the viewer): the lines' slant"
+    },
+    "sun_height": {
+      "range": [
+        6,
+        30
+      ],
+      "smooth": true,
+      "means": "how high the sun is, degrees: lower, the lines climb off the floor up the stalls and the left wall — the afternoon going"
+    }
+  },
+  "objects": [
+    {
+      "id": "floor",
+      "name": "The barn floor, packed earth and hay",
+      "plane": true,
+      "inside": true,
+      "across": -0.3,
+      "distance": 4.25,
+      "width": 9.9,
+      "depth": 9.6
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall: the mangers, the harness pegs",
+      "inside": true,
+      "across": -5.2,
+      "distance": 4.25,
+      "height": 4.8,
+      "box": [
+        -4.8,
+        -4.85,
+        4.8,
+        0.02
+      ],
+      "facing": 90
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall, its boards cracked",
+      "inside": true,
+      "across": 4.6,
+      "distance": 4.25,
+      "height": 4.8,
+      "box": [
+        -4.8,
+        -4.85,
+        4.8,
+        0.02
+      ],
+      "facing": 270
+    },
+    {
+      "id": "cracks",
+      "name": "The sun in the cracks of the right wall",
+      "inside": true,
+      "glows": true,
+      "across": 4.585,
+      "distance": 4.25,
+      "height": 4.8,
+      "box": [
+        -4.8,
+        -4.85,
+        4.8,
+        0.02
+      ],
+      "facing": 270
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall, the big doors to the river and the loft door",
+      "inside": true,
+      "across": -0.3,
+      "distance": 9.0,
+      "height": 7.6,
+      "box": [
+        -4.95,
+        -7.65,
+        4.95,
+        0.02
+      ],
+      "facing": 180
+    },
+    {
+      "id": "door_light",
+      "name": "Daylight round the shut doors",
+      "inside": true,
+      "glows": true,
+      "across": -0.3,
+      "distance": 8.98,
+      "height": 7.6,
+      "box": [
+        -1.5,
+        -6.7,
+        1.5,
+        0.02
+      ],
+      "facing": 180
+    },
+    {
+      "id": "roof_left",
+      "name": "The roof over the left, its rafters",
+      "inside": true,
+      "across": -5.2,
+      "distance": 4.25,
+      "elevation": 4.8,
+      "height": 5.7,
+      "box": [
+        -4.8,
+        -5.7,
+        4.8,
+        0.02
+      ],
+      "facing": 90,
+      "tilt": -60
+    },
+    {
+      "id": "roof_right",
+      "name": "The roof over the right, its rafters",
+      "inside": true,
+      "across": 4.6,
+      "distance": 4.25,
+      "elevation": 4.8,
+      "height": 5.7,
+      "box": [
+        -4.8,
+        -5.7,
+        4.8,
+        0.02
+      ],
+      "facing": 270,
+      "tilt": -60
+    },
+    {
+      "id": "loft",
+      "name": "The hayloft floor seen from below",
+      "inside": true,
+      "across": -0.3,
+      "distance": 5.0,
+      "elevation": 3.0,
+      "facing": 180,
+      "tilt": -90,
+      "height": 5.6,
+      "box": [
+        -4.95,
+        -5.6,
+        4.95,
+        0.05
+      ]
+    },
+    {
+      "id": "loft_edge",
+      "name": "The loft's edge beam, the hay over it",
+      "inside": true,
+      "across": -0.3,
+      "distance": 5.0,
+      "elevation": 3.0,
+      "facing": 180,
+      "height": 0.8,
+      "box": [
+        -4.95,
+        -0.5,
+        4.95,
+        0.5
+      ],
+      "shadow": true
+    },
+    {
+      "id": "post",
+      "name": "The posts holding up the loft",
+      "inside": true,
+      "across": -2.4,
+      "distance": 5.0,
+      "height": 3.0,
+      "box": [
+        -0.1,
+        -3.02,
+        0.1,
+        0.02
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -2.4,
+          "distance": 0.6
+        },
+        {
+          "across": -2.4,
+          "distance": 2.8
+        },
+        {
+          "across": -2.4,
+          "distance": 5.0
+        },
+        {
+          "across": -2.4,
+          "distance": 7.2
+        },
+        {
+          "across": 3.95,
+          "distance": 5.0,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "stall",
+      "name": "The stalls' partitions",
+      "inside": true,
+      "across": -3.8,
+      "distance": 5.0,
+      "height": 1.6,
+      "box": [
+        -1.42,
+        -1.62,
+        1.42,
+        0.02
+      ],
+      "facing": 180,
+      "shadow": true,
+      "copies": [
+        {
+          "across": -3.8,
+          "distance": 0.6
+        },
+        {
+          "across": -3.8,
+          "distance": 2.8,
+          "tint": "#e8e0d6"
+        },
+        {
+          "across": -3.8,
+          "distance": 5.0
+        },
+        {
+          "across": -3.8,
+          "distance": 7.2,
+          "flip": true,
+          "tint": "#efe6da"
+        }
+      ]
+    },
+    {
+      "id": "horse",
+      "name": "The horses in their stalls",
+      "inside": true,
+      "across": -3.8,
+      "distance": 3.9,
+      "height": 1.8,
+      "box": [
+        -1.55,
+        -1.9,
+        1.55,
+        0.05
+      ],
+      "facing": 180,
+      "shadow": true,
+      "copies": [
+        {
+          "across": -3.8,
+          "distance": 3.9
+        },
+        {
+          "across": -3.75,
+          "distance": 6.1,
+          "tint": "#a8968a"
+        }
+      ]
+    },
+    {
+      "id": "collar",
+      "name": "A horse collar on its peg",
+      "inside": true,
+      "across": -2.4,
+      "distance": 4.88,
+      "elevation": 1.05,
+      "height": 0.75,
+      "box": [
+        -0.3,
+        -0.8,
+        0.3,
+        0.05
+      ],
+      "facing": 180
+    },
+    {
+      "id": "lantern",
+      "name": "A barn lantern on the post, unlit",
+      "inside": true,
+      "across": -2.4,
+      "distance": 7.08,
+      "elevation": 1.75,
+      "height": 0.4,
+      "box": [
+        -0.12,
+        -0.42,
+        0.12,
+        0.02
+      ],
+      "facing": 180
+    },
+    {
+      "id": "hay",
+      "name": "The pile of new hay",
+      "inside": true,
+      "across": 2.3,
+      "distance": 8.4,
+      "height": 2.6,
+      "box": [
+        -2.7,
+        -2.65,
+        2.45,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "hay_low",
+      "name": "The loose hay at the pile's foot",
+      "inside": true,
+      "across": 2.0,
+      "distance": 7.45,
+      "height": 0.6,
+      "box": [
+        -2.2,
+        -0.65,
+        2.75,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "fork",
+      "name": "The Jackson fork hanging from its pulley",
+      "inside": true,
+      "across": 2.1,
+      "distance": 7.9,
+      "elevation": 2.45,
+      "height": 5.2,
+      "box": [
+        -0.5,
+        -5.25,
+        0.5,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "pups",
+      "name": "The box with Slim's pups",
+      "inside": true,
+      "across": 3.05,
+      "distance": 6.55,
+      "height": 0.5,
+      "box": [
+        -0.42,
+        -0.55,
+        0.42,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the lines of sun",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0.2,
+          5.6,
+          1.8
+        ],
+        "source": [
+          8.4,
+          6.6,
+          3.2
+        ]
+      }
+    },
+    {
+      "id": "lennie",
+      "name": "Lennie",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "lennie",
+        "turn": 215,
+        "does": "puppy_lap"
+      },
+      "across": 1.7,
+      "distance": 6.85,
+      "shadow": true
+    },
+    {
+      "id": "wife",
+      "name": "Curley's wife",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "curleys_wife",
+        "turn": 135,
+        "does": "hip"
+      },
+      "across": -1.65,
+      "distance": 5.75,
+      "shadow": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "Solo harmonica, slow and lonesome, a ranch hand at dusk by a river, 1930s California",
+        "weight": 0.3
+      },
+      {
+        "text": "Fingerpicked acoustic guitar, warm and plain, a simple folk melody at sundown",
+        "weight": 0.5
+      },
+      {
+        "text": "Aaron Copland-like open strings, wide American plains, gentle and sad",
+        "weight": 0
+      },
+      {
+        "text": "Soft upright bass and brushed snare, very slow, a campfire evening",
+        "weight": 0
+      },
+      {
+        "text": "Lonely fiddle playing a slow waltz, distant, dust in golden light",
+        "weight": 0
+      },
+      {
+        "text": "Banjo plucked softly, sparse, wistful, a river under sycamores",
+        "weight": 0
+      },
+      {
+        "text": "Hammond-free gospel hum on a pump organ, quiet, Depression era",
+        "weight": 0
+      },
+      {
+        "text": "Slide guitar, slow blues, a dry valley in the evening heat",
+        "weight": 0
+      },
+      {
+        "text": "Music box melody, childlike and fragile, a dream of a little house and rabbits",
+        "weight": 0.6
+      },
+      {
+        "text": "Low cello drone with sparse piano notes, foreboding but tender",
+        "weight": 0.7
+      },
+      {
+        "text": "Whistled tune over an acoustic guitar, carefree, a road between ranches",
+        "weight": 0
+      },
+      {
+        "text": "Accordion, slow, melancholy, a bunkhouse at night under a tin lamp",
+        "weight": 0
+      },
+      {
+        "text": "Ambient field texture: river water, crickets, wind in the trees, minimal tonal pads",
+        "weight": 0
+      },
+      {
+        "text": "Steel-string guitar harmonics, very sparse, silence between notes",
+        "weight": 0
+      },
+      {
+        "text": "Clarinet and strings, a slow pastoral, 1930s film score warmth",
+        "weight": 0
+      },
+      {
+        "text": "Dobro and harmonica duet, unhurried, two friends talking by a fire",
+        "weight": 0
+      },
+      {
+        "text": "Lazy summer afternoon hum, flies in a hot barn, a far clink of horseshoes, sparse plucked strings",
+        "weight": 0.8
+      }
+    ],
+    "bpm": 60,
+    "density": 0.25,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
