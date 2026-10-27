@@ -194,7 +194,7 @@ return {
     rank: {
       kind: 'shapes', style: 'doll', who: 'man', garment: 'tailcoat', hair: 'short', parts: ['moustache'],
       body: { height: 1.02, thick: 0.84, shoulders: 0.95, head: 1.08 },
-      colors: { skin: '#e2cdbd', hair: '#a9a49c', top: '#e8e4da', garment: '#26262b', bottom: '#26262b', shoes: '#151414' },
+      colors: { skin: '#e2cdbd', hair: '#d8d4cc', top: '#e8e4da', garment: '#26262b', bottom: '#26262b', shoes: '#151414' },
     },
     // the Stenborgs' hired pianist: a young man in a plain black coat
     pianist: {
