@@ -20,6 +20,12 @@ it): the people of a doll's house, their faces read in a wide shot.
 - `pianist` — the Stenborgs' hired pianist, a young man in a black frock coat.
 - `guest_dove`, `guest_rose` — two ladies in pale silk ball gowns (`gown`), dove-grey and rose; `guest_consul` (stout,
   white-haired, `tailcoat`), `guest_officer` (a young man in a dark blue tailcoat) — the Stenborgs' guests.
+- `nora_out` — Nora in the street: her long teal-blue winter coat with a brown fur collar (`paletot`), bareheaded.
+- `porter` — the porter who carries the tree up: a sheepskin coat to the knee (`sheepskin`), a cloth cap, a scarf.
+- `anne_marie` — Anne-Marie, the nurse: a long dark dress and a grey shawl over the shoulders (`nanny`), a dark woollen
+  hood (`bonnet`).
+- `ivar`, `bob` — the Helmers' boys: children's coats (`kidcoat`), knitted caps with pompoms (`stocking`), scarves;
+  `emmy` — the little girl: a red coat, a dark red bonnet.
 
 ## Garments and hats
 
@@ -30,6 +36,10 @@ the waistcoat and shirt front (`top`). `bowler` — a round crown high on the he
 elbow and its neckline (`top`, `short`), a striped sash at the waist (`accent`). `gown` — a lady's ball gown: a long
 full skirt and low bodice (`garment`), short sleeves, a lace bertha round the shoulders (`accent`). `tailcoat` —
 evening dress: a black tailcoat (`garment`) over a white waistcoat and shirt front (`top`) and a white tie.
+`paletot` — a lady's winter coat, fitted and long to the ground, a fur collar (`accent`). `sheepskin` — a coat to the
+knee, a fleece collar (`accent`), a dark belt. `nanny` — a long dress (`garment`) and a knitted shawl from the
+shoulders (`top`). `kidcoat` — a child's coat. `bonnet` — a hood over the crown and the back of the head, the face
+open. `stocking` — a knitted cap to the brows, a pompom (`accent`).
 
 ## Things (`<id>_with`, or a look's `parts`)
 
@@ -38,6 +48,8 @@ evening dress: a black tailcoat (`garment`) over a white waistcoat and shirt fro
 `tambourine` — Nora's, held up in the right hand, the hoop going on up the forearm's line, its skin to the front.
 `glass` — a coupe of champagne in the right hand. `cigar` — Rank's, out of his left fist, its tip
 glowing (the point `tip`: its smoke rises from it). `fan` — a lady's closed fan held in both hands before the waist.
+`parcels` — an armful of three Christmas parcels on the forearms (with `armful`). `coin` — a coin on the right palm.
+`snowball` — in the right hand.
 
 ## Motions (Kimodo)
 
@@ -50,4 +62,9 @@ The engine's `stand` and `walk`, and the world's own, made for these people (mak
 `cigar` — stands, a little stooped, the left hand holding a small thing at the chest, the right arm hanging;
 `fan` — stands upright holding a small thing with both hands before the waist;
 `arms_folded` — stands with the arms folded across the chest;
-`playing` — sits (on a bench: `<id>_on`), playing the piano before them, the hands at chest height.
+`playing` — sits (on a bench: `<id>_on`), playing the piano before them, the hands at chest height;
+`armful` — Nora's in the street: stands holding a pile of light boxes in both arms against the chest;
+`coin` — the porter's: stands looking down at a small thing in the right palm;
+`clasped` — Anne-Marie's: stands upright, the hands clasped before the waist;
+`leash` — Ivar's: a child stands holding a rope out before him in the right hand;
+`snowball` — Bob's: a child holds a small thing up overhead in the right hand.

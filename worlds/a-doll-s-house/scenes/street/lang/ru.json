@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Street by the House","translation":"Улица у дома","where":"scenes/street/scene.json title"},
+  {"text":"Christmas Eve at dusk. Nora comes home with her arms full of parcels; the porter has brought the tree.","translation":"Сочельник, сумерки. Нора возвращается домой с охапкой свёртков; посыльный принёс ёлку.","where":"scenes/street/scene.json caption"}
+]}
