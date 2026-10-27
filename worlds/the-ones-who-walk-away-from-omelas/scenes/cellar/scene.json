@@ -96,7 +96,7 @@
       "facing": 180,
       "height": 2.4,
       "box": [
-        -1.7,
+        -2.2,
         -2.4,
         1.7,
         0.02
@@ -279,11 +279,11 @@
       "person": {
         "cast": "cast",
         "who": "the_child",
-        "turn": 15,
+        "turn": 60,
         "does": "huddle"
       },
-      "across": 1.25,
-      "distance": 2.75,
+      "across": 1.15,
+      "distance": 2.9,
       "shadow": true
     },
     {
@@ -297,7 +297,9 @@
       },
       "across": -0.35,
       "distance": 3.65,
-      "shadow": true
+      "shadow": {
+        "light": "corridor"
+      }
     },
     {
       "id": "kor",
@@ -318,7 +320,7 @@
       "person": {
         "cast": "cast",
         "who": "mev",
-        "turn": 300,
+        "turn": 272,
         "does": "hold_bowl"
       },
       "across": -1.3,
