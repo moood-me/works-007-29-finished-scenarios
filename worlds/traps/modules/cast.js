@@ -253,7 +253,7 @@ return {
           const { add, mul } = MooodShapes.V;
           const K = F.keep(DRAFT), hand = F.P('LeftHand'), up = F.up('Chest'), fw = F.fwd('Chest');
           const at = add(hand, mul(fw, 0.02 * F.k));
-          F.bar(add(at, mul(up, -K.h * 0.5)), add(at, mul(up, K.h * 0.5)), K.w, K.w, K.paper, 4, F.side('Chest'), 0.05);
+          F.bar(add(at, mul(up, -K.h * 0.5)), add(at, mul(up, K.h * 0.5)), K.w, K.w, K.paper, 4, F.side('Chest'), 0.06, 4);
         },
       },
       // a white moustache under the nose

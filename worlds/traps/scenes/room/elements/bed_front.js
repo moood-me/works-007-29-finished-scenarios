@@ -1,7 +1,7 @@
 // The bed's long side toward us: the sheet and the eiderdown's checked edge hanging over a walnut side rail, its turned
 // legs at the ends, darkness under it.
 const W = 1.0;
-g.fillStyle = '#1e1814';
+g.fillStyle = '#2e2620';
 g.fillRect(-W + 0.06, -0.24, W * 2 - 0.12, 0.24);
 g.fillStyle = '#4a3226';
 g.fillRect(-W, -0.4, W * 2, 0.16);
