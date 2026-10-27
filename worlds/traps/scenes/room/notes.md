@@ -16,11 +16,11 @@ breath, heads and faces; the candles tremble; no camera moves.
   `bed_front` its side with the sheet hanging, `headboard` and `footboard` seen edge-on), the rag `rug` before it, the
   `washstand` by the door (basin, jug, towel, a chamberstick burning; Traps's case of samples against it). `floor`,
   `ceiling` (one beam), `side_wall` (seen at the far edges of wide screens).
-- **People** (modules/cast, style `traps`): Traps (−0.75/3.4) on the bed's edge, slumped, his hands on the sheet
+- **People** (modules/cast, style `traps`): Traps (−1.1/3.4) on the bed's edge, slumped, his hands on the sheet
   beside him (`sit_bed`, `traps_reach` onto the bed), laughing up past the doorway (`traps_look` before us), no glass
-  now (`traps_with: ["tie"]`); Zorn (1.72/4.3, turned 195) in the doorway, upright, chin up (`stand_proud`), smiling;
-  Kummer (1.28/4.8) behind his shoulder in the corridor, hunched, tired, on his cane (`stand_tired`, `kummer_reach`
-  `r` down to his hip); the judge (2.2/3.55, turned 215) inside the room by the door, his chamberstick at his chest
+  now (`traps_with: ["tie"]`); Zorn (1.37/4.3, turned 195) in the doorway, upright, chin up (`stand_proud`), smiling;
+  Kummer (0.93/4.8) behind his shoulder in the corridor, hunched, tired, on his cane (`stand_tired`, `kummer_reach`
+  `r` down to his hip); the judge (1.85/3.55, turned 215) inside the room by the door, his chamberstick at his chest
   (`stand_candle`, part `chamberstick`, `judge_with`), beaming. The looks are kept within ~45° of the viewer so the
   faces read.
 - **Light**: the moon from far off on the left (`moon`, `from` [−60, 26]) comes in only through the `pane`: its patch

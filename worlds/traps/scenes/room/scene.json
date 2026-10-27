@@ -66,24 +66,24 @@
       "chamberstick"
     ],
     "traps_on": [
-      -0.75,
+      -1.1,
       3.4,
       0.5
     ],
     "traps_reach": {
       "r": [
-        -1.08,
+        -1.43,
         3.5,
         0.53
       ],
       "l": [
-        -0.42,
+        -0.77,
         3.5,
         0.53
       ]
     },
     "traps_look": [
-      0.7,
+      0.35,
       1.2,
       1.5
     ],
@@ -92,23 +92,23 @@
     "judge_mood": "smile",
     "kummer_mood": "tired",
     "judge_look": [
-      0.4,
+      0.05,
       1.6,
       1.2
     ],
     "zorn_look": [
-      -0.2,
+      -0.55,
       2.0,
       1.4
     ],
     "kummer_look": [
-      0.3,
+      -0.05,
       1.0,
       1.6
     ],
     "kummer_reach": {
       "r": [
-        1.42,
+        1.07,
         4.62,
         0.82
       ]
@@ -137,7 +137,7 @@
     {
       "id": "corridor_wall",
       "name": "The corridor's far wall, seen through the door",
-      "across": 1.55,
+      "across": 1.2,
       "distance": 5.9,
       "facing": 180,
       "height": 2.62,
@@ -153,7 +153,7 @@
       "id": "corridor_floor",
       "name": "The corridor's floor and its runner",
       "plane": true,
-      "across": 1.55,
+      "across": 1.2,
       "distance": 5.1,
       "width": 3.2,
       "depth": 1.8,
@@ -162,7 +162,7 @@
     {
       "id": "door_leaf",
       "name": "The door to the corridor, open",
-      "across": 1.05,
+      "across": 0.7,
       "distance": 4.22,
       "facing": 110,
       "height": 2.15,
@@ -178,7 +178,7 @@
     {
       "id": "back_wall",
       "name": "The guest room's far wall",
-      "across": 0,
+      "across": -0.35,
       "distance": 4.2,
       "facing": 180,
       "height": 2.92,
@@ -193,7 +193,7 @@
     {
       "id": "pane",
       "name": "The window's glass",
-      "across": -2.4,
+      "across": -2.75,
       "distance": 4.19,
       "elevation": 0.85,
       "facing": 180,
@@ -211,7 +211,7 @@
     {
       "id": "casement",
       "name": "The window's casements, shut",
-      "across": -2.4,
+      "across": -2.75,
       "distance": 4.17,
       "elevation": 0.85,
       "facing": 180,
@@ -227,7 +227,7 @@
     {
       "id": "curtain",
       "name": "The heavy curtain drawn aside",
-      "across": -2.4,
+      "across": -2.75,
       "distance": 4.1,
       "facing": 180,
       "height": 2.5,
@@ -268,7 +268,7 @@
     {
       "id": "ceiling",
       "name": "The ceiling",
-      "across": 0,
+      "across": -0.35,
       "distance": 4.2,
       "elevation": 2.9,
       "facing": 180,
@@ -286,7 +286,7 @@
       "id": "floor",
       "name": "The pine floor",
       "plane": true,
-      "across": 0,
+      "across": -0.35,
       "distance": 1.6,
       "width": 6.8,
       "depth": 5.2,
@@ -296,7 +296,7 @@
       "id": "rug",
       "name": "The rag rug before the bed",
       "plane": true,
-      "across": -0.8,
+      "across": -1.15,
       "distance": 2.9,
       "elevation": 0.004,
       "width": 1.7,
@@ -306,7 +306,7 @@
     {
       "id": "headboard",
       "name": "The bed's head",
-      "across": -1.97,
+      "across": -2.32,
       "distance": 3.7,
       "facing": 90,
       "height": 1.2,
@@ -323,7 +323,7 @@
       "id": "bed_top",
       "name": "The bed, the eiderdown thrown back",
       "plane": true,
-      "across": -0.95,
+      "across": -1.3,
       "distance": 3.7,
       "elevation": 0.52,
       "width": 2.0,
@@ -334,7 +334,7 @@
     {
       "id": "bed_front",
       "name": "The bed's long side",
-      "across": -0.95,
+      "across": -1.3,
       "distance": 3.3,
       "facing": 180,
       "height": 0.58,
@@ -350,7 +350,7 @@
     {
       "id": "footboard",
       "name": "The bed's foot",
-      "across": 0.07,
+      "across": -0.28,
       "distance": 3.7,
       "facing": 270,
       "height": 0.86,
@@ -366,7 +366,7 @@
     {
       "id": "washstand",
       "name": "The washstand with its candle burning",
-      "across": 0.62,
+      "across": 0.27,
       "distance": 3.95,
       "facing": 180,
       "height": 1.16,
@@ -389,7 +389,7 @@
         "turn": 160,
         "does": "sit_bed"
       },
-      "across": -0.75,
+      "across": -1.1,
       "distance": 3.38,
       "inside": true,
       "shadow": true
@@ -403,7 +403,7 @@
         "turn": 165,
         "does": "stand_tired"
       },
-      "across": 1.28,
+      "across": 0.93,
       "distance": 4.8,
       "inside": true,
       "shadow": true
@@ -417,7 +417,7 @@
         "turn": 195,
         "does": "stand_proud"
       },
-      "across": 1.72,
+      "across": 1.37,
       "distance": 4.3,
       "inside": true,
       "shadow": true
@@ -431,7 +431,7 @@
         "turn": 215,
         "does": "stand_candle"
       },
-      "across": 2.2,
+      "across": 1.85,
       "distance": 3.55,
       "inside": true,
       "shadow": true
