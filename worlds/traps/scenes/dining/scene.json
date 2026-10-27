@@ -132,6 +132,18 @@
         2.38,
         0.8
       ]
+    },
+    "pile_reach": {
+      "r": [
+        -1.47,
+        2.42,
+        0.81
+      ],
+      "l": [
+        -1.03,
+        2.42,
+        0.81
+      ]
     }
   },
   "objects": [
@@ -458,41 +470,6 @@
       ],
       "inside": true,
       "flicker": 0.15
-    },
-    {
-      "id": "steam",
-      "name": "Steam from the soup tureen",
-      "particles": {
-        "kind": "smoke",
-        "at": [
-          -0.62,
-          2.0,
-          0.96
-        ],
-        "source": [
-          0.12,
-          0.06,
-          0.0
-        ],
-        "rate": 9,
-        "size": [
-          0.02,
-          0.12
-        ],
-        "life": [
-          1.2,
-          2.0
-        ],
-        "speed": [
-          0.08,
-          0.16
-        ],
-        "color": "#f4f1ec",
-        "opacity": 0.18,
-        "shadow": 0,
-        "turbulence": 0.03
-      },
-      "inside": true
     },
     {
       "id": "chair",
