@@ -1,14 +1,16 @@
-// An afternoon in the warehouse, a week after the flat: Tom on his crate writes on a shoebox lid; Jim, sleeves
-// rolled, a foot up on a carton, grins at him. Tom looks up and out of the window, at the harbour; a cloud goes over
-// the sun and the beam fades and comes back; Tom bends to his lid again.
+// An afternoon in the warehouse, a week after the flat: Tom on his crate, a shoebox lid on his knees, looks up at
+// Jim — sleeves rolled, a foot up on a carton, grinning at him — and bends to his lid again; then looks up and out
+// of the window, at the harbour; a cloud goes over the sun and the beam fades and comes back; Tom looks up at Jim.
 return [
   {
     name: 'the storeroom',
     run: async s => {
       s.set('cloud', 0);
-      s.person('tom').look('tom#lid');
+      s.person('tom').look('jim');
       s.person('jim').look('tom');
-      await s.wait(8);
+      await s.wait(5);
+      s.person('tom').look('tom#lid');
+      await s.wait(5);
     },
   },
   {
@@ -33,7 +35,7 @@ return [
     run: async s => {
       s.person('jim').look('tom');
       await s.wait(1);
-      s.person('tom').look('tom#lid');
+      s.person('tom').look('jim');
       await s.wait(6);
     },
   },

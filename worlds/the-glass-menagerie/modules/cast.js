@@ -78,7 +78,7 @@ return {
         const { add, mix, mean } = MooodShapes.V, m = F.fit.h;
         const knees = mean([mix(F.P('LeftShin'), F.P('LeftLeg'), 0.3), mix(F.P('RightShin'), F.P('RightLeg'), 0.3)]);
         const c = add(knees, [0, 0.075 * m, 0]), axes = [F.side('Hips'), [0, 1, 0], F.fwd('Hips')];
-        F.ball(c, axes, [0.17 * m, 0.012 * m, 0.105 * m], [0.84, 0.76, 0.6, 1], 12, 8);
+        F.ball(c, axes, [0.19 * m, 0.014 * m, 0.12 * m], [0.9, 0.84, 0.7, 1], 12, 8);
         F.point('lid', c);
       } },
       // a yellow pencil in the right hand, its point down toward what it writes on

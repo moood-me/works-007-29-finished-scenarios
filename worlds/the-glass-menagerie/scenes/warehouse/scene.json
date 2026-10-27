@@ -11,10 +11,10 @@
     "ambientColor": "#a9a3b8",
     "inside": 0.32,
     "bounce": 0.55,
-    "haze": 0.3,
+    "haze": 0.24,
     "hazeColor": "#c9b28e",
     "hazeGlow": 0.5,
-    "shafts": 1.5,
+    "shafts": 1.1,
     "tint": "#ffd9a8",
     "tintStrength": 0.06,
     "saturation": 0.95,
@@ -78,7 +78,7 @@
       "lid",
       "pencil"
     ],
-    "tom_look": "tom#lid",
+    "tom_look": "jim",
     "tom_mood": "thinking",
     "jim_look": "tom",
     "jim_mood": "smile"
