@@ -115,7 +115,7 @@ return {
       // a housekeeper's dress: a skirt from the waist to the ground, fuller than a gown's, long sleeves; and over it a
       // white apron from the waist to the shin, hanging as cloth clear of the skirt before it
       housedress: {
-        name: 'dress and apron', hang: [{ to: 2.1, from: 'waist', flare: 0.5, off: 0.98 }], sleeves: 'garment', bare: true, bodice: true,
+        name: 'dress and apron', hang: [{ to: 2.1, from: 'waist', flare: 0.35, off: 0.98 }], sleeves: 'garment', bare: true, bodice: true,
         draw: F => {
           const { add, mul, mix, dot, sub, level } = V();
           const P = F.P;
@@ -131,14 +131,14 @@ return {
           // ground: the apron lies on them, a little off
           const d0 = 0.11 * k * F.look.body.hips;
           const body = Math.max(...['Spine1', 'Hips'].map(j => dot(sub(P(j), hips), f))) + 0.12 * k;
-          const skirt = y => d0 * (1 + 0.5 * Math.max(0, Math.min(1, (hips[1] - y) / (hips[1] - foot[1])))) + 0.02 * k;
+          const skirt = y => d0 * (1 + 0.35 * Math.max(0, Math.min(1, (hips[1] - y) / (hips[1] - foot[1])))) * 1.3 + 0.05 * k;
           const rows = [];
           const held = 2;
           const hanging = 6;
           for (let r = 0; r < held + hanging; r++) {
             const y = r < held ? waist + 0.02 * F.fit.h * (1 - r) : waist + ((hem - waist) * (r - held + 1)) / hanging;
             const u = (waist - y) / (waist - hem);
-            const front = y > hips[1] ? body : Math.max(body, skirt(y));
+            const front = Math.max(body, skirt(y));
             const c = add(hips, add(mul(f, front), [0, y - hips[1], 0]));
             const half = 0.13 * k * F.look.body.hips * (1 + 0.2 * u);
             const row = [];
@@ -191,7 +191,7 @@ return {
             const dir = add(add(up, mul(fw, lean)), mul(sd, sx));
             const p1 = add(c, mul(dir, len * 0.45 * h));
             const p2 = add(add(c, mul(dir, len * h)), mul(fw, 0.05 * h));
-            F.tube([add(c, mul(up, -0.04 * h)), p1, p2], [[0, 0.005 * h], [0.4, 0.008 * h], [0.6, 0.05 * h], [1.3, 0.045 * h], [2, 0.003 * h]], [[0, STALK], [0.5, BRACKEN]], 6, fw, 0.2);
+            F.tube([add(c, mul(up, -0.04 * h)), p1, p2], [[0, 0.005 * h], [0.4, 0.008 * h], [0.6, 0.05 * h], [1.3, 0.045 * h], [2, 0.003 * h]], [[0, STALK], [0.5, BRACKEN]], 6, sd, 0.2);
           }
         },
       },

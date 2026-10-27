@@ -386,8 +386,8 @@
     {
       "id": "near_oak",
       "name": "The old oak on this bank",
-      "across": 15,
-      "distance": 21,
+      "across": 18,
+      "distance": 27,
       "height": 13,
       "box": [
         -10,
@@ -403,8 +403,8 @@
       "particles": {
         "kind": "leaves",
         "at": [
-          11,
-          21,
+          14,
+          27,
           6
         ],
         "source": [
