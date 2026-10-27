@@ -176,6 +176,13 @@ return {
       body: { height: 0.9, head: 1.04, shoulders: 0.84, hips: 0.96, thick: 0.8 },
       colors: { skin: '#f0d0b4', hair: '#b98a46', top: '#ece6da', garment: '#ece6da', bottom: '#ece6da', shoes: '#4a3a30', accent: '#7d9cc4' },
     },
+    // Virginia back from riding (the same girl, a look of hers for a scene's person.who): her riding habit of
+    // bottle-green cloth, a fitted jacket and a long full skirt, a white stock at her throat, riding boots
+    virginia_habit: {
+      kind: 'shapes', style: 'canterville', who: 'woman', garment: 'habit', hair: 'long', face: 'storybook', parts: ['stock'],
+      body: { height: 0.9, head: 1.04, shoulders: 0.84, hips: 0.96, thick: 0.8 },
+      colors: { skin: '#f0d0b4', hair: '#b98a46', top: '#3a5a46', garment: '#3a5a46', bottom: '#3a5a46', shoes: '#2a201a', accent: '#ece6da' },
+    },
     // Sir Simon de Canterville: a tall gaunt old man three hundred years dead — wild white hair and a long beard, a
     // ruff, an old doublet with puffed trunk hose and a ragged cloak, gone the grey-green of the grave, eyes like red
     // coals in dark sockets, rusty manacles on his wrists and irons on his ankles, chains between
@@ -205,6 +212,8 @@ return {
     garments: {
       // a girl's frock: a full skirt from the waist to the ankles, long sleeves, the bodice in its colour
       frock: { name: 'frock', hang: [{ to: 2.0, from: 'waist', flare: 0.4, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
+      // a riding habit: the skirt full and long from the waist, the jacket and its sleeves in the same cloth
+      habit: { name: 'riding habit', hang: [{ to: 2.0, from: 'waist', flare: 0.36, off: 0.96 }], sleeves: 'garment', bodice: true },
       // an old doublet to the hips, its trunk hose puffed out round the tops of the thighs, in tatters
       doublet: { name: 'doublet', hang: [{ to: 0.36, from: 'shoulders', flare: 0.35, ragged: true }], sleeves: 'garment' },
     },
@@ -215,6 +224,15 @@ return {
       fetters: { name: 'leg irons', draw: fetters },
       cloak: { name: 'cloak', draw: cloak },
       bottle: { name: 'a bottle of oil', draw: bottle },
+      // a white stock at the throat, in the look's accent colour
+      stock: {
+        name: 'stock',
+        draw: F => {
+          const { add, mul } = V();
+          const c = add(F.P('Neck1'), mul(F.fwd('Chest'), 0.035 * F.k));
+          F.ball(c, [F.side('Chest'), F.up('Chest'), F.fwd('Chest')], [0.045 * F.k, 0.05 * F.fit.h, 0.03 * F.k], F.colors.accent, 12);
+        },
+      },
       // a sash round the waist in the look's accent colour
       sash: {
         name: 'sash',
