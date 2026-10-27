@@ -17,6 +17,10 @@ lengths are a man's metres times `F.fit.h`.
 - `sabas` — Don Sabas: short and heavy, black oiled hair, a moustache, a cream shirt under fawn linen, a gold watch
   chain across his belly.
 - `postmaster` — the postmaster: middle-aged, in grey shirtsleeves and dark trousers.
+- `herman` — Germán, the tailor, Agustín's friend, in his twenties: slight, black hair, a white shirt, dark trousers,
+  a tape measure round his neck (`tape`, a look's).
+- `alfonso` — Alfonso, the tailor at the next machine: thickset, a pale blue shirt, brown trousers.
+- `alvaro` — Álvaro, the oldest of the tailors: long and thin, greying, a grey moustache, a cream shirt.
 - `policeman` — the policeman: young, in khaki with a peaked cap, his rifle across his chest.
 
 ## Things (`<id>_with`, or a look's `parts`)
@@ -24,6 +28,7 @@ lengths are a man's metres times `F.fit.h`.
 `umbrella` — the colonel's old black umbrella, furled, held like a cane (the crook in the right hand, the ferrule on
 the floor). `umbrella_torn` — the same umbrella open over his head, held by the crook in his right hand, the cloth torn
 back between two ribs, the bare ribs showing. `umbrella_whole` — Don Sabas's, new and whole, open, in his left hand.
+`bundle` — the wall clock wrapped in sacking, hanging by its knot from the colonel's right hand.
 `newspapers` — folded, along the left forearm against the chest (the doctor's). `rifle` — across the chest, butt by the
 right hand (the policeman's). `moustache` — the colonel's and Don Sabas's, `beard` — the doctor's, `chain` — Don
 Sabas's watch chain (a look's).
@@ -37,4 +42,7 @@ holding an umbrella's handle at the waist, a little out in front (the colonel's,
 `stand_umbrella_left` — stands upright, the left hand out to the side at the chest holding an umbrella (Don Sabas's);
 `stand_papers` — stands relaxed, the left forearm across the chest holding papers; `lean_counter` — leans forward on
 a counter at the waist (the postmaster's); `stand_rifle` — stands guard, a rifle held across the chest with both
-hands. All loops.
+hands; `stand_bundle` — stands upright, the arms hanging (the colonel's, with `bundle`); `sit_machine` — sits on a stool
+leaning a little forward, the hands up before the chest (at a machine: the hands brought to the table by `reach`);
+`stand_side` — stands at ease, weight on one leg, a hand at the thigh (Germán's, a hand on the cover by `reach`).
+All loops.
