@@ -8,7 +8,7 @@ return [
     run: async s => {
       s.person('nora').look('torvald');
       await s.wait(2.5);
-      s.person('nora').look(null);
+      s.person('nora').look([0, 1.0, 1.7]);
       await s.wait(1.5);
     },
   },

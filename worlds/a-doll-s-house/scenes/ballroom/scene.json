@@ -58,6 +58,11 @@
       "tambourine"
     ],
     "nora_mood": "smile",
+    "nora_look": [
+      0,
+      1.0,
+      1.7
+    ],
     "torvald_with": [
       "glass"
     ],

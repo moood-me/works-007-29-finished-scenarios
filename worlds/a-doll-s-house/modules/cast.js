@@ -103,7 +103,7 @@ function tambourine(F) {
 // a coupe of champagne in the right hand: the shallow bowl on its stem
 const COUPE = F => {
   const m = F.fit.h;
-  return { m, bowl: [0.045 * m, 0.02 * m, 0.045 * m], wine: [0.04 * m, 0.008 * m, 0.04 * m], stem: [[0, GLASS]], axes: [null, null, null] };
+  return { m, bowl: [0.05 * m, 0.012 * m, 0.05 * m], wine: [0.042 * m, 0.004 * m, 0.042 * m], stem: [[0, GLASS]], axes: [null, null, null] };
 };
 function coupe(F) {
   const { add, mul } = V();
