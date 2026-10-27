@@ -1,0 +1,657 @@
+{
+  "engine": 3,
+  "title": "The Bunkhouse",
+  "caption": "Friday evening. The light over the table, the cards, the old dog at Candy's feet.",
+  "horizon": 0.4,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "tint": "#ffcf9a",
+    "tintStrength": 0.06,
+    "vignette": 0.42,
+    "grain": 0.1,
+    "haze": 0.05,
+    "hazeColor": "#3a3550",
+    "hazeGlow": 0.35,
+    "ambient": 0.5,
+    "ambientColor": "#7e86b4",
+    "inside": 0.35,
+    "bounce": 0.55
+  },
+  "lights": [
+    {
+      "id": "lamp",
+      "of": "lamp#bulb",
+      "color": "#ffcf8f",
+      "strength": 1.8,
+      "reach": 7,
+      "on": "lamp",
+      "flicker": 0.03
+    },
+    {
+      "id": "window_dusk",
+      "of": "window",
+      "daylight": 0.6
+    },
+    {
+      "id": "door_dusk",
+      "daylight": 0.8,
+      "across": 1.8,
+      "distance": 7.4,
+      "elevation": 1.2,
+      "reach": 4
+    },
+    {
+      "id": "afterglow",
+      "from": [
+        320,
+        6
+      ],
+      "color": "#c9a0a0",
+      "strength": 0.4
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "lamp": 1,
+    "george_on": [
+      -1.12,
+      4.4,
+      0.48
+    ],
+    "candy_on": [
+      2.8,
+      7.0,
+      0.5
+    ],
+    "george_look": [
+      -0.6,
+      4.4,
+      0.76
+    ],
+    "george_mood": "thinking",
+    "slim_look": "george",
+    "slim_mood": "neutral",
+    "lennie_look": "dog#head",
+    "lennie_mood": "smile",
+    "candy_look": "dog#head",
+    "candy_mood": "sad"
+  },
+  "states": {
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light over the table: 0 out, 1 lit — the bunkhouse's warm light on the four of them and the cards"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The evening sky over the ranch",
+      "sky": true
+    },
+    {
+      "id": "hills",
+      "name": "The Gabilan foothills",
+      "across": 0,
+      "distance": 900,
+      "height": 90,
+      "box": [
+        -1400,
+        -100,
+        1400,
+        5
+      ]
+    },
+    {
+      "id": "yard",
+      "name": "The yard",
+      "plane": true,
+      "across": 0,
+      "distance": 40,
+      "width": 200,
+      "depth": 60
+    },
+    {
+      "id": "barn",
+      "name": "The barn across the yard, its doors lit",
+      "across": 9,
+      "distance": 30,
+      "height": 9.5,
+      "box": [
+        -12.5,
+        -9.8,
+        7.6,
+        0.1
+      ]
+    },
+    {
+      "id": "tree",
+      "name": "A eucalyptus by the cookhouse",
+      "across": -6,
+      "distance": 20,
+      "height": 15,
+      "box": [
+        -4,
+        -15.2,
+        4,
+        0.1
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The board floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 3.8,
+      "width": 8.5,
+      "depth": 7.7
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling and its ties",
+      "inside": true,
+      "across": 0,
+      "distance": 7.6,
+      "elevation": 3.0,
+      "facing": 180,
+      "tilt": -90,
+      "height": 7.6,
+      "box": [
+        -4.25,
+        -7.65,
+        4.25,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall, the window and the door to the yard",
+      "inside": true,
+      "across": 0,
+      "distance": 7.6,
+      "height": 3.0,
+      "box": [
+        -4.25,
+        -3.05,
+        4.25,
+        0.02
+      ],
+      "facing": 180
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall, the wash bench and the pegs",
+      "inside": true,
+      "across": -4.2,
+      "distance": 3.8,
+      "height": 3.0,
+      "box": [
+        -3.85,
+        -3.05,
+        3.85,
+        0.02
+      ],
+      "facing": 90
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall and its small window",
+      "inside": true,
+      "across": 4.2,
+      "distance": 3.8,
+      "height": 3.0,
+      "box": [
+        -3.85,
+        -3.05,
+        3.85,
+        0.02
+      ],
+      "facing": 270
+    },
+    {
+      "id": "window",
+      "name": "The small window in the back wall",
+      "inside": true,
+      "across": -1.0,
+      "distance": 7.58,
+      "height": 0.75,
+      "box": [
+        -0.45,
+        -0.8,
+        0.45,
+        0.05
+      ],
+      "elevation": 1.25,
+      "facing": 180
+    },
+    {
+      "id": "side_window",
+      "name": "The small window in the right wall",
+      "inside": true,
+      "across": 4.18,
+      "distance": 4.05,
+      "height": 0.7,
+      "box": [
+        -0.42,
+        -0.74,
+        0.42,
+        0.04
+      ],
+      "elevation": 1.3,
+      "facing": 270
+    },
+    {
+      "id": "door",
+      "name": "The door to the yard, open",
+      "inside": true,
+      "across": 2.3,
+      "distance": 7.6,
+      "height": 2.1,
+      "box": [
+        -1.02,
+        -2.12,
+        0.02,
+        0.02
+      ],
+      "facing": 110,
+      "shadow": true
+    },
+    {
+      "id": "bunk_top",
+      "name": "The bunks' blankets",
+      "plane": true,
+      "inside": true,
+      "across": -3.0,
+      "distance": 7.18,
+      "elevation": 0.5,
+      "width": 1.9,
+      "depth": 0.8,
+      "copies": [
+        {
+          "across": -3.0,
+          "distance": 7.18
+        },
+        {
+          "across": 0.0,
+          "distance": 7.18,
+          "flip": true,
+          "tint": "#d8d0c4"
+        },
+        {
+          "across": 3.25,
+          "distance": 7.18,
+          "tint": "#c9c0d0"
+        }
+      ]
+    },
+    {
+      "id": "bunk_front",
+      "name": "The bunks' frames",
+      "inside": true,
+      "across": -3.0,
+      "distance": 6.78,
+      "height": 0.55,
+      "box": [
+        -0.99,
+        -0.56,
+        0.99,
+        0.02
+      ],
+      "facing": 180,
+      "copies": [
+        {
+          "across": -3.0,
+          "distance": 6.78
+        },
+        {
+          "across": 0.0,
+          "distance": 6.78,
+          "flip": true,
+          "tint": "#d8d0c4"
+        },
+        {
+          "across": 3.25,
+          "distance": 6.78,
+          "tint": "#c9c0d0"
+        }
+      ]
+    },
+    {
+      "id": "shelf",
+      "name": "Apple-box shelves over the bunks",
+      "inside": true,
+      "across": -3.0,
+      "distance": 7.45,
+      "height": 0.38,
+      "box": [
+        -0.32,
+        -0.4,
+        0.32,
+        0.02
+      ],
+      "elevation": 1.15,
+      "facing": 180,
+      "copies": [
+        {
+          "across": -3.0,
+          "distance": 7.45
+        },
+        {
+          "across": 0.2,
+          "distance": 7.45,
+          "flip": true
+        },
+        {
+          "across": 3.4,
+          "distance": 7.45,
+          "tint": "#e0d6c6"
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "The table and the cards",
+      "plane": true,
+      "inside": true,
+      "shadow": {
+        "light": "lamp"
+      },
+      "across": 0.3,
+      "distance": 4.4,
+      "elevation": 0.76,
+      "width": 2.2,
+      "depth": 1.1
+    },
+    {
+      "id": "table_front",
+      "name": "The table's near side and legs",
+      "inside": true,
+      "across": 0.3,
+      "distance": 3.85,
+      "height": 0.78,
+      "box": [
+        -1.12,
+        -0.8,
+        1.12,
+        0.02
+      ],
+      "facing": 180
+    },
+    {
+      "id": "box_top",
+      "name": "Apple boxes for seats, their tops",
+      "plane": true,
+      "inside": true,
+      "across": -1.12,
+      "distance": 4.4,
+      "elevation": 0.48,
+      "width": 0.34,
+      "depth": 0.28,
+      "copies": [
+        {
+          "across": -1.12,
+          "distance": 4.4
+        },
+        {
+          "across": 0.75,
+          "distance": 3.45
+        },
+        {
+          "across": -0.3,
+          "distance": 5.3
+        }
+      ]
+    },
+    {
+      "id": "box_front",
+      "name": "Apple boxes for seats",
+      "inside": true,
+      "across": -1.12,
+      "distance": 4.26,
+      "height": 0.48,
+      "box": [
+        -0.19,
+        -0.5,
+        0.19,
+        0.02
+      ],
+      "facing": 180,
+      "shadow": true,
+      "copies": [
+        {
+          "across": -1.12,
+          "distance": 4.26
+        },
+        {
+          "across": 0.72,
+          "distance": 3.31,
+          "facing": 192
+        },
+        {
+          "across": -0.28,
+          "distance": 5.16,
+          "facing": 172
+        }
+      ]
+    },
+    {
+      "id": "lamp",
+      "name": "The light over the table",
+      "inside": true,
+      "across": 0.3,
+      "distance": 4.4,
+      "height": 1.12,
+      "box": [
+        -0.06,
+        -1.12,
+        0.06,
+        0.03
+      ],
+      "elevation": 1.9
+    },
+    {
+      "id": "lamp_shade",
+      "name": "The lamp's tin shade",
+      "inside": true,
+      "across": 0.3,
+      "distance": 4.4,
+      "height": 0.25,
+      "box": [
+        -0.29,
+        -0.26,
+        0.29,
+        0.03
+      ],
+      "elevation": 1.9,
+      "shadow": {
+        "light": "lamp",
+        "strength": 0.8
+      }
+    },
+    {
+      "id": "stove",
+      "name": "The iron stove",
+      "inside": true,
+      "across": -2.75,
+      "distance": 3.3,
+      "height": 3.0,
+      "box": [
+        -0.46,
+        -3.02,
+        0.46,
+        0.02
+      ],
+      "facing": 180,
+      "shadow": true
+    },
+    {
+      "id": "dog",
+      "name": "Candy's old dog",
+      "inside": true,
+      "across": 3.55,
+      "distance": 6.3,
+      "height": 0.32,
+      "box": [
+        -0.6,
+        -0.34,
+        0.7,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the lamplight",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0.3,
+          4.4,
+          1.2
+        ],
+        "source": [
+          2.4,
+          1.4,
+          1.4
+        ]
+      }
+    },
+    {
+      "id": "george",
+      "name": "George",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "george",
+        "turn": 105,
+        "does": "solitaire"
+      },
+      "across": -1.12,
+      "distance": 4.4,
+      "shadow": true
+    },
+    {
+      "id": "slim",
+      "name": "Slim",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "slim",
+        "turn": 215,
+        "does": "arms_folded"
+      },
+      "across": 1.85,
+      "distance": 4.95,
+      "shadow": true
+    },
+    {
+      "id": "lennie",
+      "name": "Lennie",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "lennie",
+        "turn": 165,
+        "does": "shy"
+      },
+      "across": -2.95,
+      "distance": 6.1,
+      "shadow": true
+    },
+    {
+      "id": "candy",
+      "name": "Candy",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "candy",
+        "turn": 180,
+        "does": "pet_dog"
+      },
+      "across": 2.8,
+      "distance": 7.0,
+      "shadow": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "Solo harmonica, slow and lonesome, a ranch hand at dusk by a river, 1930s California",
+        "weight": 0.6
+      },
+      {
+        "text": "Fingerpicked acoustic guitar, warm and plain, a simple folk melody at sundown",
+        "weight": 0.7
+      },
+      {
+        "text": "Aaron Copland-like open strings, wide American plains, gentle and sad",
+        "weight": 0
+      },
+      {
+        "text": "Soft upright bass and brushed snare, very slow, a campfire evening",
+        "weight": 0
+      },
+      {
+        "text": "Lonely fiddle playing a slow waltz, distant, dust in golden light",
+        "weight": 0
+      },
+      {
+        "text": "Banjo plucked softly, sparse, wistful, a river under sycamores",
+        "weight": 0
+      },
+      {
+        "text": "Hammond-free gospel hum on a pump organ, quiet, Depression era",
+        "weight": 0
+      },
+      {
+        "text": "Slide guitar, slow blues, a dry valley in the evening heat",
+        "weight": 0
+      },
+      {
+        "text": "Music box melody, childlike and fragile, a dream of a little house and rabbits",
+        "weight": 0
+      },
+      {
+        "text": "Low cello drone with sparse piano notes, foreboding but tender",
+        "weight": 0.4
+      },
+      {
+        "text": "Whistled tune over an acoustic guitar, carefree, a road between ranches",
+        "weight": 0
+      },
+      {
+        "text": "Accordion, slow, melancholy, a bunkhouse at night under a tin lamp",
+        "weight": 1.2
+      },
+      {
+        "text": "Ambient field texture: river water, crickets, wind in the trees, minimal tonal pads",
+        "weight": 0
+      },
+      {
+        "text": "Steel-string guitar harmonics, very sparse, silence between notes",
+        "weight": 0
+      },
+      {
+        "text": "Clarinet and strings, a slow pastoral, 1930s film score warmth",
+        "weight": 0
+      },
+      {
+        "text": "Dobro and harmonica duet, unhurried, two friends talking by a fire",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.25,
+    "brightness": 0.3,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
