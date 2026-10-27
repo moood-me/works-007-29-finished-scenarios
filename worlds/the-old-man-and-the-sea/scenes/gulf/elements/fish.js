@@ -5,6 +5,10 @@
 // sinking into its blue. He is two feet longer than the skiff. Metres, the water's level at the anchor (y 0), the
 // whole of him one layer the animate brings up from the deep (`fish`).
 e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
+  // (deeper than half a metre the water hides him: nothing of him is painted there)
+  g.beginPath();
+  g.rect(-3.1, -0.95, 6.05, 1.45);
+  g.clip();
   const C = 0.26;
   const X0 = -2.4;
   const X1 = 1.9;
@@ -101,17 +105,17 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   g.save();
   g.clip(all);
   const veil = g.createLinearGradient(0, 0, 0, 1.4);
-  veil.addColorStop(0, 'rgba(38,47,114,0.35)');
-  veil.addColorStop(0.18, 'rgba(38,47,114,0.75)');
-  veil.addColorStop(0.4, 'rgba(38,47,114,0.96)');
-  veil.addColorStop(1, 'rgba(38,47,114,1)');
+  veil.addColorStop(0, 'rgba(32,39,94,0.4)');
+  veil.addColorStop(0.1, 'rgba(32,39,94,0.72)');
+  veil.addColorStop(0.25, 'rgba(32,39,94,0.94)');
+  veil.addColorStop(0.35, 'rgba(32,39,94,1)');
   g.fillStyle = veil;
   g.fillRect(-3.1, 0, 6.1, 1.5);
   g.restore();
   // the water breaking over his back: a broken line of foam along it
   for (let i = 0; i < 70; i++) {
     const x = -2.2 + e.rnd() * 3.8;
-    g.fillStyle = `rgba(236,240,248,${0.25 + 0.4 * e.rnd()})`;
+    g.fillStyle = `rgba(236,240,248,${0.15 + 0.3 * e.rnd()})`;
     g.beginPath();
     g.ellipse(x, 0.004, 0.03 + e.rnd() * 0.09, 0.006 + e.rnd() * 0.008, 0, 0, Math.PI * 2);
     g.fill();
