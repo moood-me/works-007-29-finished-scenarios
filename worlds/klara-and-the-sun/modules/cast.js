@@ -42,7 +42,7 @@ return {
     // Rick, the boy next door, fourteen, not lifted: tousled dark hair, an old olive canvas jacket over a pale shirt,
     // brown corduroys, work boots — always out of doors; his bird with him
     rick: {
-      kind: 'shapes', style: 'sun', who: 'teen', garment: 'jacket', hair: 'short', parts: ['bird'],
+      kind: 'shapes', style: 'sun', who: 'teen', garment: 'canvas', hair: 'short', parts: ['bird'],
       body: { height: 0.94, thick: 0.82, shoulders: 0.94, hips: 0.94 },
       colors: {
         skin: '#e6c09e', hair: '#3a2a20', top: '#d9d1bf', garment: '#5d6847', bottom: '#5b4a3b', shoes: '#3a2e26',
@@ -66,6 +66,8 @@ return {
       shift: { name: 'shift dress', hang: [{ to: 1.1, from: 'waist', flare: 0.2, off: 0.94 }], short: true, bodice: true },
       // the Manager's plain dress: straight from the waist to below the knee, long sleeves
       frock: { name: 'frock', hang: [{ to: 1.3, from: 'waist', flare: 0.14, off: 0.95 }], bodice: true, sleeves: 'garment' },
+      // Rick's old canvas jacket: short and boxy, to the hips, worn open-handed
+      canvas: { name: 'canvas jacket', hang: [{ to: 0.36, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment' },
       // the Mother's work jacket: straight, short, to the waist
       blazer: { name: 'blazer', hang: [{ to: 0.3, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
     },
