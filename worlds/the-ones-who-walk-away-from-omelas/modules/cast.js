@@ -16,11 +16,11 @@ return {
     ila: { kind: 'shapes', style: 'omelas', who: 'child', garment: 'shift', hair: 'long', parts: ['flute'],
       body: { height: 0.85, head: 0.92, thick: 0.76, shoulders: 0.86, legs: 1.02 },
       colors: { skin: '#e2b08c', hair: '#7a3b22', top: '#eee3c8', garment: '#eee3c8', shoes: '#8b6446' } },
-    // Ila at seventeen, five years on: grown tall and slender, the auburn hair tied back, a longer linen dress of pale
-    // sage, sandals; the same flute (`flute`)
+    // Ila at seventeen, five years on: grown tall and slender, the auburn hair tied back, a longer linen dress of
+    // sea-green, sandals; the same flute (`flute`)
     ila_17: { kind: 'shapes', style: 'omelas', who: 'teen', garment: 'frock', hair: 'ponytail', parts: ['flute'],
       body: { height: 0.95, head: 0.9, thick: 0.8, shoulders: 0.88, legs: 1.04 },
-      colors: { skin: '#e0ae8a', hair: '#7a3b22', top: '#d3dcc6', garment: '#d3dcc6', shoes: '#8b6446' } },
+      colors: { skin: '#e0ae8a', hair: '#7a3b22', top: '#9fbcae', garment: '#9fbcae', shoes: '#8b6446' } },
     // Pim at nine, the neighbours' boy Ila teaches the flute: small, tow-haired, a pale blue shirt, brown breeches,
     // barefoot; a flute of his own (`flute`)
     pim: { kind: 'shapes', style: 'omelas', who: 'child', garment: 'tunic', hair: 'short', barefoot: 'both', parts: ['flute'],

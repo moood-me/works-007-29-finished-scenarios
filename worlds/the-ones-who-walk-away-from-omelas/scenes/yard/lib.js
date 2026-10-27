@@ -17,12 +17,12 @@ const plaster = (g, rects, seed, colour) => {
     x1 = Math.max(x1, r[2]);
     y0 = Math.min(y0, r[1]);
   }
-  const w = x1 - x0, h = bottom - y0, n = Math.round(w * h * 0.9);
+  const w = x1 - x0, h = bottom - y0, n = Math.round(w * h * 0.5);
   for (let i = 0; i < n; i++) {
     const x = x0 + w * anim.hash(i, seed), y = y0 + h * anim.hash(i, seed + 1);
-    g.fillStyle = anim.hash(i, seed + 2) < 0.6 ? 'rgba(214, 190, 160, 0.35)' : 'rgba(255, 252, 244, 0.4)';
+    g.fillStyle = anim.hash(i, seed + 2) < 0.6 ? 'rgba(214, 190, 160, 0.13)' : 'rgba(255, 252, 244, 0.16)';
     g.beginPath();
-    g.ellipse(x, y, 0.15 + 0.5 * anim.hash(i, seed + 3), 0.1 + 0.3 * anim.hash(i, seed + 4), anim.hash(i, seed + 5) * 3, 0, Math.PI * 2);
+    g.ellipse(x, y, 0.1 + 0.3 * anim.hash(i, seed + 3), 0.06 + 0.16 * anim.hash(i, seed + 4), anim.hash(i, seed + 5) * 3, 0, Math.PI * 2);
     g.fill();
   }
   g.strokeStyle = 'rgba(150, 130, 110, 0.45)';
