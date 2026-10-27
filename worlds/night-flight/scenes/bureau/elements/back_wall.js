@@ -2,7 +2,7 @@
 // the window on the field cut out (x 0.8…2.8, its sill 1.05 m up, its head 2.55 m); on the left the door of Rivière's
 // office — dark varnished wood, its upper half frosted glass lit from within (`office`, its glow `office`); the
 // telegraph wires come in high on the right and run along the wall to the table.
-g.fillStyle = '#c4bea6';
+g.fillStyle = '#b5ae95';
 g.beginPath();
 g.rect(-3, -3.35, 6, 3.4);
 g.rect(0.8, -2.55, 2, 1.5);

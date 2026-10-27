@@ -1,7 +1,7 @@
 // The left wall, seen from the room (its +x runs away from the viewer): the same distemper and green dado; the door
 // onto the field standing open (x −0.15…0.95: the night outside seen through it); coat hooks beyond it with a grey
 // overcoat and a hat; a framed photograph of a biplane by the far corner.
-g.fillStyle = '#bfb9a1';
+g.fillStyle = '#b0aa92';
 g.beginPath();
 g.rect(-2.9, -3.35, 5.8, 3.4);
 g.rect(-0.15, -2.2, 1.1, 2.25);

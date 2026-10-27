@@ -1,6 +1,6 @@
 // The right wall, seen from the room (its +x runs toward the viewer): the same distemper and green dado; a board of
 // the three lines' timetables — three columns of pinned sheets; a cast-iron radiator under it.
-g.fillStyle = '#bcb69e';
+g.fillStyle = '#ada78f';
 g.fillRect(-2.9, -3.35, 5.8, 3.4);
 g.fillStyle = '#485948';
 g.fillRect(-2.9, -1.1, 5.8, 1.1);

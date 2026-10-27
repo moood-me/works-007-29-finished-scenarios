@@ -8,9 +8,9 @@
     "look": 0.04
   },
   "light": {
-    "ambient": 0.42,
+    "ambient": 0.32,
     "ambientColor": "#7f8fb8",
-    "bounce": 0.55,
+    "bounce": 0.42,
     "inside": 0.25,
     "haze": 0.1,
     "hazeColor": "#2e3d61",
@@ -41,7 +41,7 @@
       "of": "ceiling_lamp#bulb",
       "color": "#ffd49a",
       "strength": 1.7,
-      "reach": 9,
+      "reach": 7.5,
       "on": "lamps"
     },
     {
@@ -50,7 +50,7 @@
       "distance": 0.8,
       "elevation": 2.5,
       "color": "#ffd9a6",
-      "strength": 1.0,
+      "strength": 0.85,
       "reach": 8,
       "on": "lamps"
     },
@@ -172,12 +172,12 @@
     {
       "id": "yard_lamp",
       "name": "A lamp on its post outside the door",
-      "across": -8,
-      "distance": 10.5,
-      "height": 4.2,
+      "across": -9,
+      "distance": 14,
+      "height": 3.2,
       "box": [
         -0.5,
-        -4.4,
+        -3.3,
         0.5,
         0.05
       ],
