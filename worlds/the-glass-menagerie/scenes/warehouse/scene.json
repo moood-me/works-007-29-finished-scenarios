@@ -9,12 +9,12 @@
   "light": {
     "ambient": 0.6,
     "ambientColor": "#a9a3b8",
-    "inside": 0.4,
+    "inside": 0.32,
     "bounce": 0.55,
-    "haze": 0.12,
+    "haze": 0.3,
     "hazeColor": "#c9b28e",
     "hazeGlow": 0.5,
-    "shafts": 0.9,
+    "shafts": 1.5,
     "tint": "#ffd9a8",
     "tintStrength": 0.06,
     "saturation": 0.95,
@@ -43,7 +43,7 @@
         24
       ],
       "color": "#ffdcaa",
-      "strength": 1.8,
+      "strength": 2.3,
       "through": [
         "window"
       ]
@@ -70,8 +70,8 @@
     "cloud": 0,
     "bulb": 1,
     "tom_on": [
-      -0.55,
-      5.1,
+      -0.7,
+      4.0,
       0.42
     ],
     "tom_with": [
@@ -239,8 +239,8 @@
     {
       "id": "truck",
       "name": "A hand truck by the shelves",
-      "across": 2.85,
-      "distance": 2.2,
+      "across": 2.3,
+      "distance": 2.7,
       "inside": true,
       "facing": 190,
       "tilt": 10,
@@ -256,8 +256,8 @@
     {
       "id": "crate_front",
       "name": "The crate Tom sits on, its front",
-      "across": -0.55,
-      "distance": 4.9,
+      "across": -0.7,
+      "distance": 3.8,
       "inside": true,
       "facing": 180,
       "shadow": true,
@@ -272,8 +272,8 @@
     {
       "id": "crate_side",
       "name": "The crate's side",
-      "across": -0.25,
-      "distance": 5.1,
+      "across": -0.4,
+      "distance": 4.0,
       "inside": true,
       "facing": 90,
       "height": 0.42,
@@ -289,8 +289,8 @@
       "name": "The crate's lid",
       "plane": true,
       "inside": true,
-      "across": -0.55,
-      "distance": 5.1,
+      "across": -0.7,
+      "distance": 4.0,
       "elevation": 0.42,
       "width": 0.6,
       "depth": 0.4
@@ -298,8 +298,8 @@
     {
       "id": "carton_front",
       "name": "The carton Jim has his foot on",
-      "across": 1.16,
-      "distance": 3.36,
+      "across": 0.97,
+      "distance": 4.15,
       "inside": true,
       "facing": 180,
       "shadow": true,
@@ -316,8 +316,8 @@
       "name": "The carton's top",
       "plane": true,
       "inside": true,
-      "across": 1.16,
-      "distance": 3.56,
+      "across": 0.97,
+      "distance": 4.35,
       "elevation": 0.27,
       "width": 0.5,
       "depth": 0.4
@@ -325,8 +325,8 @@
     {
       "id": "bulb",
       "name": "The lamp on its flex",
-      "across": 0.45,
-      "distance": 3.3,
+      "across": -0.95,
+      "distance": 3.4,
       "inside": true,
       "elevation": 2.42,
       "height": 1.5,
@@ -387,11 +387,11 @@
       "person": {
         "cast": "cast",
         "who": "tom",
-        "turn": 150,
+        "turn": 145,
         "does": "writes_on_knees"
       },
-      "across": -0.55,
-      "distance": 5.1
+      "across": -0.7,
+      "distance": 4.0
     },
     {
       "id": "jim",
@@ -400,11 +400,11 @@
       "person": {
         "cast": "cast",
         "who": "jim_work",
-        "turn": 238,
+        "turn": 245,
         "does": "foot_up"
       },
-      "across": 1.45,
-      "distance": 3.95
+      "across": 1.3,
+      "distance": 4.7
     }
   ],
   "music": {

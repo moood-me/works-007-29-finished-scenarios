@@ -2,7 +2,7 @@
 // boxes(g, e, x0, x1, y0, y1): fills the rectangle (metres, y up negative) with box ends, each about 0.21 × 0.115 m,
 // in the faded colours of cardboard and paper (cream, buff, brown, grey-green, a dull blue), a paper label on most,
 // the joints between them dark; now and then a gap where a box has been taken out (dark, a box behind it).
-const KINDS = ['#cdbf9f', '#b8a07a', '#93806a', '#c9bba6', '#9ea6a2', '#dcd1b9', '#ab9270', '#7f8c88', '#bfae8f', '#a7a9b4'];
+const KINDS = ['#b5a688', '#a48d6a', '#85735f', '#ad9f8c', '#8b928f', '#c2b69d', '#97805f', '#727d7a', '#a8987b', '#9294a0'];
 function boxes(g, e, x0, x1, y0, y1) {
   g.save();
   g.beginPath();
@@ -33,7 +33,7 @@ function boxes(g, e, x0, x1, y0, y1) {
       g.fillStyle = 'rgba(40,28,20,0.22)';
       g.fillRect(x + 0.005, y + 0.027 + out, w - 0.01, 0.006);
       if (e.rnd() < 0.8) {
-        g.fillStyle = e.rnd() < 0.85 ? '#f1ead8' : '#e8d9a6';
+        g.fillStyle = e.rnd() < 0.85 ? '#ddd5c1' : '#d4c596';
         g.fillRect(x + w * 0.3, y + 0.05 + out, w * 0.4, 0.04);
         g.fillStyle = 'rgba(60,50,45,0.55)';
         g.fillRect(x + w * 0.34, y + 0.062 + out, w * 0.25, 0.006);

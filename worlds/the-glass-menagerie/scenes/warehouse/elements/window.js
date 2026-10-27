@@ -15,11 +15,11 @@ for (let r = 0; r < ROWS; r++) {
     const y = -H + r * ph;
     const k = e.rnd();
     if ((r === 4 && c === 1) || (r === 2 && c === 5)) {
-      g.fillStyle = '#e6e0cf';
+      g.fillStyle = '#f4efe0';
     } else if (r === 5 && c === 4) {
       g.fillStyle = '#a58a64';
     } else if (k < 0.12) {
-      g.fillStyle = 'rgba(232,226,208,0.8)';
+      g.fillStyle = 'rgba(246,240,224,0.85)';
     } else {
       g.fillStyle = `rgba(214,204,176,${0.12 + k * 0.1})`;
     }
