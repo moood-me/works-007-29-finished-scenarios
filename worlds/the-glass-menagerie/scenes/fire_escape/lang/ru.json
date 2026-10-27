@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Paradise","translation":"Парадиз","where":"scenes/fire_escape/elements/sign.js"},
+  {"text":"The Fire Escape","translation":"Пожарная лестница","where":"scenes/fire_escape/scene.json title"},
+  {"text":"Friday, seven o'clock. Two men smoke on the landing; in the window a yellow dress.","translation":"Пятница, семь вечера. Двое курят на площадке; в окне — жёлтое платье.","where":"scenes/fire_escape/scene.json caption"}
+]}
