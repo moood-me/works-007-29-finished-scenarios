@@ -25,7 +25,7 @@
       "of": "lamp#bulb",
       "color": "#ffcf8f",
       "strength": 1.8,
-      "reach": 7,
+      "reach": 10,
       "on": "lamp",
       "flicker": 0.03
     },
@@ -67,12 +67,8 @@
       7.0,
       0.5
     ],
-    "george_look": [
-      -0.6,
-      4.4,
-      0.76
-    ],
-    "george_mood": "thinking",
+    "george_look": "slim",
+    "george_mood": "tired",
     "slim_look": "george",
     "slim_mood": "neutral",
     "lennie_look": "dog#head",
