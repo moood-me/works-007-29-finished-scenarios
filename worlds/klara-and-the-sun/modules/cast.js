@@ -2,6 +2,16 @@
 // shapes in this world's style, soft rounded shapes in quiet light colours, lit by the scene — and what they move by
 // (the motions in cast.data.json). cast.md says who is who.
 const SKETCHBOOK = F => ({ radii: [0.15 * F.fit.h, 0.01 * F.fit.h, 0.11 * F.fit.h], down: [0, -0.025 * F.fit.h, 0], up: [0, 1, 0] });
+// Rick's bird: its sizes at his size, its eye's colour (a small lamp: it glows), its wings' and tail's darker metal
+const BIRD = F => ({
+  lift: 0.035 * F.fit.h,
+  body: [0.04, 0.036, 0.075].map(v => v * F.fit.h),
+  head: 0.028 * F.fit.h,
+  wing: [0.075, 0.007, 0.045].map(v => v * F.fit.h),
+  tail: [0.022, 0.006, 0.05].map(v => v * F.fit.h),
+  eye: [1, 0.74, 0.36, 2],
+  dark: [...F.colors.accent.slice(0, 3).map(v => v * 0.86), F.colors.accent[3]],
+});
 return {
   ...data,
   characters: {
@@ -29,6 +39,16 @@ return {
       body: { height: 0.98, thick: 0.86, shoulders: 0.9, hips: 1.0 },
       colors: { skin: '#e6c3a6', hair: '#2a1f1b', top: '#ece7df', garment: '#3b3e48', bottom: '#2f3139', shoes: '#1e1c1f' },
     },
+    // Rick, the boy next door, fourteen, not lifted: tousled dark hair, an old olive canvas jacket over a pale shirt,
+    // brown corduroys, work boots — always out of doors; his bird with him
+    rick: {
+      kind: 'shapes', style: 'sun', who: 'teen', garment: 'canvas', hair: 'short', parts: ['bird'],
+      body: { height: 0.94, thick: 0.82, shoulders: 0.94, hips: 0.94 },
+      colors: {
+        skin: '#e6c09e', hair: '#3a2a20', top: '#d9d1bf', garment: '#5d6847', bottom: '#5b4a3b', shoes: '#3a2e26',
+        accent: '#8d9aa6',
+      },
+    },
     // the Manager of the shop of Artificial Friends: middle-aged, kind and tired, short greying hair, a plain dress
     // of soft plum-grey to below the knee, sensible shoes
     manager: {
@@ -46,6 +66,8 @@ return {
       shift: { name: 'shift dress', hang: [{ to: 1.1, from: 'waist', flare: 0.2, off: 0.94 }], short: true, bodice: true },
       // the Manager's plain dress: straight from the waist to below the knee, long sleeves
       frock: { name: 'frock', hang: [{ to: 1.3, from: 'waist', flare: 0.14, off: 0.95 }], bodice: true, sleeves: 'garment' },
+      // Rick's old canvas jacket: short and boxy, to the hips
+      canvas: { name: 'canvas jacket', hang: [{ to: 0.36, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment' },
       // the Mother's work jacket: straight, short, to the waist
       blazer: { name: 'blazer', hang: [{ to: 0.3, from: 'shoulders', flare: 0, folds: false }], sleeves: 'garment' },
     },
@@ -59,6 +81,30 @@ return {
           const at = add(mix(F.P('LeftHand'), F.P('RightHand'), 0.4), K.down);
           F.ball(at, [level(F.side('Hips')), K.up, level(F.fwd('Hips'))], K.radii, F.colors.accent, 4, 4);
           F.point('sketchbook', at);
+        },
+      },
+      // Rick's bird: a small grey-blue drone made like a bird — a round body, a head with one amber eye, flat wings
+      // folded along its sides, a short tail — held in both hands, its head away from him
+      bird: {
+        name: 'bird',
+        draw: F => {
+          const { mix, add, mul, level, cross } = MooodShapes.V;
+          const K = F.keep(BIRD);
+          const f = level(F.fwd('Hips'));
+          const u = [0, 1, 0];
+          const sd = cross(u, f);
+          const axes = [sd, u, f];
+          const at = add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(u, K.lift));
+          const metal = F.colors.accent;
+          F.ball(at, axes, K.body, metal, 12);
+          const head = add(at, add(mul(f, K.body[2] * 0.95), mul(u, K.body[1] * 0.7)));
+          F.ball(head, axes, [K.head, K.head, K.head], metal, 10);
+          F.ball(add(head, add(mul(f, K.head * 0.8), mul(u, K.head * 0.15))), axes, [K.head * 0.3, K.head * 0.3, K.head * 0.3], K.eye, 6);
+          for (const s of [-1, 1]) {
+            F.ball(add(at, add(mul(sd, s * K.body[0] * 0.95), mul(u, K.body[1] * 0.3))), axes, K.wing, K.dark, 8);
+          }
+          F.ball(add(at, add(mul(f, -K.body[2] * 1.1), mul(u, K.body[1] * 0.25))), axes, K.tail, K.dark, 6);
+          F.point('bird', at);
         },
       },
     },
