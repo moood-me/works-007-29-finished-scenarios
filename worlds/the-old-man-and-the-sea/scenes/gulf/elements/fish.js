@@ -1,11 +1,11 @@
 // The great fish up alongside on the third morning, by the skiff's near side, lying just under the surface, the head
-// toward the skiff's bow — his tail out past its stern, his head and sword past its bow:
+// toward the skiff's bow — his tail past its stern, his sword out past its bow:
 // his back and the top of his tail out of the water, dark purple-blue; his long silver flank under the water with its
 // wide lavender stripes, his pectoral fins spread, his sword out ahead — the part under the water seen through it,
 // sinking into its blue. He is two feet longer than the skiff. Metres, the water's level at the anchor (y 0), the
 // whole of him one layer the animate brings up from the deep (`fish`).
 e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
-  const C = 0.32;
+  const C = 0.26;
   const X0 = -2.4;
   const X1 = 1.9;
   const p = x => {
@@ -28,8 +28,8 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   const tail = () => {
     g.beginPath();
     g.moveTo(X0 + 0.1, C - 0.05);
-    g.quadraticCurveTo(-2.75, -0.2, -3.0, -0.8);
-    g.quadraticCurveTo(-2.7, -0.15, -2.62, C);
+    g.quadraticCurveTo(-2.75, -0.1, -3.0, -0.6);
+    g.quadraticCurveTo(-2.72, -0.1, -2.62, C);
     g.quadraticCurveTo(-2.7, 0.85, -3.0, 1.4);
     g.quadraticCurveTo(-2.7, 0.8, X0 + 0.1, C + 0.08);
     g.closePath();
@@ -56,7 +56,7 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   g.fillStyle = '#2f3560';
   g.beginPath();
   g.moveTo(X1, C - 0.06);
-  g.lineTo(2.85, C - 0.24);
+  g.lineTo(2.85, C - 0.42);
   g.lineTo(X1, C + 0.04);
   g.closePath();
   g.fill();
@@ -106,9 +106,10 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   all();
   g.clip();
   const veil = g.createLinearGradient(0, 0, 0, 1.4);
-  veil.addColorStop(0, 'rgba(40,50,112,0.4)');
-  veil.addColorStop(0.3, 'rgba(38,46,108,0.68)');
-  veil.addColorStop(1, 'rgba(34,42,100,0.92)');
+  veil.addColorStop(0, 'rgba(38,47,114,0.35)');
+  veil.addColorStop(0.18, 'rgba(38,47,114,0.75)');
+  veil.addColorStop(0.4, 'rgba(38,47,114,0.96)');
+  veil.addColorStop(1, 'rgba(38,47,114,1)');
   g.fillStyle = veil;
   g.fillRect(-3.1, 0, 6.1, 1.5);
   g.restore();
