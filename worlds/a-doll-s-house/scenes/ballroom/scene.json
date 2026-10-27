@@ -574,20 +574,20 @@
       "particles": {
         "kind": "smoke",
         "at": "rank#tip",
-        "rate": 4,
+        "rate": 5,
         "life": [
           3,
           5
         ],
         "size": [
-          0.03,
-          0.28
+          0.05,
+          0.4
         ],
         "speed": [
           0.04,
           0.12
         ],
-        "opacity": 0.35,
+        "opacity": 0.6,
         "wind": 0
       }
     },
