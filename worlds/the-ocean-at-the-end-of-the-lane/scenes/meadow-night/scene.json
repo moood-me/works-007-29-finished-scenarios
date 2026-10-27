@@ -106,9 +106,9 @@
       "name": "The meadow",
       "plane": true,
       "across": 0,
-      "distance": 100,
-      "width": 400,
-      "depth": 200
+      "distance": 500,
+      "width": 1600,
+      "depth": 1000
     },
     {
       "id": "oak",
@@ -261,10 +261,10 @@
       "name": "Long grass at the near edge",
       "across": 0,
       "distance": 2.4,
-      "height": 0.6,
+      "height": 0.4,
       "box": [
         -4.8,
-        -0.62,
+        -0.42,
         4.8,
         0.06
       ]

@@ -8,28 +8,7 @@ const { add, cross, mul, mix, sub, unit } = MooodShapes.V;
 // kept before the shirt; its middle is the point "dad#tie"
 const TIE = F => {
   const m = F.fit.h, k = F.k;
-  // Ginnie's lantern, carried low in her right hand: a hurricane lamp hanging from its bail, swinging a little late as
-// the hand moves — a tin cap and base, its glass lit (it glows); its flame is the point "ginnie#lamp" (the scene's
-// light there)
-const LANTERN = F => {
-  const m = F.fit.h;
   return {
-    drop: [0, -0.16 * m, 0], bail: 0.08 * m, wire: 0.004 * m, capUp: 0.07 * m, baseDown: -0.062 * m,
-    cap: [0.045 * m, 0.022 * m, 0.045 * m], glass: [0.036 * m, 0.055 * m, 0.036 * m], base: [0.047 * m, 0.016 * m, 0.047 * m],
-    tin: [0.33, 0.31, 0.28, 1], wires: [[0, [0.33, 0.31, 0.28, 1]]], light: [1, 0.8, 0.5, 2], axes: [null, null, null],
-  };
-};
-const lantern = F => {
-  const K = F.keep(LANTERN), h = F.P('RightHand');
-  const mid = F.swing('lantern', add(h, K.drop), 90), up = unit(sub(h, mid)), side = unit(cross(up, F.fwd('Hips')));
-  K.axes[0] = side; K.axes[1] = up; K.axes[2] = cross(side, up);
-  F.bar(h, add(mid, mul(up, K.bail)), K.wire, K.wire, K.wires, 4, K.axes[2]);
-  F.ball(add(mid, mul(up, K.capUp)), K.axes, K.cap, K.tin, 10);
-  F.ball(mid, K.axes, K.glass, K.light, 12);
-  F.ball(add(mid, mul(up, K.baseDown)), K.axes, K.base, K.tin, 10);
-  F.point('lamp', mid);
-};
-return {
     neck: -0.03 * m, knotOut: 0.045 * k, chestOut: 0.1 * k, bellyOut: 0.1 * k, clear: 0.006 * k,
     pts: [null, null, null], profile: [[0, 0.011 * k], [1, 0.018 * k], [2, 0.022 * k]],
     colors: [[0, [0.36, 0.13, 0.15, 1]]], knot: [0.017 * k, 0.015 * k, 0.012 * k], axes: [null, null, null],
@@ -69,6 +48,26 @@ const book = F => {
     }
   }
   F.point('book', spine);
+};
+// Ginnie's lantern, held in her right hand: a hurricane lamp hanging from its bail, swinging a little late as the hand
+// moves — a tin cap and base, its glass lit (it glows); its flame is the point "ginnie#lamp" (the scene's light there)
+const LANTERN = F => {
+  const m = F.fit.h;
+  return {
+    drop: [0, -0.16 * m, 0], bail: 0.08 * m, wire: 0.004 * m, capUp: 0.07 * m, baseDown: -0.062 * m,
+    cap: [0.045 * m, 0.022 * m, 0.045 * m], glass: [0.036 * m, 0.055 * m, 0.036 * m], base: [0.047 * m, 0.016 * m, 0.047 * m],
+    tin: [0.33, 0.31, 0.28, 1], wires: [[0, [0.33, 0.31, 0.28, 1]]], light: [1, 0.8, 0.5, 2], axes: [null, null, null],
+  };
+};
+const lantern = F => {
+  const K = F.keep(LANTERN), h = F.P('RightHand');
+  const mid = F.swing('lantern', add(h, K.drop), 90), up = unit(sub(h, mid)), side = unit(cross(up, F.fwd('Hips')));
+  K.axes[0] = side; K.axes[1] = up; K.axes[2] = cross(side, up);
+  F.bar(h, add(mid, mul(up, K.bail)), K.wire, K.wire, K.wires, 4, K.axes[2]);
+  F.ball(add(mid, mul(up, K.capUp)), K.axes, K.cap, K.tin, 10);
+  F.ball(mid, K.axes, K.glass, K.light, 12);
+  F.ball(add(mid, mul(up, K.baseDown)), K.axes, K.base, K.tin, 10);
+  F.point('lamp', mid);
 };
 return {
   ...data,
