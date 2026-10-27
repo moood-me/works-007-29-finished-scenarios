@@ -77,6 +77,41 @@ const crewcut = F => {
   const h = F.head;
   F.shell(h.at, h.axes, F.keep(CREW), hairline, 0, F.colors.hair, h.sides, h.square);
 };
+// A glass of beer: a tumbler upright (whatever the hands' turn), amber to below its rim, a head of foam on it — Charlie's
+// held low in both hands (`beer`, between them), Joe's mug in his right hand (`mug`, thicker, with its handle out to
+// the side). Metres of a man (F.fit.h), thickness by F.k.
+const GLASS = (F, mug) => {
+  const m = F.fit.h, k = F.k, r = mug ? 0.042 : 0.034;
+  return {
+    low: [0, (mug ? -0.07 : -0.08) * m, 0], top: [0, (mug ? 0.06 : 0.07) * m, 0], cap: [0, (mug ? 0.08 : 0.09) * m, 0],
+    handle: mug ? 0.06 * k : 0, handleR: 0.011 * k, pts: [null, null], foam: [null, null], ends: [null, null],
+    body: [[0, r * 0.9 * k], [1, r * k]], head: [[0, r * k], [1, r * 0.92 * k]],
+    beer: [[0, [0.83, 0.58, 0.2, 1]]], white: [[0, [0.96, 0.93, 0.85, 1]]], glass: [[0, [0.86, 0.88, 0.84, 1]]],
+  };
+};
+const glass = (F, K, c) => {
+  K.pts[0] = add(c, K.low);
+  K.pts[1] = add(c, K.top);
+  K.foam[0] = K.pts[1];
+  K.foam[1] = add(c, K.cap);
+  F.tube(K.pts, K.body, K.beer, 10, F.side('Chest'), 1, 2, true);
+  F.tube(K.foam, K.head, K.white, 10, F.side('Chest'), 1, 2, true);
+};
+const BEER = F => GLASS(F, false);
+const beer = F => {
+  const K = F.keep(BEER), c = mix(F.P('LeftHand'), F.P('RightHand'), 0.5);
+  glass(F, K, c);
+  F.point('beer', K.foam[1]);
+};
+const MUG = F => ({ ...GLASS(F, true), out: 0.045 * F.k });
+const mug = F => {
+  const K = F.keep(MUG), hand = F.P('RightHand'), c = add(hand, mul(F.fwd('RightHand'), K.out));
+  glass(F, K, c);
+  K.ends[0] = add(c, mul(F.side('Chest'), -K.handle));
+  K.ends[1] = add(K.ends[0], K.low);
+  F.bar(K.ends[0], K.ends[1], K.handleR, K.handleR, K.glass, 6, F.fwd('Chest'));
+  F.point('mug', K.foam[1]);
+};
 return {
   ...data,
   characters: {
@@ -95,6 +130,27 @@ return {
       colors: { skin: '#f0cfb6', hair: '#5b3b2b', top: '#b9807a', garment: '#b9807a', shoes: '#3e302b' },
     },
     // Dr Strauss: tall, spare, greying, round spectacles, a white laboratory coat over a grey suit
+    // Joe Karp, forty: on the press at Donnegan's — big, broad, ruddy, dark hair under a flat cap; a blue work shirt
+    // with the sleeves to the elbow, brown work trousers; a mug of beer in his hand at Halloran's
+    joe: {
+      kind: 'shapes', style: 'lab', who: 'man', garment: 'none', hair: 'short', hat: 'cap', parts: ['mug'],
+      body: { height: 1.0, thick: 1.2, shoulders: 1.1, hips: 1.05 },
+      colors: { skin: '#dba383', hair: '#3a2a20', hat: '#4a4640', top: '#5f7590', bottom: '#5a4636', shoes: '#2a221c' },
+    },
+    // Frank Reilly, Joe's mate: lean and sharp, black hair slicked back, a grey-olive jacket over a cream shirt open at
+    // the neck, dark trousers
+    frank: {
+      kind: 'shapes', style: 'lab', who: 'man', garment: 'jacket', hair: 'short',
+      body: { height: 0.99, thick: 0.84, shoulders: 0.96, hips: 0.9 },
+      colors: { skin: '#e6bd9e', hair: '#1f1915', top: '#ddd3bd', garment: '#5d6050', bottom: '#2f3034', shoes: '#1e1a17' },
+    },
+    // Halloran, who keeps the diner: heavy, older, bald with a grey fringe; a white shirt, a long white apron, dark
+    // trousers
+    halloran: {
+      kind: 'shapes', style: 'lab', who: 'man', garment: 'apron', hair: 'short',
+      body: { height: 0.96, thick: 1.22, shoulders: 1.02, hips: 1.1 },
+      colors: { skin: '#e2b496', hair: '#b4ada4', top: '#ece9e1', garment: '#f3f1ea', bottom: '#38383b', shoes: '#231f1c' },
+    },
     strauss: {
       kind: 'shapes', style: 'lab', who: 'man', garment: 'labcoat', hair: 'short', parts: ['spectacles'],
       body: { height: 1.01, thick: 0.84, shoulders: 0.98, hips: 0.88 },
@@ -115,7 +171,8 @@ return {
     hair: { crewcut: { name: 'crew cut', draw: crewcut } },
     parts: {
       spectacles: { name: 'spectacles', draw: spectacles }, tie: { name: 'shirt and tie', draw: tie },
-      notebook: { name: 'exercise book', draw: notebook },
+      notebook: { name: 'exercise book', draw: notebook }, beer: { name: 'glass of beer', draw: beer },
+      mug: { name: 'mug of beer', draw: mug },
     },
   },
 };
