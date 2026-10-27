@@ -1,16 +1,21 @@
-// The schoolyard behind the school and the street past it, from above (metres, its middle at distance 18, y toward the
-// viewer): packed earth worn bare, a strip of young grass along the fence, the sidewalk and the street beyond.
+// The land behind the school, from above (metres, its middle at distance 27, y toward the viewer): the schoolyard of
+// packed earth worn bare up to the railing (distance 12.5), the sidewalk, the street, and across it the lawns before
+// the houses, young grass.
 g.fillStyle = '#7a7166';
-g.fillRect(-30, -11.5, 60, 23);
+g.fillRect(-40, 14.5, 80, 6.5);
 g.fillStyle = 'rgba(95,88,80,0.5)';
-for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 40; i++) {
   g.beginPath();
-  g.ellipse(-28 + e.rnd() * 56, -11 + e.rnd() * 20, 0.4 + e.rnd() * 1.2, 0.2 + e.rnd() * 0.5, 0, 0, Math.PI * 2);
+  g.ellipse(-38 + e.rnd() * 76, 15 + e.rnd() * 5.5, 0.4 + e.rnd() * 1.2, 0.2 + e.rnd() * 0.5, 0, 0, Math.PI * 2);
   g.fill();
 }
-g.fillStyle = '#6d7a4c';
-g.fillRect(-30, -6.4, 60, 1.6);
 g.fillStyle = '#a19a8e';
-g.fillRect(-30, -8.4, 60, 2.0);
+g.fillRect(-40, 12.5, 80, 2.0);
 g.fillStyle = '#56544f';
-g.fillRect(-30, -11.5, 60, 3.1);
+g.fillRect(-40, 5.0, 80, 7.5);
+g.fillStyle = '#a19a8e';
+g.fillRect(-40, 3.0, 80, 2.0);
+g.fillStyle = '#6f7d4e';
+g.fillRect(-40, -21, 80, 24);
+g.fillStyle = 'rgba(130,145,90,0.4)';
+for (let i = 0; i < 30; i++) g.fillRect(-40 + e.rnd() * 80, -20 + e.rnd() * 22, 2 + e.rnd() * 4, 0.3);
