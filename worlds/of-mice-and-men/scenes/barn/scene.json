@@ -294,7 +294,12 @@
     "lennie_look": "lennie#puppy",
     "lennie_mood": "smile",
     "wife_look": "lennie",
-    "wife_mood": "neutral"
+    "wife_mood": "neutral",
+    "lennie_on": [
+      1.7,
+      6.85,
+      0.5
+    ]
   },
   "states": {
     "sun": {
