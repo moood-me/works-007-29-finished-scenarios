@@ -121,19 +121,19 @@ function coupe(F) {
 // Rank's cigar between the fingers of his right hand, its tip glowing (the point `tip`: the smoke rises from it)
 const CIGAR = F => {
   const m = F.fit.h;
-  return { m, leaf: [[0, TOBACCO]], ash: [0.0075 * m, 0.0075 * m, 0.0075 * m], axes: [null, null, null] };
+  return { m, leaf: [[0, TOBACCO]], ash: [0.0095 * m, 0.0095 * m, 0.0095 * m], axes: [null, null, null] };
 };
 function cigar(F) {
-  const { add, mul, sub, unit } = V();
+  const { add, mul } = V();
   const K = F.keep(CIGAR);
   const hand = F.P('RightHand');
-  const along = unit(sub(hand, F.P('RightForeArm')));
+  // held across the fingers: out of the hand on the thumb's side
   const sd = F.side('RightHand');
-  const back = add(hand, mul(along, 0.02 * K.m));
-  const tip = add(hand, mul(along, 0.15 * K.m));
-  F.bar(back, tip, 0.009 * K.m, 0.008 * K.m, K.leaf, 8, sd);
+  const back = add(hand, mul(sd, -0.04 * K.m));
+  const tip = add(hand, mul(sd, 0.13 * K.m));
+  F.bar(back, tip, 0.01 * K.m, 0.009 * K.m, K.leaf, 8, F.up('RightHand'));
   K.axes[0] = sd;
-  K.axes[1] = along;
+  K.axes[1] = F.up('RightHand');
   K.axes[2] = F.fwd('RightHand');
   F.ball(tip, K.axes, K.ash, EMBER, 8);
   F.point('tip', tip);
