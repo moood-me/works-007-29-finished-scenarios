@@ -14,10 +14,10 @@
     "haze": 0.05,
     "hazeColor": "#3a3550",
     "hazeGlow": 0.35,
-    "ambient": 0.5,
+    "ambient": 0.55,
     "ambientColor": "#7e86b4",
     "inside": 0.35,
-    "bounce": 0.55
+    "bounce": 0
   },
   "lights": [
     {
@@ -63,7 +63,7 @@
       0.48
     ],
     "candy_on": [
-      2.8,
+      2.85,
       7.0,
       0.5
     ],
@@ -401,11 +401,11 @@
           "distance": 4.4
         },
         {
-          "across": 0.75,
-          "distance": 3.45
+          "across": 1.72,
+          "distance": 4.35
         },
         {
-          "across": -0.3,
+          "across": 0.95,
           "distance": 5.3
         }
       ]
@@ -431,14 +431,14 @@
           "distance": 4.26
         },
         {
-          "across": 0.72,
-          "distance": 3.31,
-          "facing": 192
+          "across": 1.72,
+          "distance": 4.21,
+          "facing": 190
         },
         {
-          "across": -0.28,
+          "across": 0.95,
           "distance": 5.16,
-          "facing": 172
+          "facing": 174
         }
       ]
     },
@@ -532,7 +532,7 @@
       "person": {
         "cast": "cast",
         "who": "george",
-        "turn": 105,
+        "turn": 125,
         "does": "solitaire"
       },
       "across": -1.12,
@@ -549,8 +549,8 @@
         "turn": 215,
         "does": "arms_folded"
       },
-      "across": 1.85,
-      "distance": 4.95,
+      "across": -0.15,
+      "distance": 5.45,
       "shadow": true
     },
     {
@@ -577,7 +577,7 @@
         "turn": 180,
         "does": "pet_dog"
       },
-      "across": 2.8,
+      "across": 2.85,
       "distance": 7.0,
       "shadow": true
     }
