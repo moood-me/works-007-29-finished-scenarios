@@ -2,12 +2,12 @@
   "engine": 3,
   "title": "The Room Upstairs",
   "caption": "After the verdict. The prosecutor in the doorway: the best defendant in ten years! The judge with his candle: the sentence, fair copy, by morning.",
-  "horizon": 0.42,
+  "horizon": 0.47,
   "camera": {
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.55,
+    "ambient": 0.62,
     "ambientColor": "#7482b0",
     "inside": 0.5,
     "bounce": 0.7,
@@ -26,10 +26,15 @@
         26
       ],
       "color": "#aac0ee",
-      "strength": 1.0,
+      "strength": 1.1,
       "through": [
         "pane"
       ]
+    },
+    {
+      "id": "night_in",
+      "of": "pane",
+      "daylight": 0.5
     },
     {
       "id": "candle_stand",
@@ -92,7 +97,11 @@
       2.0,
       1.4
     ],
-    "kummer_look": "traps#head",
+    "kummer_look": [
+      0.3,
+      1.0,
+      1.6
+    ],
     "kummer_reach": {
       "r": [
         1.42,
@@ -326,7 +335,7 @@
       "facing": 180,
       "height": 0.58,
       "box": [
-        -1.2,
+        -1.02,
         -0.58,
         1.02,
         0.02
@@ -418,8 +427,8 @@
         "turn": 215,
         "does": "stand_candle"
       },
-      "across": 2.45,
-      "distance": 3.7,
+      "across": 2.2,
+      "distance": 3.55,
       "inside": true,
       "shadow": true
     }
