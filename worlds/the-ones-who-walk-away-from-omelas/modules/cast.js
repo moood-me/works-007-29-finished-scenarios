@@ -16,6 +16,16 @@ return {
     ila: { kind: 'shapes', style: 'omelas', who: 'child', garment: 'shift', hair: 'long', parts: ['flute'],
       body: { height: 0.85, head: 0.92, thick: 0.76, shoulders: 0.86, legs: 1.02 },
       colors: { skin: '#e2b08c', hair: '#7a3b22', top: '#eee3c8', garment: '#eee3c8', shoes: '#8b6446' } },
+    // Ila at seventeen, five years on: grown tall and slender, the auburn hair tied back, a longer linen dress of
+    // sea-green, sandals; the same flute (`flute`)
+    ila_17: { kind: 'shapes', style: 'omelas', who: 'teen', garment: 'frock', hair: 'ponytail', parts: ['flute'],
+      body: { height: 0.95, head: 0.9, thick: 0.8, shoulders: 0.88, legs: 1.04 },
+      colors: { skin: '#e0ae8a', hair: '#7a3b22', top: '#9fbcae', garment: '#9fbcae', shoes: '#8b6446' } },
+    // Pim at nine, the neighbours' boy Ila teaches the flute: small, tow-haired, a pale blue shirt, brown breeches,
+    // barefoot; a flute of his own (`flute`)
+    pim: { kind: 'shapes', style: 'omelas', who: 'child', garment: 'tunic', hair: 'short', barefoot: 'both', parts: ['flute'],
+      body: { height: 0.86, head: 0.96, thick: 0.8, shoulders: 0.86 },
+      colors: { skin: '#e6b893', hair: '#d6b06a', top: '#94b9d8', bottom: '#7a6650' } },
     // Mev, her grandmother, about seventy: small and solid, white hair in a bun, a dark blue-grey dress, a basket of
     // flowers from the market on her arm; the cellar's key on a cord round her neck
     mev: { kind: 'shapes', style: 'omelas', who: 'woman', garment: 'dress', hair: 'bun', parts: ['key_cord', 'basket'],
@@ -52,6 +62,8 @@ return {
     garments: {
       // a girl's summer dress: from the waist to below the knee, bare arms
       shift: { name: 'summer dress', hang: [{ to: 1.3, from: 'waist', flare: 0.32, off: 0.94 }], short: true, bare: true, bodice: true },
+      // a young woman's summer dress: from the waist to mid-calf, bare arms
+      frock: { name: 'linen dress', hang: [{ to: 1.62, from: 'waist', flare: 0.26, off: 0.94 }], short: true, bare: true, bodice: true },
       // the child's smock: a rag hanging from the shoulders to the thighs, its hem torn, the arms and legs bare
       rag: { name: 'rag smock', hang: [{ to: 0.55, from: 'shoulders', flare: 0.1, ragged: true }], short: true, bare: true },
     },
