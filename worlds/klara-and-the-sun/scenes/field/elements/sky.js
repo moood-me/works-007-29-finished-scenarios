@@ -37,7 +37,7 @@ for (let i = 0; i < 11; i++) {
   g.fill();
 }
 // the Sun: a bright disc, its glow the engine's
-e.layer('disc', { box: [sx - 0.08, sy - 0.08, sx + 0.08, sy + 0.12] }, () => {
+e.layer('disc', { box: [sx - 0.08, sy - 0.08, sx + 0.08, sy + 0.12] }, g => {
   const d = g.createRadialGradient(sx, sy, 0, sx, sy, 0.017);
   d.addColorStop(0, '#fff6dc');
   d.addColorStop(0.7, '#ffe2a8');
