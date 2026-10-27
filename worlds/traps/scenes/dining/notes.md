@@ -31,5 +31,7 @@ sit and stand still — breath, heads and faces; the candles tremble, the clock'
   face still reads), surprise, a laugh; Kummer sad; Traps back to the table, smiling.
 - **Not right yet / what the engine lacks**: Kummer's face is seen near profile (he leans to Traps's ear), so his
   fear reads by the pose more than by the face. Steam over the tureen was tried with `smoke` particles: small puffs
-  read as a string of beads (as `fire` reads as balls) — left out. Zorn is not here (his notebook is); Simone and
+  read as a string of beads (as `fire` reads as balls) — left out. The known gaps of the engine are kept clear of rather than got round: no one rests hands on the knees (a module
+  clip's hands there go to the sides) — the hands are on the table; no movement from Kimodo, no cloth behind a back,
+  no seated skirt. Zorn is not here (his notebook is); Simone and
   the other variants (night: candles low, coffee and cognac; dawn) are not made yet.
