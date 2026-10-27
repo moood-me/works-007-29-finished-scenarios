@@ -2,7 +2,7 @@
   "engine": 3,
   "title": "The Kitchen on a Friday",
   "caption": "Friday, early. A car is waiting under the window; she has only come for the warm sleeping bag.",
-  "horizon": 0.36,
+  "horizon": 0.33,
   "camera": {
     "mode": "picture"
   },
@@ -461,7 +461,7 @@
       "name": "The stepladder in the corner",
       "inside": true,
       "shadow": true,
-      "across": -1.82,
+      "across": -1.67,
       "distance": 2.9,
       "facing": 110,
       "height": 1.02,
@@ -513,7 +513,7 @@
         "turn": 160,
         "does": "hand_on_hip"
       },
-      "across": -1.3,
+      "across": -1.15,
       "distance": 2.9
     }
   ],
