@@ -61,7 +61,6 @@
   "state": {
     "boy_look": "lettie",
     "boy_mood": "sad",
-    "lettie_look": "bucket#rim",
     "lettie_mood": "thinking",
     "ginnie_with": [
       "lantern"
@@ -274,7 +273,7 @@
       "person": {
         "cast": "cast",
         "who": "lettie",
-        "turn": 240,
+        "turn": 212,
         "does": "kneel"
       },
       "across": 1.0,

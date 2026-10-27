@@ -1,4 +1,4 @@
-// Hempstock Farm from the meadow (16 m off): the old red-brick farmhouse, two storeys under a steep slate roof, a
+// Hempstock Farm from the meadow (16 m off): the old red-brick farmhouse, two storeys under a slate roof (its front slope, gabled at the ends), a
 // chimney at each gable end, its back door open onto the yard (x −1.5…−0.5) and a window either side of it and
 // above; the lean-to dairy on the right. In daylight colours: the moon and its own
 // lit door and windows (farm_lit) make the night of it.
@@ -30,18 +30,17 @@ for (let y = -0.08; y > -5.2; y -= 0.16) {
 // the roof, and its chimneys
 g.fillStyle = slate;
 g.beginPath();
-g.moveTo(-4.5, -5.1);
-g.lineTo(-3.4, -7.6);
-g.lineTo(3.4, -7.6);
-g.lineTo(4.5, -5.1);
+g.moveTo(-4.4, -5.1);
+g.lineTo(-4.3, -7.6);
+g.lineTo(4.3, -7.6);
+g.lineTo(4.4, -5.1);
 g.closePath();
 g.fill();
 g.strokeStyle = 'rgba(40, 44, 50, 0.35)';
 for (let y = -5.3; y > -7.6; y -= 0.22) {
-  const f = (y + 5.1) / -2.5;
   g.beginPath();
-  g.moveTo(-4.5 + 1.1 * f, y);
-  g.lineTo(4.5 - 1.1 * f, y);
+  g.moveTo(-4.4, y);
+  g.lineTo(4.4, y);
   g.stroke();
 }
 g.fillStyle = '#86523e';
