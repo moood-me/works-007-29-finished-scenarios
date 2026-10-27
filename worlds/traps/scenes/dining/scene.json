@@ -68,13 +68,13 @@
   "state": {
     "pile_look": [
       -0.62,
-      2.62,
+      2.0,
       0.95
     ],
     "pile_mood": "neutral",
     "pile_on": [
       -1.25,
-      3.5,
+      2.88,
       0.48
     ],
     "kummer_look": "traps#head",
@@ -82,54 +82,54 @@
     "kummer_reach": {
       "r": [
         -0.55,
-        3.3,
+        2.68,
         0.86
       ],
       "l": "traps#shoulder_r"
     },
     "traps_on": [
       0.5,
-      3.44,
+      2.82,
       0.48
     ],
     "traps_look": [
       0.5,
-      1.5,
+      0.88,
       1.2
     ],
     "traps_mood": "smile",
     "traps_reach": {
       "r": [
         0.3,
-        2.98,
+        2.36,
         0.79
       ],
       "l": [
         0.72,
-        2.98,
+        2.36,
         0.79
       ]
     },
     "judge_on": [
       1.4,
-      3.42,
+      2.8,
       0.48
     ],
     "judge_look": [
       0.9,
-      1.4,
+      0.78,
       1.2
     ],
     "judge_mood": "smile",
     "judge_reach": {
       "r": [
         1.3,
-        3.0,
+        2.38,
         0.8
       ],
       "l": [
         1.5,
-        3.0,
+        2.38,
         0.8
       ]
     }
@@ -362,7 +362,7 @@
       "name": "The carpet under the table",
       "plane": true,
       "across": 0,
-      "distance": 2.7,
+      "distance": 2.08,
       "elevation": 0.004,
       "width": 5.8,
       "depth": 2.8,
@@ -372,7 +372,7 @@
       "id": "chandelier",
       "name": "The brass chandelier over the table",
       "across": 0,
-      "distance": 3.0,
+      "distance": 2.45,
       "elevation": 2.2,
       "height": 1.1,
       "box": [
@@ -389,7 +389,7 @@
       "name": "The long table, laid",
       "plane": true,
       "across": 0,
-      "distance": 2.6,
+      "distance": 1.98,
       "elevation": 0.76,
       "width": 3.6,
       "depth": 1.1,
@@ -400,7 +400,7 @@
       "id": "table_front",
       "name": "The table's near side, the cloth hanging",
       "across": 0,
-      "distance": 2.04,
+      "distance": 1.42,
       "facing": 180,
       "height": 0.8,
       "box": [
@@ -416,7 +416,7 @@
       "id": "table_things",
       "name": "The tureen, the bottles and the glasses on the table",
       "across": 0,
-      "distance": 2.62,
+      "distance": 2.0,
       "elevation": 0.76,
       "height": 0.36,
       "box": [
@@ -431,7 +431,7 @@
       "id": "candelabra_l",
       "name": "A candelabrum on the table's left half",
       "across": -1.52,
-      "distance": 2.5,
+      "distance": 1.88,
       "elevation": 0.76,
       "height": 0.6,
       "box": [
@@ -447,7 +447,7 @@
       "id": "candelabra_r",
       "name": "A candelabrum on the table's right half",
       "across": 1.55,
-      "distance": 2.5,
+      "distance": 1.88,
       "elevation": 0.76,
       "height": 0.6,
       "box": [
@@ -466,7 +466,7 @@
         "kind": "smoke",
         "at": [
           -0.62,
-          2.62,
+          2.0,
           0.96
         ],
         "source": [
@@ -508,22 +508,22 @@
       "copies": [
         {
           "across": -1.25,
-          "distance": 3.92,
+          "distance": 3.3,
           "facing": 180
         },
         {
           "across": -0.35,
-          "distance": 3.95,
+          "distance": 3.33,
           "facing": 180
         },
         {
           "across": 0.5,
-          "distance": 3.78,
+          "distance": 3.16,
           "facing": 180
         },
         {
           "across": 1.42,
-          "distance": 3.76,
+          "distance": 3.14,
           "facing": 195
         }
       ]
@@ -538,7 +538,7 @@
         "does": "sit_fists"
       },
       "across": -1.25,
-      "distance": 3.5,
+      "distance": 2.88,
       "inside": true,
       "shadow": true
     },
@@ -552,7 +552,7 @@
         "does": "lean_to_shoulder"
       },
       "across": -0.35,
-      "distance": 3.55,
+      "distance": 2.93,
       "inside": true,
       "shadow": true
     },
@@ -566,7 +566,7 @@
         "does": "sit_forearms"
       },
       "across": 0.5,
-      "distance": 3.44,
+      "distance": 2.82,
       "inside": true,
       "shadow": true
     },
@@ -580,7 +580,7 @@
         "does": "sit_upright"
       },
       "across": 1.4,
-      "distance": 3.42,
+      "distance": 2.8,
       "inside": true,
       "shadow": true
     }
