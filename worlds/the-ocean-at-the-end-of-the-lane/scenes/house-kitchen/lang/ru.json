@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Kitchen at Home","translation":"Кухня дома","where":"scenes/house-kitchen/scene.json title"},
+  {"text":"Ursula Monkton has come to help.","translation":"Урсула Монктон пришла помогать по хозяйству.","where":"scenes/house-kitchen/scene.json caption"}
+]}
