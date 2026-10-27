@@ -9,7 +9,7 @@
   "light": {
     "ambient": 0.66,
     "ambientColor": "#c4c6cc",
-    "inside": 0.35,
+    "inside": 0.5,
     "bounce": 0.55,
     "haze": 0.06,
     "hazeColor": "#d4d2c6",
@@ -27,13 +27,13 @@
     "saturation": 1.05,
     "looks": {
       "storm": {
-        "ambient": 0.52,
-        "ambientColor": "#8e98a8",
-        "inside": 0.25,
+        "ambient": 0.6,
+        "ambientColor": "#a4acb8",
+        "inside": 0.42,
         "tint": "#9eaabb",
-        "tintStrength": 0.12,
-        "saturation": 0.85,
-        "haze": 0.12,
+        "tintStrength": 0.08,
+        "saturation": 0.9,
+        "haze": 0.1,
         "hazeColor": "#9aa2ac",
         "wind": [
           1,
@@ -41,7 +41,7 @@
           1.1
         ],
         "lights": {
-          "sun": 0.22
+          "sun": 0.35
         }
       }
     }

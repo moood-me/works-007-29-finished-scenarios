@@ -31,6 +31,8 @@ e.layer('clouds', { drift: [0.003, 0], box: [-0.3, -0.3, e.aspect + 0.3, 0.3] },
 e.layer('bank', { box: [e.aspect * 0.42, -0.35, e.aspect + 1.6, 0.47] }, l => {
   const left = e.aspect * 0.55;
   const end = e.aspect + 1.6;
+  // all of it soft-edged, as cloud is
+  l.filter = 'blur(0.025px)';
   const fade = l.createLinearGradient(left, 0, left + 0.5, 0);
   fade.addColorStop(0, 'rgba(86,94,108,0)');
   fade.addColorStop(1, 'rgba(86,94,108,0.92)');
@@ -38,8 +40,7 @@ e.layer('bank', { box: [e.aspect * 0.42, -0.35, e.aspect + 1.6, 0.47] }, l => {
   l.fillRect(left, -0.35, 0.5, 0.63);
   l.fillStyle = 'rgba(86,94,108,0.92)';
   l.fillRect(left + 0.5, -0.35, end - left - 0.5, 0.63);
-  // its strata: long low rolls one over another, soft-edged, their tops caught by the sun
-  l.filter = 'blur(0.012px)';
+  // its strata: long low rolls one over another, their tops caught by the sun
   for (let i = 0; i < 34; i++) {
     const x = left - 0.1 + e.rnd() * (end - left + 0.1);
     const y = 0.24 - e.rnd() * e.rnd() * 0.55;
@@ -56,10 +57,10 @@ e.layer('bank', { box: [e.aspect * 0.42, -0.35, e.aspect + 1.6, 0.47] }, l => {
     l.ellipse(x - w * 0.1, y - t * 0.75, w * 0.7, t * 0.22, 0, 0, Math.PI * 2);
     l.fill();
   }
-  l.filter = 'none';
   // the flat underside and the rain under it, toward the hills
   l.fillStyle = 'rgba(70,76,88,0.9)';
   l.fillRect(left + 0.6, 0.26, end - left - 0.6, 0.05);
+  l.filter = 'none';
   l.strokeStyle = 'rgba(92,100,112,0.35)';
   l.lineWidth = 0.004;
   for (let i = 0; i < 120; i++) {
