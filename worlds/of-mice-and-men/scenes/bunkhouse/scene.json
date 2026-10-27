@@ -58,12 +58,12 @@
   "state": {
     "lamp": 1,
     "george_on": [
-      -1.12,
+      -1.62,
       4.4,
       0.48
     ],
     "candy_on": [
-      2.85,
+      2.9,
       7.0,
       0.5
     ],
@@ -74,7 +74,12 @@
     "lennie_look": "dog#head",
     "lennie_mood": "smile",
     "candy_look": "dog#head",
-    "candy_mood": "sad"
+    "candy_mood": "sad",
+    "slim_on": [
+      1.22,
+      4.4,
+      0.48
+    ]
   },
   "states": {
     "lamp": {
@@ -360,7 +365,7 @@
       "shadow": {
         "light": "lamp"
       },
-      "across": 0.3,
+      "across": -0.2,
       "distance": 4.4,
       "elevation": 0.76,
       "width": 2.2,
@@ -370,7 +375,7 @@
       "id": "table_front",
       "name": "The table's near side and legs",
       "inside": true,
-      "across": 0.3,
+      "across": -0.2,
       "distance": 3.85,
       "height": 0.78,
       "box": [
@@ -386,22 +391,22 @@
       "name": "Apple boxes for seats, their tops",
       "plane": true,
       "inside": true,
-      "across": -1.12,
+      "across": -1.62,
       "distance": 4.4,
       "elevation": 0.48,
       "width": 0.34,
       "depth": 0.28,
       "copies": [
         {
-          "across": -1.12,
+          "across": -1.62,
           "distance": 4.4
         },
         {
-          "across": 1.72,
-          "distance": 4.35
+          "across": 1.22,
+          "distance": 4.4
         },
         {
-          "across": 0.95,
+          "across": 0.4,
           "distance": 5.3
         }
       ]
@@ -410,7 +415,7 @@
       "id": "box_front",
       "name": "Apple boxes for seats",
       "inside": true,
-      "across": -1.12,
+      "across": -1.62,
       "distance": 4.26,
       "height": 0.48,
       "box": [
@@ -423,16 +428,15 @@
       "shadow": true,
       "copies": [
         {
-          "across": -1.12,
+          "across": -1.62,
           "distance": 4.26
         },
         {
-          "across": 1.72,
-          "distance": 4.21,
-          "facing": 190
+          "across": 1.22,
+          "distance": 4.26
         },
         {
-          "across": 0.95,
+          "across": 0.4,
           "distance": 5.16,
           "facing": 174
         }
@@ -442,7 +446,7 @@
       "id": "lamp",
       "name": "The light over the table",
       "inside": true,
-      "across": 0.3,
+      "across": -0.2,
       "distance": 4.4,
       "height": 1.12,
       "box": [
@@ -457,7 +461,7 @@
       "id": "lamp_shade",
       "name": "The lamp's tin shade",
       "inside": true,
-      "across": 0.3,
+      "across": -0.2,
       "distance": 4.4,
       "height": 0.25,
       "box": [
@@ -492,7 +496,7 @@
       "id": "dog",
       "name": "Candy's old dog",
       "inside": true,
-      "across": 3.55,
+      "across": 3.6,
       "distance": 6.3,
       "height": 0.32,
       "box": [
@@ -510,7 +514,7 @@
       "particles": {
         "kind": "dust",
         "at": [
-          0.3,
+          -0.2,
           4.4,
           1.2
         ],
@@ -528,10 +532,10 @@
       "person": {
         "cast": "cast",
         "who": "george",
-        "turn": 125,
+        "turn": 110,
         "does": "solitaire"
       },
-      "across": -1.12,
+      "across": -1.62,
       "distance": 4.4,
       "shadow": true
     },
@@ -542,11 +546,11 @@
       "person": {
         "cast": "cast",
         "who": "slim",
-        "turn": 215,
-        "does": "arms_folded"
+        "turn": 250,
+        "does": "forearms_on_table"
       },
-      "across": -0.15,
-      "distance": 5.45,
+      "across": 1.22,
+      "distance": 4.4,
       "shadow": true
     },
     {
@@ -559,8 +563,8 @@
         "turn": 165,
         "does": "shy"
       },
-      "across": -2.95,
-      "distance": 6.1,
+      "across": -3.3,
+      "distance": 6.25,
       "shadow": true
     },
     {
@@ -573,7 +577,7 @@
         "turn": 180,
         "does": "pet_dog"
       },
-      "across": 2.85,
+      "across": 2.9,
       "distance": 7.0,
       "shadow": true
     }

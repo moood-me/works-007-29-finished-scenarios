@@ -6,7 +6,7 @@ return [
   {
     name: 'the cards',
     run: async s => {
-      s.person('george').look([-0.6, 4.4, 0.76]);
+      s.person('george').look([-1.1, 4.4, 0.76]);
       await s.wait(0.6);
       s.person('lennie').look('slim');
       await s.wait(0.8);
