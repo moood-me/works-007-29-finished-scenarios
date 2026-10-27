@@ -54,3 +54,7 @@ What is not right yet / what the engine lacks:
 - `seated_chin` puts the elbow on the knee, not on the desk; seen from here it reads as leaning on the desk.
 - The near globes are large in the top corners of the frame (they hang between the viewer and Charlie, to light his
   face).
+- Known gaps of the engine this scene keeps clear of, not faked round: a seated person's hands laid on the knees by a
+  module's clip go out to the sides, a seated woman's skirt is a lump, a jacket's skirt stands out over bent knees —
+  so the students are men in shirt and pullover, their hands on the desk; cloth does not hang down a back; the `fire`
+  particle is balls; there is no rope between two people; a motion from Kimodo may turn a person toward a wall.
