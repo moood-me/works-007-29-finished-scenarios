@@ -1,4 +1,5 @@
-// The great fish up alongside on the third morning, lying just under the surface, the head toward the skiff's bow:
+// The great fish up alongside on the third morning, on the skiff's far side, lying just under the surface, the head
+// toward the skiff's bow — his tail out past its stern, his head and sword past its bow:
 // his back and the top of his tail out of the water, dark purple-blue; his long silver flank under the water with its
 // wide lavender stripes, his pectoral fins spread, his sword out ahead — the part under the water seen through it,
 // sinking into its blue. He is two feet longer than the skiff. Metres, the water's level at the anchor (y 0), the
@@ -72,13 +73,14 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   body();
   g.clip();
   // the wide stripes, pale lavender, down the flank
-  g.fillStyle = 'rgba(140,128,200,0.75)';
-  for (let x = -1.9; x < 1.3; x += 0.34) {
+  g.fillStyle = 'rgba(136,124,196,0.5)';
+  for (let x = -1.9; x < 1.25; x += 0.3 + e.rnd() * 0.12) {
+    const w = 0.05 + e.rnd() * 0.05;
     g.beginPath();
-    g.moveTo(x, C - 0.3);
-    g.lineTo(x + 0.08, C - 0.3);
-    g.lineTo(x + 0.02, C + 0.36);
-    g.lineTo(x - 0.06, C + 0.36);
+    g.moveTo(x, C - 0.32);
+    g.quadraticCurveTo(x + w + 0.03, C, x + 0.01, C + 0.34);
+    g.lineTo(x - w, C + 0.3);
+    g.quadraticCurveTo(x - 0.02, C, x - w * 0.5, C - 0.32);
     g.closePath();
     g.fill();
   }
@@ -104,19 +106,18 @@ e.layer('fish', { box: [-3.1, -0.95, 2.95, 1.95] }, g => {
   all();
   g.clip();
   const veil = g.createLinearGradient(0, 0, 0, 1.4);
-  veil.addColorStop(0, 'rgba(46,58,120,0.28)');
-  veil.addColorStop(0.4, 'rgba(40,50,112,0.6)');
-  veil.addColorStop(1, 'rgba(34,42,100,0.88)');
+  veil.addColorStop(0, 'rgba(40,50,112,0.4)');
+  veil.addColorStop(0.3, 'rgba(38,46,108,0.68)');
+  veil.addColorStop(1, 'rgba(34,42,100,0.92)');
   g.fillStyle = veil;
   g.fillRect(-3.1, 0, 6.1, 1.5);
   g.restore();
   // the water breaking over his back: a broken line of foam along it
-  g.strokeStyle = 'rgba(236,240,248,0.75)';
-  g.lineWidth = 0.02;
-  for (let x = -2.1; x < 1.6; x += 0.25 + e.rnd() * 0.3) {
+  for (let i = 0; i < 70; i++) {
+    const x = -2.2 + e.rnd() * 3.8;
+    g.fillStyle = `rgba(236,240,248,${0.25 + 0.4 * e.rnd()})`;
     g.beginPath();
-    g.moveTo(x, 0.005);
-    g.lineTo(x + 0.12 + e.rnd() * 0.2, 0.005);
-    g.stroke();
+    g.ellipse(x, 0.004, 0.03 + e.rnd() * 0.09, 0.006 + e.rnd() * 0.008, 0, 0, Math.PI * 2);
+    g.fill();
   }
 });

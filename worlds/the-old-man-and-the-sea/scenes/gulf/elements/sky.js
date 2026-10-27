@@ -31,20 +31,27 @@ e.layer('night', {}, g => {
   g.fillRect(X0, Y0, W, H - Y0);
   g.fillStyle = '#2a3866';
   g.fillRect(X0, H, W, 1.25 - H);
-  // the Milky Way: a soft pale river slanting up across the sky, thick with fine stars
-  g.save();
-  g.translate(A * 0.42, 0.05);
-  g.rotate(-0.5);
-  glow(g, 0, 0, 1.3, 0.09, '150,166,214', 0.35);
-  glow(g, 0.1, 0.01, 0.9, 0.04, '176,188,226', 0.3);
-  for (let i = 0; i < 700; i++) {
-    const x = (e.rnd() - 0.5) * 2.4;
-    const y = (e.rnd() + e.rnd() + e.rnd() - 1.5) * 0.07;
-    g.globalAlpha = 0.25 + 0.5 * e.rnd();
-    g.fillStyle = '#e4e8f8';
-    g.fillRect(x, y, 0.0012, 0.0012);
+  // the Milky Way: a soft uneven river of light arching up across the sky, mottled with darker lanes and thick with
+  // fine stars
+  const way = u => [A * 0.1 + u * A * 0.75, 0.5 - 0.62 * Math.sin(u * Math.PI * 0.9)];
+  for (let i = 0; i < 46; i++) {
+    const u = i / 45;
+    const [x, y] = way(u);
+    glow(g, x, y, 0.09 + 0.05 * e.rnd(), 0.06 + 0.04 * e.rnd(), '150,166,214', (0.1 + 0.08 * e.rnd()) * Math.min(1, (H - y) / 0.25));
   }
-  g.restore();
+  for (let i = 0; i < 14; i++) {
+    const [x, y] = way(e.rnd());
+    glow(g, x, y, 0.03 + 0.03 * e.rnd(), 0.015, '14,22,60', 0.3);
+  }
+  for (let i = 0; i < 900; i++) {
+    const [x, y] = way(e.rnd());
+    const sx = x + (e.rnd() + e.rnd() - 1) * 0.09;
+    const sy = y + (e.rnd() + e.rnd() - 1) * 0.07;
+    g.globalAlpha = (0.2 + 0.5 * e.rnd()) * Math.max(0, Math.min(1, (H - sy) / 0.2));
+    g.fillStyle = '#e4e8f8';
+    g.fillRect(sx, sy, 0.0012, 0.0012);
+  }
+  g.globalAlpha = 1;
   // the stars, more and brighter high up, few in the haze over the sea
   for (let i = 0; i < 420; i++) {
     const y = Y0 + Math.pow(e.rnd(), 1.3) * (H - 0.03 - Y0);

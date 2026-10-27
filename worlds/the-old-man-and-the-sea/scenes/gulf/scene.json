@@ -25,15 +25,15 @@
     ],
     "looks": {
       "night": {
-        "ambient": 0.42,
-        "ambientColor": "#5e70b0",
+        "ambient": 0.5,
+        "ambientColor": "#6a7cc0",
         "haze": 0.07,
         "hazeColor": "#26325e",
         "hazeGlow": 1,
         "saturation": 0.75,
         "tint": "#8fa0d8",
         "tintStrength": 0.12,
-        "brightness": 0.9,
+        "brightness": 1.0,
         "lights": {
           "sun": 0
         }
@@ -57,7 +57,7 @@
         34
       ],
       "color": "#a8b8ff",
-      "strength": 0.7,
+      "strength": 1.0,
       "on": "night"
     }
   ],
@@ -156,19 +156,19 @@
       "id": "glow_water",
       "name": "The water glowing at night",
       "plane": true,
-      "across": -3.3,
-      "distance": 6.8,
+      "across": -2.6,
+      "distance": 5.4,
       "elevation": 0.31,
-      "width": 7,
-      "depth": 2.4,
+      "width": 6.4,
+      "depth": 2.6,
       "glows": true
     },
     {
       "id": "boat",
       "name": "The old man's skiff",
       "unseen": true,
-      "across": -0.9,
-      "distance": 6.2,
+      "across": -0.8,
+      "distance": 5.4,
       "elevation": 0.3,
       "onLand": false,
       "facing": 200,
@@ -271,11 +271,11 @@
     {
       "id": "fish",
       "name": "The great fish",
-      "across": 0.7,
-      "distance": 4.4,
+      "across": -0.35,
+      "distance": 7.0,
       "elevation": 0.3,
       "onLand": false,
-      "facing": 198,
+      "facing": 200,
       "height": 2.4,
       "box": [
         -3.1,
