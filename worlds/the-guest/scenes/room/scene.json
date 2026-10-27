@@ -31,7 +31,11 @@
         4
       ],
       "color": "#f1b493",
-      "strength": 1.1
+      "strength": 0.8,
+      "through": [
+        "window",
+        "class_window"
+      ]
     },
     {
       "id": "window_day",
