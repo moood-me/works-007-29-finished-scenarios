@@ -46,6 +46,13 @@
     },
     "mom_look": "jack",
     "mom_mood": "neutral",
+    "mom_reach": {
+      "r": [
+        0.3,
+        4.3999999999999995,
+        0.62
+      ]
+    },
     "jack_with": [
       "scraps"
     ],
@@ -395,11 +402,11 @@
       "person": {
         "cast": "cast",
         "who": "mom",
-        "turn": 235,
+        "turn": 240,
         "does": "offer_hand"
       },
-      "across": 0.85,
-      "distance": 4.85
+      "across": 0.75,
+      "distance": 4.8
     },
     {
       "id": "jack",
