@@ -7,7 +7,7 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.45,
+    "ambient": 0.55,
     "ambientColor": "#8f88a6",
     "inside": 0.2,
     "bounce": 0.6,
@@ -16,8 +16,8 @@
     "hazeGlow": 0.55,
     "shafts": 0,
     "tint": "#ffd9a8",
-    "tintStrength": 0.07,
-    "saturation": 1.0,
+    "tintStrength": 0.04,
+    "saturation": 0.92,
     "vignette": 0.45,
     "grain": 0.08,
     "brightness": 1.05,
@@ -30,21 +30,27 @@
   "lights": [
     {
       "id": "lamp_0",
-      "of": "bulbs:0#bulb",
+      "across": 0.7,
+      "distance": 4.95,
+      "elevation": 1.92,
       "color": "#ffd79a",
       "strength": 1.2,
       "reach": 4.5
     },
     {
       "id": "lamp_1",
-      "of": "bulbs:1#bulb",
+      "across": 1.7,
+      "distance": 4.95,
+      "elevation": 1.92,
       "color": "#ffd79a",
       "strength": 1.2,
       "reach": 4.5
     },
     {
       "id": "lamp_2",
-      "of": "bulbs:2#bulb",
+      "across": 2.7,
+      "distance": 4.95,
+      "elevation": 1.92,
       "color": "#ffd79a",
       "strength": 1.2,
       "reach": 4.5
@@ -55,6 +61,13 @@
       "color": "#ffe4b8",
       "strength": 1.1,
       "reach": 7
+    },
+    {
+      "id": "dome",
+      "of": "dome#dome",
+      "color": "#ffe6c0",
+      "strength": 1.0,
+      "reach": 6
     },
     {
       "id": "jukebox",
@@ -549,6 +562,22 @@
       ]
     },
     {
+      "id": "dome",
+      "name": "The light on the ceiling by the door",
+      "glows": true,
+      "inside": true,
+      "across": -0.5,
+      "distance": 1.7,
+      "elevation": 2.88,
+      "height": 0.12,
+      "box": [
+        -0.2,
+        -0.13,
+        0.2,
+        0.01
+      ]
+    },
+    {
       "id": "smoke",
       "name": "The cigarette's smoke",
       "inside": true,
@@ -604,11 +633,11 @@
       "person": {
         "cast": "cast",
         "who": "charlie",
-        "turn": 165,
+        "turn": 148,
         "does": "shy_stoop"
       },
-      "across": 0.1,
-      "distance": 3.4
+      "across": 0.05,
+      "distance": 3.5
     },
     {
       "id": "joe",
@@ -617,11 +646,11 @@
       "person": {
         "cast": "cast",
         "who": "joe",
-        "turn": 158,
+        "turn": 138,
         "does": "mug_held"
       },
-      "across": -0.58,
-      "distance": 3.52
+      "across": -0.66,
+      "distance": 3.62
     },
     {
       "id": "frank",
@@ -630,11 +659,11 @@
       "person": {
         "cast": "cast",
         "who": "frank",
-        "turn": 235,
+        "turn": 238,
         "does": "pointing_laugh"
       },
       "across": 1.35,
-      "distance": 3.85
+      "distance": 3.25
     },
     {
       "id": "halloran",
