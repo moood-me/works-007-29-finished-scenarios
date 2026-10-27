@@ -100,6 +100,16 @@
       "on": "panel"
     },
     {
+      "id": "radio_lamp",
+      "across": 1.45,
+      "distance": 3.6,
+      "elevation": 1.5,
+      "color": "#ffd59a",
+      "strength": 0.9,
+      "reach": 1.1,
+      "on": "panel"
+    },
+    {
       "id": "exhaust",
       "of": "fuselage#exhaust",
       "color": "#ff9a50",
@@ -183,7 +193,7 @@
         0,
         1
       ],
-      "means": "the instrument lamp in the front cockpit, lighting Fabien's face from below: 0 off, 1 lit"
+      "means": "the lamps in the cockpits — the instrument lamp before Fabien, lighting his face from below, and the radio's small lamp before the operator: 0 off, 1 lit"
     },
     "bob": {
       "range": [
