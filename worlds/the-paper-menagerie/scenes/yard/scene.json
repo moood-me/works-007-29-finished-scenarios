@@ -394,7 +394,7 @@
         "cast": "cast",
         "who": "mom",
         "turn": 235,
-        "does": "kneel_offer"
+        "does": "offer_hand"
       },
       "across": 0.5,
       "distance": 4.85
