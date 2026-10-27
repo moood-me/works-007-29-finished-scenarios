@@ -32,4 +32,5 @@ The engine's `stand` and `walk`, and: `hands_behind` — stands with the hands c
 `seated` — sits at rest on a chair, the hands on the thighs (a loop; the pelvis at 0.57 m for a man — the seat
 through `<id>_on`); `seated_mug` — sits at a table, the forearms forward, a mug held in both hands (a loop; the hands
 held to a mug by `<id>_reach`); `hand_on_hip` — stands casually, the weight on one leg, the left hand on the hip (a
-loop).
+loop); `sway` — stands swaying slowly from side to side, the weight from foot to foot (a loop; the slow dance on the
+veranda — the hold by `<id>_reach`).
