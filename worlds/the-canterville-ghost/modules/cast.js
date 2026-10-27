@@ -181,7 +181,7 @@ return {
     virginia_habit: {
       kind: 'shapes', style: 'canterville', who: 'woman', garment: 'habit', hair: 'long', face: 'storybook', parts: ['stock'],
       body: { height: 0.9, head: 1.04, shoulders: 0.84, hips: 0.96, thick: 0.8 },
-      colors: { skin: '#f0d0b4', hair: '#b98a46', top: '#2f4a3c', garment: '#2f4a3c', bottom: '#2f4a3c', shoes: '#2a201a', accent: '#ece6da' },
+      colors: { skin: '#f0d0b4', hair: '#b98a46', top: '#3a5a46', garment: '#3a5a46', bottom: '#3a5a46', shoes: '#2a201a', accent: '#ece6da' },
     },
     // Sir Simon de Canterville: a tall gaunt old man three hundred years dead — wild white hair and a long beard, a
     // ruff, an old doublet with puffed trunk hose and a ragged cloak, gone the grey-green of the grave, eyes like red

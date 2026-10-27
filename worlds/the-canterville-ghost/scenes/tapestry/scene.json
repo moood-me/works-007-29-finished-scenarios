@@ -10,7 +10,7 @@
     "ambient": 0.6,
     "ambientColor": "#9a8a78",
     "bounce": 0.6,
-    "haze": 0.08,
+    "haze": 0.12,
     "hazeColor": "#d6b07c",
     "hazeGlow": 0.4,
     "shafts": 1.4,
@@ -365,7 +365,7 @@
       "id": "corridor",
       "name": "The corridor seen through the door",
       "across": -3.9,
-      "distance": 4.1,
+      "distance": 4.7,
       "facing": 90,
       "height": 2.6,
       "box": [
@@ -379,7 +379,7 @@
       "id": "door",
       "name": "The door, ajar",
       "across": -3.2,
-      "distance": 4.6,
+      "distance": 5.2,
       "facing": 120,
       "height": 2.12,
       "box": [
@@ -415,7 +415,7 @@
       "tilt": 90,
       "rotation": 90,
       "reflect": {
-        "strength": 0.3,
+        "strength": 0.2,
         "fade": 0,
         "rough": 0.3
       }
@@ -455,11 +455,11 @@
       "person": {
         "cast": "cast",
         "who": "virginia_habit",
-        "turn": 150,
+        "turn": 120,
         "does": "upright"
       },
-      "across": -1.4,
-      "distance": 3.3
+      "across": -2.0,
+      "distance": 4.8
     }
   ],
   "music": {
