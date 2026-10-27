@@ -64,7 +64,7 @@ return {
       face: 'simple',
       parts: ['suit_bag'],
       body: { height: 1.0, thick: 0.84, shoulders: 0.94 },
-      colors: { skin: '#e8c4a2', hair: '#2b2220', top: '#6f8c63', bottom: '#3d4558', shoes: '#5a4232', accent: '#33384a' },
+      colors: { skin: '#e8c4a2', hair: '#2b2220', top: '#6f8c63', bottom: '#3d4558', shoes: '#5a4232', accent: '#3e4458' },
     },
     // Mom in hospital, forty-five: thin, an ochre kerchief over her head, a pale hospital gown and trousers, her
     // own blue-grey cardigan over them, slippers
