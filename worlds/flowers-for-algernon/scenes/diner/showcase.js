@@ -1,11 +1,11 @@
 // A Friday night at Halloran's: Joe's hand on Charlie's shoulder, Frank pointing at him, everyone laughing; then
 // Frank looks round at Halloran over the counter (the joke passed on), Joe after him — and Charlie, left alone in it,
-// looks down at his glass, the laugh gone off his face; then he looks up at Joe and smiles again.
+// looks down at his glass, the laugh gone off his face; then he looks up again and smiles.
 return [
   {
     name: 'friday',
     run: async s => {
-      s.person('charlie').look('frank');
+      s.person('charlie').look(null);
       s.person('joe').look('charlie');
       s.person('frank').look('charlie');
       s.person('halloran').look('charlie');
@@ -28,7 +28,7 @@ return [
       s.person('charlie').look('charlie#beer');
       s.person('charlie').mood('sad');
       await s.wait(5);
-      s.person('charlie').look('joe');
+      s.person('charlie').look(null);
       await s.wait(0.5);
       s.person('charlie').mood('smile');
       await s.wait(5);

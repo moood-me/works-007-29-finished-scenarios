@@ -13,7 +13,7 @@
     "bounce": 0.6,
     "haze": 0.05,
     "hazeColor": "#6e5c4c",
-    "hazeGlow": 0.55,
+    "hazeGlow": 0.35,
     "shafts": 0,
     "tint": "#ffd9a8",
     "tintStrength": 0.04,
@@ -34,7 +34,7 @@
       "distance": 4.95,
       "elevation": 1.92,
       "color": "#ffd79a",
-      "strength": 1.2,
+      "strength": 0.7,
       "reach": 4.5
     },
     {
@@ -43,7 +43,7 @@
       "distance": 4.95,
       "elevation": 1.92,
       "color": "#ffd79a",
-      "strength": 1.2,
+      "strength": 0.7,
       "reach": 4.5
     },
     {
@@ -52,7 +52,7 @@
       "distance": 4.95,
       "elevation": 1.92,
       "color": "#ffd79a",
-      "strength": 1.2,
+      "strength": 0.7,
       "reach": 4.5
     },
     {
@@ -89,7 +89,7 @@
       "id": "hatch",
       "of": "back_bar#hatch",
       "color": "#ffd9a0",
-      "strength": 0.7,
+      "strength": 0.5,
       "reach": 2.5
     },
     {
@@ -104,7 +104,7 @@
     "cast"
   ],
   "state": {
-    "charlie_look": "frank",
+    "charlie_look": null,
     "charlie_mood": "laugh",
     "charlie_with": [
       "tie",
@@ -633,11 +633,11 @@
       "person": {
         "cast": "cast",
         "who": "charlie",
-        "turn": 148,
+        "turn": 180,
         "does": "shy_stoop"
       },
       "across": 0.05,
-      "distance": 3.5
+      "distance": 3.4
     },
     {
       "id": "joe",
@@ -646,11 +646,11 @@
       "person": {
         "cast": "cast",
         "who": "joe",
-        "turn": 138,
+        "turn": 122,
         "does": "mug_held"
       },
-      "across": -0.66,
-      "distance": 3.62
+      "across": -0.72,
+      "distance": 3.8
     },
     {
       "id": "frank",
@@ -659,11 +659,11 @@
       "person": {
         "cast": "cast",
         "who": "frank",
-        "turn": 238,
+        "turn": 240,
         "does": "pointing_laugh"
       },
-      "across": 1.35,
-      "distance": 3.25
+      "across": 1.3,
+      "distance": 3.9
     },
     {
       "id": "halloran",
