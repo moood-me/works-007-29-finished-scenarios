@@ -42,18 +42,18 @@ for (let i = 0; i < 50; i++) {
 }
 // the near shore: its grass, the path along the water, leaves fallen under the trees
 g.fillStyle = '#8e9052';
-g.fillRect(-300, Y(48), 600, 18);
+g.fillRect(-300, Y(42), 600, 18);
 g.strokeStyle = '#c3b48c';
 g.lineCap = 'round';
 g.lineWidth = 1.3;
 g.beginPath();
-g.moveTo(-80, Y(34.5));
-g.bezierCurveTo(-30, Y(33.2), 0, Y(33.6), 30, Y(34.2));
-g.bezierCurveTo(50, Y(35), 70, Y(39), 90, Y(46));
+g.moveTo(-80, Y(28.5));
+g.bezierCurveTo(-30, Y(27.2), 0, Y(27.4), 30, Y(28.2));
+g.bezierCurveTo(50, Y(29), 70, Y(33), 90, Y(40));
 g.stroke();
 for (let i = 0; i < 900; i++) {
   const x = -60 + e.rnd() * 110;
-  const y = Y(31) - e.rnd() * 18;
+  const y = Y(25) - e.rnd() * 18;
   g.fillStyle = ['#c08a3c', '#a8662e', '#d2aa48', '#8e5a2c'][Math.floor(e.rnd() * 4)];
   g.beginPath();
   g.ellipse(x, y, 0.12 + e.rnd() * 0.12, 0.08 + e.rnd() * 0.06, e.rnd() * 3, 0, Math.PI * 2);
@@ -61,9 +61,9 @@ for (let i = 0; i < 900; i++) {
 }
 // the lake's bed and the mud at either edge of the water
 g.fillStyle = '#4a4434';
-g.fillRect(-300, Y(31.2), 600, 25.6);
+g.fillRect(-300, Y(25.2), 600, 19.6);
 g.fillStyle = '#6a5a40';
-g.fillRect(-300, Y(31.2), 600, 1.2);
+g.fillRect(-300, Y(25.2), 600, 1.2);
 g.fillRect(-300, Y(6.8), 600, 1.1);
 // this bank: rough tawny grass, the bracken in russet drifts, fallen leaves thick under foot
 g.fillStyle = '#8a8247';

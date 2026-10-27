@@ -8,7 +8,7 @@ const LINEN = [0.95, 0.93, 0.88, 1];
 const BRACKEN = [0.7, 0.45, 0.2, 1];
 const STALK = [0.45, 0.3, 0.16, 1];
 // a handful of bracken: each frond's lean aside, forward, its length (a man's metres)
-const FRONDS = [[-0.35, 0.25, 0.3], [0.1, 0.35, 0.36], [0.45, 0.2, 0.28], [-0.1, 0.05, 0.25]];
+const FRONDS = [[-0.4, 0.3, 0.42], [0.05, 0.4, 0.5], [0.45, 0.25, 0.4], [-0.15, 0.1, 0.36], [0.25, 0.05, 0.33]];
 // the face's expressions (a person's <id>_mood; the engine's names): the brows' inner and outer ends up (+) or down,
 // the eyes opened (1 at rest) or narrowed, the mouth's half-width, its corners up (+) or down, how open
 const MOODS = {
@@ -127,22 +127,24 @@ return {
           const knee = mix(P('LeftShin'), P('RightShin'), 0.5);
           const foot = mix(P('LeftFoot'), P('RightFoot'), 0.5);
           const hem = knee[1] + (foot[1] - knee[1]) * 0.6;
-          // the skirt's front at a height: the hips' depth, out by its flare as it goes down to the ground
+          // the front of the body at the waist, the skirt's front below it — out by its flare as it goes down to the
+          // ground: the apron lies on them, a little off
           const d0 = 0.11 * k * F.look.body.hips;
-          const skirt = y => d0 * (1 + 0.5 * Math.max(0, Math.min(1, (hips[1] - y) / (hips[1] - foot[1])))) * 1.1 + 0.025 * k;
-          const front = Math.max(...['Spine1', 'Hips'].map(j => dot(sub(P(j), hips), f)));
+          const body = Math.max(...['Spine1', 'Hips'].map(j => dot(sub(P(j), hips), f))) + 0.12 * k;
+          const skirt = y => d0 * (1 + 0.5 * Math.max(0, Math.min(1, (hips[1] - y) / (hips[1] - foot[1])))) + 0.02 * k;
           const rows = [];
           const held = 2;
           const hanging = 6;
           for (let r = 0; r < held + hanging; r++) {
             const y = r < held ? waist + 0.02 * F.fit.h * (1 - r) : waist + ((hem - waist) * (r - held + 1)) / hanging;
             const u = (waist - y) / (waist - hem);
-            const c = add(hips, add(mul(f, front + skirt(y)), [0, y - hips[1], 0]));
-            const half = 0.16 * k * F.look.body.hips * (1 + 0.25 * u);
+            const front = y > hips[1] ? body : Math.max(body, skirt(y));
+            const c = add(hips, add(mul(f, front), [0, y - hips[1], 0]));
+            const half = 0.13 * k * F.look.body.hips * (1 + 0.2 * u);
             const row = [];
             for (let q = 0; q < 9; q++) {
               const x = (q / 8) * 2 - 1;
-              row.push(add(c, add(mul(s, x * half), mul(f, -0.3 * half * x * x))));
+              row.push(add(c, add(mul(s, x * half), mul(f, -0.45 * half * x * x))));
             }
             rows.push(row);
           }
@@ -189,7 +191,7 @@ return {
             const dir = add(add(up, mul(fw, lean)), mul(sd, sx));
             const p1 = add(c, mul(dir, len * 0.45 * h));
             const p2 = add(add(c, mul(dir, len * h)), mul(fw, 0.05 * h));
-            F.tube([add(c, mul(up, -0.04 * h)), p1, p2], [[0, 0.004 * h], [0.4, 0.006 * h], [0.6, 0.032 * h], [1.4, 0.03 * h], [2, 0.002 * h]], [[0, STALK], [0.5, BRACKEN]], 6, fw, 0.2);
+            F.tube([add(c, mul(up, -0.04 * h)), p1, p2], [[0, 0.005 * h], [0.4, 0.008 * h], [0.6, 0.05 * h], [1.3, 0.045 * h], [2, 0.003 * h]], [[0, STALK], [0.5, BRACKEN]], 6, fw, 0.2);
           }
         },
       },

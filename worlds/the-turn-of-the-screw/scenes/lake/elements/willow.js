@@ -12,12 +12,12 @@ e.layer('crown', { pivot: [3, -5.2], wind: { strength: 0.2, gust: 0.5 }, box: [-
   e.lib.crown(c, e.rnd, 'willow', 3.2, -7.2, 5, 2.8, 200, 0.42);
 });
 e.layer('fronds', { pivot: [3, -6], wind: { strength: 0.45, gust: 0.6 }, box: [-2.5, -7.5, 9, 0] }, c => {
-  for (let i = 0; i < 90; i++) {
+  for (let i = 0; i < 160; i++) {
     const x = -1.4 + e.rnd() * 9.4;
     const top = -6.6 + Math.abs(x - 3.2) * 0.25 + e.rnd() * 0.6;
     const len = 2.8 + e.rnd() * 3.2 - Math.abs(x - 3.2) * 0.25;
     c.strokeStyle = ['#a59b44', '#8c8538', '#bcae50', '#7a7434'][Math.floor(e.rnd() * 4)];
-    c.lineWidth = 0.08 + e.rnd() * 0.06;
+    c.lineWidth = 0.035 + e.rnd() * 0.035;
     c.lineCap = 'round';
     c.beginPath();
     c.moveTo(x, top);
