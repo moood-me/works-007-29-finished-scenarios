@@ -39,9 +39,11 @@
     "cast"
   ],
   "state": {
-    "mom_with": [
-      "plate"
-    ],
+    "mom_wear": {
+      "parts": [
+        "plate"
+      ]
+    },
     "mom_look": "jack",
     "mom_mood": "neutral",
     "jack_with": [
@@ -310,7 +312,7 @@
       "id": "scraps",
       "name": "Torn pieces of Laohu on the grass",
       "plane": true,
-      "across": -0.55,
+      "across": -0.2,
       "distance": 4.3,
       "elevation": 0.006,
       "width": 1.8,
@@ -396,7 +398,7 @@
         "turn": 235,
         "does": "offer_hand"
       },
-      "across": 0.5,
+      "across": 0.85,
       "distance": 4.85
     },
     {
@@ -408,7 +410,7 @@
         "turn": 150,
         "does": "crouch_scraps"
       },
-      "across": -0.35,
+      "across": 0.0,
       "distance": 4.3
     },
     {
@@ -420,7 +422,7 @@
         "turn": 105,
         "does": "holding_toy"
       },
-      "across": -1.55,
+      "across": -1.2,
       "distance": 3.85
     }
   ],

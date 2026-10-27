@@ -115,14 +115,14 @@ return {
         accent: '#8a3b32',
       },
     },
-    // Mark, ten, from across the street: a little taller than Jack, sandy-red hair, a red windbreaker over a cream
-    // T-shirt, jeans, white sneakers; the plastic knight his father sent him in his hands (part `knight`, its shield
+    // Mark, ten, from across the street: a little taller than Jack, sandy-red hair, a red windbreaker, jeans, white
+    // sneakers; the plastic knight his father sent him in his hands (part `knight`, its shield
     // his `accent`)
     mark: {
       kind: 'shapes',
       style: 'paper',
       who: 'child',
-      garment: 'jacket',
+      garment: 'none',
       hair: 'short',
       face: 'simple',
       parts: ['knight'],
@@ -130,8 +130,7 @@ return {
       colors: {
         skin: '#f0cdb0',
         hair: '#b5683a',
-        top: '#e6dcc4',
-        garment: '#b8403a',
+        top: '#b8403a',
         bottom: '#3f5a7a',
         shoes: '#ebe9e2',
         accent: '#2f5fa8',
@@ -266,7 +265,7 @@ return {
           const l = F.P('LeftHand'),
             r = F.P('RightHand'),
             c = mix(l, r, 0.5),
-            h = F.fit.h,
+            h = F.fit.h * 1.5,
             across = unit(sub(r, l)),
             fwd = unit(cross(across, [0, 1, 0])),
             up = [0, 1, 0];
