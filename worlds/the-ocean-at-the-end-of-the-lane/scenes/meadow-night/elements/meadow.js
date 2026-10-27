@@ -18,12 +18,12 @@ for (let k = 0; k < 400; k++) {
   g.ellipse(x, y, r * 1.5, r, 0, 0, Math.PI * 2);
   g.fill();
 }
-// the path from the farm's yard (16 m off, 5 m right) across toward the left, worn pale
+// the path from the farm's yard (16 m off, 6 m right) across toward the left, worn pale
 g.strokeStyle = 'rgba(160, 150, 112, 0.55)';
 g.lineWidth = 0.7;
 g.lineCap = 'round';
 g.beginPath();
-g.moveTo(4.2, 500 - 15);
-g.bezierCurveTo(3.5, 500 - 11, -2, 500 - 10.5, -6, 500 - 13);
+g.moveTo(5.6, 500 - 15);
+g.bezierCurveTo(4.5, 500 - 11, -2, 500 - 10.5, -6, 500 - 13);
 g.bezierCurveTo(-12, 500 - 17, -24, 500 - 22, -40, 500 - 26);
 g.stroke();
