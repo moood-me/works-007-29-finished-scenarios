@@ -376,7 +376,7 @@
       "name": "Steam off the buns",
       "particles": {
         "kind": "smoke",
-        "at": "mom#plate",
+        "at": "mom#hand_l",
         "rate": 5,
         "size": [
           0.05,
