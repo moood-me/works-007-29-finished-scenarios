@@ -1,0 +1,10 @@
+{
+  "title": "An Ordinary Miracle",
+  "description": "After Evgeny Schwartz's play (1954): a wizard's house in green mountains, a young man who seven years ago was a bear cub, and a princess whose kiss would turn him back. A warm fairy tale, mocking and tender.",
+  "themes": {
+    "fairy tale": 60,
+    "romance": 40,
+    "comedy": 20
+  },
+  "main": "yard"
+}

@@ -1,0 +1,717 @@
+{
+  "engine": 3,
+  "title": "The Master's Room",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.7,
+    "ambientColor": "#c2bcb8",
+    "bounce": 0.6,
+    "haze": 0.015,
+    "hazeColor": "#8e98ae",
+    "hazeGlow": 0.35,
+    "tint": "#ffd2a0",
+    "tintStrength": 0.05,
+    "vignette": 0.3,
+    "grain": 0.05,
+    "saturation": 1.05,
+    "wind": [
+      1,
+      0.2,
+      0.3
+    ]
+  },
+  "lights": [
+    {
+      "id": "hearth",
+      "of": "firebox#fire",
+      "color": "#ff9a48",
+      "strength": 2.0,
+      "reach": 4.5,
+      "flicker": 0.3
+    },
+    {
+      "id": "candles",
+      "of": "flames",
+      "color": "#ffc47a",
+      "strength": 1.0,
+      "reach": 3,
+      "flicker": 0.15
+    },
+    {
+      "id": "window",
+      "across": -0.67,
+      "distance": 4.6,
+      "elevation": 1.75,
+      "color": "#a9badb",
+      "strength": 1.0,
+      "reach": 4
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "hozyayka_look": [
+      0.6,
+      3.0,
+      1.35
+    ],
+    "hozyayka_mood": "thinking",
+    "korol_on": [
+      0.75,
+      4.2,
+      0.47
+    ],
+    "korol_look": [
+      -1.0,
+      3.0,
+      1.5
+    ],
+    "korol_mood": "angry",
+    "princess_look": "medved",
+    "princess_mood": "smile",
+    "medved_look": [
+      0.3,
+      3.0,
+      1.5
+    ],
+    "medved_mood": "thinking"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "peaks",
+      "name": "The snowy mountains",
+      "across": 0,
+      "distance": 5000,
+      "height": 600,
+      "box": [
+        -2600,
+        -600,
+        2600,
+        10
+      ]
+    },
+    {
+      "id": "hills",
+      "name": "The green hills",
+      "across": 0,
+      "distance": 500,
+      "height": 16,
+      "box": [
+        -420,
+        -16,
+        420,
+        2
+      ]
+    },
+    {
+      "id": "meadow",
+      "name": "The meadow outside",
+      "plane": true,
+      "across": 0,
+      "distance": 264,
+      "width": 1200,
+      "depth": 512
+    },
+    {
+      "id": "wall_back",
+      "name": "The back wall",
+      "across": 0,
+      "distance": 5.0,
+      "facing": 180,
+      "height": 3.05,
+      "box": [
+        -4.7,
+        -3.05,
+        4.7,
+        0.02
+      ]
+    },
+    {
+      "id": "wall_side",
+      "name": "The side walls",
+      "across": -4.7,
+      "distance": 3.4,
+      "facing": 90,
+      "height": 3.05,
+      "box": [
+        -1.6,
+        -3.05,
+        1.6,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -4.7,
+          "distance": 3.4,
+          "facing": 90
+        },
+        {
+          "across": 4.7,
+          "distance": 3.4,
+          "facing": 270
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "across": 0,
+      "distance": 3.55,
+      "width": 9.4,
+      "depth": 3.1
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "plane": true,
+      "across": 0,
+      "distance": 3.55,
+      "elevation": 3.0,
+      "width": 9.4,
+      "depth": 3.1
+    },
+    {
+      "id": "beam",
+      "name": "The ceiling beams",
+      "across": 0,
+      "distance": 3.7,
+      "elevation": 2.75,
+      "facing": 180,
+      "height": 0.26,
+      "box": [
+        -4.7,
+        -0.27,
+        4.7,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": 0,
+          "distance": 3.7
+        },
+        {
+          "across": 0,
+          "distance": 4.6
+        }
+      ]
+    },
+    {
+      "id": "hangings",
+      "name": "Herbs and onions hanging from the beam",
+      "across": 0,
+      "distance": 3.69,
+      "elevation": 2.75,
+      "facing": 180,
+      "height": 0.75,
+      "box": [
+        -4.2,
+        -0.02,
+        4.2,
+        0.75
+      ]
+    },
+    {
+      "id": "hearth",
+      "name": "The hearth",
+      "across": -2.0,
+      "distance": 4.0,
+      "facing": 180,
+      "height": 1.6,
+      "box": [
+        -0.97,
+        -1.62,
+        0.97,
+        0.02
+      ]
+    },
+    {
+      "id": "firebox",
+      "name": "The fire in the hearth",
+      "across": -2.0,
+      "distance": 4.35,
+      "facing": 180,
+      "glows": true,
+      "height": 1.2,
+      "box": [
+        -0.6,
+        -1.2,
+        0.6,
+        0.02
+      ]
+    },
+    {
+      "id": "hearth_side",
+      "name": "The hearth's side",
+      "across": -1.15,
+      "distance": 4.5,
+      "facing": 90,
+      "height": 1.6,
+      "box": [
+        -0.52,
+        -1.62,
+        0.52,
+        0.02
+      ]
+    },
+    {
+      "id": "hearth_top",
+      "name": "The hearth's top",
+      "plane": true,
+      "across": -2.0,
+      "distance": 4.5,
+      "elevation": 1.6,
+      "width": 1.7,
+      "depth": 1.0
+    },
+    {
+      "id": "stack",
+      "name": "The chimney stack",
+      "across": -2.0,
+      "distance": 4.45,
+      "elevation": 1.6,
+      "facing": 180,
+      "height": 1.42,
+      "box": [
+        -0.59,
+        -1.44,
+        0.59,
+        0.02
+      ]
+    },
+    {
+      "id": "stack_side",
+      "name": "The chimney stack's side",
+      "across": -1.43,
+      "distance": 4.72,
+      "elevation": 1.6,
+      "facing": 90,
+      "height": 1.42,
+      "box": [
+        -0.29,
+        -1.44,
+        0.29,
+        0.02
+      ]
+    },
+    {
+      "id": "pots",
+      "name": "Pots on the hearth",
+      "across": -2.0,
+      "distance": 4.22,
+      "elevation": 1.6,
+      "facing": 180,
+      "height": 0.35,
+      "box": [
+        -0.52,
+        -0.36,
+        0.66,
+        0.02
+      ]
+    },
+    {
+      "id": "fire",
+      "name": "The fire's flames",
+      "particles": {
+        "kind": "fire",
+        "at": [
+          -2.0,
+          4.28,
+          0.44
+        ],
+        "source": [
+          0.5,
+          0.08,
+          0.02
+        ],
+        "size": [
+          0.2,
+          0.04
+        ],
+        "life": [
+          0.5,
+          0.9
+        ]
+      }
+    },
+    {
+      "id": "embers",
+      "name": "Embers rising in the hearth",
+      "particles": {
+        "kind": "embers",
+        "at": [
+          -2.0,
+          4.3,
+          0.5
+        ],
+        "source": [
+          0.4,
+          0.1,
+          0.05
+        ],
+        "rate": 4
+      }
+    },
+    {
+      "id": "window",
+      "name": "The window on the mountains",
+      "across": -0.67,
+      "distance": 4.97,
+      "facing": 180,
+      "height": 2.75,
+      "box": [
+        -1.0,
+        -2.76,
+        1.0,
+        -0.98
+      ]
+    },
+    {
+      "id": "bench",
+      "name": "The bench under the window",
+      "across": -0.67,
+      "distance": 4.68,
+      "facing": 180,
+      "height": 0.67,
+      "box": [
+        -1.07,
+        -0.67,
+        1.07,
+        0.02
+      ]
+    },
+    {
+      "id": "bench_top",
+      "name": "The bench's plank",
+      "plane": true,
+      "across": -0.67,
+      "distance": 4.83,
+      "elevation": 0.46,
+      "width": 2.1,
+      "depth": 0.3
+    },
+    {
+      "id": "table",
+      "name": "The long table",
+      "plane": true,
+      "across": 0.4,
+      "distance": 3.6,
+      "elevation": 0.78,
+      "width": 2.2,
+      "depth": 0.9,
+      "shadow": true
+    },
+    {
+      "id": "table_front",
+      "name": "The table's front and legs",
+      "across": 0.4,
+      "distance": 3.15,
+      "facing": 180,
+      "shadow": true,
+      "height": 0.8,
+      "box": [
+        -1.12,
+        -0.82,
+        1.12,
+        0.02
+      ]
+    },
+    {
+      "id": "candles",
+      "name": "The candlestick",
+      "across": -0.3,
+      "distance": 3.55,
+      "elevation": 0.78,
+      "height": 0.5,
+      "box": [
+        -0.13,
+        -0.5,
+        0.13,
+        0.02
+      ]
+    },
+    {
+      "id": "flames",
+      "name": "The candle flames",
+      "across": -0.3,
+      "distance": 3.54,
+      "elevation": 0.78,
+      "glows": true,
+      "height": 0.6,
+      "box": [
+        -0.14,
+        -0.58,
+        0.14,
+        -0.44
+      ]
+    },
+    {
+      "id": "supper",
+      "name": "Bread, honey and a mug",
+      "across": 1.0,
+      "distance": 3.5,
+      "elevation": 0.78,
+      "height": 0.36,
+      "box": [
+        -0.44,
+        -0.36,
+        0.46,
+        0.02
+      ]
+    },
+    {
+      "id": "chair",
+      "name": "The best chair",
+      "across": 0.75,
+      "distance": 4.45,
+      "facing": 180,
+      "shadow": true,
+      "height": 1.62,
+      "box": [
+        -0.45,
+        -1.62,
+        0.45,
+        0.02
+      ]
+    },
+    {
+      "id": "shelf",
+      "name": "The shelf with the music box",
+      "across": 1.84,
+      "distance": 4.97,
+      "facing": 180,
+      "height": 2.0,
+      "box": [
+        -0.75,
+        -2.0,
+        0.75,
+        -1.4
+      ]
+    },
+    {
+      "id": "chest",
+      "name": "The Mistress's chest",
+      "across": 1.84,
+      "distance": 4.4,
+      "facing": 180,
+      "shadow": true,
+      "height": 0.6,
+      "box": [
+        -0.62,
+        -0.62,
+        0.62,
+        0.02
+      ]
+    },
+    {
+      "id": "chest_top",
+      "name": "The chest's lid",
+      "plane": true,
+      "across": 1.84,
+      "distance": 4.65,
+      "elevation": 0.6,
+      "width": 1.2,
+      "depth": 0.5
+    },
+    {
+      "id": "stairs",
+      "name": "The stair to the loft",
+      "across": 2.5,
+      "distance": 4.25,
+      "facing": 180,
+      "shadow": true,
+      "height": 3.05,
+      "box": [
+        -0.02,
+        -3.05,
+        1.95,
+        0.02
+      ]
+    },
+    {
+      "id": "treads",
+      "name": "The stair's treads",
+      "plane": true,
+      "across": 2.573,
+      "distance": 4.625,
+      "elevation": 0.25,
+      "width": 0.15,
+      "depth": 0.75,
+      "copies": [
+        {
+          "across": 2.573,
+          "distance": 4.625,
+          "elevation": 0.25
+        },
+        {
+          "across": 2.719,
+          "distance": 4.625,
+          "elevation": 0.5
+        },
+        {
+          "across": 2.865,
+          "distance": 4.625,
+          "elevation": 0.75
+        },
+        {
+          "across": 3.011,
+          "distance": 4.625,
+          "elevation": 1.0
+        },
+        {
+          "across": 3.157,
+          "distance": 4.625,
+          "elevation": 1.25
+        },
+        {
+          "across": 3.303,
+          "distance": 4.625,
+          "elevation": 1.5
+        }
+      ]
+    },
+    {
+      "id": "hozyayka",
+      "name": "The Mistress",
+      "person": {
+        "cast": "cast",
+        "who": "hozyayka",
+        "turn": 140,
+        "does": "hands_hips"
+      },
+      "across": -1.05,
+      "distance": 3.5,
+      "shadow": true
+    },
+    {
+      "id": "korol",
+      "name": "The King",
+      "person": {
+        "cast": "cast",
+        "who": "korol",
+        "turn": 180,
+        "does": "seated"
+      },
+      "across": 0.75,
+      "distance": 4.2,
+      "shadow": true
+    },
+    {
+      "id": "princess",
+      "name": "The Princess",
+      "person": {
+        "cast": "cast",
+        "who": "princess",
+        "turn": 160
+      },
+      "across": 0.05,
+      "distance": 4.4,
+      "shadow": true
+    },
+    {
+      "id": "medved",
+      "name": "The Bear",
+      "person": {
+        "cast": "cast",
+        "who": "medved",
+        "turn": 220
+      },
+      "across": 1.75,
+      "distance": 3.35,
+      "shadow": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a tinkling antique music box playing a simple tender waltz, slow, a little out of tune, nostalgic fairy tale",
+        "weight": 1.0
+      },
+      {
+        "text": "bassoon and tuba comic theme, pompous and silly, a tyrant who blames his aunt",
+        "weight": 0.8
+      },
+      {
+        "text": "dramatic strings tremolo and low brass, a thunderstorm gathering over the mountains",
+        "weight": 0.5
+      },
+      {
+        "text": "chamber strings and celesta, a warm fairy-tale waltz, gentle and ironic, 1950s Soviet film score",
+        "weight": 0.7
+      },
+      {
+        "text": "woodwinds, flute, clarinet and bassoon, a light humorous march, a king's procession, comic",
+        "weight": 0.4
+      },
+      {
+        "text": "solo violin playing a wistful folk waltz in a mountain tavern, intimate, warm room tone",
+        "weight": 0
+      },
+      {
+        "text": "soft felt piano and pizzicato strings, playful and tender, a storybook evening",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios and glockenspiel, a moment of magic, sparkling, gentle",
+        "weight": 0
+      },
+      {
+        "text": "accordion and acoustic guitar, an old waltz, bittersweet, golden evening in the mountains",
+        "weight": 0
+      },
+      {
+        "text": "slow cello melody over soft strings, quiet longing, autumn light",
+        "weight": 0
+      },
+      {
+        "text": "pastoral oboe and strings, green mountain meadows, calm summer evening",
+        "weight": 0
+      },
+      {
+        "text": "music box and distant bells, winter night, snow falling, hush",
+        "weight": 0
+      },
+      {
+        "text": "waltz for small orchestra in three-four time, warm and romantic, Soviet film music of the seventies",
+        "weight": 0
+      },
+      {
+        "text": "solo piano, sparse, gentle melancholy, the end of a fairy tale",
+        "weight": 0
+      },
+      {
+        "text": "celesta, vibraphone and soft choir humming, a wizard's quiet wonder",
+        "weight": 0
+      },
+      {
+        "text": "folk fiddle and frame drum, a lively village dance",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, restrained, tender, love that knows its end",
+        "weight": 0
+      },
+      {
+        "text": "ticking clockwork, a music box winding up, a toy melody slowing down",
+        "weight": 0
+      },
+      {
+        "text": "rain on a wooden roof, a crackling hearth, low warm drone, cosy and tense",
+        "weight": 0
+      }
+    ],
+    "bpm": 84,
+    "density": 0.35,
+    "brightness": 0.45,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}
