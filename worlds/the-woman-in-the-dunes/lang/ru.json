@@ -1,0 +1,14 @@
+{
+  "strings": [
+    {
+      "text": "The Woman in the Dunes",
+      "translation": "Женщина в песках",
+      "where": "world.json title"
+    },
+    {
+      "text": "Dunes by a sea that is heard and not seen; a village of houses at the bottom of sand pits, a rope ladder taken up for the night. A teacher who came for a beetle stays at the bottom of one pit with a woman who digs the sand every night. After Kobo Abe.",
+      "translation": "Дюны у моря, которое слышно, но не видно; деревня, где дома стоят на дне песчаных ям, а верёвочную лестницу на ночь поднимают. Учитель, приехавший за жуком, остаётся на дне одной из ям с женщиной, которая каждую ночь копает песок. По Кобо Абэ.",
+      "where": "world.json description"
+    }
+  ]
+}

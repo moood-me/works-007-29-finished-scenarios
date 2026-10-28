@@ -1,0 +1,424 @@
+{
+  "engine": 3,
+  "title": "The House",
+  "caption": "One room at the bottom of the pit; the sand comes in through the roof.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "vignette": 0.22,
+    "grain": 0.08,
+    "haze": 0.05,
+    "hazeColor": "#d8c4a0",
+    "hazeGlow": 0.7,
+    "shafts": 0.15,
+    "ambient": 0.85,
+    "ambientColor": "#cfc6b6",
+    "inside": 0.85,
+    "bounce": 0.5,
+    "tint": "#ffcf9a",
+    "tintStrength": 0.04,
+    "looks": {
+      "night": {
+        "ambient": 0.72,
+        "ambientColor": "#8c9cd2",
+        "haze": 0.07,
+        "hazeColor": "#34426a",
+        "hazeGlow": 1,
+        "tint": "#4a64b0",
+        "tintStrength": 0.1,
+        "saturation": 0.95,
+        "bounce": 0.4,
+        "lights": {
+          "sun": 0
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        200,
+        30
+      ],
+      "color": "#ffd9a8",
+      "strength": 1
+    },
+    {
+      "id": "moon",
+      "from": [
+        160,
+        40
+      ],
+      "color": "#c4d2f2",
+      "strength": 0.6,
+      "on": "night"
+    },
+    {
+      "id": "door_light",
+      "of": "door_opening",
+      "daylight": 1.6,
+      "reach": 7
+    },
+    {
+      "id": "lamp",
+      "of": "lamp#flame",
+      "color": "#ffb766",
+      "strength": 1.8,
+      "reach": 4.5,
+      "flicker": 0.06,
+      "on": "lamp"
+    },
+    {
+      "id": "hearth",
+      "of": "floor#embers",
+      "color": "#ff8a3c",
+      "strength": 0.7,
+      "reach": 1.8,
+      "flicker": 0.3
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "night": 1,
+    "lamp": 1,
+    "man_look": "woman",
+    "woman_look": "man",
+    "man_mood": "thinking",
+    "woman_mood": "smile"
+  },
+  "states": {
+    "night": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — the day: the white-gold light of the pit comes in at the open door, the room dim and warm; 1 — the night: blue moonlight at the door, the room in a clear blue dusk"
+    },
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the oil lamp hung from the beam: 0 out, 1 lit — its warm light on the faces, the mats and the walls"
+    }
+  },
+  "objects": [
+    {
+      "id": "outside_sand",
+      "name": "The pit's floor outside the door",
+      "plane": true,
+      "across": -3,
+      "distance": 9,
+      "width": 10,
+      "depth": 8
+    },
+    {
+      "id": "outside_wall",
+      "name": "The pit's wall outside the door",
+      "across": -3.5,
+      "distance": 12.5,
+      "facing": 180,
+      "height": 6,
+      "box": [
+        -4,
+        -6,
+        4,
+        0.05
+      ]
+    },
+    {
+      "id": "door_opening",
+      "name": "The open door",
+      "unseen": true,
+      "across": -1.65,
+      "distance": 5,
+      "facing": 180,
+      "height": 1.86,
+      "box": [
+        -0.45,
+        -1.86,
+        0.45,
+        0
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "Back wall with the door",
+      "across": 0,
+      "distance": 5,
+      "facing": 180,
+      "height": 3.7,
+      "box": [
+        -2.95,
+        -3.7,
+        2.95,
+        0.12
+      ],
+      "inside": true
+    },
+    {
+      "id": "wall_left",
+      "name": "Left wall",
+      "across": -2.8,
+      "distance": 1,
+      "facing": 90,
+      "height": 3.7,
+      "box": [
+        -0.3,
+        -3.7,
+        4.3,
+        0.12
+      ],
+      "inside": true
+    },
+    {
+      "id": "wall_right",
+      "name": "Right wall",
+      "across": 2.8,
+      "distance": 5,
+      "facing": 270,
+      "height": 3.7,
+      "box": [
+        -0.3,
+        -3.7,
+        4.3,
+        0.12
+      ],
+      "inside": true
+    },
+    {
+      "id": "floor",
+      "name": "Floor, mats and the hearth",
+      "plane": true,
+      "across": 0,
+      "distance": 3,
+      "width": 5.7,
+      "depth": 4.1,
+      "inside": true
+    },
+    {
+      "id": "beam",
+      "name": "Cross-beam",
+      "across": 0,
+      "distance": 2.6,
+      "facing": 180,
+      "height": 2.62,
+      "box": [
+        -3,
+        -2.62,
+        3,
+        -2.2
+      ],
+      "inside": true
+    },
+    {
+      "id": "kettle",
+      "name": "Kettle on the pot-hook over the hearth",
+      "across": -0.9,
+      "distance": 3,
+      "facing": 180,
+      "height": 3.1,
+      "box": [
+        -0.3,
+        -3.1,
+        0.35,
+        -0.05
+      ],
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "lamp",
+      "name": "Oil lamp",
+      "across": 0.15,
+      "distance": 2.66,
+      "facing": 180,
+      "height": 2.25,
+      "box": [
+        -0.2,
+        -2.25,
+        0.2,
+        -1.6
+      ],
+      "inside": true
+    },
+    {
+      "id": "supper",
+      "name": "His supper tray under the open umbrella",
+      "across": 1.25,
+      "distance": 2.85,
+      "facing": 180,
+      "height": 0.62,
+      "box": [
+        -0.62,
+        -0.62,
+        0.62,
+        0.04
+      ],
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "sand_trickle",
+      "name": "Sand running from the roof",
+      "inside": true,
+      "particles": {
+        "kind": "puff",
+        "at": [
+          1.2,
+          2.95,
+          2.45
+        ],
+        "source": [
+          0.03,
+          0.03,
+          0
+        ],
+        "rate": 40,
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "spread": 6,
+        "speed": [
+          0,
+          0.08
+        ],
+        "gravity": 7,
+        "drag": 0.2,
+        "wind": 0,
+        "turbulence": 0.005,
+        "life": [
+          0.85,
+          0.95
+        ],
+        "ground": "stop",
+        "settle": 0.3,
+        "shape": "dot",
+        "size": [
+          0.016,
+          0.012
+        ],
+        "color": "#dcc08e",
+        "opacity": 0.85,
+        "fade": [
+          0,
+          0.05
+        ],
+        "glow": 0,
+        "shadow": 0
+      }
+    },
+    {
+      "id": "steam",
+      "name": "Steam from the kettle",
+      "inside": true,
+      "particles": {
+        "kind": "smoke",
+        "at": "kettle#spout",
+        "direction": [
+          0.4,
+          0,
+          1
+        ],
+        "spread": 20,
+        "speed": [
+          0.06,
+          0.16
+        ],
+        "rate": 3,
+        "life": [
+          1.5,
+          3
+        ],
+        "gravity": -0.2,
+        "size": [
+          0.04,
+          0.3
+        ],
+        "color": "#f2efe8",
+        "opacity": 0.25,
+        "wind": 0
+      }
+    },
+    {
+      "id": "embers",
+      "name": "Sparks over the hearth",
+      "inside": true,
+      "particles": {
+        "kind": "embers",
+        "at": [
+          -0.9,
+          3,
+          0.05
+        ],
+        "source": [
+          0.35,
+          0.35,
+          0
+        ],
+        "rate": 1.5,
+        "life": [
+          1,
+          2
+        ],
+        "size": [
+          0.012,
+          0.006
+        ]
+      }
+    },
+    {
+      "id": "motes",
+      "name": "Sand dust in the air",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0.2,
+          3.4,
+          1.4
+        ],
+        "source": [
+          4,
+          2.4,
+          2.4
+        ]
+      }
+    },
+    {
+      "id": "woman",
+      "name": "The woman",
+      "person": {
+        "cast": "cast",
+        "who": "woman",
+        "turn": 160
+      },
+      "across": -0.35,
+      "distance": 3.75,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "man",
+      "name": "The man",
+      "person": {
+        "cast": "cast",
+        "who": "man",
+        "turn": 215
+      },
+      "across": 1.15,
+      "distance": 3.35,
+      "shadow": true,
+      "inside": true
+    }
+  ]
+}
