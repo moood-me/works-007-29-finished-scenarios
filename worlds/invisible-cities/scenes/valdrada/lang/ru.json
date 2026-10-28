@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Valdrada","translation":"Вальдрада","where":"scenes/valdrada/scene.json title"},
+  {"text":"Everything here happens twice: once in the city, once in the water.","translation":"Здесь всё случается дважды: в городе и в воде.","where":"scenes/valdrada/scene.json caption"}
+]}

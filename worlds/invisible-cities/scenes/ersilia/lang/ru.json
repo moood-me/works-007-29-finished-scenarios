@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Ersilia","translation":"Эрсилия","where":"scenes/ersilia/scene.json title"},
+  {"text":"Everyone has left. The threads stayed.","translation":"Все ушли. Нити остались.","where":"scenes/ersilia/scene.json caption"}
+]}

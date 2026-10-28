@@ -1,0 +1,41 @@
+// The far shore on the right: low hills along the horizon, a cape running out into the water, the lighthouse on its
+// end — a lamp of its own (`far_shore#lamp`) that turns, a flash every few seconds (animate)
+g.fillStyle = '#1e2a4a';
+g.beginPath();
+g.moveTo(80, 1);
+g.lineTo(80, -2);
+g.bezierCurveTo(220, -8, 300, -26, 420, -30);
+g.bezierCurveTo(520, -33, 560, -22, 640, -14);
+g.bezierCurveTo(700, -9, 740, -10, 760, -9);
+g.lineTo(790, -6);
+g.lineTo(800, 1);
+g.closePath();
+g.fill();
+g.beginPath();
+g.moveTo(560, 1);
+g.bezierCurveTo(700, -20, 900, -44, 1100, -40);
+g.bezierCurveTo(1250, -38, 1350, -30, 1500, -26);
+g.lineTo(1500, 1);
+g.closePath();
+g.fill();
+// the lighthouse: a tapering tower, a gallery, the lantern room
+g.fillStyle = '#28324f';
+g.beginPath();
+g.moveTo(762, -9);
+g.lineTo(765, -38);
+g.lineTo(771, -38);
+g.lineTo(774, -9);
+g.closePath();
+g.fill();
+g.fillRect(763, -40, 10, 2);
+g.fillStyle = '#ffe6b0';
+g.fillRect(765.5, -44, 5, 4);
+g.fillStyle = '#28324f';
+g.beginPath();
+g.moveTo(764.5, -44);
+g.lineTo(768, -47);
+g.lineTo(771.5, -44);
+g.closePath();
+g.fill();
+e.light(768, -42, 14, '#ffe2a8', 1.3, 'lamp');
+e.at(768, -42, 'lighthouse');
