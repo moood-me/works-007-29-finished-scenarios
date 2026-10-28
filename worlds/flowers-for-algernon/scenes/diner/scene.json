@@ -30,27 +30,21 @@
   "lights": [
     {
       "id": "lamp_0",
-      "across": 0.7,
-      "distance": 4.95,
-      "elevation": 1.92,
+      "of": "bulbs:0#bulb",
       "color": "#ffd79a",
       "strength": 0.7,
       "reach": 4.5
     },
     {
       "id": "lamp_1",
-      "across": 1.7,
-      "distance": 4.95,
-      "elevation": 1.92,
+      "of": "bulbs:1#bulb",
       "color": "#ffd79a",
       "strength": 0.7,
       "reach": 4.5
     },
     {
       "id": "lamp_2",
-      "across": 2.7,
-      "distance": 4.95,
-      "elevation": 1.92,
+      "of": "bulbs:2#bulb",
       "color": "#ffd79a",
       "strength": 0.7,
       "reach": 4.5

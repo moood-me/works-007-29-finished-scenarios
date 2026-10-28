@@ -26,7 +26,7 @@ face; no camera moves.
   its shader (`jukebox.wgsl`) makes that glow, colours rolling slowly up the arch and bubbles rising in the side
   pilasters (`u_glow`: how bright). Its light `jukebox`.
 - **Light**: night. Three green-shaded lamps over the counter (`pendants`, their bulbs `bulbs` — copies; their lights
-  `lamp_0…2` are points at the bulbs, as a light can't take a copy's e.light by "of"), the fan's milk globe in the
+  `lamp_0…2`, each its copy's e.light, "of": "bulbs:k#bulb"), the fan's milk globe in the
   middle (`fan_globe`, light `globe`), a dome on the ceiling by the door nearer the viewer (`dome`, light `dome`: what
   lights the faces), the jukebox, the neon sign, the hatch, the street lamp outside. The ceiling fan turns slowly
   (`fan_blades`, a card laid face down, its layer turned by its animate; `fan_motor`).
@@ -44,5 +44,3 @@ face; no camera moves.
 What is not right yet / what the engine lacks:
 - Frank's jacket (the built-in `jacket`) flares out from the waist like a skirt over his bent knees.
 - Faces at this distance are small: the moods read only roughly.
-- The lamps over the counter are copies; a light can't be "of" a copy's e.light (`bulbs:0#bulb` is refused), so
-  their lights are points written where the bulbs are.
