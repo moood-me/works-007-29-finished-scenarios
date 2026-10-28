@@ -25,18 +25,18 @@ moves but a look; no camera moves.
 - **Weather and light**: rain over the square and over the river (`rain`, `rain_river`, key `rain`), the grey midday
   (`day`, a far light from behind the viewer's left), haze 0.16.
 - **People** (modules/cast, style `macondo`): the colonel (`stand_umbrella`: upright, his right hand holding the
-  umbrella's handle at his waist; part `umbrella_torn`), looking past us; the doctor (`stand_papers`, `newspapers`);
-  Don Sabas (`stand_umbrella_left`, `umbrella_whole`, his watch chain), smiling at the colonel; the postmaster behind
-  the wicket (`lean_counter`, `inside`); the policeman on the balcony (`stand_rifle`, `rifle`, a cap), looking down at
-  the colonel. Keys `<id>_look`, `<id>_mood`, `<id>_with`.
+  umbrella's handle at his waist; part `umbrella_torn`; a canopy is one dome, which the engine draws from both sides,
+  so its underside shows from below), looking past us; the doctor (`stand_papers`, `newspapers`); Don Sabas
+  (`stand_umbrella_left`, `umbrella_whole`, his watch chain), smiling at the colonel; the postmaster behind the wicket
+  (`lean_counter`, `inside`); the policeman on the balcony (`stand_rifle`, `rifle`, a cap), looking down at the
+  colonel. Keys `<id>_look`, `<id>_mood`, `<id>_with`.
 - **Showcase**: nothing has come — the postmaster looks down, the colonel at the ground; he looks at Don Sabas, who
   laughs; back. The colonel looks only within reach of his head and waist: the wicket and the balcony are behind him.
 
 ## What is not right yet
 
-- The umbrellas' canopies are domes (`F.shell`) and a dome is one-sided: its underside is a second dome in a mirrored
-  frame (cast.js, `open`). The colonel's torn cloth shows little from here (the tear is on its far side); the rain
-  falls through both umbrellas onto the people's shoulders — there is no shelter from particles.
+- The colonel's torn cloth shows little from here (the tear is on its far side); the rain falls through both
+  umbrellas onto the people's shoulders — there is no shelter from particles.
 - The colonel's and Don Sabas's hands are where Kimodo put them for "holding an umbrella at chest height": the shaft
   runs from the hand to over the head, so it leans across the body more than a man would hold it.
 - No drips from the eave and no rings of rain on the puddles (only the rain's splash).
