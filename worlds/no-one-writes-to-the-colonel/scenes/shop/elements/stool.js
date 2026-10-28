@@ -1,0 +1,22 @@
+// A tailor's stool (metres from its foot): a round wooden seat worn dark on three splayed legs and a rung.
+g.fillStyle = '#5a3e2a';
+g.beginPath();
+g.ellipse(0, -0.5, 0.18, 0.04, 0, 0, Math.PI * 2);
+g.fill();
+g.fillStyle = '#4a3222';
+g.fillRect(-0.18, -0.5, 0.36, 0.03);
+g.strokeStyle = '#4a3222';
+g.lineWidth = 0.03;
+g.beginPath();
+g.moveTo(-0.12, -0.47);
+g.lineTo(-0.17, 0);
+g.moveTo(0.12, -0.47);
+g.lineTo(0.17, 0);
+g.moveTo(0, -0.47);
+g.lineTo(0, 0);
+g.stroke();
+g.lineWidth = 0.018;
+g.beginPath();
+g.moveTo(-0.15, -0.18);
+g.lineTo(0.15, -0.18);
+g.stroke();
