@@ -1,0 +1,1107 @@
+{
+ "engine": 3,
+ "title": "The Dragon's Lair",
+ "caption": "Her breath is the mist.",
+ "horizon": 0.36,
+ "camera": {
+  "mode": "walk",
+  "area": [
+   -2.5,
+   2.5,
+   0,
+   5
+  ]
+ },
+ "modules": [
+  "cast"
+ ],
+ "light": {
+  "vignette": 0.22,
+  "grain": 0.06,
+  "haze": 0.22,
+  "hazeColor": "#e9dcd6",
+  "hazeGlow": 0.6,
+  "shafts": 0.45,
+  "ambient": 0.8,
+  "ambientColor": "#e3e0ee",
+  "bounce": 0.6,
+  "saturation": 1.05,
+  "tint": "#f4d9c8",
+  "tintStrength": 0.1,
+  "wind": [
+   -1,
+   0.1,
+   0.35
+  ],
+  "looks": {
+   "thick": {
+    "haze": 0.7,
+    "hazeColor": "#ebe4e1",
+    "ambient": 0.9,
+    "shafts": 0.3
+   },
+   "clear": {
+    "haze": 0.08,
+    "hazeColor": "#d8dfe6",
+    "ambient": 0.8,
+    "ambientColor": "#e8edf3",
+    "shafts": 0.2,
+    "tint": "#e2e9f0",
+    "tintStrength": 0.05
+   }
+  }
+ },
+ "lights": [
+  {
+   "id": "sun",
+   "from": "sky#sun",
+   "color": "#ffcd9c",
+   "strength": 0.9
+  }
+ ],
+ "state": {
+  "thick": 0,
+  "clear": 0,
+  "breath": 1,
+  "querig_eye": 0,
+  "gawain_reach": {
+   "r": [
+    0.675,
+    7.367,
+    0.92
+   ],
+   "l": [
+    0.757,
+    7.309,
+    0.92
+   ]
+  },
+  "axl_reach": {
+   "l": "beatrice#hand_r"
+  },
+  "beatrice_reach": {
+   "r": "axl#hand_l"
+  },
+  "gawain_look": "axl#head",
+  "wistan_look": "gawain#head",
+  "axl_look": "gawain#head",
+  "beatrice_look": "axl#head",
+  "gawain_mood": "sad",
+  "axl_mood": "thinking",
+  "beatrice_mood": "afraid"
+ },
+ "states": {
+  "thick": {
+   "range": [
+    0,
+    1
+   ],
+   "smooth": true,
+   "means": "the mist thicker: 1 — the far slopes gone, the pit filling with white (the game's Mist end of its scale)"
+  },
+  "clear": {
+   "range": [
+    0,
+    1
+   ],
+   "smooth": true,
+   "means": "the air clear: 1 — the mist gone, a cold clear morning, the mountain seen (the game's Clear end; after her death, with breath 0)"
+  },
+  "breath": {
+   "range": [
+    0,
+    1
+   ],
+   "smooth": true,
+   "means": "Querig's breath: 1 — she breathes, her flank rising and falling, mist pouring from her nostrils and welling up in the pit; 0 — no breath (she is dead: the mist stops coming)"
+  },
+  "querig_eye": {
+   "range": [
+    0,
+    1
+   ],
+   "smooth": true,
+   "means": "Querig's eyelid: 0 shut, 1 open (her old amber eye)"
+  }
+ },
+ "objects": [
+  {
+   "id": "sky",
+   "name": "Sky",
+   "sky": true
+  },
+  {
+   "id": "mountain",
+   "name": "Mountain",
+   "across": -40,
+   "distance": 320,
+   "box": [
+    -400,
+    -62,
+    400,
+    6
+   ]
+  },
+  {
+   "id": "mist_mount",
+   "name": "Mist off the mountain",
+   "across": -20,
+   "distance": 280,
+   "box": [
+    -400,
+    -40,
+    400,
+    4
+   ]
+  },
+  {
+   "id": "mist_far",
+   "name": "Mist on the far slope",
+   "across": 0,
+   "distance": 75,
+   "box": [
+    -150,
+    -14,
+    150,
+    1
+   ]
+  },
+  {
+   "id": "land",
+   "name": "Land",
+   "plane": true,
+   "drape": true,
+   "across": 0,
+   "distance": 140,
+   "width": 300,
+   "depth": 340
+  },
+  {
+   "id": "crags",
+   "name": "Crags",
+   "across": 20,
+   "distance": 25,
+   "height": 2.2,
+   "box": [
+    -1.4,
+    -2.3,
+    1.4,
+    0.1
+   ],
+   "shadow": true,
+   "copies": [
+    {
+     "across": 24.6,
+     "distance": 16.08,
+     "scale": 1.5,
+     "flip": false,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": 23.6,
+     "distance": 29.29,
+     "scale": 0.7,
+     "flip": true,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": 17.97,
+     "distance": 34.01,
+     "scale": 1.8,
+     "flip": true,
+     "tint": "#e8e4de"
+    },
+    {
+     "across": 14.94,
+     "distance": 34.52,
+     "scale": 0.6,
+     "flip": false,
+     "tint": "#ffffff"
+    },
+    {
+     "across": 4.87,
+     "distance": 32.9,
+     "scale": 1.2,
+     "flip": true,
+     "tint": "#f2eee8"
+    },
+    {
+     "across": 0.06,
+     "distance": 30.1,
+     "scale": 0.8,
+     "flip": true,
+     "tint": "#ffffff"
+    },
+    {
+     "across": 5.5,
+     "distance": 26.5,
+     "scale": 0.5,
+     "flip": true,
+     "tint": "#f2eee8"
+    },
+    {
+     "across": 16.5,
+     "distance": 26,
+     "scale": 0.6,
+     "flip": false,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": -18.84,
+     "distance": 20.46,
+     "scale": 0.86,
+     "flip": true,
+     "tint": "#e8e4de"
+    },
+    {
+     "across": -20.67,
+     "distance": 25.49,
+     "scale": 1.07,
+     "flip": true,
+     "tint": "#ffffff"
+    },
+    {
+     "across": -19.4,
+     "distance": 31.53,
+     "scale": 0.88,
+     "flip": true,
+     "tint": "#ffffff"
+    },
+    {
+     "across": -16.7,
+     "distance": 27.33,
+     "scale": 0.79,
+     "flip": true,
+     "tint": "#ffffff"
+    }
+   ]
+  },
+  {
+   "id": "mist_pit",
+   "name": "Mist in the pit",
+   "across": 11.5,
+   "distance": 28,
+   "box": [
+    -34,
+    -7,
+    34,
+    0.4
+   ]
+  },
+  {
+   "id": "querig",
+   "name": "Querig",
+   "across": 12.05,
+   "distance": 21,
+   "box": [
+    -7.2,
+    -4.0,
+    6.4,
+    0.3
+   ],
+   "shadow": true
+  },
+  {
+   "id": "breath",
+   "name": "Querig's breath",
+   "particles": {
+    "kind": "smoke",
+    "at": "querig#nostrils",
+    "amount": "breath",
+    "rate": 2.5,
+    "direction": [
+     -1,
+     0,
+     0.25
+    ],
+    "spread": 25,
+    "speed": [
+     0.3,
+     0.5
+    ],
+    "gravity": -0.08,
+    "drag": 0.4,
+    "wind": 0.4,
+    "turbulence": 0.4,
+    "size": [
+     0.3,
+     2.6
+    ],
+    "life": [
+     6,
+     9
+    ],
+    "color": "#fbfbf8",
+    "opacity": 0.75,
+    "sheer": 0.8,
+    "shadow": 0
+   }
+  },
+  {
+   "id": "pit_mist",
+   "name": "Mist welling up in the pit",
+   "across": 11.5,
+   "distance": 21,
+   "elevation": 0.4,
+   "particles": {
+    "kind": "smoke",
+    "amount": "breath",
+    "source": [
+     14,
+     9,
+     0.4
+    ],
+    "rate": 1.2,
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "spread": 40,
+    "speed": [
+     0.05,
+     0.15
+    ],
+    "gravity": -0.12,
+    "drag": 0.5,
+    "wind": 0.5,
+    "turbulence": 0.6,
+    "size": [
+     2,
+     6
+    ],
+    "life": [
+     10,
+     16
+    ],
+    "color": "#fbf8f4",
+    "opacity": 0.3,
+    "sheer": 0.7,
+    "shadow": 0
+   }
+  },
+  {
+   "id": "mist_low",
+   "name": "Low mist about her feet",
+   "across": 11.5,
+   "distance": 17.5,
+   "box": [
+    -12,
+    -1.0,
+    12,
+    0.2
+   ]
+  },
+  {
+   "id": "boulders",
+   "name": "Boulders",
+   "across": 0,
+   "distance": 10,
+   "height": 1.1,
+   "box": [
+    -1.15,
+    -1.2,
+    1.15,
+    0.1
+   ],
+   "shadow": true,
+   "copies": [
+    {
+     "across": 3.0,
+     "distance": 2.5,
+     "scale": 1.1,
+     "flip": false,
+     "tint": "#f2eee8"
+    },
+    {
+     "across": -2.7,
+     "distance": 2.4,
+     "scale": 0.45,
+     "flip": true,
+     "tint": "#ffffff"
+    },
+    {
+     "across": -4.48,
+     "distance": 3.01,
+     "scale": 0.57,
+     "flip": true,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": -0.21,
+     "distance": 8.46,
+     "scale": 0.32,
+     "flip": false,
+     "tint": "#e8e4de"
+    },
+    {
+     "across": -3.01,
+     "distance": 4.13,
+     "scale": 0.59,
+     "flip": false,
+     "tint": "#ffffff"
+    },
+    {
+     "across": 1.48,
+     "distance": 4.75,
+     "scale": 0.25,
+     "flip": true,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": -5.43,
+     "distance": 12.51,
+     "scale": 0.48,
+     "flip": true,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": -6.99,
+     "distance": 15.87,
+     "scale": 0.55,
+     "flip": false,
+     "tint": "#e8e4de"
+    },
+    {
+     "across": -6.76,
+     "distance": 15.97,
+     "scale": 0.32,
+     "flip": false,
+     "tint": "#ffffff"
+    },
+    {
+     "across": -5.24,
+     "distance": 3.55,
+     "scale": 0.4,
+     "flip": true,
+     "tint": "#e8e4de"
+    },
+    {
+     "across": -2.37,
+     "distance": 13.79,
+     "scale": 0.28,
+     "flip": true,
+     "tint": "#f2eee8"
+    },
+    {
+     "across": -2.58,
+     "distance": 3.2,
+     "scale": 0.47,
+     "flip": true,
+     "tint": "#f6f0ea"
+    },
+    {
+     "across": -5.37,
+     "distance": 13.82,
+     "scale": 0.39,
+     "flip": false,
+     "tint": "#e8e4de"
+    },
+    {
+     "across": -4.72,
+     "distance": 6.24,
+     "scale": 0.51,
+     "flip": false,
+     "tint": "#f2eee8"
+    }
+   ]
+  },
+  {
+   "id": "tufts",
+   "name": "Grass",
+   "across": 0,
+   "distance": 10,
+   "height": 0.55,
+   "box": [
+    -0.55,
+    -0.65,
+    0.55,
+    0.04
+   ],
+   "copies": [
+    {
+     "across": -3.4,
+     "distance": 16.96,
+     "scale": 0.94,
+     "flip": true
+    },
+    {
+     "across": -8.15,
+     "distance": 2.57,
+     "scale": 0.96,
+     "flip": true
+    },
+    {
+     "across": -3.34,
+     "distance": 18.15,
+     "scale": 0.89,
+     "flip": false
+    },
+    {
+     "across": -1.16,
+     "distance": 12.55,
+     "scale": 1.25,
+     "flip": false
+    },
+    {
+     "across": -1.85,
+     "distance": 4.34,
+     "scale": 1.06,
+     "flip": false
+    },
+    {
+     "across": -6.39,
+     "distance": 3.17,
+     "scale": 1.24,
+     "flip": false
+    },
+    {
+     "across": -3.01,
+     "distance": 3.06,
+     "scale": 0.77,
+     "flip": true
+    },
+    {
+     "across": -0.97,
+     "distance": 7.84,
+     "scale": 1.28,
+     "flip": true
+    },
+    {
+     "across": -2.34,
+     "distance": 4.61,
+     "scale": 0.83,
+     "flip": false
+    },
+    {
+     "across": -3.92,
+     "distance": 12.18,
+     "scale": 0.82,
+     "flip": true
+    },
+    {
+     "across": -8.73,
+     "distance": 14.96,
+     "scale": 0.65,
+     "flip": true
+    },
+    {
+     "across": -8.77,
+     "distance": 4.57,
+     "scale": 0.92,
+     "flip": true
+    },
+    {
+     "across": 5.92,
+     "distance": 2.5,
+     "scale": 1.12,
+     "flip": true
+    },
+    {
+     "across": -4.19,
+     "distance": 23.18,
+     "scale": 0.66,
+     "flip": true
+    },
+    {
+     "across": 4.57,
+     "distance": 3.25,
+     "scale": 1.26,
+     "flip": true
+    },
+    {
+     "across": -9.75,
+     "distance": 12.75,
+     "scale": 1.06,
+     "flip": true
+    },
+    {
+     "across": -8.77,
+     "distance": 1.78,
+     "scale": 0.66,
+     "flip": true
+    },
+    {
+     "across": -2.92,
+     "distance": 7.29,
+     "scale": 0.83,
+     "flip": false
+    },
+    {
+     "across": -2.22,
+     "distance": 17.12,
+     "scale": 0.92,
+     "flip": false
+    },
+    {
+     "across": -1.25,
+     "distance": 13.17,
+     "scale": 0.82,
+     "flip": true
+    },
+    {
+     "across": 6.28,
+     "distance": 2.0,
+     "scale": 0.68,
+     "flip": false
+    },
+    {
+     "across": -1.73,
+     "distance": 16.35,
+     "scale": 1.23,
+     "flip": true
+    },
+    {
+     "across": 0.4,
+     "distance": 4.72,
+     "scale": 0.96,
+     "flip": false
+    },
+    {
+     "across": 5.82,
+     "distance": 9.21,
+     "scale": 0.95,
+     "flip": true
+    },
+    {
+     "across": -5.74,
+     "distance": 10.61,
+     "scale": 1.04,
+     "flip": false
+    },
+    {
+     "across": -6.6,
+     "distance": 18.48,
+     "scale": 0.75,
+     "flip": true
+    },
+    {
+     "across": -6.43,
+     "distance": 22.22,
+     "scale": 0.69,
+     "flip": true
+    },
+    {
+     "across": -9.31,
+     "distance": 21.65,
+     "scale": 0.64,
+     "flip": false
+    },
+    {
+     "across": -8.08,
+     "distance": 19.99,
+     "scale": 0.93,
+     "flip": false
+    },
+    {
+     "across": -3.5,
+     "distance": 20.2,
+     "scale": 0.96,
+     "flip": false
+    },
+    {
+     "across": -4.55,
+     "distance": 15.56,
+     "scale": 1.18,
+     "flip": true
+    },
+    {
+     "across": -3.98,
+     "distance": 7.82,
+     "scale": 1.05,
+     "flip": false
+    },
+    {
+     "across": -3.11,
+     "distance": 15.92,
+     "scale": 0.73,
+     "flip": false
+    },
+    {
+     "across": 3.25,
+     "distance": 7.49,
+     "scale": 1.16,
+     "flip": false
+    },
+    {
+     "across": -8.15,
+     "distance": 4.09,
+     "scale": 0.97,
+     "flip": false
+    },
+    {
+     "across": -8.67,
+     "distance": 9.8,
+     "scale": 0.74,
+     "flip": false
+    },
+    {
+     "across": 2.14,
+     "distance": 7.26,
+     "scale": 1.13,
+     "flip": false
+    },
+    {
+     "across": -6.15,
+     "distance": 2.31,
+     "scale": 1.15,
+     "flip": false
+    },
+    {
+     "across": -1.49,
+     "distance": 22.8,
+     "scale": 1.3,
+     "flip": true
+    },
+    {
+     "across": -3.02,
+     "distance": 6.54,
+     "scale": 1.22,
+     "flip": true
+    },
+    {
+     "across": -6.65,
+     "distance": 11.64,
+     "scale": 1.22,
+     "flip": true
+    },
+    {
+     "across": -8.32,
+     "distance": 23.6,
+     "scale": 1.21,
+     "flip": false
+    },
+    {
+     "across": -7.9,
+     "distance": 22.3,
+     "scale": 0.77,
+     "flip": true
+    },
+    {
+     "across": -4.73,
+     "distance": 3.48,
+     "scale": 1.28,
+     "flip": false
+    },
+    {
+     "across": 2.21,
+     "distance": 7.39,
+     "scale": 0.61,
+     "flip": false
+    },
+    {
+     "across": -4.19,
+     "distance": 2.34,
+     "scale": 0.89,
+     "flip": true
+    },
+    {
+     "across": -6.29,
+     "distance": 22.19,
+     "scale": 1.21,
+     "flip": true
+    },
+    {
+     "across": -0.94,
+     "distance": 2.29,
+     "scale": 1.08,
+     "flip": false
+    },
+    {
+     "across": -2.52,
+     "distance": 16.75,
+     "scale": 1.22,
+     "flip": false
+    },
+    {
+     "across": -0.5,
+     "distance": 11.39,
+     "scale": 1.18,
+     "flip": false
+    },
+    {
+     "across": -5.64,
+     "distance": 21.91,
+     "scale": 1.07,
+     "flip": false
+    },
+    {
+     "across": -7.6,
+     "distance": 8.35,
+     "scale": 0.98,
+     "flip": true
+    },
+    {
+     "across": -3.01,
+     "distance": 12.7,
+     "scale": 0.68,
+     "flip": true
+    },
+    {
+     "across": -0.85,
+     "distance": 9.98,
+     "scale": 0.63,
+     "flip": false
+    },
+    {
+     "across": -8.42,
+     "distance": 4.24,
+     "scale": 0.72,
+     "flip": false
+    },
+    {
+     "across": -3.13,
+     "distance": 19.51,
+     "scale": 0.77,
+     "flip": true
+    },
+    {
+     "across": 5.32,
+     "distance": 9.14,
+     "scale": 1.25,
+     "flip": false
+    },
+    {
+     "across": -8.15,
+     "distance": 13.31,
+     "scale": 0.89,
+     "flip": true
+    },
+    {
+     "across": 1.94,
+     "distance": 7.36,
+     "scale": 1.28,
+     "flip": true
+    },
+    {
+     "across": -9.8,
+     "distance": 5.0,
+     "scale": 0.8,
+     "flip": false
+    },
+    {
+     "across": -1.52,
+     "distance": 7.0,
+     "scale": 0.95,
+     "flip": false
+    },
+    {
+     "across": -9.6,
+     "distance": 21.27,
+     "scale": 1.04,
+     "flip": false
+    },
+    {
+     "across": -0.85,
+     "distance": 15.36,
+     "scale": 1.2,
+     "flip": false
+    },
+    {
+     "across": -6.33,
+     "distance": 6.41,
+     "scale": 0.98,
+     "flip": false
+    },
+    {
+     "across": 5.55,
+     "distance": 4.57,
+     "scale": 1.04,
+     "flip": true
+    },
+    {
+     "across": 0.25,
+     "distance": 5.58,
+     "scale": 1.22,
+     "flip": true
+    },
+    {
+     "across": -6.69,
+     "distance": 19.01,
+     "scale": 0.67,
+     "flip": false
+    },
+    {
+     "across": -8.5,
+     "distance": 4.48,
+     "scale": 0.87,
+     "flip": true
+    },
+    {
+     "across": -6.59,
+     "distance": 17.36,
+     "scale": 1.04,
+     "flip": false
+    },
+    {
+     "across": -0.31,
+     "distance": 3.66,
+     "scale": 0.85,
+     "flip": false
+    },
+    {
+     "across": -2.3,
+     "distance": 1.9,
+     "scale": 1.9,
+     "flip": true
+    },
+    {
+     "across": -2.9,
+     "distance": 2.6,
+     "scale": 1.6,
+     "flip": false
+    },
+    {
+     "across": -1.9,
+     "distance": 2.4,
+     "scale": 1.3,
+     "flip": false
+    },
+    {
+     "across": 2.2,
+     "distance": 1.8,
+     "scale": 1.7,
+     "flip": true
+    },
+    {
+     "across": 3.6,
+     "distance": 3.0,
+     "scale": 1.5,
+     "flip": false
+    }
+   ]
+  },
+  {
+   "id": "wistan",
+   "name": "Wistan",
+   "person": {
+    "cast": "cast",
+    "who": "wistan",
+    "turn": 120
+   },
+   "across": -4.0,
+   "distance": 9.6,
+   "shadow": true
+  },
+  {
+   "id": "beatrice",
+   "name": "Beatrice",
+   "person": {
+    "cast": "cast",
+    "who": "beatrice",
+    "turn": 40
+   },
+   "across": -1.92,
+   "distance": 5.51,
+   "shadow": true
+  },
+  {
+   "id": "axl",
+   "name": "Axl",
+   "person": {
+    "cast": "cast",
+    "who": "axl",
+    "turn": 40
+   },
+   "across": -1.3,
+   "distance": 5.0,
+   "shadow": true
+  },
+  {
+   "id": "gawain",
+   "name": "Sir Gawain",
+   "person": {
+    "cast": "cast",
+    "who": "gawain",
+    "turn": 215
+   },
+   "across": 0.9,
+   "distance": 7.6,
+   "shadow": true
+  }
+ ],
+ "music": {
+  "prompts": [
+   {
+    "text": "a vast slow breathing drone, deep and even, an old creature asleep under the mountain",
+    "weight": 1.2
+   },
+   {
+    "text": "slow solo cello, long bowed notes, an evening shore, tender and resigned",
+    "weight": 0.6
+   },
+   {
+    "text": "soft harp plucked rarely, open fifths, water lapping, early medieval air",
+    "weight": 0
+   },
+   {
+    "text": "quiet low drone like a far sea, ambient, barely moving",
+    "weight": 0.6
+   },
+   {
+    "text": "lone wooden flute, modal folk melody over water, unhurried",
+    "weight": 0
+   },
+   {
+    "text": "string quartet, hushed sustained chords, autumnal and still",
+    "weight": 0
+   },
+   {
+    "text": "wind over moorland, airy pads, no rhythm",
+    "weight": 0
+   },
+   {
+    "text": "hurdy-gurdy drone with a slow plain melody, ancient and worn",
+    "weight": 0
+   },
+   {
+    "text": "solo piano, very slow, few notes, memory and forgetting",
+    "weight": 0
+   },
+   {
+    "text": "low male choir humming without words, distant, reverent",
+    "weight": 0.7
+   },
+   {
+    "text": "nyckelharpa, sorrowful Nordic folk, slow waltz feel",
+    "weight": 0
+   },
+   {
+    "text": "bowed psaltery and frame drum heartbeat, very slow, ritual",
+    "weight": 0
+   },
+   {
+    "text": "warm clarinet, tender lullaby, close and quiet",
+    "weight": 0
+   },
+   {
+    "text": "minimal ambient guitar swells, long reverb, misty",
+    "weight": 0
+   },
+   {
+    "text": "celtic whistle and bodhran, slow march, weary travellers",
+    "weight": 0
+   },
+   {
+    "text": "dark ambient, deep sub bass and distant metallic resonance, unease",
+    "weight": 0.9
+   },
+   {
+    "text": "viola da gamba, renaissance lament, intimate",
+    "weight": 0
+   },
+   {
+    "text": "glass harmonica shimmer, dreamlike, forgetting",
+    "weight": 0.4
+   },
+   {
+    "text": "slow lute arpeggios, pastoral, grey morning",
+    "weight": 0
+   }
+  ],
+  "bpm": 60,
+  "density": 0.15,
+  "brightness": 0.3,
+  "scale": "D_MAJOR_B_MINOR"
+ }
+}
