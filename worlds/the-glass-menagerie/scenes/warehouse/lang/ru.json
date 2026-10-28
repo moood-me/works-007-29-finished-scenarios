@@ -1,5 +1,5 @@
 {"strings": [
-  {"text":"NO SMOKING","translation":"НЕ КУРИТЬ","where":"scenes/warehouse/elements/back_wall.js"},
-  {"text":"The Warehouse","translation":"Склад","where":"scenes/warehouse/scene.json title"},
-  {"text":"A week later, in the shoe warehouse. Tom writes on a shoebox lid; Jim has a foot up on a carton.","translation":"Неделю спустя, на обувном складе. Том пишет на крышке от коробки; Джим поставил ногу на ящик.","where":"scenes/warehouse/scene.json caption"}
+  {"text":"NO SMOKING","translation":"НЕ КУРИТЬ","where":"worlds/the-glass-menagerie/scenes/warehouse/elements/back_wall.js"},
+  {"text":"The Warehouse","translation":"Склад","where":"worlds/the-glass-menagerie/scenes/warehouse/scene.json title"},
+  {"text":"A week later, in the shoe warehouse. Tom writes on a shoebox lid; Jim has a foot up on a carton.","translation":"Неделю спустя, на обувном складе. Том пишет на крышке от коробки; Джим поставил ногу на ящик.","where":"worlds/the-glass-menagerie/scenes/warehouse/scene.json caption"}
 ]}

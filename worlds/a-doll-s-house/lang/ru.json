@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"A Doll's House","translation":"Кукольный дом","where":"world.json title"},
-  {"text":"A warm flat at Christmas. A wife keeps a secret debt; a letter waits in the locked box.","translation":"Тёплая квартира в Рождество. Жена хранит тайный долг; в запертом ящике ждёт письмо.","where":"world.json description"}
+  {"text":"A Doll's House","translation":"Кукольный дом","where":"worlds/a-doll-s-house/world.json title"},
+  {"text":"A warm flat at Christmas. A wife keeps a secret debt; a letter waits in the locked box.","translation":"Тёплая квартира в Рождество. Жена хранит тайный долг; в запертом ящике ждёт письмо.","where":"worlds/a-doll-s-house/world.json description"}
 ]}

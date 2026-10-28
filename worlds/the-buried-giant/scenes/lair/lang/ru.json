@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Dragon's Lair","translation":"Логово драконицы","where":"scenes/lair/scene.json title"},
-  {"text":"Her breath is the mist.","translation":"Её дыхание — туман.","where":"scenes/lair/scene.json caption"}
+  {"text":"The Dragon's Lair","translation":"Логово драконицы","where":"worlds/the-buried-giant/scenes/lair/scene.json title"},
+  {"text":"Her breath is the mist.","translation":"Её дыхание — туман.","where":"worlds/the-buried-giant/scenes/lair/scene.json caption"}
 ]}

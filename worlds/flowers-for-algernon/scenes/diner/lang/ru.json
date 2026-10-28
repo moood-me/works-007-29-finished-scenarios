@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"Halloran's","translation":"У Холлорана","where":"scenes/diner/scene.json title"},
-  {"text":"Friday night. Joe and Frank are buying, and everyone is laughing.","translation":"Вечер пятницы. Джо и Фрэнк угощают, и все смеются.","where":"scenes/diner/scene.json caption"}
+  {"text":"Halloran's","translation":"У Холлорана","where":"worlds/flowers-for-algernon/scenes/diner/scene.json title"},
+  {"text":"Friday night. Joe and Frank are buying, and everyone is laughing.","translation":"Вечер пятницы. Джо и Фрэнк угощают, и все смеются.","where":"worlds/flowers-for-algernon/scenes/diner/scene.json caption"}
 ]}

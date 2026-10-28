@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Square by the River","translation":"Площадь у реки","where":"scenes/square/scene.json title"},
-  {"text":"Friday. The launch is in with the mail, and the colonel is at the post office, as every Friday.","translation":"Пятница. Катер пришёл с почтой, и полковник у почты, как каждую пятницу.","where":"scenes/square/scene.json caption"}
+  {"text":"The Square by the River","translation":"Площадь у реки","where":"worlds/no-one-writes-to-the-colonel/scenes/square/scene.json title"},
+  {"text":"Friday. The launch is in with the mail, and the colonel is at the post office, as every Friday.","translation":"Пятница. Катер пришёл с почтой, и полковник у почты, как каждую пятницу.","where":"worlds/no-one-writes-to-the-colonel/scenes/square/scene.json caption"}
 ]}

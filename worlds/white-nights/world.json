@@ -7,5 +7,6 @@
     "melancholy": 40,
     "classic": 30
   },
-  "main": "embankment"
+  "main": "embankment",
+  "languages": ["en", "ru"]
 }

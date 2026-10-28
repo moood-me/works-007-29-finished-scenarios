@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Meadow","translation":"Луг","where":"scenes/meadow/scene.json title"},
-  {"text":"Below, where the pale flowers grow. She sits by the stream.","translation":"Внизу, где растут бледные цветы. Она сидит у ручья.","where":"scenes/meadow/scene.json caption"}
+  {"text":"The Meadow","translation":"Луг","where":"worlds/orpheus-and-eurydice/scenes/meadow/scene.json title"},
+  {"text":"Below, where the pale flowers grow. She sits by the stream.","translation":"Внизу, где растут бледные цветы. Она сидит у ручья.","where":"worlds/orpheus-and-eurydice/scenes/meadow/scene.json caption"}
 ]}

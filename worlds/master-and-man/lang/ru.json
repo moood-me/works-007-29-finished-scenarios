@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"Master and Man","translation":"Хозяин и работник","where":"world.json title"},
-  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift. White, grey-blue and ice-blue, warmed by a red fox fur, a red sash, a yellow window.","translation":"По повести Льва Толстого: одна зимняя ночь, купец, его работник, лошадь и сугроб. Белое, серо-голубое, ледяно-синее — и тепло рыжей лисьей шубы, красного кушака, жёлтого окна.","where":"world.json description"}
+  {"text":"Master and Man","translation":"Хозяин и работник","where":"worlds/master-and-man/world.json title"},
+  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift. White, grey-blue and ice-blue, warmed by a red fox fur, a red sash, a yellow window.","translation":"По повести Льва Толстого: одна зимняя ночь, купец, его работник, лошадь и сугроб. Белое, серо-голубое, ледяно-синее — и тепло рыжей лисьей шубы, красного кушака, жёлтого окна.","where":"worlds/master-and-man/world.json description"}
 ]}

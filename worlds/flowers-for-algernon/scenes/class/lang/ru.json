@@ -1,4 +1,4 @@
 {"strings": [
-  {"text": "The Night Class", "translation": "Вечерний класс", "where": "scenes/class/scene.json title"},
-  {"text": "A Tuesday evening in April. \"Charlie, read.\"", "translation": "Вторник, апрельский вечер. «Чарли, читайте».", "where": "scenes/class/scene.json caption"}
+  {"text":"The Night Class","translation":"Вечерний класс","where":"worlds/flowers-for-algernon/scenes/class/scene.json title"},
+  {"text":"A Tuesday evening in April. \"Charlie, read.\"","translation":"Вторник, апрельский вечер. «Чарли, читайте».","where":"worlds/flowers-for-algernon/scenes/class/scene.json caption"}
 ]}

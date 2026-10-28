@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Shed","translation":"Сарай","where":"scenes/shed/scene.json title"},
-  {"text":"A tall shed on the old potato bed. One leaf is finished.","translation":"Высокий сарай на бывшей картофельной грядке. Один лист дописан.","where":"scenes/shed/scene.json caption"}
+  {"text":"The Shed","translation":"Сарай","where":"worlds/leaf-by-niggle/scenes/shed/scene.json title"},
+  {"text":"A tall shed on the old potato bed. One leaf is finished.","translation":"Высокий сарай на бывшей картофельной грядке. Один лист дописан.","where":"worlds/leaf-by-niggle/scenes/shed/scene.json caption"}
 ]}

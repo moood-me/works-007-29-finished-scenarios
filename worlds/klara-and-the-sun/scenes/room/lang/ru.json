@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"Josie's Room","translation":"Комната Джози","where":"scenes/room/scene.json title"},
-  {"text":"Late afternoon. The Sun comes in over the field and lies across Josie's bed.","translation":"Предвечерний час. Солнце входит с поля в окно и ложится на кровать Джози.","where":"scenes/room/scene.json caption"}
+  {"text":"Josie's Room","translation":"Комната Джози","where":"worlds/klara-and-the-sun/scenes/room/scene.json title"},
+  {"text":"Late afternoon. The Sun comes in over the field and lies across Josie's bed.","translation":"Предвечерний час. Солнце входит с поля в окно и ложится на кровать Джози.","where":"worlds/klara-and-the-sun/scenes/room/scene.json caption"}
 ]}

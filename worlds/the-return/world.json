@@ -6,5 +6,6 @@
     "family": 50,
     "post-war": 40
   },
-  "main": "yard"
+  "main": "yard",
+  "languages": ["en", "ru"]
 }

@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Veranda at Night","translation":"Веранда ночью","where":"scenes/veranda/scene.json title"},
-  {"text":"A full moon over the back yard. In a minute he will ask her the question.","translation":"Полная луна над задним двором. Через минуту он задаст ей вопрос.","where":"scenes/veranda/scene.json caption"}
+  {"text":"The Veranda at Night","translation":"Веранда ночью","where":"worlds/story-of-your-life/scenes/veranda/scene.json title"},
+  {"text":"A full moon over the back yard. In a minute he will ask her the question.","translation":"Полная луна над задним двором. Через минуту он задаст ей вопрос.","where":"worlds/story-of-your-life/scenes/veranda/scene.json caption"}
 ]}

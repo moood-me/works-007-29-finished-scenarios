@@ -1,6 +1,6 @@
 {"strings": [
-  {"text":"The Terrace","translation":"Терраса","where":"scenes/terrace/scene.json title"},
-  {"text":"Many of the fishermen made fun of the old man, and he was not angry.","translation":"Многие рыбаки посмеивались над стариком, а он не сердился.","where":"scenes/terrace/scene.json caption"},
-  {"text":"I could go with you again. We've made money.","who":"manolin","translation":"Я мог бы опять ходить с тобой. Мы ведь заработали.","where":"scenes/terrace/showcase.js"},
-  {"text":"No. You're with a lucky boat. Stay with them.","who":"santiago","translation":"Нет. Ты на удачливой лодке. Оставайся с ними.","where":"scenes/terrace/showcase.js"}
+  {"text":"The Terrace","translation":"Терраса","where":"worlds/the-old-man-and-the-sea/scenes/terrace/scene.json title"},
+  {"text":"Many of the fishermen made fun of the old man, and he was not angry.","translation":"Многие рыбаки посмеивались над стариком, а он не сердился.","where":"worlds/the-old-man-and-the-sea/scenes/terrace/scene.json caption"},
+  {"text":"I could go with you again. We've made money.","who":"manolin","translation":"Я мог бы опять ходить с тобой. Мы ведь заработали.","where":"worlds/the-old-man-and-the-sea/scenes/terrace/showcase.js"},
+  {"text":"No. You're with a lucky boat. Stay with them.","who":"santiago","translation":"Нет. Ты на удачливой лодке. Оставайся с ними.","where":"worlds/the-old-man-and-the-sea/scenes/terrace/showcase.js"}
 ]}

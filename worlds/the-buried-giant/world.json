@@ -6,5 +6,6 @@
     "mist": 30,
     "love": 20
   },
-  "main": ""
+  "main": "",
+  "languages": ["en", "ru"]
 }

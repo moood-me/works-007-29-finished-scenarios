@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Square","translation":"Площадь","where":"scenes/square/scene.json title"},
-  {"text":"Omelas on the day of the Festival of Summer.","translation":"Омелас в день праздника Лета.","where":"scenes/square/scene.json caption"}
+  {"text":"The Square","translation":"Площадь","where":"worlds/the-ones-who-walk-away-from-omelas/scenes/square/scene.json title"},
+  {"text":"Omelas on the day of the Festival of Summer.","translation":"Омелас в день праздника Лета.","where":"worlds/the-ones-who-walk-away-from-omelas/scenes/square/scene.json caption"}
 ]}

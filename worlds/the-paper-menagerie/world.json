@@ -5,5 +5,6 @@
     "family": 60,
     "fantasy": 40
   },
-  "main": ""
+  "main": "",
+  "languages": ["en", "ru"]
 }

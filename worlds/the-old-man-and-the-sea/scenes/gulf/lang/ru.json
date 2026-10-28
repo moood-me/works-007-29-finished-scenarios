@@ -1,7 +1,7 @@
 {"strings": [
-  {"text":"The Gulf","translation":"Гольфстрим","where":"scenes/gulf/scene.json title"},
-  {"text":"He was an old man who fished alone in a skiff in the Gulf Stream.","translation":"Старик рыбачил один на своей лодке в Гольфстриме.","where":"scenes/gulf/scene.json caption"},
-  {"text":"Fish, I love you and respect you very much. But I will kill you dead before this day ends.","who":"santiago","translation":"Рыба, я очень тебя люблю и уважаю. Но я убью тебя, прежде чем кончится этот день.","where":"scenes/gulf/showcase.js"},
-  {"text":"I wish I had the boy.","who":"santiago","translation":"Жаль, со мной нет мальчика.","where":"scenes/gulf/showcase.js"},
-  {"text":"He is two feet longer than the skiff.","who":"santiago","translation":"Он на два фута длиннее лодки.","where":"scenes/gulf/showcase.js"}
+  {"text":"The Gulf","translation":"Гольфстрим","where":"worlds/the-old-man-and-the-sea/scenes/gulf/scene.json title"},
+  {"text":"He was an old man who fished alone in a skiff in the Gulf Stream.","translation":"Старик рыбачил один на своей лодке в Гольфстриме.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/scene.json caption"},
+  {"text":"Fish, I love you and respect you very much. But I will kill you dead before this day ends.","who":"santiago","translation":"Рыба, я очень тебя люблю и уважаю. Но я убью тебя, прежде чем кончится этот день.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"},
+  {"text":"I wish I had the boy.","who":"santiago","translation":"Жаль, со мной нет мальчика.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"},
+  {"text":"He is two feet longer than the skiff.","who":"santiago","translation":"Он на два фута длиннее лодки.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"}
 ]}

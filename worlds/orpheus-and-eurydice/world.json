@@ -6,5 +6,6 @@
     "love": 40,
     "night": 30
   },
-  "main": ""
+  "main": "",
+  "languages": ["en", "ru"]
 }

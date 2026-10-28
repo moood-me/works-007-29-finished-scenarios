@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"Asya","translation":"Ася","where":"world.json title"},
-  {"text":"A summer on the Rhine, after Turgenev: a white house in the vineyards above the river, a painter who never finishes, his strange sister, and a young man who watches.","translation":"Лето на Рейне, по Тургеневу: белый домик в виноградниках над рекой, художник, который ничего не кончает, его странная сестра и молодой человек, который смотрит.","where":"world.json description"}
+  {"text":"Asya","translation":"Ася","where":"worlds/asya/world.json title"},
+  {"text":"A summer on the Rhine, after Turgenev: a white house in the vineyards above the river, a painter who never finishes, his strange sister, and a young man who watches.","translation":"Лето на Рейне, по Тургеневу: белый домик в виноградниках над рекой, художник, который ничего не кончает, его странная сестра и молодой человек, который смотрит.","where":"worlds/asya/world.json description"}
 ]}

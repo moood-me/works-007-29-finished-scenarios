@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Ones Who Walk Away from Omelas","translation":"Уходящие из Омеласа","where":"world.json title"},
-  {"text":"A bright summer city at festival, and beneath it, a small locked room.","translation":"Светлый летний город в праздник, а под ним — маленькая запертая комната.","where":"world.json description"}
+  {"text":"The Ones Who Walk Away from Omelas","translation":"Уходящие из Омеласа","where":"worlds/the-ones-who-walk-away-from-omelas/world.json title"},
+  {"text":"A bright summer city at festival, and beneath it, a small locked room.","translation":"Светлый летний город в праздник, а под ним — маленькая запертая комната.","where":"worlds/the-ones-who-walk-away-from-omelas/world.json description"}
 ]}

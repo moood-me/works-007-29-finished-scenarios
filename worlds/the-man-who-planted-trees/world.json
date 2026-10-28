@@ -5,5 +5,6 @@
     "nature": 60,
     "quiet": 40
   },
-  "main": "shepherds-house"
+  "main": "shepherds-house",
+  "languages": ["en", "ru"]
 }

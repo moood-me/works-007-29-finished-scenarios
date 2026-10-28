@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Gate to the Field","translation":"Калитка в поле","where":"scenes/field/scene.json title"},
-  {"text":"Sunset. Rick at the gate with his bird; across the field the Sun goes down into Mr McBain's barn.","translation":"Закат. Рик у калитки со своей птицей; за полем Солнце уходит в сарай мистера Макбейна.","where":"scenes/field/scene.json caption"}
+  {"text":"The Gate to the Field","translation":"Калитка в поле","where":"worlds/klara-and-the-sun/scenes/field/scene.json title"},
+  {"text":"Sunset. Rick at the gate with his bird; across the field the Sun goes down into Mr McBain's barn.","translation":"Закат. Рик у калитки со своей птицей; за полем Солнце уходит в сарай мистера Макбейна.","where":"worlds/klara-and-the-sun/scenes/field/scene.json caption"}
 ]}

@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Pool","translation":"Заводь","where":"scenes/pool/scene.json title"},
-  {"text":"The green pool below the road, at sundown.","translation":"Зелёная заводь под дорогой, на закате.","where":"scenes/pool/scene.json caption"}
+  {"text":"The Pool","translation":"Заводь","where":"worlds/of-mice-and-men/scenes/pool/scene.json title"},
+  {"text":"The green pool below the road, at sundown.","translation":"Зелёная заводь под дорогой, на закате.","where":"worlds/of-mice-and-men/scenes/pool/scene.json caption"}
 ]}

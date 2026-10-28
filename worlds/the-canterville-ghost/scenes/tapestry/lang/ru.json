@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Tapestry Chamber","translation":"Гобеленовая комната","where":"scenes/tapestry/scene.json title"},
-  {"text":"Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.","translation":"Осень, ближе к вечеру. Дверь Гобеленовой комнаты приоткрыта.","where":"scenes/tapestry/scene.json caption"}
+  {"text":"The Tapestry Chamber","translation":"Гобеленовая комната","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json title"},
+  {"text":"Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.","translation":"Осень, ближе к вечеру. Дверь Гобеленовой комнаты приоткрыта.","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json caption"}
 ]}

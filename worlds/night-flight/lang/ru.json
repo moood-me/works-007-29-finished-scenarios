@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"Night Flight","translation":"Ночной полёт","where":"world.json title"},
-  {"text":"An airfield office at night, the mail planes out over the dark, and one that does not answer.","translation":"Ночная контора на краю аэродрома, почтовые самолёты над темнотой — и один, который не отвечает.","where":"world.json description"}
+  {"text":"Night Flight","translation":"Ночной полёт","where":"worlds/night-flight/world.json title"},
+  {"text":"An airfield office at night, the mail planes out over the dark, and one that does not answer.","translation":"Ночная контора на краю аэродрома, почтовые самолёты над темнотой — и один, который не отвечает.","where":"worlds/night-flight/world.json description"}
 ]}

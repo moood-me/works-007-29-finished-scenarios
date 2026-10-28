@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Return","translation":"Возвращение","where":"world.json title"},
-  {"text":"After Andrei Platonov's story \"The Return\" (1946): late August 1945, a captain comes home from the war to a wife and two children he has not seen for four years. A railway village, sand, a high pale sky, gouache on rough paper.","translation":"По рассказу Андрея Платонова «Возвращение» (1946): конец августа сорок пятого, капитан едет с войны домой — к жене и двоим детям, которых не видел четыре года. Посёлок у железной дороги, песок, высокое белёсое небо, гуашь по грубой бумаге.","where":"world.json description"}
+  {"text":"The Return","translation":"Возвращение","where":"worlds/the-return/world.json title"},
+  {"text":"After Andrei Platonov's story \"The Return\" (1946): late August 1945, a captain comes home from the war to a wife and two children he has not seen for four years. A railway village, sand, a high pale sky, gouache on rough paper.","translation":"По рассказу Андрея Платонова «Возвращение» (1946): конец августа сорок пятого, капитан едет с войны домой — к жене и двоим детям, которых не видел четыре года. Посёлок у железной дороги, песок, высокое белёсое небо, гуашь по грубой бумаге.","where":"worlds/the-return/world.json description"}
 ]}

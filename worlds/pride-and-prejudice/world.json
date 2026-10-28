@@ -6,5 +6,6 @@
     "romance": 30,
     "countryside": 20
   },
-  "main": "pemberley-water"
+  "main": "pemberley-water",
+  "languages": ["en", "ru"]
 }

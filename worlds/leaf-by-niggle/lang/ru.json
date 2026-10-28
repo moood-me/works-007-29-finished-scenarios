@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"Leaf by Niggle","translation":"Лист работы Ниггла","where":"world.json title"},
-  {"text":"A painter's shed, one great unfinished canvas of a tree, and a neighbour who needs help.","translation":"Сарай художника, огромный недописанный холст с деревом — и сосед, которому нужна помощь.","where":"world.json description"}
+  {"text":"Leaf by Niggle","translation":"Лист работы Ниггла","where":"worlds/leaf-by-niggle/world.json title"},
+  {"text":"A painter's shed, one great unfinished canvas of a tree, and a neighbour who needs help.","translation":"Сарай художника, огромный недописанный холст с деревом — и сосед, которому нужна помощь.","where":"worlds/leaf-by-niggle/world.json description"}
 ]}

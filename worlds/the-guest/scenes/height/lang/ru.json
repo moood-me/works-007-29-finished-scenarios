@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Height","translation":"Высота","where":"scenes/height/scene.json title"},
-  {"text":"East, the roofs of Tingit. South, the stones, and no road.","translation":"На востоке — крыши Тингита. На юге — камни, и никакой дороги.","where":"scenes/height/scene.json caption"}
+  {"text":"The Height","translation":"Высота","where":"worlds/the-guest/scenes/height/scene.json title"},
+  {"text":"East, the roofs of Tingit. South, the stones, and no road.","translation":"На востоке — крыши Тингита. На юге — камни, и никакой дороги.","where":"worlds/the-guest/scenes/height/scene.json caption"}
 ]}

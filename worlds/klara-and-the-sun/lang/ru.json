@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"Klara and the Sun","translation":"Клара и Солнце","where":"world.json title"},
-  {"text":"A shop window in the sun, then a quiet house: an Artificial Friend and the sick girl she watches over.","translation":"Витрина на солнце, потом тихий дом: Искусственный Друг и больная девочка, за которой она присматривает.","where":"world.json description"}
+  {"text":"Klara and the Sun","translation":"Клара и Солнце","where":"worlds/klara-and-the-sun/world.json title"},
+  {"text":"A shop window in the sun, then a quiet house: an Artificial Friend and the sick girl she watches over.","translation":"Витрина на солнце, потом тихий дом: Искусственный Друг и больная девочка, за которой она присматривает.","where":"worlds/klara-and-the-sun/world.json description"}
 ]}

@@ -1,10 +1,10 @@
 {"strings": [
-  {"text":"When a golden girl can win","translation":"Когда девица золотая","where":"scenes/library/elements/window.js"},
-  {"text":"Prayer from out the lips of sin,","translation":"Исторгнет из уст греха молитву,","where":"scenes/library/elements/window.js"},
-  {"text":"When the barren almond bears,","translation":"Когда бесплодный миндаль расцветёт,","where":"scenes/library/elements/window.js"},
-  {"text":"And a little child gives away its tears,","translation":"И дитя отдаст свои слёзы,","where":"scenes/library/elements/window.js"},
-  {"text":"Then shall all the house be still","translation":"Тогда весь дом затихнет","where":"scenes/library/elements/window.js"},
-  {"text":"And peace come to Canterville.","translation":"И мир придёт в Кентервиль.","where":"scenes/library/elements/window.js"},
-  {"text":"The Library","translation":"Библиотека","where":"scenes/library/scene.json title"},
-  {"text":"Canterville Chase, past midnight. The bloodstain by the fireplace is back again.","translation":"Кентервильский замок, за полночь. Кровавое пятно у камина снова на месте.","where":"scenes/library/scene.json caption"}
+  {"text":"When a golden girl can win","translation":"Когда девица золотая","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"Prayer from out the lips of sin,","translation":"Исторгнет из уст греха молитву,","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"When the barren almond bears,","translation":"Когда бесплодный миндаль расцветёт,","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"And a little child gives away its tears,","translation":"И дитя отдаст свои слёзы,","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"Then shall all the house be still","translation":"Тогда весь дом затихнет","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"And peace come to Canterville.","translation":"И мир придёт в Кентервиль.","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"The Library","translation":"Библиотека","where":"worlds/the-canterville-ghost/scenes/library/scene.json title"},
+  {"text":"Canterville Chase, past midnight. The bloodstain by the fireplace is back again.","translation":"Кентервильский замок, за полночь. Кровавое пятно у камина снова на месте.","where":"worlds/the-canterville-ghost/scenes/library/scene.json caption"}
 ]}

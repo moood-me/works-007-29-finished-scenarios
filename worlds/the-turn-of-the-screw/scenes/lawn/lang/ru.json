@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Lawn at Bly","translation":"Лужайка в Блае","where":"scenes/lawn/scene.json title"},
-  {"text":"Bly, a June evening. Jackdaws over the old tower.","translation":"Блай, июньский вечер. Галки над старой башней.","where":"scenes/lawn/scene.json caption"}
+  {"text":"The Lawn at Bly","translation":"Лужайка в Блае","where":"worlds/the-turn-of-the-screw/scenes/lawn/scene.json title"},
+  {"text":"Bly, a June evening. Jackdaws over the old tower.","translation":"Блай, июньский вечер. Галки над старой башней.","where":"worlds/the-turn-of-the-screw/scenes/lawn/scene.json caption"}
 ]}

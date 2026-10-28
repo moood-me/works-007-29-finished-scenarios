@@ -1,14 +1,4 @@
-{
-  "strings": [
-    {
-      "text": "The House",
-      "translation": "Дом",
-      "where": "scenes/house/scene.json title"
-    },
-    {
-      "text": "One room at the bottom of the pit; the sand comes in through the roof.",
-      "translation": "Одна комната на дне ямы; песок сыплется сквозь крышу.",
-      "where": "scenes/house/scene.json caption"
-    }
-  ]
-}
+{"strings": [
+  {"text":"The House","translation":"Дом","where":"worlds/the-woman-in-the-dunes/scenes/house/scene.json title"},
+  {"text":"One room at the bottom of the pit; the sand comes in through the roof.","translation":"Одна комната на дне ямы; песок сыплется сквозь крышу.","where":"worlds/the-woman-in-the-dunes/scenes/house/scene.json caption"}
+]}

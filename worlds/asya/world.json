@@ -6,5 +6,6 @@
     "nineteenth century": 25,
     "river": 15
   },
-  "main": "terrace"
+  "main": "terrace",
+  "languages": ["en", "ru"]
 }

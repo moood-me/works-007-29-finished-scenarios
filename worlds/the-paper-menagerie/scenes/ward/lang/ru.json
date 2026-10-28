@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Ward","translation":"Палата","where":"scenes/ward/scene.json title"},
-  {"text":"An autumn evening on the third floor. A good day: she ate half a bowl of soup.","translation":"Осенний вечер на третьем этаже. Хороший день: она съела полтарелки супа.","where":"scenes/ward/scene.json caption"}
+  {"text":"The Ward","translation":"Палата","where":"worlds/the-paper-menagerie/scenes/ward/scene.json title"},
+  {"text":"An autumn evening on the third floor. A good day: she ate half a bowl of soup.","translation":"Осенний вечер на третьем этаже. Хороший день: она съела полтарелки супа.","where":"worlds/the-paper-menagerie/scenes/ward/scene.json caption"}
 ]}

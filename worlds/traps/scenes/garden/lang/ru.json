@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Judge's Garden","translation":"Сад судьи","where":"scenes/garden/scene.json title"},
-  {"text":"A July evening on the hill. The table under the chestnut is laid for one more.","translation":"Июльский вечер на холме. Стол под каштаном накрыт ещё на одного.","where":"scenes/garden/scene.json caption"}
+  {"text":"The Judge's Garden","translation":"Сад судьи","where":"worlds/traps/scenes/garden/scene.json title"},
+  {"text":"A July evening on the hill. The table under the chestnut is laid for one more.","translation":"Июльский вечер на холме. Стол под каштаном накрыт ещё на одного.","where":"worlds/traps/scenes/garden/scene.json caption"}
 ]}

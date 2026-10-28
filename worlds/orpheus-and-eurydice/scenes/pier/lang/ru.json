@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Pier","translation":"Причал","where":"scenes/pier/scene.json title"},
-  {"text":"The night of their wedding. He sings; she floats lanterns.","translation":"Ночь их свадьбы. Он поёт, она пускает фонари по воде.","where":"scenes/pier/scene.json caption"}
+  {"text":"The Pier","translation":"Причал","where":"worlds/orpheus-and-eurydice/scenes/pier/scene.json title"},
+  {"text":"The night of their wedding. He sings; she floats lanterns.","translation":"Ночь их свадьбы. Он поёт, она пускает фонари по воде.","where":"worlds/orpheus-and-eurydice/scenes/pier/scene.json caption"}
 ]}
