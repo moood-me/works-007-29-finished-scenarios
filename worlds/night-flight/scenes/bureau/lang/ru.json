@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Bureau","translation":"Бюро","where":"scenes/bureau/scene.json title"},
+  {"text":"A quarter to two. She stands by the door and does not sit down.","translation":"Без четверти два. Она стоит у двери и не садится.","where":"scenes/bureau/scene.json caption"}
+]}

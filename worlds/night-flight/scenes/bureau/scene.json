@@ -1,0 +1,647 @@
+{
+  "engine": 3,
+  "title": "The Bureau",
+  "caption": "A quarter to two. She stands by the door and does not sit down.",
+  "horizon": 0.5,
+  "camera": {
+    "mode": "picture",
+    "look": 0.04
+  },
+  "light": {
+    "ambient": 0.32,
+    "ambientColor": "#7f8fb8",
+    "bounce": 0.42,
+    "inside": 0.25,
+    "haze": 0.1,
+    "hazeColor": "#2e3d61",
+    "hazeGlow": 0.3,
+    "tint": "#c7b08a",
+    "tintStrength": 0.05,
+    "saturation": 0.95,
+    "vignette": 0.4,
+    "grain": 0.08,
+    "wind": [
+      -1,
+      0.3,
+      0.6
+    ],
+    "brightness": 0.92
+  },
+  "lights": [
+    {
+      "id": "moon",
+      "from": [
+        200,
+        25
+      ],
+      "color": "#aebfe6",
+      "strength": 0.6
+    },
+    {
+      "id": "lamp",
+      "of": "ceiling_lamp#bulb",
+      "color": "#ffd49a",
+      "strength": 1.7,
+      "reach": 7.5,
+      "on": "lamps"
+    },
+    {
+      "id": "front_lamp",
+      "across": -0.8,
+      "distance": 0.8,
+      "elevation": 2.5,
+      "color": "#ffd9a6",
+      "strength": 0.85,
+      "reach": 8,
+      "on": "lamps"
+    },
+    {
+      "id": "desk_lamp",
+      "of": "rob_lamp#lamp",
+      "color": "#ffe0a8",
+      "strength": 1.6,
+      "reach": 6,
+      "on": "lamps"
+    },
+    {
+      "id": "tel_lamp",
+      "of": "tel_lamp#bulb",
+      "color": "#ffdba0",
+      "strength": 1.0,
+      "reach": 4,
+      "on": "lamps"
+    },
+    {
+      "id": "office_glass",
+      "of": "back_wall#office",
+      "color": "#ffd6a0",
+      "strength": 0.5,
+      "reach": 3,
+      "on": "office"
+    },
+    {
+      "id": "yard_lamp",
+      "of": "yard_lamp#bulb",
+      "color": "#dfe6ff",
+      "strength": 1.4,
+      "reach": 14
+    },
+    {
+      "id": "gate",
+      "of": "yard#gate",
+      "color": "#ffd49a",
+      "strength": 2.0,
+      "reach": 30
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "lamps": 1,
+    "office": 1,
+    "tape": 1,
+    "time": 105,
+    "madame_look": "riviere",
+    "madame_mood": "sad",
+    "riviere_look": "madame",
+    "riviere_mood": "neutral",
+    "pilot_look": "madame",
+    "pilot_mood": "neutral",
+    "telegraphist_look": "riviere",
+    "telegraphist_mood": "neutral",
+    "telegraphist_reach": {
+      "r": [
+        1.95,
+        5.95,
+        0.83
+      ]
+    }
+  },
+  "states": {
+    "lamps": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the bureau's lamps — the one hanging over the room, Robineau's desk lamp, the telegraph table's: 0 out, 1 lit"
+    },
+    "office": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the frosted glass in the door of Rivière's office: 0 dark, 1 lit from within"
+    },
+    "tape": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the Morse inker: 0 still, 1 running — its paper tape creeping out and down over the table's edge"
+    },
+    "time": {
+      "range": [
+        0,
+        1440
+      ],
+      "means": "the clock over the map: minutes after midnight (105 — a quarter to two; 1325 — five past ten)"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "field",
+      "name": "The field outside",
+      "plane": true,
+      "across": 0,
+      "distance": 600,
+      "width": 4000,
+      "depth": 1200
+    },
+    {
+      "id": "yard",
+      "name": "The hangar across the field, its gate lit",
+      "across": 18,
+      "distance": 75,
+      "facing": 192,
+      "height": 12,
+      "box": [
+        -26,
+        -12.5,
+        26,
+        0.2
+      ]
+    },
+    {
+      "id": "yard_lamp",
+      "name": "A lamp on its post outside the door",
+      "across": -9,
+      "distance": 14,
+      "height": 3.2,
+      "box": [
+        -0.5,
+        -3.3,
+        0.5,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "floor",
+      "name": "The bureau's floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 4.5,
+      "elevation": 0.01,
+      "width": 6,
+      "depth": 5.8,
+      "walk": true
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall: the window on the field, the door of Rivière's office",
+      "inside": true,
+      "across": 0,
+      "distance": 7.4,
+      "facing": 180,
+      "height": 3.3,
+      "box": [
+        -3,
+        -3.35,
+        3,
+        0.05
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall and its door onto the field",
+      "inside": true,
+      "across": -3.0,
+      "distance": 4.5,
+      "facing": 90,
+      "height": 3.3,
+      "box": [
+        -2.9,
+        -3.35,
+        2.9,
+        0.05
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall",
+      "inside": true,
+      "across": 3.0,
+      "distance": 4.5,
+      "facing": 270,
+      "height": 3.3,
+      "box": [
+        -2.9,
+        -3.35,
+        2.9,
+        0.05
+      ]
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 7.4,
+      "elevation": 3.3,
+      "facing": 180,
+      "tilt": -90,
+      "height": 5.8,
+      "box": [
+        -3,
+        -5.85,
+        3,
+        0.05
+      ]
+    },
+    {
+      "id": "pane",
+      "name": "The window's glass",
+      "across": 1.8,
+      "distance": 7.42,
+      "facing": 180,
+      "height": 2.6,
+      "box": [
+        -1,
+        -2.55,
+        1,
+        -1.05
+      ],
+      "glass": {
+        "strength": 0.3
+      }
+    },
+    {
+      "id": "window_frame",
+      "name": "The window's frame and sill",
+      "inside": true,
+      "across": 1.8,
+      "distance": 7.37,
+      "facing": 180,
+      "height": 2.7,
+      "box": [
+        -1.25,
+        -2.7,
+        1.25,
+        -0.9
+      ]
+    },
+    {
+      "id": "map",
+      "name": "The map of the three lines",
+      "inside": true,
+      "across": -0.5,
+      "distance": 7.3500000000000005,
+      "facing": 180,
+      "height": 2.9,
+      "box": [
+        -1.35,
+        -2.75,
+        1.35,
+        -0.8
+      ]
+    },
+    {
+      "id": "clock",
+      "name": "The clock over the map",
+      "inside": true,
+      "across": -0.5,
+      "distance": 7.3500000000000005,
+      "facing": 180,
+      "height": 3.25,
+      "box": [
+        -0.3,
+        -3.3,
+        0.3,
+        -2.7
+      ]
+    },
+    {
+      "id": "bench",
+      "name": "The bench by the telegraph",
+      "inside": true,
+      "across": 0.9,
+      "distance": 7.05,
+      "facing": 180,
+      "height": 0.9,
+      "box": [
+        -1.0,
+        -0.95,
+        1.0,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tel_desk",
+      "name": "The telegraph table",
+      "inside": true,
+      "across": 2.1,
+      "distance": 5.6,
+      "facing": 180,
+      "height": 0.8,
+      "box": [
+        -0.82,
+        -0.85,
+        1.1,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tel_top",
+      "name": "The telegraph table's top",
+      "plane": true,
+      "inside": true,
+      "across": 2.1,
+      "distance": 5.95,
+      "elevation": 0.79,
+      "width": 1.6,
+      "depth": 0.7,
+      "shadow": true
+    },
+    {
+      "id": "tel_inker",
+      "name": "The Morse inker and its tape",
+      "inside": true,
+      "across": 2.55,
+      "distance": 5.78,
+      "elevation": 0.8,
+      "facing": 180,
+      "height": 0.5,
+      "box": [
+        -0.4,
+        -0.45,
+        0.34,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tel_lamp",
+      "name": "The telegraph table's lamp",
+      "inside": true,
+      "across": 1.55,
+      "distance": 6.1,
+      "elevation": 0.8,
+      "facing": 180,
+      "height": 0.5,
+      "box": [
+        -0.2,
+        -0.52,
+        0.2,
+        0.02
+      ]
+    },
+    {
+      "id": "tel_chair",
+      "name": "The telegraphist's chair",
+      "inside": true,
+      "across": 2.15,
+      "distance": 6.6,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -0.3,
+        -1.06,
+        0.3,
+        0.05
+      ]
+    },
+    {
+      "id": "rob_desk",
+      "name": "Robineau's desk",
+      "inside": true,
+      "across": 2.35,
+      "distance": 2.9,
+      "facing": 180,
+      "height": 0.85,
+      "box": [
+        -0.85,
+        -0.85,
+        0.85,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "rob_top",
+      "name": "Robineau's desk top",
+      "plane": true,
+      "inside": true,
+      "across": 2.35,
+      "distance": 3.275,
+      "elevation": 0.785,
+      "width": 1.7,
+      "depth": 0.75,
+      "shadow": true
+    },
+    {
+      "id": "rob_lamp",
+      "name": "Robineau's desk lamp",
+      "inside": true,
+      "across": 2.8,
+      "distance": 3.5,
+      "elevation": 0.79,
+      "facing": 180,
+      "height": 0.6,
+      "box": [
+        -0.24,
+        -0.58,
+        0.24,
+        0.03
+      ]
+    },
+    {
+      "id": "rob_phone",
+      "name": "The telephone",
+      "inside": true,
+      "across": 1.9,
+      "distance": 3.25,
+      "elevation": 0.79,
+      "facing": 180,
+      "height": 0.4,
+      "box": [
+        -0.1,
+        -0.4,
+        0.3,
+        0.05
+      ]
+    },
+    {
+      "id": "ceiling_lamp",
+      "name": "The lamp hanging over the room",
+      "inside": true,
+      "across": 0.2,
+      "distance": 4.4,
+      "height": 3.3,
+      "box": [
+        -0.4,
+        -3.32,
+        0.4,
+        -2.4
+      ]
+    },
+    {
+      "id": "motes",
+      "name": "Dust in the lamp's light",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0.2,
+          4.4,
+          2.0
+        ],
+        "source": [
+          2.6,
+          2.6,
+          1.4
+        ]
+      }
+    },
+    {
+      "id": "madame",
+      "name": "Madame Fabien",
+      "person": {
+        "cast": "cast",
+        "who": "madame",
+        "turn": 120,
+        "does": "coat_clutch"
+      },
+      "across": -2.3,
+      "distance": 4.55,
+      "inside": true
+    },
+    {
+      "id": "riviere",
+      "name": "Rivière",
+      "person": {
+        "cast": "cast",
+        "who": "riviere",
+        "look": {
+          "hat": "none",
+          "garment": "jacket"
+        },
+        "turn": 235,
+        "does": "hands_behind"
+      },
+      "across": -0.35,
+      "distance": 5.85,
+      "inside": true
+    },
+    {
+      "id": "pilot",
+      "name": "The European mail's pilot",
+      "person": {
+        "cast": "cast",
+        "who": "pilot",
+        "turn": 215,
+        "does": "stand_easy"
+      },
+      "across": 1.0,
+      "distance": 5.0,
+      "inside": true
+    },
+    {
+      "id": "telegraphist",
+      "name": "The telegraphist",
+      "person": {
+        "cast": "cast",
+        "who": "telegraphist",
+        "turn": 190,
+        "does": "desk_lean"
+      },
+      "across": 2.15,
+      "distance": 6.3,
+      "inside": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "slow solo piano, sparse chords, nocturnal, restrained and dignified, French impressionist colour",
+        "weight": 0.5
+      },
+      {
+        "text": "distant morse telegraph clicks over a low string drone, tense and patient, night office",
+        "weight": 1.2
+      },
+      {
+        "text": "low strings sustained, slow, grave and tender, a long night of waiting",
+        "weight": 0.7
+      },
+      {
+        "text": "muted trumpet far away, a few long notes, lonely airfield at night",
+        "weight": 0
+      },
+      {
+        "text": "warm accordion, slow, nostalgic, 1930s France",
+        "weight": 0
+      },
+      {
+        "text": "ambient engine hum, low propeller drone, airy pad, vast night sky",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, grave, restrained, noble sadness",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, stars over clouds, weightless and cold",
+        "weight": 0
+      },
+      {
+        "text": "deep timpani rolls and low brass, a storm gathering far off",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, long bowed notes, bitter and beautiful",
+        "weight": 0
+      },
+      {
+        "text": "minimalist piano ostinato, clockwork pulse, waiting for news",
+        "weight": 0.8
+      },
+      {
+        "text": "clarinet and bassoon, quiet and dry, an office at midnight",
+        "weight": 0.3
+      },
+      {
+        "text": "wordless choir very soft, high and far, moonlit sea of clouds",
+        "weight": 0
+      },
+      {
+        "text": "slow waltz on a small orchestra, faded, a lamp in a window",
+        "weight": 0
+      },
+      {
+        "text": "bowed vibraphone and reverb, cold blue air, stillness",
+        "weight": 0
+      },
+      {
+        "text": "orchestral swell, heroic yet sorrowful, dawn after a lost night",
+        "weight": 0
+      },
+      {
+        "text": "low horn chorale, slow, mourning without tears",
+        "weight": 0
+      }
+    ],
+    "bpm": 64,
+    "density": 0.25,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
