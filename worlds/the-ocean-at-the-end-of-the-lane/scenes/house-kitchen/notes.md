@@ -31,11 +31,11 @@ outside. No motion of people, no camera moves, no showcase (nothing happens in i
 
 ## What is not right yet
 
-- **A look to a person's right turns them to the wall.** Ursula (turn 250) and the sister (250) told to look at the
-  boy, 25–50° to their right, stand with their backs to us — still so on engine 3 with its fix for looks at what is
-  steeply below or near the body (`engine3-next`, 2026-10-28): the boy is level with them and 1.5–2 m off. So they
-  have no `_look` (their heads as their motions hold them: Ursula's tilted toward the sister, the sister's bowed). Dad
-  looks at Ursula (`dad_look`) and stands in profile to us — before the fix he too turned his back.
+- **Ursula and the sister don't look at the boy.** At turn 250 they face us and he stands behind them, so a look at
+  him (`<id>_look`) shows the backs of their heads — not the engine's fault (people.md: turn them toward whom they
+  look at, `<id>_turn`); turned toward him, they would turn from us. So they have no `_look` (their heads as their
+  motions hold them: Ursula's tilted toward the sister, the sister's bowed). Dad looks at Ursula (`dad_look`) and
+  stands in profile to us.
 - Another take of Dad with folded arms (`arms crossed on the chest`, seed 2) came into the scene bent forward with the
   arms held out — the arms crossing over the chest did not survive the module's clip (as hands on the knees go to the
   sides); the take kept (`arms_folded`) holds.
