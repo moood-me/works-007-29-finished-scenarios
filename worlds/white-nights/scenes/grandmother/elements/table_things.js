@@ -1,0 +1,38 @@
+// On the table: the Lodger's books he left her (two, stacked), a cup on its saucer, a ball of grey wool with the
+// knitting needles through it
+const INK = e.lib.INK;
+e.lib.box(g, 0.14, -0.05, 0.26, 0.05, '#6d3b33', 0.006);
+e.lib.box(g, 0.17, -0.09, 0.22, 0.04, '#3e4a5c', 0.006);
+g.fillStyle = '#e9e1cf';
+g.fillRect(0.17, -0.085, 0.004, 0.03);
+g.fillStyle = '#f2eee6';
+g.beginPath();
+g.ellipse(-0.28, -0.008, 0.07, 0.012, 0, 0, Math.PI * 2);
+g.fill();
+g.strokeStyle = INK;
+g.lineWidth = 0.005;
+g.stroke();
+g.beginPath();
+g.moveTo(-0.32, -0.08);
+g.lineTo(-0.24, -0.08);
+g.lineTo(-0.25, -0.015);
+g.lineTo(-0.31, -0.015);
+g.closePath();
+g.fill();
+g.stroke();
+g.beginPath();
+g.arc(-0.235, -0.052, 0.018, -1.4, 1.4);
+g.stroke();
+g.beginPath();
+g.arc(-0.05, -0.05, 0.05, 0, Math.PI * 2);
+g.fillStyle = '#9a9693';
+g.fill();
+g.stroke();
+g.beginPath();
+g.moveTo(-0.12, -0.12);
+g.lineTo(0.02, -0.02);
+g.moveTo(-0.1, -0.02);
+g.lineTo(0.04, -0.13);
+g.strokeStyle = '#6b5c4c';
+g.lineWidth = 0.006;
+g.stroke();
