@@ -535,7 +535,7 @@
           "garment": "jacket"
         },
         "turn": 235,
-        "does": "stand"
+        "does": "hands_behind"
       },
       "across": -0.35,
       "distance": 5.85,
