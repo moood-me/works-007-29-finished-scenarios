@@ -1,0 +1,449 @@
+{
+  "engine": 3,
+  "title": "The Veranda at Night",
+  "caption": "A full moon over the back yard. In a minute he will ask her the question.",
+  "horizon": 0.5,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.55,
+    "ambientColor": "#8d9cc8",
+    "bounce": 0.5,
+    "haze": 0.07,
+    "hazeColor": "#33406a",
+    "hazeGlow": 0.5,
+    "shafts": 0.35,
+    "tint": "#a8b8e8",
+    "tintStrength": 0.05,
+    "saturation": 0.9,
+    "vignette": 0.45,
+    "grain": 0.08,
+    "brightness": 1.0,
+    "wind": [
+      1,
+      0,
+      0.25
+    ]
+  },
+  "lights": [
+    {
+      "id": "moon",
+      "from": "moon_sky#disc",
+      "color": "#d4defc",
+      "strength": 0.9
+    },
+    {
+      "id": "porch",
+      "of": "porch_lamp#bulb",
+      "color": "#ffc983",
+      "strength": 1.4,
+      "reach": 7
+    },
+    {
+      "id": "kitchen_light",
+      "of": "kitchen_lamp",
+      "color": "#ffd59a",
+      "strength": 1.1,
+      "reach": 3
+    },
+    {
+      "id": "window_spill",
+      "across": -1.05,
+      "distance": 5.5,
+      "elevation": 2.0,
+      "color": "#ffcf90",
+      "strength": 0.6,
+      "reach": 5
+    },
+    {
+      "id": "candle",
+      "of": "glasses#flame",
+      "color": "#ffb56a",
+      "strength": 1.5,
+      "reach": 4.5,
+      "flicker": 0.3
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "gary_reach": {
+      "r": "louise#back",
+      "l": "louise#hand_r"
+    },
+    "louise_reach": {
+      "r": "gary#hand_l",
+      "l": "gary#shoulder_r"
+    },
+    "gary_look": "louise",
+    "gary_mood": "smile",
+    "louise_look": [
+      -1.5,
+      1.0,
+      1.8
+    ],
+    "louise_mood": "thinking"
+  },
+  "objects": [
+    {
+      "id": "moon_sky",
+      "name": "The night sky and the full moon",
+      "sky": true
+    },
+    {
+      "id": "treeline",
+      "name": "The neighbours' trees and roof beyond the fence",
+      "across": 1.0,
+      "distance": 22,
+      "height": 7.6,
+      "box": [
+        -42,
+        -7.7,
+        42,
+        0.6
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "The back fence",
+      "across": 0,
+      "distance": 13.4,
+      "height": 1.32,
+      "box": [
+        -12,
+        -1.35,
+        12,
+        0.02
+      ]
+    },
+    {
+      "id": "lawn",
+      "name": "The back yard's lawn",
+      "plane": true,
+      "across": 0,
+      "distance": 30,
+      "width": 90,
+      "depth": 70
+    },
+    {
+      "id": "maple",
+      "name": "The old maple",
+      "shadow": true,
+      "across": -9.0,
+      "distance": 9.0,
+      "height": 6.2,
+      "box": [
+        -2.8,
+        -6.3,
+        3.3,
+        0.05
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name": "The kitchen through the window",
+      "across": -1.05,
+      "distance": 7.0,
+      "elevation": 0.5,
+      "facing": 180,
+      "height": 2.62,
+      "box": [
+        -1.2,
+        -2.64,
+        1.2,
+        0.02
+      ]
+    },
+    {
+      "id": "kitchen_lamp",
+      "name": "The lamp over the kitchen table",
+      "across": -1.25,
+      "distance": 6.5,
+      "elevation": 2.12,
+      "height": 0.95,
+      "box": [
+        -0.26,
+        -0.95,
+        0.26,
+        0.06
+      ]
+    },
+    {
+      "id": "curtains",
+      "name": "The kitchen's café curtains",
+      "translucent": 0.6,
+      "across": -1.05,
+      "distance": 5.85,
+      "elevation": 1.5,
+      "facing": 180,
+      "height": 1.2,
+      "box": [
+        -0.7,
+        -1.2,
+        0.7,
+        0.02
+      ]
+    },
+    {
+      "id": "roof",
+      "name": "The roof's slope",
+      "across": 2.0,
+      "distance": 5.8,
+      "elevation": 3.35,
+      "facing": 180,
+      "tilt": 55,
+      "height": 2.8,
+      "box": [
+        -4.5,
+        -2.82,
+        5.1,
+        0.02
+      ]
+    },
+    {
+      "id": "house",
+      "name": "The back of the house",
+      "across": 2.0,
+      "distance": 5.8,
+      "facing": 180,
+      "height": 3.4,
+      "box": [
+        -4.4,
+        -3.42,
+        5.0,
+        0.02
+      ]
+    },
+    {
+      "id": "window_frame",
+      "name": "The kitchen window's trim",
+      "across": -1.05,
+      "distance": 5.77,
+      "elevation": 1.42,
+      "facing": 180,
+      "height": 1.35,
+      "box": [
+        -0.82,
+        -1.35,
+        0.82,
+        0.04
+      ]
+    },
+    {
+      "id": "door_glass",
+      "name": "The back door's lit panes",
+      "glows": true,
+      "across": 1.55,
+      "distance": 5.78,
+      "elevation": 1.6,
+      "facing": 180,
+      "height": 0.7,
+      "box": [
+        -0.37,
+        -0.7,
+        0.37,
+        0.02
+      ]
+    },
+    {
+      "id": "porch_lamp",
+      "name": "The porch light",
+      "across": 0.75,
+      "distance": 5.73,
+      "elevation": 2.3,
+      "facing": 180,
+      "height": 0.42,
+      "box": [
+        -0.1,
+        -0.42,
+        0.12,
+        0.02
+      ]
+    },
+    {
+      "id": "deck",
+      "name": "The deck",
+      "plane": true,
+      "walk": true,
+      "across": -0.6,
+      "distance": 3.7,
+      "elevation": 0.5,
+      "width": 6.0,
+      "depth": 4.2
+    },
+    {
+      "id": "deck_front",
+      "name": "The deck's front and its lattice",
+      "across": -0.6,
+      "distance": 1.6,
+      "facing": 180,
+      "height": 0.5,
+      "box": [
+        -3.02,
+        -0.52,
+        3.02,
+        0.02
+      ]
+    },
+    {
+      "id": "railing",
+      "name": "The deck's side railing",
+      "shadow": true,
+      "across": 2.3,
+      "distance": 3.9,
+      "elevation": 0.5,
+      "facing": 270,
+      "height": 1.0,
+      "box": [
+        -1.92,
+        -1.02,
+        1.92,
+        0.02
+      ]
+    },
+    {
+      "id": "rail_cap",
+      "name": "The railing's top",
+      "plane": true,
+      "across": 2.3,
+      "distance": 3.9,
+      "elevation": 1.455,
+      "width": 0.14,
+      "depth": 3.8
+    },
+    {
+      "id": "glasses",
+      "name": "Two wine glasses and a candle on the railing",
+      "across": 2.3,
+      "distance": 3.8,
+      "elevation": 1.46,
+      "height": 0.2,
+      "box": [
+        -0.3,
+        -0.2,
+        0.2,
+        0.01
+      ]
+    },
+    {
+      "id": "fireflies",
+      "name": "Fireflies over the lawn",
+      "particles": {
+        "kind": "fireflies",
+        "at": [
+          -3,
+          9.5,
+          0.9
+        ],
+        "source": [
+          9,
+          7,
+          1.2
+        ],
+        "rate": 3,
+        "life": [
+          5,
+          9
+        ]
+      }
+    },
+    {
+      "id": "gary",
+      "name": "Gary",
+      "person": {
+        "cast": "cast",
+        "who": "gary",
+        "turn": 95,
+        "does": "sway"
+      },
+      "across": 0.12,
+      "distance": 4.0
+    },
+    {
+      "id": "louise",
+      "name": "Louise",
+      "person": {
+        "cast": "cast",
+        "who": "louise",
+        "turn": 275,
+        "does": "sway"
+      },
+      "across": 0.54,
+      "distance": 3.96
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "sparse felt piano, slow, clear intervals, patient and luminous, a summer night",
+        "weight": 1.0
+      },
+      {
+        "text": "slow jazz ballad on a far radio, brushed drums, warm upright bass, a couple dancing",
+        "weight": 0.8
+      },
+      {
+        "text": "crickets and a soft night breeze, with a held string chord",
+        "weight": 0.6
+      },
+      {
+        "text": "solo cello, warm and grave, unhurried",
+        "weight": 0.3
+      },
+      {
+        "text": "acoustic guitar fingerpicking, plain and kind",
+        "weight": 0
+      },
+      {
+        "text": "music box melody slowed down, bittersweet, a child's tune",
+        "weight": 0
+      },
+      {
+        "text": "low sustained strings with a single high violin line, still, wondering",
+        "weight": 0
+      },
+      {
+        "text": "soft analog synth pad, cool and white, slowly breathing, distant",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano ostinato in an odd meter, gentle, circling, time folding on itself",
+        "weight": 0
+      },
+      {
+        "text": "wordless female voice humming softly, far away, tender",
+        "weight": 0
+      },
+      {
+        "text": "glass harmonica tones, airy, crystalline, sustained",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, transparent harmonies, quiet grief under warmth",
+        "weight": 0
+      },
+      {
+        "text": "bowed vibraphone shimmer, cold, suspended, moonlight",
+        "weight": 0
+      },
+      {
+        "text": "slow waltz on a muted trumpet, nostalgic, late at night",
+        "weight": 0
+      },
+      {
+        "text": "deep sub-bass drone with soft wooden knocks, alien, calm",
+        "weight": 0
+      },
+      {
+        "text": "upright piano in a small room, a little out of tune, lullaby-like",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.2,
+    "brightness": 0.45,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}

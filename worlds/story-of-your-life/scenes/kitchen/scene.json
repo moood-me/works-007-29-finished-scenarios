@@ -1,0 +1,592 @@
+{
+  "engine": 3,
+  "title": "The Kitchen on a Friday",
+  "caption": "Friday, early. A car is waiting under the window; she has only come for the warm sleeping bag.",
+  "horizon": 0.33,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.74,
+    "ambientColor": "#eee4d4",
+    "inside": 0.6,
+    "bounce": 0.55,
+    "haze": 0.04,
+    "hazeColor": "#f3e8d6",
+    "hazeGlow": 0.4,
+    "shafts": 0.7,
+    "tint": "#ffebcc",
+    "tintStrength": 0.06,
+    "saturation": 0.95,
+    "vignette": 0.35,
+    "grain": 0.08,
+    "brightness": 1.06,
+    "wind": [
+      1,
+      0,
+      0.3
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        -5,
+        21
+      ],
+      "through": [
+        "window"
+      ],
+      "color": "#ffd6a2",
+      "strength": 1.5
+    },
+    {
+      "id": "day",
+      "of": "window",
+      "daylight": 1,
+      "reach": 6
+    },
+    {
+      "id": "lamp_light",
+      "of": "lamp",
+      "color": "#ffd59a",
+      "strength": 1.1,
+      "reach": 4
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "louise_on": [
+      0.6,
+      3.55,
+      0.46
+    ],
+    "louise_reach": {
+      "r": "mug#grip_r",
+      "l": "mug#grip_l"
+    },
+    "louise_look": "daughter",
+    "louise_mood": "thinking",
+    "daughter_reach": {
+      "l": "stepladder#top"
+    },
+    "daughter_look": "stepladder#top",
+    "daughter_mood": "laugh"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The early morning sky",
+      "sky": true
+    },
+    {
+      "id": "far_houses",
+      "name": "The houses across the street",
+      "across": 0.8,
+      "distance": 24,
+      "height": 9,
+      "box": [
+        -16,
+        -9.2,
+        16,
+        0.1
+      ]
+    },
+    {
+      "id": "street",
+      "name": "The front yard, the street and the lawns across it",
+      "plane": true,
+      "across": 0.8,
+      "distance": 15,
+      "width": 40,
+      "depth": 20
+    },
+    {
+      "id": "car",
+      "name": "The friend's car, waiting",
+      "shadow": true,
+      "across": 2.6,
+      "distance": 9.6,
+      "height": 1.45,
+      "box": [
+        -2.12,
+        -1.5,
+        2.12,
+        0.05
+      ]
+    },
+    {
+      "id": "exhaust",
+      "name": "The car's exhaust",
+      "particles": {
+        "kind": "smoke",
+        "at": "car#exhaust",
+        "rate": 3,
+        "life": [
+          2,
+          3.5
+        ],
+        "size": [
+          0.08,
+          0.45
+        ],
+        "speed": [
+          0.05,
+          0.15
+        ],
+        "direction": [
+          -1,
+          0,
+          0.3
+        ],
+        "color": "#ece9e3",
+        "opacity": 0.3,
+        "shadow": 0
+      }
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall, the cupboards and the window",
+      "inside": true,
+      "across": 0,
+      "distance": 5.0,
+      "facing": 180,
+      "height": 2.55,
+      "box": [
+        -2.45,
+        -2.57,
+        3.05,
+        0.02
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The window over the sink",
+      "unseen": true,
+      "across": 0.6,
+      "distance": 5.0,
+      "elevation": 1.0,
+      "facing": 180,
+      "height": 1.15,
+      "box": [
+        -0.8,
+        -1.15,
+        0.8,
+        0
+      ]
+    },
+    {
+      "id": "window_frame",
+      "name": "The window's frame, its sill and the geranium",
+      "inside": true,
+      "across": 0.6,
+      "distance": 4.97,
+      "elevation": 0.94,
+      "facing": 180,
+      "height": 1.3,
+      "box": [
+        -0.92,
+        -1.3,
+        0.92,
+        0.08
+      ]
+    },
+    {
+      "id": "curtains",
+      "name": "The café curtains",
+      "inside": true,
+      "translucent": 0.6,
+      "across": 0.6,
+      "distance": 4.93,
+      "elevation": 1.0,
+      "facing": 180,
+      "height": 1.2,
+      "box": [
+        -0.84,
+        -1.2,
+        0.84,
+        0.02
+      ]
+    },
+    {
+      "id": "counter",
+      "name": "The counter's cupboards",
+      "inside": true,
+      "across": -0.29,
+      "distance": 4.42,
+      "facing": 180,
+      "height": 0.92,
+      "box": [
+        -2.15,
+        -0.95,
+        2.15,
+        0.02
+      ]
+    },
+    {
+      "id": "counter_top",
+      "name": "The worktop and the sink",
+      "plane": true,
+      "inside": true,
+      "across": -0.29,
+      "distance": 4.71,
+      "elevation": 0.92,
+      "width": 4.22,
+      "depth": 0.6
+    },
+    {
+      "id": "counter_things",
+      "name": "The kettle, the bread bin, the spoons",
+      "inside": true,
+      "across": -1.05,
+      "distance": 4.78,
+      "elevation": 0.92,
+      "facing": 180,
+      "height": 0.42,
+      "box": [
+        -1.4,
+        -0.44,
+        1.4,
+        0.02
+      ]
+    },
+    {
+      "id": "fridge",
+      "name": "The old fridge",
+      "inside": true,
+      "shadow": true,
+      "across": 2.62,
+      "distance": 4.62,
+      "facing": 200,
+      "height": 1.72,
+      "box": [
+        -0.4,
+        -1.74,
+        0.4,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall: the door to the hall, the jacket, the shelves",
+      "inside": true,
+      "across": -2.4,
+      "distance": 2.9,
+      "facing": 90,
+      "height": 2.55,
+      "box": [
+        -2.12,
+        -2.57,
+        2.12,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall: the telephone, the calendar",
+      "inside": true,
+      "across": 3.0,
+      "distance": 2.9,
+      "facing": 270,
+      "height": 2.55,
+      "box": [
+        -2.12,
+        -2.57,
+        2.12,
+        0.02
+      ]
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 5.0,
+      "elevation": 2.55,
+      "facing": 180,
+      "tilt": -90,
+      "height": 4.4,
+      "box": [
+        -2.45,
+        -4.42,
+        3.05,
+        0.02
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The checked linoleum",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 2.7,
+      "elevation": 0.005,
+      "width": 6.1,
+      "depth": 4.7
+    },
+    {
+      "id": "lamp",
+      "name": "The lamp over the table",
+      "inside": true,
+      "across": 0.75,
+      "distance": 3.1,
+      "elevation": 1.62,
+      "height": 0.93,
+      "box": [
+        -0.26,
+        -0.95,
+        0.26,
+        0.06
+      ]
+    },
+    {
+      "id": "table",
+      "name": "The kitchen table",
+      "inside": true,
+      "shadow": true,
+      "across": 0.75,
+      "distance": 3.1,
+      "facing": 180,
+      "height": 0.75,
+      "box": [
+        -0.7,
+        -0.77,
+        0.7,
+        0.02
+      ]
+    },
+    {
+      "id": "table_top",
+      "name": "The oilcloth on the table",
+      "plane": true,
+      "inside": true,
+      "shadow": true,
+      "across": 0.75,
+      "distance": 3.1,
+      "elevation": 0.75,
+      "width": 1.3,
+      "depth": 0.8
+    },
+    {
+      "id": "teapot",
+      "name": "The teapot and her cup",
+      "inside": true,
+      "shadow": true,
+      "across": 1.1,
+      "distance": 3.25,
+      "elevation": 0.75,
+      "height": 0.26,
+      "box": [
+        -0.36,
+        -0.28,
+        0.26,
+        0.01
+      ]
+    },
+    {
+      "id": "mug",
+      "name": "Louise's mug",
+      "inside": true,
+      "across": 0.55,
+      "distance": 3.23,
+      "elevation": 0.75,
+      "height": 0.11,
+      "box": [
+        -0.075,
+        -0.115,
+        0.085,
+        0.005
+      ]
+    },
+    {
+      "id": "steam",
+      "name": "Steam off the tea",
+      "inside": true,
+      "particles": {
+        "kind": "smoke",
+        "at": "mug#top",
+        "rate": 4,
+        "life": [
+          1.5,
+          2.5
+        ],
+        "size": [
+          0.02,
+          0.12
+        ],
+        "speed": [
+          0.05,
+          0.12
+        ],
+        "gravity": -0.12,
+        "wind": 0,
+        "turbulence": 0.03,
+        "color": "#ffffff",
+        "opacity": 0.22,
+        "shadow": 0
+      }
+    },
+    {
+      "id": "chair",
+      "name": "The kitchen chairs",
+      "inside": true,
+      "shadow": true,
+      "across": 0.6,
+      "distance": 3.78,
+      "facing": 180,
+      "height": 0.95,
+      "box": [
+        -0.26,
+        -0.97,
+        0.26,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": 0.6,
+          "distance": 3.78,
+          "facing": 180
+        },
+        {
+          "across": 1.22,
+          "distance": 3.8,
+          "facing": 180
+        }
+      ]
+    },
+    {
+      "id": "stepladder",
+      "name": "The stepladder, pulled out, the sleeping bag on it",
+      "inside": true,
+      "shadow": true,
+      "across": -0.72,
+      "distance": 2.6,
+      "facing": 200,
+      "height": 1.24,
+      "box": [
+        -0.32,
+        -1.26,
+        0.32,
+        0.02
+      ]
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the sunlight",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0.4,
+          3.3,
+          1.3
+        ],
+        "source": [
+          2.0,
+          2.6,
+          1.6
+        ]
+      }
+    },
+    {
+      "id": "louise",
+      "name": "Louise",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "louise_61",
+        "turn": 215,
+        "does": "seated_mug"
+      },
+      "across": 0.6,
+      "distance": 3.55
+    },
+    {
+      "id": "daughter",
+      "name": "Her daughter",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "daughter_25",
+        "turn": 165,
+        "does": "hand_on_hip"
+      },
+      "across": -1.2,
+      "distance": 2.95
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "sparse felt piano, slow, clear intervals, patient and luminous, like light on a white wall",
+        "weight": 1.0
+      },
+      {
+        "text": "acoustic guitar fingerpicking, plain and kind, an early kitchen morning",
+        "weight": 0.8
+      },
+      {
+        "text": "music box melody slowed down, bittersweet, a child's tune",
+        "weight": 0.5
+      },
+      {
+        "text": "solo cello, warm and grave, unhurried",
+        "weight": 0.4
+      },
+      {
+        "text": "low sustained strings with a single high violin line, still, wondering, morning",
+        "weight": 0
+      },
+      {
+        "text": "soft analog synth pad, cool and white, slowly breathing, distant",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano ostinato in an odd meter, gentle, circling, time folding on itself",
+        "weight": 0
+      },
+      {
+        "text": "wordless female voice humming softly, far away, tender",
+        "weight": 0
+      },
+      {
+        "text": "glass harmonica tones, airy, crystalline, sustained",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, transparent harmonies, quiet grief under warmth",
+        "weight": 0
+      },
+      {
+        "text": "bowed vibraphone shimmer, cold, suspended",
+        "weight": 0
+      },
+      {
+        "text": "clarinet over pizzicato strings, light, curious",
+        "weight": 0
+      },
+      {
+        "text": "ambient field recording of a suburban street at dawn, birds, a distant car idling, with soft piano",
+        "weight": 0
+      },
+      {
+        "text": "slow pulsing electronic heartbeat under warm strings, inevitable",
+        "weight": 0
+      },
+      {
+        "text": "upright piano in a small room, a little out of tune, lullaby-like",
+        "weight": 0
+      },
+      {
+        "text": "deep sub-bass drone with soft wooden knocks, alien, calm",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.2,
+    "brightness": 0.6,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
