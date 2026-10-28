@@ -26,7 +26,7 @@ bent over his table, the inker running. People only stand (their loops); no came
   door's glass; a lamp behind the viewer (`front_lamp`, no element: the room goes on behind the camera) so the faces turned
   to us are lit. `inside` 0.25 lets in a little of the moon.
 - **People.** Cast `modules/cast`. Madame Fabien (`coat_clutch` — her arms wrapped round her, holding her coat shut) by
-  the door, looking at Rivière; Rivière (the engine's `stand`; indoors — no hat, a jacket over his own look) before the
+  the door, looking at Rivière; Rivière (`hands_behind`, his loop in the field; indoors — no hat, a jacket over his own look) before the
   map, looking at her; the pilot (`stand_easy`, the helmet hanging from his right hand — part `helmet_held`) by the
   bench, looking at her; the telegraphist (`desk_lean` — leaning over the table on his elbows, his right hand on the key by `telegraphist_reach`) at the table, looking at
   Rivière.
@@ -38,9 +38,6 @@ bent over his table, the inker running. People only stand (their loops); no came
 - **Faces are small.** The room is shown whole from its open side, and the people stand 4.5…6.3 m off: they read as
   figures, their faces (eyes, brows) barely. A picture camera has no lens to choose; nearer people would mean a smaller
   room or a cut to a shot — not this stage's.
-- **Rivière's own loop turned away.** With `hands_behind` (his loop in the field) at turns 215…235 he stood with his
-  back to us, though at 200 in the field he faces us — the known trouble of a Kimodo motion turning toward the wall in a
-  scene. Here he has the engine's `stand` instead.
 - **Sitting.** Every Kimodo take of someone seated at a desk (tapping a key, writing, typing) leaned back as in an
   armchair; only “leans forward with their elbows on the table” sat at the table. His right hand is put on the key by
   `telegraphist_reach`; it does not tap.
