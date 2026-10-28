@@ -1,0 +1,9 @@
+{
+  "title": "Of Mice and Men",
+  "description": "A ranch bunkhouse, a barn, a pool by the river. Two men and a dream of a little place.",
+  "themes": {
+    "drama": 70,
+    "west": 30
+  },
+  "main": "pool"
+}

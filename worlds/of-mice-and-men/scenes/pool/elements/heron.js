@@ -1,0 +1,46 @@
+// A heron standing in the shallows under the far bank, facing left: grey-blue body, the neck folded in an S, a dark
+// crest, a yellow bill; its head and neck (layer `head`) turn a little now and then (its animate)
+g.strokeStyle = '#4a4440';
+g.lineWidth = 0.025;
+g.beginPath();
+g.moveTo(0.02, -0.45);
+g.lineTo(0.0, 0.05);
+g.moveTo(0.1, -0.45);
+g.lineTo(0.14, 0.05);
+g.stroke();
+g.fillStyle = '#8a95a2';
+g.beginPath();
+g.ellipse(0.08, -0.55, 0.24, 0.12, -0.25, 0, Math.PI * 2);
+g.fill();
+g.fillStyle = '#5f6977';
+g.beginPath();
+g.moveTo(0.1, -0.6);
+g.quadraticCurveTo(0.3, -0.55, 0.42, -0.42);
+g.quadraticCurveTo(0.25, -0.48, 0.05, -0.47);
+g.fill();
+e.layer('head', { pivot: [-0.08, -0.62] }, g => {
+  g.strokeStyle = '#a9b2bc';
+  g.lineWidth = 0.07;
+  g.lineCap = 'round';
+  g.beginPath();
+  g.moveTo(-0.08, -0.62);
+  g.bezierCurveTo(-0.2, -0.72, -0.02, -0.82, -0.1, -0.92);
+  g.stroke();
+  g.fillStyle = '#c3c9cf';
+  g.beginPath();
+  g.ellipse(-0.12, -0.95, 0.055, 0.045, 0, 0, Math.PI * 2);
+  g.fill();
+  g.fillStyle = '#d2a440';
+  g.beginPath();
+  g.moveTo(-0.16, -0.96);
+  g.lineTo(-0.32, -0.94);
+  g.lineTo(-0.16, -0.93);
+  g.fill();
+  g.strokeStyle = '#2d2b2c';
+  g.lineWidth = 0.015;
+  g.beginPath();
+  g.moveTo(-0.1, -0.97);
+  g.lineTo(0.05, -0.95);
+  g.stroke();
+});
+e.at(-0.12, -0.95, 'head');
