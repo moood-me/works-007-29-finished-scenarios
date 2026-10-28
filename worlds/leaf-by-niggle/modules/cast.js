@@ -1,0 +1,268 @@
+// The people of «Leaf by Niggle» as people in a scene (an element with "person"): who they are — figures of shapes in
+// this world's style, soft rounded shapes in a watercolour's quiet colours, lit by the scene, a simple face so a face
+// reads across the shed — and what they move by (the motions in cast.data.json). cast.md says who is who and what each
+// carries. A part's lengths are a man's metres times F.fit.h (the person's height as a share of a man's 1.76 m).
+const V = () => MooodShapes.V;
+const UP = [0, 1, 0];
+// Niggle's tufts: directions from the head's centre (side, up, forward) — over the ears, behind them, at the crown's back
+const TUFTS = [[0.97, 0.05, -0.05], [-0.97, 0.05, -0.05], [0.9, 0.35, -0.2], [-0.9, 0.35, -0.2], [0.7, 0.25, -0.7], [-0.7, 0.25, -0.7],
+  [0, 0.3, -0.97], [0.35, 0.75, -0.55], [-0.35, 0.75, -0.55]];
+const UNTIDY = F => ({
+  radii: F.head.egg.map(e => e * F.head.r * F.head.out),
+  pts: TUFTS.map(() => [null, null, null]),
+  profile: [[0, F.head.r * 0.36], [1, F.head.r * 0.24], [2, F.head.r * 0.03]],
+  colors: [[0, F.colors.hair]],
+});
+// Niggle's brush: a long pale handle out of the right fist along the forearm, a ferrule, a green-tipped head
+const BRUSH = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    handle: [[0, [0.78, 0.66, 0.46, 1]]],
+    ferrule: [[0, [0.62, 0.6, 0.56, 1]]],
+    tip: [[0, [0.32, 0.45, 0.27, 1]]],
+  };
+};
+// Parish's stick: a plain pale ash stick with a crook, from under his right hand to the floor beside his right foot
+const STICK = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    wood: [[0, [0.52, 0.4, 0.28, 1]]],
+    hook: [[0, 0.016 * h], [3, 0.015 * h]],
+    curl: [null, null, null, null],
+  };
+};
+// The Guide's staff: a tall pale shepherd's staff, upright through his right fist from the ground to well over his
+// head, a crook at its top
+const STAFF = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    wood: [[0, [0.6, 0.5, 0.36, 1]]],
+    crook: [[0, 0.013 * h], [4, 0.011 * h]],
+    curl: [null, null, null, null, null],
+  };
+};
+// Parish's spade in that country: a plain wooden shaft and grip, the iron blade pushed into the earth beside his
+// right foot, his right hand on the grip
+const SPADE = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    wood: [[0, [0.54, 0.43, 0.31, 1]]],
+    iron: [[0, [0.55, 0.56, 0.56, 1]]],
+  };
+};
+// The Inspector's book: an open ledger held in both hands before his chest — two pale pages in a dark grey cover,
+// its spine between the hands, the pages tipped toward his face
+const BOOK = F => {
+  const h = F.fit.h;
+  return {
+    h,
+    cover: [[0, [0.3, 0.31, 0.32, 1]]],
+    page: [[0, [0.9, 0.87, 0.8, 1]]],
+    coverR: [[0, 0.085 * h], [1, 0.085 * h]],
+    pageR: [[0, 0.078 * h], [1, 0.078 * h]],
+    coverAt: [null, null],
+    leftAt: [null, null],
+    rightAt: [null, null],
+  };
+};
+return {
+  ...data,
+  characters: {
+    // Niggle: a little man, past his middle years, roundish, untidy greying-brown hair; a painter's smock of faded
+    // blue linen to the thigh, old brown trousers; a brush in his right hand
+    niggle: {
+      kind: 'shapes', style: 'niggle', who: 'man', garment: 'smock', hair: 'untidy', face: 'simple', parts: ['brush'],
+      body: { height: 0.93, thick: 1.0, shoulders: 0.94, hips: 1.04 },
+      colors: { skin: '#e8bf9c', hair: '#7d6d5c', top: '#b9ae98', garment: '#4f6c96', bottom: '#5a4636', shoes: '#3b2d24' },
+    },
+    // Parish: lean and weathered, a lame leg, a short greying moustache; a cloth cap, a worn green-brown jacket, a
+    // collarless shirt, patched trousers; his ash stick in his right hand
+    parish: {
+      kind: 'shapes', style: 'niggle', who: 'man', garment: 'jacket', hair: 'short', hat: 'cap', face: 'simple',
+      parts: ['stick', 'moustache'],
+      body: { height: 1.0, thick: 0.82, shoulders: 0.98 },
+      colors: { skin: '#c9977a', hair: '#7e7466', top: '#cdbfa5', garment: '#5f6447', bottom: '#4d4236', shoes: '#2e241d', hat: '#4a4134' },
+    },
+    // The Guide: tall, lean, grave and kind; a long grey-green shepherd's cloak over an undyed tunic, a broad hat, a
+    // shepherd's staff in his right hand
+    guide: {
+      kind: 'shapes', style: 'niggle', who: 'man', garment: 'cloak', hair: 'short', hat: 'hat', face: 'simple',
+      parts: ['staff'],
+      body: { height: 1.05, thick: 0.86, shoulders: 1.0 },
+      colors: { skin: '#d4ab8c', hair: '#9b968c', top: '#c6bba2', garment: '#6f7a70', bottom: '#5b5247', shoes: '#3e342b', hat: '#5e594f' },
+    },
+    // The Inspector of Houses: grey and exact, not unkind — the law; a long grey town coat, a dark grey bowler, a
+    // grey waistcoat and collar; his book open in both hands
+    inspector: {
+      kind: 'shapes', style: 'niggle', who: 'man', garment: 'coat', hair: 'short', hat: 'bowler', face: 'simple',
+      parts: ['book'],
+      body: { height: 1.02, thick: 0.9, shoulders: 0.96 },
+      colors: { skin: '#dcbfa8', hair: '#8a8780', top: '#b9b8b2', garment: '#6d7072', bottom: '#4e5052', shoes: '#26262a', hat: '#3e4144' },
+    },
+    // Mrs Parish: small, ill since summer; a kerchief over her hair, a faded rose house dress
+    mrs_parish: {
+      kind: 'shapes', style: 'niggle', who: 'woman', garment: 'dress', hair: 'bun', hat: 'kerchief', face: 'simple',
+      body: { height: 0.9, thick: 0.8, shoulders: 0.86, hips: 0.98 },
+      colors: { skin: '#e6c0a4', hair: '#8c7666', top: '#a9838a', garment: '#a9838a', shoes: '#4a3b36', hat: '#d8cfbd' },
+    },
+  },
+  shapes: {
+    // the world's style: the engine's soft figures (rounded shapes, tinted lines) toned by the light, the head a little
+    // big, so a face reads across the shed, a simple face (eyes, brows, nose, mouth: <id>_mood shows on it)
+    styles: { niggle: { from: 'soft', name: 'Leaf by Niggle', head: 1.35, neck: 0.6, line: 1.6, paint: 'toned', face: 'simple' } },
+    garments: {
+      // a painter's smock: loose from the shoulders to the thigh, long sleeves
+      smock: { name: 'smock', hang: [{ to: 0.6, from: 'shoulders', flare: 0.1 }], sleeves: 'garment' },
+      // a shepherd's cloak: from the shoulders to the shins, wide at the hem, long sleeves
+      cloak: { name: 'cloak', hang: [{ to: 1.1, from: 'shoulders', flare: 0.3 }], sleeves: 'garment' },
+    },
+    hair: {
+      // untidy: thin on the crown, a fluff of tufts sticking out over the ears and round the back
+      untidy: { name: 'untidy', draw: F => {
+        const { add, mul, unit, cross } = V(), h = F.head, [hs, hu, hf] = h.axes, rh = h.r, K = F.keep(UNTIDY);
+        F.cap(h.at, h.axes, K.radii, [0, 0.62, -0.78], -0.12, F.colors.hair, h.sides, h.square);
+        TUFTS.forEach((d, i) => {
+          const v = unit(add(add(mul(hs, d[0]), mul(hu, d[1])), mul(hf, d[2]))), base = add(h.at, mul(v, rh * 0.85)), p = K.pts[i];
+          p[0] = base;
+          p[1] = add(base, mul(v, rh * 0.32));
+          p[2] = add(base, add(mul(v, rh * 0.52), mul(hu, -rh * 0.1)));
+          F.tube(p, K.profile, K.colors, 8, unit(cross(v, hf)), 0.5);
+        });
+      } },
+    },
+    hats: {
+      // a town hat: a round hard crown, a narrow brim all round
+      bowler: { name: 'bowler', draw: F => {
+        const { add, mul, unit, cross } = V(), { at, axes: [hs, hu, hf], r } = F.head;
+        const tilt = unit(add(hu, mul(hf, 0.06)));
+        const axes = [hs, tilt, cross(hs, tilt)];
+        F.ball(add(at, mul(hu, r * 0.4)), axes, [r * 1.3, r * 0.05, r * 1.25], F.colors.hat, F.sides * 2);
+        F.ball(add(at, mul(hu, r * 0.5)), axes, [r * 0.95, r * 0.72, r * 0.93], F.colors.hat, F.sides);
+      } },
+      // a kerchief over the hair, tied at the nape
+      kerchief: { name: 'kerchief', draw: F => {
+        const { add, mul } = V(), { at, axes, egg, r, out, sides, square } = F.head, [, hu, hf] = axes;
+        F.cap(at, axes, egg.map(e => e * r * out * 1.08), [0, 0.7, -0.72], -0.05, F.colors.hat, sides, square);
+        F.ball(add(at, add(mul(hu, -r * 0.45), mul(hf, -r * 1.02))), axes, [r * 0.22, r * 0.16, r * 0.14], F.colors.hat, 10);
+      } },
+    },
+    parts: {
+      // a short moustache under the nose (the colour of the hair)
+      moustache: { name: 'moustache', draw: F => {
+        const { axes, r, on } = F.head;
+        F.ball(on([0, -0.24, 0.97], 1.0), axes, [r * 0.27, r * 0.07, r * 0.06], F.colors.hair, 10);
+      } },
+      brush: {
+        name: 'brush',
+        draw: F => {
+          const { add, mul, sub, unit } = V();
+          const K = F.keep(BRUSH);
+          const h = K.h;
+          const hand = F.P('RightHand');
+          const along = unit(sub(hand, F.P('RightForeArm')));
+          const side = F.side('RightHand');
+          const back = sub(hand, mul(along, 0.06 * h));
+          const neck = add(hand, mul(along, 0.17 * h));
+          const head = add(neck, mul(along, 0.035 * h));
+          const end = add(head, mul(along, 0.045 * h));
+          F.bar(back, neck, 0.007 * h, 0.006 * h, K.handle, 6, side);
+          F.bar(neck, head, 0.0065 * h, 0.0065 * h, K.ferrule, 6, side);
+          F.bar(head, end, 0.008 * h, 0.002 * h, K.tip, 6, side);
+        },
+      },
+      spade: {
+        name: 'spade',
+        draw: F => {
+          const { add, mul, sub } = V();
+          const K = F.keep(SPADE);
+          const h = K.h;
+          const hand = F.P('RightHand');
+          const side = F.side('Hips');
+          const fwd = F.fwd('Hips');
+          const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.07 * h;
+          const foot = add([hand[0], floor, hand[2]], add(mul(fwd, 0.04 * h), mul(side, 0.05 * h)));
+          const tip = sub(foot, mul(UP, 0.08 * h));
+          const bladeTop = add(foot, mul(UP, 0.18 * h));
+          F.bar(sub(hand, mul(UP, 0.02 * h)), bladeTop, 0.013 * h, 0.014 * h, K.wood, 6, side);
+          F.bar(add(hand, mul(side, -0.055 * h)), add(hand, mul(side, 0.055 * h)), 0.014 * h, 0.014 * h, K.wood, 6, fwd);
+          F.bar(bladeTop, tip, 0.075 * h, 0.065 * h, K.iron, 6, side, 0.12);
+        },
+      },
+      staff: {
+        name: 'staff',
+        draw: F => {
+          const { add, mul } = V();
+          const K = F.keep(STAFF);
+          const h = K.h;
+          const hand = F.P('RightHand');
+          const across = F.side('Hips');
+          const fwd = F.fwd('Hips');
+          const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.07 * h;
+          const foot = [hand[0], floor, hand[2]];
+          const top = add(hand, mul(UP, 0.42 * h));
+          F.bar(foot, top, 0.012 * h, 0.014 * h, K.wood, 6, across);
+          K.curl[0] = top;
+          K.curl[1] = add(top, mul(UP, 0.06 * h));
+          K.curl[2] = add(add(top, mul(UP, 0.1 * h)), mul(fwd, 0.05 * h));
+          K.curl[3] = add(add(top, mul(UP, 0.07 * h)), mul(fwd, 0.1 * h));
+          K.curl[4] = add(add(top, mul(UP, 0.02 * h)), mul(fwd, 0.1 * h));
+          F.tube(K.curl, K.crook, K.wood, 6, across);
+        },
+      },
+      book: {
+        name: 'book',
+        draw: F => {
+          const { add, mul, sub, unit, mean, cross } = V();
+          const K = F.keep(BOOK);
+          const h = K.h;
+          const r = F.P('RightHand');
+          const l = F.P('LeftHand');
+          const across = unit(sub(l, r));
+          const fwd = F.fwd('Chest');
+          const spine = add(mean([r, l]), add(mul(fwd, 0.05 * h), mul(UP, 0.02 * h)));
+          // the pages' height runs from the reader's side up and away: tipped toward his face
+          const tall = unit(add(mul(fwd, 0.85), mul(UP, 0.5)));
+          const half = 0.12 * h;
+          const reader = unit(cross(across, tall));
+          const lift = mul(reader, 0.012 * h);
+          K.coverAt[0] = add(spine, mul(across, -half * 1.05));
+          K.coverAt[1] = add(spine, mul(across, half * 1.05));
+          F.tube(K.coverAt, K.coverR, K.cover, 6, tall, 0.06, 3, true);
+          K.leftAt[0] = add(add(spine, lift), mul(across, -half));
+          K.leftAt[1] = add(spine, lift);
+          K.rightAt[0] = add(spine, lift);
+          K.rightAt[1] = add(add(spine, lift), mul(across, half));
+          F.tube(K.leftAt, K.pageR, K.page, 6, tall, 0.08, 3, true);
+          F.tube(K.rightAt, K.pageR, K.page, 6, tall, 0.08, 3, true);
+          F.point('book', spine);
+        },
+      },
+      stick: {
+        name: 'stick',
+        draw: F => {
+          const { add, mul, sub, unit } = V();
+          const K = F.keep(STICK);
+          const h = K.h;
+          const hand = F.P('RightHand');
+          const fwd = F.fwd('Hips');
+          const across = F.side('Hips');
+          const floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.07 * h;
+          const tip = sub(add(hand, mul(fwd, 0.05 * h)), mul(UP, hand[1] - floor));
+          const along = unit(sub(hand, tip));
+          const top = add(hand, mul(along, 0.04 * h));
+          F.bar(top, tip, 0.012 * h, 0.009 * h, K.wood, 6, across);
+          const back = mul(fwd, -1);
+          K.curl[0] = top;
+          K.curl[1] = add(top, mul(along, 0.04 * h));
+          K.curl[2] = add(K.curl[1], add(mul(along, 0.01 * h), mul(back, 0.05 * h)));
+          K.curl[3] = add(top, add(mul(along, 0.015 * h), mul(back, 0.09 * h)));
+          F.tube(K.curl, K.hook, K.wood, 6, across);
+        },
+      },
+    },
+  },
+};

@@ -1,0 +1,601 @@
+{
+  "engine": 3,
+  "title": "The Shed",
+  "caption": "A tall shed on the old potato bed. One leaf is finished.",
+  "horizon": 0.4,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.72,
+    "ambientColor": "#c9c3cf",
+    "inside": 0.32,
+    "bounce": 0.6,
+    "haze": 0.05,
+    "hazeColor": "#dcc59e",
+    "hazeGlow": 0.7,
+    "shafts": 0.9,
+    "tint": "#f3cf9a",
+    "tintStrength": 0.08,
+    "vignette": 0.45,
+    "grain": 0.1,
+    "wind": [
+      1,
+      0.3,
+      0.45
+    ],
+    "looks": {
+      "dusk": {
+        "ambient": 0.48,
+        "ambientColor": "#9d90b2",
+        "inside": 0.2,
+        "tint": "#f0a070",
+        "tintStrength": 0.14,
+        "lights": {
+          "sun": 0.55,
+          "door_day": 0.5,
+          "window_day": 0.45
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        12,
+        14
+      ],
+      "color": "#ffd9a0",
+      "strength": 1.4,
+      "through": [
+        [
+          [
+            1.0,
+            5.6,
+            0
+          ],
+          [
+            2.6,
+            5.6,
+            0
+          ],
+          [
+            2.6,
+            5.6,
+            2.3
+          ],
+          [
+            1.0,
+            5.6,
+            2.3
+          ]
+        ]
+      ],
+      "soft": 0.2
+    },
+    {
+      "id": "door_day",
+      "of": "doorway",
+      "daylight": 1.3,
+      "reach": 6
+    },
+    {
+      "id": "window_day",
+      "of": "side_window",
+      "daylight": 1.0,
+      "reach": 5
+    },
+    {
+      "id": "lamp",
+      "of": "lantern#flame",
+      "color": "#ffc070",
+      "strength": 1.5,
+      "reach": 6,
+      "on": "lamp",
+      "flicker": 0.06
+    },
+    {
+      "id": "parish_lamp",
+      "of": "house#lamp",
+      "color": "#ffbe70",
+      "strength": 1.1,
+      "reach": 1.6
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "lamp": 1,
+    "dusk": 0,
+    "niggle_look": [
+      1.3,
+      3.0,
+      2.0
+    ],
+    "niggle_mood": "tired",
+    "parish_look": "niggle",
+    "parish_mood": "neutral",
+    "mrs_parish_look": [
+      1.8,
+      5.6,
+      1.6
+    ],
+    "mrs_parish_mood": "smile"
+  },
+  "states": {
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lantern over the platform: 0 out, 1 lit — warm light on the canvas, Niggle and Parish at the door"
+    },
+    "dusk": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the hour: 0 a late autumn afternoon, the low sun in at the door; 1 near sunset, the light going red and the shed darker"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The autumn sky",
+      "sky": true,
+      "redraw": {
+        "dusk": 0.25
+      }
+    },
+    {
+      "id": "yard",
+      "name": "The yard and Parish's garden",
+      "plane": true,
+      "across": 0,
+      "distance": 18,
+      "width": 40,
+      "depth": 24
+    },
+    {
+      "id": "apple",
+      "name": "The old apple tree",
+      "across": 7.5,
+      "distance": 7.6,
+      "height": 5.2,
+      "box": [
+        -2.4,
+        -5.3,
+        2.4,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "fence",
+      "name": "The fence and its gate",
+      "across": 3,
+      "distance": 9.5,
+      "height": 1.2,
+      "box": [
+        -7.1,
+        -1.25,
+        7.1,
+        0.03
+      ]
+    },
+    {
+      "id": "cabbages",
+      "name": "Parish's cabbages",
+      "across": 3,
+      "distance": 10.3,
+      "height": 0.4,
+      "box": [
+        -5.6,
+        -0.45,
+        5.6,
+        0.03
+      ]
+    },
+    {
+      "id": "house",
+      "name": "Parish's cottage",
+      "across": 3.75,
+      "distance": 12.2,
+      "height": 6,
+      "box": [
+        -4.4,
+        -6.05,
+        4.4,
+        0.03
+      ]
+    },
+    {
+      "id": "house_room",
+      "name": "The Parishes' bedroom",
+      "across": 3.75,
+      "distance": 12.9,
+      "height": 2.6,
+      "box": [
+        -1.65,
+        -2.65,
+        1.65,
+        0.03
+      ]
+    },
+    {
+      "id": "thistles",
+      "name": "Niggle's thistles",
+      "across": 0.6,
+      "distance": 6.2,
+      "height": 1.4,
+      "box": [
+        -0.7,
+        -1.55,
+        0.7,
+        0.03
+      ],
+      "copies": [
+        {
+          "across": 0.6,
+          "distance": 6.2
+        },
+        {
+          "across": 2.95,
+          "distance": 6.4,
+          "flip": true,
+          "scale": 0.85
+        },
+        {
+          "across": 3.6,
+          "distance": 7.6,
+          "scale": 0.9
+        }
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall and the doorway",
+      "inside": true,
+      "across": 0,
+      "distance": 5.6,
+      "facing": 180,
+      "height": 4.3,
+      "box": [
+        -3.3,
+        -4.35,
+        3.3,
+        0.03
+      ]
+    },
+    {
+      "id": "doorway",
+      "name": "The doorway's light",
+      "unseen": true,
+      "across": 1.8,
+      "distance": 5.6,
+      "facing": 180,
+      "height": 2.3,
+      "box": [
+        -0.8,
+        -2.3,
+        0.8,
+        0
+      ]
+    },
+    {
+      "id": "door",
+      "name": "The door, open",
+      "inside": true,
+      "across": 2.6,
+      "distance": 5.55,
+      "facing": 100,
+      "height": 2.3,
+      "box": [
+        -1.62,
+        -2.32,
+        0.02,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall",
+      "inside": true,
+      "across": -3.2,
+      "distance": 3.35,
+      "facing": 90,
+      "height": 4.3,
+      "box": [
+        -2.3,
+        -4.35,
+        2.3,
+        0.03
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall, the sketches and the window",
+      "inside": true,
+      "across": 3.2,
+      "distance": 3.35,
+      "facing": 270,
+      "height": 4.3,
+      "box": [
+        -2.3,
+        -4.35,
+        2.3,
+        0.03
+      ]
+    },
+    {
+      "id": "side_window",
+      "name": "The side window's light",
+      "unseen": true,
+      "across": 3.2,
+      "distance": 3.35,
+      "elevation": 1.3,
+      "facing": 270,
+      "height": 1.2,
+      "box": [
+        -0.6,
+        -1.2,
+        0.6,
+        0
+      ]
+    },
+    {
+      "id": "ceiling",
+      "name": "The roof boards and beams",
+      "inside": true,
+      "across": 0,
+      "distance": 5.6,
+      "elevation": 4.2,
+      "facing": 180,
+      "tilt": -90,
+      "height": 4.6,
+      "box": [
+        -3.3,
+        -4.6,
+        3.3,
+        0.05
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 3.35,
+      "width": 6.5,
+      "depth": 4.6
+    },
+    {
+      "id": "canvas",
+      "name": "The great canvas: the Tree",
+      "inside": true,
+      "shadow": true,
+      "across": -1.25,
+      "distance": 5.15,
+      "facing": 174,
+      "height": 3.7,
+      "box": [
+        -2.4,
+        -3.8,
+        2.4,
+        0.03
+      ]
+    },
+    {
+      "id": "platform",
+      "name": "The platform and its steps",
+      "inside": true,
+      "shadow": true,
+      "across": -1.05,
+      "distance": 4.15,
+      "facing": 180,
+      "height": 0.95,
+      "box": [
+        -1.6,
+        -0.98,
+        2.05,
+        0.03
+      ]
+    },
+    {
+      "id": "platform_top",
+      "name": "The platform's boards",
+      "plane": true,
+      "walk": true,
+      "inside": true,
+      "across": -0.95,
+      "distance": 4.6,
+      "elevation": 0.9,
+      "width": 2.9,
+      "depth": 0.9,
+      "color": "#86735c"
+    },
+    {
+      "id": "lantern",
+      "name": "The lantern",
+      "inside": true,
+      "across": 0.55,
+      "distance": 4.0,
+      "height": 4.2,
+      "box": [
+        -0.22,
+        -4.25,
+        0.22,
+        -2.35
+      ]
+    },
+    {
+      "id": "table",
+      "name": "The paint table",
+      "inside": true,
+      "shadow": true,
+      "across": -2.45,
+      "distance": 3.5,
+      "facing": 180,
+      "height": 1.35,
+      "box": [
+        -0.7,
+        -1.4,
+        0.7,
+        0.03
+      ]
+    },
+    {
+      "id": "bag",
+      "name": "The empty travelling bag",
+      "inside": true,
+      "shadow": true,
+      "across": 1.75,
+      "distance": 3.0,
+      "height": 0.5,
+      "box": [
+        -0.5,
+        -0.55,
+        0.7,
+        0.03
+      ]
+    },
+    {
+      "id": "motes",
+      "name": "Dust in the sunbeam",
+      "particles": {
+        "kind": "dust",
+        "at": [
+          1.5,
+          4.2,
+          1.2
+        ],
+        "source": [
+          2.2,
+          2.8,
+          2.4
+        ]
+      },
+      "inside": true
+    },
+    {
+      "id": "niggle",
+      "name": "Niggle",
+      "person": {
+        "cast": "cast",
+        "who": "niggle",
+        "turn": 185,
+        "does": "hold_brush"
+      },
+      "inside": true,
+      "across": -0.1,
+      "distance": 4.6
+    },
+    {
+      "id": "parish",
+      "name": "Parish",
+      "person": {
+        "cast": "cast",
+        "who": "parish",
+        "turn": 215
+      },
+      "across": 1.35,
+      "distance": 5.9
+    },
+    {
+      "id": "mrs_parish",
+      "name": "Mrs Parish",
+      "person": {
+        "cast": "cast",
+        "who": "mrs_parish",
+        "turn": 185
+      },
+      "across": 3.6,
+      "distance": 12.5
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "Gentle English pastoral chamber music, solo clarinet over soft strings, autumnal and wistful",
+        "weight": 1.2
+      },
+      {
+        "text": "Quiet felt piano, slow, unhurried, a small tune that never quite resolves, warm room tone",
+        "weight": 1
+      },
+      {
+        "text": "Folk-like oboe melody over a hushed string quartet, late afternoon light, tender melancholy",
+        "weight": 0.6
+      },
+      {
+        "text": "Celesta and harp, small glinting figures like dew on a leaf, sparse",
+        "weight": 0.3
+      },
+      {
+        "text": "Vaughan Williams-like modal strings, English countryside, wide and hopeful",
+        "weight": 0
+      },
+      {
+        "text": "Solo cello, low and patient, a man working alone",
+        "weight": 0
+      },
+      {
+        "text": "Music box waltz, faded, nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "Recorder and lute, quaint village dance, light",
+        "weight": 0
+      },
+      {
+        "text": "Soft brass chorale in the distance, evening bells",
+        "weight": 0
+      },
+      {
+        "text": "Ambient pads, rain on a wooden roof, drowsy",
+        "weight": 0
+      },
+      {
+        "text": "Accordion, slow, a little town street in autumn",
+        "weight": 0
+      },
+      {
+        "text": "Flute and pizzicato strings, a fussy busy little man, comic",
+        "weight": 0
+      },
+      {
+        "text": "Choir humming without words, far mountains, snow, awe",
+        "weight": 0
+      },
+      {
+        "text": "String trio, worried, a knock at the door, restless",
+        "weight": 0
+      },
+      {
+        "text": "Guitar fingerpicking, folk, simple and kind",
+        "weight": 0
+      },
+      {
+        "text": "Piano and clarinet duet, two neighbours who never quite talk",
+        "weight": 0
+      },
+      {
+        "text": "Harmonium drone, church hall, plain and solemn",
+        "weight": 0
+      },
+      {
+        "text": "Glockenspiel and soft woodwinds, a train whistle far off, a journey",
+        "weight": 0
+      }
+    ],
+    "bpm": 72,
+    "density": 0.35,
+    "brightness": 0.5,
+    "scale": "F_MAJOR_D_MINOR"
+  }
+}
