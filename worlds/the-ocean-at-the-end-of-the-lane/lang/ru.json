@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Ocean at the End of the Lane","translation":"Океан в конце дороги","where":"world.json title"},
+  {"text":"A farmhouse at the end of a lane, a duck pond that is an ocean, and a boy of seven.","translation":"Ферма в конце дороги, утиный пруд, который на самом деле океан, и мальчик семи лет.","where":"world.json description"}
+]}

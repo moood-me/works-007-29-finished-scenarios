@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Farm Kitchen","translation":"Кухня на ферме","where":"scenes/farm-kitchen/scene.json title"},
+  {"text":"Hempstock Farm, at the end of the lane.","translation":"Ферма Хэмпстоков, в конце дороги.","where":"scenes/farm-kitchen/scene.json caption"}
+]}
