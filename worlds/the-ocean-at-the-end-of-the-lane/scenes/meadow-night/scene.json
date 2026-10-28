@@ -61,6 +61,7 @@
   "state": {
     "boy_look": "lettie",
     "boy_mood": "sad",
+    "lettie_look": "bucket#rim",
     "lettie_mood": "thinking",
     "ginnie_with": [
       "lantern"

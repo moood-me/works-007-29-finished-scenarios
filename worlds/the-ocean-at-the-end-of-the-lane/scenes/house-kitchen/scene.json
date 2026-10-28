@@ -103,14 +103,17 @@
     ],
     "boy_look": "ursula",
     "boy_mood": "neutral",
+    "ursula_look": "boy",
     "ursula_mood": "smile",
     "ursula_reach": {
       "l": "sister#hand_r"
     },
+    "sister_look": "boy",
     "sister_mood": "smile",
     "sister_reach": {
       "r": "ursula#hand_l"
     },
+    "dad_look": "ursula",
     "dad_mood": "neutral",
     "camera_h": -0.55
   },
