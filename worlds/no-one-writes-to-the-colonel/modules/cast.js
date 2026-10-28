@@ -21,13 +21,13 @@ const KEPT = F => {
   };
 };
 // an open umbrella held by its handle in `hand`, its canopy over the head: the shaft from the hand to above the
-// head, the canopy a dome round it (F.shell) whose rim `edge` gives — the colonel's torn back between two ribs, the
-// bare ribs showing there (`bare`: the ways round they stand at); `inner` the rim of its underside. Its frame is the hips' turned so that their up runs
-// along the shaft (a turn keeps the frame's hand, so the canopy's outside faces out).
+// head, the canopy a dome round it (F.shell, seen from both sides: its underside shows from below) whose rim `edge`
+// gives — the colonel's torn back between two ribs, the bare ribs showing there (`bare`: the ways round they stand
+// at). Its frame is the hips' turned so that their up runs along the shaft (a turn keeps the frame's hand, so the
+// canopy's outside faces out).
 const RIM = 0.1;
 const SCALLOP = a => RIM + 0.12 * Math.abs(Math.sin(4 * a));
 const TORN = a => (a > 0.45 && a < 1.2 ? 0.66 : a > -2.5 && a < -2.15 ? 0.38 : SCALLOP(a));
-const TORN_IN = a => TORN(-a);
 const BARE = [Math.PI / 4, -3 * Math.PI / 4];
 const NONE = [];
 const turned = (x, u, along) => {
@@ -36,7 +36,7 @@ const turned = (x, u, along) => {
   const c = dot(u, along);
   return add(add(mul(x, c), cross(v, x)), mul(v, dot(v, x) / (1 + c)));
 };
-const open = (F, K, hand, edge, inner, bare, cloth) => {
+const open = (F, K, hand, edge, bare, cloth) => {
   const { add, mul, sub, unit } = V();
   const h = K.h;
   const top = add(F.head.at, mul(UP, 0.62 * h));
@@ -55,14 +55,6 @@ const open = (F, K, hand, edge, inner, bare, cloth) => {
   K.radii[2] = R;
   F.bar(sub(hand, mul(along, 0.02 * h)), add(top, mul(along, 0.07 * h)), 0.008 * h, 0.006 * h, K.rod, 6, side);
   F.shell(c, K.axes, K.radii, edge, 0, cloth, 16);
-  // its underside: the same dome a hair smaller, in a mirrored frame — turned inside out, it shows from below
-  K.under[0] = mul(side, -1);
-  K.under[1] = along;
-  K.under[2] = fwd;
-  K.inner[0] = R * 0.985;
-  K.inner[1] = H * 0.97;
-  K.inner[2] = R * 0.985;
-  F.shell(sub(c, mul(along, 0.004 * h)), K.under, K.inner, inner, 0, cloth, 16);
   const th = Math.acos(RIM);
   for (const a of bare) {
     const out = add(mul(side, Math.sin(a) * Math.sin(th) * R), mul(fwd, Math.cos(a) * Math.sin(th) * R));
@@ -80,8 +72,6 @@ const OPEN = F => {
     curl: [null, null, null, null],
     axes: [null, null, null],
     radii: [0, 0, 0],
-    under: [null, null, null],
-    inner: [0, 0, 0],
   };
 };
 const OPEN_WHOLE = F => OPEN(F);
@@ -196,7 +186,7 @@ return {
           const K = F.keep(OPEN);
           const h = K.h;
           const hand = F.P('RightHand');
-          const along = open(F, K, hand, TORN, TORN_IN, BARE, CLOTH_OLD);
+          const along = open(F, K, hand, TORN, BARE, CLOTH_OLD);
           const back = F.fwd('Hips');
           K.curl[0] = sub(hand, mul(along, 0.02 * h));
           K.curl[1] = sub(hand, mul(along, 0.08 * h));
@@ -213,7 +203,7 @@ return {
           const K = F.keep(OPEN_WHOLE);
           const h = K.h;
           const hand = F.P('LeftHand');
-          const along = open(F, K, hand, SCALLOP, SCALLOP, NONE, CLOTH_NEW);
+          const along = open(F, K, hand, SCALLOP, NONE, CLOTH_NEW);
           F.bar(sub(hand, mul(along, 0.1 * h)), sub(hand, mul(along, 0.01 * h)), 0.016 * h, 0.014 * h, K.crook, 6, F.side('Hips'));
         },
       },

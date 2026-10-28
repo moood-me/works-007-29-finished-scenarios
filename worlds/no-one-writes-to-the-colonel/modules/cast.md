@@ -28,6 +28,8 @@ lengths are a man's metres times `F.fit.h`.
 `umbrella` — the colonel's old black umbrella, furled, held like a cane (the crook in the right hand, the ferrule on
 the floor). `umbrella_torn` — the same umbrella open over his head, held by the crook in his right hand, the cloth torn
 back between two ribs, the bare ribs showing. `umbrella_whole` — Don Sabas's, new and whole, open, in his left hand.
+An open canopy is one dome (`F.shell`): the engine draws a figure's open solids from both sides, so its underside shows
+from below with no second dome.
 `bundle` — the wall clock wrapped in sacking, hanging by its knot from the colonel's right hand.
 `newspapers` — folded, along the left forearm against the chest (the doctor's). `rifle` — across the chest, butt by the
 right hand (the policeman's). `moustache` — the colonel's and Don Sabas's, `beard` — the doctor's, `chain` — Don
