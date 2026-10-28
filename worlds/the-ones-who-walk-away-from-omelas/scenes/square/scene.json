@@ -1,0 +1,1989 @@
+{
+  "engine": 3,
+  "title": "The Square",
+  "caption": "Omelas on the day of the Festival of Summer.",
+  "horizon": 0.38,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "tint": "#fff1d8",
+    "tintStrength": 0.05,
+    "vignette": 0.22,
+    "grain": 0.05,
+    "haze": 0.02,
+    "hazeColor": "#cfe0ec",
+    "hazeGlow": 0.6,
+    "shafts": 0.12,
+    "ambient": 0.68,
+    "ambientColor": "#cdd3e2",
+    "bounce": 0.5,
+    "wind": [
+      1,
+      0.2,
+      0.45
+    ],
+    "looks": {
+      "evening": {
+        "ambient": 0.5,
+        "ambientColor": "#7a84bc",
+        "tint": "#ffad7c",
+        "tintStrength": 0.1,
+        "saturation": 0.9,
+        "hazeColor": "#8f86a6",
+        "hazeGlow": 1.4,
+        "lights": {
+          "sun": 0
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        215,
+        38
+      ],
+      "color": "#fff0d4",
+      "strength": 1.15
+    },
+    {
+      "id": "lantern_near",
+      "across": 1,
+      "distance": 9,
+      "elevation": 5.4,
+      "color": "#ffbe78",
+      "strength": 1.2,
+      "reach": 12,
+      "on": "evening",
+      "flicker": 0.15
+    },
+    {
+      "id": "lantern_mid",
+      "across": 1,
+      "distance": 13.5,
+      "elevation": 5.4,
+      "color": "#ffbe78",
+      "strength": 1.2,
+      "reach": 12,
+      "on": "evening",
+      "flicker": 0.15
+    },
+    {
+      "id": "lantern_far",
+      "across": 1,
+      "distance": 18,
+      "elevation": 5.4,
+      "color": "#ffbe78",
+      "strength": 1.2,
+      "reach": 12,
+      "on": "evening",
+      "flicker": 0.15
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "evening": 0,
+    "ila_on": [
+      -0.9,
+      2.96,
+      0.52
+    ],
+    "ila_look": [
+      -0.4,
+      0,
+      1.2
+    ],
+    "mev_look": "ila",
+    "mev_mood": "smile",
+    "kor_look": "ila",
+    "kor_mood": "laugh",
+    "rose_woman_look": "ila",
+    "rose_woman_mood": "smile",
+    "blue_man_look": "ila",
+    "blue_man_mood": "smile",
+    "old_man_look": "ila",
+    "old_man_mood": "smile",
+    "flower_girl_look": "ila",
+    "flower_girl_mood": "smile",
+    "ila_reach": {
+      "r": [
+        -1.16,
+        2.8,
+        1.05
+      ],
+      "l": [
+        -0.94,
+        2.78,
+        1.07
+      ]
+    }
+  },
+  "states": {
+    "evening": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 — the festival morning, the sun high behind the viewer; 1 — the festival evening: the sun gone, the sky deep blue with the afterglow over the sea, the garland lanterns lit"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Sky",
+      "sky": true
+    },
+    {
+      "id": "peaks",
+      "name": "The Eighteen Peaks",
+      "across": 0,
+      "distance": 22000,
+      "height": 3800,
+      "box": [
+        -42000,
+        -3800,
+        42000,
+        60
+      ]
+    },
+    {
+      "id": "bay",
+      "name": "The bay",
+      "plane": true,
+      "across": 0,
+      "distance": 15300,
+      "elevation": -34,
+      "width": 80000,
+      "depth": 29400
+    },
+    {
+      "id": "boat",
+      "name": "Boats on the bay",
+      "elevation": 1,
+      "height": 9,
+      "box": [
+        -4.5,
+        -9.4,
+        4.5,
+        0.2
+      ],
+      "copies": [
+        {
+          "across": -260,
+          "distance": 1400,
+          "flip": true
+        },
+        {
+          "across": 120,
+          "distance": 2100,
+          "flip": true
+        },
+        {
+          "across": 520,
+          "distance": 1700,
+          "flip": true
+        },
+        {
+          "across": -700,
+          "distance": 2600,
+          "flip": false
+        },
+        {
+          "across": 300,
+          "distance": 3400,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "town",
+      "name": "The lower city's ground",
+      "plane": true,
+      "drape": true,
+      "across": 0,
+      "distance": 335.5,
+      "width": 1600,
+      "depth": 610
+    },
+    {
+      "id": "house",
+      "name": "Houses of the lower city",
+      "height": 9,
+      "box": [
+        -5.4,
+        -9.3,
+        5.4,
+        0.2
+      ],
+      "copies": [
+        {
+          "across": -96.5,
+          "distance": 72.52,
+          "scale": 0.92,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -81.77,
+          "distance": 71.51,
+          "scale": 1.04,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": -64.12,
+          "distance": 68.45,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -47.27,
+          "distance": 69.81,
+          "scale": 1.13,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -28.98,
+          "distance": 71.13,
+          "scale": 1.05,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": -14,
+          "distance": 69.01,
+          "scale": 0.97,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": 1.32,
+          "distance": 68.77,
+          "scale": 1.05,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 14.43,
+          "distance": 68.64,
+          "scale": 1.03,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 32.63,
+          "distance": 67.33,
+          "scale": 0.97,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 48.47,
+          "distance": 67.99,
+          "scale": 0.95,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": 63.21,
+          "distance": 70.19,
+          "scale": 0.93,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 81.14,
+          "distance": 70.81,
+          "scale": 1.03,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": -105.75,
+          "distance": 87.25,
+          "scale": 1.06,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": -90.65,
+          "distance": 87.77,
+          "scale": 0.89,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -58.92,
+          "distance": 83.87,
+          "scale": 1.06,
+          "flip": true,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": -40.86,
+          "distance": 88.34,
+          "scale": 1.17,
+          "flip": false,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": -13.91,
+          "distance": 87.45,
+          "scale": 1.09,
+          "flip": true,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 0.25,
+          "distance": 85.24,
+          "scale": 0.89,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 18.48,
+          "distance": 86.82,
+          "scale": 0.86,
+          "flip": false,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 37.04,
+          "distance": 86.39,
+          "scale": 0.94,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 53.18,
+          "distance": 83.31,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 66.13,
+          "distance": 83.66,
+          "scale": 0.9,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 79.1,
+          "distance": 88.3,
+          "scale": 1.2,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": 94.37,
+          "distance": 84.49,
+          "scale": 1.16,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 109.55,
+          "distance": 88.32,
+          "scale": 0.97,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": -99.21,
+          "distance": 104.79,
+          "scale": 1.17,
+          "flip": true,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": -85.64,
+          "distance": 103.98,
+          "scale": 1.12,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -55.65,
+          "distance": 104.04,
+          "scale": 0.98,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -41.11,
+          "distance": 104.25,
+          "scale": 1.1,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": -6.16,
+          "distance": 106.46,
+          "scale": 1.19,
+          "flip": true,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": 10.2,
+          "distance": 105.34,
+          "scale": 0.86,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 37.5,
+          "distance": 101.8,
+          "scale": 1.09,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 56.21,
+          "distance": 103.54,
+          "scale": 1.12,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": 69.33,
+          "distance": 102.38,
+          "scale": 1.19,
+          "flip": true,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 85.13,
+          "distance": 101.73,
+          "scale": 1.06,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 99.52,
+          "distance": 104.88,
+          "scale": 1.02,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 128.05,
+          "distance": 102.41,
+          "scale": 1.12,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -135.26,
+          "distance": 127.81,
+          "scale": 1.05,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": -119.53,
+          "distance": 125.97,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": -102.41,
+          "distance": 128.31,
+          "scale": 1.2,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -83.91,
+          "distance": 128.85,
+          "scale": 0.88,
+          "flip": true,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": -66.91,
+          "distance": 127.43,
+          "scale": 1.13,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": -49.37,
+          "distance": 123.62,
+          "scale": 1.13,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": -33.41,
+          "distance": 125.66,
+          "scale": 1.05,
+          "flip": false,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": -16.54,
+          "distance": 125.6,
+          "scale": 0.92,
+          "flip": false,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 1.6,
+          "distance": 127.93,
+          "scale": 1.09,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 29.08,
+          "distance": 127.16,
+          "scale": 0.91,
+          "flip": true,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 63.65,
+          "distance": 126.55,
+          "scale": 0.89,
+          "flip": true,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": 82.13,
+          "distance": 126.29,
+          "scale": 1.12,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": 114.7,
+          "distance": 124.51,
+          "scale": 1.07,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": 146.39,
+          "distance": 126.96,
+          "scale": 0.89,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -168.03,
+          "distance": 154.2,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": -117.69,
+          "distance": 154.74,
+          "scale": 0.92,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -101.58,
+          "distance": 149.85,
+          "scale": 1.02,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -88.56,
+          "distance": 149.56,
+          "scale": 1.01,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": -72.75,
+          "distance": 153.2,
+          "scale": 1.06,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": -54.23,
+          "distance": 153.27,
+          "scale": 1.13,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -37.12,
+          "distance": 152.88,
+          "scale": 1.04,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 23.24,
+          "distance": 154.45,
+          "scale": 0.85,
+          "flip": false,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 57.12,
+          "distance": 150.49,
+          "scale": 1.13,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 71.67,
+          "distance": 150.52,
+          "scale": 1.15,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 89.62,
+          "distance": 153.92,
+          "scale": 1.12,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": 104.08,
+          "distance": 153.27,
+          "scale": 1.15,
+          "flip": true,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": 120.78,
+          "distance": 153.9,
+          "scale": 1.13,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 151.43,
+          "distance": 154.12,
+          "scale": 1.13,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 166.94,
+          "distance": 151.32,
+          "scale": 1.11,
+          "flip": false,
+          "tint": "#ffe6dc"
+        }
+      ]
+    },
+    {
+      "id": "block",
+      "name": "Rows of houses far down",
+      "height": 14,
+      "box": [
+        -40.6,
+        -14,
+        40.6,
+        0.2
+      ],
+      "copies": [
+        {
+          "across": -182.34,
+          "distance": 185.66,
+          "scale": 0.99,
+          "flip": true,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": -92.4,
+          "distance": 189.89,
+          "scale": 0.99,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": 82.96,
+          "distance": 184.41,
+          "scale": 1.09,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": -227.52,
+          "distance": 218.42,
+          "scale": 1.04,
+          "flip": true,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": -68.8,
+          "distance": 217.94,
+          "scale": 1.13,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 133.07,
+          "distance": 217.44,
+          "scale": 0.99,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 207.94,
+          "distance": 212.54,
+          "scale": 1.17,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -137.35,
+          "distance": 264.12,
+          "scale": 0.91,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -45.32,
+          "distance": 259.46,
+          "scale": 0.91,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 54.5,
+          "distance": 259.24,
+          "scale": 0.97,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 140.66,
+          "distance": 247.41,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": 237.07,
+          "distance": 263.89,
+          "scale": 1.09,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": -278.67,
+          "distance": 291.85,
+          "scale": 1.13,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -196.99,
+          "distance": 302.06,
+          "scale": 1,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -113.18,
+          "distance": 298.78,
+          "scale": 1.05,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -20.85,
+          "distance": 307.16,
+          "scale": 1.04,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 72.34,
+          "distance": 298.28,
+          "scale": 0.92,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 171.99,
+          "distance": 293.01,
+          "scale": 1.1,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 248.13,
+          "distance": 304.68,
+          "scale": 1.09,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -285.95,
+          "distance": 354.83,
+          "scale": 0.92,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -181.52,
+          "distance": 349.58,
+          "scale": 1.06,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": -9.2,
+          "distance": 346.18,
+          "scale": 1.13,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": 67.47,
+          "distance": 357.75,
+          "scale": 1.09,
+          "flip": false,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 168.75,
+          "distance": 343.87,
+          "scale": 1.11,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 273.25,
+          "distance": 349.06,
+          "scale": 1.1,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 350.84,
+          "distance": 356.08,
+          "scale": 1.2,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -372.09,
+          "distance": 396.24,
+          "scale": 1.15,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": -298.44,
+          "distance": 407.44,
+          "scale": 0.94,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -196.37,
+          "distance": 408.96,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": -115.73,
+          "distance": 408.16,
+          "scale": 0.9,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 51.03,
+          "distance": 400.4,
+          "scale": 1.11,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": 151.42,
+          "distance": 399.24,
+          "scale": 1.06,
+          "flip": true,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": 236.49,
+          "distance": 405.92,
+          "scale": 1.16,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": 340.58,
+          "distance": 409.31,
+          "scale": 0.97,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": -424.06,
+          "distance": 467.66,
+          "scale": 0.95,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -326.77,
+          "distance": 469.47,
+          "scale": 1.08,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": -158.05,
+          "distance": 473.14,
+          "scale": 1.06,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": -55.83,
+          "distance": 457,
+          "scale": 1.01,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 29.41,
+          "distance": 457.43,
+          "scale": 1.01,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": 101.22,
+          "distance": 463.15,
+          "scale": 1.14,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 187.51,
+          "distance": 466.29,
+          "scale": 0.94,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": 260.41,
+          "distance": 460.98,
+          "scale": 0.96,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 350.59,
+          "distance": 458.85,
+          "scale": 1.11,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": -478.44,
+          "distance": 521.56,
+          "scale": 0.93,
+          "flip": true,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": -384.08,
+          "distance": 533.23,
+          "scale": 1.18,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": -307.12,
+          "distance": 527.6,
+          "scale": 0.96,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": -142.91,
+          "distance": 537.52,
+          "scale": 1.12,
+          "flip": false,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": -66.56,
+          "distance": 527.94,
+          "scale": 0.98,
+          "flip": true,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": 31.44,
+          "distance": 532.56,
+          "scale": 1.14,
+          "flip": false,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 102.94,
+          "distance": 527.18,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": 187.83,
+          "distance": 534.83,
+          "scale": 1.06,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 259.3,
+          "distance": 530.26,
+          "scale": 1.02,
+          "flip": true,
+          "tint": "#f2f2ff"
+        },
+        {
+          "across": 427.22,
+          "distance": 535.53,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": 511.61,
+          "distance": 537.31,
+          "scale": 1.01,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -587.97,
+          "distance": 591.39,
+          "scale": 0.96,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -493.34,
+          "distance": 598.42,
+          "scale": 1.15,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": -314.28,
+          "distance": 590.26,
+          "scale": 1.09,
+          "flip": false,
+          "tint": "#ffe9c8"
+        },
+        {
+          "across": -40.72,
+          "distance": 593.13,
+          "scale": 1.02,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 58.75,
+          "distance": 596.67,
+          "scale": 1,
+          "flip": true,
+          "tint": "#fff6e6"
+        },
+        {
+          "across": 133.21,
+          "distance": 586.24,
+          "scale": 0.92,
+          "flip": false,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 205.3,
+          "distance": 597.36,
+          "scale": 1.08,
+          "flip": true,
+          "tint": "#eef6ff"
+        },
+        {
+          "across": 297.64,
+          "distance": 585.59,
+          "scale": 1.01,
+          "flip": false,
+          "tint": "#ffe6dc"
+        },
+        {
+          "across": 401.41,
+          "distance": 595.77,
+          "scale": 1.16,
+          "flip": true,
+          "tint": "#fff1dc"
+        },
+        {
+          "across": 574.37,
+          "distance": 592,
+          "scale": 1.01,
+          "flip": true,
+          "tint": "#fff1dc"
+        }
+      ]
+    },
+    {
+      "id": "tower",
+      "name": "Towers of the city",
+      "height": 30,
+      "box": [
+        -2.8,
+        -30.2,
+        2.8,
+        0.2
+      ],
+      "copies": [
+        {
+          "across": -60,
+          "distance": 95,
+          "scale": 0.91
+        },
+        {
+          "across": 38,
+          "distance": 140,
+          "scale": 1.18
+        },
+        {
+          "across": -150,
+          "distance": 230,
+          "scale": 1.12
+        },
+        {
+          "across": 110,
+          "distance": 290,
+          "scale": 1.1
+        },
+        {
+          "across": -20,
+          "distance": 380,
+          "scale": 1.15
+        },
+        {
+          "across": 230,
+          "distance": 420,
+          "scale": 0.92
+        },
+        {
+          "across": -280,
+          "distance": 470,
+          "scale": 1.08
+        },
+        {
+          "across": 70,
+          "distance": 560,
+          "scale": 1.16
+        }
+      ]
+    },
+    {
+      "id": "grove",
+      "name": "Garden trees",
+      "height": 10,
+      "box": [
+        -7.6,
+        -10.2,
+        7.6,
+        0.2
+      ],
+      "copies": [
+        {
+          "across": -75.46,
+          "distance": 83.92,
+          "scale": 1.4,
+          "flip": true
+        },
+        {
+          "across": -28.05,
+          "distance": 84.49,
+          "scale": 0.8,
+          "flip": false
+        },
+        {
+          "across": -117.92,
+          "distance": 103.54,
+          "scale": 0.99,
+          "flip": false
+        },
+        {
+          "across": -71.77,
+          "distance": 103.68,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": -24.4,
+          "distance": 103.58,
+          "scale": 1.26,
+          "flip": false
+        },
+        {
+          "across": 23.6,
+          "distance": 101.51,
+          "scale": 1.16,
+          "flip": false
+        },
+        {
+          "across": 114.75,
+          "distance": 102.89,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": 16.2,
+          "distance": 128.53,
+          "scale": 0.88,
+          "flip": true
+        },
+        {
+          "across": 46.03,
+          "distance": 124.05,
+          "scale": 1.18,
+          "flip": true
+        },
+        {
+          "across": 98.47,
+          "distance": 123.6,
+          "scale": 1.17,
+          "flip": true
+        },
+        {
+          "across": 128.89,
+          "distance": 128.43,
+          "scale": 1.21,
+          "flip": true
+        },
+        {
+          "across": -154.13,
+          "distance": 153.32,
+          "scale": 0.88,
+          "flip": false
+        },
+        {
+          "across": -135.66,
+          "distance": 149.34,
+          "scale": 0.96,
+          "flip": false
+        },
+        {
+          "across": -23.64,
+          "distance": 149.4,
+          "scale": 1.01,
+          "flip": true
+        },
+        {
+          "across": -9.69,
+          "distance": 152.84,
+          "scale": 0.83,
+          "flip": true
+        },
+        {
+          "across": 8.08,
+          "distance": 154.22,
+          "scale": 1.26,
+          "flip": true
+        },
+        {
+          "across": 39.85,
+          "distance": 151.57,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": 134.92,
+          "distance": 150.17,
+          "scale": 1.15,
+          "flip": false
+        },
+        {
+          "across": 0.36,
+          "distance": 183.28,
+          "scale": 0.93,
+          "flip": true
+        },
+        {
+          "across": 167.74,
+          "distance": 175.26,
+          "scale": 0.83,
+          "flip": true
+        },
+        {
+          "across": -146.91,
+          "distance": 212.46,
+          "scale": 0.92,
+          "flip": true
+        },
+        {
+          "across": 31.73,
+          "distance": 219.32,
+          "scale": 1.17,
+          "flip": false
+        },
+        {
+          "across": -228.29,
+          "distance": 260.98,
+          "scale": 1.29,
+          "flip": false
+        },
+        {
+          "across": -83.55,
+          "distance": 341.17,
+          "scale": 1.17,
+          "flip": false
+        },
+        {
+          "across": -42.36,
+          "distance": 405.29,
+          "scale": 0.93,
+          "flip": true
+        },
+        {
+          "across": -229.84,
+          "distance": 466.09,
+          "scale": 1.13,
+          "flip": false
+        },
+        {
+          "across": 432.36,
+          "distance": 463.03,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": -218.58,
+          "distance": 538.47,
+          "scale": 1.11,
+          "flip": false
+        },
+        {
+          "across": 336.93,
+          "distance": 530.54,
+          "scale": 0.81,
+          "flip": false
+        },
+        {
+          "across": -403.33,
+          "distance": 592.16,
+          "scale": 1.02,
+          "flip": true
+        },
+        {
+          "across": -231.45,
+          "distance": 596.39,
+          "scale": 0.82,
+          "flip": false
+        },
+        {
+          "across": -127.1,
+          "distance": 584.65,
+          "scale": 0.93,
+          "flip": true
+        },
+        {
+          "across": 489.7,
+          "distance": 590.7,
+          "scale": 1.15,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "paving",
+      "name": "The square's paving",
+      "plane": true,
+      "across": 0,
+      "distance": 14.5,
+      "width": 40,
+      "depth": 33
+    },
+    {
+      "id": "edge",
+      "name": "The square's edge and stair",
+      "across": 0,
+      "distance": 31,
+      "height": 1.6,
+      "box": [
+        -20,
+        -1.65,
+        20,
+        0.05
+      ]
+    },
+    {
+      "id": "belltower",
+      "name": "The Meeting House's bell tower",
+      "across": -10.5,
+      "distance": 21,
+      "height": 38,
+      "box": [
+        -3.1,
+        -37.7,
+        3.1,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "meeting",
+      "name": "The Meeting House",
+      "across": -7.5,
+      "distance": 14,
+      "facing": 90,
+      "height": 14,
+      "box": [
+        -8,
+        -13.3,
+        8,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "row",
+      "name": "Houses along the square",
+      "across": 9.5,
+      "distance": 13,
+      "facing": 270,
+      "height": 13,
+      "box": [
+        -8.1,
+        -13.2,
+        8.1,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "planetree",
+      "name": "Plane trees",
+      "height": 11,
+      "box": [
+        -5,
+        -11.6,
+        5,
+        0.1
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 7,
+          "distance": 8.5
+        },
+        {
+          "across": 7.2,
+          "distance": 15,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": -5.6,
+          "distance": 25,
+          "scale": 0.9
+        }
+      ]
+    },
+    {
+      "id": "fountain",
+      "name": "The fountain's basin",
+      "across": -0.9,
+      "distance": 4.6,
+      "height": 0.52,
+      "box": [
+        -5.3407,
+        0,
+        5.3407,
+        2.3121
+      ],
+      "shadow": true
+    },
+    {
+      "id": "column",
+      "name": "The fountain's column",
+      "across": -0.9,
+      "distance": 4.6,
+      "height": 1.78,
+      "box": [
+        -0.6912,
+        0,
+        0.6912,
+        1.5466
+      ],
+      "shadow": true
+    },
+    {
+      "id": "water",
+      "name": "The fountain's water",
+      "plane": true,
+      "across": -0.9,
+      "distance": 4.6,
+      "elevation": 0.46,
+      "width": 3,
+      "depth": 3
+    },
+    {
+      "id": "jet",
+      "name": "The fountain's jet",
+      "particles": {
+        "kind": "splashes",
+        "at": [
+          -0.9,
+          4.6,
+          1.78
+        ],
+        "rate": 280,
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "spread": 22,
+        "speed": [
+          2.4,
+          2.9
+        ],
+        "life": [
+          0.8,
+          0.85
+        ],
+        "shape": "streak",
+        "streak": 0.05,
+        "size": [
+          0.025,
+          0.02
+        ],
+        "color": "#eef6f8",
+        "opacity": 0.75,
+        "ground": "pass",
+        "drag": 0.1
+      }
+    },
+    {
+      "id": "garlands",
+      "name": "Garland cords",
+      "across": 0,
+      "distance": 9,
+      "height": 7,
+      "box": [
+        -7.7,
+        -6.8,
+        9.7,
+        -5.4
+      ]
+    },
+    {
+      "id": "pennant",
+      "name": "Pennants on the garlands",
+      "height": 0.62,
+      "box": [
+        -1.2,
+        -0.7,
+        1.2,
+        0.1
+      ],
+      "copies": [
+        {
+          "across": -6,
+          "distance": 9,
+          "elevation": 5.66,
+          "tint": "#ffffff",
+          "flip": false
+        },
+        {
+          "across": -3,
+          "distance": 9,
+          "elevation": 5.2,
+          "tint": "#fff2ee",
+          "flip": true
+        },
+        {
+          "across": 0,
+          "distance": 9,
+          "elevation": 4.99,
+          "tint": "#f2f6ff",
+          "flip": false
+        },
+        {
+          "across": 3,
+          "distance": 9,
+          "elevation": 5.04,
+          "tint": "#fffbea",
+          "flip": true
+        },
+        {
+          "across": 6,
+          "distance": 9,
+          "elevation": 5.33,
+          "tint": "#ffffff",
+          "flip": false
+        },
+        {
+          "across": -6,
+          "distance": 13.5,
+          "elevation": 5.66,
+          "tint": "#fff2ee",
+          "flip": true
+        },
+        {
+          "across": -3,
+          "distance": 13.5,
+          "elevation": 5.2,
+          "tint": "#f2f6ff",
+          "flip": false
+        },
+        {
+          "across": 0,
+          "distance": 13.5,
+          "elevation": 4.99,
+          "tint": "#fffbea",
+          "flip": true
+        },
+        {
+          "across": 3,
+          "distance": 13.5,
+          "elevation": 5.04,
+          "tint": "#ffffff",
+          "flip": false
+        },
+        {
+          "across": 6,
+          "distance": 13.5,
+          "elevation": 5.33,
+          "tint": "#fff2ee",
+          "flip": true
+        },
+        {
+          "across": -6,
+          "distance": 18,
+          "elevation": 5.66,
+          "tint": "#f2f6ff",
+          "flip": false
+        },
+        {
+          "across": -3,
+          "distance": 18,
+          "elevation": 5.2,
+          "tint": "#fffbea",
+          "flip": true
+        },
+        {
+          "across": 0,
+          "distance": 18,
+          "elevation": 4.99,
+          "tint": "#ffffff",
+          "flip": false
+        },
+        {
+          "across": 3,
+          "distance": 18,
+          "elevation": 5.04,
+          "tint": "#fff2ee",
+          "flip": true
+        },
+        {
+          "across": 6,
+          "distance": 18,
+          "elevation": 5.33,
+          "tint": "#f2f6ff",
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "lantern",
+      "name": "Paper lanterns on the garlands",
+      "height": 0.62,
+      "box": [
+        -0.25,
+        -0.65,
+        0.25,
+        0.02
+      ],
+      "flicker": 0.2,
+      "copies": [
+        {
+          "across": -4.5,
+          "distance": 9,
+          "elevation": 5.4
+        },
+        {
+          "across": -1.5,
+          "distance": 9,
+          "elevation": 5.07
+        },
+        {
+          "across": 1.5,
+          "distance": 9,
+          "elevation": 4.98
+        },
+        {
+          "across": 4.5,
+          "distance": 9,
+          "elevation": 5.15
+        },
+        {
+          "across": 7.5,
+          "distance": 9,
+          "elevation": 5.56
+        },
+        {
+          "across": -4.5,
+          "distance": 13.5,
+          "elevation": 5.4
+        },
+        {
+          "across": -1.5,
+          "distance": 13.5,
+          "elevation": 5.07
+        },
+        {
+          "across": 1.5,
+          "distance": 13.5,
+          "elevation": 4.98
+        },
+        {
+          "across": 4.5,
+          "distance": 13.5,
+          "elevation": 5.15
+        },
+        {
+          "across": 7.5,
+          "distance": 13.5,
+          "elevation": 5.56
+        },
+        {
+          "across": -4.5,
+          "distance": 18,
+          "elevation": 5.4
+        },
+        {
+          "across": -1.5,
+          "distance": 18,
+          "elevation": 5.07
+        },
+        {
+          "across": 1.5,
+          "distance": 18,
+          "elevation": 4.98
+        },
+        {
+          "across": 4.5,
+          "distance": 18,
+          "elevation": 5.15
+        },
+        {
+          "across": 7.5,
+          "distance": 18,
+          "elevation": 5.56
+        }
+      ]
+    },
+    {
+      "id": "petals",
+      "name": "Petals on the air",
+      "particles": {
+        "kind": "petals",
+        "at": [
+          0,
+          13,
+          6
+        ],
+        "source": [
+          22,
+          18,
+          4
+        ],
+        "rate": 2.5,
+        "colors": [
+          "#f1c9c6",
+          "#f6ecd8",
+          "#f2dc94"
+        ],
+        "size": [
+          0.05,
+          0.05
+        ]
+      }
+    },
+    {
+      "id": "ila",
+      "name": "Ila",
+      "person": {
+        "cast": "cast",
+        "who": "ila",
+        "turn": 172,
+        "does": "sit_flute"
+      },
+      "across": -0.9,
+      "distance": 2.96,
+      "shadow": true
+    },
+    {
+      "id": "mev",
+      "name": "Mev",
+      "person": {
+        "cast": "cast",
+        "who": "mev",
+        "turn": 140
+      },
+      "across": -2.15,
+      "distance": 3.1,
+      "shadow": true
+    },
+    {
+      "id": "kor",
+      "name": "Kor",
+      "person": {
+        "cast": "cast",
+        "who": "kor",
+        "turn": 205,
+        "does": "hands_behind"
+      },
+      "across": 0.95,
+      "distance": 3.55,
+      "shadow": true
+    },
+    {
+      "id": "rose_woman",
+      "name": "A woman in rose",
+      "person": {
+        "cast": "cast",
+        "who": "rose_woman",
+        "turn": 156
+      },
+      "across": -3.4,
+      "distance": 9.5,
+      "shadow": true
+    },
+    {
+      "id": "blue_man",
+      "name": "A man in blue",
+      "person": {
+        "cast": "cast",
+        "who": "blue_man",
+        "turn": 166
+      },
+      "across": -4.5,
+      "distance": 11.2,
+      "shadow": true
+    },
+    {
+      "id": "old_man",
+      "name": "An old man",
+      "person": {
+        "cast": "cast",
+        "who": "old_man",
+        "turn": 215
+      },
+      "across": 2.8,
+      "distance": 9.2,
+      "shadow": true
+    },
+    {
+      "id": "flower_girl",
+      "name": "A girl with flowers",
+      "person": {
+        "cast": "cast",
+        "who": "flower_girl",
+        "turn": 211
+      },
+      "across": 1.9,
+      "distance": 8.6,
+      "shadow": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "A solo wooden flute, bright and unhurried, a girl playing on a fountain's rim on a summer morning",
+        "weight": 1.3
+      },
+      {
+        "text": "Distant church bells ringing one after another over a white city by the sea, festive and airy",
+        "weight": 0.8
+      },
+      {
+        "text": "Light pastoral strings and harp, sunlit, a festival procession far off",
+        "weight": 0.6
+      },
+      {
+        "text": "Medieval dance on recorders and frame drum, joyful, a summer fair",
+        "weight": 0.3
+      },
+      {
+        "text": "Celtic harp arpeggios, clear water, morning light",
+        "weight": 0
+      },
+      {
+        "text": "A lonely flute melody with a quiet drone, a hint of sadness under the joy",
+        "weight": 0.2
+      },
+      {
+        "text": "Mediterranean guitar and mandolin, a square in the sun",
+        "weight": 0
+      },
+      {
+        "text": "Choir humming softly, no words, open fifths, sacred and calm",
+        "weight": 0
+      },
+      {
+        "text": "Glockenspiel and celesta, sparkling, children's festival",
+        "weight": 0
+      },
+      {
+        "text": "Low cello note held under bright woodwinds, something unspoken beneath",
+        "weight": 0
+      },
+      {
+        "text": "Pan flute and gentle hand percussion, a mountain festival",
+        "weight": 0
+      },
+      {
+        "text": "Hurdy-gurdy and fiddle, a slow folk waltz at evening with lanterns",
+        "weight": 0
+      },
+      {
+        "text": "Ambient seaside: gulls, wind over the bay, soft tonal pads",
+        "weight": 0
+      },
+      {
+        "text": "Solo piano, sparse and luminous, Satie-like, a white town at noon",
+        "weight": 0
+      },
+      {
+        "text": "Renaissance lute, a simple tender melody",
+        "weight": 0
+      },
+      {
+        "text": "Woodwind quintet, playful and light, horses in ribbons trotting by",
+        "weight": 0
+      }
+    ],
+    "bpm": 84,
+    "density": 0.35,
+    "brightness": 0.65,
+    "scale": "G_MAJOR_E_MINOR"
+  }
+}
