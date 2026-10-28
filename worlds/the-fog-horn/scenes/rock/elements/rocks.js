@@ -1,0 +1,41 @@
+// A boulder (painted once, standing in many places as copies): a lump of grey stone, its top paler and drier, its
+// foot dark and wet where it goes into the water. Metres; the foot on the shallow bottom.
+const shape = [[-1.7, 0.2], [-1.6, -0.9], [-1.25, -1.9], [-0.55, -2.55], [0.2, -2.8], [0.95, -2.5], [1.5, -1.6], [1.75, -0.6], [1.7, 0.2]];
+const path = () => {
+  g.beginPath();
+  g.moveTo(shape[0][0], shape[0][1]);
+  for (const p of shape) g.lineTo(p[0], p[1]);
+  g.closePath();
+};
+path();
+g.fillStyle = '#5d6064';
+g.fill();
+g.save();
+path();
+g.clip();
+g.fillStyle = '#74777a';
+g.beginPath();
+g.moveTo(-1.6, -1.2);
+g.lineTo(-1.1, -2.1);
+g.lineTo(-0.4, -2.6);
+g.lineTo(0.3, -2.75);
+g.lineTo(1, -2.4);
+g.lineTo(1.5, -1.5);
+g.lineTo(0.7, -1.7);
+g.lineTo(-0.2, -1.5);
+g.closePath();
+g.fill();
+g.fillStyle = '#3f4447';
+g.fillRect(-2, -1.1, 4, 1.4);
+g.fillStyle = '#4b4b3a';
+g.fillRect(-2, -1.35, 4, 0.28);
+g.strokeStyle = '#4a4c50';
+g.lineWidth = 0.04;
+g.beginPath();
+g.moveTo(-0.6, -2.4);
+g.lineTo(-0.3, -1.8);
+g.lineTo(-0.5, -1.2);
+g.moveTo(0.8, -2.3);
+g.lineTo(0.55, -1.6);
+g.stroke();
+g.restore();

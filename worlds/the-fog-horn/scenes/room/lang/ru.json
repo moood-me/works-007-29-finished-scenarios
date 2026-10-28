@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Room","translation":"Комната","where":"scenes/room/scene.json title"},
+  {"text":"The sun goes into the sea. Two cups on the table.","translation":"Солнце уходит в море. На столе две чашки.","where":"scenes/room/scene.json caption"}
+]}
