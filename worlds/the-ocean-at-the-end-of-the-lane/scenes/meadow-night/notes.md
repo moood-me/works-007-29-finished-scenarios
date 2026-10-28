@@ -22,16 +22,14 @@ the night air. No motion of people, no camera moves, no showcase (nothing happen
   round the circle behind and beside the two, never between them and us; their rags in the wind (a layer).
 - **People** (the world's cast, modules/cast.md). The boy in the circle, hugging himself, shivering (`hug_cold`), turned
   half to us and looking at Lettie (to his left); Lettie kneeling at the bucket outside the circle (`kneel`), turned to
-  us, frowning («Не вымыло»), her hand by the water; Ginnie Hempstock on the back step, the lantern raised in her right
-  hand (`lantern_up`, `ginnie_with: ["lantern"]`).
+  us, frowning («Не вымыло»), her hand by the water, looking at the bucket's rim (`lettie_look`: a look to her right
+  that turned her to the wall before engine 3's fix of looks near the body, `engine3-next`); Ginnie Hempstock on the
+  back step, the lantern raised in her right hand (`lantern_up`, `ginnie_with: ["lantern"]`).
 - **Light.** The moon (`moon`, from the sky's disc), the ocean in the bucket (`ocean` — sea-green, from below, on the
   two faces and the circle's grass), the farm's door (`door`), Ginnie's lantern (`lantern`, at `ginnie#lamp`).
 
 ## What is not right yet
 
-- **A look to a person's right turns them to the wall** (the known trouble, seen in the kitchen at home): the bucket and
-  the boy are both to Lettie's right as she is turned to us, so she has no `_look` — her head is as `kneel` holds it,
-  bowed a little toward the bucket — and the boy looks only to his left, at her.
 - **A skirt kneeling is a lump**: Lettie's frock over her knees stands as a heap of cloth behind her (the known trouble of
   a skirt sitting).
 - Ginnie's lantern is raised before her in `lantern_up`; the scenario has it lowered once she stops (IV-5) — a take with

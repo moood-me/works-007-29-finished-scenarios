@@ -31,11 +31,11 @@ outside. No motion of people, no camera moves, no showcase (nothing happens in i
 
 ## What is not right yet
 
-- **A look to a person's right turns them to the wall.** Ursula (turn 250), the sister (250) and Dad (250) told to
-  look at someone 25–50° to their right (`<id>_look`) stood with their backs to us; without the look, or with a look
-  to the left (the boy's at Ursula), they stand as turned. This is the known trouble of a Kimodo motion turning toward
-  the wall in a scene; it is not got round here: those three have no `_look` — their heads are as their motions hold
-  them (Ursula's tilted toward the sister, the sister's bowed, Dad's raised).
+- **A look to a person's right turns them to the wall.** Ursula (turn 250) and the sister (250) told to look at the
+  boy, 25–50° to their right, stand with their backs to us — still so on engine 3 with its fix for looks at what is
+  steeply below or near the body (`engine3-next`, 2026-10-28): the boy is level with them and 1.5–2 m off. So they
+  have no `_look` (their heads as their motions hold them: Ursula's tilted toward the sister, the sister's bowed). Dad
+  looks at Ursula (`dad_look`) and stands in profile to us — before the fix he too turned his back.
 - Another take of Dad with folded arms (`arms crossed on the chest`, seed 2) came into the scene bent forward with the
   arms held out — the arms crossing over the chest did not survive the module's clip (as hands on the knees go to the
   sides); the take kept (`arms_folded`) holds.
