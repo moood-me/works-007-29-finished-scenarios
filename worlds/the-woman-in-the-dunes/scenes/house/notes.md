@@ -19,7 +19,7 @@ beads (II), the radio and the child (IV, V) — all here.
   the sand heaped where `sand_trickle` comes down from the roof (its source hidden behind the beam).
 - **Outside** — through the door: `outside_sand` (the pit's floor, her trodden way) and `outside_wall` (the pit's wall),
   lit by `sun` by day and `moon` by night.
-- **People** (the world's `cast`): `woman` behind the hearth, `man` by his tray, looking at each other; `man_wear: {"parts": ["box"]}` —
+- **People** (the world's `cast`): `woman` behind the hearth, `man` by his tray, looking at each other; no `man_with` net here —
   his net leans in the corner. Faces are lit from the front by the lamp hanging between them and the eye.
 - **Light** — `night` 0 (day: the pit's white-gold light at the door) → 1 (night: moonlight, the room a clear blue
   dusk, still readable); `lamp` 0…1. `motes` — sand dust in the air, seen where light falls; `embers` — sparks over the

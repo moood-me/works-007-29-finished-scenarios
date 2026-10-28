@@ -106,7 +106,10 @@
     "elder_look": "man",
     "man_mood": "thinking",
     "woman_mood": "neutral",
-    "elder_mood": "smile"
+    "elder_mood": "smile",
+    "man_with": [
+      "net"
+    ]
   },
   "states": {
     "night": {

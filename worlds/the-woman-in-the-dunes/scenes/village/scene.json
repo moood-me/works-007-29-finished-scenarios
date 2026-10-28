@@ -114,7 +114,10 @@
     "man_look": "elder",
     "elder_look": "man",
     "man_mood": "thinking",
-    "elder_mood": "smile"
+    "elder_mood": "smile",
+    "man_with": [
+      "net"
+    ]
   },
   "states": {
     "evening": {

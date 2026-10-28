@@ -14,8 +14,8 @@ brows, a nose, a mouth of darker lips — bold enough to read at five to eight m
 ## Who
 
 - `man` — the man, 31, a schoolteacher who collects beetles: lean, short dark hair, an off-white shirt, grey trousers;
-  his tin collecting box at the left hip on a strap over the right shoulder (`box`), his insect net held upright like a
-  staff in the right hand (`net`).
+  his tin collecting box at the left hip on a strap over the right shoulder (`box`, always); his insect net held upright
+  like a staff in the right hand (`net`) only where a scene gives it: `man_with: ["net"]`.
 - `woman` — the woman, about thirty: small, dark hair in a low knot, an indigo work robe to mid-calf (`robe_work`) over
   trousers of the same cloth, a white towel round her neck (the look's scarf, its colour `accent`), barefoot.
 - `elder` — the old man of the village co-operative: a cap, a grey work jacket, grey hair.

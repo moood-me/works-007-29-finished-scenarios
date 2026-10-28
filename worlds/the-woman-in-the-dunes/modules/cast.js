@@ -29,8 +29,8 @@ return {
   ...data,
   characters: {
     // the man, 31, a schoolteacher who collects beetles: lean, short dark hair, an off-white shirt, grey trousers,
-    // a tin collecting box on a strap at his left hip, his insect net held upright like a staff in the right hand
-    man: { kind: 'shapes', style: 'dunes', who: 'man', garment: 'none', hair: 'short', parts: ['net', 'box'],
+    // a tin collecting box on a strap at his left hip; his insect net (`net`) only where a scene gives it (man_with)
+    man: { kind: 'shapes', style: 'dunes', who: 'man', garment: 'none', hair: 'short', parts: ['box'],
       body: { height: 1.0, thick: 0.9, shoulders: 1.0 },
       colors: { skin: '#d8ab8b', hair: '#2a221e', top: '#ebe5d7', bottom: '#66655e', shoes: '#4a3b2e' } },
     // the woman, about thirty: small, dark hair in a low knot, an indigo work robe to mid-calf over trousers of the

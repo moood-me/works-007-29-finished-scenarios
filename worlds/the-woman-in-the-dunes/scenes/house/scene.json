@@ -89,12 +89,7 @@
     "man_look": "woman",
     "woman_look": "man",
     "man_mood": "thinking",
-    "woman_mood": "smile",
-    "man_wear": {
-      "parts": [
-        "box"
-      ]
-    }
+    "woman_mood": "smile"
   },
   "states": {
     "night": {
