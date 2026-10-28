@@ -1,0 +1,52 @@
+# cast — the people of «The Return» as the engine's people
+
+A module for scenes with people (elements with `person`: `{"cast": "cast", "who": …}` — people_guide). The parts' lengths
+are a man's metres, multiplied by `F.fit.h` (the height as a share of 1.76 m).
+
+## Style
+
+`gouache` — made from the engine's `soft`, with natural proportions (the head a little large — 1.3 of the engine's —, so the faces read; the
+shoulders not wider than a body's), the body and the cloth smooth (sixteen sides, no facets: lit flat, a cloth's quads read as square patches — Lyuba's apron did), limbs of some thickness (`limb` 1.12: cloth over them, not sticks), a tinted painted edge a little heavier than a pen's (`line` 1.8), flat colours lit by the scene's own light (`paint: lit`), working hands (`arms: hand`: a wrist, a broad palm to the knuckles, and the fingers — `fingers`), legs in
+trousers of some thickness (`feet: trouser`); `soldier` — the same in a soldier's high boots (`feet: jackboot`, the thighs in them slim: the greatcoat's skirt goes round the legs, and thick thighs made it a shelf out from the belt), the head a little longer and squarer in the jaw (a
+man's), the body fuller (a greatcoat over a tunic), a greatcoat's sleeves a little thicker (`limb` 1.14), garments cut straight (`straight`: a greatcoat's sides straight lines from the belt to a hem round the legs — a bell from the hips read as a dress), heavy cloth's folds deep enough to catch the light down a greatcoat's skirt, the sleeves a shade darker than the coat (`sleeves` 0.86: an arm before the coat reads as an arm), the waist as wide as the hips (the skirt begins at the belt, no shelf out from it). In both, the arm's root is thinner than its upper arm (`arms: hand`), so that it does not stand up over the shoulder's line like a pad, and the shoulders' section is as wide as the arms' roots. The face
+`gouache`: dark almond eyes (no whites: the figure's line is drawn wherever two colours meet, and a white ringed by it, with the
+lid's and the under-eye's lines, read as spectacles), brows of the hair's colour softened toward the skin (a dark heavy bar reads as a
+frown at any mood), the nose, the lips and the mouth. Necks short (`neck` 0.38: longer, every neck read as a stalk). It takes `<id>_mood` by the engine's names, each
+bolder than the engine's own (`MOODS` in cast.js) so that it reads at three or four metres: `tired` — worn out and at a loss: heavy lids, the brows' inner ends raised, the
+brows' outer ends down; `sad` — grief held in and waiting: the brows' inner ends up, the eyes open, the lips parted;
+`thinking` — wary: the brows drawn down and together, the eyes narrowed; `angry` — sullen, a boy's grown-up
+frown: the brows' inner ends hard down, the mouth set. Like the whole world: gouache on rough paper,
+sand, ochre, grey-green cloth.
+
+## Who
+
+- `ivanov` — Captain Alexei Alexeyevich Ivanov, 36: lean but broad-shouldered, upright; a greatcoat (`greatcoat`: fitted
+  to the waist, the trunk in its cloth — `bodice` —, a skirt of heavy cloth from the belt to the calves, cut straight (the soldier's style),
+  long sleeves) and its own (`coat_kit`: the leather belt and its brass buckle, two rows of four brass buttons, the
+  shoulder boards, the collar), a side cap (`pilotka`: sat down on the head, tipped a little to the right, its darker flap, the red star), the hair cropped under it (`crop`: the back and the sides only), the head a little smaller (0.9), high boots (`soldier`), the kit bag
+  carried by its tied neck in his left hand (`sack`: it hangs from the hand, a little late as the hand moves).
+- `ivanov_home` — Ivanov at home, not yet decided to stay: the khaki tunic (`tunic`; `tunic_kit`: the belt and its buckle,
+  the standing collar, the placket's three buttons, the breast pockets, the shoulder boards), the breeches in his high
+  boots, the side cap still on, the greatcoat thrown over his shoulders, open (`coat_over`: a shell of heavy cloth from
+  its turned-down collar over the shoulders and the arms to the calves, its fronts apart, its own boards; it does not
+  swing). The scenario's sign: «шинель на плечах или на гвозде» — on the nail when he stays.
+- `ivanov_coat` — Ivanov indoors on his first evening home, the greatcoat still on and belted (`coat_kit`), the side cap
+  off (short hair over the whole head), no kit bag («Сними, жарко». — «Знобит»).
+- `lyuba` — Lyubov Vasilyevna, his wife, 33: slight; a faded blue dress, a grey linen apron (`apron`), a white kerchief
+  (`kerchief`).
+- `petrushka` — Petrushka, the son, 11: thin but square-shouldered; a cut-down man's shirt, patched trousers, a man's old
+  boots.
+- `semyon` — Semyon Yevseyevich, 50: a widower, the night watchman at the store by the station; a little stooped, grey
+  and cropped, his cap off indoors; an old dark jacket (`jacket`) over a grey collarless shirt, worn trousers, boots.
+- `semyon_out` — Semyon out of doors: his clean dark jacket (the good one), a grey shirt, the cap on (the engine's `cap`).
+- `semyon_visit` — Semyon come in of an evening on his way to the night shift: the clean jacket, the cap off, the new
+  carved horse (`horse`: lime wood, standing on the palms between his hands — set both hands' `_reach` to points a
+  little apart before his chest).
+- `lyuba_best` — Lyuba meeting the train: her blue pre-war dress, no apron, the white kerchief.
+- `nastya` — Nastya, the daughter, 5: small, fair, round-faced; a faded rose cotton frock (`dress`), bare legs, little
+  shoes.
+
+## Motions
+
+The engine's `stand` and `walk`; the world's: `hands_behind` (stands still, the hands clasped behind the back, looking
+far ahead; a loop).

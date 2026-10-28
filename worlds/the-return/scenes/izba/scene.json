@@ -1,0 +1,519 @@
+{
+  "engine": 3,
+  "title": "The Ivanovs' Izba",
+  "horizon": 0.28,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "vignette": 0.28,
+    "grain": 0.2,
+    "haze": 0.04,
+    "hazeColor": "#e3d6bd",
+    "hazeGlow": 0.6,
+    "ambient": 0.75,
+    "ambientColor": "#cfcbcb",
+    "inside": 0.7,
+    "bounce": 0.55,
+    "tint": "#ffe8c8",
+    "tintStrength": 0.06,
+    "saturation": 1.0,
+    "brightness": 1.05
+  },
+  "lights": [
+    {
+      "id": "lamp",
+      "of": "flame#flame",
+      "reach": 5.5,
+      "strength": 1.4,
+      "flicker": 0.04
+    },
+    {
+      "id": "stove",
+      "of": "stove_inside#fire",
+      "reach": 4,
+      "strength": 1.6,
+      "flicker": 0.3
+    },
+    {
+      "id": "window",
+      "of": "opening",
+      "daylight": 0.9,
+      "reach": 4.5
+    },
+    {
+      "id": "window_side",
+      "of": "side_window",
+      "daylight": 1.6,
+      "reach": 6
+    },
+    {
+      "id": "dusk",
+      "from": [
+        10,
+        6
+      ],
+      "color": "#bcc4e2",
+      "strength": 0.8
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "ivanov_look": [
+      0.6,
+      1.4,
+      1.55
+    ],
+    "ivanov_mood": "thinking",
+    "lyuba_look": [
+      0.3,
+      1.7,
+      1.5
+    ],
+    "lyuba_mood": "tired",
+    "lyuba_reach": {
+      "r": [
+        -1.13,
+        2.79,
+        1.05
+      ]
+    },
+    "petrushka_look": [
+      1.0,
+      2.1,
+      1.4
+    ],
+    "petrushka_mood": "neutral",
+    "semyon_look": "ivanov",
+    "semyon_mood": "sad",
+    "semyon_reach": {
+      "r": [
+        1.462,
+        3.35,
+        1.12
+      ],
+      "l": [
+        1.594,
+        3.258,
+        1.12
+      ]
+    },
+    "nastya_look": "ivanov",
+    "nastya_mood": "afraid",
+    "nastya_reach": {
+      "l": [
+        1.561,
+        3.648,
+        0.8
+      ]
+    }
+  },
+  "objects": [
+    {
+      "id": "outside",
+      "name": "Dusk over the line, through the window",
+      "across": -0.05,
+      "distance": 12,
+      "elevation": -1,
+      "facing": 180,
+      "height": 6,
+      "box": [
+        -3.7,
+        -6,
+        3.7,
+        0.04
+      ]
+    },
+    {
+      "id": "opening",
+      "name": "Window opening",
+      "unseen": true,
+      "across": -0.05,
+      "distance": 4.39,
+      "facing": 180,
+      "height": 1.05,
+      "box": [
+        -0.4,
+        -1.95,
+        0.4,
+        -0.9
+      ]
+    },
+    {
+      "id": "side_window",
+      "name": "Window in the left wall, behind the eye",
+      "unseen": true,
+      "across": -2.24,
+      "distance": 1.9,
+      "facing": 90,
+      "height": 0.8,
+      "box": [
+        -0.4,
+        -1.7,
+        0.4,
+        -0.9
+      ]
+    },
+    {
+      "id": "wall_back",
+      "name": "Back wall: window, clock, cupboard, photograph",
+      "across": -0.15,
+      "distance": 4.4,
+      "facing": 180,
+      "height": 2.25,
+      "box": [
+        -2.1,
+        -2.27,
+        2.1,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "wall_left",
+      "name": "Left wall",
+      "across": -2.25,
+      "distance": 2.8,
+      "facing": 90,
+      "height": 2.25,
+      "box": [
+        -1.6,
+        -2.27,
+        1.6,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "wall_right",
+      "name": "Right wall: open doorway, nail, towel",
+      "across": 1.95,
+      "distance": 2.8,
+      "facing": 270,
+      "height": 2.25,
+      "box": [
+        -1.6,
+        -2.27,
+        1.6,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "passage",
+      "name": "The passage beyond the doorway",
+      "across": 2.7,
+      "distance": 5.15,
+      "facing": 270,
+      "height": 2.2,
+      "box": [
+        -0.8,
+        -2.22,
+        0.8,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "passage_floor",
+      "name": "The passage's floor",
+      "plane": true,
+      "across": 2.325,
+      "distance": 4.7,
+      "elevation": 0,
+      "width": 0.75,
+      "depth": 2.6,
+      "inside": true
+    },
+    {
+      "id": "floor",
+      "name": "Floor and runner",
+      "plane": true,
+      "across": -0.15,
+      "distance": 2.8,
+      "elevation": 0,
+      "width": 4.2,
+      "depth": 3.2,
+      "inside": true
+    },
+    {
+      "id": "ceiling",
+      "name": "Ceiling and beam",
+      "plane": true,
+      "across": -0.15,
+      "distance": 2.8,
+      "elevation": 2.25,
+      "width": 4.2,
+      "depth": 3.2,
+      "inside": true
+    },
+    {
+      "id": "stove_end",
+      "name": "Stove: its face with the mouth",
+      "across": -1.7,
+      "distance": 2.75,
+      "facing": 180,
+      "height": 1.95,
+      "box": [
+        -0.56,
+        -1.97,
+        0.56,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "stove_side",
+      "name": "Stove: its side to the room",
+      "across": -1.15,
+      "distance": 3.575,
+      "facing": 90,
+      "height": 2.25,
+      "box": [
+        -0.83,
+        -2.27,
+        0.83,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "stove_inside",
+      "name": "Stove: the fire inside",
+      "across": -1.7,
+      "distance": 3.2,
+      "elevation": 0.55,
+      "facing": 180,
+      "height": 0.68,
+      "box": [
+        -0.28,
+        -0.7,
+        0.28,
+        0.02
+      ],
+      "glows": true,
+      "flicker": 0.3
+    },
+    {
+      "id": "stove_fire",
+      "name": "Flames in the stove",
+      "inside": true,
+      "particles": {
+        "kind": "fire",
+        "at": [
+          -1.68,
+          3.1,
+          0.8
+        ],
+        "source": [
+          0.26,
+          0.12,
+          0
+        ],
+        "size": [
+          0.1,
+          0.03
+        ],
+        "rate": 24
+      }
+    },
+    {
+      "id": "table",
+      "name": "Table top: bread, plates",
+      "plane": true,
+      "across": 0.0,
+      "distance": 3.95,
+      "elevation": 0.76,
+      "width": 1.1,
+      "depth": 0.5,
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "table_front",
+      "name": "Table: its long side",
+      "across": 0.0,
+      "distance": 3.7,
+      "facing": 180,
+      "height": 0.76,
+      "box": [
+        -0.57,
+        -0.78,
+        0.57,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "table_things",
+      "name": "Jug and mug",
+      "across": -0.4,
+      "distance": 3.98,
+      "facing": 180,
+      "height": 0.26,
+      "box": [
+        -0.14,
+        -0.28,
+        0.25,
+        0.02
+      ],
+      "inside": true,
+      "elevation": 0.76,
+      "shadow": true
+    },
+    {
+      "id": "lamp",
+      "name": "Kerosene lamp",
+      "across": -0.05,
+      "distance": 3.92,
+      "facing": 180,
+      "height": 0.48,
+      "box": [
+        -0.1,
+        -0.49,
+        0.1,
+        0.02
+      ],
+      "inside": true,
+      "elevation": 0.76
+    },
+    {
+      "id": "flame",
+      "name": "Lamp flame",
+      "across": -0.05,
+      "distance": 3.91,
+      "elevation": 0.76,
+      "facing": 180,
+      "height": 0.3,
+      "box": [
+        -0.04,
+        -0.32,
+        0.04,
+        -0.22
+      ],
+      "glows": true,
+      "inFront": [
+        "lamp"
+      ]
+    },
+    {
+      "id": "stool_top",
+      "name": "Stool: its seat",
+      "plane": true,
+      "across": 0.95,
+      "distance": 3.76,
+      "elevation": 0.48,
+      "width": 0.34,
+      "depth": 0.32,
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "stool",
+      "name": "Stool: legs",
+      "across": 0.95,
+      "distance": 3.6,
+      "facing": 180,
+      "height": 0.48,
+      "box": [
+        -0.19,
+        -0.5,
+        0.19,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "motes",
+      "name": "Dust in the lamplight",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0.0,
+          3.5,
+          1.3
+        ],
+        "source": [
+          1.6,
+          1.0,
+          0.9
+        ],
+        "rate": 3,
+        "life": [
+          10,
+          16
+        ]
+      }
+    },
+    {
+      "id": "lyuba",
+      "name": "Lyuba",
+      "person": {
+        "cast": "cast",
+        "who": "lyuba",
+        "turn": 150
+      },
+      "across": -1.0,
+      "distance": 2.75,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "ivanov",
+      "name": "Ivanov",
+      "person": {
+        "cast": "cast",
+        "who": "ivanov_coat",
+        "turn": 145
+      },
+      "across": -0.4,
+      "distance": 2.55,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "petrushka",
+      "name": "Petrushka",
+      "person": {
+        "cast": "cast",
+        "who": "petrushka",
+        "turn": 160,
+        "does": "hands_behind"
+      },
+      "across": 0.45,
+      "distance": 2.95,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "semyon",
+      "name": "Semyon Yevseyevich",
+      "person": {
+        "cast": "cast",
+        "who": "semyon_visit",
+        "turn": 215
+      },
+      "across": 1.7,
+      "distance": 3.55,
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "nastya",
+      "name": "Nastya",
+      "person": {
+        "cast": "cast",
+        "who": "nastya",
+        "turn": 215
+      },
+      "across": 1.38,
+      "distance": 3.65,
+      "shadow": true,
+      "inside": true
+    }
+  ]
+}

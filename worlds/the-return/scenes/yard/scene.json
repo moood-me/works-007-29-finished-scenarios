@@ -1,0 +1,639 @@
+{
+  "engine": 3,
+  "title": "The Ivanovs' Yard",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "vignette": 0.25,
+    "grain": 0.22,
+    "haze": 0.22,
+    "hazeColor": "#ebe7dc",
+    "hazeGlow": 0.3,
+    "ambient": 0.58,
+    "ambientColor": "#b9bfc9",
+    "bounce": 0.45,
+    "tint": "#f1e2c4",
+    "tintStrength": 0.08,
+    "saturation": 0.9,
+    "brightness": 1.02,
+    "wind": [
+      1,
+      0.2,
+      0.7
+    ]
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        150,
+        38
+      ],
+      "color": "#ffe8c4",
+      "strength": 1.25
+    },
+    {
+      "id": "stove",
+      "of": "house_lights#door",
+      "reach": 4.5,
+      "strength": 0.9
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "ivanov_look": [
+      -0.1,
+      1.65,
+      1.5
+    ],
+    "ivanov_mood": "smile",
+    "ivanov_reach": {
+      "l": [
+        0.768,
+        1.812,
+        0.74
+      ]
+    },
+    "lyuba_look": [
+      0.6,
+      1.65,
+      1.68
+    ],
+    "lyuba_mood": "sad",
+    "lyuba_reach": {
+      "r": [
+        0.027,
+        1.868,
+        0.86
+      ],
+      "l": [
+        0.067,
+        1.926,
+        0.86
+      ]
+    },
+    "petrushka_look": "ivanov",
+    "petrushka_mood": "angry",
+    "petrushka_reach": {
+      "r": "nastya#hand_l"
+    },
+    "nastya_look": "ivanov",
+    "nastya_mood": "afraid",
+    "nastya_reach": {
+      "l": "petrushka#hand_r"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "High pale sky",
+      "sky": true
+    },
+    {
+      "id": "fields",
+      "name": "Fields beyond the line",
+      "plane": true,
+      "across": 0,
+      "distance": 1060,
+      "width": 5000,
+      "depth": 2000
+    },
+    {
+      "id": "forest",
+      "name": "Far forest",
+      "across": 0,
+      "distance": 1700,
+      "facing": 180,
+      "height": 30,
+      "box": [
+        -3200,
+        -34,
+        3200,
+        2
+      ]
+    },
+    {
+      "id": "station",
+      "name": "Station with the water tower",
+      "across": -30,
+      "distance": 170,
+      "facing": 180,
+      "height": 18.5,
+      "box": [
+        -26,
+        -19,
+        26,
+        0.5
+      ]
+    },
+    {
+      "id": "yard",
+      "name": "Ground: yard, path, embankment",
+      "plane": true,
+      "drape": true,
+      "across": 2,
+      "distance": 30,
+      "width": 130,
+      "depth": 60
+    },
+    {
+      "id": "rail_near",
+      "name": "Near rail",
+      "across": 0,
+      "distance": 16.2,
+      "facing": 180,
+      "onLand": false,
+      "height": 2.2,
+      "box": [
+        -64,
+        -2.2,
+        64,
+        0.02
+      ]
+    },
+    {
+      "id": "rail_far",
+      "name": "Far rail",
+      "across": 0,
+      "distance": 17.2,
+      "facing": 180,
+      "onLand": false,
+      "height": 2.2,
+      "box": [
+        -64,
+        -2.2,
+        64,
+        0.02
+      ]
+    },
+    {
+      "id": "poles",
+      "name": "Telegraph poles",
+      "across": -5.5,
+      "distance": 13,
+      "facing": 180,
+      "height": 7,
+      "box": [
+        -0.7,
+        -7,
+        20.7,
+        0.05
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -45.5,
+          "distance": 13
+        },
+        {
+          "across": -25.5,
+          "distance": 13
+        },
+        {
+          "across": -5.5,
+          "distance": 13
+        },
+        {
+          "across": 14.5,
+          "distance": 13
+        },
+        {
+          "across": 34.5,
+          "distance": 13
+        }
+      ]
+    },
+    {
+      "id": "barrier",
+      "name": "Crossing barrier",
+      "across": 10.7,
+      "distance": 14.8,
+      "facing": 180,
+      "height": 5,
+      "box": [
+        -1,
+        -5,
+        1.6,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "house_end",
+      "name": "Izba: gable end",
+      "across": -5.7,
+      "distance": 5,
+      "facing": 180,
+      "height": 4.9,
+      "box": [
+        -3.25,
+        -4.95,
+        3.25,
+        0.05
+      ]
+    },
+    {
+      "id": "house_wall",
+      "name": "Izba: wall to the yard",
+      "across": -3,
+      "distance": 8.3,
+      "facing": 90,
+      "height": 2.75,
+      "box": [
+        -3.62,
+        -2.92,
+        3.78,
+        0.05
+      ]
+    },
+    {
+      "id": "house_lights",
+      "name": "Izba: the stove's glow through the open door",
+      "across": -3,
+      "distance": 8.3,
+      "facing": 90,
+      "height": 2.75,
+      "box": [
+        -0.8,
+        -2.45,
+        0,
+        -0.45
+      ],
+      "glows": true,
+      "flicker": 0.1,
+      "inFront": [
+        "house_wall"
+      ]
+    },
+    {
+      "id": "roof",
+      "name": "Izba: roof slope",
+      "plane": true,
+      "across": -4.15,
+      "distance": 8.3,
+      "elevation": 3.735,
+      "width": 7.2,
+      "depth": 3.78,
+      "rotation": 90,
+      "tilt": 35,
+      "shadow": true
+    },
+    {
+      "id": "chimney",
+      "name": "Chimney",
+      "across": -4.4,
+      "distance": 11,
+      "elevation": 3.85,
+      "facing": 180,
+      "height": 1.05,
+      "box": [
+        -0.33,
+        -1.06,
+        0.33,
+        0.02
+      ]
+    },
+    {
+      "id": "chimney_smoke",
+      "name": "Smoke from the stove",
+      "particles": {
+        "kind": "smoke",
+        "at": "chimney#mouth",
+        "rate": 3,
+        "life": [
+          7,
+          11
+        ],
+        "size": [
+          0.6,
+          4.2
+        ],
+        "color": "#aaa49b",
+        "opacity": 0.7,
+        "wind": 1,
+        "gust": 0.5,
+        "speed": [
+          0.4,
+          0.7
+        ]
+      }
+    },
+    {
+      "id": "porch",
+      "name": "Porch",
+      "plane": true,
+      "walk": true,
+      "across": -2.35,
+      "distance": 8,
+      "elevation": 0.5,
+      "width": 1.3,
+      "depth": 1.6
+    },
+    {
+      "id": "steps",
+      "name": "Porch steps",
+      "plane": true,
+      "walk": true,
+      "across": -1.55,
+      "distance": 8,
+      "elevation": 0.33,
+      "width": 0.3,
+      "depth": 1.6,
+      "copies": [
+        {
+          "across": -1.55,
+          "distance": 8,
+          "elevation": 0.33
+        },
+        {
+          "across": -1.25,
+          "distance": 8,
+          "elevation": 0.17
+        }
+      ]
+    },
+    {
+      "id": "porch_front",
+      "name": "Porch front",
+      "across": -2.35,
+      "distance": 7.2,
+      "facing": 180,
+      "height": 0.52,
+      "box": [
+        -0.65,
+        -0.52,
+        1.27,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "risers",
+      "name": "Porch step risers",
+      "across": -1.1,
+      "distance": 8,
+      "facing": 90,
+      "height": 0.5,
+      "box": [
+        -0.8,
+        -0.18,
+        0.8,
+        0.01
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "Paling",
+      "across": -0.36,
+      "distance": 11.5,
+      "facing": 180,
+      "height": 1.3,
+      "box": [
+        -5.6,
+        -1.4,
+        6.9,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "gate",
+      "name": "Gate, open",
+      "across": -1.02,
+      "distance": 11.5,
+      "facing": 238,
+      "height": 1.1,
+      "box": [
+        -0.02,
+        -1.12,
+        1,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "woodpile",
+      "name": "Woodpile",
+      "across": 5.6,
+      "distance": 11,
+      "facing": 180,
+      "height": 1.7,
+      "box": [
+        -1.34,
+        -1.84,
+        1.34,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "block",
+      "name": "Chopping block and axe",
+      "across": 2.56,
+      "distance": 4.8,
+      "height": 1,
+      "box": [
+        -0.32,
+        -1.02,
+        0.34,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "buckets",
+      "name": "Buckets of water",
+      "across": -2.3,
+      "distance": 3.4,
+      "height": 0.65,
+      "box": [
+        -0.4,
+        -0.52,
+        0.4,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "well_front",
+      "name": "Well frame, front",
+      "across": 2.9,
+      "distance": 9.65,
+      "facing": 180,
+      "height": 0.9,
+      "box": [
+        -0.95,
+        -0.97,
+        0.86,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "well_side",
+      "name": "Well frame, side",
+      "across": 2.35,
+      "distance": 10.2,
+      "facing": 270,
+      "height": 0.9,
+      "box": [
+        -0.86,
+        -0.94,
+        0.86,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "well_top",
+      "name": "Well mouth",
+      "plane": true,
+      "across": 2.9,
+      "distance": 10.2,
+      "elevation": 0.9,
+      "width": 1.1,
+      "depth": 1.1
+    },
+    {
+      "id": "crane",
+      "name": "Well sweep",
+      "across": 5.1,
+      "distance": 10.2,
+      "facing": 180,
+      "height": 5.2,
+      "box": [
+        -2.5,
+        -5.2,
+        1.7,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "ivanov",
+      "name": "Ivanov",
+      "person": {
+        "cast": "cast",
+        "who": "ivanov",
+        "turn": 235
+      },
+      "across": 0.6,
+      "distance": 2,
+      "shadow": true
+    },
+    {
+      "id": "lyuba",
+      "name": "Lyuba",
+      "person": {
+        "cast": "cast",
+        "who": "lyuba",
+        "turn": 125
+      },
+      "across": -0.1,
+      "distance": 2,
+      "shadow": true
+    },
+    {
+      "id": "petrushka",
+      "name": "Petrushka",
+      "person": {
+        "cast": "cast",
+        "who": "petrushka",
+        "turn": 125,
+        "does": "hands_behind"
+      },
+      "across": -0.95,
+      "distance": 2.8,
+      "shadow": true
+    },
+    {
+      "id": "nastya",
+      "name": "Nastya",
+      "person": {
+        "cast": "cast",
+        "who": "nastya",
+        "turn": 140
+      },
+      "across": -1.38,
+      "distance": 3.0,
+      "shadow": true
+    },
+    {
+      "id": "tufts",
+      "name": "Tufts of dry grass",
+      "across": -2.25,
+      "distance": 2.75,
+      "height": 0.46,
+      "box": [
+        -0.32,
+        -0.46,
+        0.32,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -2.25,
+          "distance": 2.75,
+          "scale": 1.2
+        },
+        {
+          "across": 1.75,
+          "distance": 3,
+          "scale": 1.3,
+          "flip": true
+        },
+        {
+          "across": 2.15,
+          "distance": 3.7,
+          "flip": true
+        },
+        {
+          "across": 2.6,
+          "distance": 3.9
+        },
+        {
+          "across": -3,
+          "distance": 4.3,
+          "scale": 1.2,
+          "flip": true
+        },
+        {
+          "across": -2.75,
+          "distance": 6.2,
+          "scale": 1.1
+        },
+        {
+          "across": 3.4,
+          "distance": 5.6,
+          "scale": 1.1
+        },
+        {
+          "across": -2.75,
+          "distance": 10.4,
+          "scale": 1.3,
+          "flip": true
+        },
+        {
+          "across": -2.4,
+          "distance": 11.3,
+          "scale": 1.4
+        },
+        {
+          "across": 1.6,
+          "distance": 11.3,
+          "scale": 1.3,
+          "flip": true
+        },
+        {
+          "across": 3.9,
+          "distance": 10.6,
+          "scale": 1.4
+        }
+      ]
+    }
+  ]
+}
