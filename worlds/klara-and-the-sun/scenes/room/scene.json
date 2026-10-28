@@ -1,0 +1,1015 @@
+{
+  "engine": 3,
+  "title": "Josie's Room",
+  "caption": "Late afternoon. The Sun comes in over the field and lies across Josie's bed.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 1,
+    "ambientColor": "#e2d4c2",
+    "inside": 0.55,
+    "bounce": 0.8,
+    "haze": 0.06,
+    "hazeColor": "#ecd2a8",
+    "hazeGlow": 0.3,
+    "shafts": 0.6,
+    "tint": "#ffd9a8",
+    "tintStrength": 0.04,
+    "saturation": 0.95,
+    "vignette": 0.32,
+    "grain": 0.08,
+    "wind": [
+      1,
+      0.3,
+      0.45
+    ],
+    "brightness": 1.06
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        50,
+        30
+      ],
+      "color": "#ffc983",
+      "strength": 2.0,
+      "on": "sun",
+      "through": [
+        "window"
+      ],
+      "soft": 0.12
+    },
+    {
+      "id": "daylight",
+      "of": "window",
+      "daylight": 0.45
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "camera_z": 0.4,
+    "sun": 1,
+    "josie_on": [
+      -1.55,
+      3.2,
+      0.52
+    ],
+    "josie_look": "josie#sketchbook",
+    "josie_mood": "neutral",
+    "klara_look": "josie",
+    "mother_look": "josie",
+    "mother_mood": "thinking"
+  },
+  "states": {
+    "sun": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the Sun through the west window: 1 full late-afternoon sun on the bed and the floor, 0 behind a cloud"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The sky over the field",
+      "sky": true
+    },
+    {
+      "id": "treeline",
+      "name": "The far line of trees",
+      "across": 0,
+      "distance": 330,
+      "height": 14,
+      "box": [
+        -260,
+        -16,
+        260,
+        0.5
+      ]
+    },
+    {
+      "id": "barn",
+      "name": "Mr McBain's barn",
+      "across": -14,
+      "distance": 170,
+      "facing": 180,
+      "height": 11,
+      "box": [
+        -9,
+        -11.5,
+        9,
+        0.2
+      ]
+    },
+    {
+      "id": "field",
+      "name": "The field",
+      "plane": true,
+      "across": 0,
+      "distance": 206.2,
+      "width": 500,
+      "depth": 400
+    },
+    {
+      "id": "rick_house",
+      "name": "Rick's house",
+      "across": 13,
+      "distance": 70,
+      "facing": 190,
+      "height": 8,
+      "box": [
+        -6.5,
+        -8.5,
+        6.5,
+        0.2
+      ]
+    },
+    {
+      "id": "fence",
+      "name": "The fence and the gate into the field",
+      "across": 3,
+      "distance": 15,
+      "facing": 180,
+      "height": 1.3,
+      "box": [
+        -7,
+        -1.4,
+        9,
+        0.05
+      ]
+    },
+    {
+      "id": "grass",
+      "name": "Tall grass in the field past the fence",
+      "across": 0,
+      "distance": 17,
+      "height": 1.0,
+      "box": [
+        -0.55,
+        -1.35,
+        0.55,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -9.83,
+          "distance": 17.23,
+          "scale": 1.0,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -9.18,
+          "distance": 17.87,
+          "scale": 1.07,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -8.23,
+          "distance": 17.1,
+          "scale": 0.83,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -7.63,
+          "distance": 17.33,
+          "scale": 0.99,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -6.61,
+          "distance": 17.07,
+          "scale": 0.87,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -6.0,
+          "distance": 17.22,
+          "scale": 0.84,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -5.29,
+          "distance": 17.87,
+          "scale": 0.99,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -4.23,
+          "distance": 17.85,
+          "scale": 0.99,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -3.62,
+          "distance": 17.47,
+          "scale": 0.98,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -2.94,
+          "distance": 17.27,
+          "scale": 1.03,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -2.02,
+          "distance": 18.31,
+          "scale": 1.02,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -1.47,
+          "distance": 17.63,
+          "scale": 1.03,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -0.54,
+          "distance": 18.44,
+          "scale": 0.82,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 0.18,
+          "distance": 17.53,
+          "scale": 0.95,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 1.22,
+          "distance": 18.42,
+          "scale": 0.94,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 1.93,
+          "distance": 17.46,
+          "scale": 0.97,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 2.46,
+          "distance": 17.58,
+          "scale": 1.0,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 3.27,
+          "distance": 17.92,
+          "scale": 0.95,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 3.92,
+          "distance": 17.37,
+          "scale": 0.92,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 4.7,
+          "distance": 17.6,
+          "scale": 0.88,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 5.85,
+          "distance": 17.42,
+          "scale": 0.92,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 6.67,
+          "distance": 17.23,
+          "scale": 0.85,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 6.93,
+          "distance": 18.25,
+          "scale": 0.85,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 7.92,
+          "distance": 17.55,
+          "scale": 0.97,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 8.92,
+          "distance": 18.43,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 9.72,
+          "distance": 18.17,
+          "scale": 1.06,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -9.79,
+          "distance": 20.09,
+          "scale": 0.94,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -9.19,
+          "distance": 19.81,
+          "scale": 0.85,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -8.41,
+          "distance": 20.35,
+          "scale": 0.96,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -7.68,
+          "distance": 20.81,
+          "scale": 0.98,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -6.41,
+          "distance": 20.4,
+          "scale": 0.94,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -5.62,
+          "distance": 20.2,
+          "scale": 0.95,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -4.98,
+          "distance": 20.61,
+          "scale": 0.94,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -4.6,
+          "distance": 20.93,
+          "scale": 0.96,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -3.35,
+          "distance": 20.64,
+          "scale": 0.89,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -2.7,
+          "distance": 19.89,
+          "scale": 0.91,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -2.02,
+          "distance": 20.67,
+          "scale": 0.9,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -1.1,
+          "distance": 20.73,
+          "scale": 1.02,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -0.5,
+          "distance": 20.6,
+          "scale": 1.1,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 0.14,
+          "distance": 20.54,
+          "scale": 1.09,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 1.3,
+          "distance": 20.93,
+          "scale": 0.91,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 1.79,
+          "distance": 20.01,
+          "scale": 0.94,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 2.76,
+          "distance": 20.22,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 3.53,
+          "distance": 19.68,
+          "scale": 0.92,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 4.1,
+          "distance": 19.77,
+          "scale": 1.04,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 4.83,
+          "distance": 20.1,
+          "scale": 1.08,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 5.92,
+          "distance": 19.54,
+          "scale": 0.98,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 6.23,
+          "distance": 20.74,
+          "scale": 1.09,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 7.01,
+          "distance": 20.32,
+          "scale": 0.81,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 8.04,
+          "distance": 20.29,
+          "scale": 1.08,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 8.91,
+          "distance": 19.82,
+          "scale": 0.88,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 9.64,
+          "distance": 19.99,
+          "scale": 0.96,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -9.51,
+          "distance": 22.53,
+          "scale": 0.94,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -9.0,
+          "distance": 23.38,
+          "scale": 0.95,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -8.19,
+          "distance": 23.31,
+          "scale": 1.03,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -7.6,
+          "distance": 22.71,
+          "scale": 1.02,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -6.56,
+          "distance": 22.8,
+          "scale": 0.94,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -6.12,
+          "distance": 22.29,
+          "scale": 0.81,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -5.08,
+          "distance": 23.14,
+          "scale": 1.07,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -4.09,
+          "distance": 22.91,
+          "scale": 0.86,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -3.56,
+          "distance": 22.72,
+          "scale": 1.08,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -2.58,
+          "distance": 23.34,
+          "scale": 0.86,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": -2.24,
+          "distance": 22.66,
+          "scale": 0.82,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -1.42,
+          "distance": 22.45,
+          "scale": 0.84,
+          "flip": false,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": -0.42,
+          "distance": 22.55,
+          "scale": 0.88,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 0.12,
+          "distance": 23.43,
+          "scale": 0.92,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 1.22,
+          "distance": 22.24,
+          "scale": 0.93,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 1.77,
+          "distance": 22.53,
+          "scale": 0.83,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 2.61,
+          "distance": 22.66,
+          "scale": 0.81,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 3.24,
+          "distance": 23.44,
+          "scale": 0.83,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 4.37,
+          "distance": 22.16,
+          "scale": 0.88,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 4.76,
+          "distance": 22.19,
+          "scale": 0.93,
+          "flip": false,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 5.6,
+          "distance": 22.8,
+          "scale": 0.95,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 6.2,
+          "distance": 22.09,
+          "scale": 1.01,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 7.07,
+          "distance": 22.03,
+          "scale": 0.83,
+          "flip": true,
+          "tint": "#e8e4cc"
+        },
+        {
+          "across": 8.15,
+          "distance": 22.1,
+          "scale": 1.06,
+          "flip": true,
+          "tint": "#f2ead8"
+        },
+        {
+          "across": 9.0,
+          "distance": 22.63,
+          "scale": 1.07,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 9.51,
+          "distance": 22.36,
+          "scale": 0.83,
+          "flip": true,
+          "tint": "#ffffff"
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 2.8,
+      "width": 4.8,
+      "depth": 3.2
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 4.4,
+      "elevation": 2.6,
+      "facing": 180,
+      "tilt": -90,
+      "height": 3.2,
+      "box": [
+        -2.4,
+        -3.25,
+        2.4,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The west wall and its window",
+      "inside": true,
+      "across": 0,
+      "distance": 4.4,
+      "facing": 180,
+      "height": 2.6,
+      "box": [
+        -2.42,
+        -2.62,
+        2.42,
+        0.02
+      ]
+    },
+    {
+      "id": "window",
+      "name": "The big west window",
+      "inside": true,
+      "shadow": {
+        "light": "sun"
+      },
+      "across": 0,
+      "distance": 4.38,
+      "elevation": 0.6,
+      "facing": 180,
+      "height": 1.65,
+      "box": [
+        -1.46,
+        -1.7,
+        1.46,
+        0.1
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The wall over the bed, Josie's drawings pinned on it",
+      "inside": true,
+      "across": -2.4,
+      "distance": 2.8,
+      "facing": 90,
+      "height": 2.6,
+      "box": [
+        -1.62,
+        -2.62,
+        1.62,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The wall with the door to the hall",
+      "inside": true,
+      "across": 2.4,
+      "distance": 2.8,
+      "facing": 270,
+      "height": 2.6,
+      "box": [
+        -1.62,
+        -2.62,
+        1.62,
+        0.02
+      ]
+    },
+    {
+      "id": "hall_wall",
+      "name": "The hall beyond the door",
+      "inside": true,
+      "across": 3.5,
+      "distance": 5.0,
+      "facing": 270,
+      "height": 2.6,
+      "box": [
+        -2.2,
+        -2.62,
+        2.2,
+        0.02
+      ]
+    },
+    {
+      "id": "hall_floor",
+      "name": "The hall's floor",
+      "plane": true,
+      "inside": true,
+      "across": 2.95,
+      "distance": 4.55,
+      "width": 1.1,
+      "depth": 3.3
+    },
+    {
+      "id": "headboard",
+      "name": "The bed's headboard",
+      "inside": true,
+      "shadow": true,
+      "across": -1.9,
+      "distance": 4.35,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -0.52,
+        -1.02,
+        0.52,
+        0.02
+      ]
+    },
+    {
+      "id": "bed_side",
+      "name": "The bed's side",
+      "inside": true,
+      "shadow": true,
+      "across": -1.4,
+      "distance": 3.5,
+      "facing": 90,
+      "height": 0.6,
+      "box": [
+        -0.92,
+        -0.62,
+        0.92,
+        0.02
+      ]
+    },
+    {
+      "id": "bed_foot",
+      "name": "The bed's foot",
+      "inside": true,
+      "shadow": true,
+      "across": -1.9,
+      "distance": 2.6,
+      "facing": 180,
+      "height": 0.7,
+      "box": [
+        -0.52,
+        -0.72,
+        0.52,
+        0.02
+      ]
+    },
+    {
+      "id": "bed",
+      "name": "The blanket and the pillow",
+      "plane": true,
+      "inside": true,
+      "shadow": true,
+      "across": -1.9,
+      "distance": 3.5,
+      "elevation": 0.52,
+      "width": 1.0,
+      "depth": 1.8
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the sunlight",
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "at": [
+          -1.0,
+          3.4,
+          1.2
+        ],
+        "source": [
+          2.4,
+          1.6,
+          1.6
+        ]
+      }
+    },
+    {
+      "id": "josie",
+      "name": "Josie",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "josie",
+        "turn": 125,
+        "does": "drawing"
+      },
+      "across": -1.55,
+      "distance": 3.2
+    },
+    {
+      "id": "klara",
+      "name": "Klara",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "klara",
+        "turn": 210,
+        "does": "hands_clasped"
+      },
+      "across": 1.27,
+      "distance": 4.1
+    },
+    {
+      "id": "mother",
+      "name": "The Mother",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "mother",
+        "turn": 225,
+        "does": "hand_to_chin"
+      },
+      "across": 1.9,
+      "distance": 3.85
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "sparse solo piano, slow and luminous, gentle repeated notes like sunlight moving on a floor",
+        "weight": 1.2
+      },
+      {
+        "text": "soft analog synth pad, warm and glowing, very slow swells, hopeful and fragile",
+        "weight": 0.9
+      },
+      {
+        "text": "celesta and glockenspiel, small and clear, childlike and tender",
+        "weight": 0.6
+      },
+      {
+        "text": "string quartet, quiet sustained chords, restrained longing, late afternoon",
+        "weight": 0.4
+      },
+      {
+        "text": "acoustic guitar harmonics, delicate, slow, pastoral",
+        "weight": 0
+      },
+      {
+        "text": "minimalist marimba patterns, soft mallets, slowly shifting, calm",
+        "weight": 0
+      },
+      {
+        "text": "music box melody, slightly out of tune, nostalgic and sad",
+        "weight": 0
+      },
+      {
+        "text": "warm cello solo, low and tender, a lullaby for someone ill",
+        "weight": 0
+      },
+      {
+        "text": "ambient electronic hum, gentle machine warmth, clean and bright",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios, golden and light, dreamlike",
+        "weight": 0
+      },
+      {
+        "text": "soft felt piano and tape hiss, intimate, close, quiet room",
+        "weight": 0
+      },
+      {
+        "text": "wordless female voice humming far away, airy, serene",
+        "weight": 0
+      },
+      {
+        "text": "slow vibraphone chords with long decay, sunlit and still",
+        "weight": 0
+      },
+      {
+        "text": "solo clarinet, soft and wistful, a simple melody",
+        "weight": 0
+      },
+      {
+        "text": "field recording of wind in tall grass, with distant soft piano",
+        "weight": 0
+      },
+      {
+        "text": "glassy bell tones and shimmering pads, slow, the sun coming out",
+        "weight": 0
+      }
+    ],
+    "bpm": 70,
+    "density": 0.22,
+    "brightness": 0.6,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
