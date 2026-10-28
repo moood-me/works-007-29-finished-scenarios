@@ -17,7 +17,7 @@
     "ambient": 0.55,
     "ambientColor": "#7e86b4",
     "inside": 0.35,
-    "bounce": 0
+    "bounce": 0.55
   },
   "lights": [
     {
