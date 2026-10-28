@@ -32,11 +32,10 @@ standing by his bunk, Candy on his with the old dog at his feet.
 - Stage 2 (the look of the world): people sit and stand; only breath, the dust, the dog's flank and the wind in the
   tree move.
 
+`light.bounce` is 0.55: the soft fill in the corners. (It was 0 while the engine's bounce read what stood behind an
+opaque card — the barn and the eucalyptus showed through the ceiling; mended in engine 3, `engine3-next`.)
+
 What is not right yet:
-- `light.bounce` is 0 (a stark lamp-lit room — and the only way here): with any bounce (0.55 tried) the barn and the
-  eucalyptus out in the yard, hidden behind the ceiling, show through it as a faint ghost of their shapes — the
-  engine's bounce reads what stands behind an opaque card. To reproduce: set `bounce` 0.55 and look at the ceiling
-  over the back wall. The engine's to mend; then the room can have its soft fill back.
 - A light edge on the floor in front of the table: the lamp's pool ends along a soft circle (as in other worlds'
   rooms) — the engine's, not looked into.
 - Candy has both hands: his right was lost to a machine — the cast cannot leave one hand off a figure of shapes.
