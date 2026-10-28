@@ -1,0 +1,10 @@
+{
+  "title": "Asya",
+  "description": "A summer on the Rhine, after Turgenev: a white house in the vineyards above the river, a painter who never finishes, his strange sister, and a young man who watches.",
+  "themes": {
+    "romance": 60,
+    "nineteenth century": 25,
+    "river": 15
+  },
+  "main": "terrace"
+}

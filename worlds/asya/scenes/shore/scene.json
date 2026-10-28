@@ -1,0 +1,423 @@
+{
+  "engine": 3,
+  "title": "The Ferry at Z.",
+  "caption": "A summer night on the Rhine.",
+  "horizon": 0.4,
+  "camera": {
+    "mode": "picture"
+  },
+  "modules": [
+    "cast"
+  ],
+  "light": {
+    "vignette": 0.12,
+    "grain": 0.06,
+    "haze": 0.07,
+    "hazeColor": "#2f3c62",
+    "hazeGlow": 0.7,
+    "shafts": 0.15,
+    "ambient": 0.7,
+    "ambientColor": "#8fa4d6",
+    "bounce": 0.5,
+    "brightness": 1.05,
+    "saturation": 1.0,
+    "wind": [
+      1,
+      0.3,
+      0.2
+    ]
+  },
+  "lights": [
+    {
+      "id": "moon",
+      "from": "sky#disc",
+      "color": "#b9cbf2",
+      "strength": 0.7
+    },
+    {
+      "id": "lamp",
+      "of": "lantern#flame",
+      "color": "#ffc070",
+      "strength": 1.6,
+      "reach": 5,
+      "flicker": 0.12,
+      "glow": 0.35
+    }
+  ],
+  "objects": [
+    {
+      "id": "sky",
+      "name": "Night sky",
+      "sky": true
+    },
+    {
+      "id": "hills",
+      "name": "The far hills",
+      "across": 0,
+      "distance": 2600,
+      "box": [
+        -3550,
+        -300,
+        3550,
+        6
+      ]
+    },
+    {
+      "id": "hill",
+      "name": "The hill over L.",
+      "across": -60,
+      "distance": 800,
+      "box": [
+        -1210,
+        -200,
+        1210,
+        3
+      ]
+    },
+    {
+      "id": "town",
+      "name": "L. across the river",
+      "across": 0,
+      "distance": 450,
+      "flicker": 0.12,
+      "box": [
+        -600,
+        -55,
+        600,
+        3.5
+      ]
+    },
+    {
+      "id": "rhine",
+      "name": "The Rhine",
+      "plane": true,
+      "across": 0,
+      "distance": 224.5,
+      "elevation": -0.8,
+      "width": 7000,
+      "depth": 443,
+      "reflect": {
+        "strength": 0.55,
+        "fade": 0,
+        "rough": 0.45,
+        "ripple": 0.4
+      }
+    },
+    {
+      "id": "quay",
+      "name": "Z.'s quay",
+      "plane": true,
+      "walk": true,
+      "across": 0,
+      "distance": 2.9,
+      "elevation": 0,
+      "width": 10,
+      "depth": 1.2
+    },
+    {
+      "id": "wall",
+      "name": "The quay wall",
+      "across": 0,
+      "distance": 3.5,
+      "facing": 180,
+      "onLand": false,
+      "box": [
+        -4.6,
+        -0.12,
+        4.6,
+        0.85
+      ]
+    },
+    {
+      "id": "bench",
+      "name": "The bench by the water",
+      "across": -3.2,
+      "distance": 3.3,
+      "facing": 180,
+      "onLand": false,
+      "box": [
+        -0.95,
+        -0.95,
+        0.95,
+        0.04
+      ]
+    },
+    {
+      "id": "jetty",
+      "name": "The landing stage",
+      "plane": true,
+      "walk": true,
+      "across": -0.2,
+      "distance": 6.5,
+      "elevation": 0,
+      "width": 1.8,
+      "depth": 6,
+      "shadow": true
+    },
+    {
+      "id": "piles",
+      "name": "Piles of the landing stage",
+      "onLand": false,
+      "elevation": 0,
+      "across": -1.1,
+      "distance": 4.4,
+      "box": [
+        -0.12,
+        -0.45,
+        0.12,
+        1.65
+      ],
+      "copies": [
+        {
+          "across": -1.1,
+          "distance": 4.4
+        },
+        {
+          "across": -1.1,
+          "distance": 6.4
+        },
+        {
+          "across": 0.7,
+          "distance": 6.4
+        },
+        {
+          "across": -1.1,
+          "distance": 8.4
+        },
+        {
+          "across": 0.7,
+          "distance": 8.4
+        },
+        {
+          "across": -1.1,
+          "distance": 9.45
+        },
+        {
+          "across": 0.7,
+          "distance": 9.45
+        }
+      ]
+    },
+    {
+      "id": "lantern",
+      "name": "The ferry's lantern",
+      "across": 0.62,
+      "distance": 4.3,
+      "onLand": false,
+      "elevation": 0,
+      "box": [
+        -0.1,
+        -2.3,
+        0.62,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "boat",
+      "name": "The ferryman's boat",
+      "unseen": true,
+      "across": 2.55,
+      "distance": 5.35,
+      "elevation": -0.8,
+      "onLand": false,
+      "facing": 160
+    },
+    {
+      "id": "boat_floor",
+      "name": "The boat's bottom boards",
+      "plane": true,
+      "on": "boat",
+      "elevation": 0.12,
+      "width": 4,
+      "depth": 1.2,
+      "walk": true
+    },
+    {
+      "id": "thwarts",
+      "name": "The boat's thwarts",
+      "plane": true,
+      "on": "boat",
+      "elevation": 0.4,
+      "width": 4,
+      "depth": 1.2
+    },
+    {
+      "id": "hull_in",
+      "name": "The boat's far side, within",
+      "on": "boat",
+      "distance": 0.6,
+      "facing": 180,
+      "box": [
+        -2.1,
+        -1,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "transom",
+      "name": "The boat's stern",
+      "on": "boat",
+      "across": -2.0,
+      "facing": 270,
+      "box": [
+        -0.65,
+        -0.56,
+        0.65,
+        0.3
+      ]
+    },
+    {
+      "id": "hull",
+      "name": "The boat's near side",
+      "on": "boat",
+      "distance": -0.62,
+      "facing": 180,
+      "box": [
+        -2.5,
+        -1,
+        2.4,
+        0.4
+      ]
+    },
+    {
+      "id": "nn",
+      "name": "N. N.",
+      "person": {
+        "cast": "cast",
+        "who": "nn",
+        "turn": 158,
+        "does": "hands_behind"
+      },
+      "across": -0.1,
+      "distance": 5.2,
+      "shadow": true
+    },
+    {
+      "id": "ferryman",
+      "name": "The ferryman",
+      "person": {
+        "cast": "cast",
+        "who": "ferryman",
+        "turn": 265,
+        "does": "seated"
+      },
+      "across": 2.22,
+      "distance": 5.23,
+      "shadow": true
+    },
+    {
+      "id": "pipe_smoke",
+      "name": "Pipe smoke",
+      "particles": {
+        "kind": "smoke",
+        "at": "ferryman#pipe",
+        "rate": 2,
+        "size": [
+          0.04,
+          0.28
+        ],
+        "life": [
+          2,
+          3.5
+        ],
+        "speed": [
+          0.03,
+          0.08
+        ],
+        "opacity": 0.16,
+        "color": "#9aa0aa",
+        "sheer": 0.2,
+        "turbulence": 0.06,
+        "soft": 0.15
+      }
+    }
+  ],
+  "state": {
+    "nn_look": [
+      1.6,
+      2.2,
+      1.3
+    ],
+    "nn_mood": "smile",
+    "ferryman_on": {
+      "on": "boat",
+      "at": [
+        -0.35,
+        0,
+        0.42
+      ]
+    },
+    "ferryman_look": "nn#hips",
+    "ferryman_mood": "neutral"
+  },
+  "music": {
+    "prompts": [
+      {
+        "text": "Oars dipping slowly in a dark river at night, a solo cello over soft sustained strings, calm and wistful",
+        "weight": 1.2
+      },
+      {
+        "text": "Students singing Gaudeamus far away across water at night, a small brass band, festive at a distance",
+        "weight": 0.7
+      },
+      {
+        "text": "Solo piano in the manner of Schubert, slow and tender, a summer night, intimate",
+        "weight": 0.8
+      },
+      {
+        "text": "A distant Viennese waltz by a small string band, heard from far across water, soft and dreamy",
+        "weight": 0
+      },
+      {
+        "text": "Warm string quartet, slow, romantic, nineteenth-century chamber music, moonlight",
+        "weight": 0
+      },
+      {
+        "text": "Solo clarinet over a low drone, a night river, calm and longing",
+        "weight": 0
+      },
+      {
+        "text": "Harp arpeggios like water, light and airy",
+        "weight": 0
+      },
+      {
+        "text": "Sparse piano notes with long pauses, an unfinished melody, hesitation",
+        "weight": 0
+      },
+      {
+        "text": "Ambient pads like warm night air, crickets implied, minimal",
+        "weight": 0
+      },
+      {
+        "text": "Gentle guitar and flute, a Rhine folk song half-remembered",
+        "weight": 0
+      },
+      {
+        "text": "Music box playing a simple waltz, delicate",
+        "weight": 0
+      },
+      {
+        "text": "Lush romantic orchestra, slow swell, hopeful and bittersweet",
+        "weight": 0
+      },
+      {
+        "text": "Accordion waltz from a tavern, faint, nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "Violin and piano duet, a quiet romance, Biedermeier salon",
+        "weight": 0
+      },
+      {
+        "text": "Solo oboe nocturne over muted strings, moonlit vineyards",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.3,
+    "brightness": 0.45,
+    "scale": "A_FLAT_MAJOR_F_MINOR"
+  }
+}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Ferry at Z.","translation":"Перевоз в З.","where":"scenes/shore/scene.json title"},
+  {"text":"A summer night on the Rhine.","translation":"Летняя ночь на Рейне.","where":"scenes/shore/scene.json caption"}
+]}
