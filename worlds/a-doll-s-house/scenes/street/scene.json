@@ -102,11 +102,7 @@
     "porter_with": [
       "coin"
     ],
-    "porter_look": [
-      2.1,
-      9.3,
-      1.15
-    ],
+    "porter_look": "porter#hand_r",
     "porter_reach": {
       "l": "fir#grip"
     },
@@ -302,8 +298,8 @@
     {
       "id": "fir",
       "name": "The Christmas tree the porter carried",
-      "across": 2.85,
-      "distance": 9.6,
+      "across": 2.9,
+      "distance": 10.15,
       "height": 2.6,
       "box": [
         -0.75,
@@ -352,7 +348,7 @@
       "person": {
         "cast": "cast",
         "who": "porter",
-        "turn": 190,
+        "turn": 205,
         "does": "coin"
       },
       "across": 2.25,

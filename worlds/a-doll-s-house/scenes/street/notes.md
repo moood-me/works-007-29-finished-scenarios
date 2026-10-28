@@ -19,8 +19,8 @@ the place, its light and its people standing. No motion of people but a pose, a 
 - **People** (cast: modules/cast, the `doll` style; made for this scene: `nora_out`, `porter`, `anne_marie`, `ivar`,
   `bob`, `emmy`), every face turned to the viewer: Nora in the middle, her arms full of parcels (`armful`,
   `parcels`), smiling out (`nora_look` — a point by the camera); the porter by the door, the tree in his left hand
-  (`porter_reach` to `fir#grip`), looking down at the coin in his right palm (`coin`; `porter_look` — a point before
-  him, not his own hand: below); Anne-Marie at the lane's mouth, her hands clasped (`clasped`), her left hand holding
+  (`porter_reach` to `fir#grip`, the tree at his side, a little behind his shoulder), looking down at the coin in his
+  right palm (`coin`; `porter_look: "porter#hand_r"`); Anne-Marie at the lane's mouth, her hands clasped (`clasped`), her left hand holding
   Emmy's (the two hands reach for each other); Ivar with the sled's rope (`leash`; the rope is the sled's layer, its
   animate turns and stretches it to `ivar#hand_r`); Bob in the lane, a snowball held up (`snowball`), laughing at Ivar.
 - **Light.** Dusk: the sky's deep blue, the three gas lamps (`gas_lamp`, copies; their lights `lamp_front`,
@@ -36,10 +36,6 @@ the place, its light and its people standing. No motion of people but a pose, a 
 - Known for this world's scenes (not got round here): a motion from Kimodo may come turned to the wall in a scene;
   a hand on the knees in a module's clip goes to the sides; cloth does not hang behind the back; a sitting woman's
   skirt is a lump; the particle fire is balls; no rope between two people.
-- The porter, told to look at his own hand (`porter_look: "porter#hand_r"`) or with his hand reaching to a tree behind
-  his shoulder, turned his whole body to the house's wall: the look's waist turn takes a point at the chest as one
-  far round. He looks at a point of the world just before him instead, and the tree stands at his side, a little
-  before him.
 - The scenario's porter takes off his cap at the coin, and the children sledge on the hill and Nora pulls the sled:
   motion, not for this stage. Nora's muff (the macaroons come out of it) is not there — her hands are full.
 - Anne-Marie's shawl hangs from the shoulders as a stiff cone (a garment's hang): a knitted shawl's soft drape and

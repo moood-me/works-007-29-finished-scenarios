@@ -25,7 +25,7 @@ return [
       await s.wait(1.5);
       porter.mood('laugh');
       await s.wait(2);
-      porter.look([2.1, 9.3, 1.15]);
+      porter.look('porter#hand_r');
       porter.mood('smile');
       await s.wait(1.5);
     },
