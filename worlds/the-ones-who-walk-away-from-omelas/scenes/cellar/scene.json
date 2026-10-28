@@ -299,9 +299,7 @@
       },
       "across": -0.35,
       "distance": 3.65,
-      "shadow": {
-        "light": "corridor"
-      }
+      "shadow": true
     },
     {
       "id": "kor",

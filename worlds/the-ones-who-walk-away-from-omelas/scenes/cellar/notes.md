@@ -24,10 +24,9 @@ the child in its corner. The other side of the square's light: the same three, b
 - What a person has: `ila_wear: {parts: []}` and `mev_wear: {parts: ["key_cord"]}` take the square's flute and basket
   away, `<id>_with` gives the lamp and the bowl. (people.md says `<id>_with` replaces the look's own parts; engine 3 adds
   them to the look's own — so the look's parts are taken away by `_wear`.)
-- Ila casts shadows only in the corridor's light (`"shadow": {"light": "corridor"}`): in her own lamp's light the
-  lantern part itself (its glass, its base round the light's point) cast a large hard octagon on the floor — the engine
-  does not leave a person's part out of the shadows of a light at that part's point, as it leaves an element out of its
-  own lights' shadows.
+- Ila casts shadows (`"shadow": true`) and the lamp's light is `at` her `ila#lamp`: a light at a person's point is
+  hers, and the engine leaves a caster out of its own lights' shadows — the lantern part no longer casts the large
+  hard octagon on the floor it cast before (then she cast only in the corridor's light).
 - Stage 2 (the look of the world): people stay where they are; only breathing, the rocking, the lamps' flicker and the
   dust move. No showcase: nothing in the scene changes yet.
 
