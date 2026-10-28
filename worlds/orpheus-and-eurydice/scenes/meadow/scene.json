@@ -1,0 +1,815 @@
+{
+  "engine": 3,
+  "title": "The Meadow",
+  "caption": "Below, where the pale flowers grow. She sits by the stream.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "vignette": 0.28,
+    "grain": 0.05,
+    "haze": 0.3,
+    "hazeColor": "#6e6a96",
+    "hazeGlow": 0.7,
+    "ambient": 0.55,
+    "ambientColor": "#a29fcc",
+    "bounce": 0.5,
+    "brightness": 1.1,
+    "saturation": 0.88,
+    "wind": [
+      1,
+      0.2,
+      0.15
+    ]
+  },
+  "lights": [
+    {
+      "id": "vault",
+      "from": [
+        10,
+        40
+      ],
+      "color": "#bdb8e6",
+      "strength": 0.5
+    },
+    {
+      "id": "lantern",
+      "at": "orpheus#flame",
+      "color": "#ffc47e",
+      "strength": 1.6,
+      "reach": 5,
+      "flicker": 0.15
+    },
+    {
+      "id": "stream_near",
+      "across": -1.5,
+      "distance": 4.7,
+      "elevation": 0.2,
+      "color": "#d6e2ff",
+      "strength": 0.9,
+      "reach": 3.5
+    },
+    {
+      "id": "stream_bend",
+      "across": 3.4,
+      "distance": 5.9,
+      "elevation": 0.2,
+      "color": "#d6e2ff",
+      "strength": 0.7,
+      "reach": 3.5
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "eurydice_on": [
+      -1.6,
+      5.75,
+      0.36
+    ],
+    "eurydice_look": "orpheus",
+    "eurydice_mood": "neutral",
+    "eurydice_reach": {
+      "r": "cup#rim",
+      "l": [
+        -1.2,
+        5.85,
+        0.37
+      ]
+    },
+    "orpheus_with": [
+      "lantern"
+    ],
+    "orpheus_look": "eurydice",
+    "orpheus_mood": "neutral",
+    "orpheus_reach": {
+      "l": [
+        0.36,
+        6.0,
+        1.3
+      ]
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The vault under the earth",
+      "sky": true
+    },
+    {
+      "id": "cliffs",
+      "name": "The far walls and the stair",
+      "across": 0,
+      "distance": 280,
+      "height": 170,
+      "box": [
+        -900,
+        -172,
+        900,
+        1
+      ]
+    },
+    {
+      "id": "mist",
+      "name": "Mist on the far meadow",
+      "across": 0,
+      "distance": 120,
+      "height": 6,
+      "box": [
+        -420,
+        -7,
+        420,
+        0.5
+      ]
+    },
+    {
+      "id": "ground",
+      "name": "The meadow",
+      "plane": true,
+      "across": 0,
+      "distance": 150,
+      "width": 600,
+      "depth": 300
+    },
+    {
+      "id": "stream",
+      "name": "The stream of forgetting",
+      "plane": true,
+      "glows": true,
+      "across": 30,
+      "distance": 76,
+      "elevation": 0.03,
+      "width": 120,
+      "depth": 156
+    },
+    {
+      "id": "asphodels",
+      "name": "Asphodels",
+      "glows": true,
+      "across": 0,
+      "distance": 10,
+      "height": 1.0,
+      "box": [
+        -0.35,
+        -1.0,
+        0.35,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": 12.54,
+          "distance": 39.86,
+          "scale": 0.96
+        },
+        {
+          "across": -30.44,
+          "distance": 39.85,
+          "scale": 0.99
+        },
+        {
+          "across": -35.9,
+          "distance": 39.59,
+          "scale": 1.19,
+          "flip": true
+        },
+        {
+          "across": -8.18,
+          "distance": 39.28,
+          "scale": 0.98
+        },
+        {
+          "across": 11.74,
+          "distance": 39.23,
+          "scale": 1.04
+        },
+        {
+          "across": -26.78,
+          "distance": 38.36,
+          "scale": 0.88,
+          "flip": true
+        },
+        {
+          "across": -4.04,
+          "distance": 38.28,
+          "scale": 1.22
+        },
+        {
+          "across": -10.34,
+          "distance": 38.18,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 21.42,
+          "distance": 34.94,
+          "scale": 0.87
+        },
+        {
+          "across": -12.33,
+          "distance": 33.11,
+          "scale": 1.11
+        },
+        {
+          "across": -17.42,
+          "distance": 30.15,
+          "scale": 0.91,
+          "flip": true
+        },
+        {
+          "across": 14.24,
+          "distance": 29.69,
+          "scale": 0.9
+        },
+        {
+          "across": 28.41,
+          "distance": 29.29,
+          "scale": 1.18
+        },
+        {
+          "across": 11.27,
+          "distance": 28.31,
+          "scale": 0.91
+        },
+        {
+          "across": -1.14,
+          "distance": 25.85,
+          "scale": 0.88
+        },
+        {
+          "across": -16.16,
+          "distance": 24.49,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": -19.62,
+          "distance": 21.99,
+          "scale": 1.2
+        },
+        {
+          "across": 20.28,
+          "distance": 20.56,
+          "scale": 1.17,
+          "flip": true
+        },
+        {
+          "across": -5.15,
+          "distance": 20.17,
+          "scale": 1.05,
+          "flip": true
+        },
+        {
+          "across": 17.57,
+          "distance": 19.62,
+          "scale": 1.06,
+          "flip": true
+        },
+        {
+          "across": 15.58,
+          "distance": 19.46,
+          "scale": 1.18,
+          "flip": true
+        },
+        {
+          "across": -8.48,
+          "distance": 17.86,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": 14.23,
+          "distance": 17.6,
+          "scale": 0.99
+        },
+        {
+          "across": -1.53,
+          "distance": 17.45,
+          "scale": 1.18
+        },
+        {
+          "across": 12.37,
+          "distance": 16.13,
+          "scale": 1.17
+        },
+        {
+          "across": -4.18,
+          "distance": 15.56,
+          "scale": 0.83
+        },
+        {
+          "across": -10.78,
+          "distance": 15.25,
+          "scale": 1.04,
+          "flip": true
+        },
+        {
+          "across": 14.59,
+          "distance": 15.24,
+          "scale": 1.19
+        },
+        {
+          "across": 11.35,
+          "distance": 15.12,
+          "scale": 1.13,
+          "flip": true
+        },
+        {
+          "across": 0.9,
+          "distance": 14.18,
+          "scale": 1.04,
+          "flip": true
+        },
+        {
+          "across": 4.31,
+          "distance": 13.12,
+          "scale": 0.83
+        },
+        {
+          "across": -0.41,
+          "distance": 12.81,
+          "scale": 0.84,
+          "flip": true
+        },
+        {
+          "across": -7.53,
+          "distance": 11.87,
+          "scale": 0.8
+        },
+        {
+          "across": -2.07,
+          "distance": 10.25,
+          "scale": 0.85
+        },
+        {
+          "across": 3.39,
+          "distance": 10.04,
+          "scale": 0.81,
+          "flip": true
+        },
+        {
+          "across": 1.26,
+          "distance": 9.52,
+          "scale": 1.23
+        },
+        {
+          "across": -7.07,
+          "distance": 9.37,
+          "scale": 1.18
+        },
+        {
+          "across": -8.58,
+          "distance": 9.11,
+          "scale": 0.81,
+          "flip": true
+        },
+        {
+          "across": -4.11,
+          "distance": 8.73,
+          "scale": 1.17,
+          "flip": true
+        },
+        {
+          "across": -7.74,
+          "distance": 8.65,
+          "scale": 0.8,
+          "flip": true
+        },
+        {
+          "across": -5.72,
+          "distance": 8.19,
+          "scale": 1.09,
+          "flip": true
+        },
+        {
+          "across": 1.36,
+          "distance": 7.93,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": -1.19,
+          "distance": 7.0,
+          "scale": 0.96
+        },
+        {
+          "across": 3.43,
+          "distance": 4.18,
+          "scale": 0.96,
+          "flip": true
+        },
+        {
+          "across": 1.11,
+          "distance": 3.31,
+          "scale": 1.14
+        },
+        {
+          "across": 2.43,
+          "distance": 3.25,
+          "scale": 1.08,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "shade_1",
+      "name": "A shade",
+      "person": {
+        "cast": "cast",
+        "who": "shade_woman",
+        "turn": 20
+      },
+      "across": -6,
+      "distance": 11,
+      "shadow": {
+        "strength": 0.4
+      }
+    },
+    {
+      "id": "shade_2",
+      "name": "A shade",
+      "person": {
+        "cast": "cast",
+        "who": "shade_old",
+        "turn": 340
+      },
+      "across": -9.5,
+      "distance": 16,
+      "shadow": {
+        "strength": 0.4
+      }
+    },
+    {
+      "id": "shade_3",
+      "name": "A shade",
+      "person": {
+        "cast": "cast",
+        "who": "shade_man",
+        "turn": 30
+      },
+      "across": 3.5,
+      "distance": 14,
+      "shadow": {
+        "strength": 0.4
+      }
+    },
+    {
+      "id": "shade_4",
+      "name": "A shade",
+      "person": {
+        "cast": "cast",
+        "who": "shade_man",
+        "turn": 350
+      },
+      "across": -3,
+      "distance": 22,
+      "shadow": {
+        "strength": 0.4
+      }
+    },
+    {
+      "id": "shade_5",
+      "name": "A shade",
+      "person": {
+        "cast": "cast",
+        "who": "shade_woman",
+        "turn": 10
+      },
+      "across": 6,
+      "distance": 26,
+      "shadow": {
+        "strength": 0.4
+      }
+    },
+    {
+      "id": "shade_6",
+      "name": "A shade",
+      "person": {
+        "cast": "cast",
+        "who": "shade_man",
+        "turn": 40
+      },
+      "across": -14,
+      "distance": 28,
+      "shadow": {
+        "strength": 0.4
+      }
+    },
+    {
+      "id": "stone",
+      "name": "Her stone on the bank",
+      "across": -1.6,
+      "distance": 5.85,
+      "height": 0.4,
+      "box": [
+        -0.7,
+        -0.42,
+        0.7,
+        0.08
+      ],
+      "shadow": true
+    },
+    {
+      "id": "cup",
+      "name": "Her clay cup",
+      "across": -2.08,
+      "distance": 5.78,
+      "elevation": 0.36,
+      "height": 0.08,
+      "box": [
+        -0.08,
+        -0.09,
+        0.08,
+        0.01
+      ]
+    },
+    {
+      "id": "eurydice",
+      "name": "Eurydice",
+      "person": {
+        "cast": "cast",
+        "who": "eurydice",
+        "turn": 175,
+        "does": "seated"
+      },
+      "across": -1.6,
+      "distance": 5.75,
+      "shadow": {
+        "strength": 0.6
+      }
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "person": {
+        "cast": "cast",
+        "who": "orpheus",
+        "turn": 215
+      },
+      "across": 0.4,
+      "distance": 6.4,
+      "shadow": {
+        "strength": 0.6
+      }
+    },
+    {
+      "id": "rings",
+      "name": "Rings round her feet",
+      "plane": true,
+      "across": -1.55,
+      "distance": 5.3,
+      "elevation": 0.04,
+      "width": 1.6,
+      "depth": 1.6
+    },
+    {
+      "id": "float_flower",
+      "name": "A flower on the water",
+      "plane": true,
+      "glows": true,
+      "across": -0.9,
+      "distance": 4.85,
+      "elevation": 0.045,
+      "width": 0.2,
+      "depth": 0.2
+    },
+    {
+      "id": "grass",
+      "name": "Grass close by",
+      "across": 0,
+      "distance": 3,
+      "height": 0.55,
+      "box": [
+        -0.5,
+        -0.55,
+        0.5,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -4.27,
+          "distance": 8.45,
+          "scale": 1.04
+        },
+        {
+          "across": -6.95,
+          "distance": 8.41,
+          "scale": 1.19,
+          "flip": true
+        },
+        {
+          "across": -0.99,
+          "distance": 8.27,
+          "scale": 1.07
+        },
+        {
+          "across": 7.95,
+          "distance": 8.1,
+          "scale": 0.83
+        },
+        {
+          "across": -5.97,
+          "distance": 7.84,
+          "scale": 0.77,
+          "flip": true
+        },
+        {
+          "across": -3.91,
+          "distance": 7.71,
+          "scale": 0.79
+        },
+        {
+          "across": 0.12,
+          "distance": 7.43,
+          "scale": 1.04
+        },
+        {
+          "across": -3.25,
+          "distance": 7.36,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": 0.77,
+          "distance": 7.2,
+          "scale": 0.81,
+          "flip": true
+        },
+        {
+          "across": 0.85,
+          "distance": 7.15,
+          "scale": 0.9
+        },
+        {
+          "across": -7.2,
+          "distance": 7.13,
+          "scale": 1.03,
+          "flip": true
+        },
+        {
+          "across": 2.01,
+          "distance": 7.04,
+          "scale": 0.94,
+          "flip": true
+        },
+        {
+          "across": 7.02,
+          "distance": 6.93,
+          "scale": 0.91
+        },
+        {
+          "across": 5.48,
+          "distance": 6.12,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": -3.27,
+          "distance": 5.96,
+          "scale": 0.77,
+          "flip": true
+        },
+        {
+          "across": 5.26,
+          "distance": 5.67,
+          "scale": 1.12
+        },
+        {
+          "across": 1.69,
+          "distance": 3.73,
+          "scale": 1.1,
+          "flip": true
+        },
+        {
+          "across": -3.1,
+          "distance": 3.34,
+          "scale": 1.11,
+          "flip": true
+        },
+        {
+          "across": 2.37,
+          "distance": 3.31,
+          "scale": 1.22
+        },
+        {
+          "across": 2.47,
+          "distance": 3.3,
+          "scale": 0.74
+        },
+        {
+          "across": -1.76,
+          "distance": 3.24,
+          "scale": 0.74
+        },
+        {
+          "across": 2.98,
+          "distance": 3.23,
+          "scale": 1.08
+        },
+        {
+          "across": 3.25,
+          "distance": 3.19,
+          "scale": 1.17
+        },
+        {
+          "across": -2.43,
+          "distance": 3.13,
+          "scale": 0.74
+        },
+        {
+          "across": -1.94,
+          "distance": 3.1,
+          "scale": 0.89,
+          "flip": true
+        },
+        {
+          "across": 1.78,
+          "distance": 3.04,
+          "scale": 0.86,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "between",
+      "name": "Between the two",
+      "unseen": true,
+      "across": -0.6,
+      "distance": 6.1,
+      "height": 1.8
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a solo lyre plucked slowly, ancient modes, intimate and warm, long silences between phrases",
+        "weight": 0.6
+      },
+      {
+        "text": "a quiet harp and a low hum of water, night by a still lake, unhurried",
+        "weight": 0
+      },
+      {
+        "text": "a single male voice humming wordlessly over a plucked lyre, tender, far away",
+        "weight": 0
+      },
+      {
+        "text": "soft ambient pads like moonlight on water, slow swells, no rhythm",
+        "weight": 0.9
+      },
+      {
+        "text": "a choir far off, wordless, mournful, like voices under water",
+        "weight": 0.5
+      },
+      {
+        "text": "a celesta and a glass harmonica, fragile, dreamlike",
+        "weight": 0.6
+      },
+      {
+        "text": "a thin trickle of water and a glass harmonica, still air, nothing moving",
+        "weight": 0.7
+      },
+      {
+        "text": "low strings holding long notes, dark, patient, a myth told quietly",
+        "weight": 0.3
+      },
+      {
+        "text": "a wooden flute playing a simple pastoral melody, airy, at dusk",
+        "weight": 0
+      },
+      {
+        "text": "an old folk lullaby on a kithara, gentle arpeggios",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano notes falling like drops into still water",
+        "weight": 0
+      },
+      {
+        "text": "warm drone of a bowed psaltery under sparse plucked notes",
+        "weight": 0
+      },
+      {
+        "text": "an oud improvising slowly in a minor mode, intimate night music",
+        "weight": 0
+      },
+      {
+        "text": "a duduk sighing a slow lament over a soft drone",
+        "weight": 0
+      },
+      {
+        "text": "a music box tune slowing down, nostalgic and sad",
+        "weight": 0
+      },
+      {
+        "text": "pale shimmering synth tones, weightless, a meadow of the dead without wind",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.3,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}

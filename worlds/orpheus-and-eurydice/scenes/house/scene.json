@@ -1,0 +1,394 @@
+{
+  "engine": 3,
+  "title": "The House Below",
+  "caption": "A stone hall under the earth. Hades by his fire, Persephone by her tree.",
+  "horizon": 0.5,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "vignette": 0.3,
+    "grain": 0.05,
+    "haze": 0.12,
+    "hazeColor": "#3b3238",
+    "hazeGlow": 0.9,
+    "ambient": 0.5,
+    "ambientColor": "#a0929c",
+    "bounce": 0.6,
+    "brightness": 1.12,
+    "saturation": 0.92
+  },
+  "lights": [
+    {
+      "id": "hearth_fire",
+      "across": -1.2,
+      "distance": 6.2,
+      "elevation": 0.7,
+      "color": "#ffb066",
+      "strength": 2.0,
+      "reach": 8,
+      "flicker": 0.25
+    },
+    {
+      "id": "door",
+      "across": -0.6,
+      "distance": 11.0,
+      "elevation": 1.4,
+      "color": "#bcb8ea",
+      "strength": 0.9,
+      "reach": 6
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "hades_on": [
+      -2.6,
+      7.4,
+      0.48
+    ],
+    "hades_look": "hearth#fire",
+    "hades_mood": "tired",
+    "orpheus_look": "hades",
+    "orpheus_mood": "neutral",
+    "orpheus_reach": {
+      "l": "lyre#arm",
+      "r": "lyre#strings"
+    },
+    "persephone_look": "eurydice",
+    "persephone_mood": "neutral",
+    "eurydice_look": [
+      1.4,
+      6.6,
+      0
+    ],
+    "eurydice_mood": "sad",
+    "shade_a_look": "orpheus",
+    "shade_a_mood": "sad",
+    "shade_b_look": "orpheus",
+    "shade_b_mood": "sad"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The dark over the walls",
+      "sky": true
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "across": 0,
+      "distance": 7.75,
+      "width": 9.4,
+      "depth": 11.5
+    },
+    {
+      "id": "beyond",
+      "name": "The meadow through the door",
+      "glows": true,
+      "across": -0.6,
+      "distance": 13.5,
+      "height": 3.2,
+      "box": [
+        -2,
+        -3.25,
+        2,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall and its door",
+      "across": 0,
+      "distance": 10.6,
+      "facing": 180,
+      "height": 8,
+      "box": [
+        -4.8,
+        -8,
+        4.8,
+        0.05
+      ]
+    },
+    {
+      "id": "side_wall",
+      "name": "The side walls",
+      "across": -4.6,
+      "distance": 6.3,
+      "facing": 90,
+      "height": 8,
+      "box": [
+        -4.3,
+        -8,
+        4.3,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -4.6,
+          "distance": 6.3,
+          "facing": 90
+        },
+        {
+          "across": 4.6,
+          "distance": 6.3,
+          "facing": 270
+        }
+      ]
+    },
+    {
+      "id": "hearth",
+      "name": "The hearth",
+      "across": -1.2,
+      "distance": 6.2,
+      "height": 0.4,
+      "box": [
+        -0.75,
+        -0.45,
+        0.75,
+        0.05
+      ]
+    },
+    {
+      "id": "coals",
+      "name": "The coals",
+      "glows": true,
+      "across": -1.2,
+      "distance": 6.22,
+      "height": 0.15,
+      "box": [
+        -0.5,
+        -0.15,
+        0.5,
+        0.02
+      ],
+      "elevation": 0.24
+    },
+    {
+      "id": "fire",
+      "name": "The fire",
+      "particles": {
+        "kind": "fire",
+        "at": [
+          -1.2,
+          6.2,
+          0.3
+        ],
+        "size": [
+          0.4,
+          0.06
+        ]
+      }
+    },
+    {
+      "id": "embers",
+      "name": "Embers",
+      "particles": {
+        "kind": "embers",
+        "at": [
+          -1.2,
+          6.2,
+          0.4
+        ],
+        "rate": 6
+      }
+    },
+    {
+      "id": "shade_a",
+      "name": "A shade in the door",
+      "person": {
+        "cast": "cast",
+        "who": "shade_woman",
+        "turn": 180
+      },
+      "across": -1.0,
+      "distance": 11.9
+    },
+    {
+      "id": "shade_b",
+      "name": "A shade in the door",
+      "person": {
+        "cast": "cast",
+        "who": "shade_old",
+        "turn": 190
+      },
+      "across": -0.55,
+      "distance": 12.2
+    },
+    {
+      "id": "tree",
+      "name": "Persephone's pomegranate tree",
+      "across": 3.8,
+      "distance": 9.8,
+      "height": 2.4,
+      "box": [
+        -0.95,
+        -2.45,
+        0.95,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "eurydice",
+      "name": "Eurydice",
+      "person": {
+        "cast": "cast",
+        "who": "eurydice",
+        "turn": 215
+      },
+      "across": 1.9,
+      "distance": 7.5,
+      "shadow": {
+        "strength": 0.6
+      }
+    },
+    {
+      "id": "persephone",
+      "name": "Persephone",
+      "person": {
+        "cast": "cast",
+        "who": "persephone",
+        "turn": 215
+      },
+      "across": 3.1,
+      "distance": 8.8,
+      "shadow": {
+        "strength": 0.6
+      }
+    },
+    {
+      "id": "throne",
+      "name": "Hades's chair",
+      "across": -2.83,
+      "distance": 7.59,
+      "facing": 130,
+      "height": 1.75,
+      "box": [
+        -0.62,
+        -1.78,
+        0.62,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "hades",
+      "name": "Hades",
+      "person": {
+        "cast": "cast",
+        "who": "hades",
+        "turn": 130,
+        "does": "seated"
+      },
+      "across": -2.6,
+      "distance": 7.4,
+      "shadow": {
+        "strength": 0.6
+      }
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "person": {
+        "cast": "cast",
+        "who": "orpheus",
+        "turn": 247
+      },
+      "across": 0.3,
+      "distance": 8.6,
+      "shadow": {
+        "strength": 0.6
+      }
+    },
+    {
+      "id": "lyre",
+      "name": "Orpheus's lyre",
+      "across": 0.02,
+      "distance": 8.48,
+      "elevation": 0.95,
+      "facing": 215,
+      "height": 0.58,
+      "box": [
+        -0.22,
+        -0.62,
+        0.22,
+        0.03
+      ]
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a solo lyre plucked slowly, ancient modes, intimate and warm, long silences between phrases",
+        "weight": 0.9
+      },
+      {
+        "text": "a quiet harp and a low hum of water, night by a still lake, unhurried",
+        "weight": 0
+      },
+      {
+        "text": "a single male voice humming wordlessly over a plucked lyre, tender, far away",
+        "weight": 0.4
+      },
+      {
+        "text": "soft ambient pads like moonlight on water, slow swells, no rhythm",
+        "weight": 0
+      },
+      {
+        "text": "a choir far off, wordless, mournful, like voices under water",
+        "weight": 0.3
+      },
+      {
+        "text": "low strings holding long notes, dark, patient, a myth told quietly",
+        "weight": 0.9
+      },
+      {
+        "text": "warm drone of a bowed psaltery under sparse plucked notes",
+        "weight": 0.6
+      },
+      {
+        "text": "a fire crackling in a stone hall, a slow frame drum, very sparse",
+        "weight": 0.4
+      },
+      {
+        "text": "a wooden flute playing a simple pastoral melody, airy, at dusk",
+        "weight": 0
+      },
+      {
+        "text": "an old folk lullaby on a kithara, gentle arpeggios",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano notes falling like drops into still water",
+        "weight": 0
+      },
+      {
+        "text": "a celesta and a glass harmonica, fragile, dreamlike",
+        "weight": 0
+      },
+      {
+        "text": "an oud improvising slowly in a minor mode, intimate night music",
+        "weight": 0
+      },
+      {
+        "text": "a duduk sighing a slow lament over a soft drone",
+        "weight": 0
+      },
+      {
+        "text": "a music box tune slowing down, nostalgic and sad",
+        "weight": 0
+      },
+      {
+        "text": "deep bass drones under a cathedral of stone, solemn, unmoving",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.25,
+    "brightness": 0.3,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
