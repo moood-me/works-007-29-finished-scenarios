@@ -7,9 +7,9 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.32,
+    "ambient": 0.44,
     "ambientColor": "#6c7aa0",
-    "bounce": 0.5,
+    "bounce": 0.6,
     "haze": 0.06,
     "hazeColor": "#2a3042",
     "hazeGlow": 0.55,
@@ -20,7 +20,7 @@
     "grain": 0.07,
     "looks": {
       "day": {
-        "ambient": 0.62,
+        "ambient": 0.7,
         "ambientColor": "#d8ccb4",
         "tint": "#ffe9c4",
         "tintStrength": 0.05,

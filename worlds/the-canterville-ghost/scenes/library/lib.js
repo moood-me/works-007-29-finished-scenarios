@@ -94,6 +94,27 @@ function FILM(scene) {
     s.set('camera_target', target);
     return s.wait(over);
   };
+  // the room's shots (the operator's own framing goes round people and toward the room's open side here: each shot is
+  // a camera of its own, the eye and what it looks at)
+  const SH = {
+    stain: CAM([0.9, 3.2, 1.6], [2.7, 6.0, 0.9]),
+    wash: CAM([1.6, 4.0, 1.3], [2.95, 6.3, 0.8]),
+    her: CAM([-1.5, 3.1, 1.5], [-0.4, 4.4, 1.35]),
+    face: CAM([1.0, 5.6, 1.5], [-0.4, 4.4, 1.45]),
+    table: CAM([-0.6, 4.6, 1.75], [-1.9, 8.6, 1.0]),
+    green: CAM([-1.5, 7.3, 1.35], [-0.7, 8.3, 1.05]),
+    peas: CAM([-1.6, 6.6, 1.5], [-2.15, 9.15, 1.1]),
+    sill: CAM([0.9, 7.4, 1.4], [0.4, 9.8, 0.95]),
+    box: CAM([0.6, 7.6, 1.5], [-0.4, 9.75, 0.6]),
+    desk: CAM([-1.9, 4.3, 1.4], [-3.62, 5.28, 1.1]),
+    desk_close: CAM([-2.3, 4.0, 1.75], [-3.62, 5.28, 1.15]),
+    door: CAM([-1.8, 6.4, 1.6], [-3.6, 7.4, 1.4]),
+    floor: CAM([1.6, 4.2, 1.5], [2.6, 6.2, 1.0]),
+    half: CAM([2.3, 4.6, 1.3], [2.9, 5.6, 0]),
+    fire: CAM([1.4, 6.6, 1.6], [0.3, 9.4, 1.0]),
+    two: CAM([1.0, 7.0, 1.5], [0.1, 9.5, 1.0]),
+    laid: CAM([0.9, 8.2, 1.3], [0.05, 9.8, 0.55]),
+  };
 
   // a person's whole starting state: where, facing, doing; nothing in the hands, no look, no reach, not seated
   const who = (id, [a, d, turn], does = 'stand', more = {}) => {
@@ -164,7 +185,7 @@ function FILM(scene) {
       from: () => merge(EVENING, CAM0, { rain: 1, stain: 'dull' }, ...Object.entries(EVE).map(([id, p]) => who(id, p, id === 'mrs_umney' ? 'clasped' : 'stand')), out('cecil', 'simon')),
       run: async s => {
         s.set('stain', 'dull');
-        aim(s, 'stain', 'full', 2);
+        glide(s, SH.stain, 2);
         await s.person('mrs_otis').walk([[2.55, 6.5]]);
         await s.person('mrs_otis').turn(160);
         for (const id of ['otis', 'washington', 'twin_star', 'twin_stripes', 'virginia', 'mrs_umney', 'mrs_otis']) s.person(id).look('stain');
@@ -175,7 +196,7 @@ function FILM(scene) {
     },
     rub: {
       after: ['stain'], tells: ['rub:kneel', 'rub:gone', 'rub:thunder', 'rub:cheer'], seconds: 11,
-      from: () => merge(EVENING, CAM0, { rain: 1, stain: 'dull', camera_target: 'stain' },
+      from: () => merge(EVENING, SH.stain, { rain: 1, stain: 'dull' },
         ...Object.entries(EVE).filter(([id]) => id !== 'mrs_otis').map(([id, p]) => who(id, p, id === 'mrs_umney' ? 'clasped' : 'stand', { look: 'stain' })),
         who('mrs_otis', [2.55, 6.5, 160], 'stand', { look: 'stain' }), out('cecil', 'simon')),
       run: async s => {
@@ -188,7 +209,7 @@ function FILM(scene) {
         await w.turn(180);
         w.look('stain');
         w.do('kneel_rub');
-        aim(s, 'washington', 'medium', 1.2);
+        glide(s, SH.wash, 1.2);
         s.tell('rub:kneel');
         await s.wait(3.2);
         s.set('stain', 'none');
@@ -249,13 +270,13 @@ function FILM(scene) {
           s.person(id).do('laugh_bend');
         }
         const o = s.person('otis'), v = s.person('virginia');
-        await o.walk([[-0.95, 3.85]]);
-        await o.turn(40);
+        await o.walk([[0.25, 3.85]]);
+        await o.turn(310);
         o.look('virginia');
         v.turn(220);
         v.look('otis');
         o.reach({ r: 'virginia#shoulder_l' });
-        aim(s, 'virginia', 'medium', 1.5);
+        glide(s, SH.her, 1.5);
         s.tell('face_told:hand');
         await s.wait(2);
       },
@@ -268,8 +289,7 @@ function FILM(scene) {
         out('cecil', 'simon')),
       run: async s => {
         s.set('face', 0);
-        const close = CAM([-0.25, 5.6, 1.5], [-0.4, 4.4, 1.45]);
-        const next = s.shot(close);
+        const next = s.shot(SH.face);
         await s.wait(0.8);
         next.cut();
         await s.wait(1.5);
@@ -283,9 +303,8 @@ function FILM(scene) {
     // ---- chapter I: the wagers at breakfast; the paint-box on the sill; the floor clean; half a stain
     wagers: {
       after: [], tells: ['wagers:bet', 'wagers:paper'], seconds: 12,
-      from: () => merge(MORNING, CAM0, breakfast(), out('mrs_umney', 'cecil', 'simon')),
+      from: () => merge(MORNING, SH.table, breakfast(), out('mrs_umney', 'cecil', 'simon')),
       run: async s => {
-        s.move('camera_z', 1.0, { over: 12, ease: 'inOut' });
         for (const id of ['twin_star', 'twin_stripes']) s.person(id).look('stain');
         await s.wait(1);
         s.tell('wagers:bet');
@@ -306,22 +325,22 @@ function FILM(scene) {
       from: () => merge(MORNING, CAM0, { paints: true, stain: 'scarlet' }, breakfast(['virginia']), who('virginia', [-2.0, 7.2, 90]), out('mrs_umney', 'cecil', 'simon')),
       run: async s => {
         const v = s.person('virginia');
-        aim(s, 'sill#sill', 'medium', 3);
-        await v.walk([[-0.6, 7.3], [0.1, 9.2]]);
-        await v.turn(20);
-        v.look('sill#sill');
+        glide(s, SH.box, 3);
+        await v.walk([[-0.6, 7.3], [-0.4, 9.25]]);
+        await v.turn(10);
+        v.look([-0.39, 9.79, 0.55]);
         await s.wait(2);
         await v.turn(150);
         v.look('stain');
-        aim(s, 'stain', 'medium', 1.5);
+        glide(s, SH.stain, 1.5);
         await s.wait(1.5);
         s.tell('box_morning:end');
       },
     },
     clean_floor: {
       after: [], tells: ['clean_floor:end'], seconds: 5,
-      from: () => merge(MORNING, CAM0, { stain: 'none' }, breakfast(['virginia']), who('virginia', [1.9, 4.6, 165], 'clasped', { look: 'stain' }), out('mrs_umney', 'cecil', 'simon'),
-        { camera_target: 'virginia', camera_shot: 'medium' }),
+      from: () => merge(MORNING, CAM0, { stain: 'none' }, breakfast(['virginia']), who('virginia', [2.5, 6.6, 200], 'clasped', { look: 'stain' }), out('mrs_umney', 'cecil', 'simon'),
+        SH.floor),
       run: async s => {
         await s.wait(4.5);
         s.tell('clean_floor:end');
@@ -329,7 +348,7 @@ function FILM(scene) {
     },
     half_stain: {
       after: [], tells: ['half_stain:end'], seconds: 4,
-      from: () => merge(MORNING, CAM0, { stain: 'half' }, breakfast(), out('mrs_umney', 'cecil', 'simon'), { camera_target: 'stain', camera_shot: 'close' }),
+      from: () => merge(MORNING, CAM0, { stain: 'half' }, breakfast(), out('mrs_umney', 'cecil', 'simon'), SH.half),
       run: async s => {
         await s.wait(3.8);
         s.tell('half_stain:end');
@@ -354,7 +373,7 @@ function FILM(scene) {
         s.person('virginia').look('stain');
         await s.wait(2.5);
         const v = s.person('virginia');
-        aim(s, 'virginia', 'close', 1.2);
+        glide(s, SH.green, 1.2);
         await s.wait(1.6);
         v.on(null);
         await v.go('stand_up', { from: [SEAT.virginia[0], SEAT.virginia[1]], turn: 200 });
@@ -365,9 +384,8 @@ function FILM(scene) {
     },
     breakfast_clean: {
       after: [], tells: ['breakfast_clean:say'], seconds: 6,
-      from: () => merge(MORNING, CAM0, { stain: 'none' }, breakfast(), out('mrs_umney', 'cecil', 'simon')),
+      from: () => merge(MORNING, SH.table, { stain: 'none' }, breakfast(), out('mrs_umney', 'cecil', 'simon')),
       run: async s => {
-        s.move('camera_z', 1.2, { over: 6, ease: 'inOut' });
         await s.wait(1);
         s.tell('breakfast_clean:say');
         s.person('twin_star').look('otis');
@@ -379,7 +397,7 @@ function FILM(scene) {
       from: () => merge(MORNING, CAM0, { stain: 'half' }, breakfast(), out('mrs_umney', 'cecil', 'simon')),
       run: async s => {
         const t = s.person('twin_stripes');
-        aim(s, 'twin_stripes', 'medium', 1.5);
+        glide(s, SH.peas, 1.5);
         t.on(null);
         await t.go('stand_up', { from: [SEAT.twin_stripes[0], SEAT.twin_stripes[1]], turn: 180 });
         t.do('offer');
@@ -428,7 +446,7 @@ function FILM(scene) {
         v.do('sit_sill');
         v.with(['sketchbook']);
         v.look('otis');
-        aim(s, 'virginia', 'medium', 2);
+        glide(s, SH.sill, 2);
         s.tell('sleepless:sat');
         await s.wait(2);
       },
@@ -439,7 +457,7 @@ function FILM(scene) {
         out('mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'mrs_umney', 'cecil', 'simon')),
       run: async s => {
         const o = s.person('otis');
-        aim(s, 'otis', 'close', 1.5);
+        glide(s, SH.desk_close, 1.5);
         await s.wait(1);
         o.do('sit_table');
         o.look('virginia');
@@ -460,7 +478,7 @@ function FILM(scene) {
         await w.turn(120);
         w.do('hold_candle');
         w.look('otis');
-        aim(s, 'washington', 'medium', 1.2);
+        glide(s, SH.door, 1.2);
         s.person('otis').look('washington');
         s.person('virginia').look('washington');
         s.tell('wash_door:in');
@@ -476,7 +494,7 @@ function FILM(scene) {
         const o = s.person('otis'), v = s.person('virginia');
         o.on(null);
         await o.go('stand_up', { from: [DESK[0], DESK[1]], turn: DESK[2] });
-        aim(s, 'virginia', 'medium', 2);
+        glide(s, SH.two, 2.5);
         await o.walk([[-2.4, 6.4], [-0.6, 7.3], [-0.1, 9.25]]);
         await o.turn(60);
         o.look('virginia#sketchbook');
@@ -492,7 +510,7 @@ function FILM(scene) {
         s.tell('drawing:look');
         await s.wait(3);
         await s.move('sketchbook_open', 0, { over: 0.5 });
-        aim(s, 'otis', 'medium', 2);
+        glide(s, SH.desk, 2);
         await o.walk([[-0.6, 7.3], [-2.55, 5.95]]);
         await o.turn(DESK[2]);
         s.set('drawing', 'inkstand');
@@ -511,7 +529,7 @@ function FILM(scene) {
     pocket: {
       after: [], tells: ['pocket:say', 'pocket:out'], seconds: 9,
       from: () => merge(NIGHT, CAM0, { drawing: 'inkstand' }, sat('otis', DESK, 'sit_table', 0.46, { look: 'desk#drawing' }),
-        out('virginia', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'mrs_umney', 'cecil', 'simon'), { camera_target: 'otis', camera_shot: 'medium' }),
+        out('virginia', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'mrs_umney', 'cecil', 'simon'), SH.desk),
       run: async s => {
         const o = s.person('otis');
         await s.wait(0.8);
@@ -534,9 +552,9 @@ function FILM(scene) {
       run: async s => {
         const o = s.person('otis'), v = s.person('virginia');
         for (const id of ['mrs_otis', 'washington', 'twin_star', 'twin_stripes']) s.person(id).look('virginia');
-        aim(s, 'virginia', 'medium', 3);
-        await o.walk([[0.9, 7.6], [0.35, 9.15]]);
-        await o.turn(10);
+        glide(s, SH.fire, 3);
+        await o.walk([[1.3, 7.8], [1.0, 9.35]]);
+        await o.turn(270);
         o.look('virginia');
         v.look('otis');
         if (!s.get('shares')) o.reach({ r: 'virginia#head' });
@@ -552,7 +570,7 @@ function FILM(scene) {
         const w = s.person('washington');
         s.tell('london:say');
         s.person('virginia').look('otis');
-        aim(s, 'virginia', 'medium', 3);
+        glide(s, SH.fire, 3);
         await w.walk([[1.0, 8.3], [SILL_W[0], 9.35]]);
         await w.turn(180);
         w.on([SILL_W[0], SILL_W[1], 0.5]);
@@ -568,7 +586,7 @@ function FILM(scene) {
       after: [], tells: ['brown:rubbed', 'brown:rug'], seconds: 14,
       from: () => merge(MORNING, CAM0, { stain: 'brown', rug: false }, who('washington', [2.95, 6.3, 180], 'kneel_rub', { look: 'stain' }),
         who('mrs_otis', [1.4, 5.4, 140], 'stand', { look: 'washington' }), who('virginia', [DOOR_IN[0] - 0.2, DOOR_IN[1], 120], 'stand', { look: 'stain' }),
-        out('otis', 'twin_star', 'twin_stripes', 'mrs_umney', 'cecil', 'simon'), { camera_target: 'washington', camera_shot: 'medium' }),
+        out('otis', 'twin_star', 'twin_stripes', 'mrs_umney', 'cecil', 'simon'), SH.wash),
       run: async s => {
         const w = s.person('washington');
         await s.wait(4);
@@ -589,9 +607,8 @@ function FILM(scene) {
     },
     breakfast_funeral: {
       after: [], tells: ['breakfast_funeral:say', 'breakfast_funeral:end'], seconds: 10,
-      from: () => merge(MORNING, CAM0, { stain: 'brown', rug: true }, breakfast(), out('mrs_umney', 'cecil', 'simon')),
+      from: () => merge(MORNING, SH.table, { stain: 'brown', rug: true }, breakfast(), out('mrs_umney', 'cecil', 'simon')),
       run: async s => {
-        s.move('camera_z', 1.0, { over: 10, ease: 'inOut' });
         s.person('otis').do('sit_table');
         s.person('otis').with([]);
         await s.wait(1);
@@ -613,7 +630,7 @@ function FILM(scene) {
     letters: {
       after: [], tells: ['letters:drawer'], seconds: 8,
       from: () => merge(NIGHT, CAM0, { drawing: 'inkstand' }, sat('otis', DESK, 'write'),
-        out('virginia', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'mrs_umney', 'cecil', 'simon'), { camera_target: 'otis', camera_shot: 'medium' }),
+        out('virginia', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'mrs_umney', 'cecil', 'simon'), SH.desk),
       run: async s => {
         const o = s.person('otis');
         await s.wait(4);
@@ -646,11 +663,11 @@ function FILM(scene) {
         await s.wait(2.5);
         if (plays) w.do('stand');
         const v = s.person('virginia');
-        await v.walk([[-0.6, 7.3], [0.4, 9.25]]);
-        await v.turn(20);
-        v.look('sill#sill');
-        aim(s, 'sill#sill', 'close', 2);
-        v.reach({ r: 'sill#sill' });
+        await v.walk([[-0.9, 7.3], [-0.6, 9.3]]);
+        await v.turn(60);
+        v.look([0.05, 9.78, 0.55]);
+        glide(s, SH.laid, 2);
+        v.reach({ r: [0.05, 9.78, 0.55] });
         await s.wait(0.7);
         s.set('sketch_on', true);
         v.reach(null);
