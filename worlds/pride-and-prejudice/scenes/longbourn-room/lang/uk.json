@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Longbourn, the Drawing Room","translation":"Лонгборн, вітальня","where":"worlds/pride-and-prejudice/scenes/longbourn-room/scene.json title"},
+  {"text":"The window still light, and the candles lit early.","translation":"За вікном ще світло, а свічки вже запалили.","where":"worlds/pride-and-prejudice/scenes/longbourn-room/scene.json caption"}
+]}

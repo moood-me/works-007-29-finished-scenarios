@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Room Upstairs","translation":"Кімната нагорі","where":"worlds/traps/scenes/room/scene.json title"},
+  {"text":"After the verdict. The prosecutor in the doorway: the best defendant in ten years! The judge with his candle: the sentence, fair copy, by morning.","translation":"Після вироку. Прокурор у дверях: найкращий обвинувачений за десять років! Суддя зі свічкою: до ранку — вирок начисто.","where":"worlds/traps/scenes/room/scene.json caption"}
+]}

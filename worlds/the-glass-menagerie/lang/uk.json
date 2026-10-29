@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Glass Menagerie","translation":"Скляний звіринець","where":"worlds/the-glass-menagerie/world.json title"},
+  {"text":"A small flat off an alley. A mother, a son who wants out, a daughter and her glass animals; a gentleman caller is coming.","translation":"Маленька квартира в провулку. Мати, син, який рветься геть, донька та її скляні звірятка; прийде кавалер.","where":"worlds/the-glass-menagerie/world.json description"}
+]}

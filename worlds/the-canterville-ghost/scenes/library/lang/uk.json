@@ -1,0 +1,10 @@
+{"strings": [
+  {"text":"When a golden girl can win","translation":"Коли золота дівиця","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"Prayer from out the lips of sin,","translation":"Із вуст гріха молитву видобуде,","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"When the barren almond bears,","translation":"Коли безплідний мигдаль зацвіте,","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"And a little child gives away its tears,","translation":"І дитя віддасть свої сльози,","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"Then shall all the house be still","translation":"Тоді весь дім затихне","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"And peace come to Canterville.","translation":"І мир прийде в Кентервіль.","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"The Library","translation":"Бібліотека","where":"worlds/the-canterville-ghost/scenes/library/scene.json title"},
+  {"text":"Canterville Chase, past midnight. The bloodstain by the fireplace is back again.","translation":"Кентервільський замок, за північ. Кривава пляма біля каміна знову на місці.","where":"worlds/the-canterville-ghost/scenes/library/scene.json caption"}
+]}

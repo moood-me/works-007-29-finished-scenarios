@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Yard","translation":"Подвір’я","where":"worlds/leaf-by-niggle/scenes/yard/scene.json title"},
+  {"text":"After the storm the Inspector of Houses came round.","translation":"Після бурі прийшов Інспектор будинків.","where":"worlds/leaf-by-niggle/scenes/yard/scene.json caption"}
+]}

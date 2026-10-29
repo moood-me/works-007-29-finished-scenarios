@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Fog Horn","translation":"Ревун","where":"worlds/the-fog-horn/world.json title"},
+  {"text":"After Ray Bradbury. A lighthouse on a rock in grey water, a keeper who waits for November, his young assistant, and a window on the far shore that lights at ten.","translation":"За Реєм Бредбері. Маяк на скелі серед сірої води, доглядач, який чекає листопада, його молодий помічник і вікно на дальньому березі, що засвічується о десятій.","where":"worlds/the-fog-horn/world.json description"}
+]}

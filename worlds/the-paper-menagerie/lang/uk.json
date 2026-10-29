@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Paper Menagerie","translation":"Паперовий звіринець","where":"worlds/the-paper-menagerie/world.json title"},
+  {"text":"A kitchen table, wrapping paper, and a mother whose folded animals breathe.","translation":"Кухонний стіл, обгортковий папір і мама, чиї складені звірі дихають.","where":"worlds/the-paper-menagerie/world.json description"}
+]}
