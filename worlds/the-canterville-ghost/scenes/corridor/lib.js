@@ -183,6 +183,18 @@ const LATE = v => {
   delete v.simon_wear;
   return v;
 };
+// a camera of the piece's own: the eye at [across, along] (camera_h over the scene's eye), looking level at [across,
+// along] — always on down the corridor: behind the start the corridor has no end wall (it is built to be seen forward)
+const CAM = ([ea, ed], [ta, td], h = 0) => ({ camera_target: null, camera_x: ea, camera_z: ed, camera_h: h,
+  camera_yaw: (Math.atan2(ta - ea, td - ed) * 180) / Math.PI, camera_pitch: 0 });
+// at her door's crack: he stands just beyond its free edge and looks back into it — toward the viewer, so his face
+// reads — seen from down the corridor's middle
+const CRACK_SPOT = [1.45, 7.3];
+const CRACK_TURN = 140;
+const CRACK_LOOK = [2.0, 6.85, 1.5];
+const AT_CRACK = CAM([0.55, 5.5], [1.5, 7.3]);
+// the two at her door (4С.2), from down the corridor's middle: both in profile, face to face
+const AT_DOOR = CAM([0.5, 3.9], [1.35, 6.5]);
 // seen from her doorway, over her shoulder, down the corridor
 const FROM_DOOR = { camera_target: null, camera_x: 1.75, camera_z: 4.6, camera_yaw: -6, camera_h: 0 };
 
@@ -217,7 +229,7 @@ function film(scene) {
       from: () => {
         const v = { ...CAM0, ...NIGHT, ghost_light: 1, ...simon(0.2, 4.6, 230, 'stand', { look: 'otis' }),
           ...at('otis', -2.55, 6.1, 90, 'stand', { with: ['bottle', 'candle_l'] }), otis_candle: 1,
-          ...CRACK, camera_target: 'otis', camera_shot: 'medium' };
+          ...CRACK };
         delete v.door_virginia; // as М2 left it
         return v;
       },
@@ -225,6 +237,7 @@ function film(scene) {
         const otis = s.person('otis');
         await s.move('door_parents', 0, { over: 1.2 });
         await otis.walk([[-1.6, 6.1]]);
+        s.camera({ target: 'otis', shot: 'medium' });
         await otis.turn(130);
         otis.look('simon');
         otis.do('offer');
@@ -281,10 +294,10 @@ function film(scene) {
           [[1.9, 10.2, 1.5, 0], [1.3, 6.6, 1.95, 300], [0.85, 3.6, 1.6, 620], [0.6, 2.4, 0.05, 720]], { over: 1.1, ease: 'linear' });
         him.look('door_twins');
         s.move('door_twins', 276, { over: 0.8 });
-        await him.walk([[1.45, 5.5], [1.25, 6.6]]);
-        await him.turn(125);
-        him.look([2.0, 6.78, 1.5]);
-        s.camera({ target: 'simon', shot: 'close' });
+        await him.walk([[1.3, 5.5], [1.2, 7.0], CRACK_SPOT]);
+        await him.turn(CRACK_TURN);
+        him.look(CRACK_LOOK);
+        s.cut({ ...AT_CRACK });
         s.tell('smash:crack');
         await s.wait(1);
       },
@@ -292,15 +305,14 @@ function film(scene) {
     // after «Good night, sir»: he stops dead, looks into the crack, his light sinks; he walks into the right wall
     wish_stop: {
       after: ['smash'], tells: ['wish_stop:look', 'wish_stop:gone'], seconds: 8,
-      from: () => ({ ...CAM0, ...NIGHT, ghost_light: 1, bottle: 'smashed', ...simon(1.25, 6.6, 125, 'stand', { look: [2.0, 6.78, 1.5] }),
-        ...CRACK, door_virginia: 292, camera_target: 'simon', camera_shot: 'close' }),
+      from: () => ({ ...CAM0, ...NIGHT, ghost_light: 1, bottle: 'smashed', ...simon(...CRACK_SPOT, CRACK_TURN, 'stand', { look: CRACK_LOOK }),
+        ...CRACK, door_virginia: 292, ...AT_CRACK }),
       run: async s => {
         const him = s.person('simon');
         him.mood('sad');
         s.move('ghost_light', 0.5, { over: 2 });
         s.tell('wish_stop:look');
         await s.wait(2.5);
-        s.camera({ target: 'simon', shot: 'medium' });
         him.look(null);
         await him.walk([WALL_R]);
         await fade(s);
@@ -310,11 +322,10 @@ function film(scene) {
     // no «Good night»: he walks past the crack into the wall
     pass_by: {
       after: ['smash'], tells: ['pass_by:gone'], seconds: 6,
-      from: () => ({ ...CAM0, ...NIGHT, ghost_light: 1, bottle: 'smashed', ...simon(1.25, 6.6, 125), ...CRACK, door_virginia: 292,
-        camera_target: 'simon', camera_shot: 'medium' }),
+      from: () => ({ ...CAM0, ...NIGHT, ghost_light: 1, bottle: 'smashed', ...simon(...CRACK_SPOT, CRACK_TURN, 'stand', { look: CRACK_LOOK }), ...CRACK,
+        door_virginia: 292, ...AT_CRACK }),
       run: async s => {
         const him = s.person('simon');
-        s.camera({ target: 'simon', shot: 'medium' });
         him.look(null);
         await him.walk([WALL_R]);
         await fade(s);
@@ -324,16 +335,15 @@ function film(scene) {
     // the door creaked (М2) and no «Good night»: he turns to the crack and stares, burning, then goes into the wall
     creak_look: {
       after: ['smash'], tells: ['creak_look:stare', 'creak_look:gone'], seconds: 7,
-      from: () => ({ ...CAM0, ...NIGHT, ghost_light: 1, bottle: 'smashed', ...simon(1.25, 6.6, 125), ...CRACK, door_virginia: 292,
-        camera_target: 'simon', camera_shot: 'close' }),
+      from: () => ({ ...CAM0, ...NIGHT, ghost_light: 1, bottle: 'smashed', ...simon(...CRACK_SPOT, CRACK_TURN, 'stand'), ...CRACK, door_virginia: 292,
+        ...AT_CRACK }),
       run: async s => {
         const him = s.person('simon');
-        await him.turn(110);
-        him.look([2.0, 6.78, 1.5]);
+        await him.turn(CRACK_TURN);
+        him.look(CRACK_LOOK);
         him.mood('angry');
         s.tell('creak_look:stare');
         await s.wait(2.5);
-        s.camera({ target: 'simon', shot: 'medium' });
         him.look(null);
         await him.walk([WALL_R]);
         await fade(s);
@@ -383,7 +393,7 @@ function film(scene) {
         s.set('spook', 'standing');
         await s.all(star.turn(200), wash.turn(200), stripes.turn(215));
         for (const b of [star, wash, stripes]) b.look('spook#turnip');
-        s.camera({ target: 'spook#placard', shot: 'close' });
+        s.camera({ target: 'spook#placard', shot: 'medium' });
         s.tell('turnip:placard');
         await s.wait(3);
         s.camera({ target: 'twin_stripes', shot: 'wide' });
@@ -498,12 +508,10 @@ function film(scene) {
     word: {
       after: [], tells: ['word:hand'], seconds: 4,
       from: () => ({ ...CAM0, ...EVENING, armchair: true, door_virginia: 330, ...at('otis', 0.95, 6.35, 90, 'stand', { wear: cast().otis, look: 'virginia' }),
-        ...at('virginia', 1.8, 6.35, 270, 'stand', { wear: cast().virginia, look: 'otis' }), camera_target: 'virginia', camera_shot: 'full',
-        camera_frame: [0.62, 0.5] }),
+        ...at('virginia', 1.8, 6.35, 270, 'stand', { wear: cast().virginia, look: 'otis' }), ...AT_DOOR }),
       run: async s => {
         await s.wait(0.8);
         s.person('otis').do('offer');
-        s.camera({ target: 'virginia', shot: 'medium', frame: [0.65, 0.45] });
         await s.wait(1.2);
         s.tell('word:hand');
         await s.wait(0.8);
@@ -513,14 +521,13 @@ function film(scene) {
     chair_sit: {
       after: ['word'], tells: ['chair_sit:sat'], seconds: 6,
       from: () => ({ ...CAM0, ...EVENING, armchair: true, door_virginia: 330, ...at('otis', 0.95, 6.35, 90, 'stand', { wear: cast().otis, look: 'virginia' }),
-        ...at('virginia', 1.8, 6.35, 270, 'stand', { wear: cast().virginia, look: 'otis' }), camera_target: 'otis', camera_shot: 'medium' }),
+        ...at('virginia', 1.8, 6.35, 270, 'stand', { wear: cast().virginia, look: 'otis' }), ...AT_DOOR }),
       run: async s => {
         const otis = s.person('otis');
         otis.reach(null);
         s.person('virginia').reach(null);
         otis.do('stand');
         otis.look(null);
-        s.camera({ target: 'otis', shot: 'medium' });
         await otis.go('faint_sit', { to: SEAT_FLOOR, turn: 180 });
         otis.on(SEAT);
         otis.with(['book']);
@@ -632,6 +639,7 @@ function film(scene) {
         otis.look('simon');
         otis.mood('neutral');
         s.tell('wake_papa:up');
+        s.cut({ ...CAM0, ...CAM([0.6, 4.4], [0.2, 11.6]) });
         await him.turn(180);
         him.look('otis');
         await s.wait(1.2);

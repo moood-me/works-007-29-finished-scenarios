@@ -545,6 +545,20 @@
       ]
     },
     {
+      "id": "room_virginia_side",
+      "name": "Virginia's room, its right-hand wall",
+      "across": 3.8,
+      "distance": 7.0,
+      "facing": 270,
+      "height": 3.0,
+      "box": [
+        -1.3,
+        -3.02,
+        1.3,
+        0.02
+      ]
+    },
+    {
       "id": "room_twins",
       "name": "The twins' room, its far wall",
       "across": 2.9,
@@ -719,8 +733,8 @@
       "height": 2.0,
       "box": [
         -0.6,
-        -2.05,
-        0.7,
+        -2.36,
+        1.2,
         0.03
       ],
       "flicker": 0.35,
