@@ -130,4 +130,37 @@ function box(g, x, y, w, h, fill, line = 0.01) {
   g.strokeRect(x, y, w, h);
 }
 
-return { INK, wash, hatch, rgbOf, wallpaper, cut, box };
+// Where each of the house's people can be (the keys <id>_spot; script.js lays them out): `at` [across, distance], the
+// turn, what they do (a looped motion), the seat (`on`) for a seated one
+const STAND = { motion: 'stand', loop: true }, SEATED = { motion: 'seated', loop: true }, READ = { motion: 'read', loop: true };
+const SPOTS = {
+  babushka: {
+    chair: { at: [0.45, 3.7], turn: 180, does: SEATED, on: [0.45, 3.7, 0.42] },
+  },
+  nastya: {
+    stool: { at: [-0.45, 3.42], turn: 160, does: READ, on: [-0.45, 3.42, 0.34] },
+    stand: { at: [-0.8, 3.4], turn: 160, does: STAND },
+    door: { at: [-2.1, 3.95], turn: 125, does: STAND },
+    landing: { at: [-3.2, 4.85], turn: 120, does: STAND },
+    table: { at: [1.05, 5.0], turn: 200, does: STAND },
+  },
+  dreamer: {
+    door: { at: [-1.6, 3.2], turn: 160, does: STAND },
+    table: { at: [1.85, 4.95], turn: 210, does: STAND },
+    beside: { at: [-1.0, 2.9], turn: 150, does: STAND },
+    stool: { at: [-0.45, 3.42], turn: 160, does: READ, on: [-0.45, 3.42, 0.34] },
+    landing: { at: [-3.3, 5.0], turn: 120, does: STAND },
+  },
+  lodger: {
+    door: { at: [-2.15, 4.15], turn: 120, does: STAND },
+    chair: { at: [1.35, 3.25], turn: 215, does: STAND },
+    stair: { at: [1.75, 3.55], turn: 205, does: STAND },
+    landing: { at: [-3.1, 4.75], turn: 120, does: STAND },
+  },
+  fyokla: {
+    stove: { at: [-1.45, 5.1], turn: 160, does: STAND },
+    table: { at: [1.9, 4.9], turn: 205, does: STAND },
+  },
+};
+
+return { INK, wash, hatch, rgbOf, wallpaper, cut, box, SPOTS };

@@ -1,7 +1,7 @@
 # cast — the people of «White Nights» as the engine's people
 
 A module for scenes with people (elements with `person`: `{"cast": "cast", "who": …}` — the engine's people.md). In
-the scene's `modules`. 5 looks, 7 parts, 2 motions of its own (below) besides the engine's `stand` and `walk`. The parts'
+the scene's `modules`. 13 looks, 16 parts, 2 motions of its own (below) besides the engine's `stand` and `walk`. The parts'
 lengths are a man's metres times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
@@ -25,6 +25,15 @@ expressions, by name). Hems are even (no ragged edge).
   (`tophat`); at his chest instead: `"_wear": {"hat": "none"}` and `hat_hand`.
 - `babushka` — Grandmother, past seventy, blind: small, a dark plum silk dress to the floor, a faded mustard shawl over
   the shoulders, white hair under a white cap (`mobcap`) tied with a lilac ribbon.
+- `glasha` — Glasha, the maid at the acquaintances' (the door): about twenty, plump-cheeked, a madder-red cotton dress
+  with a linen apron over it (`aproned`), her keys on a ring at the right hip, bare-headed, light brown hair in bands.
+- `fyokla` — Fyokla, Grandmother's deaf old servant: thin and bent, a faded grey-blue dress to the floor, a dark
+  moss-green shawl, a white kerchief over grey hair.
+- `gentleman` — the gentleman in a tailcoat on the first night, a little drunk: a black tailcoat, a top hat, a flushed face.
+- `dvornik` — the yard-keeper of the prologue: a red shirt, a long white apron, a peaked cap; his broom (`broom`).
+- `nanny` — a nurse-maid at the morning's end: a blue-grey dress, a cream shawl, a white kerchief.
+- `child` — her child, five or so, in a white frock, eating a bagel (`bagel`).
+- `passerby` — a man in the returned city: a brown long coat, a top hat.
 - `matryona` — Matryona, the Dreamer's servant, past sixty: short and broad, a brown homespun dress to the floor, a
   faded brick-red shawl over the shoulders, a washed linen kerchief (`kerchief`) tied under the chin over grey hair.
 
@@ -47,8 +56,18 @@ without the mantle.
 - `letter` — a folded letter with a red wax seal held out in the right hand, upright between the fingers, its long side
   along the forearm beyond the hand, so held out across the body it shows its face (the hand put out by `<id>_reach`);
   its point `<id>#letter`.
+- `letter_stained` — the same letter after the puddle (the mark Пятно): a brown blot dried on its face.
+- `bundle` — a bundle of her things tied in a blue kerchief, held before her in both hands, its knot on top (the
+  night with the bundle, in the memory); point `<id>#bundle`. Put the hands before the waist with `<id>_reach`.
+- `books` — a stack of three books carried in both hands before the waist (the Lodger in the memory); point
+  `<id>#books`. The hands as for the bundle.
 
 The hat's colour is the look's `colors.hat`.
+
+- `letter_stained` — the same letter after the puddle (the mark «Пятно»): a brown water stain over a corner; point
+  `<id>#letter`.
+- `broom` — the yard-keeper's birch broom upright in both hands, its twigs on the ground before his feet.
+- `bagel` — a bagel in the right hand.
 
 ## Hair
 
@@ -61,7 +80,8 @@ full and down to the collar), `neat` (the same, close to the head, short at the 
 `frockcoat` (to the knee), `longcoat` (just below the knee) — both straight, a man's coat and not a skirt, the trousers
 showing under it, and over the chest the coat's front (`coatFront`: a waistcoat between the lapels in their deeper shade of the coat, the shirt's white
 only at the throat under a dark stock wound round the neck, buttons), `caped` (a dress to the ankles with a mantle over the
-shoulders to the hips), `frock` (the same dress without the mantle, a little shorter and narrower, smooth — it is sat in), `shawled` (an old woman's fuller dress to the floor,
+shoulders to the hips), `frock` (the same dress without the mantle, a little shorter and narrower, smooth — it is sat in), `aproned` (a working girl's dress to the ankles, a linen apron over it from the waist to below the knee — cloth that
+swings —, keys at the hip), `shawled` (an old woman's fuller dress to the floor,
 a shawl over the shoulders to the hips, the top's colour); `tophat` (a tall black top hat worn a little back, a narrow brim, a silk band), `mobcap` (an old woman's white linen cap, a ribbon bow under the chin), `kerchief` (a working woman's linen kerchief drawn close over the hair and the brow, knotted under the chin — the accent —, its corner at the nape).
 
 ## Motions
