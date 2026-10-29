@@ -1,4 +1,6 @@
 {"strings": [
   {"text":"The Village","translation":"Деревня","where":"scenes/village/scene.json title"},
-  {"text":"The last village at the plateau's edge.","translation":"Последняя деревня на краю плато.","where":"scenes/village/scene.json caption"}
+  {"text":"The last village at the plateau's edge.","translation":"Последняя деревня на краю плато.","where":"scenes/village/scene.json caption"},
+  {"text":"It was.","translation":"Был","where":"scenes/village/elements/pages.js"},
+  {"text":"Elzéard","translation":"Эльзеар","where":"scenes/village/elements/pages.js"}
 ]}

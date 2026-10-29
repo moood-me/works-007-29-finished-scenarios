@@ -251,6 +251,14 @@ return {
         F.ball(at, [fwd, [0, 1, 0], right], [0.07 * m, 0.09 * m, 0.03 * m], TIN, 12, 2);
         F.point('flask', at);
       } },
+      // the same flask taken off the hip, held in the right hand (the prologue: shaken at the ear — empty); worn in
+      // place of `flask`, its point the person's `#flask` too
+      flask_hand: { name: 'flask in hand', draw: F => {
+        const { add, mul } = V(), m = F.fit.h, axes = [F.side('RightHand'), F.up('RightHand'), F.fwd('RightHand')];
+        const at = add(F.P('RightHand'), mul(axes[2], 0.04 * m));
+        F.ball(at, axes, [0.03 * m, 0.09 * m, 0.07 * m], TIN, 12, 2);
+        F.point('flask', at);
+      } },
     },
   },
 };
