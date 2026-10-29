@@ -1,5 +1,5 @@
 // The right wall, from the back (x −2.4) to the room's front (x 2.4, beside the viewer): the old green walls; his
-// worn greatcoat hanging on a peg (x −1.1, 3.5 m in), and on a nail beside it his hat — at home it hangs there
+// worn greatcoat hanging on a peg (x −1.1, 3.5 m in); his hat on its nail beside it is an element of its own (`hat_peg`)
 const INK = e.lib.INK;
 e.lib.greenWall(g, -2.4, 2.4, 2.45, 3);
 // (the peg, the greatcoat hanging from it by its loop: the shoulders sloping from the peg, the cape collar over them,
@@ -56,23 +56,3 @@ for (const y of [-1.42, -1.27, -1.12, -0.97]) {
   g.arc(-1.07, y, 0.012, 0, Math.PI * 2);
   g.fill();
 }
-// (the hat on its nail: a worn top hat seen from the side, its crown a little wider at the top, a narrow curled brim)
-g.fillStyle = '#5e5249';
-g.beginPath();
-g.moveTo(-0.66, -1.66);
-g.lineTo(-0.64, -1.86);
-g.lineTo(-0.42, -1.86);
-g.lineTo(-0.44, -1.66);
-g.closePath();
-g.fill();
-g.strokeStyle = INK;
-g.lineWidth = 0.007;
-g.stroke();
-g.beginPath();
-g.moveTo(-0.71, -1.67);
-g.quadraticCurveTo(-0.55, -1.63, -0.39, -1.67);
-g.quadraticCurveTo(-0.55, -1.655, -0.71, -1.67);
-g.fill();
-g.stroke();
-g.fillStyle = '#3e3732';
-g.fillRect(-0.655, -1.71, 0.205, 0.035);

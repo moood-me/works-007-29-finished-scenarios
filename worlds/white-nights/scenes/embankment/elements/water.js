@@ -5,7 +5,7 @@
 // mirror (reflect) lays the houses, the bridge, the lamps' paths and the afterglow's on it. Over it the slow ripple:
 // short level strokes, dense far off and sparse near, drifting down the canal toward the viewer (a layer the engine
 // moves)
-const W = 21.7, D = 320;
+const W = 21.7, D = 360; // (from 40 m behind the viewer, past the corner, to the canal's turn)
 const along = g.createLinearGradient(0, -D / 2, 0, D / 2);
 along.addColorStop(0, '#f7ebe3');
 along.addColorStop(0.5, '#f4eeee');

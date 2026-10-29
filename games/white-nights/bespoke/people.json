@@ -1,0 +1,72 @@
+{
+  "dreamer": {
+    "voice": "Enceladus",
+    "how": "a shy young clerk of twenty-six who has never talked to a woman: soft, a little breathless, eloquent when he hides in bookish phrases and speaks of himself in the third person, stumbling and quiet when he says something plain; self-mocking, tender, never loud",
+    "short": "the Dreamer"
+  },
+  "nastya": {
+    "voice": "Leda",
+    "how": "a girl of seventeen: quick, direct and a little bossy in a sweet way, laughs easily and cries easily, decides fast; when ashamed she talks faster and laughs; proud and hurt underneath",
+    "short": "Nastenka"
+  },
+  "lodger": {
+    "voice": "Schedar",
+    "how": "a poor, proud young man of about twenty-eight: upright, formal, measured, as if before his superiors; polite to the point of coldness when jealous; never says sorry",
+    "short": "the Lodger"
+  },
+  "babushka": {
+    "voice": "Gacrux",
+    "how": "a blind old woman past seventy: querulous, suspicious and nosy, asks questions at cross-purposes, brightens when she remembers her youth; old, a little thin-voiced",
+    "short": "Grandmother"
+  },
+  "matryona": {
+    "voice": "Kore",
+    "how": "an old servant woman past sixty: plain, flat, unhurried, a little grumbling; indifferent in the voice, sharp in the eyes; old-fashioned common speech",
+    "short": "Matryona"
+  },
+  "glasha": {
+    "voice": "Pulcherrima",
+    "how": "a pert housemaid with keys: brisk, chatty, offhand, common speech, says everything in passing",
+    "short": "Glasha"
+  },
+  "fyokla": {
+    "voice": "Callirrhoe",
+    "how": "a deaf old servant woman: loud, flat, puzzled",
+    "short": "Fyokla"
+  },
+  "yardman": {
+    "voice": "Algenib",
+    "how": "a yardman with a broom: loud, guffawing, good-natured mockery, common speech",
+    "short": "the yardman"
+  },
+  "gentleman": {
+    "voice": "Sadachbia",
+    "how": "a gentleman in a tailcoat, tipsy, cheeky and cowardly: slurring a little, suddenly polite when he sees a stick",
+    "short": "a gentleman"
+  },
+  "passerby": {
+    "voice": "Zubenelgenubi",
+    "how": "a passer-by in a hurry: offhand, quick, polite by habit",
+    "short": "a passer-by"
+  },
+  "nanny": {
+    "voice": "Despina",
+    "how": "a nurse-maid out with a child: calm, kindly, unhurried",
+    "short": "a nurse-maid"
+  },
+  "child": {
+    "voice": "Leda",
+    "how": "a small child: bright, chattering",
+    "short": "a child"
+  },
+  "yard_man": {
+    "voice": "Iapetus",
+    "how": "a man in the yard below: plain, busy",
+    "short": "a man in the yard"
+  },
+  "yard_woman": {
+    "voice": "Sulafat",
+    "how": "a woman in the yard below: plain, busy",
+    "short": "a woman in the yard"
+  }
+}
