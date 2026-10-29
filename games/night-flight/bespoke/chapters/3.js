@@ -61,8 +61,8 @@ export default {
       });
       g.set('tape', 0);
     },
-    // 3.3: ⚑ the last minute — a timer of ten seconds: nothing chosen, the service, the bearing (`minute`, then
-    // `bearing_sent` | `hers_asked` | `own_sent`)
+    // 3.3: ⚑ the last minute — a timer of ten seconds: nothing chosen, the service, the bearing — the telegraphist sends
+    // it himself (`minute`, then `bearing_sent` | `hers_asked` | `own_sent`)
     async g => {
       await piece(g, 'minute', {}, () => g.scene('bureau', { beat: 'minute', here: ALL, moods: MOODS, keys: { ...bureau(clock(2, 16)), riviere_look: 'telegraphist', madame_look: 'tel_inker' } }, { cut: true }));
       await g.plate(tr('The telegraphist’s hand over the key; the second hand of the clock. There are ten seconds to choose: nothing chosen, the telegraphist sends what the service wants — the bearing.'));
@@ -72,7 +72,9 @@ export default {
         { id: 'own', label: tr('My own') },
       ] }, { within: 10000, otherwise: 'bearing' });
       if (minute === 'bearing') {
-        await g.say('riviere', 'Comodoro — bearing. The rest, silence');
+        // (the ten seconds ran out: Rivière said nothing — the telegraphist sends what the service wants, himself)
+        if (g.late('minute')) await g.say('telegraphist', 'Nothing, sir? Then by the service. Comodoro — bearing');
+        else await g.say('riviere', 'Comodoro — bearing. The rest, silence');
         await piece(g, 'bearing_sent');
       } else if (minute === 'hers') {
         await piece(g, 'hers_asked', {

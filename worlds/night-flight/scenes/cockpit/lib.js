@@ -25,6 +25,7 @@ function film(scene) {
   const KEY = [1.55, 3.45, 1.7]; // the radio's key before the operator, below the rim
   const GAP = [-0.5, 2.5, 12]; // the gap overhead (looked at a little toward the viewer: his face up in its light)
   const DOWN = [-5, 1.5, -6]; // below, ahead: the house, the town
+  const STORM_LOOK = [-8, 2.0, 1.9]; // in the storm: ahead into the dark, a little toward the lens (his face lit by the lamp, seen)
   const SEATS = {
     fabien_on: { on: 'plane', at: [-0.55, 0.4, 1.28] }, fabien_turn: 245, fabien_do: 'fly_seated', fabien_look: [-3, 0.8, 1.9],
     fabien_reach: null, fabien_with: [],
@@ -37,8 +38,9 @@ function film(scene) {
     storm: { storm: 1, rain: 1, above: 0, panel: 1, night: 0, gap: 0 },
     above: { storm: 1, rain: 0, above: 1, panel: 1, night: 0, gap: 0 },
   };
-  const AIR = { roll: 0, water: 0, climb: 0, house: 1 };
-  // a note handed from one to the other: the giver's hand goes to the other's, the note passes, the hand comes back
+  const AIR = { roll: 0, water: 0, climb: 0, pitch: 0, house: 1 };
+  // a note handed from one to the other: the giver's hand goes to the other's, the note passes, the hand comes back;
+  // the taker reads it (his look on the note — `#note`, the point of the cast's part, there while he holds it)
   async function hand(s, from, to, motion) {
     const a = s.person(from), b = s.person(to);
     a.with(['note']);
@@ -50,7 +52,13 @@ function film(scene) {
     b.with(['note']);
     b.reach(null);
     await act;
-    b.look(`${to}#hand_r`);
+    b.look(`${to}#note`);
+  }
+  // the note put away: the look off it first (its point goes with it), then the hand empty
+  function drop(s, id, look) {
+    const p = s.person(id);
+    p.look(look);
+    p.with([]);
   }
   // one writes a note on his knee (Fabien) or his pad (the operator)
   async function write(s, id, seconds = 2.5) {
@@ -62,8 +70,7 @@ function film(scene) {
   // the operator taps the note out on his key
   async function tap(s, seconds = 2.5) {
     const r = s.person('radioman');
-    r.with([]);
-    r.look(KEY);
+    drop(s, 'radioman', KEY);
     r.do('tap_key');
     await s.wait(seconds);
   }
@@ -134,7 +141,7 @@ function film(scene) {
         await s.wait(2.5);
         s.tell('trelew:under');
         r.do('write_seated');
-        r.with([]);
+        drop(s, 'radioman', 'fabien');
         await s.wait(0.5);
       },
     },
@@ -143,7 +150,7 @@ function film(scene) {
     storm: {
       tells: ['storm:note', 'storm:answer'],
       seconds: 12,
-      from: () => ({ ...SKY.storm, ...AIR, ...SEATS, fabien_look: [-8, 4.2, 1.9], ...SH.two }),
+      from: () => ({ ...SKY.storm, ...AIR, ...SEATS, fabien_look: STORM_LOOK, ...SH.two }),
       run: async s => {
         const f = s.person('fabien'), r = s.person('radioman');
         s.move('roll', 7, { over: 1.2, ease: 'inOut' });
@@ -160,8 +167,8 @@ function film(scene) {
         s.move('roll', 0, { over: 1.5, ease: 'inOut' });
         s.tell('storm:answer');
         f.do('fly_seated');
-        f.look([-8, 4.2, 1.9]);
-        r.with([]);
+        f.look(STORM_LOOK);
+        drop(s, 'radioman', 'fabien');
         await glide(s, SH.fab_med, 1.5);
         await s.wait(0.5);
       },
@@ -170,7 +177,7 @@ function film(scene) {
     gap: {
       tells: ['gap:note'],
       seconds: 8,
-      from: () => ({ ...SKY.storm, ...AIR, ...SEATS, fabien_look: [-8, 4.2, 1.9], ...SH.two }),
+      from: () => ({ ...SKY.storm, ...AIR, ...SEATS, fabien_look: STORM_LOOK, ...SH.two }),
       run: async s => {
         const f = s.person('fabien'), r = s.person('radioman');
         s.move('gap', 1, { over: 3, ease: 'out' });
@@ -189,14 +196,13 @@ function film(scene) {
       after: ['gap'],
       tells: ['key_held:end'],
       seconds: 6,
-      from: () => ({ ...SKY.storm, ...AIR, gap: 1, ...SEATS, fabien_with: ['note'], fabien_look: 'fabien#hand_r', ...SH.two }),
+      from: () => ({ ...SKY.storm, ...AIR, gap: 1, ...SEATS, fabien_with: ['note'], fabien_look: 'fabien#note', ...SH.two }),
       run: async s => {
         const f = s.person('fabien'), r = s.person('radioman');
-        r.with([]);
         r.look(KEY);
+        r.with([]);
         r.reach({ r: KEY });
-        f.with([]);
-        f.look([-0.2, 3.4, 1.55]);
+        drop(s, 'fabien', [-0.2, 3.4, 1.55]);
         await glide(s, SH.fab_close, 2);
         await s.wait(3.5);
         s.tell('key_held:end');
@@ -209,12 +215,12 @@ function film(scene) {
       after: ['gap'],
       tells: ['lamp_note:write', 'lamp_note:tap'],
       seconds: 14,
-      from: () => ({ ...SKY.storm, ...AIR, gap: 1, ...SEATS, fabien_with: ['note'], fabien_look: 'fabien#hand_r', ...SH.two }),
+      from: () => ({ ...SKY.storm, ...AIR, gap: 1, ...SEATS, fabien_with: ['note'], fabien_look: 'fabien#note', ...SH.two }),
       run: async s => {
         const f = s.person('fabien');
         await glide(s, SH.fab_close, 1.5);
         f.reach({ r: LAMP });
-        f.look('fabien#hand_r');
+        f.look('fabien#note');
         await s.wait(3.5);
         f.look(GAP);
         await s.wait(2);
@@ -236,7 +242,7 @@ function film(scene) {
       after: ['gap'],
       tells: ['laugh_note:write', 'laugh_note:closed'],
       seconds: 12,
-      from: () => ({ ...SKY.storm, ...AIR, gap: 1, ...SEATS, fabien_with: ['note'], fabien_look: 'fabien#hand_r', ...SH.two }),
+      from: () => ({ ...SKY.storm, ...AIR, gap: 1, ...SEATS, fabien_with: ['note'], fabien_look: 'fabien#note', ...SH.two }),
       run: async s => {
         const f = s.person('fabien');
         await glide(s, SH.fab_close, 1.5);
@@ -247,8 +253,7 @@ function film(scene) {
         await hand(s, 'fabien', 'radioman', 'pass_back');
         f.do('fly_seated');
         f.look(GAP);
-        s.person('radioman').look(KEY);
-        s.person('radioman').with([]);
+        drop(s, 'radioman', KEY);
         s.person('radioman').do('tap_key');
         await s.move('gap', 0, { over: 1.5, ease: 'in' });
         s.tell('laugh_note:closed');

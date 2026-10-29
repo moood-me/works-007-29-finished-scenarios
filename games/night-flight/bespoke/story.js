@@ -32,7 +32,10 @@
 //     option's id, kept in state.choices[choice] (choice null: not a choice of the chapter's map). within (ms) — a
 //     timer (its arc of time running down on each mark): nothing chosen so long — `otherwise` (one of the options);
 //     touch (the plate's phrase) — a chance: one touch on the one point, no petals, its arc of time running down;
-//     not touched in time — `otherwise` (an id of its own: the chance let pass)
+//     not touched in time — `otherwise` (an id of its own: the chance let pass). A mark whose point is out of the
+//     frame stands at the frame's edge nearest to it (listen: toward)
+//   g.late(choice) — whether the timer of that choice ran out in this step (nothing chosen: `otherwise` was taken —
+//     the scenario may play it otherwise than the option picked; a step played unseen has none)
 //   g.play(minigame, opts) — a mini-game (a module of minigames/: {title, about, skipped, run(g, b, opts, signal)});
 //     the signal aborts when it is skipped (the page's ⏭, where it may be skipped) or the step is left; → its result
 //   g.minigame({phrase}) — inside a minigame's run: the language's mini-game begun; g.failed() — a mistake in it (from
@@ -216,6 +219,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   const unseen = () => j?.on;
   // the ⏭ pressed (fast: the step going on at once to its next interaction — land() there); the game's own waits going
   let fast = false, waiting = false, showing = false;
+  const late = new Set(); // the choices of this step whose timer ran out
   const waits = new Set();
   const sleep = ms => (gone() ? never : unseen() ? j.sleep(ms) : fast ? Promise.resolve() : new Promise(ok => {
     const w = { ok: () => gone() || ok() };
@@ -361,8 +365,10 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         action = !was ? all[0] : was === otherwise ? { id: otherwise } : all.find(o => o.id === was) ?? (await new Promise(ok => j.later(() => wait(() => hub.offer(offers, within, otherwise, touch)).then(ok))));
       } else action = await wait(() => hub.offer(offers, within, otherwise, touch));
       if (choice) state.choices[choice] = action.id;
+      if (action.late) late.add(choice);
       return action.id;
     },
+    late: choice => late.has(choice),
     async play(minigame, opts = {}) {
       if (gone()) return never;
       if (unseen()) {
@@ -452,7 +458,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
 //   hub.offer({ref: options}, within, otherwise) → the action once the player has chosen it: a plain choice of the
 //     language of mini-games — a mark on each point; a touch opens its options as petals, one too; one who touches no
 //     mark for SHOW s is shown how: the ghost finger on each in turn. within (ms) — a timer, its arc of time running
-//     down on each mark: nothing chosen so long, {id: otherwise}; phrase — a chance instead: one touch on the one mark,
+//     down on each mark: nothing chosen so long, {id: otherwise, late: true}; phrase — a chance instead: one touch on the one mark,
 //     no petals (the plate says the phrase)
 //   hub.ask(at, options) → the action chosen, or null: a mark born open where the game's own drawing was pressed (at:
 //     fn → {x, y} page px — map.js), its options out as petals at once; a touch off them folds it — null
@@ -470,12 +476,24 @@ export function listen(b) {
     for (const w of waiting) if (w.text === text) { waiting.delete(w); clearTimeout(w.timer); w.ok(true); }
   });
   let offered = null; // the plain choice going on: the language's mini-game
+  // where a choice's mark stands (the language's own drawing: a page point, games are full-screen — the scene's canvas
+  // is the page's): on its point while the frame has it; out of it (the one who chooses left at the frame's edge, or
+  // behind the eye) at the frame's edge nearest to them, else in its middle — a person off the frame never leaves the
+  // play waiting on a mark nobody sees (the language hides a mark whose point is out of the frame)
+  const toward = ref => {
+    const at = ref.includes('#') ? ref : `${ref}@`;
+    return () => {
+      const f = b.frame(), p = b.where(at), m = 0.12 * f.h;
+      if (!p) return { x: f.x + f.w / 2, y: f.y + f.h / 2 };
+      return { x: Math.min(f.x + f.w - m, Math.max(f.x + m, p.x)), y: Math.min(f.y + f.h - m, Math.max(f.y + m, p.y)) };
+    };
+  };
   // a chance: one mark, a touch is the action (a mini-game's press, no petals), its arc of time running down; not
   // touched in time — `otherwise`
   function chance(offers, within, otherwise, phrase) {
     const mg = offered = b.minigame.start({ phrase }), [ref] = Object.keys(offers), [action] = offers[ref];
     return new Promise(ok => {
-      const mark = mg.mark({ at: ref.includes('#') ? ref : `${ref}@`, time: 1 });
+      const mark = mg.mark({ at: toward(ref), time: 1 });
       const press = mg.press({ on: mark });
       const t0 = mg.t;
       let over = false;
@@ -503,12 +521,12 @@ export function listen(b) {
           timer = mg.on('frame', ({ t }) => {
             const left = Math.max(0, 1 - (t - t0) / (within / 1000));
             for (const m of marks) m.set({ time: left });
-            if (left <= 0) { timer(); mg.leave(); if (offered === mg) offered = null; ok({ id: otherwise }); }
+            if (left <= 0) { timer(); mg.leave(); if (offered === mg) offered = null; ok({ id: otherwise, late: true }); }
           });
         }
         const chosen = (mark, action) => { timer(); mg.snap({ at: mark }); mg.leave(); offered = null; ok(action); };
         for (const ref of refs) {
-          const options = offers[ref], mark = mg.mark({ at: ref.includes('#') ? ref : `${ref}@`, ...(within != null ? { time: 1 } : {}) });
+          const options = offers[ref], mark = mg.mark({ at: toward(ref), ...(within != null ? { time: 1 } : {}) });
           marks.push(mark);
           const press = mg.press({ on: mark, petals: options });
           press.on('down', () => clearTimeout(ghost));

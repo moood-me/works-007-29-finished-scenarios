@@ -36,12 +36,12 @@
         }
       },
       "storm": {
-        "ambient": 0.4,
-        "ambientColor": "#6a6494",
+        "ambient": 0.72,
+        "ambientColor": "#8c88bc",
         "tint": "#8f88c0",
-        "tintStrength": 0.08,
-        "saturation": 0.8,
-        "haze": 0.1,
+        "tintStrength": 0.07,
+        "saturation": 0.86,
+        "haze": 0.06,
         "hazeColor": "#1c1a2a",
         "wind": [
           1,
@@ -107,8 +107,8 @@
       "distance": 3.6,
       "elevation": 1.55,
       "color": "#ffcf8a",
-      "strength": 1.5,
-      "reach": 1.4,
+      "strength": 2.3,
+      "reach": 1.8,
       "on": "panel"
     },
     {
@@ -117,8 +117,8 @@
       "distance": 3.6,
       "elevation": 1.5,
       "color": "#ffd59a",
-      "strength": 0.9,
-      "reach": 1.1,
+      "strength": 1.5,
+      "reach": 1.5,
       "on": "panel"
     },
     {
@@ -184,6 +184,7 @@
     "roll": 0,
     "water": 0,
     "climb": 0,
+    "pitch": 0,
     "house": 1
   },
   "states": {
@@ -269,7 +270,15 @@
         1
       ],
       "smooth": true,
-      "means": "the climb out of the storm (М6): 0 not begun … 1 at the top — the cloud masses sinking past, the gap overhead opening wider, its light growing; at 1 the piece `above` begins (above 1)"
+      "means": "the climb out of the storm (М6): 0 not begun … 1 at the top — the nose raised as it goes (`pitch`, the scene's script) and level again at the top, the cloud masses sinking past, the gap overhead opening wider, its light growing; at 1 the piece `above` begins (above 1)"
+    },
+    "pitch": {
+      "range": [
+        -20,
+        20
+      ],
+      "smooth": true,
+      "means": "the plane's nose, degrees (the anchor `plane_pitch` tilted about Fabien's seat, everything on the plane with it): 0 level, − the nose up, + down; set by the scene's script from `climb`"
     },
     "house": {
       "range": [
@@ -311,13 +320,38 @@
       }
     },
     {
-      "id": "plane",
-      "name": "Fabien's plane: the anchor its parts and its people are on, rising and falling a little in the air, laid on a wing by `roll`",
+      "id": "plane_air",
+      "name": "Where Fabien's plane is in the air: rising and falling a little (`bob`)",
       "unseen": true,
       "across": 0.7,
       "distance": 3.2,
       "place": {
-        "elevation": "bob",
+        "elevation": "bob"
+      }
+    },
+    {
+      "id": "plane_pitch",
+      "name": "The plane's pitch, about Fabien's seat: turned to face the right (its line then runs away from the viewer), so its tilt raises or drops the nose (`pitch`)",
+      "unseen": true,
+      "on": "plane_air",
+      "across": -0.55,
+      "distance": 0,
+      "elevation": 1.6,
+      "facing": 90,
+      "place": {
+        "tilt": "pitch"
+      }
+    },
+    {
+      "id": "plane",
+      "name": "Fabien's plane: the anchor its parts and its people are on — turned back to face the viewer on its pitch, laid on a wing by `roll`",
+      "unseen": true,
+      "on": "plane_pitch",
+      "across": 0,
+      "distance": -0.55,
+      "elevation": -1.6,
+      "facing": 270,
+      "place": {
         "tilt": "roll"
       }
     },

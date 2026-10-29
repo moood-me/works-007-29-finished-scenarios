@@ -22,3 +22,7 @@ const bob = () => {
   scene.after(over, bob);
 };
 bob();
+// The climb (М6) raises the nose: up as the plane starts to climb, the most halfway, level again at the top.
+const nose = v => scene.set('pitch', -14 * Math.sin(Math.PI * Math.min(1, Math.max(0, v))));
+nose(scene.state.climb);
+scene.on('change', 'climb', nose);

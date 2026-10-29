@@ -106,6 +106,12 @@ function film(scene) {
     office: CAM([-0.6, 5.0, 1.7], [-2.25, 7.1, 1.4]), // the office door
     window: CAM([0.6, 4.6, 1.75], [1.8, 7.6, 1.65]), // toward the window and the field beyond
     at_window: CAM([1.2, 4.7, 1.75], [2.3, 7.5, 1.55]), // Rivière at the window, the field beyond
+    // the last minute's choice (3.3): from the front right, Rivière at the inker on the left, his face, the
+    // telegraphist's hand over the key and his face on the right — the one who chooses and what waits on it
+    minute: CAM([2.4, 3.6, 1.6], [1.75, 5.6, 1.25]),
+    // Robineau's shoulders (3.7): the two — Robineau at his desk on the right, Rivière at the map looking at him on the
+    // left — for what Rivière says to him
+    shoulders: CAM([1.1, 1.0, 1.7], [1.4, 4.9, 1.45]),
   };
   const OUT = [-4.2, 3.6]; // outside the field door, unseen behind the left wall
   const DOOR = [-3.1, 4.55]; // the field door's threshold
@@ -577,7 +583,7 @@ function film(scene) {
     // 3.3: sixteen past two; the telegraphist's hand over the key; the clock's second hand — held while the timer runs
     minute: {
       tells: ['minute:ready'],
-      seconds: 4,
+      seconds: 5,
       from: () => ({ ...NIGHT, time: clock(2, 16), tape_pull: 1, tape_mark: 'words', ...FLAGS.night,
         ...ALL({ ...at('riviere', 'inker', 'telegraphist', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'riviere'),
           ...at('madame', 'door', 'tel_inker'), ...at('telegraphist', 'table', 'riviere', { telegraphist_reach: null }) }), ...SH.clock }),
@@ -588,6 +594,7 @@ function film(scene) {
         t.reach({ r: [1.95, 5.95, 0.9] });
         t.look([1.95, 5.95, 0.83]);
         await s.wait(1);
+        await glide(s, SH.minute, 1.2);
         s.tell('minute:ready');
       },
     },
@@ -827,7 +834,7 @@ function film(scene) {
     // shake (the choice after it)
     shoulders: {
       tells: ['shoulders:stand'],
-      seconds: 8,
+      seconds: 9,
       from: () => ({ ...NIGHT, time: clock(2, 48), ...FLAGS.late,
         ...ALL({ ...at('riviere', 'map', 'office_door'), ...at('telegraphist', 'table', 'tel_inker'),
           ...at('robineau', [IN_OFFICE[0], IN_OFFICE[1], 180, 'hold_waist'], 'rob_top') }), ...SH.wide }),
@@ -843,6 +850,7 @@ function film(scene) {
         b.look('rob_top');
         b.do('shoulders_shake');
         placeAt(s, 'robineau', 'desk');
+        await glide(s, SH.shoulders, 1.5);
         s.tell('shoulders:stand');
         await s.wait(1);
       },
