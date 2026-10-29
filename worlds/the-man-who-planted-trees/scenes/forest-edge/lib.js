@@ -736,8 +736,8 @@ function FILM(scene) {
     // down from the wood between the stumps with his rod and plants; the Traveller beside him (the guiding `stumps`);
     // Lina at the stumps — close
     stumps: {
-      after: [], tells: ["stumps:palm", "stumps:down", "stumps:rod", "stumps:lina"], seconds: 50,
-      from: () => merge(CAM0, NONE, who("jan", [-5.4, 12.2, 160], "stand", { look: [-7.09, 16.59, 0.42] }), who("elzeard", [-9.5, 24, 160], "stand"),
+      after: [], tells: ["stumps:palm", "stumps:down", "stumps:rod", "stumps:lina"], seconds: 60,
+      from: () => merge(CAM0, NONE, who("jan", [-5.4, 12.2, 160], "stand", { look: [-7.09, 16.59, 0.42] }), who("elzeard", [-8.4, 19.4, 160], "stand"),
         who("traveller", [-1.6, 9.0, 225], "stand", { look: "jan" }), who("lina", [-0.1, 7.6, 205], "stand", { look: "jan" })),
       run: async (s) => {
         const j = s.person("jan"), e = s.person("elzeard"), t = s.person("traveller"), l = s.person("lina");
@@ -758,7 +758,7 @@ function FILM(scene) {
           q.person("jan").here(false);
         });
         e.gait("walk_old");
-        await e.walk([[-8.2, 20.0], [-6.8, 15.0]]);
+        await e.walk([[-6.8, 15.0]]);
         await e.go("plant_rod", { to: [-6.3, 14.4], turn: 140 });
         s.tell("stumps:rod");
         t.with(["rod"]);
