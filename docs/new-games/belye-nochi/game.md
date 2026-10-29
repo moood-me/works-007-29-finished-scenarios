@@ -30,17 +30,25 @@
 
 | Место | Шаги | Сцена, ключи |
 | --- | --- | --- |
-| `evening` М1 | пролог | `embankment` `moment` prologue (дворник у крыльца); `lamp` → 1 в конце |
-| `night`, `rain` М1 | Н1–Н4 | `embankment`, `moment` по шагу: first_night, first_gentleman, first_walk, first_corner; second_wait, second_bench (2.2–2.5), second_letter → second_alone; third_night, third_ten, third_tear (+ `scraps`), third_bench; fourth_night, fourth_awning (С), fourth_rain, fourth_lodger (+ `lodger_with` письмо) → fourth_alone; на У4 `rain` → 1 |
-| `day` М1 | Д2 | `embankment` `moment` day (пятно — `dreamer_with` `letter_stained`) |
+| `evening` М1 | пролог | `embankment` `moment` prologue (дворник `yardman` у крыльца); `lamp` → 1 в конце |
+| `night`, `rain` М1 | Н1–Н4 | `embankment`, `moment` по шагу: first_night, first_gentleman, first_walk, first_corner; second_wait, second_bench (2.2–2.5; `hem` pinned → torn / none), second_letter → second_alone; third_night, third_ten (`bell` → 10), third_tear (+ `scraps`, `bell`), third_bench; fourth_night, fourth_awning (С, `bell`), fourth_rain, fourth_lodger (+ `lodger_with` письмо) → fourth_alone; на У4 `rain` → 1 |
+| `day` М1 | Д2 | `embankment` `moment` day, `wind` → 1 (пятно — `dreamer_with` `letter_stained`) |
 | `town` М1 | финал «Утро» | `embankment` `moment` morning (нянька, ребёнок, прохожий, дворник) |
-| `room` М2 | Д1 | `room`: чай, письмо на столе (`letter_table` → false, когда прячет) |
-| `morning` М2 | «Минута», «Лестница», «Окно» | `room`, дождь, свеча; `brings` letter / none / hat; `cobweb` → 0 («сними»); «Окно» — `coat_drying` (У4), `window` → 1, `wet` 1, люди во дворе |
-| `sunny` М2 | «Утро» | `room` без дождя, солнце |
+| `room` М2 | Д1 | `room` `moment` tea: чай, письмо на столе (`letter_table` → false, когда прячет) |
+| `morning` М2 | «Минута», «Лестница», «Окно» | `room`, дождь, свеча; `moment` letter (на «Лестнице» у Матрёны пусто; шляпа — `hat_peg`), последний кадр — corner (`cobweb` → 0 на «сними»); «Окно» — `coat_drying` (У4) раньше `moment` monday, после М7 `window` → 1, `wet`, `moment` window, люди во дворе |
+| `sunny` М2 | «Утро» | `room` `moment` letter, без дождя, солнце |
 | `grandmother` М3 | воскресенье, «Булавка» | `grandmother` `time` sunday: споты людей (`<id>_spot`), `pin` pinned → taut → off / him, `door` shut → open, `hat_table`, Фёкла у печки, жилец door → chair → landing |
 | `memory` М3 | 2.4 | `grandmother` `time` memory: Настенька у двери с узелком, жилец у лесенки с книгами |
 | `mezzanine` | «Мезонин» | `mezzanine`: споты (hatch → table → window), `cups` 1 → 2, `cold` в последнем кадре |
 | `door` М4 | Д3 | `door` shut → open, Глаша появляется, когда открывает; письмо (или с пятном) в руке |
+
+## Люди
+
+`bespoke/people.json` (id = id людей в сценах): `dreamer` (Enceladus), `nastya` (Leda), `lodger` (Schedar),
+`babushka` (Gacrux), `matryona` (Kore), `glasha` (Pulcherrima), `fyokla` (Callirrhoe), `yardman` (Algenib),
+`gentleman` (Sadachbia), `passerby` (Zubenelgenubi); без реплик — `nanny`, `child`, `yard_man`, `yard_woman`. Все они
+в сценах стадии 4; кто в кадре — `here` шага (остальные люди сцены — `_here: false`). Все реплики (203 на язык, en и
+ru) озвучены `voice_line` студии по списку `moood-check --json`.
 
 ## Главы и шаги
 
