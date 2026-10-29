@@ -461,19 +461,6 @@
       "depth": 0.9
     },
     {
-      "id": "bed_lie",
-      "name": "Where one lies in the bed (its far part, by the wall)",
-      "plane": true,
-      "unseen": true,
-      "walk": true,
-      "inside": true,
-      "across": 0.78,
-      "distance": 4.05,
-      "elevation": 0.58,
-      "width": 2.1,
-      "depth": 0.55
-    },
-    {
       "id": "headboard",
       "name": "The bed's head, white tubes",
       "inside": true,

@@ -46,6 +46,71 @@ What is not right yet:
 - `crane` (boolean, true by default): the menu crane on the sill is there only on «Зверинец» 2 — a game sets it false
   on 0–1.
 
+## Stage 5: the corridor, the things, the pieces
+
+Branch `r3/menagerie-pieces-b`; the game's contract — `docs/new-games/bumazhny-zverinec/game.md`, «Stage 5 — pieces».
+
+### The corridor (`view`)
+
+`view` — `room` (the ward, the scene's picture) or `corridor`: the script sets `camera_on` to `corridor_eye` (an unseen
+anchor out in the hospital corridor at across 4.35, distance −1.6, looking down it) and `corridor_lights` 1. The
+corridor runs beside the ward, beyond its right wall: across 2.95…5.8, distance −3…18 (`corridor_floor` — polished
+linoleum, a faint mirror; `corridor_ceiling` with its fluorescent panels and the lights `corridor_1…4`, on by
+`corridor_lights`; `corridor_left` — the ward's side: its door at distance 1.85 (point `corridor_left#door`), the
+hand-rail, an extinguisher, three chairs, a notice board; `corridor_right` — other wards' doors, a window onto the dusk
+town, a print; `corridor_end` — the doors to the lifts). `payphone` on the far wall at distance 5.4 (point
+`payphone#receiver`; `phone_off` — its receiver off the hook, in a hand as the cast's part `receiver`). A piece seen in
+the corridor names `view: 'corridor'` and `camera_on: 'corridor_eye'` in its start (lib.js `CORRIDOR`), one in the ward
+`view: 'room'`, `camera_on: null` (`ROOM`): the cameras of both work in their own frame.
+
+### Keys for the things
+
+| key | what it shows |
+| --- | --- |
+| `laohu_here` | Laohu on the bedside table; false — taken home («Остался» → 2.4) |
+| `menu_house` | the paper house folded from the hospital menu on the bedside table (`menu_house`, «Уехал», 2.4) |
+| `menu` | the hospital menu on the bed's sheet (`menu_sheet`): `none` / `flat` / `half` (folded) |
+| `suit_on_chair` | Jack's suit in its bag over the chair's back (`suit_chair`, point `suit_chair#bag`) |
+| `lamp` | as before: 1 the evening, 0.6 darkening, 0.3 the night |
+
+People have `place` keys now (`<id>_a`, `<id>_d`); `nurse` (the cast's) is in the corridor (here false unless the game
+says). Mom in bed: `mom_on: "bed_top#lie"` (the bed's point), `mom_do: "lie_bed"`, `mom_turn: 90` — on her back, her
+head on the pillow, her right hand on the near side (M5's `mom#hand_r`). Dad's oranges: the cast's part `oranges`.
+
+### Pieces
+
+The module `beats` (lib.js `film`; script.js plays it after its own `view`). Each piece's start (`from`) is the
+evening's layout (lib.js `EVENING`: Mom on the bed's edge, Dad on his chair with his book, Jack at the bed's foot with
+the bag held up) with its own changes; the game's are `here`, the moods, and the keys of the things above (`crane`,
+`laohu_ear`, `laohu_here`, `menu_house`, `menu`; `suit_on_chair` the game's except in `stay`, where the piece hangs the
+bag).
+
+| piece | after | what it shows |
+| --- | --- | --- |
+| door | — | (2.1, the corridor) Dad with his oranges and Jack with the bag by the ward's door; the nurse comes down the corridor and passes them, out behind us; medium on Jack, on Dad; both look at the door |
+| ward_in | — | (2.2) in from the door: Dad puts the oranges down and sits in his chair with his book; Jack to the bed's foot; medium on her |
+| once | ward_in | Jack's finger on the tiger's crooked fold, close; her hand lifts his fingers; «Suit?» — she touches it |
+| talk_grandma / talk_forty / talk_hand | once | close on her: she looks at Laohu, silent, Dad looks up / she laughs / Jack sits by her, holds her hand, she reaches for the tiger and cannot |
+| coat | the three talks | the lamp lower; Dad gets up and goes to the door, turns there |
+| stay | coat | Jack hangs the bag on the chair (`suit_on_chair`), sits by her, her hand; Dad goes; she turns to the window |
+| go | coat | Jack squeezes her hand, goes to the door with his bag, looks back; she looks at the window |
+| night | — | («Остался», 3 a.m., lamp 0.3) Mom in bed wakes, looks at the bag; Jack gets up, straightens it, sits; the tiger; her face; she falls asleep |
+| phone | — | (the corridor, morning) Jack at the payphone, his back to the wall, head bowed; Dad comes from the lifts with oranges; he hangs up |
+| menu | — | («Уехал», night) Mom at the window folding the menu (a white sheet in her hands); she looks at the door at Dad's voice |
+| friday | — | (Friday night, lamp 0.3) Dad asleep on the chair, Mom asleep in bed; Jack in with his bag («Уехал») or by her already (`suit_on_chair`); he sits on the bed's edge by her hand; close on the nightstand (the paper house, or the tiger's empty place). Then M5 |
+| silence | friday | the lamp lower still |
+
+Changes against the contract: none in names and tells. `friday:house` frames `menu_house` («Уехал») or the bedside
+table's top where the tiger stood («Остался»).
+
+### What is not right yet
+
+- Dad sits down and gets up without a motion of it: `_on` set as he reaches the chair (a third of a second's change
+  of pose). Kimodo was busy for `sit_down`; see the history note.
+- Dad has no coat to put on in `coat`: his look has no coat, he only gets up and goes.
+- In `talk_hand` Jack lays the bag down where no element shows it (his look loses the part as he sits).
+- `doze_chair` is Dad asleep leaning back with his arms crossed, not with his head dropped forward (two takes).
+
 ## Contract for the check
 
 ```json

@@ -60,6 +60,36 @@ guide calls, she glances at the bus and back up at Jack.
   hands wants a part drawn as a sheet (`F.cloth` is only for what is worn from the start) — stage 5, or a question for
   the engine.
 
+## Stage 5: pieces
+
+Branch `r3/menagerie-pieces-b`; the game's contract — `docs/new-games/bumazhny-zverinec/game.md`, «Stage 5 — pieces».
+
+- **Keys**: `translator`, `jack`, `guide` have `place` keys now (`<id>_a`, `<id>_d`). `letter_close` 0…1 — an insert
+  (`letter_close`, iris on the left of the frame, so the translator and `translator#letter` stay in view on the right):
+  the back of the letter close (modules/paper `letter`: her columns, the old tape, the tiger's creases, her 爱) with the
+  overlapped tear as `tear` leaves it — `taped` / `open` / `curled` (M7 drives it).
+- **Motions**: `check_watch` (she looks at her watch, once), `beckon` (the guide calls her group, once), `peel` (her
+  fingers at the tape, a loop), `rise` (up from the bench, once).
+
+The module `beats` (lib.js `film`; script.js plays it). A piece's start is the square's afternoon (lib.js `SQUARE`) with
+its own changes; the game's are `here`, the moods and `tear`.
+
+| piece | after | what it shows |
+| --- | --- | --- |
+| bench | — | (3.3) Jack comes up with the letter; she looks at her watch; he asks (medium); she takes the sheet — warm, close on her face; it trembles, she presses it down |
+| reading | bench | close on her face reading, a glance up at Jack — the pose the game reads the letter over |
+| tear | reading | she stops at the tear, her fingers at the tape; the insert of the sheet's back opens beside her (`letter_close` 1). Then M7 |
+| reading_end | tear | the insert shut; Jack takes the sheet back, flat; the guide calls; she gets up and walks to the coach, gone |
+
+**Against the contract:** the contract's `reading` held the tear too (`reading:tear`); the game reads the letter's first
+half between them (two steps, the second opened anew), so the tear is its own piece now — `tear` (after `reading`,
+tells `tear:open`), and `reading_end` goes on from it. Asked of the game's author with this push.
+
+### What is not right yet
+
+- The letter in her hands (the cast's part `letter`): see the render notes in the history — a held sheet drawn as an
+  `F.ball` reads as a thin red slab.
+
 ## Contract for the check
 
 ```json
