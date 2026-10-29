@@ -2,7 +2,7 @@
 // him acorns; on a stone, his facts in a few words; ⚑ the rod left standing — take it or wait; the evening, the razor,
 // the button; ⚑ at the door at dawn — “I’ll be back” or a raised hand; down through the village, the war; ⚑ Lina asks
 // what the shepherd does up there. Its choices only lean the scales (§3, §8); the map after it is the prologue's too.
-// Stand-ins (story.js PLACES): the slope and the village — the shepherd's house (its rod standing in the earth).
+// Stand-ins (story.js PLACES): the slope — the shepherd's house (its rod standing in the earth).
 // Reads: nothing. Leaves: choices.rod, choices.farewell, choices.tell, their marks (and the promise marks.back),
 // scales.path, scales.word.
 import { hand_in } from '../minigames/all.js';
@@ -86,7 +86,7 @@ export default {
     },
     // 1.7: down through the village; the war; ⚑ what does the shepherd do
     async g => {
-      await g.scene('village0', { here: ['traveller', 'lina'], moods: { traveller: 'neutral', lina: 'neutral' } });
+      await g.scene('village0', { here: ['traveller', 'lina', 'father'], moods: { traveller: 'neutral', lina: 'neutral', father: 'tired' }, keys: { cart: true, smoke_home: 1 } });
       await g.plate(tr('Down through the village. Lina’s father is loading charcoal onto a cart. Lina at the well.'));
       await g.say('lina', 'Down below they’re shouting — war. All the young ones. You’re young');
       await g.wait(1200);
@@ -106,6 +106,7 @@ export default {
       } else {
         await g.say('traveller', 'He grazes sheep');
         await g.say('lina', 'Well, yes. What else');
+        g.set('wet', true);
         await g.plate(tr('She pours the water on the stump.'));
       }
       g.apply('tell');

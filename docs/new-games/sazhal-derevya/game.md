@@ -22,10 +22,10 @@
 
 | Место | Шаги | Сейчас | На стадии 4–5 |
 | --- | --- | --- | --- |
-| `village0` М1 | П.1–П.2, 1.7 | `shepherds-house` + подпись (Путник 20, Лина 17) | деревня (`r3/trees-village`), год 0 |
+| `village0` М1 | П.1–П.2, 1.7 | `village` (`time` prologue; `home_door`, `mug`, `wet`, `cart`; отец в 1.7) | — |
 | `house0` М2 | П.3–П.5, 1.5, 1.6 | `shepherds-house` (`lamp`) | — (внутри дома — см. «Asks») |
 | `slope0` М3 | 1.1–1.4 | `shepherds-house` + подпись (его `rod` в земле — точка выбора 1.4) | склон год 0 (`r3/trees-years`) |
-| `village6` М1 | 2.1 | `forest-edge` + подпись (Ян и Путник там сорокалетние) | деревня, год 6 |
+| `village6` М1 | 2.1, начало 2.2 | `village` (`time` chapter2, `dawn`; Ян 26) | — |
 | `stream6` М4 | 2.2–2.4 | `stream` (`mist`) | — |
 | `slope6` М3 | 2.5 | `stream` (дубы, ульи, Эльзеар 61) | склон год 6 |
 | `far6` М3 | 2.6 | `stream` + подпись (клёны, буки) | дальний край склона, год 6 |
@@ -33,7 +33,7 @@
 | `edge20` М3 | 3.1–3.3 | `forest-edge` (`smoke`, `bread`) | — |
 | `house20` М2 | 3.4, 3.5 (Имя) | `shepherds-house` + подпись | дом, год 20 |
 | `stumps20` М3 | 3.5 (Тишина) | `forest-edge` + подпись (Эльзеара в сцене нет — на плашке) | нижний край с пнями, год 20 |
-| `village30` М1 | Э.1, финал «Рассказ» | `forest-edge` + подпись (Лина 37, Путник 40 вместо 47 и 50) | деревня, год 30 |
+| `village30` М1 | Э.1, финал «Рассказ» | `village` (`time` epilogue, `fountain`, `stump` dug → planted, `edge` по Имени/Тишине, `rod` в «Рассказе»; соседи, дети) + подпись: Лина и Путник там 17 и 20 лет, а не 47 и 50 | возраст людей по `time` — дело сцены |
 | `house30` М2 | Э.2 (Тишина) | `shepherds-house` + подпись | дом, год 30 |
 | `hut30` | Э.2 (Имя) | `shepherds-house` + подпись | хижина за хребтом (новое место) |
 | `edge30` М3 | финалы «Табличка», «Ученик» | `forest-edge` + подпись | опушка, год 30 (доска) |
@@ -46,13 +46,15 @@
 
 `bespoke/people.json`: `narrator` (Sadaltager — старый Путник), `traveller` (Achird), `elzeard` (Algenib), `lina`
 (Autonoe), `jan` (Alnilam), `father` (Fenrir — отец Лины), `chief` (Puck — Начальник), `ranger` (Orus — егерь),
-`axeman` (Rasalgethi — мужик с топором), `visitor` (Pulcherrima — приезжие). Голоса делает студия, когда страница
+`axeman` (Rasalgethi — мужик с топором), `visitor` (Pulcherrima — приезжие); соседи и дети деревни (`neighbour_a`,
+`neighbour_b`, `child_a`, `child_b`) — без реплик. Голоса делает студия, когда страница
 говорит реплику (`speak {text, voice, how}`); все реплики (по 147 на язык) озвучены заранее `voice_line` по списку
 `moood-check --json`. У некоторых реплик свой `how`.
 
 `g.scene(place, {here, moods, keys})`: из людей игры в кадре те, кто есть в сцене (`elzeard`, `traveller`, `lina` —
-в `shepherds-house` и `stream`; `traveller`, `jan`, `lina` — в `forest-edge`); отец Лины, Начальник, егерь, мужик с
-топором, приезжие, мальчик, соседи — только голос и плашки. Эльзеара 75 и 85 лет нет ни в одной сцене: в гл. 3 и
+в `shepherds-house` и `stream`; `traveller`, `jan`, `lina` — в `forest-edge`; `lina`, `traveller`, `father`, `jan`,
+`neighbour_a`, `neighbour_b`, `child_a`, `child_b` — в `village`); Начальник, егерь, мужик с топором, приезжие,
+мальчик на опушке — только голос и плашки. Эльзеара 75 и 85 лет нет ни в одной сцене: в гл. 3 и
 эпилоге он в доме пастуха (55 лет), а у пней (3.5, Тишина) — только на плашке.
 
 ## Главы и шаги
@@ -140,7 +142,8 @@ motions.
 
 ### Asks of the world (stage 4)
 
-1. **М1 the village** (`r3/trees-village`), years 0, 6, 30: the square with the stump (`square`: stump | mug — the mug
+1. **М1 the village** (`r3/trees-village` — made; what is still asked:) the people's looks by `time` (Lina 23/47, the
+   Traveller 26/50 — the scene shows Lina 17 and the Traveller 20 in every time), and, as first asked, years 0, 6, 30: the square with the stump (`square`: stump | mug — the mug
    upside down on it | planting — a hole and a linden sapling | linden), the well (`well`: dry | fountain), charcoal
    heaps and the father's cart (year 0), the empty house at the edge whose doorway they slept in (2.1, year 6), the
    fresh mound (year 6), new roofs, smoke, children (year 30); the slope above it seen (bare | haze of leaves | forest,

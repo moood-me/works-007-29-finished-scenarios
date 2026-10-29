@@ -5,7 +5,7 @@
 // Road and Silence), “The Plaque” (the Road and the Name), “Two Rods” (the Slope and Silence), “The Pupil” (the Slope
 // and the Name) — its last shot the iron rod in other hands. The finale's name comes over black after it (game.js
 // closing); the step remembers which it played (marks.ending).
-// Stand-ins (story.js PLACES): the village, the forest edge, the Traveller's slope — the forest edge; the old house and
+// Stand-ins (story.js PLACES): the forest edge, the Traveller's slope — the forest edge; the old house and
 // the hut beyond the ridge — the shepherd's house of the prologue.
 // Reads: facts — drank, asked, learned, lied, slope, named, knows, ending.
 import { facts } from '../story.js';
@@ -19,7 +19,7 @@ export default {
     // Э.1: the village alive; the linden
     async g => {
       const f = facts(g.state);
-      await g.scene('village30', { here: ['traveller', 'lina'], moods: { traveller: 'smile', lina: 'smile' } });
+      await g.scene('village30', { here: ['traveller', 'lina', 'neighbour_a', 'neighbour_b', 'child_a', 'child_b'], moods: { traveller: 'smile', lina: 'smile' }, keys: { stump: 'dug', edge: f.named ? 'whole' : 'regrown' } });
       g.title(tr('Ten Years Later'));
       await g.plate(tr('The village is alive: the fountain runs, children, new roofs.'));
       if (!f.named) await g.plate(tr('Above the village, the edge of the forest: old stumps, and between them young oaks as tall as a man.'));
@@ -38,6 +38,8 @@ export default {
         }
       }
       await g.play(linden);
+      g.set('stump', 'planted');
+      g.set('wet', true);
     },
     // Э.2: the last meeting; the rod
     async g => {
@@ -64,7 +66,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.ending === 'story') {
-        await g.scene('village30', { here: ['traveller'], moods: { traveller: 'thinking' } });
+        await g.scene('village30', { here: ['traveller', 'child_a', 'child_b'], moods: { traveller: 'thinking' }, keys: { stump: 'planted', edge: 'regrown', rod: true } });
         await g.plate(tr('The village, the fountain. Above it, the edge of the forest: stumps still showing between the young oaks.'));
         await g.plate(tr('The Traveller sits down on the rim of the fountain, the rod leaning beside him. He opens his notebook — a page for each year, on each one word: “It was.” He leafs to a blank page and, for the first time, writes the name.'));
         await g.say('narrator', 'When I think that one man, with only his own two hands, made this land out of a desert — I think that people can, after all');

@@ -48,18 +48,18 @@
 
 // The game's places in their years (scenario §4: each place changes — the prologue and chapter I, +6, +20, +30 years
 // from the beginning) and the world's scene each is played on — the one map of them. A place the world has not drawn
-// (the village; Elzéard's hut beyond the ridge; the far slopes), or not in that year, stands in a ready scene that has
+// (Elzéard's hut beyond the ridge; the far slopes), or not in that year, stands in a ready scene that has
 // the step's people, and `where` says (a label high on the left) where and when it really is. When its own scene, or
 // its year of it, comes (stage 4: `r3/trees-village`, `r3/trees-years`), its line here becomes `{ folder, keys }` —
 // nothing else changes: the steps name places, never folders. `keys` — the scene's own keys that make it that place in
 // that year. (The house at dusk, no one there, is also the map's background: game.js.)
 export const PLACES = {
   // the prologue and chapter I — the dead plateau
-  village0: { folder: 'shepherds-house', keys: { lamp: 0 }, where: tr('In truth: the village at the edge of the plateau — empty houses, a dry well, heaps of charcoal; on the square, a stump.') }, // М1
+  village0: { folder: 'village', keys: { time: 'prologue', coal: 1, fountain: 0, dawn: 0 } }, // М1
   house0: { folder: 'shepherds-house' }, // М2
   slope0: { folder: 'shepherds-house', keys: { lamp: 0 }, where: tr('In truth: the gentle slope above the village — bare earth and wind; below it, the dry bed of a stream.') }, // М3
   // chapter II — six years on
-  village6: { folder: 'forest-edge', keys: { smoke: 0, bread: false }, where: tr('In truth: six years on, dawn — an empty house at the edge of the dead village; the war is over. The Traveller is twenty-six, and Jan too.') }, // М1
+  village6: { folder: 'village', keys: { time: 'chapter2', coal: 0, fountain: 0 } }, // М1
   stream6: { folder: 'stream' }, // М4
   slope6: { folder: 'stream' }, // М3: up the stream, the young oaks and the hives
   far6: { folder: 'stream', keys: { mist: 0 }, where: tr('In truth: the far edge of the slope — rows of dry sticks, the maples; beside them, rows of tiny beeches.') }, // М3
@@ -69,7 +69,7 @@ export const PLACES = {
   house20: { folder: 'shepherds-house', where: tr('In truth: fourteen years later — hives by the house; Elzéard is seventy-five, the Traveller forty.') }, // М2
   stumps20: { folder: 'forest-edge', keys: { smoke: 1, bread: false }, where: tr('In truth: the lower edge of the forest above the village — stumps, fresh or a year old; the wood has been carted away.') }, // М3
   // the epilogue — ten years more
-  village30: { folder: 'forest-edge', keys: { smoke: 1, bread: false }, where: tr('In truth: the village, ten years on — alive: the fountain runs, children, new roofs; on the square where the stump was, they are planting a linden. Lina is forty-seven, the Traveller fifty.') }, // М1
+  village30: { folder: 'village', keys: { time: 'epilogue', coal: 0, fountain: 1, dawn: 0, smoke_home: 1, smoke_b1: 1, smoke_l2: 1, smoke_r1: 1 }, where: tr('In truth: Lina is forty-seven here, the Traveller fifty.') }, // М1
   house30: { folder: 'shepherds-house', where: tr('In truth: ten years on — the same house, the hives; on the porch, bread nobody has touched. Elzéard is eighty-five.') }, // М2
   hut30: { folder: 'shepherds-house', keys: { lamp: 0 }, where: tr('In truth: a hut beyond the ridge, three hours’ walk away: behind it a slope of young trees waist-high — his ten years; ahead, on the bare ground, a new edge of tiny seedlings. Elzéard is eighty-five.') }, // М2 beyond the ridge
   edge30: { folder: 'forest-edge', keys: { smoke: 1, bread: false }, where: tr('In truth: the forest edge, ten years on — the forest under guard.') }, // М3

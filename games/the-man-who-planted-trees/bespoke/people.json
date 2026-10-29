@@ -48,5 +48,25 @@
     "voice": "Pulcherrima",
     "how": "a visitor from the city: eager, curious, a little loud, polite",
     "short": "a visitor"
+  },
+  "neighbour_a": {
+    "voice": "Kore",
+    "how": "a village woman come back to the plateau: warm, practical, cheerful",
+    "short": "a neighbour woman"
+  },
+  "neighbour_b": {
+    "voice": "Iapetus",
+    "how": "a village man come back to the plateau: steady, plain, a little shy",
+    "short": "a neighbour"
+  },
+  "child_a": {
+    "voice": "Leda",
+    "how": "a village girl of eight: bright, quick, laughing",
+    "short": "a girl"
+  },
+  "child_b": {
+    "voice": "Zephyr",
+    "how": "a village boy of nine: eager, loud, curious",
+    "short": "a boy"
   }
 }

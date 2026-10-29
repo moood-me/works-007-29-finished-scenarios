@@ -2,7 +2,6 @@
 // the linden's water; the climb at dusk to the one lit window, the shepherd who gives water and asks nothing; a hundred
 // acorns on the table; ⚑ a question about his family. Both choices only colour (§3: the prologue and chapter I are for
 // trying). No map after it: the prologue and chapter I are one map (§11) — game.js `onward`.
-// Stand-ins (story.js PLACES): the village — the shepherd's house.
 // Reads: nothing. Leaves: choices.drink, choices.ask, marks.drink, marks.ask.
 import { acorns } from '../minigames/all.js';
 
@@ -16,12 +15,13 @@ export default {
   steps: [
     // П.1–П.2: the flask; the dead village; the stump; ⚑ a drink
     async g => {
-      await g.scene('village0', { here: ['traveller', 'lina'], moods: { traveller: 'tired', lina: 'neutral' } });
+      await g.scene('village0', { here: ['traveller', 'lina'], moods: { traveller: 'tired', lina: 'neutral' }, keys: { home_door: 95 } });
       g.title(tr('The Man Who Planted Trees'));
       await g.plate(tr('A high plateau, wind, dry grass. The Traveller shakes his flask — empty.'));
       await g.say('narrator', 'I was twenty. I was going where nobody goes — so as to have something to tell. For three days I had not seen water');
       await g.plate(tr('A village: empty houses, a dry well. On the square a girl with a tin mug stands by a stump.'));
-      await g.say('father', 'My sack! I carried it down from the mountain!', { how: 'an angry shout from behind a wall' });
+      await g.say('father', 'My sack! I carried it down from the mountain!', { at: 'home_door', how: 'an angry shout from behind a wall' });
+      g.set('home_door', 180);
       await g.plate(tr('A door slams. Lina raises the mug to the stump.'));
       const drink = await g.choose('drink', { 'traveller#chest': [
         { id: 'drink', label: tr('“Give me a drink”') },
@@ -32,8 +32,10 @@ export default {
         g.mood('lina', 'thinking');
         await g.plate(tr('Lina looks at the stump, then at him.'));
         await g.say('lina', 'Drink. She won’t mind');
-        await g.plate(tr('He drinks. The stump stays dry. Lina sets the mug on it upside down.'));
+        g.set('mug', true);
+      await g.plate(tr('He drinks. The stump stays dry. Lina sets the mug on it upside down.'));
       } else {
+        g.set('wet', true);
         await g.plate(tr('Lina pours the water on the stump.'));
         g.mood('lina', 'smile');
         await g.say('lina', 'Funny, isn’t it? Watering a stump');

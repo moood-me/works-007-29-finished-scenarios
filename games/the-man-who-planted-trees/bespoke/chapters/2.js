@@ -2,8 +2,7 @@
 // over the plateau — leaves; water running in the dry bed, Lina at it; their palms in the first water; ⚑ (the half
 // hinge) where the water comes from — “It’s him”, “The land has rested”, or nothing; the oaks taller than a man, the
 // hives, Elzéard; the year of the maples; at night a hundred acorns, the letter from the city — ⚑ (Ш1) stay or go.
-// Stand-ins (story.js PLACES): the empty house in the village — the forest edge; the far edge of the slope — the
-// stream; the house at night — the shepherd's house of the prologue.
+// Stand-ins (story.js PLACES): the far edge of the slope — the stream; the house at night — the shepherd's house of the prologue.
 // Reads: marks of the prologue and chapter I (facts: drank, heard, promised, own). Leaves: choices.lina,
 // choices.stay, their marks (and the promises: marks.tell — Lina's, marks.year — his), scales.
 import { facts } from '../story.js';
@@ -19,7 +18,7 @@ export default {
   steps: [
     // 2.1: dawn, an empty house; Jan goes down
     async g => {
-      await g.scene('village6', { here: ['traveller', 'jan'], moods: { traveller: 'tired', jan: 'neutral' } });
+      await g.scene('village6', { here: ['traveller', 'jan'], moods: { traveller: 'tired', jan: 'neutral' }, keys: { dawn: 1 } });
       g.title(tr('Six Years Later'));
       await g.plate(tr('Dawn, an empty house at the edge of the village. The Traveller slept on the floor, right by the door; Jan, in the corner.'));
       await g.say('jan', 'By the door again', { how: 'tying up his kitbag, dry, not looking up' });
@@ -33,8 +32,9 @@ export default {
     // 2.2: the empty village; the haze — leaves; water; Lina
     async g => {
       const f = facts(g.state);
-      await g.scene('stream6', { here: ['traveller'], moods: { traveller: 'tired', lina: 'surprised' }, keys: { mist: 1 } });
+      await g.scene('village6', { here: ['traveller'], moods: { traveller: 'tired' }, keys: { dawn: 0.4 } }, { cut: true });
       await g.plate(tr('The village is empty; a fresh grave mound. Over the plateau a grey haze, like mist: it is leaves.'));
+      await g.scene('stream6', { here: ['traveller'], moods: { traveller: 'tired', lina: 'surprised' }, keys: { mist: 1 } });
       g.mood('traveller', 'surprised');
       await g.plate(tr('A sound: water. In the dry bed a stream is running. Lina by the water — she is twenty-three.'));
       g.here('lina', true);
