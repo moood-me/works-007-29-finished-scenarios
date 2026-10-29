@@ -1,6 +1,6 @@
 // The bed from above (metres, its middle at across 0.78, distance 3.9; x from the head, left, to the foot, y toward the
 // viewer): the white sheet, a little blue in its creases, pressed down where she sits near the head; the drawsheet
-// across its middle.
+// across its middle. Its point `lie`: where her hips lie when she is in bed (mom_on: "bed_top#lie", the motion lie_bed).
 g.fillStyle = '#eef0ec';
 g.fillRect(-1.08, -0.45, 2.16, 0.9);
 g.fillStyle = 'rgba(176,190,204,0.35)';
@@ -22,3 +22,4 @@ g.fillStyle = 'rgba(150,160,170,0.18)';
 g.beginPath();
 g.ellipse(-0.4, 0.27, 0.28, 0.14, 0, 0, Math.PI * 2);
 g.fill();
+e.at(-0.06, 0.05, 'lie');
