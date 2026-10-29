@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Pride and Prejudice","translation":"Duma i uprzedzenie","where":"worlds/pride-and-prejudice/world.json title"},
+  {"text":"Jane Austen's England in light watercolour and fine pen: Longbourn, Meryton, Netherfield, Hunsford, Pemberley. Green and cream, warm candlelit ballrooms, bright early evenings.","translation":"Anglia Jane Austen lekką akwarelą i cienkim piórkiem: Longbourn, Meryton, Netherfield, Hunsford, Pemberley. Zieleń i kremowe tony, sale balowe ciepłe od świec, jasne wczesne wieczory.","where":"worlds/pride-and-prejudice/world.json description"}
+]}

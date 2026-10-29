@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Dragon's Lair","translation":"Legowisko smoczycy","where":"worlds/the-buried-giant/scenes/lair/scene.json title"},
+  {"text":"Her breath is the mist.","translation":"Jej oddech to mgła.","where":"worlds/the-buried-giant/scenes/lair/scene.json caption"}
+]}

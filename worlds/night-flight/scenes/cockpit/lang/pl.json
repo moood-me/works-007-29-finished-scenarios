@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Cockpit","translation":"Kabina","where":"worlds/night-flight/scenes/cockpit/scene.json title"},
+  {"text":"Dusk over Patagonia. Below, the windows are lighting up.","translation":"Zmierzch nad Patagonią. W dole zapalają się okna.","where":"worlds/night-flight/scenes/cockpit/scene.json caption"}
+]}

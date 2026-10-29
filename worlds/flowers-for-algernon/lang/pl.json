@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Flowers for Algernon","translation":"Kwiaty dla Algernona","where":"worlds/flowers-for-algernon/world.json title"},
+  {"text":"A plastic-box factory, a night class, a laboratory with a white mouse. A mind that rises, and falls.","translation":"Fabryka plastikowych pudełek, wieczorowa klasa, laboratorium z białą myszką. Umysł, który się wznosi – i upada.","where":"worlds/flowers-for-algernon/world.json description"}
+]}
