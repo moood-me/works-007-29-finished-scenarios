@@ -322,7 +322,8 @@ export async function line(g, b, mg, { from, to, tolerance = 40, progress = () =
 // along(g, b, mg, {at, pulls, frame}) — a guiding's “pull slowly” (scenario §7: «ведение», no miss): a dashed ring at
 // `at`; each pull (a tear of TEAR of the frame's height) draws a length out (frame(u) — how far all of it has come, 0…1,
 // moving with the finger, kept when it lets go); no speed is wrong. All `pulls` out — done. The way out by time: never
-// touched for ALONE s — done as it is. → true | null
+// touched for ALONE s — done as it is; not done LIMIT s after the first touch — the rest comes by itself (SELF s), as
+// in slowly. → true | null
 export async function along(g, b, mg, { at, pulls = 3, frame = () => {} }) {
   mg.plate.set({ notches: Array.from({ length: pulls - 1 }, (_, i) => (i + 1) / pulls) });
   const end = mg.mark({ at, kind: 'dash' });
@@ -333,8 +334,16 @@ export async function along(g, b, mg, { at, pulls = 3, frame = () => {} }) {
   pull.on('up', () => { spent = false; });
   const touch = mg.on('down', () => { begun ??= mg.t; });
   const t00 = mg.t;
+  let self = null;
   const done = await until(mg, ({ t }) => {
     if (begun == null && t - t00 >= ALONE) return true;
+    if (self == null && begun != null && t - begun >= LIMIT) { self = t; end.remove(); }
+    if (self != null) {
+      const u = clamp(drawn + (1 - drawn) * (t - self) / SELF);
+      frame(u);
+      mg.plate.set({ fill: u, glow: 'idle' });
+      return u >= 1;
+    }
     const s = pull.state;
     const u = clamp(drawn + (s.held && !spent ? Math.min(s.u, 0.99) / pulls : 0));
     frame(u);
@@ -345,8 +354,10 @@ export async function along(g, b, mg, { at, pulls = 3, frame = () => {} }) {
   taught.remove();
   if (!done) return null;
   frame(1);
-  mg.snap({ at: end });
-  end.remove();
+  if (self == null) {
+    mg.snap({ at: end });
+    end.remove();
+  }
   return true;
 }
 
