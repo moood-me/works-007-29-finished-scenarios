@@ -1,0 +1,6 @@
+{"strings": [
+  {"text":"The Terrace","translation":"La terraza","where":"worlds/the-old-man-and-the-sea/scenes/terrace/scene.json title"},
+  {"text":"Many of the fishermen made fun of the old man, and he was not angry.","translation":"Muchos de los pescadores se burlaban del viejo, y él no se enojaba.","where":"worlds/the-old-man-and-the-sea/scenes/terrace/scene.json caption"},
+  {"text":"I could go with you again. We've made money.","who":"manolin","translation":"Podría volver a salir contigo. Hemos ganado dinero.","where":"worlds/the-old-man-and-the-sea/scenes/terrace/showcase.js"},
+  {"text":"No. You're with a lucky boat. Stay with them.","who":"santiago","translation":"No. Estás en un bote con suerte. Quédate con ellos.","where":"worlds/the-old-man-and-the-sea/scenes/terrace/showcase.js"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"White Nights","translation":"Noches blancas","where":"worlds/white-nights/world.json title"},
+  {"text":"Petersburg in the white nights, after Dostoevsky: a canal embankment, a lamp burning though it is light, a dreamer and a girl at the railing. Four nights and a morning.","translation":"San Petersburgo en las noches blancas, según Dostoievski: el malecón de un canal, un farol encendido aunque hay luz, un soñador y una muchacha junto a la barandilla. Cuatro noches y una mañana.","where":"worlds/white-nights/world.json description"}
+]}
