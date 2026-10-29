@@ -347,12 +347,35 @@ function FILM(scene) {
   };
   const merge = (...xs) => Object.assign({}, ...xs);
   // a shot: the operator frames a target (a person's head, a point) at a size; back to the picture with `wide`
-  const shot = (s, target, size = "medium", glide = 1.5) => {
-    s.set("camera_glide", glide);
-    s.set("camera_shot", size);
-    s.set("camera_target", target);
+  // shots: the eye and what it looks at (metres: across, ahead, up), glided to — the picture camera moved, never the
+  // operator (the picture's camera walks through no one); `wide` — back to the picture
+  const DEG = 180 / Math.PI, EYE = 1.7, CAMK = ["camera_x", "camera_z", "camera_h", "camera_yaw", "camera_pitch"];
+  const CAM = ([ex, ez, eh], [tx, tz, th]) => ({ ...CAM0, camera_x: ex, camera_z: ez, camera_h: eh - EYE,
+    camera_yaw: Math.atan2(tx - ex, tz - ez) * DEG, camera_pitch: Math.atan2(th - eh, Math.hypot(tx - ex, tz - ez)) * DEG });
+  const view = (s, c, over = 1.5) => (over ? s.all(...CAMK.map((k) => s.move(k, c[k], { over, ease: "inOut" }))) : s.all(...CAMK.map((k) => s.set(k, c[k]))));
+  const wide = (s, over = 1.5) => view(s, CAM0, over);
+  const SH = {
+    plant: CAM([1.8, 7.2, 1.6], [-0.6, 11.6, 1.0]),
+    stone: CAM([1.4, 12.6, 1.3], [0.3, 16.2, 0.95]),
+    hives: CAM([-2.4, 8.6, 1.6], [-5.4, 11.3, 1.4]),
+    zrya: CAM([-4.0, 10.1, 1.6], [-5.4, 11.3, 1.55]),
+    own_oak: CAM([1.2, 13.2, 1.6], [-0.6, 16.8, 1.5]),
+    axe_path: CAM([-1.8, 6.0, 1.6], [-2.0, 9.6, 1.4]),
+    loud: CAM([0.3, 6.6, 1.6], [1.6, 8.0, 1.6]),
+    chief: CAM([2.2, 6.2, 1.6], [3.4, 8.4, 1.6]),
+    hug: CAM([0.6, 4.2, 1.6], [0.6, 6.3, 1.5]),
+    row: CAM([2.2, 20.5, 1.7], [2.0, 26.0, 1.5]),
+    row_jan: CAM([1.4, 24.6, 1.6], [2.4, 26.4, 1.6]),
+    jan: CAM([0.1, 5.6, 1.6], [1.4, 7.0, 1.6]),
+    jan_m: CAM([0.4, 4.8, 1.6], [1.4, 7.0, 1.5]),
+    lina_named: CAM([-0.2, 6.0, 1.5], [-1.2, 7.4, 1.5]),
+    lina_path: CAM([3.6, 8.4, 1.6], [2.2, 8.1, 1.55]),
+    palm: CAM([-8.4, 18.2, 1.5], [-6.5, 15.8, 0.8]),
+    lina_stumps: CAM([-3.6, 10.2, 1.55], [-4.0, 12.0, 1.5]),
+    board: CAM([0.6, 9.4, 1.6], [-0.6, 13.6, 1.3]),
+    two_rods: CAM([2.6, 7.6, 1.6], [1.4, 10.8, 1.2]),
+    pupil: CAM([0.2, 5.2, 1.5], [1.1, 7.6, 1.2]),
   };
-  const wide = (s) => s.set("camera_target", null);
   const old = () => (scene.get("year") >= 20 ? "walk_old" : null);
   const NONE = { rod_ground: false, pail: "none", new_beech: "none" };
   const spot = () => (scene.get("beeches") === "row" ? [scene.get("beech_next_a"), scene.get("beech_next_d")] : [2.4, 12]);
@@ -370,7 +393,7 @@ function FILM(scene) {
         await e.go("plant_rod", { to: [-0.9, 11.4], turn: 100 });
         s.tell("rod_mist:blow");
         await s.wait(1);
-        shot(s, "plant_spot", "full");
+        view(s, SH.plant, 2);
         await e.go("plant_rod", { to: [-0.5, 11.6], turn: 100 });
         await e.go("plant_rod", { to: [-0.1, 11.8], turn: 100 });
         e.look("traveller");
@@ -384,7 +407,7 @@ function FILM(scene) {
         who("elzeard", [-0.05, 16.3, 165], "sit_stone", { on: [-0.05, 16.3, 0.27], look: [0, 4, 1.2] }),
         who("traveller", [0.65, 16.1, 200], "sit_stone", { on: [0.65, 16.1, 0.27], look: "elzeard" })),
       run: async (s) => {
-        shot(s, "bread#seat", "medium", 0);
+        view(s, SH.stone, 0);
         await s.wait(1.5);
         s.tell("stone:sit");
         await s.wait(6);
@@ -465,7 +488,7 @@ function FILM(scene) {
         await t.turn(260);
         t.look("elzeard");
         e.look("traveller");
-        shot(s, "elzeard", "medium");
+        view(s, SH.hives);
         s.tell("oaks:hives");
         await s.wait(3);
         if (s.get("lina_here")) {
@@ -479,7 +502,7 @@ function FILM(scene) {
           await l.walk([[-4.6, 11.0], [-2.4, 8.0], [-0.4, 4.0], [1.6, 0.5]]);
           l.here(false);
           e.look("traveller");
-          shot(s, "elzeard", "close", 1);
+          view(s, SH.zrya, 1);
           await s.wait(1.2);
           s.tell("oaks:zrya");
           await s.wait(2.5);
@@ -501,7 +524,7 @@ function FILM(scene) {
         await t.turn(240);
         e.look("own_oak#bark");
         t.look("own_oak#bark");
-        shot(s, "own_oak#bark", "full");
+        view(s, SH.own_oak);
         s.tell("own_oak:there");
         await s.wait(3);
       },
@@ -532,12 +555,12 @@ function FILM(scene) {
         await s.all(x.walk([[-3.6, 9.0], [-2.6, 9.4]]), l.walk([[-1.4, 9.8]]));
         await s.all(x.turn(80), l.turn(260));
         l.look("axeman");
-        shot(s, "lina", "medium");
+        view(s, SH.axe_path);
         s.tell("axe:path");
         await s.wait(3);
         s.tell("axe:nobody");
         await s.wait(3);
-        shot(s, "traveller", "close", 1);
+        view(s, SH.loud, 1);
         t.look("axeman");
         s.tell("axe:loud");
         await s.wait(2);
@@ -567,7 +590,7 @@ function FILM(scene) {
         await t.walk([[a + 0.45, d - 0.25]]);
         await t.turn(290);
         t.look("new_beech");
-        shot(s, "traveller", "medium");
+        view(s, CAM([a - 1.2, d - 3.0, 1.5], [a + 0.45, d - 0.25, 1.0]));
         await t.go("plant_rod", { to: [a + 0.45, d - 0.25], turn: 290 });
         s.tell("beech:ready");
       },
@@ -588,7 +611,7 @@ function FILM(scene) {
         l.look("traveller");
         s.tell("delegation:jan_place");
         await s.wait(3.5);
-        shot(s, "chief", "medium");
+        view(s, SH.chief);
         s.tell("delegation:chief");
         await s.wait(4);
         await c.go("laugh_short", { to: [3.4, 8.4], turn: 215 });
@@ -603,7 +626,7 @@ function FILM(scene) {
         await j.walk([[1.0, 6.4]]);
         await j.turn(260);
         j.reach({ r: [0.35, 6.2, 1.42] });
-        shot(s, "jan", "medium");
+        view(s, SH.hug);
         s.tell("delegation:hug");
         await s.wait(2);
         j.reach(null);
@@ -621,7 +644,7 @@ function FILM(scene) {
         who("lina", [-1.2, 7.4, 140], "stand", { look: "traveller" }), who("chief", [3.4, 8.4, 215], "stand", { look: [-6, 22, 7] }), who("ranger", [3.6, 10.0, 210], "stand", { look: [-6, 22, 7] })),
       run: async (s) => {
         const j = s.person("jan"), t = s.person("traveller");
-        shot(s, "jan", "full", 2.5);
+        view(s, SH.row, 5);
         await s.all(j.walk([[1.6, 12], [2.2, 20], [2.4, 26.4]]), s.sequence(async (q) => {
           await q.wait(0.8);
           await q.person("traveller").walk([[0.9, 12], [1.2, 20], [1.4, 25.8]]);
@@ -635,7 +658,7 @@ function FILM(scene) {
         j.look("traveller");
         t.look("jan");
         j.do("write_standing");
-        shot(s, "jan", "close", 1.2);
+        view(s, SH.row_jan, 1.2);
         s.tell("the_row:page");
         await s.wait(2);
       },
@@ -648,7 +671,7 @@ function FILM(scene) {
         who("lina", [-1.2, 7.4, 140], "stand", { look: "traveller" }), who("chief", [3.4, 9.4, 215], "stand", { look: "jan" }), who("ranger", [4.0, 10.6, 210], "stand", { look: "chief" })),
       run: async (s) => {
         const j = s.person("jan"), l = s.person("lina");
-        shot(s, "jan", "close", 0);
+        view(s, SH.jan, 0);
         await s.wait(2);
         s.tell("named:good");
         await s.wait(3);
@@ -661,7 +684,7 @@ function FILM(scene) {
         s.tell("named:chief");
         await s.wait(4);
         l.look("traveller");
-        shot(s, "lina", "close", 1);
+        view(s, SH.lina_named, 1);
         s.tell("named:lina");
         await s.wait(3);
         wide(s);
@@ -677,7 +700,7 @@ function FILM(scene) {
         who("lina", [-1.2, 7.4, 140], "stand", { look: "traveller" }), who("chief", [3.4, 9.4, 215], "stand", { look: "jan" }), who("ranger", [4.0, 10.6, 210], "stand", { look: "chief" })),
       run: async (s) => {
         const j = s.person("jan"), l = s.person("lina"), c = s.person("chief");
-        shot(s, "jan", "medium", 0);
+        view(s, SH.jan_m, 0);
         await s.wait(1.5);
         j.do("stand");
         if (s.get("silent")) j.reach({ l: [0.55, 6.6, 1.42] });
@@ -696,7 +719,7 @@ function FILM(scene) {
         await l.walk([[0.8, 7.8], [2.2, 8.1]]);
         await l.turn(70);
         l.look("chief");
-        shot(s, "lina", "close", 1);
+        view(s, SH.lina_path, 1);
         s.tell("unnamed:lina");
         await s.wait(3);
         s.tell("unnamed:whose");
@@ -721,7 +744,7 @@ function FILM(scene) {
         await j.walk([[-6.4, 15.6]]);
         await j.turn(330);
         await j.go("palm_stump", { to: [-6.6, 15.9], turn: 330 });
-        shot(s, "jan", "medium");
+        view(s, SH.palm);
         s.tell("stumps:palm");
         await s.wait(4);
         j.do("stand");
@@ -746,7 +769,7 @@ function FILM(scene) {
         await l.walk([[-1.6, 9.4], [-4.0, 12.0]]);
         await l.turn(170);
         l.look("elzeard");
-        shot(s, "lina", "close", 1);
+        view(s, SH.lina_stumps, 1);
         s.tell("stumps:lina");
         await s.wait(3);
         wide(s);
@@ -760,7 +783,7 @@ function FILM(scene) {
         who("traveller", [1.4, 6.4, 330], "stand", { with: ["rod"], look: "board#plate" })),
       run: async (s) => {
         const t = s.person("traveller");
-        shot(s, "board#plate", "full");
+        view(s, SH.board);
         s.tell("plaque:read");
         await s.wait(4);
         await t.walk([[0.6, 10.5], [-0.3, 12.9]]);
@@ -780,7 +803,7 @@ function FILM(scene) {
         who("traveller", [1.2, 10.4, 200], "stand", { with: ["rod"], look: "rod#top" })),
       run: async (s) => {
         const t = s.person("traveller");
-        shot(s, "traveller", "full");
+        view(s, SH.two_rods);
         await t.go("plant_rod", { to: [1.3, 11.0], turn: 160 });
         s.tell("two_rods:plant");
         t.look("rod#top");
@@ -794,7 +817,7 @@ function FILM(scene) {
         who("visitor_a", [-0.7, 9.2, 160], "stand", { look: "traveller" }), who("visitor_b", [2.6, 8.6, 215], "stand", { look: "traveller" })),
       run: async (s) => {
         const t = s.person("traveller"), b = s.person("boy");
-        shot(s, "traveller", "medium");
+        view(s, SH.pupil);
         s.tell("pupil:ask");
         await s.wait(3);
         s.tell("pupil:no");

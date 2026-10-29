@@ -229,12 +229,19 @@ function FILM(scene) {
     return o;
   };
   const merge = (...xs) => Object.assign({}, ...xs);
-  const shot = (s, target, size = "medium", glide = 1.5) => {
-    s.set("camera_glide", glide);
-    s.set("camera_shot", size);
-    s.set("camera_target", target);
+  // shots: the eye and what it looks at (metres: across, ahead, up), glided to — the picture camera moved, never the
+  // operator (the picture's camera walks through no one); `wide` — back to the picture
+  const DEG = 180 / Math.PI, EYE = 1.7, CAMK = ["camera_x", "camera_z", "camera_h", "camera_yaw", "camera_pitch"];
+  const CAM = ([ex, ez, eh], [tx, tz, th]) => ({ ...CAM0, camera_x: ex, camera_z: ez, camera_h: eh - EYE,
+    camera_yaw: Math.atan2(tx - ex, tz - ez) * DEG, camera_pitch: Math.atan2(th - eh, Math.hypot(tx - ex, tz - ez)) * DEG });
+  const view = (s, c, over = 1.5) => (over ? s.all(...CAMK.map((k) => s.move(k, c[k], { over, ease: "inOut" }))) : s.all(...CAMK.map((k) => s.set(k, c[k]))));
+  const wide = (s, over = 1.5) => view(s, CAM0, over);
+  const SH = {
+    lina: CAM([0.2, 5.6, 1.5], [-1.0, 7.6, 1.5]),
+    palms: CAM([0.6, 5.2, 1.2], [-1.0, 6.9, 0.7]),
+    letter: CAM([0.6, 5.8, 1.55], [-0.9, 7.6, 1.5]),
+    maples: CAM([2.0, 6.4, 1.6], [4.6, 12.0, 1.2]),
   };
-  const wide = (s) => s.set("camera_target", null);
   const LINA = [-1.0, 7.6];
 
   return {
@@ -248,7 +255,7 @@ function FILM(scene) {
         await t.turn(240);
         l.look("traveller");
         t.look("lina");
-        shot(s, "lina", "medium");
+        view(s, SH.lina);
         s.tell("water:meet");
         await s.wait(3);
         wide(s);
@@ -266,7 +273,7 @@ function FILM(scene) {
         l.do("kneel_water");
         t.look([-2.2, 6.6, -0.3]);
         l.look([-2.2, 7.6, -0.3]);
-        shot(s, "traveller", "medium");
+        view(s, SH.palms);
         s.tell("palms:kneel");
         await s.wait(2);
       },
@@ -277,7 +284,7 @@ function FILM(scene) {
       from: () => merge(CAM0, who("traveller", [0.4, 6.6, 250], "stand", { look: "lina" }), who("lina", [-0.9, 7.6, 120], "write_standing", { with: ["letter"], look: "lina#letter" })),
       run: async (s) => {
         const l = s.person("lina");
-        shot(s, "lina", "medium", 0);
+        view(s, SH.letter, 0);
         s.tell("letter:write");
         await s.wait(4);
         l.do("stand");
@@ -323,7 +330,7 @@ function FILM(scene) {
       from: () => merge(CAM0, who("elzeard", [3.2, 10.2, 250], "stand", { look: "traveller" }), who("traveller", [1.4, 9.4, 115], "stand", { look: "elzeard" })),
       run: async (s) => {
         const e = s.person("elzeard");
-        shot(s, "elzeard", "medium");
+        view(s, SH.maples);
         await e.turn(80);
         e.look("maple_sticks:8");
         e.do("point");
