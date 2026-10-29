@@ -473,6 +473,9 @@ function film(scene) {
     child_b: [-4.1, 11.95, 195], traveller: [1.25, 8.05, 260] };
   // the fountain's rim, right of its pillar: where the Traveller sits in «Рассказ» (the rod leans just right of him)
   const SEAT = [-2.6, 12.42, 0.5];
+  // the pit's group seen whole, nearer: the scene's own camera dollied in (the operator on Lina came in at her side and
+  // cut the spade off the frame)
+  const AT_PIT = { ...CAM0, camera_x: 0.4, camera_z: 4.2 };
 
   return {
     // П.1: the plateau's wind; the Traveller shakes his flask at his ear — empty — and comes on into the square, where
@@ -761,7 +764,8 @@ function film(scene) {
         await s.move("camera_pitch", 0, { over: 2.5 });
         l.look("traveller");
         await l.turn(150);
-        s.camera({ target: "lina", shot: "full", frame: 0.4 });
+        s.move("camera_z", AT_PIT.camera_z, { over: 3 });
+        s.move("camera_x", AT_PIT.camera_x, { over: 3 });
         l.go("beckon", { to: PIT.lina.slice(0, 2), turn: 150 });
         s.tell("alive:call");
         await t.walk([[3.6, 7.2], PIT.traveller.slice(0, 2)]);
@@ -783,7 +787,7 @@ function film(scene) {
     // `wet`); Lina presses the earth down with her foot and looks up at its leaves — close
     planted: {
       after: ["alive"], tells: ["planted:look"], seconds: 12,
-      from: () => merge(cam("lina", "full", 0.4), SQUARE0, { stump: "dug" },
+      from: () => merge(AT_PIT, SQUARE0, { stump: "dug" },
         who("lina", PIT.lina, "stand", { look: "stump#top" }), who("neighbour_a", PIT.neighbour_a, "stand", { look: "stump#top" }),
         who("neighbour_b", PIT.neighbour_b, "stand", { look: "traveller" }),
         who("child_a", PIT.child_a, "stand", { look: "fountain#fall" }), who("child_b", PIT.child_b, "stand", { look: "fountain#fall" }),
