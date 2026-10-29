@@ -11,7 +11,9 @@
   история — `docs/history/2026-10-29-zverinec-stage3.md`. Павел стадии 3–5 между собой не смотрит (2026-10-29).
 - Стадия 4 (все сцены) — идёт: `r3/menagerie-square` (площадь, варианты двора, кухни, палаты) и
   `r3/menagerie-rooms` (комната Джека, чердак) — обе влиты в игру.
-- Стадия 5 (вся игра) — по контракту `game.md`, «Stage 5 — pieces».
+- Стадия 5 (вся игра) — по контракту `game.md`, «Stage 5 — pieces». Куски кухни, двора, комнаты Джека и чердака —
+  ветка `r3/menagerie-pieces-a` (модули мира `beats` и `paper`; блоки «Contract for the check» в notes.md сцен);
+  история — `docs/history/2026-10-29-zverinec-pieces-a.md`.
 
 Адрес игры в студии: `moood-me/works-007-29-finished-scenarios@r3/menagerie-game:games/the-paper-menagerie`
 (страница игры — `http://localhost:8080/games/<адрес>`, «Play it»).
