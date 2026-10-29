@@ -463,7 +463,11 @@ function film(scene) {
     who("father", FATHER, loop("load_sack"), { look: "cart#bed" }));
   // 2.1: dawn at the empty house at the edge — the Traveller sitting up on its threshold, Jan by the wall left of the
   // door (edge_front#door; the front faces 235)
-  const SILL = [8.11, 12.55], JAN_WALL = [7.3, 13.6, 144];
+  const SILL = [8.11, 12.55], JAN_WALL = [7.3, 13.6, 170];
+  // the scene's own camera set there (the operator would go round to the wall): from the square's right, looking at
+  // the doorway; and at the mound: from beside Lina's father's house, the mound before the Traveller
+  const AT_DOOR = { ...CAM0, camera_x: 5.5, camera_z: 8.5, camera_yaw: 26 };
+  const AT_MOUND = { ...CAM0, camera_x: -6.0, camera_z: 14.5, camera_yaw: -16 };
   // the epilogue: the pit on the square, Lina left of it, the neighbours round it, the children at the fountain
   const PIT = { lina: [-0.4, 8.7, 120], neighbour_a: [0.3, 9.7, 175], neighbour_b: [1.35, 9.0, 235], child_a: [-2.8, 11.9, 160],
     child_b: [-4.1, 11.95, 195], traveller: [1.25, 8.05, 260] };
@@ -475,7 +479,7 @@ function film(scene) {
     // Lina stands by the stump with her mug
     flask: {
       after: [], tells: ["flask:shake"], seconds: 14,
-      from: () => merge(cam("traveller", "medium"), SQUARE0, { home_door: 120 },
+      from: () => merge(cam("traveller", "full", 0.45), SQUARE0, { home_door: 120 },
         who("traveller", [4.6, 5.4, 205]), who("lina", LINA, "stand", { look: "stump#top" })),
       run: async (s) => {
         const t = s.person("traveller");
@@ -670,18 +674,18 @@ function film(scene) {
     // pocket («Пять лет я записывал мёртвых…» — and the talk); he stays, facing the Traveller
     by_door: {
       after: [], tells: ["by_door:tie", "by_door:pat"], seconds: 14,
-      from: () => merge(cam("jan", "full", 0.4), { dawn: 1 }, SQUARE0,
+      from: () => merge(AT_DOOR, { dawn: 1 }, SQUARE0,
         who("traveller", [...SILL, 250], loop("sit_stone"), { on: [...SILL, 0.12], look: "jan" }),
-        who("jan", JAN_WALL, loop("tie_bag"), { look: [7.4, 13.2, 0] })),
+        who("jan", JAN_WALL, loop("tie_bag"), { look: [7.4, 13.1, 0] })),
       run: async (s) => {
         const j = s.person("jan");
         s.tell("by_door:tie");
         await s.wait(4);
         j.do("stand");
         await s.wait(0.6);
+        await j.turn(144);
         j.look("traveller");
         j.reach({ r: "jan#chest" });
-        s.camera({ target: "jan", shot: "medium" });
         s.tell("by_door:pat");
         await s.wait(1.5);
         j.reach(null);
@@ -691,12 +695,11 @@ function film(scene) {
     // 2.1 end: Jan goes off down the road toward the plateau's edge and is gone; the Traveller watches him go
     jan_goes: {
       after: ["by_door"], tells: ["jan_goes:gone"], seconds: 12,
-      from: () => merge(cam("jan", "medium"), { dawn: 1 }, SQUARE0,
+      from: () => merge(AT_DOOR, { dawn: 1 }, SQUARE0,
         who("traveller", [...SILL, 250], loop("sit_stone"), { on: [...SILL, 0.12], look: "jan" }),
-        who("jan", JAN_WALL, "stand", { look: "traveller" })),
+        who("jan", [JAN_WALL[0], JAN_WALL[1], 144], "stand", { look: "traveller" })),
       run: async (s) => {
         const j = s.person("jan");
-        s.camera({ target: null, glide: 2 });
         await j.walk([[8.6, 10.6], [11.6, 7.0], [15.5, 2.5]]);
         j.here(false);
         s.tell("jan_goes:gone");
@@ -716,15 +719,15 @@ function film(scene) {
         t.do("stand");
         await s.wait(0.6);
         t.look("grave#mound");
+        s.cut(CAM0);
         await t.walk([[5.2, 13.0], [0.5, 16.5], [-4.5, 20.6], [-7.6, 20.2]]);
         await t.turn(143);
-        s.camera({ target: "traveller", shot: "full", frame: 0.4 });
+        s.cut(AT_MOUND);
         s.tell("haze:mound");
         await s.wait(3);
         await t.turn(20);
         t.look(SLOPE);
-        s.camera({ target: null, glide: 3 });
-        s.move("camera_pitch", 7, { over: 4 });
+        s.move("camera_pitch", 12, { over: 4 });
         s.tell("haze:leaves");
         await s.wait(4);
       },
