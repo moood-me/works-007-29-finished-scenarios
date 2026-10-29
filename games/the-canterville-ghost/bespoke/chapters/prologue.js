@@ -22,13 +22,13 @@ export default {
       await g.say('mrs_otis', 'I am afraid something has been spilt there');
       await g.plate(tr('Before the hearth, on the floor, a dark red stain.'));
       g.mood('virginia', 'afraid');
-      await g.say('umney', 'Blood, madam. Lady Eleanore’s. Her own husband, Sir Simon, murdered her on this very spot. In fifteen hundred and seventy-five', { how: 'quietly, as if he might hear' });
-      await g.say('umney', 'The stain cannot be washed out. And his room is the Tapestry Chamber, upstairs. Nobody goes there');
+      await g.say('mrs_umney', 'Blood, madam. Lady Eleanore’s. Her own husband, Sir Simon, murdered her on this very spot. In fifteen hundred and seventy-five', { how: 'quietly, as if he might hear' });
+      await g.say('mrs_umney', 'The stain cannot be washed out. And his room is the Tapestry Chamber, upstairs. Nobody goes there');
       await g.plate(tr('Washington is already on his knees by the hearth with a little black stick.'));
       await g.say('washington', 'Pinkerton’s Champion Stain Remover. It will clean up anything');
       await g.plate(tr('He rubs. The stain is gone. Lightning — and thunder through the whole house. Mrs Umney sinks into an armchair in a faint.'));
-      await g.say('twin_a', 'Hurrah!');
-      await g.say('twin_b', 'Hurrah!');
+      await g.say('twin_star', 'Hurrah!');
+      await g.say('twin_stripes', 'Hurrah!');
     },
     // П.3–П.4: the window; ⚑ the face
     async g => {

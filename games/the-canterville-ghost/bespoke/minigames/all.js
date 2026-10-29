@@ -13,7 +13,7 @@ export const glass = stub({ title: tr('The Window'), gesture: STILL, at: 'virgin
   about: tr('Six seconds of lightning: look at the dark window and touch nothing — and in the glass, behind the family’s backs, an old face with eyes like coals looks at the clean floor. Touched — the lightning goes out sooner, and she will say “There was someone… I think.” Alone in seeing it.'),
   phrase: tr('Everyone is laughing. The window is dark, and the rain lashes it.') });
 // chapter I
-export const door = stub({ title: tr('The Door'), gesture: PULL, at: 'virginia#chest',
+export const door = stub({ title: tr('The Door'), gesture: PULL, at: 'door_virginia',
   about: tr('Open her door a crack, slowly, so that it does not creak. Too quick — it creaks, and the ghost turns at the sound and looks into the crack with burning eyes. Fear and curiosity at one o’clock at night.'),
   phrase: tr('In the corridor: chains, steps, a groan. Light under her door.') });
 export const sketch = stub({ title: tr('The Sketch'), gesture: TRACE, at: 'virginia#chest',

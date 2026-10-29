@@ -11,7 +11,7 @@
 // the Garden of Death.
 // Reads: choices.wall, choices.hunger, choices.trap, choices.goodnight, scales. Leaves: choices.name, choices.door,
 // marks.name, marks.door, marks.word.
-import { LIBRARY, OTIS, facts } from '../story.js';
+import { LIBRARY, OTIS, CORRIDOR, CHAMBER, facts } from '../story.js';
 import { hand, release, word, tiptoe, threshold, shoulder } from '../minigames/all.js';
 
 export default {
@@ -47,7 +47,7 @@ export default {
       await g.scene('library', { here: ['otis', 'virginia'], moods: { otis: 'thinking', virginia: 'sad' }, keys: LIBRARY.evening });
       await g.say('otis', 'We are going to London. Tomorrow morning, all of us');
       await g.plate(tr('Mrs Otis nods.'));
-      await g.say('twin_a', 'And the ghost?');
+      await g.say('twin_star', 'And the ghost?');
       await g.plate(tr('Nobody answers. Washington sits down beside her on the window-sill, without a word, turning his little black stick in his fingers.'));
     },
     // 4.2 the house looking for her | 4С.2 the word
@@ -75,7 +75,7 @@ export default {
         await g.plate(tr('Hoofbeats in the yard: Papa and Cecil gallop off to the gypsy camp. Mrs Otis sits in the hall in her shawl, and does not get up.'));
         return;
       }
-      await g.scene('corridor', { here: ['otis', 'virginia'], moods: { otis: 'neutral', virginia: 'sad' }, keys: OTIS });
+      await g.scene('corridor', { here: ['otis', 'virginia'], moods: { otis: 'neutral', virginia: 'sad' }, keys: CORRIDOR.word });
       await g.plate(tr('At her door.'));
       await g.say('otis', 'Promise me: never alone. Not to him, not after him');
       await g.plate(tr('He holds out his hand.'));
@@ -96,7 +96,7 @@ export default {
         await pray(g);
         return;
       }
-      await g.scene('corridor', { here: ['otis', 'virginia'], moods: { otis: 'tired', virginia: 'neutral' }, keys: OTIS });
+      await g.scene('corridor', { here: ['otis', 'virginia'], moods: { otis: 'eyes_closed', virginia: 'neutral' }, keys: { ...CORRIDOR.farewell, ghost_light: plays ? 1 : 0.4 } });
       await g.plate(tr('Night. Papa is asleep in the armchair, the book on his knees.'));
       g.here('simon', true);
       if (plays) {
@@ -122,7 +122,7 @@ export default {
         await name(g);
         return;
       }
-      await g.scene('corridor', { here: ['otis', 'virginia', 'simon'], moods: { otis: 'tired', virginia: 'sad', simon: 'tired' }, keys: OTIS }, { cut: true });
+      await g.scene('corridor', { here: ['otis', 'virginia', 'simon'], moods: { otis: 'eyes_closed', virginia: 'sad', simon: 'tired' }, keys: { ...CORRIDOR.farewell, ghost_light: plays ? 1 : 0.4 } }, { cut: true });
       await g.plate(tr('She stands on the threshold; his light is going away down the corridor.'));
       const door = await g.choose('door', { 'virginia#chest': [
         { id: 'pass', label: tr('Walk past Papa') },
@@ -195,9 +195,9 @@ export default {
         await g.say('virginia', 'Papa, I have been with the ghost. He is dead. Come');
         if (named) await g.say('virginia', 'He said her name');
         else await g.say('virginia', 'He was a very wicked man. I prayed for him');
-        await g.scene('chamber', { here: ['virginia'], moods: { virginia: 'sad' } });
+        await g.scene('chamber', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], keys: CHAMBER.family });
         await g.plate(tr('With candles — behind the panel, into the secret chamber. A skeleton chained to an iron ring, in the patch of moonlight from the little window; its fingers stretch toward an old trencher and ewer that stand just out of reach. Virginia kneels down.'));
-        await g.say('twin_a', 'The almond! The dry almond has blossomed!', { how: 'at the little window, astonished, not loud' });
+        await g.say('twin_star', 'The almond! The dry almond has blossomed!', { how: 'at the little window, astonished, not loud' });
         await g.plate(tr('In the moonlight the tree is white.'));
         if (warned) await g.plate(tr('In the casket, old jewels — and on top of them, her candle-end.'));
         else await g.plate(tr('In the casket, old jewels.'));
@@ -206,7 +206,7 @@ export default {
       if (door !== 'pass') return;
       await g.scene('death', { here: ['simon', 'virginia'], moods: { simon: 'tired', virginia: 'sad' } }, { cut: true });
       await tears(g);
-      await g.scene('corridor', { here: ['otis'], moods: { otis: 'tired' }, keys: OTIS });
+      await g.scene('corridor', { here: ['otis'], moods: { otis: 'eyes_closed' }, keys: CORRIDOR.woken });
       await g.plate(tr('The clock strikes — and the whole house falls silent at once.'));
       g.mood('otis', 'afraid');
       await g.plate(tr('The silence wakes Papa: the armchair, the open door, the empty bed. He wakes no one.'));
@@ -221,7 +221,7 @@ export default {
       await g.wait(2000);
       await g.say('otis', 'Show me');
       await g.plate(tr('He does not give her his hand.'));
-      await g.scene('chamber', { here: ['virginia'], moods: { virginia: 'sad' } });
+      await g.scene('chamber', { here: ['virginia', 'otis'], moods: { virginia: 'sad', otis: 'sad' }, keys: CHAMBER.father });
       await g.plate(tr('She leads him behind the tapestry, down a narrow passage in the wall, into the secret chamber — the one behind the panel on the stair landing: the skeleton, the trencher, the ewer. Papa stands in the doorway with his candle while she prays on her knees.'));
       await g.plate(tr('In the little window — the almond, in white blossom.'));
       if (warned) await g.plate(tr('In the casket, jewels — and on top of them, her candle-end.'));

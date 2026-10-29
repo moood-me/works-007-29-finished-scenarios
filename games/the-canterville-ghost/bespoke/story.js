@@ -46,18 +46,21 @@
 
 // The game's places (scenario §4) and the world's scene each is played on — the one map of them: a place whose own
 // scene is not made yet stands in one of the ready ones, its people there, and `where` says (a label high on the left)
-// where it really is. When the place's own scene comes (stage 5), its line here becomes `{ folder: '<its folder>' }`
-// — nothing else changes: the steps name places, never folders. (The library is also the map's background, game.js.)
+// where it really is. When the place's own scene comes, its line here becomes `{ folder: '<its folder>' }` — nothing
+// else changes: the steps name places, never folders. (The library is also the map's background, game.js.)
 export const PLACES = {
   library: { folder: 'library' }, // С1 the library
-  corridor: { folder: 'library', where: tr('In truth: the corridor upstairs — long, in moonlit windows; a suit of armour on its stand and a little table beside it; the bedroom doors; at its end, the door of the Tapestry Chamber.') }, // С2
+  corridor: { folder: 'corridor' }, // С2 the corridor
   tapestry: { folder: 'tapestry' }, // С3 the Tapestry Chamber
-  dark: { folder: 'tapestry', where: tr('In truth: the dark behind the wall — nothing but his pale light, and her face and hands in it.') }, // С3, behind its tapestry
+  // «the dark behind the wall» (4.1, 4С.5): the Tapestry Chamber with its wall open, the camera in the opening (its
+  // keys `wall`, `dark`, `shapes` — the pieces' contract, game.md); till those come, said by the label
+  dark: { folder: 'tapestry', where: tr('In truth: the dark behind the wall — nothing but his pale light, and her face and hands in it.') },
   death: { folder: 'garden' }, // С4 the Garden of Death
-  chamber: { folder: 'garden', where: tr('In truth: the secret chamber — low, of stone; an iron ring in the wall, a chain, a skeleton; an old trencher and ewer just out of its reach; the moon through a little window.') }, // С5
-  grounds: { folder: 'garden', where: tr('In truth: the garden by the house — the old dry almond tree, the lawn, the avenue to the gates; beyond the railings, the churchyard and its old yew.') }, // С6
-  hall: { folder: 'library', where: tr('In truth: the hall — the great staircase and its landing, the clock, an armchair at the foot of the stairs, the window onto the pond, the front door.') }, // С7
+  chamber: { folder: 'chamber' }, // С5 the secret chamber
+  grounds: { folder: 'castle-garden' }, // С6 the garden by the castle
+  hall: { folder: 'library', where: tr('In truth: the hall — the great staircase and its landing, the clock, an armchair at the foot of the stairs, the window onto the pond, the front door.') }, // С7 (its scene is being made)
 };
+
 // The library's own hours (its keys: the fire, Mr Otis's lamp) — given only where the place is the library itself; and
 // Mr Otis without the bottle of oil the scene puts in his hand (he holds it out only in 1.2): `otis_with`, a person's key
 const BARE = { otis_with: [] };
@@ -67,6 +70,54 @@ export const LIBRARY = {
   night: { fire: 0.3, lamp: 1, ...BARE },
 };
 export const OTIS = BARE;
+
+// The places' moments (each scene's notes.md: its rows of the scenario's moments) — the keys that put the scene there
+// (with `here`, the people the step names). Only the scene's own keys and its people's.
+// the corridor at night: Sir Simon far at its end (his light kept 0.6 m before him: ghost_d = simon_d − 0.6)
+const FAR = { simon_a: 0, simon_d: 12.4, ghost_d: 11.8, ghost_light: 1 };
+export const CORRIDOR = {
+  // 1.1: one at night, her door shut, he far down the corridor
+  chains: { ...FAR, door_virginia: 270, door_parents: 90 },
+  // 1.2: the default (one at night: he in the middle, Mr Otis in his doorway with the bottle and a candle, she at her door ajar)
+  oil: {},
+  // 1.6 «заперла»: he walking by her shut door in the dark
+  pacing: { simon_a: 0.6, simon_d: 6.6, ghost_d: 6, door_virginia: 270, door_parents: 90 },
+  // 1.6 «сказала»: the corridor at night, everyone in their rooms
+  night: { door_virginia: 270, door_parents: 90, ghost_light: 0 },
+  // 2.4: the evening, the boys making the turnip ghost at the corner, Virginia level with them across the corridor
+  evening: { evening: 1, sconces: 1, spook: 'making', ghost_light: 0, door_parents: 90,
+    twin_star_a: -1.5, twin_star_d: 7.2, washington_a: -1.25, washington_d: 8.9, twin_stripes_a: -0.45, twin_stripes_d: 8.3,
+    virginia_a: 0.9, virginia_d: 7.6, virginia_with: [], virginia_candle: 0 },
+  // 2.5: midnight, the turnip ghost at the corner, Sir Simon out of the corner looking at it, the boys behind the twins' door
+  midnight: { spook: 'standing', simon_a: -1.7, simon_d: 9.4, ghost_d: 8.8, ghost_light: 1, door_twins: 300, door_parents: 90, simon_look: 'spook#turnip' },
+  // the next morning
+  morning: { evening: 1, sconces: 0, ghost_light: 0, door_parents: 90, twin_star_a: -0.3, twin_star_d: 9, twin_stripes_a: 0.4, twin_stripes_d: 10.5 },
+  // 4С.2: the evening, the armchair at her door, Mr Otis by it, she in her doorway
+  word: { evening: 1, sconces: 1, armchair: true, ghost_light: 0, otis_a: 1.2, otis_d: 6, otis_with: [], otis_candle: 0, virginia_a: 1.8, virginia_d: 6.3, virginia_with: [], virginia_candle: 0, door_virginia: 330, door_parents: 90 },
+  // 4С.3–4С.4: night, Mr Otis asleep in the armchair, Sir Simon at the far end, she at her open door
+  farewell: { ...FAR, armchair: true, otis_on: [1.4, 7.32, 0.45], otis_do: 'doze', otis_with: ['book'], otis_candle: 0, virginia_a: 1.7, virginia_d: 6.2, virginia_with: [], virginia_candle: 0, door_virginia: 330, door_parents: 90 },
+  // 4С.5: the silence wakes him — the armchair, her door open, nobody
+  woken: { armchair: true, otis_on: [1.4, 7.32, 0.45], otis_do: 'doze', otis_with: ['book'], otis_candle: 0, door_virginia: 360, door_parents: 90, ghost_light: 0 },
+  // the epilogue's nights: the armchair at her door («Миндаль»), or none («Свеча»)
+  chair: { armchair: true, otis_on: [1.4, 7.32, 0.45], otis_do: 'doze', otis_with: ['book'], otis_candle: 0, virginia_a: 1.7, virginia_d: 6.2, virginia_with: [], virginia_candle: 0, door_virginia: 300, door_parents: 90, ghost_light: 0 },
+  empty: { door_virginia: 330, door_parents: 90, ghost_light: 0, virginia_a: 1.7, virginia_d: 6.2, virginia_with: [], virginia_candle: 0 },
+};
+// the garden by the castle
+const AUTUMN_NIGHT = { night: 1, autumn: 1, almond: 'blossom', easel: false };
+export const GROUNDS = {
+  paint: {}, // 1.5: the default — a summer morning, Virginia at her easel, Mrs Umney passing
+  idle: { virginia_on: [3.35, 6.35, 0.45], virginia_do: 'brood', virginia_with: null }, // 2.6, Cecil on the grass by her
+  // the funeral («Миндаль», «Свеча»): night, autumn, the almond in blossom, the coffin, the torches, the clouds over the moon
+  funeral: { ...AUTUMN_NIGHT, funeral: true, grave: 'open', torches: 1, clouds: 1, virginia_a: 0.25, virginia_d: 7.2,
+    virginia_do: 'clasped', virginia_with: ['almond_cross'], virginia_look: 'coffin#lid', washington_with: ['torch'], torch_held: 1 },
+  // «Свеча»: Mr Otis apart with a candle
+  apart: { otis_with: ['candle'], candle: 1, otis_do: 'offer' },
+  years: { night: 0, autumn: 1, almond: 'blossom', easel: false, grave: 'mound', cross: true },
+  last: { ...AUTUMN_NIGHT, grave: 'mound', cross: true },
+  coaches: { autumn: 1, easel: false, coaches: true, coach_d: 30 },
+};
+// the secret chamber: its key `moment` (its script places the people)
+export const CHAMBER = { family: { moment: 'family' }, father: { moment: 'father' } };
 
 // The scales (scenario §8), each with two sides: where they start, their bounds, its name in the gauge, its two ends
 // (`sides`: the left one, the right one), the side the player reads when it moves (up: delta > 0, down: delta < 0),

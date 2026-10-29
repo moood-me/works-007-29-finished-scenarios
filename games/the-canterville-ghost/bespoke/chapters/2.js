@@ -3,7 +3,7 @@
 // trap; he takes to his bed; a sleepless night in the library — “One may pity anyone. Paying his debts — no.”
 // Stand-ins (story.js PLACES): the corridor — the library; the garden by the house — the Garden of Death.
 // Reads: choices.paints. Leaves: choices.trap, marks.trap, scales.
-import { LIBRARY, OTIS, facts } from '../story.js';
+import { LIBRARY, CORRIDOR, GROUNDS, facts } from '../story.js';
 import { candle, portrait } from '../minigames/all.js';
 
 export default {
@@ -26,13 +26,13 @@ export default {
         g.here('virginia', false);
       } else if (paints === 'lock') {
         await g.plate(tr('Breakfast. The floor is clean.'));
-        await g.say('twin_a', 'Boring');
+        await g.say('twin_star', 'Boring');
         await g.say('otis', 'Our guest seems to have given up');
         g.mood('virginia', 'sad');
         await g.plate(tr('Virginia looks at the clean floor.'));
       } else {
         await g.plate(tr('Breakfast. The twins show how they fired:'));
-        await g.say('twin_b', 'Right in the knee!');
+        await g.say('twin_stripes', 'Right in the knee!');
         g.mood('virginia', 'thinking');
         await g.plate(tr('Washington winks at Virginia; she does not wink back.'));
       }
@@ -55,16 +55,16 @@ export default {
     },
     // 2.4: the turnip
     async g => {
-      await g.scene('corridor', { here: ['virginia'], moods: { virginia: 'thinking' }, keys: OTIS });
+      await g.scene('corridor', { here: ['virginia', 'washington', 'twin_star', 'twin_stripes'], moods: { virginia: 'thinking', washington: 'smile', twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.evening });
       await g.plate(tr('Evening. At the corner of the corridor the twins and Washington are at work in whispers: a white sheet, a hollow turnip with a candle inside it, a kitchen knife, a placard:'));
       await g.plate(tr('“THE OTIS GHOST. The Only True and Original Spook. Beware of Imitations. All Others Are Counterfeit.”'));
       await g.plate(tr('Virginia is walking past.'));
-      await g.say('twin_a', 'Ginny, not a word to anyone! He walks here every night — he’ll run away from himself!', { how: 'a loud excited whisper' });
+      await g.say('twin_star', 'Ginny, not a word to anyone! He walks here every night — he’ll run away from himself!', { how: 'a loud excited whisper' });
       await g.say('washington', 'Come and watch. From behind the door', { how: 'in a whisper, grinning' });
     },
     // 2.5: ⚑ the trap
     async g => {
-      await g.scene('corridor', { here: ['virginia'], moods: { virginia: 'thinking' }, keys: OTIS }, { cut: true });
+      await g.scene('corridor', { here: ['virginia', 'washington', 'twin_star', 'twin_stripes'], moods: { virginia: 'thinking', washington: 'smile', twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.evening }, { cut: true });
       const trap = await g.choose('trap', { 'virginia#chest': [
         { id: 'warn', label: tr('Warn him') },
         { id: 'watch', label: tr('Watch with the boys') },
@@ -80,13 +80,13 @@ export default {
         await g.say('simon', 'Young lady. Ghosts do not change their routes', { at: 'narrator', how: 'from inside the wall, deeply offended' });
         g.mood('virginia', 'sad');
         await g.plate(tr('She leaves the candle-end on the window-sill.'));
-        await g.scene('corridor', { here: ['simon'], moods: { simon: 'disgusted' }, keys: OTIS });
+        await g.scene('corridor', { here: ['simon'], moods: { simon: 'disgusted' }, keys: CORRIDOR.midnight });
         await g.plate(tr('Midnight. He comes down the corridor, stops at the corner, looks the glowing turnip over, runs a finger along the placard, snorts — and walks past. Behind the door the twins groan with vexation.'));
         await g.scene('library', { here: ['virginia'], moods: { virginia: 'neutral' }, keys: LIBRARY.morning });
         await g.plate(tr('In the morning Washington looks at his sister.'));
         await g.say('washington', 'Somebody told him');
       } else if (trap === 'watch') {
-        await g.scene('corridor', { here: ['simon', 'virginia'], moods: { simon: 'afraid', virginia: 'thinking' }, keys: OTIS });
+        await g.scene('corridor', { here: ['simon'], moods: { simon: 'afraid' }, keys: CORRIDOR.midnight });
         await g.plate(tr('Midnight. She is behind the door with them. He comes round the corner — and before him stands a ghost with a glowing head and a knife.'));
         await g.plate(tr('A shriek. He backs away with his hands up and runs to his room.'));
         g.here('simon', false);
@@ -96,12 +96,12 @@ export default {
         await g.plate(tr('— and claps her hand over her mouth.'));
       } else {
         await g.say('virginia', 'He is old. Leave him alone');
-        await g.say('twin_a', 'Ginny’s on the ghost’s side!');
+        await g.say('twin_star', 'Ginny’s on the ghost’s side!');
         await g.say('washington', 'He killed his wife, Ginny', { how: 'suddenly serious, short' });
         await g.say('virginia', 'I know');
         await g.plate(tr('She goes to her room. At midnight, through the wall — a shriek, and her brothers’ laughter.'));
         await g.plate(tr('Next morning the twins gallop down the corridor past the Tapestry Chamber:'));
-        await g.say('twin_b', 'Ginny’s on the ghost’s side! “He’s o-old!”', { how: 'sing-song, teasing, at the top of his voice' });
+        await g.say('twin_stripes', 'Ginny’s on the ghost’s side! “He’s o-old!”', { how: 'sing-song, teasing, at the top of his voice' });
       }
       g.apply('trap');
     },
@@ -118,7 +118,7 @@ export default {
         await g.plate(tr('Only you see this. He sits before the hollow turnip with its placard — he took it from the corner at dawn — and shakes his chain. The chain does not ring.'));
       }
       await g.say('narrator', 'He took to his bed. The stain appeared no more');
-      await g.scene('grounds', { here: ['virginia'], moods: { virginia: 'sad' } });
+      await g.scene('grounds', { here: ['virginia', 'cecil'], moods: { virginia: 'sad', cecil: 'neutral' }, keys: GROUNDS.idle });
       await g.plate(tr('Virginia sits at her easel and does not paint. Cecil sits down beside her on the grass, looks at the empty sheet and asks nothing.'));
       await g.wait(1500);
       await g.say('cecil', 'Shall we ride?');

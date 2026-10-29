@@ -6,7 +6,7 @@
 // Stand-ins (story.js PLACES): the corridor and the hall — the library; the garden by the house and the churchyard — the
 // Garden of Death.
 // Reads: the path, choices.name, choices.paints, choices.trap, choices.goodnight, choices.door, scales.
-import { ENDINGS, LIBRARY, OTIS, facts } from '../story.js';
+import { ENDINGS, LIBRARY, OTIS, CORRIDOR, GROUNDS, facts } from '../story.js';
 
 const label = id => ENDINGS.find(e => e.id === id).label;
 
@@ -18,7 +18,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.ending === 'almond') {
-        await g.scene('corridor', { here: ['otis', 'virginia'], moods: { otis: 'tired', virginia: 'sad' }, keys: OTIS });
+        await g.scene('corridor', { here: ['otis', 'virginia'], moods: { otis: 'tired', virginia: 'sad' }, keys: CORRIDOR.chair });
         g.title(label('almond'));
         await g.plate(tr('The night after her return. Papa sets an armchair at her door and sits down in it with a book. He asks her nothing.'));
         await g.say('narrator', 'Mr Otis had slept badly before. From that night until they left Canterville he did not sleep at all');
@@ -40,7 +40,7 @@ export default {
           await g.say('washington', 'Ginny?');
           await g.plate(tr('She says nothing; Papa says nothing too. Her mother looks from one to the other.'));
         }
-        await g.scene('corridor', { here: ['virginia'], moods: { virginia: 'sad' }, keys: OTIS });
+        await g.scene('corridor', { here: ['virginia'], moods: { virginia: 'sad' }, keys: CORRIDOR.empty });
         await g.plate(tr('At night she opens her door: no armchair; the corridor is empty.'));
         await g.scene('library', { here: ['otis'], moods: { otis: 'thinking' }, keys: LIBRARY.night });
         await g.plate(tr('Downstairs, in the library, the lamp: Papa is writing letters. The drawing that stood against his inkstand he has put away in a drawer of his desk.'));
@@ -53,7 +53,7 @@ export default {
           await g.say('otis', 'Leave it. It is his house. At a valuation');
         } else {
           await g.plate(tr('The morning they leave. The floor is clean.'));
-          await g.say('umney', 'It has gone quiet. Quite quiet', { how: 'at the doors, softly, almost sorry' });
+          await g.say('mrs_umney', 'It has gone quiet. Quite quiet', { how: 'at the doors, softly, almost sorry' });
         }
         if (f.paints === 'leave') await g.plate(tr('Virginia leaves her sketch of the dry almond on the window-sill by the library: her paint-box has stood there since that night — she would not let it be cleared away. The sketch goes on top of it.'));
         else await g.plate(tr('Virginia leaves her sketch of the dry almond on the window-sill by the library.'));
@@ -72,7 +72,7 @@ export default {
       const f = facts(g.state);
       if (f.ending === 'almond') {
         if (!f.named) await stain(g);
-        await g.scene('grounds', { here: ['virginia'], moods: { virginia: 'smile' } });
+        await g.scene('grounds', { here: ['virginia', 'cecil'], moods: { virginia: 'smile', cecil: 'smile' }, keys: GROUNDS.years });
         await g.plate(tr('Years later. Virginia is a duchess; she is under the yew with Cecil.'));
         await g.say('cecil', 'You have never told me what happened to you that night');
         await g.say('virginia', 'Don’t ask me, Cecil. He showed me what Life is, and what Death signifies, and why Love is stronger than both');
@@ -80,7 +80,7 @@ export default {
         await g.say('virginia', 'You have always had it');
         await g.say('cecil', 'And you will tell our children some day, won’t you?');
         await g.plate(tr('She blushes.'));
-        await g.scene('grounds', {});
+        await g.scene('grounds', { keys: GROUNDS.last });
         if (f.named) await g.plate(tr('Moonlight on the flowering almond over the grave — and silence.'));
         else await g.plate(tr('Moonlight on the flowering almond over the grave; the nightingale sings.'));
       } else if (f.ending === 'candle') {
@@ -107,7 +107,7 @@ export default {
         }
         if (f.plays) await g.say('narrator', 'They say that at Canterville they still rattle chains at night, and the new owners buy lubricant');
         else await g.say('narrator', 'They say nothing has been heard at Canterville for a long time. Only the Tapestry Chamber is always cold');
-        await g.scene('grounds', {});
+        await g.scene('grounds', { keys: GROUNDS.coaches });
         await g.plate(tr('The carriages go down the avenue past the dry almond tree. It does not blossom.'));
       }
     },
@@ -116,7 +116,8 @@ export default {
 
 // the funeral under the yew: the nightingale — or silence (her name)
 async function funeral(g, f, text) {
-  await g.scene('grounds', { here: ['virginia'], moods: { virginia: 'sad' } });
+  const home = f.ending === 'almond' ? ['otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'] : ['otis'];
+  await g.scene('grounds', { here: ['virginia', ...home], moods: { virginia: 'sad' }, keys: { ...GROUNDS.funeral, ...(f.ending === 'candle' ? GROUNDS.apart : {}) } });
   await g.plate(text);
   if (f.named) await g.plate(tr('No nightingale; quiet — only the torches crackle.'));
   else await g.plate(tr('In the grove a nightingale begins to sing — the same as in the Garden.'));
