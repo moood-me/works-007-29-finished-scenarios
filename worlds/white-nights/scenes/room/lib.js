@@ -206,13 +206,12 @@ function film(scene) {
   const SH = {
     room: CAM0,
     letter: CAM([0.0, 3.5, 1.3], [0.32, 4.38, 0.78]),
-    tea: CAM([0.35, 2.05, 1.45], [0.42, 3.7, 1.15]),
     up: CAM([-0.2, 2.2, 1.5], [0.4, 3.85, 1.1]),
     give: CAM([0.15, 1.55, 1.45], [0.15, 3.3, 1.15]),
     read: CAM([0.2, 2.25, 1.35], [0.55, 3.45, 1.05]),
     corner: CAM([0.1, 2.3, 1.6], [1.3, 4.25, 1.55]),
     last: CAM([-0.45, 1.55, 1.5], [1.1, 4.2, 1.45]),
-    stove: CAM([1.0, 1.45, 1.45], [-0.15, 2.9, 1.15]),
+    stove: CAM([0.3, 0.25, 1.55], [-0.1, 2.4, 1.15]),
     window: CAM([0.45, 2.35, 1.6], [-1.5, 3.65, 1.3]),
     yard: CAM([-1.05, 3.4, 1.75], [-6.0, 4.6, -4.5]),
     sill: CAM([-0.15, 2.7, 1.5], [-1.45, 3.75, 0.95]),
@@ -230,8 +229,8 @@ function film(scene) {
 
   const SEAT = [0.6, 3.45, 220], SEAT_H = 0.45;
   const HIDE = [-0.25, 5.1], PASS = [-1.05, 5.1], IN = [-1.05, 4.4];
-  const TEA = [0.25, 3.85], GIVE = [-0.25, 3.15], HAT = [1.45, 2.92], BRUSH = [-0.45, 4.35], CORNER = [1.2, 4.02];
-  const UNDER = [1.15, 3.95], STOVE = [-0.5, 2.15], WIN = [-0.95, 3.65], BACK = [-0.5, 3.2];
+  const TEA = [0.25, 3.85], ASK = [-0.1, 3.3], GIVE = [-0.25, 3.15], HAT = [1.45, 2.92], BRUSH = [-0.45, 4.35], CORNER = [1.2, 4.02];
+  const UNDER = [1.4, 3.75], STOVE = [-0.72, 1.45], WIN = [-0.95, 3.65], BACK = [-0.5, 3.2];
   const GIVE_AT = [0.2, 3.3, 1.0], WEB = [1.62, 4.52, 2.0], WINDOW_AT = [-1.59, 3.65, 1.4];
   // the room as it is on these mornings, but for what the game says (rain, sun, the cobweb, the dimness)
   const ROOM = { candle: 1, letter_table: false, tea: false, window: 0, wet: 0, coat_drying: false, hat_peg: true, door: 0.6,
@@ -284,8 +283,9 @@ function film(scene) {
         m.gait('old_walk');
         m.look('table_letter#letter');
         await s.wait(1.4);
-        glide(s, SH.tea, 1.5);
-        await m.turn(137);
+        glide(s, SH.give, 2.5);
+        await m.walk([ASK]);
+        await m.turn(105);
         m.look('dreamer');
         s.tell('tea:asks');
         await s.wait(1.5);
@@ -295,8 +295,8 @@ function film(scene) {
     // turns to us and puts it in his inside pocket, at his heart
     pocket: {
       after: ['tea'], tells: ['pocket:out', 'pocket:hidden'], seconds: 18,
-      from: () => merge(ROOM, SH.tea, { letter_table: true, tea: true }, seated({ look: 'matryona' }),
-        who('matryona', [...TEA, 137], 'stand', { gait: 'old_walk', look: 'dreamer' })),
+      from: () => merge(ROOM, SH.give, { letter_table: true, tea: true }, seated({ look: 'matryona' }),
+        who('matryona', [...ASK, 105], 'stand', { gait: 'old_walk', look: 'dreamer' })),
       run: async s => {
         const m = s.person('matryona'), d = s.person('dreamer');
         m.look(WEB);
@@ -305,7 +305,7 @@ function film(scene) {
         glide(s, SH.room, 3);
         s.move('door', 0.95, { over: 1.2 });
         d.look('matryona');
-        await m.walk([[-0.4, 3.95], IN, PASS, HIDE]);
+        await m.walk([[-0.6, 3.9], IN, PASS, HIDE]);
         s.move('door', 0.6, { over: 1.5 });
         s.tell('pocket:out');
         d.look(null);
@@ -415,7 +415,7 @@ function film(scene) {
         m.do('stand');
         m.reach(HOLD);
         await m.turn(200);
-        m.look(WEB);
+        m.look('dreamer');
         await s.wait(1.5);
       },
     },
@@ -433,8 +433,10 @@ function film(scene) {
         s.move('dim', 1, { over: 6, ease: 'inOut' });
         glide(s, SH.room, 3);
         await m.walk([[0.0, 3.98], UNDER]);
-        await m.turn(130);
-        m.look(WEB);
+        await m.turn(200);
+        m.look('dreamer');
+        await s.wait(1.5);
+        m.look('dreamer');
         await s.wait(2);
       },
     },
@@ -442,7 +444,7 @@ function film(scene) {
     // or the bare corner — and him seated before us
     minute: {
       after: ['sweep', 'leave'], tells: ['minute:last'], seconds: 10,
-      from: () => merge(ROOM, SH.room, seated({ look: [-0.3, 2.0, 1.05] }), who('matryona', [...UNDER, 130], 'stand', { gait: 'old_walk', look: WEB })),
+      from: () => merge(ROOM, SH.room, seated({ look: [-0.3, 2.0, 1.05] }), who('matryona', [...UNDER, 200], 'stand', { gait: 'old_walk', look: 'dreamer' })),
       run: async s => {
         const d = s.person('dreamer');
         if ((s.get('dreamer_with') ?? []).includes('letter_open')) d.look('dreamer#letter_open');
@@ -501,7 +503,7 @@ function film(scene) {
     stove: {
       after: [], tells: ['stove:hung'], seconds: 6,
       from: () => merge(ROOM, SH.stove, { coat_drying: true }, seated({ look: WINDOW_AT, wear: V.dreamer_robe ?? null }),
-        who('matryona', [...STOVE, 270], 'stand', { gait: 'old_walk', look: 'stove#nail' })),
+        who('matryona', [...STOVE, 255], 'stand', { gait: 'old_walk', look: 'stove#nail' })),
       run: async s => {
         const m = s.person('matryona');
         await m.do('hang');
@@ -533,7 +535,7 @@ function film(scene) {
     to_window: {
       after: ['stove', 'nothing'], tells: ['to_window:hands'], seconds: 9,
       from: () => merge(ROOM, SH.room, { coat_drying: !!scene.get('coat_drying') }, seated({ look: WINDOW_AT, wear: robe() }),
-        scene.get('coat_drying') ? who('matryona', [...STOVE, 270], 'stand', { gait: 'old_walk', look: 'coat_dry' })
+        scene.get('coat_drying') ? who('matryona', [...STOVE, 255], 'stand', { gait: 'old_walk', look: 'coat_dry' })
           : who('matryona', [...IN, 150], 'stand', { gait: 'old_walk', look: 'dreamer' })),
       run: async s => {
         const d = s.person('dreamer'), m = s.person('matryona');
@@ -556,7 +558,7 @@ function film(scene) {
       after: ['to_window'], tells: ['matryona_opens:open'], seconds: 14,
       from: () => merge(ROOM, SH.window, { coat_drying: !!scene.get('coat_drying') },
         who('dreamer', [...WIN, 270], 'stand', { look: 'window#latch', wear: robe(), reach: { r: 'leaf_far#latch', l: 'leaf_near#latch' } }),
-        scene.get('coat_drying') ? who('matryona', [...STOVE, 270], 'stand', { gait: 'old_walk', look: 'dreamer' })
+        scene.get('coat_drying') ? who('matryona', [...STOVE, 255], 'stand', { gait: 'old_walk', look: 'dreamer' })
           : who('matryona', [...IN, 150], 'stand', { gait: 'old_walk', look: 'dreamer' })),
       run: async s => {
         const d = s.person('dreamer'), m = s.person('matryona');
@@ -587,7 +589,7 @@ function film(scene) {
       after: ['to_window', 'matryona_opens'], tells: ['opened:yard', 'opened:last'], seconds: 18,
       from: () => merge(ROOM, SH.window, { coat_drying: !!scene.get('coat_drying') },
         who('dreamer', [...WIN, 270], 'stand', { look: 'window#latch', wear: robe(), reach: { r: 'leaf_far#latch', l: 'leaf_near#latch' } }),
-        scene.get('coat_drying') ? who('matryona', [...STOVE, 270], 'stand', { gait: 'old_walk', look: 'dreamer' })
+        scene.get('coat_drying') ? who('matryona', [...STOVE, 255], 'stand', { gait: 'old_walk', look: 'dreamer' })
           : who('matryona', [...IN, 150], 'stand', { gait: 'old_walk', look: 'dreamer' }),
         who('yard_man', [-4.0, -3, 0], 'stand'), who('yard_woman', [-5.6, 12.5, 180], 'stand')),
       run: async s => {
