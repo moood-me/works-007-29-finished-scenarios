@@ -1,4 +1,6 @@
-// A tuft of new green grass by the water: fresh blades from one root, bending in the wind (a layer about its root)
+// A tuft of new green grass by the water: fresh blades from one root, bending in the wind (a layer about its root);
+// none while the stream is dry (`stream` 0)
+if (!e.state.stream) return;
 e.layer("blades", { pivot: [0, 0], wind: { strength: 0.5, gust: 0.5 } }, (g) => {
   g.lineCap = "round";
   for (let i = 0; i < 18; i++) {

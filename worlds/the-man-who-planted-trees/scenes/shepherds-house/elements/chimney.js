@@ -1,4 +1,6 @@
 // The chimney at the gable end: a squat stone stack with a flat capstone; its top is the point `top` the smoke rises from
+// Not there in the epilogue's hut beyond the ridge (`hut`).
+if (e.state.hut) return;
 g.fillStyle = "#a99880";
 g.fillRect(-0.24, -1.4, 0.48, 1.4);
 g.fillStyle = "#8f806a";

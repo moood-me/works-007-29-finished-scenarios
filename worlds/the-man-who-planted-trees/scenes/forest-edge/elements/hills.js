@@ -1,6 +1,8 @@
 // The valley's far side a kilometre and a half off: long green-grey hills, woods on them in darker patches — the
-// plateau greening far beyond the old man's slopes
-g.fillStyle = "#7d8a6c";
+// plateau greening far beyond the old man's slopes (from the third chapter, `year` 20); before, dusty olive-brown and
+// bare
+const green = e.state.year >= 20;
+g.fillStyle = green ? "#7d8a6c" : "#837862";
 g.beginPath();
 g.moveTo(-4000, 5);
 for (let x = -4000; x <= 4000; x += 40) {
@@ -10,6 +12,7 @@ for (let x = -4000; x <= 4000; x += 40) {
 g.lineTo(4000, 5);
 g.closePath();
 g.fill();
+if (!green) return;
 g.clip();
 g.fillStyle = "#677557";
 for (let i = 0; i < 40; i++) {

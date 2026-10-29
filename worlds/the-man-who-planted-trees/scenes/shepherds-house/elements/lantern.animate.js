@@ -1,4 +1,5 @@
-// the lantern sways on its hook: a damped swing pushed by the wind's slow gusts
+// the lantern sways on its hook: a damped swing pushed by the wind's slow gusts (not by the hut: `hut`)
+if (e.state.hut) return;
 const m = e.mem;
 m.a ??= 0;
 m.v ??= 0;

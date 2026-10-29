@@ -1,5 +1,8 @@
 // A lantern hanging from an iron bracket by the door; it swings a little on its hook in the wind (its animate). The
-// flame's light is the scene's lantern_light
+// flame's light is the scene's lantern_light; with the lamp out (`lamp` under a half) its glass is dark. Not there by
+// the hut beyond the ridge (`hut`)
+if (e.state.hut) return;
+const lit = e.state.lamp > 0.5;
 g.strokeStyle = "#2b2622";
 g.lineWidth = 0.025;
 g.beginPath();
@@ -18,15 +21,17 @@ e.layer("lantern", { pivot: [0, -0.56] }, (g) => {
   g.lineTo(0.08, -0.46);
   g.closePath();
   g.fill();
-  g.fillStyle = "#ffd896";
+  g.fillStyle = lit ? "#ffd896" : "#5e5850";
   g.fillRect(-0.065, -0.46, 0.13, 0.22);
   g.fillStyle = "#2b2622";
   g.fillRect(-0.075, -0.46, 0.015, 0.22);
   g.fillRect(0.06, -0.46, 0.015, 0.22);
   g.fillRect(-0.085, -0.25, 0.17, 0.04);
-  g.fillStyle = "#fff4d8";
-  g.beginPath();
-  g.ellipse(0, -0.34, 0.014, 0.035, 0, 0, Math.PI * 2);
-  g.fill();
+  if (lit) {
+    g.fillStyle = "#fff4d8";
+    g.beginPath();
+    g.ellipse(0, -0.34, 0.014, 0.035, 0, 0, Math.PI * 2);
+    g.fill();
+  }
   e.light(0, -0.34, 0.22, "#ffd08a", 1, "flame");
 });

@@ -1,4 +1,6 @@
 // The pen's side wall, running back from the gate
+// Not there by the hut beyond the ridge (`hut`).
+if (e.state.hut) return;
 const STONE = ["#a89a82", "#9d8f78", "#b2a48a", "#93866f"];
 g.fillStyle = "#7c705e";
 g.beginPath();

@@ -1,5 +1,6 @@
 // One of Elzéard's hives at the edge of the oaks: a box of weathered pale boards on a flat stone, a stone slab for its
-// lid, the dark slot of its entrance near the foot
+// lid, the dark slot of its entrance near the foot — while `hives`
+if (!e.state.hives) return;
 g.fillStyle = "#8f8676";
 g.beginPath();
 g.moveTo(-0.36, 0);

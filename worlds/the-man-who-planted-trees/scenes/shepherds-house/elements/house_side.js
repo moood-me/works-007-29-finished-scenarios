@@ -1,4 +1,6 @@
 // The gable end of the house: the same dry-laid stone up to the roof's point (3.9 m), a small square vent under the ridge
+// Not there in the epilogue's hut beyond the ridge (`hut`).
+if (e.state.hut) return;
 g.fillStyle = "#958470";
 g.beginPath();
 g.moveTo(-2.25, 0);

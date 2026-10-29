@@ -1,4 +1,6 @@
 {"strings": [
   {"text":"The Forest Edge","translation":"Опушка","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/scene.json title"},
-  {"text":"The wood everyone says grew by itself.","translation":"Лес, про который все говорят: вырос сам.","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/scene.json caption"}
+  {"text":"The wood everyone says grew by itself.","translation":"Лес, про который все говорят: вырос сам.","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/scene.json caption"},
+  {"text":"Elzéard's Forest","translation":"Лес Эльзеара","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/elements/board.js"},
+  {"text":"Protected. No fires.","translation":"Заповедник. Костров не жечь.","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/elements/board.js"}
 ]}

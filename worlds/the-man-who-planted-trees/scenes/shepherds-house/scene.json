@@ -25,7 +25,44 @@
       1,
       0.1,
       0.7
-    ]
+    ],
+    "looks": {
+      "dawn": {
+        "ambient": 0.92,
+        "ambientColor": "#e2dae8",
+        "tint": "#ffd0a8",
+        "tintStrength": 0.07,
+        "haze": 0.15,
+        "hazeColor": "#d8c6c8",
+        "hazeGlow": 0.4
+      },
+      "day": {
+        "ambient": 1.0,
+        "ambientColor": "#f2ede4",
+        "tint": "#fff4e0",
+        "tintStrength": 0.04,
+        "haze": 0.08,
+        "hazeColor": "#c9ced8",
+        "hazeGlow": 0.2,
+        "shafts": 0.1,
+        "lights": {
+          "sun": 0
+        }
+      },
+      "night": {
+        "ambient": 0.52,
+        "ambientColor": "#7a86b8",
+        "tint": "#a8b8e8",
+        "tintStrength": 0.08,
+        "haze": 0.1,
+        "hazeColor": "#2c3450",
+        "hazeGlow": 0.8,
+        "shafts": 0.3,
+        "lights": {
+          "sun": 0
+        }
+      }
+    }
   },
   "lights": [
     {
@@ -58,13 +95,70 @@
       "strength": 1.1,
       "reach": 5,
       "on": "lamp"
+    },
+    {
+      "id": "day_sun",
+      "from": [
+        215,
+        38
+      ],
+      "color": "#fff0d8",
+      "strength": 1.1,
+      "on": "day"
+    },
+    {
+      "id": "moon",
+      "from": "sky#moon",
+      "color": "#c4d0f0",
+      "strength": 0.7,
+      "on": "night"
     }
   ],
   "state": {
+    "dawn": 0,
+    "day": 0,
+    "night": 0,
+    "moment": "arrival",
+    "staged": "arrival",
+    "time": "dusk",
     "lamp": 1,
+    "hearth": 1,
+    "sheep": true,
+    "hives": false,
+    "dog": true,
+    "rod_ground": true,
+    "bread_step": false,
+    "door": "open",
+    "trodden": false,
+    "porch_saplings": false,
+    "hut": false,
+    "elzeard_here": true,
+    "elzeard_a": 1.0,
+    "elzeard_d": 5.6,
+    "elzeard_turn": 240,
+    "elzeard_do": "hands_behind",
     "elzeard_look": "traveller",
+    "elzeard_mood": "neutral",
+    "elzeard_with": null,
+    "traveller_here": true,
+    "traveller_a": -0.6,
+    "traveller_d": 4.9,
+    "traveller_turn": 110,
+    "traveller_do": "stand",
     "traveller_look": "elzeard",
-    "lina_look": "elzeard"
+    "traveller_mood": "neutral",
+    "traveller_with": null,
+    "lina_here": false,
+    "lina_a": -2.2,
+    "lina_d": 5.5,
+    "lina_turn": 120,
+    "lina_do": "stand",
+    "lina_look": "elzeard",
+    "lina_mood": "neutral",
+    "lina_with": null,
+    "ranger_here": false,
+    "visitor_a_here": false,
+    "visitor_b_here": false
   },
   "states": {
     "lamp": {
@@ -74,12 +168,202 @@
       ],
       "smooth": true,
       "means": "the lamp inside and the lantern by the door: 0 out, 1 lit"
+    },
+    "time": {
+      "values": [
+        "dusk",
+        "dawn",
+        "day",
+        "night"
+      ],
+      "means": "the hour: the sky is painted by it and the light's looks (dawn, day, night) follow it (the script sets them): dusk — the sun on the mountains; dawn; day — the sun high behind the viewer; night — the moon. Set it at once"
+    },
+    "dawn": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light's dawn look (the script's, from `time`)"
+    },
+    "day": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light's day look and the daylight sun (the script's, from `time`)"
+    },
+    "night": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light's night look and the moon (the script's, from `time`)"
+    },
+    "hearth": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the smoke from the chimney: 0 the hearth cold, 1 a fire lit"
+    },
+    "sheep": {
+      "type": "boolean",
+      "means": "the sheep in the dry-stone pen (the prologue and the first chapter)"
+    },
+    "hives": {
+      "type": "boolean",
+      "means": "Elzéard's five hives along the front of the old pen (from the second chapter: «ульи вместо овец»)"
+    },
+    "dog": {
+      "type": "boolean",
+      "means": "the shepherd's dog lying by the door"
+    },
+    "rod_ground": {
+      "type": "boolean",
+      "means": "the iron rod stuck in the ground by the path (when it is not in Elzéard's hand)"
+    },
+    "bread_step": {
+      "type": "boolean",
+      "means": "a loaf and a pair of knitted socks on the doorstep, untouched (3.4 when Lina knows; the epilogue on Silence)"
+    },
+    "door": {
+      "values": [
+        "open",
+        "propped"
+      ],
+      "means": "the door: open (the room behind it lit by the lamp, or dark); propped — shut from outside and propped with a stick (3.5 on the Name: the Traveller shuts the empty house)"
+    },
+    "trodden": {
+      "type": "boolean",
+      "means": "the path to the door trodden wide and bare by the people who come to look (3.5 on the Name)"
+    },
+    "porch_saplings": {
+      "type": "boolean",
+      "means": "seedlings just planted by the door (the epilogue on Silence: old, he plants at his own porch)"
+    },
+    "hut": {
+      "type": "boolean",
+      "means": "the hut beyond the ridge in place of the house (the epilogue on the Name): a low stone hut, the slope behind it waist-high with his last ten years' growth, a new edge of seedlings before it on the bare ground; the house, the pen and the lantern gone"
+    },
+    "moment": {
+      "values": [
+        "arrival",
+        "leaving",
+        "night",
+        "evening",
+        "ranger",
+        "empty",
+        "last_silence",
+        "hut"
+      ],
+      "means": "which moment of the scenario the house shows (script.js lays it out; notes.md): arrival — П.3, dusk, the Traveller come up; leaving — 1.6, dawn, the Traveller going; night — 2.7, six years on, night, the hives; evening — 3.4, fourteen years on; ranger — 3.5 on the Name, the morning the ranger comes; empty — 3.5 on the Name, later: the house empty, strangers at the door; last_silence — the epilogue on Silence; hut — the epilogue on the Name: the hut beyond the ridge"
+    },
+    "staged": {
+      "values": [
+        "arrival",
+        "leaving",
+        "night",
+        "evening",
+        "ranger",
+        "empty",
+        "last_silence",
+        "hut"
+      ],
+      "means": "the moment the script last laid out (the script's own: it lays a moment out again only when this differs)"
+    },
+    "elzeard_a": {
+      "range": [
+        -8,
+        8
+      ],
+      "means": "where Elzéard stands, metres right of the view's line (the moment sets it)"
+    },
+    "elzeard_d": {
+      "range": [
+        2,
+        16
+      ],
+      "means": "where Elzéard stands, metres ahead (the moment sets it)"
+    },
+    "traveller_a": {
+      "range": [
+        -8,
+        8
+      ],
+      "means": "where the Traveller stands, metres right of the view's line (the moment sets it)"
+    },
+    "traveller_d": {
+      "range": [
+        2,
+        16
+      ],
+      "means": "where the Traveller stands, metres ahead (the moment sets it)"
+    },
+    "lina_a": {
+      "range": [
+        -8,
+        8
+      ],
+      "means": "where Lina stands, metres right of the view's line (the moment sets it)"
+    },
+    "lina_d": {
+      "range": [
+        2,
+        16
+      ],
+      "means": "where Lina stands, metres ahead (the moment sets it)"
+    },
+    "ranger_a": {
+      "range": [
+        -8,
+        8
+      ],
+      "means": "where the ranger stands, metres right of the view's line (the moment sets it)"
+    },
+    "ranger_d": {
+      "range": [
+        2,
+        16
+      ],
+      "means": "where the ranger stands, metres ahead (the moment sets it)"
+    },
+    "visitor_a_a": {
+      "range": [
+        -8,
+        8
+      ],
+      "means": "where the visitor with the basket stands, metres right of the view's line (the moment sets it)"
+    },
+    "visitor_a_d": {
+      "range": [
+        2,
+        16
+      ],
+      "means": "where the visitor with the basket stands, metres ahead (the moment sets it)"
+    },
+    "visitor_b_a": {
+      "range": [
+        -8,
+        8
+      ],
+      "means": "where the visitor with the notebook stands, metres right of the view's line (the moment sets it)"
+    },
+    "visitor_b_d": {
+      "range": [
+        2,
+        16
+      ],
+      "means": "where the visitor with the notebook stands, metres ahead (the moment sets it)"
     }
   },
   "objects": [
     {
       "id": "sky",
-      "name": "Dusk sky",
+      "name": "The sky over the plateau",
       "sky": true
     },
     {
@@ -221,7 +505,8 @@
         "color": "#a29a9e",
         "opacity": 0.6,
         "wind": 1,
-        "turbulence": 0.6
+        "turbulence": 0.6,
+        "amount": "hearth"
       }
     },
     {
@@ -271,6 +556,872 @@
         -0.62,
         0.18,
         0.05
+      ]
+    },
+    {
+      "id": "door_leaf",
+      "name": "The door, shut and propped",
+      "on": "house",
+      "distance": 0.04,
+      "facing": 180,
+      "height": 1.95,
+      "box": [
+        -0.5,
+        -1.97,
+        0.5,
+        0.05
+      ]
+    },
+    {
+      "id": "step_gifts",
+      "name": "Bread and socks on the step",
+      "across": 2.6,
+      "distance": 7.8,
+      "height": 0.32,
+      "box": [
+        -0.48,
+        -0.34,
+        0.45,
+        0.03
+      ]
+    },
+    {
+      "id": "porch_saplings",
+      "name": "Seedlings planted by the door",
+      "across": 1.0,
+      "distance": 7.0,
+      "height": 0.3,
+      "box": [
+        -0.18,
+        -0.32,
+        0.18,
+        0.04
+      ],
+      "copies": [
+        {
+          "across": 0.7,
+          "distance": 7.1
+        },
+        {
+          "across": 1.25,
+          "distance": 6.85
+        },
+        {
+          "across": 3.9,
+          "distance": 7.2,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "hut_at",
+      "name": "The hut: anchor",
+      "unseen": true,
+      "across": 2.4,
+      "distance": 8.6,
+      "facing": 165
+    },
+    {
+      "id": "hut_front",
+      "name": "The hut: front",
+      "on": "hut_at",
+      "facing": 180,
+      "height": 1.95,
+      "box": [
+        -1.75,
+        -1.95,
+        1.75,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "hut_side",
+      "name": "The hut: gable",
+      "on": "hut_at",
+      "across": -1.7,
+      "distance": 1.3,
+      "facing": 270,
+      "height": 2.9,
+      "box": [
+        -1.35,
+        -2.95,
+        1.35,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "hut_roof",
+      "name": "The hut: roof",
+      "plane": true,
+      "on": "hut_at",
+      "distance": 0.6,
+      "elevation": 2.4,
+      "width": 3.9,
+      "depth": 1.7,
+      "tilt": 37,
+      "shadow": true
+    },
+    {
+      "id": "growth",
+      "name": "Young growth behind the hut",
+      "across": 0,
+      "distance": 20,
+      "height": 1.3,
+      "box": [
+        -2.1,
+        -1.4,
+        2.1,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -14.9,
+          "distance": 11.15,
+          "scale": 1.09,
+          "flip": false
+        },
+        {
+          "across": -10.51,
+          "distance": 11.25,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": -6.05,
+          "distance": 11.09,
+          "scale": 1.12,
+          "flip": true
+        },
+        {
+          "across": -2.12,
+          "distance": 10.85,
+          "scale": 1.01,
+          "flip": false
+        },
+        {
+          "across": 1.81,
+          "distance": 10.83,
+          "scale": 0.93,
+          "flip": false
+        },
+        {
+          "across": 6.71,
+          "distance": 10.8,
+          "scale": 1.09,
+          "flip": true
+        },
+        {
+          "across": 10.89,
+          "distance": 10.78,
+          "scale": 0.85,
+          "flip": false
+        },
+        {
+          "across": -17.83,
+          "distance": 13.43,
+          "scale": 1.14,
+          "flip": false
+        },
+        {
+          "across": -13.47,
+          "distance": 13.88,
+          "scale": 1.01,
+          "flip": false
+        },
+        {
+          "across": -9.24,
+          "distance": 13.86,
+          "scale": 1.06,
+          "flip": false
+        },
+        {
+          "across": -4.39,
+          "distance": 13.48,
+          "scale": 0.96,
+          "flip": true
+        },
+        {
+          "across": -0.68,
+          "distance": 13.34,
+          "scale": 0.94,
+          "flip": false
+        },
+        {
+          "across": 3.5,
+          "distance": 13.71,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": 8.45,
+          "distance": 13.59,
+          "scale": 0.94,
+          "flip": true
+        },
+        {
+          "across": 12.66,
+          "distance": 13.33,
+          "scale": 1.14,
+          "flip": true
+        },
+        {
+          "across": 17.0,
+          "distance": 13.81,
+          "scale": 0.86,
+          "flip": false
+        },
+        {
+          "across": -20.31,
+          "distance": 16.25,
+          "scale": 0.85,
+          "flip": true
+        },
+        {
+          "across": -16.16,
+          "distance": 16.47,
+          "scale": 0.91,
+          "flip": false
+        },
+        {
+          "across": -11.26,
+          "distance": 16.47,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": -7.28,
+          "distance": 16.37,
+          "scale": 0.88,
+          "flip": false
+        },
+        {
+          "across": -2.76,
+          "distance": 16.42,
+          "scale": 0.86,
+          "flip": false
+        },
+        {
+          "across": 0.97,
+          "distance": 16.1,
+          "scale": 1.03,
+          "flip": false
+        },
+        {
+          "across": 5.47,
+          "distance": 16.45,
+          "scale": 1.01,
+          "flip": true
+        },
+        {
+          "across": 9.75,
+          "distance": 16.01,
+          "scale": 0.87,
+          "flip": true
+        },
+        {
+          "across": 14.35,
+          "distance": 16.5,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 18.89,
+          "distance": 16.22,
+          "scale": 0.97,
+          "flip": true
+        },
+        {
+          "across": -22.72,
+          "distance": 19.0,
+          "scale": 0.99,
+          "flip": true
+        },
+        {
+          "across": -18.86,
+          "distance": 19.05,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": -13.93,
+          "distance": 18.58,
+          "scale": 1.07,
+          "flip": false
+        },
+        {
+          "across": -9.8,
+          "distance": 18.97,
+          "scale": 0.88,
+          "flip": true
+        },
+        {
+          "across": -5.88,
+          "distance": 19.01,
+          "scale": 0.94,
+          "flip": true
+        },
+        {
+          "across": -0.9,
+          "distance": 19.01,
+          "scale": 1.14,
+          "flip": true
+        },
+        {
+          "across": 2.99,
+          "distance": 18.94,
+          "scale": 0.99,
+          "flip": true
+        },
+        {
+          "across": 7.22,
+          "distance": 18.59,
+          "scale": 0.96,
+          "flip": false
+        },
+        {
+          "across": 11.97,
+          "distance": 18.88,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": 15.57,
+          "distance": 18.66,
+          "scale": 1.08,
+          "flip": false
+        },
+        {
+          "across": 20.09,
+          "distance": 18.97,
+          "scale": 1.08,
+          "flip": false
+        },
+        {
+          "across": -25.27,
+          "distance": 21.56,
+          "scale": 0.96,
+          "flip": false
+        },
+        {
+          "across": -21.28,
+          "distance": 21.39,
+          "scale": 1.08,
+          "flip": false
+        },
+        {
+          "across": -16.96,
+          "distance": 21.67,
+          "scale": 1.04,
+          "flip": false
+        },
+        {
+          "across": -12.89,
+          "distance": 21.43,
+          "scale": 0.93,
+          "flip": false
+        },
+        {
+          "across": -8.23,
+          "distance": 21.59,
+          "scale": 1.04,
+          "flip": false
+        },
+        {
+          "across": -4.02,
+          "distance": 21.49,
+          "scale": 1.07,
+          "flip": false
+        },
+        {
+          "across": 0.28,
+          "distance": 21.61,
+          "scale": 1.11,
+          "flip": false
+        },
+        {
+          "across": 5.08,
+          "distance": 21.67,
+          "scale": 1.01,
+          "flip": false
+        },
+        {
+          "across": 8.73,
+          "distance": 21.6,
+          "scale": 1.13,
+          "flip": true
+        },
+        {
+          "across": 13.45,
+          "distance": 21.53,
+          "scale": 1.07,
+          "flip": true
+        },
+        {
+          "across": 17.82,
+          "distance": 21.45,
+          "scale": 1.05,
+          "flip": true
+        },
+        {
+          "across": 22.0,
+          "distance": 21.56,
+          "scale": 1.04,
+          "flip": false
+        },
+        {
+          "across": -28.38,
+          "distance": 23.8,
+          "scale": 0.98,
+          "flip": false
+        },
+        {
+          "across": -23.92,
+          "distance": 24.11,
+          "scale": 1.04,
+          "flip": true
+        },
+        {
+          "across": -19.42,
+          "distance": 23.84,
+          "scale": 0.87,
+          "flip": true
+        },
+        {
+          "across": -15.25,
+          "distance": 23.81,
+          "scale": 0.91,
+          "flip": true
+        },
+        {
+          "across": -10.83,
+          "distance": 23.93,
+          "scale": 1.03,
+          "flip": false
+        },
+        {
+          "across": -6.71,
+          "distance": 24.24,
+          "scale": 0.85,
+          "flip": true
+        },
+        {
+          "across": -2.38,
+          "distance": 23.95,
+          "scale": 0.88,
+          "flip": false
+        },
+        {
+          "across": 2.0,
+          "distance": 23.72,
+          "scale": 1.03,
+          "flip": true
+        },
+        {
+          "across": 6.44,
+          "distance": 23.9,
+          "scale": 1.02,
+          "flip": false
+        },
+        {
+          "across": 10.95,
+          "distance": 23.95,
+          "scale": 1.09,
+          "flip": false
+        },
+        {
+          "across": 14.9,
+          "distance": 23.79,
+          "scale": 1.03,
+          "flip": false
+        },
+        {
+          "across": 19.67,
+          "distance": 24.28,
+          "scale": 1.03,
+          "flip": true
+        },
+        {
+          "across": 23.91,
+          "distance": 23.7,
+          "scale": 0.88,
+          "flip": false
+        },
+        {
+          "across": 27.99,
+          "distance": 23.78,
+          "scale": 1.04,
+          "flip": false
+        },
+        {
+          "across": -30.7,
+          "distance": 26.56,
+          "scale": 0.92,
+          "flip": true
+        },
+        {
+          "across": -25.92,
+          "distance": 26.53,
+          "scale": 1.14,
+          "flip": false
+        },
+        {
+          "across": -21.92,
+          "distance": 26.46,
+          "scale": 1.14,
+          "flip": true
+        },
+        {
+          "across": -17.77,
+          "distance": 26.49,
+          "scale": 1.15,
+          "flip": true
+        },
+        {
+          "across": -13.57,
+          "distance": 26.59,
+          "scale": 0.89,
+          "flip": false
+        },
+        {
+          "across": -9.15,
+          "distance": 26.48,
+          "scale": 1.08,
+          "flip": false
+        },
+        {
+          "across": -5.19,
+          "distance": 26.62,
+          "scale": 0.93,
+          "flip": false
+        },
+        {
+          "across": -0.27,
+          "distance": 26.45,
+          "scale": 0.93,
+          "flip": true
+        },
+        {
+          "across": 4.19,
+          "distance": 26.48,
+          "scale": 1.03,
+          "flip": true
+        },
+        {
+          "across": 8.22,
+          "distance": 26.66,
+          "scale": 1.07,
+          "flip": true
+        },
+        {
+          "across": 12.61,
+          "distance": 26.48,
+          "scale": 1.01,
+          "flip": true
+        },
+        {
+          "across": 16.54,
+          "distance": 26.62,
+          "scale": 0.99,
+          "flip": true
+        },
+        {
+          "across": 21.2,
+          "distance": 26.65,
+          "scale": 0.86,
+          "flip": true
+        },
+        {
+          "across": 25.26,
+          "distance": 26.85,
+          "scale": 1.12,
+          "flip": false
+        },
+        {
+          "across": 29.21,
+          "distance": 26.77,
+          "scale": 0.98,
+          "flip": false
+        },
+        {
+          "across": -33.03,
+          "distance": 29.28,
+          "scale": 0.99,
+          "flip": false
+        },
+        {
+          "across": -28.99,
+          "distance": 29.14,
+          "scale": 1.11,
+          "flip": true
+        },
+        {
+          "across": -24.76,
+          "distance": 29.4,
+          "scale": 0.87,
+          "flip": false
+        },
+        {
+          "across": -20.14,
+          "distance": 29.16,
+          "scale": 0.94,
+          "flip": false
+        },
+        {
+          "across": -15.67,
+          "distance": 28.99,
+          "scale": 0.99,
+          "flip": false
+        },
+        {
+          "across": -11.7,
+          "distance": 29.1,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": -7.15,
+          "distance": 28.94,
+          "scale": 0.92,
+          "flip": false
+        },
+        {
+          "across": -2.87,
+          "distance": 29.3,
+          "scale": 0.86,
+          "flip": false
+        },
+        {
+          "across": 1.58,
+          "distance": 29.5,
+          "scale": 1.06,
+          "flip": true
+        },
+        {
+          "across": 5.77,
+          "distance": 29.03,
+          "scale": 1.04,
+          "flip": false
+        },
+        {
+          "across": 9.97,
+          "distance": 28.98,
+          "scale": 0.94,
+          "flip": false
+        },
+        {
+          "across": 13.82,
+          "distance": 29.27,
+          "scale": 0.97,
+          "flip": true
+        },
+        {
+          "across": 18.5,
+          "distance": 28.93,
+          "scale": 0.88,
+          "flip": true
+        },
+        {
+          "across": 22.36,
+          "distance": 28.93,
+          "scale": 1.02,
+          "flip": false
+        },
+        {
+          "across": 27.3,
+          "distance": 28.98,
+          "scale": 0.98,
+          "flip": true
+        },
+        {
+          "across": 31.38,
+          "distance": 29.19,
+          "scale": 1.13,
+          "flip": true
+        },
+        {
+          "across": -36.16,
+          "distance": 31.92,
+          "scale": 0.9,
+          "flip": false
+        },
+        {
+          "across": -31.5,
+          "distance": 32.05,
+          "scale": 1.02,
+          "flip": false
+        },
+        {
+          "across": -27.39,
+          "distance": 31.83,
+          "scale": 0.93,
+          "flip": false
+        },
+        {
+          "across": -22.89,
+          "distance": 31.58,
+          "scale": 0.92,
+          "flip": true
+        },
+        {
+          "across": -18.41,
+          "distance": 31.61,
+          "scale": 1.06,
+          "flip": false
+        },
+        {
+          "across": -14.63,
+          "distance": 31.9,
+          "scale": 0.88,
+          "flip": true
+        },
+        {
+          "across": -9.92,
+          "distance": 31.64,
+          "scale": 1.11,
+          "flip": true
+        },
+        {
+          "across": -5.84,
+          "distance": 31.98,
+          "scale": 0.86,
+          "flip": false
+        },
+        {
+          "across": -1.76,
+          "distance": 31.59,
+          "scale": 1.14,
+          "flip": false
+        },
+        {
+          "across": 2.68,
+          "distance": 31.57,
+          "scale": 1.14,
+          "flip": false
+        },
+        {
+          "across": 7.46,
+          "distance": 31.58,
+          "scale": 1.04,
+          "flip": true
+        },
+        {
+          "across": 11.29,
+          "distance": 31.7,
+          "scale": 1.03,
+          "flip": true
+        },
+        {
+          "across": 15.71,
+          "distance": 31.58,
+          "scale": 1.1,
+          "flip": false
+        },
+        {
+          "across": 20.34,
+          "distance": 31.76,
+          "scale": 1.11,
+          "flip": false
+        },
+        {
+          "across": 24.47,
+          "distance": 31.84,
+          "scale": 1.07,
+          "flip": true
+        },
+        {
+          "across": 28.38,
+          "distance": 31.52,
+          "scale": 0.91,
+          "flip": true
+        },
+        {
+          "across": 33.31,
+          "distance": 31.79,
+          "scale": 1.08,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "seedlings",
+      "name": "A new edge of seedlings",
+      "across": 0,
+      "distance": 4.4,
+      "height": 0.3,
+      "box": [
+        -0.65,
+        -0.32,
+        0.65,
+        0.03
+      ],
+      "copies": [
+        {
+          "across": -3.21,
+          "distance": 3.68,
+          "flip": false
+        },
+        {
+          "across": -1.72,
+          "distance": 3.59,
+          "flip": true
+        },
+        {
+          "across": -0.3,
+          "distance": 3.53,
+          "flip": true
+        },
+        {
+          "across": -3.23,
+          "distance": 4.48,
+          "flip": true
+        },
+        {
+          "across": -1.77,
+          "distance": 4.36,
+          "flip": true
+        },
+        {
+          "across": -0.26,
+          "distance": 4.35,
+          "flip": true
+        },
+        {
+          "across": 1.16,
+          "distance": 4.48,
+          "flip": true
+        },
+        {
+          "across": 2.93,
+          "distance": 4.44,
+          "flip": false
+        },
+        {
+          "across": -3.21,
+          "distance": 5.29,
+          "flip": true
+        },
+        {
+          "across": -1.65,
+          "distance": 5.16,
+          "flip": false
+        },
+        {
+          "across": -0.13,
+          "distance": 5.13,
+          "flip": true
+        },
+        {
+          "across": 1.16,
+          "distance": 5.15,
+          "flip": true
+        },
+        {
+          "across": 2.77,
+          "distance": 5.29,
+          "flip": true
+        }
       ]
     },
     {
@@ -384,6 +1535,44 @@
           "across": -4.5,
           "distance": 18.3,
           "tint": "#e6dccb"
+        }
+      ]
+    },
+    {
+      "id": "hives",
+      "name": "Elzéard's hives",
+      "across": -5.4,
+      "distance": 14.4,
+      "height": 0.72,
+      "box": [
+        -0.4,
+        -0.74,
+        0.4,
+        0.03
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": -7.6,
+          "distance": 14.5
+        },
+        {
+          "across": -6.5,
+          "distance": 14.3,
+          "flip": true
+        },
+        {
+          "across": -5.4,
+          "distance": 14.6
+        },
+        {
+          "across": -4.3,
+          "distance": 14.35,
+          "flip": true
+        },
+        {
+          "across": -3.2,
+          "distance": 14.55
         }
       ]
     },
@@ -547,7 +1736,11 @@
       },
       "across": 1.0,
       "distance": 5.6,
-      "shadow": true
+      "shadow": true,
+      "place": {
+        "across": "elzeard_a",
+        "distance": "elzeard_d"
+      }
     },
     {
       "id": "traveller",
@@ -559,7 +1752,11 @@
       },
       "across": -0.6,
       "distance": 4.9,
-      "shadow": true
+      "shadow": true,
+      "place": {
+        "across": "traveller_a",
+        "distance": "traveller_d"
+      }
     },
     {
       "id": "lina",
@@ -571,6 +1768,58 @@
       },
       "across": -2.2,
       "distance": 5.5,
+      "shadow": true,
+      "place": {
+        "across": "lina_a",
+        "distance": "lina_d"
+      }
+    },
+    {
+      "id": "ranger",
+      "name": "The young ranger",
+      "person": {
+        "cast": "cast",
+        "who": "ranger",
+        "turn": 100
+      },
+      "across": -0.4,
+      "distance": 6.8,
+      "place": {
+        "across": "ranger_a",
+        "distance": "ranger_d"
+      },
+      "shadow": true
+    },
+    {
+      "id": "visitor_a",
+      "name": "A visitor with a basket",
+      "person": {
+        "cast": "cast",
+        "who": "visitor_a",
+        "turn": 110
+      },
+      "across": 1.4,
+      "distance": 7.2,
+      "place": {
+        "across": "visitor_a_a",
+        "distance": "visitor_a_d"
+      },
+      "shadow": true
+    },
+    {
+      "id": "visitor_b",
+      "name": "A visitor with a notebook",
+      "person": {
+        "cast": "cast",
+        "who": "visitor_b",
+        "turn": 250
+      },
+      "across": 3.4,
+      "distance": 7.0,
+      "place": {
+        "across": "visitor_b_a",
+        "distance": "visitor_b_d"
+      },
       "shadow": true
     }
   ],

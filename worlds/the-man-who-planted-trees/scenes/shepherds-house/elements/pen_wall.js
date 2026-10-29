@@ -1,4 +1,6 @@
 // The sheep pen's front: a waist-high dry-stone wall, uneven along its top, a gap for a gate at its right end
+// Not there by the hut beyond the ridge (`hut`).
+if (e.state.hut) return;
 const STONE = ["#a89a82", "#9d8f78", "#b2a48a", "#93866f"];
 const wall = (x0, x1) => {
   g.fillStyle = "#7c705e";
