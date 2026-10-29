@@ -45,6 +45,36 @@ follows (2.0–2.6 ms against 2), and on desktop frames p95 16.8 against 16.7 (t
 - Rivière at the desk leans low over it (Kimodo's `desk_lean`); writing in the log is a motion for stage 5.
 - The people below the window are painted figures, small (70 m off): they read as who is there, not as faces.
 
+## Stage 5: the pieces
+
+The module `beats` (lib.js `film`; script.js plays it after laying the people out; the game sets `beat`). `lib.SPOTS`
+— the spots. The shots are cameras of their own: her medium, close and her hands at each of her places (the window,
+the door, the chair), Rivière at his desk, the doorway, and one through the window's glass down to the yard. A piece
+starts her where the game's `madame_spot` (by the ending) has her, and him by the window when she sits (dawn), else in
+the room's middle; the window's keys (lamp, floods, rain, plane, yard_*) are the game's.
+
+- **The asks.** The insert `log_page` (`log_open` 0…1; `ink` 0…1 — the line written from `log_page#from` to
+  `log_page#to`, a paper-coloured cover drawn back and the pen's nib going along, point `log_page#pen`; `blot` 0/1 — a
+  blot where the pen was; `log_line` bearing / unknown — the words, through `tr`, in `lang/ru.json`); Robineau's place
+  keys `robineau_a/_d`; the variant keys of `leaves`: `leave_turn` (nod / none / look / wait / past), `leave_look`
+  (none / sky / field).
+
+| piece | after | what |
+| --- | --- | --- |
+| office | — | Rivière comes in from the landing to his place; she turns to him |
+| rises | office | (dawn) she gets up from the chair, goes to the door |
+| gloves_on | office, rises | she puts on her gloves (close on her hands) |
+| tape_glove | office, rises | she folds the tape into her glove |
+| leaves | office, rises, gloves_on, tape_glove | to the door; to him and to the window as the keys say; out |
+| log | — | Rivière sits at his desk and opens the log (the insert; М2 `log`) |
+| log_done | — | after М2: the page closes; he looks to the window; the camera through the glass to the yard |
+| doorway | log_done | Robineau appears in the doorway |
+
+## Stage 5: what is not right yet
+
+- At his desk Rivière faces the room with the window behind him: looking out at it in `log_done` he turns his head
+  round over his shoulder; the camera then goes through the glass.
+
 ## Contract for the check
 
 ```json

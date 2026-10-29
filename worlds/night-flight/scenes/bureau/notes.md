@@ -72,6 +72,87 @@ map's flags and the window's hours as keys. Still no motions of people.
 - **The pilot's jacket** in the flat style flares at the thighs like a short skirt when his hip is shifted.
 - The map's flags are small at this distance: they read only as specks of colour by the field.
 
+## Stage 5: the pieces
+
+The module `beats` (lib.js `film`; script.js plays it after laying the people out by their spots; the game sets
+`beat`). `lib.SPOTS` — the spots script.js lays out and the pieces start from; a piece's `from` never sets a spot key,
+only the places (a piece that leaves someone at a spot sets the spot and its values together). The shots are cameras of
+their own (the eye and the point it looks at — the operator would go round toward the room's open side): every line
+said to someone is in a medium or close shot.
+
+- **The asks.** `riviere_spot` + `inker` (at the telegraph table's left end, the inker before him) and `flags` (close
+  before the map's south, his right hand free); `madame_spot` (`door`, `inker` — behind the telegraphist, over his
+  shoulder) and her place keys `madame_a/_d`; the Asunción pilot's `asuncion_a/_d`. **The map** (`map.js`, its
+  `animate`; geometry in `lib.MAP`): `flag_hand` (none / blue / north / red — that flag lifted from its place into the
+  layer `led`), `flag_to` (san_julian / sea / field / north / off), `flag_u` (0…1 along its way), `flag_slip` (0…1:
+  sliding off, askew); Rivière's right hand on it (`riviere_reach` `map#led`, script.js) while it is in his hand. Points
+  `map#san_julian`, `map#sea`, `map#north_end`, `map#led` (moving), with `map#blue`, `map#north`, `map#red`,
+  `map#field`. **The drawer**: `map_drawer` (a small table under the map's left half; `drawer` 0/1; point
+  `map_drawer#drawer`). **The inker**: `tape_pull` (0…1 — the strip drawn out of it level to the left, the layer
+  `pulled`), `tape_mark` (words / line / cut). **The office door** (new, for going in and out by it): the leaf
+  `office_door` (`office_door` 180 shut … 98 open into the office; the frosted glass and its light moved onto it), the
+  opening cut through `back_wall`, the office's lamp-lit wall `office_room` and floor `office_floor` behind it.
+- **The yard at dawn** (`yard`, `outside` rolled): with the game's `roblet` keep, the one at the wing is Roblet (his
+  blue jacket, his grey head); else a mechanic, and a bare workbench by the gate.
+- Robineau comes back from supper in his overcoat (`robineau_wear` {garment: coat}) and takes it off in `coat_off`.
+- Chapter IV's pieces read the game's `robineau` (3.7: work / sit / silent) for where Robineau is (work — at his desk
+  writing); from the bearing on, the blue flag is where the game put it (the pieces do not set it).
+
+| piece | after | what |
+| --- | --- | --- |
+| inker | — | 19:50: the inker, the telegraphist tapping, Rivière goes close to the map (М1 `flag`) |
+| ache | inker | he turns from the map; his hand to his side |
+| papers | — | 22:05: Robineau comes from his desk to him at the map |
+| out | papers | Rivière goes out by the field door |
+| asuncion_in | — | 23:20 (after М1 `flag_north`): the Asunción pilot comes in, lays his report on the desk, turns to Rivière, who comes forward |
+| storm_south | asuncion_in | the inker; the telegraphist reads; Rivière goes to the table and gives the order |
+| back | — | 00:30: Robineau back from supper in his overcoat, to his desk |
+| folder_shift | back | he shifts the papers in his folder |
+| to_map | back | Rivière goes to the map, his back to the room |
+| coat_off | back | Robineau sees the tape, falls silent, takes off his overcoat |
+| pilot_in | coat_off | the European pilot comes in, looks at the map, sits on the bench |
+| phone | — | 01:35: Rivière takes the receiver |
+| phone_robineau | phone | he holds it out to Robineau; Robineau listens, hangs up, eyes down |
+| phone_down | phone | Rivière hangs up |
+| she | — | she comes in at the field door and stops; Rivière turns; the pilot gets up |
+| she_robineau | she | Robineau moves away to his desk |
+| tape | — | 02:15: the inker; Rivière goes to it, the tape in his hands (М9) |
+| comodoro | — | after М9: the telegraphist reads off the tape, raises his eyes; her face; the pilot |
+| minute | — | 02:16: the clock; the telegraphist's hand over the key (the timer) |
+| bearing_sent | minute | he sends it, takes his hand off; her face |
+| hers_asked | minute | Rivière comes toward her and asks |
+| own_sent | minute | he taps as Rivière dictates, raises his eyes; her face |
+| last_tape | — | 02:25: Rivière draws the last tape (`tape_mark` the game's); its close, her face |
+| tape_torn | last_tape | he tears it off and gives it to her; she holds it to her |
+| over_shoulder | last_tape | she goes behind the telegraphist and reads over his shoulder |
+| scraps | last_tape | scraps of tapping; the inker stops |
+| silence | — | 02:45: the clock, the telegraphist counting; Rivière close at the map (М1 `flag_sea` / `flag_hold`) |
+| pilot_out | — | after М1: the pilot gets up, puts on his helmet, goes out |
+| to_office | pilot_out | Robineau leads her out by the office door |
+| shoulders | — | 02:48: Robineau back by the office door, at his desk; his shoulders shake (the choice) |
+| work | shoulders | he sits to his report; Rivière's hand over his shoulder, not touching |
+| sit | shoulders | Rivière sits on the bench; Robineau beside him; the telegraphist looks, turns back |
+| alone | shoulders | Rivière to the map; Robineau takes his folder and goes out without his coat |
+| victory_map | — | 03:10: Rivière comes out of the office to the map (М1 `flag_red`) |
+| silence_map | — | 03:10: he comes out to the map, looks at the red flag, does not touch it |
+| dawn | — | 06:00 (`roblet` the game's): the telegraphist dozing on the bench; toward the window; Rivière close at the map (М1 `flag_down`) |
+| flags_down | — | after М1 (`robineau` the game's): the other flags into the drawer one by one |
+| next_evening | — | 19:40 (`outside` and the flags the game's): Robineau comes in to his desk |
+| bench_again | next_evening | he sits on the bench without asking, catches Rivière's eye, gets up; Rivière to the map |
+| report | next_evening | he lays the report on the desk |
+| cough | next_evening | he coughs |
+| montevideo | next_evening | the inker; the telegraphist reads; Rivière close at the map (М1 `flag_blue`) |
+| chilean_lands | — | after М1 (`outside` landing): toward the window — the Chilean comes down |
+| release | next_evening | Rivière looks at the map a long time; close at the map (М1 `flag_late`) |
+| telegram | next_evening | Robineau lays the telegram; Rivière goes to the window, the dark field beyond |
+
+## Stage 5: what is not right yet
+
+- Faces turned to someone at the back of the room are seen in profile (the room is seen from its open side; a camera
+  behind them would look into the nothing there).
+- The receiver stays painted on the telephone while Rivière holds one (`rob_phone` has no key for it).
+- Sitting down on the bench is `sit_down` played where they stand before it, then the seat (`_on`) and `fly_seated`.
+
 ## Contract for the check
 
 ```json
