@@ -167,7 +167,8 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "moment": "midnight",
@@ -355,9 +356,9 @@
     "virginia_d": {
       "range": [
         3,
-        9
+        11
       ],
-      "means": "where Virginia stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+      "means": "where Virginia stands, metres away (to 11: out on the porch) (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
     },
     "otis_a": {
       "range": [
@@ -369,9 +370,9 @@
     "otis_d": {
       "range": [
         3,
-        9
+        11
       ],
-      "means": "where Mr Otis stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+      "means": "where Mr Otis stands, metres away (to 11: out on the porch) (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
     },
     "mrs_otis_a": {
       "range": [
@@ -383,9 +384,9 @@
     "mrs_otis_d": {
       "range": [
         3,
-        9
+        11
       ],
-      "means": "where Mrs Otis stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+      "means": "where Mrs Otis stands, metres away (to 11: out on the porch) (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
     },
     "washington_a": {
       "range": [
@@ -397,9 +398,9 @@
     "washington_d": {
       "range": [
         3,
-        9
+        11
       ],
-      "means": "where Washington stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+      "means": "where Washington stands, metres away (to 11: out on the porch) (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
     },
     "twin_star_a": {
       "range": [
@@ -411,9 +412,9 @@
     "twin_star_d": {
       "range": [
         3,
-        9
+        11
       ],
-      "means": "where the twin Star stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+      "means": "where the twin Star stands, metres away (to 11: out on the porch) (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
     },
     "twin_stripes_a": {
       "range": [
@@ -425,9 +426,9 @@
     "twin_stripes_d": {
       "range": [
         3,
-        9
+        11
       ],
-      "means": "where the twin Stripes stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+      "means": "where the twin Stripes stands, metres away (to 11: out on the porch) (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
     },
     "cecil_a": {
       "range": [
@@ -439,9 +440,9 @@
     "cecil_d": {
       "range": [
         3,
-        9
+        11
       ],
-      "means": "where Cecil stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+      "means": "where Cecil stands, metres away (to 11: out on the porch) (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
     },
     "mrs_umney_a": {
       "range": [
@@ -453,9 +454,37 @@
     "mrs_umney_d": {
       "range": [
         3,
-        9
+        11
       ],
-      "means": "where Mrs Umney stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+      "means": "where Mrs Umney stands, metres away (to 11: out on the porch) (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md, Pieces)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "shares": {
+      "type": "boolean",
+      "means": "the game's: Virginia shares with her own (the scale at 1 or less) - midnight's and the porch's variant"
+    },
+    "trap": {
+      "values": [
+        "warn",
+        "watch",
+        "defend"
+      ],
+      "means": "the game's: her choice about the twins' trap (2.5) - where Washington is at midnight (watch: last in at the door with his lantern)"
+    },
+    "wake": {
+      "type": "boolean",
+      "means": "the game's: she woke her father on the last night - he gives her his hand on the porch"
+    },
+    "plays": {
+      "type": "boolean",
+      "means": "the game's: Sir Simon still plays - the chain heard from the Tapestry Chamber's windows as they leave"
     }
   },
   "objects": [
