@@ -1,4 +1,5 @@
 {"strings": [
+  {"text":"Sold","translation":"売約済み","where":"worlds/the-paper-menagerie/scenes/yard/elements/sign.js"},
   {"text":"The Yard","translation":"庭","where":"worlds/the-paper-menagerie/scenes/yard/scene.json title"},
   {"text":"A Sunday morning in spring. A plate of buns, and red paper on the grass.","translation":"春の日曜の朝。ひと皿の饅頭と、草の上の赤い紙。","where":"worlds/the-paper-menagerie/scenes/yard/scene.json caption"}
 ]}

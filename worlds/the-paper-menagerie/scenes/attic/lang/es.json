@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Attic","translation":"El desván","where":"worlds/the-paper-menagerie/scenes/attic/scene.json title"},
+  {"text":"Under the roof, in the dusty light from the little window: old boxes, and a shoe box that has not been opened in years.","translation":"Bajo el tejado, en la luz polvorienta del ventanuco: cajas viejas y una caja de zapatos que nadie ha abierto en años.","where":"worlds/the-paper-menagerie/scenes/attic/scene.json caption"}
+]}

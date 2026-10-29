@@ -1,0 +1,6 @@
+{"strings": [
+  {"text":"It was.","translation":"過了。","where":"worlds/the-man-who-planted-trees/scenes/village/elements/pages.js"},
+  {"text":"Elzéard","translation":"艾爾則阿","where":"worlds/the-man-who-planted-trees/scenes/village/elements/pages.js"},
+  {"text":"The Village","translation":"村子","where":"worlds/the-man-who-planted-trees/scenes/village/scene.json title"},
+  {"text":"The last village at the plateau's edge.","translation":"高原邊緣的最後一個村子。","where":"worlds/the-man-who-planted-trees/scenes/village/scene.json caption"}
+]}

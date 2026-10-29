@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Attic","translation":"Strych","where":"worlds/the-paper-menagerie/scenes/attic/scene.json title"},
+  {"text":"Under the roof, in the dusty light from the little window: old boxes, and a shoe box that has not been opened in years.","translation":"Pod dachem, w zakurzonym świetle z okienka: stare pudła i pudełko po butach, którego nikt nie otwierał od lat.","where":"worlds/the-paper-menagerie/scenes/attic/scene.json caption"}
+]}

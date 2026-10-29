@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Attic","translation":"Le grenier","where":"worlds/the-paper-menagerie/scenes/attic/scene.json title"},
+  {"text":"Under the roof, in the dusty light from the little window: old boxes, and a shoe box that has not been opened in years.","translation":"Sous le toit, dans la lumière poussiéreuse de la lucarne : de vieux cartons, et une boîte à chaussures qu’on n’a pas ouverte depuis des années.","where":"worlds/the-paper-menagerie/scenes/attic/scene.json caption"}
+]}

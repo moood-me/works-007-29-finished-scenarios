@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Attic","translation":"Der Dachboden","where":"worlds/the-paper-menagerie/scenes/attic/scene.json title"},
+  {"text":"Under the roof, in the dusty light from the little window: old boxes, and a shoe box that has not been opened in years.","translation":"Unter dem Dach, im staubigen Licht aus dem kleinen Fenster: alte Kisten und ein Schuhkarton, der seit Jahren nicht geöffnet wurde.","where":"worlds/the-paper-menagerie/scenes/attic/scene.json caption"}
+]}

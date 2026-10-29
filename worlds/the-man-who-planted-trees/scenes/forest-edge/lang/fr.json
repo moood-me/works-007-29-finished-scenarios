@@ -1,4 +1,6 @@
 {"strings": [
+  {"text":"Elzéard's Forest","translation":"La forêt d’Elzéard","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/elements/board.js"},
+  {"text":"Protected. No fires.","translation":"Réserve. Feux interdits.","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/elements/board.js"},
   {"text":"The Forest Edge","translation":"La lisière","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/scene.json title"},
   {"text":"The wood everyone says grew by itself.","translation":"La forêt dont tout le monde dit qu’elle a poussé toute seule.","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/scene.json caption"}
 ]}

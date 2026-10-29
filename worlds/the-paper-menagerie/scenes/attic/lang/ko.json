@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Attic","translation":"다락","where":"worlds/the-paper-menagerie/scenes/attic/scene.json title"},
+  {"text":"Under the roof, in the dusty light from the little window: old boxes, and a shoe box that has not been opened in years.","translation":"지붕 밑, 작은 창으로 드는 먼지 낀 빛 속에 — 낡은 상자들, 그리고 몇 해째 열리지 않은 신발 상자 하나.","where":"worlds/the-paper-menagerie/scenes/attic/scene.json caption"}
+]}

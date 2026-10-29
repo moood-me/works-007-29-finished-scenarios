@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Attic","translation":"Горище","where":"worlds/the-paper-menagerie/scenes/attic/scene.json title"},
+  {"text":"Under the roof, in the dusty light from the little window: old boxes, and a shoe box that has not been opened in years.","translation":"Під дахом, у запиленому світлі з віконця: старі коробки і коробка з-під взуття, яку не відкривали багато років.","where":"worlds/the-paper-menagerie/scenes/attic/scene.json caption"}
+]}

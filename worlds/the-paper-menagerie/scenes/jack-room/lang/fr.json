@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Jack's Room","translation":"La chambre de Jack","where":"worlds/the-paper-menagerie/scenes/jack-room/scene.json title"},
+  {"text":"His bed, his window onto the street, and on the shelf the animals she folded.","translation":"Son lit, sa fenêtre sur la rue, et sur l’étagère les animaux qu’elle a pliés.","where":"worlds/the-paper-menagerie/scenes/jack-room/scene.json caption"}
+]}

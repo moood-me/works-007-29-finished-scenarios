@@ -1,0 +1,6 @@
+{"strings": [
+  {"text":"It was.","translation":"Był.","where":"worlds/the-man-who-planted-trees/scenes/village/elements/pages.js"},
+  {"text":"Elzéard","translation":"Elzéard","where":"worlds/the-man-who-planted-trees/scenes/village/elements/pages.js"},
+  {"text":"The Village","translation":"Wieś","where":"worlds/the-man-who-planted-trees/scenes/village/scene.json title"},
+  {"text":"The last village at the plateau's edge.","translation":"Ostatnia wieś na skraju płaskowyżu.","where":"worlds/the-man-who-planted-trees/scenes/village/scene.json caption"}
+]}
