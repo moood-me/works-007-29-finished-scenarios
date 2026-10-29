@@ -58,8 +58,8 @@ export const PLACES = {
   corridor: { folder: 'corridor' }, // С2 the corridor
   tapestry: { folder: 'tapestry' }, // С3 the Tapestry Chamber
   // «the dark behind the wall» (4.1, 4С.5): the Tapestry Chamber with its wall open, the camera in the opening (its
-  // keys `wall`, `dark`, `shapes` — the pieces' contract, game.md); till those come, said by the label
-  dark: { folder: 'tapestry', where: tr('In truth: the dark behind the wall — nothing but his pale light, and her face and hands in it.') },
+  // keys `wall`, `dark`, `shapes` — the pieces' contract, game.md)
+  dark: { folder: 'tapestry' },
   death: { folder: 'garden' }, // С4 the Garden of Death
   chamber: { folder: 'chamber' }, // С5 the secret chamber
   grounds: { folder: 'castle-garden' }, // С6 the garden by the castle
@@ -70,9 +70,9 @@ export const PLACES = {
 // Mr Otis without the bottle of oil the scene puts in his hand (he holds it out only in 1.2): `otis_with`, a person's key
 const BARE = { otis_with: [] };
 export const LIBRARY = {
-  evening: { fire: 1, lamp: 1, ...BARE },
-  morning: { fire: 0.5, lamp: 0, ...BARE },
-  night: { fire: 0.3, lamp: 1, ...BARE },
+  evening: { fire: 1, lamp: 1, day: 0, ...BARE },
+  morning: { fire: 0.5, lamp: 0, day: 1, ...BARE },
+  night: { fire: 0.3, lamp: 1, day: 0, ...BARE },
 };
 export const OTIS = BARE;
 
