@@ -79,6 +79,13 @@
           "glow": 0,
           "skylight": 1.25
         }
+      },
+      "wind": {
+        "wind": [
+          1,
+          0.4,
+          2.2
+        ]
       }
     }
   },
@@ -136,8 +143,7 @@
     }
   ],
   "modules": [
-    "cast",
-    "beats"
+    "cast"
   ],
   "state": {
     "moment": "first_meet",
@@ -148,11 +154,14 @@
     "overcast": 0,
     "day": 0,
     "rain": 0,
+    "wind": 0,
     "lamp": 1,
     "cart": false,
-    "pin": 0,
+    "hem": "none",
     "scraps": false,
     "ripple": 0.4,
+    "pin": 0,
+    "bell": 0,
     "nastya_here": true,
     "nastya_a": -1.4,
     "nastya_d": 3.6,
@@ -202,7 +211,7 @@
     },
     "lodger_here": false,
     "gentleman_here": false,
-    "dvornik_here": false,
+    "yardman_here": false,
     "nanny_here": false,
     "child_here": false,
     "passerby_here": false
@@ -328,13 +337,36 @@
       "type": "boolean",
       "means": "a dray loaded with furniture standing in the far bank's street (the city going to and coming back from the dachas)"
     },
+    "hem": {
+      "values": [
+        "none",
+        "pinned",
+        "torn"
+      ],
+      "means": "her hem on the second night: pinned to the Dreamer's left sleeve with Grandmother's pin (its glint at his wrist), torn (the pin gone; М2 missed), none"
+    },
     "pin": {
       "range": [
         0,
         1
       ],
       "smooth": true,
-      "means": "the glint of Grandmother's pin at the Dreamer's left wrist (her hem pinned to his sleeve, the second night)"
+      "means": "the pin's glint at the Dreamer's left wrist (script.js: 1 while `hem` is pinned)"
+    },
+    "wind": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the wind off the canal (Д2, М3): lime leaves blown along the street, more as it rises"
+    },
+    "bell": {
+      "range": [
+        0,
+        10
+      ],
+      "means": "the bell's strokes counted at ten (the game's sound; nothing is shown)"
     },
     "scraps": {
       "type": "boolean",
@@ -351,7 +383,7 @@
     "nastya_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where nastya stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -365,7 +397,7 @@
     "dreamer_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where dreamer stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -379,7 +411,7 @@
     "lodger_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where lodger stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -393,7 +425,7 @@
     "gentleman_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where gentleman stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -404,24 +436,24 @@
       ],
       "means": "where gentleman stands, metres away (the corner behind the viewer, below 0)"
     },
-    "dvornik_a": {
+    "yardman_a": {
       "range": [
         -3,
-        8
+        24
       ],
-      "means": "where dvornik stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+      "means": "where yardman stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
-    "dvornik_d": {
+    "yardman_d": {
       "range": [
         -6,
         60
       ],
-      "means": "where dvornik stands, metres away (the corner behind the viewer, below 0)"
+      "means": "where yardman stands, metres away (the corner behind the viewer, below 0)"
     },
     "nanny_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where nanny stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -435,7 +467,7 @@
     "child_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where child stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -449,7 +481,7 @@
     "passerby_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where passerby stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -472,10 +504,10 @@
       "name": "The canal",
       "plane": true,
       "across": -13.05,
-      "distance": 160,
+      "distance": 140,
       "elevation": -1.6,
       "width": 21.7,
-      "depth": 320,
+      "depth": 360,
       "reflect": {
         "strength": 0.8,
         "fade": 0,
@@ -487,14 +519,14 @@
       "id": "far_wall",
       "name": "Far bank's wall",
       "across": -23.9,
-      "distance": 0,
+      "distance": -40,
       "elevation": -1.6,
       "facing": 90,
       "height": 2.65,
       "box": [
         0,
         -2.7,
-        320,
+        360,
         0.05
       ]
     },
@@ -503,22 +535,22 @@
       "name": "Far bank's street",
       "plane": true,
       "across": -27.15,
-      "distance": 160,
+      "distance": 140,
       "elevation": 0,
       "width": 5.5,
-      "depth": 320
+      "depth": 360
     },
     {
       "id": "parapet",
       "name": "Granite parapet",
       "across": -1.7,
-      "distance": 1,
+      "distance": -39,
       "facing": 90,
       "height": 1.05,
       "box": [
         0,
         -1.1,
-        319,
+        359,
         0.05
       ]
     },
@@ -527,20 +559,56 @@
       "name": "Parapet's top",
       "plane": true,
       "across": -1.95,
-      "distance": 160.5,
+      "distance": 140.5,
       "elevation": 1.05,
       "width": 0.5,
-      "depth": 319
+      "depth": 359
     },
     {
       "id": "pavement",
       "name": "Embankment street",
       "plane": true,
       "across": 2.2,
-      "distance": 160,
+      "distance": 140,
       "elevation": 0,
       "width": 7.8,
-      "depth": 320
+      "depth": 360
+    },
+    {
+      "id": "lane",
+      "name": "The side street (the corner)",
+      "plane": true,
+      "across": 18.05,
+      "distance": 0.5,
+      "elevation": 0,
+      "width": 23.9,
+      "depth": 5
+    },
+    {
+      "id": "lane_wall",
+      "name": "The side street's walls",
+      "across": 6.1,
+      "distance": 3,
+      "facing": 180,
+      "height": 13,
+      "box": [
+        -0.1,
+        -13.1,
+        24,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": 6.1,
+          "distance": 3,
+          "facing": 180
+        },
+        {
+          "across": 30,
+          "distance": -2,
+          "facing": 0
+        }
+      ]
     },
     {
       "id": "puddle",
@@ -694,6 +762,12 @@
           "across": 6.1,
           "distance": 294,
           "facing": 270
+        },
+        {
+          "across": 6.1,
+          "distance": -2,
+          "facing": 270,
+          "tint": "#f4f0ea"
         }
       ]
     },
@@ -740,6 +814,17 @@
         {
           "across": 6.1,
           "distance": 255,
+          "facing": 270,
+          "tint": "#f2eef2"
+        },
+        {
+          "across": 6.1,
+          "distance": -23.5,
+          "facing": 270
+        },
+        {
+          "across": 30,
+          "distance": 7,
           "facing": 270,
           "tint": "#f2eef2"
         }
@@ -795,6 +880,11 @@
           "across": 6.1,
           "distance": 320,
           "facing": 270
+        },
+        {
+          "across": -29.9,
+          "distance": -36.5,
+          "facing": 90
         }
       ]
     },
@@ -1109,6 +1199,19 @@
         -19.3,
         25.3,
         0.1
+      ],
+      "copies": [
+        {
+          "across": -11.9,
+          "distance": 322,
+          "facing": 180
+        },
+        {
+          "across": -11.9,
+          "distance": -46,
+          "facing": 0,
+          "tint": "#f2eef2"
+        }
       ]
     },
     {
@@ -1156,6 +1259,25 @@
         "amount": "rain",
         "count": 14000,
         "color": "#f2f2f8"
+      }
+    },
+    {
+      "id": "gust",
+      "name": "Leaves blown along the street",
+      "across": 1.5,
+      "distance": 8,
+      "particles": {
+        "kind": "leaves",
+        "amount": "wind",
+        "source": [
+          9,
+          16,
+          3
+        ],
+        "color": [
+          "#9aa86a",
+          "#c2b46a"
+        ]
       }
     },
     {
@@ -1235,18 +1357,18 @@
       }
     },
     {
-      "id": "dvornik",
+      "id": "yardman",
       "name": "Yard-keeper",
       "person": {
         "cast": "cast",
-        "who": "dvornik",
+        "who": "yardman",
         "turn": 215
       },
       "across": 4.9,
       "distance": 14.2,
       "place": {
-        "across": "dvornik_a",
-        "distance": "dvornik_d"
+        "across": "yardman_a",
+        "distance": "yardman_d"
       },
       "shadow": {
         "light": "lamp",

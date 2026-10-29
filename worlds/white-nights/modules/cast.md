@@ -30,7 +30,7 @@ expressions, by name). Hems are even (no ragged edge).
 - `fyokla` — Fyokla, Grandmother's deaf old servant: thin and bent, a faded grey-blue dress to the floor, a dark
   moss-green shawl, a white kerchief over grey hair.
 - `gentleman` — the gentleman in a tailcoat on the first night, a little drunk: a black tailcoat, a top hat, a flushed face.
-- `dvornik` — the yard-keeper of the prologue: a red shirt, a long white apron, a peaked cap; his broom (`broom`).
+- `yardman` — the yard-keeper of the prologue: a red shirt, a long white apron, a peaked cap; his broom (`broom`).
 - `nanny` — a nurse-maid at the morning's end: a blue-grey dress, a cream shawl, a white kerchief.
 - `child` — her child, five or so, in a white frock, eating a bagel (`bagel`).
 - `passerby` — a man in the returned city: a brown long coat, a top hat.

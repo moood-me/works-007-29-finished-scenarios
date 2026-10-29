@@ -38,8 +38,13 @@ upper half, the people's feet in the frame though they stand near)
 The view stands in the street 1.7 m off the parapet: the canal fills the left of the frame, the two stand together in
 the middle, near and large. What matters stays within the 4:3 frame (x 0.125…0.875); the near lamp too.
 
+- The world goes on behind the viewer too (for cameras that look back): the canal, both banks' walls and streets, the
+  parapet start 40 m behind; on the near side, behind the viewer, **the side street — the corner they come from**
+  (`lane`, its floor, across 6.1…30, distance −2…3, between the yellow house and the house behind it; its walls
+  `lane_wall`, a house closing it at across 30), houses beyond it on both banks, the canal's far end closed by the
+  `vista`'s second copy.
 - The canal runs straight away from the viewer: its water a reflecting plane 1.6 m under the streets, across −23.9 …
-  −2.2, 320 m long (`water`; a slow ripple layer drifting toward the viewer).
+  −2.2, from 40 m behind the viewer to 320 m ahead (`water`; a slow ripple layer drifting toward the viewer).
 - The near granite parapet — her place — along the canal, its face at across −1.7 (`parapet`, its face to the street,
   a darker granite with its top edge inked; its top `parapet_top` at 1.05 m, −2.2 … −1.7, a lighter stone where hands
   rest), from a metre off into the distance: the leading line from the bottom-left.
@@ -93,16 +98,19 @@ first night) is all of them 0. `rain` 0…1 — the rain round the eye (particle
 ripple, the key `ripple`, follows the rain in script.js). `lamp` puts out every lamp — the near one (light `lamp`), the
 banks' (`bank_lamps`, the copies' flames) — and their glass goes a cool pale grey (lib.lamp reads it; `redraw` 0.25).
 
+`wind` 0…1 — the wind off the canal (Д2, the game's М3): a look (the light's wind) and lime leaves blown along the street
+(particles `gust`, amount `wind`). `bell` 0…10 — the strokes of ten counted: the game's sound, nothing shown.
+
 Other keys: `cart` — a dray loaded with furniture in the far bank's street (`cart`: the city going to the dachas, coming
 back); `scraps` — the torn letter's bits afloat before the parapet (`scraps`, a plane on the water, its layer drifting
-down the canal); `pin` 0…1 — the glint of Grandmother's pin at the Dreamer's left wrist (a light at `dreamer#hand_l`,
-the second night on the bench).
+down the canal); `hem` none / pinned / torn — her hem on the second night: pinned to his left sleeve with Grandmother's pin, whose glint
+(the light `pin` at `dreamer#hand_l`, the key `pin` set by script.js from `hem`) shows at his wrist; torn — the pin gone.
 
 ## The people
 
 The world's `cast` (modules/cast.md). Each stands by its place keys `<id>_a`, `<id>_d`; casts the lamp's shadow.
 `nastya` (Nastenka), `dreamer`, `lodger`; the embankment's own passers (new in the cast): `gentleman` (the tipsy
-gentleman in a tailcoat, 1.2), `dvornik` (the yard-keeper with his broom, the prologue; part `broom`), `nanny` and
+gentleman in a tailcoat, 1.2), `yardman` (the yard-keeper with his broom, the prologue; part `broom`), `nanny` and
 `child` (the morning's end; the child's part `bagel`), `passerby` (the morning). New parts: `broom`, `bagel`,
 `letter_stained` (the letter with the puddle's brown stain — the mark «Пятно»). All but Nastenka and the Dreamer are
 `_here` false by default.
@@ -145,7 +153,8 @@ The moments one after another, four seconds each (showcase.js).
 
 ## State
 
-`lamp` 0…1 — the lamps' light. `moment`, `staged`, the looks, `rain`, `ripple`, `cart`, `pin`, `scraps` (above). The
+`lamp` 0…1 — the lamps' light. `moment`, `staged`, the looks, `rain`, `ripple`, `wind`, `bell`, `cart`, `hem`, `pin`,
+`scraps` (above). The
 people's keys are the engine's (`<id>_here`, `_a`, `_d`, `_turn`, `_do`, `_reach`, `_look`, `_with`, `_mood`, …).
 
 ## What moves
@@ -154,9 +163,25 @@ The clouds drift (a sky layer), the ripple runs down the canal (a layer of the w
 lamp's flame flickers a little, the rain falls, the scraps drift, the people breathe. A night's sky is a layer shown by
 its key. Nothing is painted again while the scene plays (the lamps' glass only when `lamp` crosses a quarter).
 
+## Points (for the game's marks and cameras)
+
+The people's own (`<id>#head`, `#hand_r`, `#hand_l`, `#elbow_r`, `#elbow_l`, `#chest`, `#shoulder_r`, …; the letter's
+`<id>#letter` while held), `lamp#flame`, `sky#afterglow`. Arm in arm: her hand on his elbow on the side she walks —
+walking toward the viewer she is on his right (`nastya_reach` {l: `dreamer#elbow_r`}), walking away or facing the
+viewer under the awning, on his left ({r: `dreamer#elbow_l`}, as the game's М4 marks `nastya#hand_r`).
+
+## Stage 5 — not begun here
+
+The owner stopped «Белые ночи» at stage 4 (2026-10-29). Not in the scene: the pieces (`lib.film`, the key `beat`), its
+cameras and close faces, its motions. A first draft of the pieces was written against scenario §5 before the game's
+contract came and was taken out whole (nothing half-made is left); what it taught is in the history note
+`docs/history/2026-10-29-nochi-embankment.md`. The world has the module `beats` (copied from Canterville) for when the
+pieces are written.
+
 ## What is not right yet
 
 - The rain falls through the awning (weather fills the air round the eye; its `area` is a box, not «not under this»):
   under the awning it rains past the two as everywhere — seen as the rain beyond the awning's edge.
 - People far up the street (the awning at 12 m, the bench at 9–11 m) are small in the picture camera: the close faces
   are stage 5's cameras.
+

@@ -401,4 +401,5 @@ function lamp(g, e) {
   e.at(0, -3.18, 'flame');
 }
 
+
 return { INK, HOUSES, facade, door, granite, lamp, wash, hatch, rgbOf };
