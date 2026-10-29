@@ -32,15 +32,15 @@ function film(scene) {
     fire: CAM([2.3, 3.5, 1.5], [3.85, 5.6, 1.05]),
     bucket: CAM([2.85, 4.1, 1.15], [3.8, 5.4, 0.55]),
     window: CAM([-3.2, 6.0, 2.1], [-4.4, 8.85, 1.75]),
-    dad: CAM([0.2, 2.8, 1.45], [-1.15, 6.86, 1.05]),
+    dad: CAM([1.2, 3.6, 1.4], [-0.6, 6.6, 1.0]),
     porch: CAM([0.3, 3.0, 1.6], [-1.0, 8.0, 1.5]),
     tree: CAM([1.7, 3.0, 1.6], [4.2, 5.4, 1.4]),
     up: CAM([2.0, 3.2, 1.3], [3.8, 5.4, 4.2]),
     box: CAM([0.1, 5.0, 1.05], [-0.6, 6.86, 0.5]),
     sheet: CAM([-0.3, 5.5, 1.25], [-0.4, 6.86, 0.4]),
     stop: CAMS([0.0, 0.6, 1.6], [-2.6, -2.6, 1.2]),
-    gate: CAMS([0.3, 1.2, 1.4], [-0.3, -1.2, 0.6]),
-    across: CAMS([0.3, 0.4, 1.6], [-2.5, -6.0, 1.4]),
+    gate: CAMS([1.2, -3.2, 1.55], [-0.2, -1.2, 1.45]),
+    across: CAMS([-0.9, 1.0, 1.6], [-3.0, -8.0, 1.3]),
   };
   const cast = scene.kit?.cast?.characters ?? {};
   const who = (id, [a, d, turn], does = 'stand', more = {}) => {
@@ -91,7 +91,7 @@ function film(scene) {
   // the year on, the last dusk: Dad on the top step by the shoebox, the last box on the porch; Jack before him with
   // her sheet
   const PORCH = () => merge(YEAR({ porch_lamp: 0.6 }), who('dad', [TOP[0], TOP[1], 180], 'sitting_on_bed', { on: TOP, look: 'jack' }),
-    who('jack', [-0.15, 5.6, 200], 'stand', { with: ['letter'], look: 'dad' }), away('mom', 'mark', 'mark_grown', 'boy_a', 'boy_b'));
+    who('jack', [0.35, 6.0, 250], 'stand', { with: ['letter'], look: 'dad' }), away('mom', 'mark', 'mark_grown', 'boy_a', 'boy_b'));
   // the finales' Jack: sitting on the lower step with the sheet
   const SITTING = () => who('jack', [LOW[0], LOW[1], 180], 'sitting_on_bed', { on: LOW, with: ['letter'], look: 'jack#letter' });
 
@@ -415,13 +415,13 @@ function film(scene) {
     // across the street. His line, Jack's, at `mark:say`
     mark: {
       tells: ['mark:say'], seconds: 12,
-      from: () => merge(YEAR({}), SH.across, who('jack', [-0.25, -0.9, 180], 'stand', { look: 'mark_grown' }),
+      from: () => merge(YEAR({}), SH.across, who('jack', [0.3, -1.0, 180], 'stand', { look: 'mark_grown' }),
         who('mark_grown', [-3.4, -8.7, 0], 'stand', { look: 'jack', with: ['duffel'] }), away('mom', 'mark', 'dad', 'boy_a', 'boy_b')),
       run: async s => {
         const m = s.person('mark_grown'), w = s.state.way;
         await s.wait(1.2);
         if (w === 'english') {
-          await m.walk([[-1.5, -5.0], [-0.4, -2.0]]);
+          await m.walk([[-1.5, -5.0], [0.1, -2.0]]);
           await m.turn(0);
           glide(s, SH.gate, 1.5);
           s.tell('mark:say');
@@ -438,6 +438,7 @@ function film(scene) {
           await s.wait(2);
         } else {
           m.look('jack');
+          glide(s, SH.gate, 1.5);
           s.tell('mark:say');
           await s.wait(4);
         }
