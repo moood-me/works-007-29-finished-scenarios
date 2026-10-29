@@ -1,6 +1,6 @@
 // The sky over the garden. By day (the painting): a clear fresh morning — blue overhead, paling to a warm haze low
 // down over the woods, a few soft fair-weather clouds. By night (layers the animate brings in by the key `night`):
-// deep blue going black overhead, small stars, the moon high on the right with its halo (`sky#disc`), and the dark
+// deep blue going black overhead, small stars, the moon high on the left with its halo (`sky#disc`), and the dark
 // clouds about it that it comes out from behind (key `clouds`).
 const X0 = -0.3;
 const W = e.aspect + 0.6;
@@ -27,8 +27,8 @@ for (const [cx, cy, w] of [[0.18, 0.2, 0.34], [0.62, 0.12, 0.26], [1.12, 0.26, 0
     g.fillRect(px - r, py - r, r * 2, r * 2);
   }
 }
-const mx = e.aspect * 0.8;
-const my = 0.15;
+const mx = e.aspect * 0.16;
+const my = 0.12;
 // the night: deep blue going black overhead, paler low over the woods, a scatter of small stars
 e.layer('night', {}, c => {
   const sky = c.createLinearGradient(0, -0.35, 0, 1.25);

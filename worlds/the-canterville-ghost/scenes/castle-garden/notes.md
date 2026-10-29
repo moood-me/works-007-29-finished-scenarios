@@ -18,7 +18,7 @@ looking down the garden toward the park wall.
   (gravel across the foot of the lawn at 4.25 m, joining the avenue).
 - **The avenue:** two rows of limes (`lime`, copies; crowns a layer in the wind), one each side; in autumn lime
   leaves fall (`leaves`).
-- **The churchyard:** the railing (`railing`: across at 6.6 m from far left to the corner by the limes, a wicket gate
+- **The churchyard:** the railing (`railing`: across at 5.6 m from far left to the corner by the limes, a wicket gate
   in it at across −0.4…0.8, `railing#gate`; `railing_side`: from the corner along the limes back to 30 m), old
   headstones and crosses (`church_stone`, `church_cross`: copies), the old yew (`yew`, 12.8 m, left of the middle —
   the same tree as in the Garden of Death, with the nightingale on its left arm, `yew#nightingale`), and under it the
@@ -45,7 +45,7 @@ the same scene in another state, set by the game:
 |---|---|
 | 1.5 Virginia paints, Mrs Umney passes | the default |
 | 2.6 Virginia sits at the easel and does not paint; Cecil sits on the grass by her | `umney_here: false`, `virginia_on: [3.35, 6.35, 0.45]` (the stool) with `virginia_do: "brood"`, `virginia_with: null`; `cecil_here: true` (`sit_ground`, looking at the board) |
-| the funeral (finals «Миндаль», «Свеча»), night, autumn, the almond in blossom | `night: 1`, `autumn: 1`, `almond: "blossom"`, `easel: false`, `umney_here: false`, `funeral: true`, `grave: "open"`, `torches: 1`; Virginia at the coffin (`virginia_a: -0.2`, `virginia_d: 8.5`, `virginia_turn: 250`, `virginia_do: "clasped"`, `virginia_with: ["almond_cross"]`, `virginia_look: "coffin#lid"`); the family here (`otis`, `mrs_otis`, `washington` — `washington_with: ["torch"]`, `torch_held: 1` —, `twin_a`, `twin_b`), placed round the coffin; the cross laid: `cross: true`, `virginia_with: null`; the moon coming out: `clouds` 1 → 0. «Свеча»: `otis_with: ["candle"]`, `candle: 1`, Mr Otis apart (`otis_a`, `otis_d`), `otis_do: "offer"` |
+| the funeral (finals «Миндаль», «Свеча»), night, autumn, the almond in blossom | `night: 1`, `autumn: 1`, `almond: "blossom"`, `easel: false`, `umney_here: false`, `funeral: true`, `grave: "open"`, `torches: 1`; Virginia at the coffin (`virginia_a: -0.2`, `virginia_d: 7.3`, `virginia_turn: 250`, `virginia_do: "clasped"`, `virginia_with: ["almond_cross"]`, `virginia_look: "coffin#lid"`); the family here (`otis`, `mrs_otis`, `washington` — `washington_with: ["torch"]`, `torch_held: 1` —, `twin_a`, `twin_b`), placed round the coffin; the cross laid: `cross: true`, `virginia_with: null`; the moon coming out: `clouds` 1 → 0. «Свеча»: `otis_with: ["candle"]`, `candle: 1`, Mr Otis apart (`otis_a`, `otis_d`), `otis_do: "offer"` |
 | the last shot of «Миндаль» | night, `almond: "blossom"`, `grave: "mound"`, `cross: true`, no people |
 | years later (Virginia and Cecil under the yew) | `virginia_wear` / `cecil_wear`: the cast's `virginia_duchess`, `cecil_duke` (the look objects, `scene.kit.cast.characters.…`), placed by the grave |
 | the last shot of «Пятно»: the coaches go out past the dry almond | `autumn: 1`, `easel: false`, `umney_here: false`, `coaches: true`, `coach_d` moved toward the gates (stage 5) |

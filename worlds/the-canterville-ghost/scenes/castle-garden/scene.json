@@ -1,7 +1,7 @@
 {
   "engine": 3,
   "title": "The Garden by the Castle",
-  "caption": "Morning in the garden at Canterville. By the churchyard railing stands the old almond tree; it has not blossomed in living memory.",
+  "caption": "The garden at Canterville. By the churchyard railing stands the old almond tree.",
   "horizon": 0.45,
   "camera": {
     "mode": "picture"
@@ -116,15 +116,15 @@
     "cecil_a": 2.2,
     "cecil_d": 5.2,
     "otis_a": -1.3,
-    "otis_d": 9.3,
+    "otis_d": 8.1,
     "mrs_otis_a": -2.1,
-    "mrs_otis_d": 9.4,
+    "mrs_otis_d": 8.2,
     "washington_a": -3.4,
-    "washington_d": 8.9,
+    "washington_d": 7.7,
     "twin_a_a": -0.6,
-    "twin_a_d": 9.45,
+    "twin_a_d": 8.25,
     "twin_b_a": -2.75,
-    "twin_b_d": 9.65,
+    "twin_b_d": 8.45,
     "virginia_with": [
       "brush"
     ],
@@ -444,10 +444,10 @@
       "name": "The churchyard's grass",
       "plane": true,
       "across": -18.9,
-      "distance": 31.3,
+      "distance": 30.8,
       "elevation": 0.004,
       "width": 42.6,
-      "depth": 49.4
+      "depth": 50.4
     },
     {
       "id": "avenue",
@@ -533,57 +533,51 @@
         },
         {
           "across": 3.0,
-          "distance": 12,
-          "scale": 0.95,
-          "flip": true
-        },
-        {
-          "across": 3.3,
           "distance": 17,
-          "scale": 1.05,
-          "flip": false
+          "scale": 0.95,
+          "flip": true
         },
         {
-          "across": 3.0,
+          "across": 3.3,
           "distance": 22,
-          "scale": 0.9,
-          "flip": true
-        },
-        {
-          "across": 3.3,
-          "distance": 27,
-          "scale": 1.0,
-          "flip": false
-        },
-        {
-          "across": 3.0,
-          "distance": 32,
-          "scale": 0.95,
-          "flip": true
-        },
-        {
-          "across": 3.3,
-          "distance": 37,
           "scale": 1.05,
           "flip": false
         },
         {
           "across": 3.0,
-          "distance": 42,
+          "distance": 27,
           "scale": 0.9,
           "flip": true
         },
         {
           "across": 3.3,
-          "distance": 47,
+          "distance": 32,
           "scale": 1.0,
           "flip": false
         },
         {
           "across": 3.0,
-          "distance": 52,
+          "distance": 37,
           "scale": 0.95,
           "flip": true
+        },
+        {
+          "across": 3.3,
+          "distance": 42,
+          "scale": 1.05,
+          "flip": false
+        },
+        {
+          "across": 3.0,
+          "distance": 47,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 3.3,
+          "distance": 52,
+          "scale": 1.0,
+          "flip": false
         }
       ]
     },
@@ -786,7 +780,7 @@
       "name": "The grave under the yew",
       "plane": true,
       "across": -4.3,
-      "distance": 9.9,
+      "distance": 8.8,
       "elevation": 0.012,
       "width": 2.4,
       "depth": 1.4
@@ -795,7 +789,7 @@
       "id": "heap",
       "name": "The earth beyond the grave",
       "across": -4.3,
-      "distance": 10.65,
+      "distance": 9.55,
       "facing": 180,
       "height": 1.4,
       "box": [
@@ -809,7 +803,7 @@
       "id": "coffin",
       "name": "The coffin on its trestles",
       "across": -1.6,
-      "distance": 8.2,
+      "distance": 7.0,
       "facing": 180,
       "height": 1.8,
       "box": [
@@ -824,7 +818,7 @@
       "id": "torchpole",
       "name": "Funeral torches on poles",
       "across": -2.95,
-      "distance": 7.85,
+      "distance": 6.65,
       "height": 2.4,
       "box": [
         -0.15,
@@ -835,11 +829,11 @@
       "copies": [
         {
           "across": -2.95,
-          "distance": 7.85
+          "distance": 6.65
         },
         {
           "across": 0.6,
-          "distance": 8.95
+          "distance": 7.75
         }
       ]
     },
@@ -883,7 +877,7 @@
       "id": "railing",
       "name": "The churchyard railing",
       "across": -6.8,
-      "distance": 6.6,
+      "distance": 5.6,
       "facing": 180,
       "height": 1.8,
       "box": [
@@ -897,13 +891,13 @@
       "id": "railing_side",
       "name": "The churchyard railing along the limes",
       "across": 2.4,
-      "distance": 18.3,
+      "distance": 17.8,
       "facing": 270,
       "height": 1.3,
       "box": [
-        -11.8,
+        -12.3,
         -1.3,
-        11.8,
+        12.3,
         0.1
       ]
     },
@@ -936,67 +930,67 @@
       "copies": [
         {
           "across": -8.0,
-          "distance": 6.45,
+          "distance": 5.45,
           "scale": 1.0,
           "flip": false
         },
         {
           "across": -6.3,
-          "distance": 6.4,
+          "distance": 5.4,
           "scale": 0.85,
           "flip": true
         },
         {
           "across": -4.9,
-          "distance": 6.48,
+          "distance": 5.48,
           "scale": 1.2,
           "flip": false
         },
         {
           "across": -3.1,
-          "distance": 6.42,
+          "distance": 5.42,
           "scale": 0.95,
           "flip": true
         },
         {
           "across": -1.9,
-          "distance": 6.45,
+          "distance": 5.45,
           "scale": 1.0,
           "flip": false
         },
         {
           "across": -1.0,
-          "distance": 6.4,
+          "distance": 5.4,
           "scale": 0.85,
           "flip": true
         },
         {
           "across": 1.3,
-          "distance": 6.45,
+          "distance": 5.45,
           "scale": 1.2,
           "flip": false
         },
         {
           "across": 2.15,
-          "distance": 6.4,
+          "distance": 5.4,
           "scale": 0.95,
           "flip": true
         },
         {
           "across": 0.1,
-          "distance": 5.05,
+          "distance": 4.95,
           "scale": 1.0,
           "flip": false
         },
         {
           "across": 1.05,
-          "distance": 5.0,
+          "distance": 4.9,
           "scale": 0.85,
           "flip": true
         },
         {
-          "across": 0.35,
-          "distance": 5.45,
+          "across": -0.2,
+          "distance": 5.3,
           "scale": 1.2,
           "flip": false
         },
@@ -1054,7 +1048,7 @@
       "id": "robin",
       "name": "A robin on the gate post",
       "across": -0.37,
-      "distance": 6.56,
+      "distance": 5.56,
       "elevation": 0.51,
       "height": 0.3,
       "box": [
@@ -1181,7 +1175,7 @@
         "does": "upright"
       },
       "across": -1.3,
-      "distance": 9.3,
+      "distance": 8.1,
       "place": {
         "across": "otis_a",
         "distance": "otis_d"
@@ -1197,7 +1191,7 @@
         "does": "clasped"
       },
       "across": -2.1,
-      "distance": 9.4,
+      "distance": 8.2,
       "place": {
         "across": "mrs_otis_a",
         "distance": "mrs_otis_d"
@@ -1213,7 +1207,7 @@
         "does": "offer"
       },
       "across": -3.4,
-      "distance": 8.9,
+      "distance": 7.7,
       "place": {
         "across": "washington_a",
         "distance": "washington_d"
@@ -1229,7 +1223,7 @@
         "does": "stand"
       },
       "across": -0.6,
-      "distance": 9.45,
+      "distance": 8.25,
       "place": {
         "across": "twin_a_a",
         "distance": "twin_a_d"
@@ -1245,7 +1239,7 @@
         "does": "stand"
       },
       "across": -2.75,
-      "distance": 9.65,
+      "distance": 8.45,
       "place": {
         "across": "twin_b_a",
         "distance": "twin_b_d"
