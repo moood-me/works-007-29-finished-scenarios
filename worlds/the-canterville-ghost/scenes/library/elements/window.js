@@ -97,3 +97,8 @@ for (let i = 0; i < 3; i++) {
   }
 }
 g.restore();
+// the morning (`day`): daylight through the glass, its colours paler and warm — a layer the animate shows by the key
+e.layer('day', {}, f => {
+  f.fillStyle = 'rgba(250,236,200,0.6)';
+  f.fillRect(-1.45, -3.05, 2.5, 2.1);
+});

@@ -1,0 +1,14 @@
+{
+  "type": "bespoke",
+  "title": "Night Flight",
+  "description": "One night in the office of the night mail at the edge of a great field. Three mail planes are coming in from the south, the west and the north; when all three are down, the European mail goes north. You are Rivière, the director, who forgives no one — neither his men nor the weather; and tonight Fabien's Patagonian mail flies into a storm and does not come back. Whom will you forgive, what will you tell his wife, whom will you give the last minute of the line — and will you let the next plane go? What may one pay for a work that will outlive men — and may one pay with other men's lives and other people's grief?",
+  "line": "A night mail, a storm in the south, a wife at the door — and a director who never says he is sorry.",
+  "source": "after the novel by Antoine de Saint-Exupéry",
+  "genres": {
+    "drama": 70,
+    "immersion": 40,
+    "relationships": 40
+  },
+  "world": "../../worlds/night-flight",
+  "languages": ["en", "ru"]
+}

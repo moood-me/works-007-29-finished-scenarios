@@ -1,0 +1,44 @@
+// A robin on the corner post of the railing by day: round, olive-brown, its breast orange-red, its tail cocked — it
+// bobs and turns its head now and then (the animate); gone by night.
+e.layer('bird', { pivot: [0, -1.22] }, c => {
+  c.fillStyle = '#6e604a';
+  c.beginPath();
+  c.ellipse(0, -1.29, 0.06, 0.05, 0, 0, Math.PI * 2);
+  c.fill();
+  c.fillStyle = '#d8642e';
+  c.beginPath();
+  c.ellipse(0.025, -1.28, 0.035, 0.035, 0, 0, Math.PI * 2);
+  c.fill();
+  c.fillStyle = '#6e604a';
+  c.beginPath();
+  c.arc(0.035, -1.345, 0.028, 0, Math.PI * 2);
+  c.fill();
+  c.fillStyle = '#d8642e';
+  c.beginPath();
+  c.arc(0.048, -1.335, 0.016, 0, Math.PI * 2);
+  c.fill();
+  c.fillStyle = '#2a2420';
+  c.beginPath();
+  c.moveTo(0.062, -1.35);
+  c.lineTo(0.085, -1.345);
+  c.lineTo(0.062, -1.338);
+  c.fill();
+  c.beginPath();
+  c.arc(0.045, -1.352, 0.005, 0, Math.PI * 2);
+  c.fill();
+  c.fillStyle = '#5a4e3c';
+  c.beginPath();
+  c.moveTo(-0.05, -1.3);
+  c.lineTo(-0.11, -1.36);
+  c.lineTo(-0.095, -1.29);
+  c.closePath();
+  c.fill();
+  c.strokeStyle = '#4a3a2a';
+  c.lineWidth = 0.006;
+  c.beginPath();
+  c.moveTo(-0.005, -1.245);
+  c.lineTo(-0.01, -1.22);
+  c.moveTo(0.012, -1.245);
+  c.lineTo(0.012, -1.22);
+  c.stroke();
+});

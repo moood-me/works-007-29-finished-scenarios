@@ -1,0 +1,14 @@
+{
+  "type": "bespoke",
+  "title": "The Canterville Ghost",
+  "description": "An old English manor, an American family that does not believe in ghosts and offers theirs oil for his chains, and Sir Simon de Canterville, who murdered his wife and has not slept for three hundred years. You are Virginia, fifteen: will you stand with your laughing family, or beside the old murderer who asks you, once, to go with him through the wall? What is pity for one who did evil worth — and who pays for it?",
+  "line": "A laughing family, a very tired ghost — and a girl of fifteen who has to choose where she stands.",
+  "source": "after the story by Oscar Wilde",
+  "genres": {
+    "comedy": 50,
+    "drama": 60,
+    "relationships": 50
+  },
+  "world": "../../worlds/the-canterville-ghost",
+  "languages": ["en", "ru"]
+}

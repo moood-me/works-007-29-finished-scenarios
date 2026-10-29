@@ -39,3 +39,66 @@ the front cockpit, his radio operator behind. Its three skies are the scenario's
 - **The storm** is only light and rain; the plane is thrown by `bob` (up and down), not rolled or pitched — a
   `tilt` on the anchor would tip the seated people with it, untried.
 - The propeller is a blur only (no blade seen through it), and at 4:3 it is out of the frame.
+
+## Stage 4: the night and the gap
+
+- **The night over the steppe** (`night` 1, with `storm` 0 and `above` 0; the light's look `night`): eleven o'clock
+  (1.5) — a deep blue starry sky, the steppe black with its pale dry riverbeds, the lights of Trelew below ahead on the
+  left (the layer `town`, drifting back), the silent lightning of the storm far behind in the south. The instrument
+  lamps (`panel`) light the faces.
+- **The gap in the storm** (`gap` 0…1, in the storm: 3.4): a ragged opening overhead, its edges lit, stars in it (the
+  layer `gap`, shown by animate), and a little starlight down through it (light `gap_light`, `on` `gap`).
+- Not done (stage 5): the note passed from hand to hand (the cast has the part `note` — `<id>_with: ["note"]`, point
+  `#note` — for the motion); the plane laid on a wing (the miss of М5) — a `tilt` on the anchor `plane` would tip the
+  seated people with it, untried.
+- Seen on the GPU (a sheet: the night over Trelew; the storm with the gap open).
+
+## Stage 5: the pieces
+
+The module `beats` (lib.js `film`; script.js plays it; the game sets `beat`). The shots are cameras of their own (the
+eye and the point it looks at) in the open air on the plane's right side — the two (`two`), Fabien medium and close,
+the two looking up at the gap; the wide shot is the scene's picture camera. Notes go from hand to hand by the cast's
+`note` (`<id>_with`): the giver's motion (`pass_back` / `pass_forward`), the taker's hand reaching for the giver's,
+the note passing between them.
+
+- **Keys (the asks).** `roll` (−70…70, smooth: the anchor `plane` tilted by its `place.tilt`, the seated people with
+  it — the plane laid on a wing about its length); `water` (0…1: the sea far below through a rent in the cloud, a layer
+  of the storm's sky shown in the lightning); `climb` (0…1: the storm's cloud masses sink past — layers moved down —
+  and the gap overhead opens wider, its light growing); `house` (0…1: the lone house's window lit at dusk).
+
+| piece | after | what |
+| --- | --- | --- |
+| dusk | — | dusk over the steppe; the house's window lights below; a slow push in to Fabien |
+| note_back | dusk | Fabien writes on his knee, passes the note back; the operator reads it and taps it out |
+| trelew | — | the night over Trelew: a note forward, Fabien's answer back; close on him looking down at the lights |
+| storm | — | thrown about (`roll` a little); a note forward, his one-handed answer back; ends at the stick (М5) |
+| gap | — | the gap opens overhead; the operator's note forward |
+| key_held | gap | the operator holds his key down; Fabien looks at the fuel gauge |
+| lamp_note | gap | Fabien holds the note to the lamp, looks at the light, writes «To her», passes it back; the tap |
+| laugh_note | gap | he looks long at the signature, writes, passes it back; the tap; the gap closes |
+| above | — | over the clouds in the moon: his face close; «Beautiful» forward; his last back; the tap |
+
+## Stage 5: what is not right yet
+
+- `roll` tilts the anchor about its length as seen from the side: the fuselage card leans toward or away from the
+  viewer (foreshortened), not banked across the frame — that is a roll as it is, seen from beside.
+
+## After the browser test (2026-10-29)
+
+- **The nose raised in the climb.** The plane is a chain of three anchors: `plane_air` (where it is, `bob`),
+  `plane_pitch` on it at Fabien's seat (across −0.55, 1.6 m up) turned to face the right (`facing` 90 — its line runs
+  away from the viewer, so its `tilt` is the nose: key `pitch`, − up), and `plane` on that turned back (`facing` 270,
+  0.55 m along and 1.6 m down: where it was) with `roll` on its tilt as before. The script sets `pitch` from `climb`:
+  −14·sin(π·climb) — up as it starts climbing, the most halfway, level at the top. Seen on the GPU (render 1263).
+- **The storm lit.** The look `storm` brighter (ambient 0.72, its colour lighter, less haze), the cockpit lamps
+  stronger and wider (`panel` 2.3 / 1.8 m, `radio_lamp` 1.5 / 1.5 m); Fabien looks ahead a little toward the lens
+  (`STORM_LOOK`), his face lit by the lamp. The sky stays black-violet, the rain and the lightning as they were.
+- **Looks on the note.** The taker reads the note (`#note`, the cast part's point); the look comes off it before the
+  hand is emptied (`drop`) — the look stayed on a point gone with the part and warned.
+- `write_knee` (the cast's) has no pad on the knee: `write` plays `write_seated`.
+
+## Contract for the check
+
+```json
+{"beats": {"dusk":{"after":[],"tells":["dusk:window"],"seconds":8}, "note_back":{"after":["dusk"],"tells":["note_back:read","note_back:tap"],"seconds":8}, "trelew":{"after":[],"tells":["trelew:note","trelew:answer","trelew:under"],"seconds":14}, "storm":{"after":[],"tells":["storm:note","storm:answer"],"seconds":12}, "gap":{"after":[],"tells":["gap:note"],"seconds":8}, "key_held":{"after":["gap"],"tells":["key_held:end"],"seconds":6}, "lamp_note":{"after":["gap"],"tells":["lamp_note:write","lamp_note:tap"],"seconds":14}, "laugh_note":{"after":["gap"],"tells":["laugh_note:write","laugh_note:closed"],"seconds":12}, "above":{"after":[],"tells":["above:face","above:note","above:last"],"seconds":18}}}
+```
