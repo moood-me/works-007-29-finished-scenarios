@@ -205,7 +205,11 @@
     "dvornik_here": false,
     "nanny_here": false,
     "child_here": false,
-    "passerby_here": false
+    "passerby_here": false,
+    "stick_down": false,
+    "stick_a": 0.8,
+    "stick_d": 6.7,
+    "letter_down": false
   },
   "states": {
     "moment": {
@@ -459,6 +463,72 @@
         60
       ],
       "means": "where passerby stands, metres away (the corner behind the viewer, below 0)"
+    },
+    "stick_down": {
+      "type": "boolean",
+      "means": "his stick lying on the setts where it fell (M1 missed), at stick_a, stick_d"
+    },
+    "stick_a": {
+      "range": [
+        -2,
+        6
+      ],
+      "means": "where the dropped stick lies, metres right"
+    },
+    "stick_d": {
+      "range": [
+        -2,
+        30
+      ],
+      "means": "where the dropped stick lies, metres away"
+    },
+    "letter_down": {
+      "type": "boolean",
+      "means": "the letter lying in the puddle (M3 missed, a moment before he snatches it out)"
+    },
+    "arm": {
+      "type": "boolean",
+      "means": "the game's: the mark «Под руку» (the first night she took his arm): on the second night she takes it at once (piece waiting); else he hides his empty hands behind his back"
+    },
+    "cross": {
+      "type": "boolean",
+      "means": "the game's: the mark «Уколол»: on the third night she takes his arm only after a while (third_come)"
+    },
+    "ten": {
+      "values": [
+        "carried",
+        "glasha",
+        "kept"
+      ],
+      "means": "the game's: at ten on the third night (piece ten) — carried: he knows «he was there today»; glasha: she knows «tomorrow» and waits all the same; kept: the letter in his pocket"
+    },
+    "kept": {
+      "type": "boolean",
+      "means": "the game's: branch У (the letter kept): on the fourth night his hand goes to his pocket (fourth_weep)"
+    },
+    "went": {
+      "type": "boolean",
+      "means": "the game's: the mark «Ушёл»: on the fourth night she gives him her arm only in the rain; no kiss at the lamp, only a wave"
+    },
+    "couldnt": {
+      "type": "boolean",
+      "means": "the game's: the mark «Не смог»: on the fourth night (С) she takes his arm herself, as a sister (rail_c)"
+    },
+    "first": {
+      "type": "boolean",
+      "means": "the game's: on the fourth night (С) his «I love you» said for the first time (confess_c: she stops and looks long)"
+    },
+    "confessed": {
+      "type": "boolean",
+      "means": "the game's: the mark «Признался» (С): under the awning at ten she turns from the corner to him (awning_c)"
+    },
+    "bowed": {
+      "type": "boolean",
+      "means": "the game's: the mark «Поклон»: in the morning's end he nods to the yellow house (morning)"
+    },
+    "stained": {
+      "type": "boolean",
+      "means": "the game's: the mark «Пятно»: the letter carries the puddle's brown stain wherever it is (letter_stained)"
     }
   },
   "objects": [
@@ -472,10 +542,10 @@
       "name": "The canal",
       "plane": true,
       "across": -13.05,
-      "distance": 160,
+      "distance": 140,
       "elevation": -1.6,
       "width": 21.7,
-      "depth": 320,
+      "depth": 360,
       "reflect": {
         "strength": 0.8,
         "fade": 0,
@@ -487,14 +557,14 @@
       "id": "far_wall",
       "name": "Far bank's wall",
       "across": -23.9,
-      "distance": 0,
+      "distance": -40,
       "elevation": -1.6,
       "facing": 90,
       "height": 2.65,
       "box": [
         0,
         -2.7,
-        320,
+        360,
         0.05
       ]
     },
@@ -503,22 +573,22 @@
       "name": "Far bank's street",
       "plane": true,
       "across": -27.15,
-      "distance": 160,
+      "distance": 140,
       "elevation": 0,
       "width": 5.5,
-      "depth": 320
+      "depth": 360
     },
     {
       "id": "parapet",
       "name": "Granite parapet",
       "across": -1.7,
-      "distance": 1,
+      "distance": -39,
       "facing": 90,
       "height": 1.05,
       "box": [
         0,
         -1.1,
-        319,
+        359,
         0.05
       ]
     },
@@ -527,20 +597,56 @@
       "name": "Parapet's top",
       "plane": true,
       "across": -1.95,
-      "distance": 160.5,
+      "distance": 140.5,
       "elevation": 1.05,
       "width": 0.5,
-      "depth": 319
+      "depth": 359
     },
     {
       "id": "pavement",
       "name": "Embankment street",
       "plane": true,
       "across": 2.2,
-      "distance": 160,
+      "distance": 140,
       "elevation": 0,
       "width": 7.8,
-      "depth": 320
+      "depth": 360
+    },
+    {
+      "id": "lane",
+      "name": "The side street (the corner)",
+      "plane": true,
+      "across": 18.05,
+      "distance": 0.5,
+      "elevation": 0,
+      "width": 23.9,
+      "depth": 5
+    },
+    {
+      "id": "lane_wall",
+      "name": "The side street's walls",
+      "across": 6.1,
+      "distance": 3,
+      "facing": 180,
+      "height": 13,
+      "box": [
+        -0.1,
+        -13.1,
+        24,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": 6.1,
+          "distance": 3,
+          "facing": 180
+        },
+        {
+          "across": 30,
+          "distance": -2,
+          "facing": 0
+        }
+      ]
     },
     {
       "id": "puddle",
@@ -557,6 +663,30 @@
         "rough": 0.06,
         "ripple": 0.12
       }
+    },
+    {
+      "id": "stick_ground",
+      "name": "The stick dropped on the setts",
+      "plane": true,
+      "across": 0.8,
+      "distance": 6.7,
+      "elevation": 0.03,
+      "width": 1.0,
+      "depth": 1.0,
+      "place": {
+        "across": "stick_a",
+        "distance": "stick_d"
+      }
+    },
+    {
+      "id": "letter_puddle",
+      "name": "The letter fallen in the puddle",
+      "plane": true,
+      "across": 1.85,
+      "distance": 4.6,
+      "elevation": 0.02,
+      "width": 0.3,
+      "depth": 0.3
     },
     {
       "id": "house_a",
@@ -694,6 +824,12 @@
           "across": 6.1,
           "distance": 294,
           "facing": 270
+        },
+        {
+          "across": 6.1,
+          "distance": -2,
+          "facing": 270,
+          "tint": "#f4f0ea"
         }
       ]
     },
@@ -740,6 +876,17 @@
         {
           "across": 6.1,
           "distance": 255,
+          "facing": 270,
+          "tint": "#f2eef2"
+        },
+        {
+          "across": 6.1,
+          "distance": -23.5,
+          "facing": 270
+        },
+        {
+          "across": 30,
+          "distance": 7,
           "facing": 270,
           "tint": "#f2eef2"
         }
@@ -795,6 +942,11 @@
           "across": 6.1,
           "distance": 320,
           "facing": 270
+        },
+        {
+          "across": -29.9,
+          "distance": -36.5,
+          "facing": 90
         }
       ]
     },
@@ -1109,6 +1261,19 @@
         -19.3,
         25.3,
         0.1
+      ],
+      "copies": [
+        {
+          "across": -11.9,
+          "distance": 322,
+          "facing": 180
+        },
+        {
+          "across": -11.9,
+          "distance": -46,
+          "facing": 0,
+          "tint": "#f2eef2"
+        }
       ]
     },
     {

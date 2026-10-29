@@ -54,3 +54,5 @@ scene.on('change', 'moment', v => stage(v));
 const ripple = () => scene.set('ripple', 0.4 + 0.5 * (scene.get('rain') ?? 0));
 scene.on('change', 'rain', ripple);
 scene.on('move', 'rain', ripple);
+// the pieces (the game sets `beat`: modules/beats, lib.film) — each lays out its own start, never `moment`
+scene.kit.beats.play(scene, scene.lib.film(scene));
