@@ -34,7 +34,7 @@
     "how": "a deaf old servant woman: loud, flat, puzzled",
     "short": "Fyokla"
   },
-  "yardman": {
+  "dvornik": {
     "voice": "Algenib",
     "how": "a yardman with a broom: loud, guffawing, good-natured mockery, common speech",
     "short": "the yardman"
@@ -48,5 +48,25 @@
     "voice": "Zubenelgenubi",
     "how": "a passer-by in a hurry: offhand, quick, polite by habit",
     "short": "a passer-by"
+  },
+  "nanny": {
+    "voice": "Despina",
+    "how": "a nurse-maid out with a child: calm, kindly, unhurried",
+    "short": "a nurse-maid"
+  },
+  "child": {
+    "voice": "Leda",
+    "how": "a small child: bright, chattering",
+    "short": "a child"
+  },
+  "yard_man": {
+    "voice": "Iapetus",
+    "how": "a man in the yard below: plain, busy",
+    "short": "a man in the yard"
+  },
+  "yard_woman": {
+    "voice": "Sulafat",
+    "how": "a woman in the yard below: plain, busy",
+    "short": "a woman in the yard"
   }
 }

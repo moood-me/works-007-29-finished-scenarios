@@ -1,8 +1,9 @@
 # Белые ночи — игра в терминах кода
 
-Стадия 3 (`moood-me/moood:docs/writing/game-stages.md`): вся игра на трёх сценах мира, люди стоят; где по сценарию
-кусок сцены — плашка с «Дальше»; мини-игры — заглушки (кружок и карточка); места, которых ещё нет, — в готовой сцене с
-подписью «На самом деле: …». Сценарий — `scenario.md`.
+Стадия 3 (`moood-me/moood:docs/writing/game-stages.md`): вся игра, люди стоят; где по сценарию кусок сцены — плашка с
+«Дальше»; мини-игры — заглушки (кружок и карточка). С 2026-10-29 — на всех сценах стадии 4 (набережная по `moment`,
+комната, дом бабушки, мезонин, дверь). Сценарий — `scenario.md`. Стадия 5 отложена (решение Павла 2026-10-29): игра
+стоит на «полустадии» — стадия 3 на настоящих местах.
 
 - **Игра:** `games/white-nights` (bespoke; английский — исходный язык кода и текстов, русский — перевод в
   `bespoke/lang/ru/strings.json`; русские реплики и плашки — слово в слово из сценария, где он их даёт). Мир —
@@ -24,34 +25,22 @@
 
 ## Места
 
-`story.js PLACES`: место игры → папка сцены мира, её ключи и, где сцена только стоит вместо места, подпись `where`.
-Шаги называют только места.
+`story.js PLACES`: место игры → папка сцены мира и её ключи. С 2026-10-29 все места на своих сценах стадии 4
+(`r3/nights-scenes` влита): подписей «На самом деле» больше нет. Шаги называют только места.
 
-| Место | Шаги | Сейчас (стадия 3) | Подпись |
-| --- | --- | --- | --- |
-| `evening` М1 | пролог | `embankment`, `lamp` 0 (→ 1 в конце) | — |
-| `night` М1 | Н1–Н4 | `embankment`, `lamp` 1 | — |
-| `rain` М1 | Н4 4.2–4.4 | `embankment` | «та же набережная под дождём» |
-| `day` М1 | Д2 | `embankment`, `lamp` 0 | «набережная днём» |
-| `town` М1 | финал «Утро» | `embankment`, `lamp` 0 | «днём; город вернулся с дач; нянька с ребёнком» |
-| `room` М2 | Д1 | `room`, `candle` 0, `rain` 0 | — |
-| `morning` М2 | финалы «Минута», «Лестница», «Окно» | `room`, `candle` 1, `rain` 1 | — |
-| `sunny` М2 | финал «Утро» | `room`, без дождя | — |
-| `grandmother` М3 | воскресенье, «Булавка» | `grandmother`, `lampada` 1 | — |
-| `memory` М3 | 2.4 | `grandmother` | «год назад, в утреннем свете…» |
-| `mezzanine` М3 | финал «Мезонин» | `grandmother` | «мезонин наверху, вечером…» |
-| `door` М4 | Д3 | `grandmother`, никого, кроме него | «дверь знакомых — узкая площадка…» |
-
-Когда стадия 4 (`r3/nights-scenes`) даст своё место или вариант, строка `PLACES` становится `{ folder, keys }` без
-подписи — больше ничего не меняется.
-
-## Люди
-
-`bespoke/people.json` (id = id людей в сценах): `dreamer` (Enceladus), `nastya` (Leda), `lodger` (Schedar),
-`babushka` (Gacrux), `matryona` (Kore), `glasha` (Pulcherrima), `fyokla` (Callirrhoe), `yardman` (Algenib),
-`gentleman` (Sadachbia), `passerby` (Zubenelgenubi). В сценах сейчас есть `dreamer`, `nastya` (набережная, бабушка),
-`babushka`, `matryona`; жилец, Глаша, Фёкла, дворник, господин, прохожий — голос, их действия на плашках. Все реплики
-(203 на язык, en и ru) озвучены `voice_line` студии по списку `moood-check --json`.
+| Место | Шаги | Сцена, ключи |
+| --- | --- | --- |
+| `evening` М1 | пролог | `embankment` `moment` prologue (дворник у крыльца); `lamp` → 1 в конце |
+| `night`, `rain` М1 | Н1–Н4 | `embankment`, `moment` по шагу: first_night, first_gentleman, first_walk, first_corner; second_wait, second_bench (2.2–2.5), second_letter → second_alone; third_night, third_ten, third_tear (+ `scraps`), third_bench; fourth_night, fourth_awning (С), fourth_rain, fourth_lodger (+ `lodger_with` письмо) → fourth_alone; на У4 `rain` → 1 |
+| `day` М1 | Д2 | `embankment` `moment` day (пятно — `dreamer_with` `letter_stained`) |
+| `town` М1 | финал «Утро» | `embankment` `moment` morning (нянька, ребёнок, прохожий, дворник) |
+| `room` М2 | Д1 | `room`: чай, письмо на столе (`letter_table` → false, когда прячет) |
+| `morning` М2 | «Минута», «Лестница», «Окно» | `room`, дождь, свеча; `brings` letter / none / hat; `cobweb` → 0 («сними»); «Окно» — `coat_drying` (У4), `window` → 1, `wet` 1, люди во дворе |
+| `sunny` М2 | «Утро» | `room` без дождя, солнце |
+| `grandmother` М3 | воскресенье, «Булавка» | `grandmother`: споты людей (`<id>_spot`), `pin` nastya → none / dreamer, `door` 90 → 5, Фёкла у печки, жилец door → chair → landing |
+| `memory` М3 | 2.4 | `grandmother` `memory` 1: Настенька у двери с узелком, жилец у лесенки с книгами |
+| `mezzanine` | «Мезонин» | `mezzanine`: споты (hatch → table → window), пар над чашками |
+| `door` М4 | Д3 | `door` 270 → 350, Глаша появляется, когда открывает; письмо (или с пятном) в руке |
 
 ## Главы и шаги
 
@@ -92,7 +81,7 @@
 
 ## Что меняет стадия 5
 
-Только заглушки: строки `PLACES` (сцены стадии 4), `here` — люди, которых теперь видно; заглушки `all.js` — на
+Только заглушки: заглушки `all.js` — на
 настоящие мини-игры (имена те же, `missed` — тот же след); плашки, где кусок сцены, — на куски (ниже); М5 и М8 —
 выбор жестом (мини-игра возвращает вариант, игра кладёт его в `choices.hand` / `choices.call`). Тексты, выборы,
 ветки, финалы — как есть.

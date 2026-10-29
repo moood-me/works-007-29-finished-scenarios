@@ -51,29 +51,30 @@
 // (a dry run: game.js, check/run.mjs): then nothing of it is said, shown or heard, a plate goes by at once, and a
 // minigame gives its `skipped` (or what the dry run asks: j.result — check/run.mjs plays the misses too).
 
-// The game's places (scenario §4) and the world's scene each is played on — the one map of them: its folder, the keys
-// that make it that place at that time, and — where a ready scene only stands in for a place the world has not got
-// yet (the acquaintances' door, the mezzanine, the memory of a year ago) or not at that time (the embankment by day,
-// in the rain) — `where`, a label high on the left saying where and when it really is. When its own scene comes
-// (stage 4: `r3/nights-scenes`), its line here becomes `{ folder, keys }` — nothing else changes: the steps name
-// places, never folders. (The embankment at night with no one there is also the map's background: game.js.)
+// The game's places (scenario §4) and the world's scene each is played on — the one map of them: its folder and the
+// keys that make it that place at that time (stage 4, `r3/nights-scenes`: every place on its own scene). The embankment
+// lays itself out by its `moment` (a scenario step: the light, the rain, who stands where, holding what — its notes.md),
+// which the steps give; Grandmother's room by its people's spots (`<id>_spot`), the pin, the door and the memory; the
+// mezzanine by its spots and the steam; the room by its keys (what Matryona brings, the letter on the table, the
+// cobweb, the window). `where` — a label high on the left, where a scene is not yet quite what the scenario has. The
+// steps name places, never folders. (The embankment at night with no one there is also the map's background: game.js.)
 export const PLACES = {
   // 1. the canal embankment by the lamp
-  evening: { folder: 'embankment', keys: { lamp: 0 } }, // the prologue: the evening, the lamp not lit yet
-  night: { folder: 'embankment', keys: { lamp: 1 } }, // the four nights
-  rain: { folder: 'embankment', keys: { lamp: 1 }, where: tr('In truth: the same embankment in the rain.') }, // Н4
-  day: { folder: 'embankment', keys: { lamp: 0 }, where: tr('In truth: the embankment by day — the house numbers, a wind off the canal.') }, // Д2
-  town: { folder: 'embankment', keys: { lamp: 0 }, where: tr('In truth: the embankment by day; the town is back from the dachas — people walking; at her place by the railing, a nanny with a child.') }, // «Утро»
+  evening: { folder: 'embankment', keys: { moment: 'prologue' } }, // the prologue: the evening, the lamp not lit yet
+  night: { folder: 'embankment', keys: {} }, // the four nights: the step's `moment`
+  rain: { folder: 'embankment', keys: {} }, // Н4 in the rain: the step's `moment`
+  day: { folder: 'embankment', keys: { moment: 'day' } }, // Д2
+  town: { folder: 'embankment', keys: { moment: 'morning' } }, // «Утро»
   // 2. the Dreamer's room
-  room: { folder: 'room', keys: { candle: 0, rain: 0 } }, // Д1: the morning, no rain
-  morning: { folder: 'room', keys: { candle: 1, rain: 1 } }, // «Минута», «Лестница», «Окно»: the rainy morning
-  sunny: { folder: 'room', keys: { candle: 0, rain: 0 } }, // «Утро»: the morning without rain
-  // 3. Grandmother's house
-  grandmother: { folder: 'grandmother', keys: { lampada: 1 } }, // Вс: after mass
-  memory: { folder: 'grandmother', keys: { lampada: 0 }, where: tr('In truth: a year ago, in the morning light: the Lodger at the stair to the mezzanine, his books; Nastenka at the door with her bundle.') }, // 2.4
-  mezzanine: { folder: 'grandmother', keys: { lampada: 1 }, where: tr('In truth: the mezzanine upstairs, in the evening — a sloping ceiling, a little table with two cups, a small window onto the canal.') }, // «Мезонин»
+  room: { folder: 'room', keys: { candle: 0, rain: 0, sun: 1, tea: true, letter_table: true, brings: 'none', cobweb: 1, window: 0 } }, // Д1
+  morning: { folder: 'room', keys: { candle: 1, rain: 1, sun: 0, tea: false, letter_table: false, cobweb: 1, window: 0 } }, // «Минута», «Лестница», «Окно»
+  sunny: { folder: 'room', keys: { candle: 0, rain: 0, sun: 1, tea: false, letter_table: false, cobweb: 1, window: 0 } }, // «Утро»
+  // 3. Grandmother's house, and the mezzanine upstairs
+  grandmother: { folder: 'grandmother', keys: { lampada: 1, memory: 0 } }, // Вс, «Булавка»
+  memory: { folder: 'grandmother', keys: { memory: 1, pin: 'none', door: 5, nastya_spot: 'door', nastya_with: ['bundle'], nastya_reach: { r: [-1.95, 3.74, 1.0], l: [-1.85, 3.88, 1.0] }, lodger_spot: 'stair', lodger_with: ['books'] } }, // 2.4
+  mezzanine: { folder: 'mezzanine', keys: {} }, // «Мезонин»
   // 4. the acquaintances' door
-  door: { folder: 'grandmother', keys: { lampada: 0 }, where: tr('In truth: the acquaintances’ door — a narrow landing, a door with a bell.') }, // Д3
+  door: { folder: 'door', keys: { door: 270 } }, // Д3
 };
 // The embankment at night with no one there: the map's background (game.js)
 export const MAP = { folder: 'embankment', state: { nastya_here: false, dreamer_here: false, lamp: 1 } };

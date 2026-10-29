@@ -19,7 +19,7 @@ export default {
     // 2.1: from nine at the railing; she comes
     async g => {
       const f = facts(g.state);
-      await g.scene('night', { here: ['dreamer'], moods: { dreamer: 'thinking', nastya: 'smile' } });
+      await g.scene('night', { here: ['dreamer'], moods: { nastya: 'smile' }, keys: { moment: 'second_wait' } });
       g.title(tr('The Second Night'));
       await g.plate(tr('He has been at the railing since nine, walking up and down.'));
       await g.think('dreamer', 'A whole hour, and I keep repeating what I will say');
@@ -36,7 +36,7 @@ export default {
     // 2.2: the bench; ⚑ his story
     async g => {
       const f = facts(g.state);
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'smile' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'second_bench' } }, { cut: true });
       await g.say('nastya', 'Tell me your story');
       await g.plate(tr('The bench by the railing. She sits with one foot tucked under her; he on the very edge.'));
       const story = await g.choose('story', { 'dreamer#chest': [
@@ -66,7 +66,7 @@ export default {
     },
     // 2.3: the pin (М2)
     async g => {
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'smile' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'second_bench' } }, { cut: true });
       await g.say('nastya', 'And my story is this');
       await g.plate(tr('She takes the pin out of her collar.'));
       await g.say('nastya', 'This is how she does it to me — give me your sleeve', { how: 'gaily; under it, half of every day of her life' });
@@ -85,13 +85,13 @@ export default {
     },
     // 2.4: her story (the memory: a year ago); “and he has not come”; ⚑ what he says of the Lodger
     async g => {
-      await g.scene('memory', { here: ['nastya', 'babushka'], moods: { nastya: 'smile', babushka: 'neutral' } });
+      await g.scene('memory', { here: ['nastya', 'lodger'], moods: { nastya: 'smile', lodger: 'neutral' } });
       await g.plate(tr('Her story — a year ago. A lodger with his books in the mezzanine. “The Barber of Seville”, where he took her and Grandmother.'));
       g.mood('nastya', 'sad');
       await g.plate(tr('The night she went up to him with her bundle.'));
       await g.say('lodger', 'I am poor; I cannot now. In a year I will come back', { how: 'low and firm, ashamed, a year ago' });
       await g.plate(tr('Three days later he left for Moscow. She did not go out to see him off.'));
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'thinking', nastya: 'neutral' } });
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'thinking', nastya: 'neutral' }, keys: { moment: 'second_bench' } });
       await g.say('nastya', 'It’s a year today. I counted — from that night. And he has been in Petersburg three days already. And has not come', { how: 'evenly, almost gaily; on “has not come” the voice breaks and at once collects itself' });
       const judge = await g.choose('judge', { 'dreamer#chest': [
         { id: 'reason', label: tr('“Then he has a reason”') },
@@ -119,7 +119,7 @@ export default {
     },
     // 2.5: Ш1 ✦ — “Nastenka… I already have”
     async g => {
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'smile' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'second_bench' } }, { cut: true });
       await g.plate(tr('She stands up.'));
       await g.say('nastya', 'How good that you didn’t fall in love with me. You would have been like all the rest', { how: 'a little for show, testing him' });
       const already = await g.choose('already', { 'dreamer#chest': [
@@ -144,13 +144,11 @@ export default {
     },
     // 2.6: the letter; ⏸ alone with it
     async g => {
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'sad' }, keys: { nastya_with: ['letter'] } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'second_letter' } }, { cut: true });
       await g.plate(tr('She takes out a crumpled sealed envelope; her eyes are full.'));
       await g.say('nastya', 'Take it to my acquaintances — here is the address. He calls on them. If he loves me, he will come here tomorrow, at ten', { how: 'asking, but the voice commands; “at ten” almost soundless' });
-      g.set('nastya_with', []);
-      g.set('dreamer_with', ['letter']);
       await g.plate(tr('His “yes” comes by itself. She goes quickly, without looking back.'));
-      g.here('nastya', false);
+      g.set('moment', 'second_alone');
       g.mood('dreamer', 'sad');
       await g.plate(tr('⏸ He is alone at the railing with the letter, fifteen seconds. The rustle of paper; the water.'));
     },

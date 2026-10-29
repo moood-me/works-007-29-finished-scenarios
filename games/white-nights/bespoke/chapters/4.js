@@ -26,7 +26,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.letter === 'C') {
-        await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'neutral' } });
+        await g.scene('night', { here: ['dreamer', 'nastya'], moods: { nastya: 'neutral' }, keys: { moment: 'fourth_night' } });
         g.title(tr('The Fourth Night'));
         await g.plate(tr('She is at the railing, no tears: there is no letter now, and no one to wait for. The bell has not struck yet tonight.'));
         if (f.couldnt) {
@@ -69,7 +69,7 @@ export default {
         g.apply('free');
         return;
       }
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'sad', nastya: 'sad' } });
+      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'fourth_night' } });
       g.title(tr('The Fourth Night'));
       await g.plate(tr('She is at the railing. The shot almost repeats the first night: leaning on the railing, she cries.'));
       await g.say('nastya', 'He won’t come! He hasn’t answered!', { how: 'crying' });
@@ -94,13 +94,14 @@ export default {
         g.set('dreamer_with', []);
         await g.plate(tr('His arm round her shoulders; both look at the water. She grows quiet.'));
       } else {
-        g.set('dreamer_with', ['letter']);
+        g.set('dreamer_with', [f.stain ? 'letter_stained' : 'letter']);
         await g.plate(tr('He takes out the letter and holds it out.'));
         await g.say('dreamer', 'I didn’t take it');
         g.mood('nastya', 'surprised');
         await g.plate(tr('She looks at the envelope, then at him (close up). Not a word. She takes the letter with two fingers, as if it were someone else’s, and goes round the corner. The rain begins.'));
         g.set('dreamer_with', []);
         g.here('nastya', false);
+        g.set('rain', 1, 4);
         await g.plate(tr('⏸ He is alone at the railing in the rain, his hands empty. The chapter ends.'));
       }
       g.apply('rain');
@@ -110,7 +111,7 @@ export default {
       const f = facts(g.state);
       if (f.letter === 'U4') return;
       if (f.letter === 'C') {
-        await g.scene('rain', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'neutral' } }, { cut: true });
+        await g.scene('rain', { here: ['dreamer', 'nastya'], keys: { moment: 'fourth_awning' } }, { cut: true });
         await g.plate(tr('The rain begins. Under the awning of the yellow house. The bell strikes ten — her hour. At the first stroke, out of habit, she turns to the corner (close up).'));
         if (f.confessed) {
           await g.plate(tr('She stands a step from him, her back to him, her face to the corner. On the tenth stroke she turns away from the corner — to him; she comes up herself, takes his arm and stands shoulder to shoulder.'));
@@ -118,7 +119,7 @@ export default {
         } else await g.plate(tr('She holds his arm the way one holds a railing, and watches the corner to the last stroke.'));
         return;
       }
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'sad' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'fourth_night' } }, { cut: true });
       if (f.left) {
         if (f.confessed) {
           await g.say('nastya', 'Yesterday you left. And tonight — this');
@@ -140,7 +141,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.letter === 'U4') return;
-      await g.scene('rain', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: f.left ? 'sad' : 'smile' } }, { cut: true });
+      await g.scene('rain', { here: ['dreamer', 'nastya'], moods: { nastya: f.left ? 'sad' : 'smile' }, keys: { moment: f.letter === 'C' ? 'fourth_awning' : 'fourth_rain' } }, { cut: true });
       if (f.letter === 'C') {
         const r = await g.play(arm_rain);
         if (r.loose) {
@@ -170,7 +171,7 @@ export default {
         if (f.left) await g.say('nastya', 'Grandmother needs a lodger. Come on Sunday. If she asks whether you are young — say “not very”', { how: 'drily' });
         else await g.say('nastya', 'On Sunday, after mass — to Grandmother’s. To take the room');
         g.here('nastya', false);
-        g.set('dreamer_with', ['letter']);
+        g.set('dreamer_with', [f.stain ? 'letter_stained' : 'letter']);
         g.mood('dreamer', 'sad');
         await g.plate(tr('⏸ He is alone under the awning of the yellow house; he takes out the envelope, looks at her handwriting, puts it back. The chapter ends.'));
       }
@@ -179,7 +180,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.letter !== 'A') return;
-      await g.scene('rain', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'surprised' } }, { cut: true });
+      await g.scene('rain', { here: ['dreamer', 'nastya', 'lodger'], keys: { moment: 'fourth_lodger', lodger_with: ['hat_low', f.stain ? 'letter_stained' : 'letter'] } }, { cut: true });
       await g.plate(tr('Under the lamp stands a man: his hat at his chest, her envelope in his hand.'));
       await g.say('lodger', 'Nastenka', { how: 'quietly; he does not come toward her, he waits' });
       await g.plate(tr('Her turn to the lamp, close up. She stops and, without looking, takes her hand from under his elbow and puts it into his palm, and presses it: she clutches at the last support. Slowly her hand leaves his palm.'));
@@ -207,6 +208,7 @@ export default {
       await g.plate(tr('Then he looks over her shoulder at the Dreamer and speaks to her, not to him:'));
       await g.say('lodger', 'They only gave it to me today. Glasha says some gentleman brought it. Why not into my own hands?', { how: 'polite to the point of coldness; jealous, and does not know it' });
       await g.plate(tr('He puts on his hat; they go.'));
+      g.set('moment', 'fourth_alone');
       g.mood('dreamer', 'sad');
       await g.plate(tr('⏸ He is alone at the railing in the rain, fifteen seconds.'));
     },
