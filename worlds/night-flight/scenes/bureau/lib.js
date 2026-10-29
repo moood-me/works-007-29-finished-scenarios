@@ -87,7 +87,7 @@ function film(scene) {
     riv: CAM([-1.05, 4.85, 1.65], [-0.35, 5.85, 1.62]), // the same, close
     flags: CAM([0.35, 5.25, 1.7], [-0.75, 7.2, 1.45]), // Rivière close before the map's south, leading a flag
     flag_close: CAM([-0.45, 6.1, 1.6], [-0.65, 7.35, 1.6]), // the flags at the field, close
-    face_flags: CAM([-0.35, 5.45, 1.65], [-1.0, 6.72, 1.6]), // Rivière at the map turned to the room, close
+    face_flags: CAM([0.0, 5.1, 1.65], [-1.0, 6.72, 1.6]), // Rivière at the map turned to the room, close
     two_map: CAM([0.05, 3.85, 1.65], [0.05, 5.75, 1.55]), // two by the map
     her: CAM([-1.05, 3.3, 1.6], [-2.3, 4.55, 1.55]), // her by the field door
     her_close: CAM([-1.55, 3.75, 1.57], [-2.3, 4.55, 1.53]),
@@ -96,6 +96,7 @@ function film(scene) {
     desk_close: CAM([0.85, 3.0, 1.65], [1.1, 3.95, 1.63]),
     rob: CAM([2.15, 2.6, 1.6], [2.65, 4.05, 1.5]), // Robineau at his desk
     rob_close: CAM([2.35, 3.0, 1.55], [2.7, 4.05, 1.52]),
+    rob_phone: CAM([1.25, 2.7, 1.6], [1.6, 3.85, 1.55]), // Robineau at the telephone, beside Rivière,
     phone_two: CAM([1.2, 2.45, 1.65], [1.45, 4.0, 1.5]), // Rivière and Robineau at the telephone
     write: CAM([1.75, 2.7, 1.55], [2.2, 4.15, 1.3]), // Robineau writing, Rivière's hand over his shoulder
     bench: CAM([0.7, 4.5, 1.4], [0.65, 6.82, 1.15]), // the bench
@@ -219,8 +220,8 @@ function film(scene) {
       run: async s => {
         const r = s.person('riviere');
         glide(s, SH.face_flags, 1.2);
-        await r.turn(170);
         r.look(null);
+        await r.turn(170);
         s.tell('ache:say');
         await s.wait(0.8);
         await r.do('side_ache');
@@ -441,8 +442,9 @@ function film(scene) {
       run: async s => {
         const r = s.person('riviere'), b = s.person('robineau');
         glide(s, SH.phone_two, 1.5);
-        await b.walk([[1.75, 4.1]]);
-        await b.turn(250);
+        await b.walk([[1.6, 3.85]]);
+        await b.turn(235);
+        await r.turn(125);
         r.look('robineau');
         await r.do('hand_receiver');
         s.set('robineau_wear', { parts: ['moustache'] });
@@ -451,7 +453,7 @@ function film(scene) {
         r.do('hands_behind');
         b.do('phone_listen');
         b.look(null);
-        await glide(s, SH.rob_close, 1.2);
+        await glide(s, SH.rob_phone, 1.2);
         s.tell('phone_robineau:talk');
         await s.wait(3);
         b.reach({ l: 'rob_phone#phone' });
@@ -962,6 +964,7 @@ function film(scene) {
         r.do('hands_behind');
         await glide(s, SH.flag_close, 1.5);
         await s.wait(1.5);
+        r.look(null);
         await r.turn(150);
         await glide(s, SH.face_flags, 1.5);
         s.tell('silence_map:look');
