@@ -123,8 +123,7 @@ export const GROUNDS = {
   last: { ...AUTUMN_NIGHT, grave: 'mound', cross: true },
   coaches: { autumn: 1, easel: false, coaches: true, coach_d: 30 },
 };
-// the hall: its key `moment` (its script lays the people out) — 4.2 calling, waiting; 4.6 midnight; the finales' departure, wedding
-export const HALL = Object.fromEntries(['calling', 'waiting', 'midnight', 'departure', 'wedding'].map(m => [m, { moment: m }]));
+// (the hall: each of its pieces lays out its own start — its `moment` key is the showcase's, never set by the game)
 // the secret chamber: its key `moment` (its script places the people)
 export const CHAMBER = { family: { moment: 'family' }, father: { moment: 'father' } };
 

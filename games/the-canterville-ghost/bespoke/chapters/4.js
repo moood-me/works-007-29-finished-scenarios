@@ -10,7 +10,7 @@
 // On the scenes' pieces (game.md «Stage 5 — pieces»): the dark is the Tapestry Chamber with its wall open.
 // Reads: choices.wall, choices.hunger, choices.trap, choices.goodnight, scales. Leaves: choices.name, choices.door,
 // marks.name, marks.door, marks.word.
-import { LIBRARY, CORRIDOR, CHAMBER, HALL, facts, piece } from '../story.js';
+import { LIBRARY, CORRIDOR, CHAMBER, facts, piece } from '../story.js';
 import { hand, release, word, tiptoe, threshold, shoulder } from '../minigames/all.js';
 
 const FAMILY = ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'];
@@ -55,7 +55,7 @@ export default {
       const { wall, shares, trap } = facts(g.state);
       if (wall === 'go') {
         await piece(g, 'calling', { call: () => g.say('mrs_otis', 'Virginia! Ginny!', { how: 'calling up the stairs, worried' }) },
-          () => g.scene('hall', { beat: 'calling', here: ['mrs_otis', 'twin_star', 'twin_stripes'], moods: { mrs_otis: 'afraid' }, keys: HALL.calling }));
+          () => g.scene('hall', { beat: 'calling', here: ['mrs_otis', 'twin_star', 'twin_stripes'], moods: { mrs_otis: 'afraid' } }));
         await piece(g, 'lantern', { pound: () => (shares ? g.say('washington', 'Give her back!', { how: 'shouting, beating on the wall' }) : null) },
           () => g.scene('tapestry', { beat: 'lantern', here: ['washington'], moods: { washington: 'afraid' }, keys: { trap, shares } }));
         await piece(g, 'pocket', { say: () => g.say('otis', 'The gypsies were camped by the field') },
@@ -163,7 +163,7 @@ export default {
             if (named) await g.say('virginia', 'He said her name');
             else await g.say('virginia', 'He was a very wicked man. I prayed for him');
           },
-        }, () => g.scene('hall', { beat: 'midnight', here: [...FAMILY, 'cecil'], moods: { otis: 'sad', virginia: 'tired', mrs_otis: 'afraid' }, keys: { ...HALL.midnight, shares, trap } }));
+        }, () => g.scene('hall', { beat: 'midnight', here: [...FAMILY, 'cecil'], moods: { otis: 'sad', virginia: 'tired', mrs_otis: 'afraid' }, keys: { shares, trap } }));
         await piece(g, 'chamber_family', {
           almond: () => g.say('twin_star', 'The almond! The dry almond has blossomed!', { how: 'at the little window, astonished, not loud' }),
         }, () => g.scene('chamber', { beat: 'chamber_family', here: FAMILY, keys: CHAMBER.family }));
