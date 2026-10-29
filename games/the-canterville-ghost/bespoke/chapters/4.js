@@ -54,10 +54,8 @@ export default {
     async g => {
       const { wall, shares, trap } = facts(g.state);
       if (wall === 'go') {
-        // (the hall: its pieces not made yet — its moment, narrated)
-        await g.scene('hall', { here: ['mrs_otis', 'twin_star', 'twin_stripes'], moods: { mrs_otis: 'afraid' }, keys: HALL.calling });
-        await g.say('narrator', 'The supper bell rang; Virginia was not there. Mrs Otis called from the stairs; the twins ran up and down the corridor');
-        await g.say('mrs_otis', 'Virginia! Ginny!', { how: 'calling up the stairs, worried' });
+        await piece(g, 'calling', { call: () => g.say('mrs_otis', 'Virginia! Ginny!', { how: 'calling up the stairs, worried' }) },
+          () => g.scene('hall', { beat: 'calling', here: ['mrs_otis', 'twin_star', 'twin_stripes'], moods: { mrs_otis: 'afraid' }, keys: HALL.calling }));
         await piece(g, 'lantern', { pound: () => (shares ? g.say('washington', 'Give her back!', { how: 'shouting, beating on the wall' }) : null) },
           () => g.scene('tapestry', { beat: 'lantern', here: ['washington'], moods: { washington: 'afraid' }, keys: { trap, shares } }));
         await piece(g, 'pocket', { say: () => g.say('otis', 'The gypsies were camped by the field') },
@@ -157,17 +155,15 @@ export default {
     async g => {
       const { wall, door, shares, trap, named, warned } = facts(g.state);
       if (wall === 'go') {
-        // (the hall: its pieces not made yet — its moment, narrated)
-        await g.scene('hall', { here: [...FAMILY, 'cecil'], moods: { otis: 'sad', virginia: 'tired', mrs_otis: 'afraid' }, keys: HALL.midnight });
-        await g.say('narrator', 'The clock struck, and with its last stroke the whole house fell silent');
-        await g.say('narrator', 'The panel on the landing of the stairs opened with a crack. On the landing stood Virginia, pale, with a little casket in her hands');
-        if (shares) await g.say('narrator', 'Washington ran down from the Tapestry Chamber first and seized both her hands');
-        else if (trap === 'watch') await g.say('narrator', 'She did not come down till her father climbed up to her himself. Washington ran in with his lantern from the pond, last of all');
-        else await g.say('narrator', 'She did not come down till her father climbed up to her himself. Washington came from the Tapestry Chamber first, and stopped two steps below her');
-        await g.say('otis', 'How could you!');
-        await g.say('virginia', 'Papa, I have been with the ghost. He is dead. Come');
-        if (named) await g.say('virginia', 'He said her name');
-        else await g.say('virginia', 'He was a very wicked man. I prayed for him');
+        await piece(g, 'midnight', {
+          stroke: () => g.say('narrator', 'The clock struck, and with its last stroke the whole house fell silent'),
+          hold: async () => {
+            await g.say('otis', 'How could you!');
+            await g.say('virginia', 'Papa, I have been with the ghost. He is dead. Come');
+            if (named) await g.say('virginia', 'He said her name');
+            else await g.say('virginia', 'He was a very wicked man. I prayed for him');
+          },
+        }, () => g.scene('hall', { beat: 'midnight', here: [...FAMILY, 'cecil'], moods: { otis: 'sad', virginia: 'tired', mrs_otis: 'afraid' }, keys: { ...HALL.midnight, shares, trap } }));
         await piece(g, 'chamber_family', {
           almond: () => g.say('twin_star', 'The almond! The dry almond has blossomed!', { how: 'at the little window, astonished, not loud' }),
         }, () => g.scene('chamber', { beat: 'chamber_family', here: FAMILY, keys: CHAMBER.family }));

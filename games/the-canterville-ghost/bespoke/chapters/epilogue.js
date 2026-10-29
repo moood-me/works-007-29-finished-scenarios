@@ -53,8 +53,7 @@ export default {
         });
         if (f.warned) await g.say('narrator', 'That morning her candle-end lay at her door. She took it with her');
         if (f.door === 'stay') {
-          // (the hall: its pieces not made yet — its moment, narrated)
-          await g.scene('hall', { here: ['otis', 'virginia'], moods: { otis: 'tired', virginia: 'sad' }, keys: HALL.departure });
+          await piece(g, 'coat', {}, () => g.scene('hall', { beat: 'coat', here: ['otis', 'virginia'], moods: { otis: 'tired', virginia: 'sad' }, keys: HALL.departure }));
           await g.say('otis', 'I believe I fell asleep in the night. Forgive me, Ginny');
           await g.say('narrator', 'She said nothing, and took his hand');
         } else {
@@ -80,21 +79,16 @@ export default {
       } else if (f.ending === 'candle') {
         if (!f.named) await stain(g);
         await g.say('narrator', 'The Otises kept Canterville, and came there every summer');
-        // (the hall: its pieces not made yet — its moment, narrated)
-        await g.scene('hall', { here: ['otis', 'virginia', 'cecil'], moods: { otis: 'smile', virginia: 'smile', cecil: 'smile' }, keys: HALL.wedding });
-        await g.say('narrator', 'Her wedding. At the carriage');
-        await g.say('cecil', 'I promise you, sir, she will write every week');
-        await g.say('otis', 'Promise for yourself, Your Grace');
-        g.mood('otis', 'sad');
-        await g.say('narrator', 'He took her hand — and let it go first');
+        await piece(g, 'wedding', {
+          hand: async () => {
+            await g.say('cecil', 'I promise you, sir, she will write every week');
+            await g.say('otis', 'Promise for yourself, Your Grace');
+          },
+          let: () => { g.mood('otis', 'sad'); },
+        }, () => g.scene('hall', { beat: 'wedding', here: ['otis', 'virginia', 'cecil'], moods: { otis: 'smile', virginia: 'smile', cecil: 'smile' }, keys: HALL.wedding }));
         await piece(g, 'candle_last', {}, () => g.scene('tapestry', { beat: 'candle_last', here: ['otis'], moods: { otis: 'sad' } }));
       } else {
-        // (the hall: its pieces not made yet — its moment, narrated)
-        await g.scene('hall', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'neutral', virginia: 'sad' }, keys: HALL.departure });
-        if (f.door === 'wake') await g.say('narrator', 'Her father gave her his hand at the carriage');
-        if (f.shares) await g.say('narrator', 'She sat between the twins, who were arguing about which of them would see London first');
-        else await g.say('narrator', 'She was the last to come down the steps, and turned to look at the windows of the Tapestry Chamber');
-        if (f.plays) await g.say('narrator', 'From above, from the windows of the Tapestry Chamber, a chain clinked — once. The twins fell silent; nobody laughed');
+        await piece(g, 'porch', {}, () => g.scene('hall', { beat: 'porch', here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'neutral', virginia: 'sad' }, keys: { ...HALL.departure, wake: f.door === 'wake', shares: f.shares, plays: f.plays } }));
         if (f.wished) {
           await g.say('virginia', 'Good night, sir', { how: 'a whisper, in broad daylight' });
           await g.wait(1500);
