@@ -26,3 +26,27 @@ moves.
   the right, looking at Roblet. Placed so all three faces turn toward the viewer.
 - **Keys.** `floods` (the floodlights and the edge lamps), `hangar` (its lamps; switched — the inside lamps' bulbs repaint),
   `office` (Rivière's window).
+
+## Stage 4: the whole night on the field
+
+Made for stage 4 of the game: everyone the scenario puts on the field, the two planes and what they do, as keys.
+Still no motions of people.
+
+- **People** (cast `modules/cast`): besides Rivière, Robineau and Roblet — **Pellerin** (`pellerin`, before the
+  viewer on the right, his helmet pulled off in his hand; chapter I), **the European pilot** (`pilot`, before the
+  viewer on the left, his helmet in his hand; chapter IV), **the mechanics** at the plane: `mechanic` (the young one,
+  at the engine), `mechanic_b` (with a mail sack — `_with: ["sack"]`), `mechanic_c` (by the tail). Roblet by
+  `roblet_spot` (`script.js`): `front` (before the gate, his box at his feet), `engine`, `chocks`. Pellerin and the
+  pilot stand where Rivière, looking at them, turns his face to the viewer.
+- **The plane** (`plane`: `chilean` — the blue band; `european` — the red band; `none`), moved by `plane_a`,
+  `plane_d`, `plane_h` (it lands, takes off: the scene places it, a piece moves it), pitched about its wheel by
+  `plane_pitch`; `engine` (the propeller a blur, the exhaust glowing — layers `blades`, `disc`), `plane_lights` (its
+  landing lamp, light `plane_lamp`), `chocks`. Points `plane#nose`, `plane#wheel`, `plane#cockpit`.
+- **Things:** `toolbox` (1 at Roblet's feet, 0 gone; hidden while he holds it — `roblet_with` `toolbox_held`, a part
+  of the cast), `workbench` (`tools` / `empty`, under its own lamp — light `bench_lamp`), `bags` (the mail bags by the
+  plane), `madame_window` (her silhouette in Rivière's lit window upstairs — the layer `madame` of `office_windows`,
+  point `office_windows#madame`).
+- Seen on the GPU (a sheet: Pellerin just in with the mechanics; the European ready with the bags, Roblet at the
+  chocks, the pilot, her silhouette upstairs; the European in the air over the field, its lamp lit).
+- Not: the plane rolled into the hangar (only seen in the bureau's window, as the scenario has it); the floodlights
+  going out one by one (`floods` is smooth, all together — one by one is stage 5's).

@@ -106,6 +106,22 @@
       "strength": 1.2,
       "reach": 10,
       "on": "office"
+    },
+    {
+      "id": "bench_lamp",
+      "of": "workbench#lamp",
+      "color": "#ffcf8f",
+      "strength": 1.2,
+      "reach": 7,
+      "on": "hangar"
+    },
+    {
+      "id": "plane_lamp",
+      "of": "plane#lamp",
+      "color": "#fff2d6",
+      "strength": 1.6,
+      "reach": 30,
+      "on": "plane_lights"
     }
   ],
   "modules": [
@@ -120,7 +136,35 @@
     "robineau_look": "roblet",
     "robineau_mood": "thinking",
     "roblet_look": null,
-    "roblet_mood": "sad"
+    "roblet_mood": "sad",
+    "plane": "chilean",
+    "plane_a": 4.2,
+    "plane_d": 13.6,
+    "plane_h": 0,
+    "plane_pitch": 0,
+    "engine": 0,
+    "plane_lights": 0,
+    "chocks": 1,
+    "toolbox": 1,
+    "workbench": "tools",
+    "bags": 0,
+    "madame_window": 0,
+    "roblet_spot": "front",
+    "roblet_a": -0.75,
+    "roblet_d": 3.45,
+    "pellerin_here": false,
+    "pilot_here": false,
+    "mechanic_here": false,
+    "mechanic_b_here": false,
+    "mechanic_c_here": false,
+    "pellerin_look": "riviere",
+    "pilot_look": "riviere",
+    "mechanic_look": "plane#nose",
+    "mechanic_b_look": "roblet",
+    "mechanic_c_look": "roblet",
+    "mechanic_b_with": [
+      "sack"
+    ]
   },
   "states": {
     "floods": {
@@ -145,6 +189,120 @@
       ],
       "smooth": true,
       "means": "the window of Rivière's office upstairs in the building over the field: 0 dark, 1 lit"
+    },
+    "plane": {
+      "values": [
+        "chilean",
+        "european",
+        "none"
+      ],
+      "means": "the mail plane before the hangar: chilean — Pellerin's, its band dark blue (chapter I); european — the European mail, its band dark red (chapter IV); none — no plane"
+    },
+    "plane_a": {
+      "range": [
+        -200,
+        200
+      ],
+      "smooth": true,
+      "means": "where the plane is, metres right of the middle (4.2: before the hangar); with plane_d and plane_h it lands and takes off"
+    },
+    "plane_d": {
+      "range": [
+        5,
+        600
+      ],
+      "smooth": true,
+      "means": "where the plane is, metres away (13.6: before the hangar)"
+    },
+    "plane_h": {
+      "range": [
+        0,
+        120
+      ],
+      "smooth": true,
+      "means": "how high the plane is above the field, metres (0: on the ground)"
+    },
+    "plane_pitch": {
+      "range": [
+        -20,
+        25
+      ],
+      "smooth": true,
+      "means": "the plane's pitch about its wheel, degrees: + the nose up (climbing away, the tail down on the ground), − nose down (coming in)"
+    },
+    "engine": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the plane's engine: 0 still (the propeller standing), 1 running (the propeller a blur, the exhaust glowing)"
+    },
+    "plane_lights": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the plane's landing lamp under its nose: 0 off, 1 lit (coming down out of the dark, going away into it)"
+    },
+    "chocks": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the chocks at the plane's wheel: 1 under it, 0 pulled away (only drawn while it stands on the ground)"
+    },
+    "toolbox": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "Roblet's packed tool box at his feet: 1 there, 0 gone (taken away; it is also not drawn while roblet_with has toolbox_held — in his hand)"
+    },
+    "workbench": {
+      "values": [
+        "tools",
+        "empty"
+      ],
+      "means": "the workbench under its lamp by the hangar: tools — Roblet's tools laid out on it, his old jacket over its end; empty — bare"
+    },
+    "bags": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the mail bags piled by the plane, waiting to be loaded: 1 there, 0 none"
+    },
+    "madame_window": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Madame Fabien's silhouette dark in the lit window of Rivière's office upstairs (seen with office 1): 0 none, 1 there"
+    },
+    "roblet_spot": {
+      "values": [
+        "front",
+        "engine",
+        "chocks"
+      ],
+      "means": "where Roblet is (script.js lays it out): front — before the gate, his cap in his hands, his box at his feet; engine — at the plane's engine; chocks — by the wheel, at the chocks"
+    },
+    "roblet_a": {
+      "range": [
+        -10,
+        20
+      ],
+      "means": "where Roblet stands, metres right of the middle (roblet_spot sets it)"
+    },
+    "roblet_d": {
+      "range": [
+        2,
+        20
+      ],
+      "means": "where Roblet stands, metres away (roblet_spot sets it)"
     }
   },
   "objects": [
@@ -461,7 +619,7 @@
     },
     {
       "id": "plane",
-      "name": "The Chilean mail plane",
+      "name": "The mail plane",
       "across": 4.2,
       "distance": 13.6,
       "facing": 180,
@@ -472,7 +630,12 @@
         5.8,
         0.12
       ],
-      "shadow": true
+      "shadow": true,
+      "place": {
+        "across": "plane_a",
+        "distance": "plane_d",
+        "elevation": "plane_h"
+      }
     },
     {
       "id": "workbench",
@@ -482,9 +645,24 @@
       "facing": 200,
       "height": 1.1,
       "box": [
-        -1.2,
-        -1.3,
-        1.2,
+        -1.4,
+        -3.3,
+        1.6,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "bags",
+      "name": "Mail bags piled by the plane",
+      "across": 1.4,
+      "distance": 11.9,
+      "facing": 185,
+      "height": 0.8,
+      "box": [
+        -0.9,
+        -0.85,
+        0.9,
         0.05
       ],
       "shadow": true
@@ -555,7 +733,71 @@
         "does": "hold_low"
       },
       "across": -0.75,
-      "distance": 3.45
+      "distance": 3.45,
+      "place": {
+        "across": "roblet_a",
+        "distance": "roblet_d"
+      }
+    },
+    {
+      "id": "pellerin",
+      "name": "Pellerin",
+      "person": {
+        "cast": "cast",
+        "who": "pellerin",
+        "turn": 235,
+        "does": "stand_easy"
+      },
+      "across": 2.0,
+      "distance": 3.3
+    },
+    {
+      "id": "pilot",
+      "name": "The European mail's pilot",
+      "person": {
+        "cast": "cast",
+        "who": "pilot",
+        "turn": 140,
+        "does": "stand_easy"
+      },
+      "across": -1.9,
+      "distance": 3.9
+    },
+    {
+      "id": "mechanic",
+      "name": "The young mechanic",
+      "person": {
+        "cast": "cast",
+        "who": "mechanic",
+        "turn": 150,
+        "does": "stand_easy"
+      },
+      "across": -1.3,
+      "distance": 12.0
+    },
+    {
+      "id": "mechanic_b",
+      "name": "A mechanic with a mail bag",
+      "person": {
+        "cast": "cast",
+        "who": "mechanic_b",
+        "turn": 195,
+        "does": "hold_waist"
+      },
+      "across": 0.6,
+      "distance": 11.4
+    },
+    {
+      "id": "mechanic_c",
+      "name": "A mechanic by the tail",
+      "person": {
+        "cast": "cast",
+        "who": "mechanic_c",
+        "turn": 210,
+        "does": "stand_easy"
+      },
+      "across": 6.4,
+      "distance": 11.8
     }
   ],
   "music": {
