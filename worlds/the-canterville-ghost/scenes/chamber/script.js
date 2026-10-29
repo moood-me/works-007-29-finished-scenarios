@@ -6,7 +6,7 @@
 //   father — the last night (4С.5): she has led him down the passage in the wall; Virginia, in her white frock, kneels,
 //            Mr Otis stands in the passage mouth with his candle; nobody else; the landing dark.
 const PLACES = {
-  family: { otis: [1.5, 3.85, 255] },
+  family: { otis: [1.6, 4.65, 225] },
   father: { otis: [1.7, 5.75, 200] },
 };
 function stage(moment) {

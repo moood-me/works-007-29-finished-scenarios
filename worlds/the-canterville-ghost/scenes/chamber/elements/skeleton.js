@@ -31,10 +31,10 @@ for (let i = 0; i <= 12; i++) {
   const x = ring[0] + (band[0] - ring[0]) * u - 0.06 * Math.sin(Math.PI * u);
   const y = ring[1] + (band[1] - ring[1]) * u;
   g.strokeStyle = IRON;
-  g.lineWidth = 0.014;
+  g.lineWidth = 0.02;
   g.beginPath();
-  if (i % 2) g.ellipse(x, y, 0.012, 0.03, 0, 0, Math.PI * 2);
-  else g.ellipse(x, y, 0.028, 0.02, 0, 0, Math.PI * 2);
+  if (i % 2) g.ellipse(x, y, 0.016, 0.035, 0, 0, Math.PI * 2);
+  else g.ellipse(x, y, 0.034, 0.024, 0, 0, Math.PI * 2);
   g.stroke();
 }
 e.at(-0.03, -0.6, 'chain');

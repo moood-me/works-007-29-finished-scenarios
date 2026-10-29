@@ -1,13 +1,17 @@
 // What the secret chamber's walls share: old rough stone, courses of uneven blocks laid in grey mortar, some darker
 // with damp, here and there a stain running down. Metres, y down, from the foot of a wall. Painted in its own colour
-// (a cool grey-brown): the moon and the candles make the night.
-const STONE = ['#7a7166', '#6f675d', '#837a6d', '#6a6258', '#77705f'];
-const MORTAR = '#4e4943';
+// (a cool dark grey): the moon and the candles make the night.
+const STONE = ['#5f5a54', '#57534d', '#67615a', '#524e49', '#5d5852'];
+const MORTAR = '#393633';
 
 // a stretch of wall from x0 to x1, `top` metres high; `seed` keeps each wall its own
 function stone(g, x0, x1, top, seed) {
   let s = seed * 7919 + 13;
   const r = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
+  g.save();
+  g.beginPath();
+  g.rect(x0, -top - 0.02, x1 - x0, top + 0.04);
+  g.clip();
   g.fillStyle = MORTAR;
   g.fillRect(x0, -top - 0.02, x1 - x0, top + 0.04);
   let row = 0;
@@ -37,6 +41,7 @@ function stone(g, x0, x1, top, seed) {
     g.fillStyle = grd;
     g.fillRect(x, -top, 0.06 + r() * 0.12, len);
   }
+  g.restore();
 }
 
 // a low round-headed arch from x0 to x1, its springing at y1 (negative) and its foot at 0: the path, for a cut or a fill

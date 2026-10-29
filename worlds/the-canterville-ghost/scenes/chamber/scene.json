@@ -7,13 +7,13 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.42,
+    "ambient": 0.36,
     "ambientColor": "#7c88b2",
     "bounce": 0.6,
     "haze": 0.1,
     "hazeColor": "#262c40",
     "hazeGlow": 0.7,
-    "shafts": 2.2,
+    "shafts": 1.8,
     "tint": "#c9d2ea",
     "tintStrength": 0.05,
     "vignette": 0.45,
@@ -32,7 +32,7 @@
         7.5
       ],
       "color": "#b8ccf2",
-      "strength": 3.0,
+      "strength": 4.0,
       "through": [
         "window"
       ]
@@ -41,16 +41,16 @@
       "id": "otis_candle",
       "at": "otis#flame",
       "color": "#ffc47e",
-      "strength": 1.5,
-      "reach": 4.5,
+      "strength": 1.3,
+      "reach": 4.0,
       "flicker": 0.25
     },
     {
       "id": "washington_candle",
       "at": "washington#flame",
       "color": "#ffc47e",
-      "strength": 1.5,
-      "reach": 4.5,
+      "strength": 1.3,
+      "reach": 4.0,
       "flicker": 0.25
     },
     {
@@ -70,8 +70,8 @@
   "state": {
     "moment": "family",
     "landing": 1,
-    "otis_a": 1.5,
-    "otis_d": 3.85,
+    "otis_a": 1.6,
+    "otis_d": 4.65,
     "virginia_look": "skeleton#skull",
     "virginia_mood": "sad",
     "otis_with": [
@@ -185,9 +185,9 @@
       "facing": 180,
       "height": 2.2,
       "box": [
-        -0.45,
+        -0.75,
         -2.2,
-        0.45,
+        0.75,
         0.02
       ]
     },
@@ -233,11 +233,11 @@
       "id": "hall_floor",
       "name": "The landing floor",
       "plane": true,
-      "across": -3.7,
-      "distance": 5.6,
+      "across": -4.2,
+      "distance": 6.0,
       "elevation": 0.002,
-      "width": 1.4,
-      "depth": 3.0
+      "width": 2.4,
+      "depth": 5.0
     },
     {
       "id": "door_jamb",
@@ -351,9 +351,9 @@
       "distance": 5.35,
       "height": 0.34,
       "box": [
-        -0.13,
-        -0.36,
-        0.17,
+        -0.16,
+        -0.37,
+        0.18,
         0.01
       ]
     },
@@ -392,11 +392,11 @@
       "person": {
         "cast": "cast",
         "who": "otis",
-        "turn": 255,
+        "turn": 225,
         "does": "offer"
       },
-      "across": 1.5,
-      "distance": 3.85,
+      "across": 1.6,
+      "distance": 4.65,
       "place": {
         "across": "otis_a",
         "distance": "otis_d"
@@ -432,11 +432,11 @@
       "person": {
         "cast": "cast",
         "who": "twin_star",
-        "turn": 100,
+        "turn": 120,
         "does": "stand"
       },
-      "across": 2.7,
-      "distance": 4.2
+      "across": 2.35,
+      "distance": 4.25
     },
     {
       "id": "twin_stripes",
