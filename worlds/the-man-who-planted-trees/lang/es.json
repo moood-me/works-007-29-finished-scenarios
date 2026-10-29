@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Man Who Planted Trees","translation":"El hombre que plantaba árboles","where":"worlds/the-man-who-planted-trees/world.json title"},
+  {"text":"A bare windswept plateau, a stone house with one lamp, and a shepherd who plants a hundred acorns a day. After Jean Giono.","translation":"Una meseta desnuda y batida por el viento, una casa de piedra con una sola lámpara y un pastor que planta cien bellotas al día. Según Jean Giono.","where":"worlds/the-man-who-planted-trees/world.json description"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Ocean at the End of the Lane","translation":"El océano al final del camino","where":"worlds/the-ocean-at-the-end-of-the-lane/world.json title"},
+  {"text":"A farmhouse at the end of a lane, a duck pond that is an ocean, and a boy of seven.","translation":"Una granja al final de un camino, un estanque de patos que es un océano y un niño de siete años.","where":"worlds/the-ocean-at-the-end-of-the-lane/world.json description"}
+]}

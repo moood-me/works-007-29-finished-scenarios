@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"NO SMOKING","translation":"PROHIBIDO FUMAR","where":"worlds/the-glass-menagerie/scenes/warehouse/elements/back_wall.js"},
+  {"text":"The Warehouse","translation":"El almacén","where":"worlds/the-glass-menagerie/scenes/warehouse/scene.json title"},
+  {"text":"A week later, in the shoe warehouse. Tom writes on a shoebox lid; Jim has a foot up on a carton.","translation":"Una semana después, en el almacén de zapatos. Tom escribe en la tapa de una caja de zapatos; Jim tiene un pie apoyado en una caja de cartón.","where":"worlds/the-glass-menagerie/scenes/warehouse/scene.json caption"}
+]}
