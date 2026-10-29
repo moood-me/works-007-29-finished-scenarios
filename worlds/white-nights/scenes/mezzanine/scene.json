@@ -1,0 +1,548 @@
+{
+  "engine": 3,
+  "title": "The Mezzanine",
+  "horizon": 0.33,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.82,
+    "ambientColor": "#e6e2ee",
+    "inside": 0.6,
+    "bounce": 0.6,
+    "haze": 0.05,
+    "hazeColor": "#ebe5e6",
+    "hazeGlow": 0.5,
+    "brightness": 1.08,
+    "saturation": 0.92,
+    "tint": "#f0e2d8",
+    "tintStrength": 0.05,
+    "vignette": 0.3,
+    "grain": 0.16
+  },
+  "lights": [
+    {
+      "id": "night_window",
+      "of": "window_light",
+      "daylight": 1.6,
+      "reach": 6
+    },
+    {
+      "id": "glow",
+      "from": [
+        8,
+        6
+      ],
+      "through": [
+        [
+          [
+            0.28,
+            4.2,
+            0.95
+          ],
+          [
+            0.92,
+            4.2,
+            0.95
+          ],
+          [
+            0.92,
+            4.2,
+            1.75
+          ],
+          [
+            0.28,
+            4.2,
+            1.75
+          ]
+        ]
+      ],
+      "soft": 0.2,
+      "color": "#ffd9c4",
+      "strength": 0.5
+    },
+    {
+      "id": "front_day",
+      "across": 0.2,
+      "distance": 0.3,
+      "elevation": 2.0,
+      "color": "#ece8f2",
+      "strength": 0.5,
+      "reach": 6
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "cups": 2,
+    "cold": false,
+    "steam_his": 1,
+    "steam_hers": 1,
+    "dreamer_spot": "table",
+    "nastya_spot": "table",
+    "dreamer_look": [
+      -0.4,
+      1.6,
+      1.25
+    ],
+    "dreamer_mood": "smile",
+    "nastya_look": [
+      -0.3,
+      1.5,
+      1.2
+    ],
+    "nastya_mood": "smile",
+    "dreamer_reach": {
+      "r": [
+        -0.94,
+        2.66,
+        0.78
+      ],
+      "l": [
+        -0.9,
+        2.88,
+        0.78
+      ]
+    },
+    "nastya_reach": {
+      "r": [
+        -0.24,
+        2.9,
+        0.78
+      ],
+      "l": [
+        -0.26,
+        2.66,
+        0.78
+      ]
+    }
+  },
+  "states": {
+    "cups": {
+      "values": [
+        0,
+        1,
+        2
+      ],
+      "means": "the cups on the little table: 0 none; 1 his only (at the left end — she is bringing hers); 2 both, his and hers"
+    },
+    "cold": {
+      "type": "boolean",
+      "means": "one cup gone cold: hers (at the right end, left when she went to the window) steams no more; false — both hot"
+    },
+    "steam_his": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the steam over his cup (the scene's own, from cups — script.js)"
+    },
+    "steam_hers": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the steam over her cup (the scene's own, from cups and cold — script.js)"
+    },
+    "dreamer_spot": {
+      "values": [
+        "table",
+        "stand"
+      ],
+      "means": "where the Dreamer is (script.js lays it out): table — sitting at the left end of the little table, turned to her and the room; stand — standing in the room, between the table and the viewer"
+    },
+    "nastya_spot": {
+      "values": [
+        "table",
+        "window",
+        "hatch"
+      ],
+      "means": "where Nastenka is (script.js lays it out): table — sitting at the right end of the table, opposite him (not beside); window — standing at the little window, a hand on the sill, as she stood at the parapet (look her out of it: nastya_look \"gable#window\" or the canal); hatch — just come up the stair, by the hatch (with the tea)"
+    }
+  },
+  "objects": [
+    {
+      "id": "view",
+      "name": "The canal outside",
+      "across": 0.6,
+      "distance": 14,
+      "elevation": 0,
+      "height": 7,
+      "box": [
+        -4,
+        -6,
+        4,
+        1
+      ],
+      "glows": true
+    },
+    {
+      "id": "floor",
+      "name": "Floor",
+      "plane": true,
+      "across": 0,
+      "distance": 2.1,
+      "width": 4,
+      "depth": 4.2,
+      "walk": true,
+      "inside": true
+    },
+    {
+      "id": "ceiling",
+      "name": "Ceiling",
+      "plane": true,
+      "across": 0,
+      "distance": 2.1,
+      "elevation": 2.45,
+      "width": 1.4,
+      "depth": 4.2,
+      "inside": true
+    },
+    {
+      "id": "slope",
+      "name": "Roof's slopes",
+      "plane": true,
+      "across": -1.35,
+      "distance": 2.1,
+      "elevation": 1.725,
+      "width": 4.2,
+      "depth": 1.96,
+      "rotation": -90,
+      "tilt": 48,
+      "copies": [
+        {
+          "across": -1.35,
+          "distance": 2.1,
+          "rotation": -90,
+          "tilt": 48
+        },
+        {
+          "across": 1.35,
+          "distance": 2.1,
+          "rotation": 90,
+          "tilt": 48
+        }
+      ],
+      "inside": true
+    },
+    {
+      "id": "knee_left",
+      "name": "Left knee wall",
+      "across": -2.0,
+      "distance": 2.1,
+      "facing": 90,
+      "height": 1.0,
+      "box": [
+        -2.1,
+        -1.0,
+        2.1,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "knee_right",
+      "name": "Right knee wall",
+      "across": 2.0,
+      "distance": 2.1,
+      "facing": 270,
+      "height": 1.0,
+      "box": [
+        -2.1,
+        -1.0,
+        2.1,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "gable",
+      "name": "Gable wall with the window",
+      "across": 0,
+      "distance": 4.2,
+      "facing": 180,
+      "height": 2.45,
+      "box": [
+        -2,
+        -2.45,
+        2,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "window_light",
+      "name": "The window's light",
+      "across": 0.6,
+      "distance": 4.25,
+      "elevation": 0.95,
+      "facing": 180,
+      "height": 0.8,
+      "box": [
+        -0.32,
+        -0.8,
+        0.32,
+        0
+      ],
+      "unseen": true
+    },
+    {
+      "id": "bed",
+      "name": "Bed",
+      "across": 1.15,
+      "distance": 3.2,
+      "facing": 270,
+      "height": 0.6,
+      "box": [
+        -0.97,
+        -0.66,
+        0.97,
+        0.01
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "bed_top",
+      "name": "Bed's cover",
+      "plane": true,
+      "across": 1.55,
+      "distance": 3.2,
+      "elevation": 0.44,
+      "width": 0.8,
+      "depth": 1.9,
+      "inside": true
+    },
+    {
+      "id": "table_top",
+      "name": "Table's top",
+      "plane": true,
+      "across": -0.58,
+      "distance": 2.85,
+      "elevation": 0.74,
+      "width": 0.84,
+      "depth": 0.56,
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "across": -0.58,
+      "distance": 2.6,
+      "facing": 180,
+      "height": 0.74,
+      "box": [
+        -0.43,
+        -0.75,
+        0.43,
+        0.01
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "cups",
+      "name": "Two cups and the teapot",
+      "across": -0.58,
+      "distance": 2.85,
+      "elevation": 0.74,
+      "height": 0.2,
+      "box": [
+        -0.4,
+        -0.2,
+        0.4,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "chair",
+      "name": "Chairs",
+      "across": -1.399,
+      "distance": 2.843,
+      "facing": 115,
+      "height": 0.92,
+      "box": [
+        -0.24,
+        -1.0,
+        0.24,
+        0.01
+      ],
+      "copies": [
+        {
+          "across": -1.399,
+          "distance": 2.843,
+          "facing": 115
+        },
+        {
+          "across": 0.23,
+          "distance": 2.876,
+          "facing": 235
+        }
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "steam_a",
+      "name": "Steam over his cup",
+      "inside": true,
+      "particles": {
+        "kind": "smoke",
+        "at": "cups#his",
+        "amount": "steam_his",
+        "size": [
+          0.03,
+          0.12
+        ],
+        "rate": 3,
+        "speed": [
+          0.05,
+          0.12
+        ],
+        "life": [
+          1.5,
+          2.5
+        ],
+        "opacity": 0.25,
+        "color": "#ffffff"
+      }
+    },
+    {
+      "id": "steam_b",
+      "name": "Steam over her cup",
+      "inside": true,
+      "particles": {
+        "kind": "smoke",
+        "at": "cups#hers",
+        "amount": "steam_hers",
+        "size": [
+          0.03,
+          0.12
+        ],
+        "rate": 3,
+        "speed": [
+          0.05,
+          0.12
+        ],
+        "life": [
+          1.5,
+          2.5
+        ],
+        "opacity": 0.25,
+        "color": "#ffffff"
+      }
+    },
+    {
+      "id": "dreamer",
+      "name": "The Dreamer",
+      "person": {
+        "cast": "cast",
+        "who": "dreamer",
+        "turn": 115
+      },
+      "across": -1.2,
+      "distance": 2.75,
+      "place": {
+        "across": "dreamer_a",
+        "distance": "dreamer_d"
+      },
+      "inside": true
+    },
+    {
+      "id": "nastya",
+      "name": "Nastenka",
+      "person": {
+        "cast": "cast",
+        "who": "nastenka",
+        "look": {
+          "garment": "frock"
+        },
+        "turn": 235
+      },
+      "across": 0.05,
+      "distance": 2.75,
+      "place": {
+        "across": "nastya_a",
+        "distance": "nastya_d"
+      },
+      "inside": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a solo piano nocturne in the manner of Field and early Chopin, slow, tender, rubato, soft pedal",
+        "weight": 0.6
+      },
+      {
+        "text": "a string quartet playing a quiet romance, long held notes, muted violins, 1840s salon music",
+        "weight": 0.4
+      },
+      {
+        "text": "a lone cello singing a slow melancholy melody over soft pizzicato",
+        "weight": 0
+      },
+      {
+        "text": "a music box melody slowly unwinding, delicate and a little sad",
+        "weight": 0.9
+      },
+      {
+        "text": "a Russian romance on a seven-string guitar, gentle fingerpicking, wistful",
+        "weight": 0
+      },
+      {
+        "text": "an ambient drone of pale strings, like light on water at night",
+        "weight": 0
+      },
+      {
+        "text": "a harp playing slow broken chords, shimmering, calm",
+        "weight": 0
+      },
+      {
+        "text": "a clarinet melody over a soft string bed, a quiet reverie",
+        "weight": 0
+      },
+      {
+        "text": "a distant church bell striking, with a sustained organ pedal note",
+        "weight": 0
+      },
+      {
+        "text": "a waltz played very slowly on an old upright piano, dreamy and nostalgic",
+        "weight": 0.5
+      },
+      {
+        "text": "a chamber trio of piano, violin and cello, Tchaikovsky-like lyricism, hushed",
+        "weight": 0
+      },
+      {
+        "text": "a flute and harp duet, airy and transparent, a summer night",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano with long silences, a few notes at a time, intimate",
+        "weight": 0.6
+      },
+      {
+        "text": "a romantic violin solo, singing and yearning, with a soft piano accompaniment",
+        "weight": 0
+      },
+      {
+        "text": "a balalaika tremolo playing a quiet folk tune far away",
+        "weight": 0
+      },
+      {
+        "text": "soft choir humming without words, slow, luminous",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.25,
+    "brightness": 0.45,
+    "scale": "D_FLAT_MAJOR_B_FLAT_MINOR"
+  }
+}

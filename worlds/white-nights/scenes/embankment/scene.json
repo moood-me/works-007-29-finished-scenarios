@@ -23,7 +23,71 @@
       1,
       0.3,
       0.3
-    ]
+    ],
+    "looks": {
+      "dusk": {
+        "ambientColor": "#ead6cc",
+        "tint": "#f6cfa8",
+        "tintStrength": 0.16,
+        "brightness": 1.1,
+        "lights": {
+          "glow": 1.6,
+          "skylight": 0.85
+        }
+      },
+      "lilac": {
+        "ambientColor": "#d4cdee",
+        "tint": "#d8cdf2",
+        "tintStrength": 0.12,
+        "lights": {
+          "glow": 0.8
+        }
+      },
+      "rose": {
+        "ambientColor": "#ecd6dc",
+        "tint": "#f6d4cc",
+        "tintStrength": 0.13,
+        "lights": {
+          "glow": 1.5
+        }
+      },
+      "overcast": {
+        "ambient": 0.62,
+        "ambientColor": "#d9dbe0",
+        "tint": "#dfe1e4",
+        "tintStrength": 0.1,
+        "saturation": 0.78,
+        "haze": 0.3,
+        "hazeColor": "#d6d8dd",
+        "shafts": 0,
+        "lights": {
+          "glow": 0.25,
+          "skylight": 1.1
+        }
+      },
+      "day": {
+        "ambient": 0.7,
+        "ambientColor": "#f6f1e8",
+        "tint": "#fff2dc",
+        "tintStrength": 0.05,
+        "saturation": 1.0,
+        "brightness": 1.12,
+        "haze": 0.1,
+        "hazeColor": "#e8e6e4",
+        "shafts": 0,
+        "lights": {
+          "glow": 0,
+          "skylight": 1.25
+        }
+      },
+      "wind": {
+        "wind": [
+          1,
+          0.4,
+          2.2
+        ]
+      }
+    }
   },
   "lights": [
     {
@@ -52,28 +116,62 @@
       "reach": 5.5,
       "on": "lamp",
       "flicker": 0.12
+    },
+    {
+      "id": "bank_lamps",
+      "of": "lamps#flame",
+      "on": "lamp"
+    },
+    {
+      "id": "sun",
+      "from": [
+        -70,
+        32
+      ],
+      "color": "#fff0d8",
+      "strength": 0.9,
+      "on": "day"
+    },
+    {
+      "id": "pin",
+      "at": "dreamer#hand_l",
+      "color": "#fff6e2",
+      "strength": 0.3,
+      "reach": 0.4,
+      "glow": 0.06,
+      "on": "pin"
     }
   ],
   "modules": [
     "cast"
   ],
   "state": {
+    "moment": "first_meet",
+    "staged": "first_meet",
+    "dusk": 0,
+    "lilac": 0,
+    "rose": 0,
+    "overcast": 0,
+    "day": 0,
+    "rain": 0,
+    "wind": 0,
     "lamp": 1,
+    "cart": false,
+    "hem": "none",
+    "scraps": false,
+    "ripple": 0.4,
+    "pin": 0,
+    "bell": 0,
+    "nastya_here": true,
+    "nastya_a": -1.4,
+    "nastya_d": 3.6,
+    "nastya_turn": 145,
     "nastya_look": [
       0,
       1.6,
       1.5
     ],
     "nastya_mood": "sad",
-    "dreamer_with": [
-      "hat_hands"
-    ],
-    "dreamer_look": [
-      -0.9,
-      2,
-      1.5
-    ],
-    "dreamer_mood": "smile",
     "nastya_reach": {
       "r": [
         -1.34,
@@ -86,6 +184,19 @@
         1.15
       ]
     },
+    "dreamer_here": true,
+    "dreamer_a": 0.35,
+    "dreamer_d": 4.0,
+    "dreamer_turn": 215,
+    "dreamer_look": [
+      -0.9,
+      2,
+      1.5
+    ],
+    "dreamer_mood": "smile",
+    "dreamer_with": [
+      "hat_hands"
+    ],
     "dreamer_reach": {
       "r": [
         0.13,
@@ -97,9 +208,67 @@
         3.74,
         1.12
       ]
-    }
+    },
+    "lodger_here": false,
+    "gentleman_here": false,
+    "yardman_here": false,
+    "nanny_here": false,
+    "child_here": false,
+    "passerby_here": false
   },
   "states": {
+    "moment": {
+      "values": [
+        "first_meet",
+        "prologue",
+        "first_night",
+        "first_gentleman",
+        "first_walk",
+        "first_corner",
+        "second_wait",
+        "second_bench",
+        "second_letter",
+        "second_alone",
+        "day",
+        "third_night",
+        "third_ten",
+        "third_bench",
+        "third_tear",
+        "fourth_night",
+        "fourth_rain",
+        "fourth_awning",
+        "fourth_lodger",
+        "fourth_alone",
+        "morning"
+      ],
+      "means": "which step of the scenario the embankment shows, its people standing (script.js lays it out; notes.md «Moments»): first_meet, prologue, first_night, first_gentleman, first_walk, first_corner, second_wait, second_bench, second_letter, second_alone, day, third_night, third_ten, third_bench, third_tear, fourth_night, fourth_rain, fourth_awning, fourth_lodger, fourth_alone, morning"
+    },
+    "staged": {
+      "values": [
+        "first_meet",
+        "prologue",
+        "first_night",
+        "first_gentleman",
+        "first_walk",
+        "first_corner",
+        "second_wait",
+        "second_bench",
+        "second_letter",
+        "second_alone",
+        "day",
+        "third_night",
+        "third_ten",
+        "third_bench",
+        "third_tear",
+        "fourth_night",
+        "fourth_rain",
+        "fourth_awning",
+        "fourth_lodger",
+        "fourth_alone",
+        "morning"
+      ],
+      "means": "the moment the script last laid out (the script's own: it lays a moment out again only when this differs)"
+    },
     "lamp": {
       "range": [
         0,
@@ -107,6 +276,221 @@
       ],
       "smooth": true,
       "means": "the street lamp by the parapet beyond them (and the others along both banks): 0 out, 1 burning (its light and glow)"
+    },
+    "dusk": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the evening's light (the prologue): warmer and golden low in the sky; 0 the white night"
+    },
+    "lilac": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the second night's light: cooler, lilac"
+    },
+    "rose": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the third night's light: the afterglow rosier and warmer"
+    },
+    "overcast": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the fourth night's sky: grey-pearl cloud over all of it, the afterglow hidden; still light"
+    },
+    "day": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "day (Friday's errand, the morning's end): bright, the sun on the houses; the lamps should be out (lamp 0)"
+    },
+    "rain": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the rain: 0 none … 1 pouring (its streaks, the canal roughened)"
+    },
+    "ripple": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the canal's ripple (script.js: 0.4 and more as it rains)"
+    },
+    "cart": {
+      "type": "boolean",
+      "means": "a dray loaded with furniture standing in the far bank's street (the city going to and coming back from the dachas)"
+    },
+    "hem": {
+      "values": [
+        "none",
+        "pinned",
+        "torn"
+      ],
+      "means": "her hem on the second night: pinned to the Dreamer's left sleeve with Grandmother's pin (its glint at his wrist), torn (the pin gone; М2 missed), none"
+    },
+    "pin": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the pin's glint at the Dreamer's left wrist (script.js: 1 while `hem` is pinned)"
+    },
+    "wind": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the wind off the canal (Д2, М3): lime leaves blown along the street, more as it rises"
+    },
+    "bell": {
+      "range": [
+        0,
+        10
+      ],
+      "means": "the bell's strokes counted at ten (the game's sound; nothing is shown)"
+    },
+    "scraps": {
+      "type": "boolean",
+      "means": "the torn letter's scraps floating on the canal before the parapet (3.4-С)"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "nastya_a": {
+      "range": [
+        -3,
+        24
+      ],
+      "means": "where nastya stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+    },
+    "nastya_d": {
+      "range": [
+        -6,
+        60
+      ],
+      "means": "where nastya stands, metres away (the corner behind the viewer, below 0)"
+    },
+    "dreamer_a": {
+      "range": [
+        -3,
+        24
+      ],
+      "means": "where dreamer stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+    },
+    "dreamer_d": {
+      "range": [
+        -6,
+        60
+      ],
+      "means": "where dreamer stands, metres away (the corner behind the viewer, below 0)"
+    },
+    "lodger_a": {
+      "range": [
+        -3,
+        24
+      ],
+      "means": "where lodger stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+    },
+    "lodger_d": {
+      "range": [
+        -6,
+        60
+      ],
+      "means": "where lodger stands, metres away (the corner behind the viewer, below 0)"
+    },
+    "gentleman_a": {
+      "range": [
+        -3,
+        24
+      ],
+      "means": "where gentleman stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+    },
+    "gentleman_d": {
+      "range": [
+        -6,
+        60
+      ],
+      "means": "where gentleman stands, metres away (the corner behind the viewer, below 0)"
+    },
+    "yardman_a": {
+      "range": [
+        -3,
+        24
+      ],
+      "means": "where yardman stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+    },
+    "yardman_d": {
+      "range": [
+        -6,
+        60
+      ],
+      "means": "where yardman stands, metres away (the corner behind the viewer, below 0)"
+    },
+    "nanny_a": {
+      "range": [
+        -3,
+        24
+      ],
+      "means": "where nanny stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+    },
+    "nanny_d": {
+      "range": [
+        -6,
+        60
+      ],
+      "means": "where nanny stands, metres away (the corner behind the viewer, below 0)"
+    },
+    "child_a": {
+      "range": [
+        -3,
+        24
+      ],
+      "means": "where child stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+    },
+    "child_d": {
+      "range": [
+        -6,
+        60
+      ],
+      "means": "where child stands, metres away (the corner behind the viewer, below 0)"
+    },
+    "passerby_a": {
+      "range": [
+        -3,
+        24
+      ],
+      "means": "where passerby stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+    },
+    "passerby_d": {
+      "range": [
+        -6,
+        60
+      ],
+      "means": "where passerby stands, metres away (the corner behind the viewer, below 0)"
     }
   },
   "objects": [
@@ -120,29 +504,29 @@
       "name": "The canal",
       "plane": true,
       "across": -13.05,
-      "distance": 160,
+      "distance": 140,
       "elevation": -1.6,
       "width": 21.7,
-      "depth": 320,
+      "depth": 360,
       "reflect": {
         "strength": 0.8,
         "fade": 0,
         "rough": 0.2,
-        "ripple": 0.4
+        "ripple": "ripple"
       }
     },
     {
       "id": "far_wall",
       "name": "Far bank's wall",
       "across": -23.9,
-      "distance": 0,
+      "distance": -40,
       "elevation": -1.6,
       "facing": 90,
       "height": 2.65,
       "box": [
         0,
         -2.7,
-        320,
+        360,
         0.05
       ]
     },
@@ -151,22 +535,22 @@
       "name": "Far bank's street",
       "plane": true,
       "across": -27.15,
-      "distance": 160,
+      "distance": 140,
       "elevation": 0,
       "width": 5.5,
-      "depth": 320
+      "depth": 360
     },
     {
       "id": "parapet",
       "name": "Granite parapet",
       "across": -1.7,
-      "distance": 1,
+      "distance": -39,
       "facing": 90,
       "height": 1.05,
       "box": [
         0,
         -1.1,
-        319,
+        359,
         0.05
       ]
     },
@@ -175,20 +559,56 @@
       "name": "Parapet's top",
       "plane": true,
       "across": -1.95,
-      "distance": 160.5,
+      "distance": 140.5,
       "elevation": 1.05,
       "width": 0.5,
-      "depth": 319
+      "depth": 359
     },
     {
       "id": "pavement",
       "name": "Embankment street",
       "plane": true,
       "across": 2.2,
-      "distance": 160,
+      "distance": 140,
       "elevation": 0,
       "width": 7.8,
-      "depth": 320
+      "depth": 360
+    },
+    {
+      "id": "lane",
+      "name": "The side street (the corner)",
+      "plane": true,
+      "across": 18.05,
+      "distance": 0.5,
+      "elevation": 0,
+      "width": 23.9,
+      "depth": 5
+    },
+    {
+      "id": "lane_wall",
+      "name": "The side street's walls",
+      "across": 6.1,
+      "distance": 3,
+      "facing": 180,
+      "height": 13,
+      "box": [
+        -0.1,
+        -13.1,
+        24,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": 6.1,
+          "distance": 3,
+          "facing": 180
+        },
+        {
+          "across": 30,
+          "distance": -2,
+          "facing": 0
+        }
+      ]
     },
     {
       "id": "puddle",
@@ -342,6 +762,12 @@
           "across": 6.1,
           "distance": 294,
           "facing": 270
+        },
+        {
+          "across": 6.1,
+          "distance": -2,
+          "facing": 270,
+          "tint": "#f4f0ea"
         }
       ]
     },
@@ -388,6 +814,17 @@
         {
           "across": 6.1,
           "distance": 255,
+          "facing": 270,
+          "tint": "#f2eef2"
+        },
+        {
+          "across": 6.1,
+          "distance": -23.5,
+          "facing": 270
+        },
+        {
+          "across": 30,
+          "distance": 7,
           "facing": 270,
           "tint": "#f2eef2"
         }
@@ -443,6 +880,11 @@
           "across": 6.1,
           "distance": 320,
           "facing": 270
+        },
+        {
+          "across": -29.9,
+          "distance": -36.5,
+          "facing": 90
         }
       ]
     },
@@ -580,7 +1022,10 @@
         0.02
       ],
       "flicker": 0.12,
-      "shadow": true
+      "shadow": true,
+      "redraw": {
+        "lamp": 0.25
+      }
     },
     {
       "id": "bollard",
@@ -658,7 +1103,10 @@
           "across": -24.4,
           "distance": 162
         }
-      ]
+      ],
+      "redraw": {
+        "lamp": 0.25
+      }
     },
     {
       "id": "bench",
@@ -751,6 +1199,19 @@
         -19.3,
         25.3,
         0.1
+      ],
+      "copies": [
+        {
+          "across": -11.9,
+          "distance": 322,
+          "facing": 180
+        },
+        {
+          "across": -11.9,
+          "distance": -46,
+          "facing": 0,
+          "tint": "#f2eef2"
+        }
       ]
     },
     {
@@ -767,6 +1228,59 @@
       ]
     },
     {
+      "id": "cart",
+      "name": "A dray with furniture",
+      "across": -26.6,
+      "distance": 22,
+      "facing": 90,
+      "height": 2.7,
+      "box": [
+        -3.8,
+        -2.9,
+        3.4,
+        0.05
+      ]
+    },
+    {
+      "id": "scraps",
+      "name": "Scraps of the letter on the water",
+      "plane": true,
+      "across": -3.4,
+      "distance": 8,
+      "elevation": -1.58,
+      "width": 3.2,
+      "depth": 7
+    },
+    {
+      "id": "rain",
+      "name": "Rain",
+      "particles": {
+        "kind": "rain",
+        "amount": "rain",
+        "count": 14000,
+        "color": "#f2f2f8"
+      }
+    },
+    {
+      "id": "gust",
+      "name": "Leaves blown along the street",
+      "across": 1.5,
+      "distance": 8,
+      "particles": {
+        "kind": "leaves",
+        "amount": "wind",
+        "source": [
+          9,
+          16,
+          3
+        ],
+        "color": [
+          "#9aa86a",
+          "#c2b46a"
+        ]
+      }
+    },
+    {
       "id": "nastya",
       "name": "Nastenka",
       "person": {
@@ -776,6 +1290,10 @@
       },
       "across": -1.4,
       "distance": 3.6,
+      "place": {
+        "across": "nastya_a",
+        "distance": "nastya_d"
+      },
       "shadow": {
         "light": "lamp",
         "strength": 0.75
@@ -791,6 +1309,124 @@
       },
       "across": 0.35,
       "distance": 4,
+      "place": {
+        "across": "dreamer_a",
+        "distance": "dreamer_d"
+      },
+      "shadow": {
+        "light": "lamp",
+        "strength": 0.75
+      }
+    },
+    {
+      "id": "lodger",
+      "name": "The Lodger",
+      "person": {
+        "cast": "cast",
+        "who": "lodger",
+        "turn": 130
+      },
+      "across": -0.9,
+      "distance": 7.3,
+      "place": {
+        "across": "lodger_a",
+        "distance": "lodger_d"
+      },
+      "shadow": {
+        "light": "lamp",
+        "strength": 0.75
+      }
+    },
+    {
+      "id": "gentleman",
+      "name": "Gentleman in a tailcoat",
+      "person": {
+        "cast": "cast",
+        "who": "gentleman",
+        "turn": 320
+      },
+      "across": 2.4,
+      "distance": 8.2,
+      "place": {
+        "across": "gentleman_a",
+        "distance": "gentleman_d"
+      },
+      "shadow": {
+        "light": "lamp",
+        "strength": 0.75
+      }
+    },
+    {
+      "id": "yardman",
+      "name": "Yard-keeper",
+      "person": {
+        "cast": "cast",
+        "who": "yardman",
+        "turn": 215
+      },
+      "across": 4.9,
+      "distance": 14.2,
+      "place": {
+        "across": "yardman_a",
+        "distance": "yardman_d"
+      },
+      "shadow": {
+        "light": "lamp",
+        "strength": 0.75
+      }
+    },
+    {
+      "id": "nanny",
+      "name": "Nurse-maid",
+      "person": {
+        "cast": "cast",
+        "who": "nanny",
+        "turn": 285
+      },
+      "across": -1.3,
+      "distance": 6.7,
+      "place": {
+        "across": "nanny_a",
+        "distance": "nanny_d"
+      },
+      "shadow": {
+        "light": "lamp",
+        "strength": 0.75
+      }
+    },
+    {
+      "id": "child",
+      "name": "Child",
+      "person": {
+        "cast": "cast",
+        "who": "child",
+        "turn": 250
+      },
+      "across": -1.4,
+      "distance": 5.95,
+      "place": {
+        "across": "child_a",
+        "distance": "child_d"
+      },
+      "shadow": {
+        "light": "lamp",
+        "strength": 0.75
+      }
+    },
+    {
+      "id": "passerby",
+      "name": "Passer-by",
+      "person": {
+        "cast": "cast",
+        "who": "passerby",
+        "turn": 0
+      },
+      "across": 2.4,
+      "distance": 9.5,
+      "place": {
+        "across": "passerby_a",
+        "distance": "passerby_d"
+      },
       "shadow": {
         "light": "lamp",
         "strength": 0.75
