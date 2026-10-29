@@ -7,7 +7,8 @@
     "mode": "picture"
   },
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "light": {
     "ambient": 0.64,
@@ -90,7 +91,12 @@
     "child_b_here": false,
     "neighbour_b_with": [
       "spade"
-    ]
+    ],
+    "pour": 0,
+    "notebook_open": 0,
+    "notebook_page": "was",
+    "notebook_name": 0,
+    "notebook_turn": 0
   },
   "states": {
     "time": {
@@ -284,6 +290,52 @@
     "child_b_d": {
       "type": "number",
       "means": "where A village boy stands: metres ahead"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "pour": {
+      "range": [
+        0,
+        1
+      ],
+      "means": "water running from Lina's mug as she pours it out on the stump (1), none (0)"
+    },
+    "notebook_open": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the insert of the Traveller's notebook open on his knee («Рассказ»): 0 closed … 1 open"
+    },
+    "notebook_page": {
+      "values": [
+        "was",
+        "blank"
+      ],
+      "means": "the notebook's open spread: was — a page a year, «It was.» on each; blank — a clean page, where the name is written (notebook_name)"
+    },
+    "notebook_name": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "how much of the name is written on the clean page, letter by letter"
+    },
+    "notebook_turn": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the wind turning the notebook's pages back: 0 → 1, a leaf flipping over three times"
     }
   },
   "objects": [
@@ -4138,6 +4190,22 @@
       "distance": 11
     },
     {
+      "id": "pair",
+      "name": "Between Lina and the Traveller at the stump (a point: the two-shot)",
+      "unseen": true,
+      "across": 0.6,
+      "distance": 8.55,
+      "elevation": 0.9
+    },
+    {
+      "id": "pair_well",
+      "name": "Between Lina at the well and the Traveller (a point: the two-shot)",
+      "unseen": true,
+      "across": 2.9,
+      "distance": 10.55,
+      "elevation": 0.9
+    },
+    {
       "id": "heap",
       "name": "A charcoal heap",
       "across": 14,
@@ -4824,6 +4892,38 @@
       }
     },
     {
+      "id": "pouring",
+      "name": "Water poured from Lina's mug",
+      "particles": {
+        "kind": "splashes",
+        "at": "lina#mug",
+        "amount": "pour",
+        "rate": 70,
+        "life": [
+          0.35,
+          0.55
+        ],
+        "speed": [
+          0.2,
+          0.5
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "spread": 8,
+        "size": [
+          0.018,
+          0.012
+        ],
+        "shape": "drop",
+        "color": "#d8e4ea",
+        "ground": "splash",
+        "settle": 0.3
+      }
+    },
+    {
       "id": "rod",
       "name": "Elzéard's iron rod, leaning on the fountain",
       "across": -1.95,
@@ -5286,6 +5386,17 @@
         "distance": "child_b_d"
       },
       "shadow": true
+    },
+    {
+      "id": "pages",
+      "name": "The Traveller's notebook close up: a page a year, «It was.» on each; the name",
+      "insert": "notebook_open",
+      "iris": [
+        0.889,
+        0.5,
+        0.62,
+        0.46
+      ]
     }
   ],
   "music": {

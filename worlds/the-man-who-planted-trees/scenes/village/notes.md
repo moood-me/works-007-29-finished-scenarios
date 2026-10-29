@@ -86,3 +86,9 @@ the horizon behind the left (`sun_dawn`, on by `dawn`), rose and gold, a cooler 
 
 - Elzéard's oaks are the same height all over the slope in each time (the painting reads `time`, the copies' scale
   varies them a little): the slope planted over twenty years is not shown younger at its far end.
+
+## Contract for the check
+
+```json
+{"beats": {"flask":{"after":[],"tells":["flask:shake"],"seconds":14}, "stump":{"after":["flask"],"tells":["stump:shout"],"seconds":9}, "drink":{"after":["stump"],"tells":["drink:look"],"seconds":20}, "pour":{"after":["stump"],"tells":["pour:end"],"seconds":12}, "point_up":{"after":["drink","pour"],"tells":["point_up:point"],"seconds":10}, "coal_cart":{"after":[],"tells":["coal_cart:lina"],"seconds":16}, "oaks_laugh":{"after":["coal_cart"],"tells":["oaks_laugh:laugh","oaks_laugh:father","oaks_laugh:slope"],"seconds":14}, "pour_again":{"after":["coal_cart"],"tells":["pour_again:pour"],"seconds":14}, "by_door":{"after":[],"tells":["by_door:tie","by_door:pat"],"seconds":14}, "jan_goes":{"after":["by_door"],"tells":["jan_goes:gone"],"seconds":12}, "haze":{"after":["jan_goes"],"tells":["haze:mound","haze:leaves"],"seconds":18}, "alive":{"after":[],"tells":["alive:village","alive:edge","alive:call","alive:spade"],"seconds":24}, "planted":{"after":["alive"],"tells":["planted:look"],"seconds":12}, "story":{"after":[],"tells":["story:sit","story:name"],"seconds":22}, "story_wind":{"after":["story"],"tells":["story_wind:was"],"seconds":10}}}
+```
