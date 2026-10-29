@@ -1,7 +1,9 @@
 // The stream's water, from above (x across, y toward the viewer; its centre 14 m ahead, so a point `d` metres ahead is
 // at y = 14 − d), lying at the water's level in the channel the relief cuts: painted only where the water is — the
 // sky's pale colour it mirrors (a mirror shows no sky: its own paint stands for it), a few darker lines of the current.
-// In the wood the land's painting carries the stream on.
+// In the wood the land's painting carries the stream on. While the stream is dry (`stream` 0) — nothing: the land
+// paints the dry bed.
+if (!e.state.stream) return;
 const L = e.lib, Y = (d) => 14 - d;
 const edgeAt = (d, side) => L.streamX(d) + side * (L.streamW(d) / 2 + 0.6);
 g.fillStyle = "#9db3c7";
