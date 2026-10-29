@@ -51,3 +51,5 @@ function next() {
 }
 next();
 scene.on('change', 'beech_row', next);
+// the pieces (the game sets `beat`: modules/beats, lib.film) — each lays out its own start, never `moment`
+scene.kit.beats.play(scene, scene.lib.film(scene));

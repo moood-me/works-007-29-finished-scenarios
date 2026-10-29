@@ -7,7 +7,8 @@
     "mode": "picture"
   },
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "light": {
     "ambient": 0.66,
@@ -201,6 +202,14 @@
         30
       ],
       "means": "where the ranger stands, metres ahead (the moment sets it)"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md, Pieces)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [

@@ -12,7 +12,7 @@
   Павел её между стадиями не смотрит (2026-10-29: стадии 3–5 подряд).
 - Стадия 4 (все сцены) — сделана в своих ветках и влита сюда: `r3/trees-village` (М1 деревня по `time`),
   `r3/trees-years` (дом, опушка, ручей по `moment`); игра стоит на них (`game.md`, «Места»).
-- Стадия 5 (вся игра) — не начата; что нужно от сцен — `game.md`, «Stage 5 — pieces».
+- Стадия 5 (вся игра) — идёт; что нужно от сцен — `game.md`, «Stage 5 — pieces». Куски дома, опушки и ручья — ветка `r3/trees-pieces-years`. Моменты сцен по годам — `years.md`.
 
 Адрес игры в студии: `moood-me/works-007-29-finished-scenarios@r3/trees-game:games/the-man-who-planted-trees`
 (страница игры — `http://localhost:8080/games/<адрес>`, «Play it»).

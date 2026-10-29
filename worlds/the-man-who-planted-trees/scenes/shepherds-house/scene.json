@@ -7,7 +7,8 @@
     "mode": "picture"
   },
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "light": {
     "ambient": 0.95,
@@ -233,9 +234,10 @@
     "door": {
       "values": [
         "open",
+        "shut",
         "propped"
       ],
-      "means": "the door: open (the room behind it lit by the lamp, or dark); propped — shut from outside and propped with a stick (3.5 on the Name: the Traveller shuts the empty house)"
+      "means": "the door: open (the room behind it lit by the lamp, or dark); shut — shut from outside; propped — shut and propped with a stick (3.5 on the Name: the Traveller shuts the empty house — the guiding `door`)"
     },
     "trodden": {
       "type": "boolean",
@@ -358,6 +360,14 @@
         16
       ],
       "means": "where the visitor with the notebook stands, metres ahead (the moment sets it)"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md, Pieces)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [
