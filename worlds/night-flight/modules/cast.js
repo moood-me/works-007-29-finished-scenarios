@@ -235,6 +235,84 @@ return {
           F.point('note', c);
         },
       },
+      // (stage 5) a strip of paper tape held in both hands: drawn taut between them, its ends hanging a little past
+      // each hand (point `tape`)
+      tape: {
+        name: 'paper tape',
+        draw: F => {
+          const { add, mul, sub, unit } = V();
+          const m = F.fit.h;
+          const r = F.P('RightHand');
+          const l = F.P('LeftHand');
+          const across = unit(sub(l, r));
+          const down = [0, -1, 0];
+          const paper = [0.95, 0.93, 0.86, 1];
+          F.bar(r, l, 0.009 * m, 0.009 * m, [[0, paper]], 4, down, 0.2);
+          F.bar(r, add(r, add(mul(across, -0.03 * m), mul(down, 0.12 * m))), 0.009 * m, 0.009 * m, [[0, paper]], 4, across, 0.2);
+          F.bar(l, add(l, add(mul(across, 0.03 * m), mul(down, 0.09 * m))), 0.009 * m, 0.009 * m, [[0, paper]], 4, across, 0.2);
+          F.point('tape', mul(add(r, l), 0.5));
+        },
+      },
+      // (stage 5) a sheet of paper in the right hand — a form, an order, a report: a pale leaf held flat
+      form: {
+        name: 'a sheet of paper',
+        draw: F => {
+          const { add, mul } = V();
+          const m = F.fit.h;
+          const axes = [F.side('RightHand'), F.up('RightHand'), F.fwd('RightHand')];
+          const c = add(F.P('RightHand'), add(mul(axes[2], 0.09 * m), mul(axes[1], -0.03 * m)));
+          F.ball(c, axes, [0.1 * m, 0.004 * m, 0.14 * m], [0.95, 0.94, 0.89, 1], 4, 10);
+          F.point('form', c);
+        },
+      },
+      // (stage 5) a telephone receiver in the left hand: a black handle with the ear-piece and the mouth-piece
+      receiver: {
+        name: 'telephone receiver',
+        draw: F => {
+          const { add, mul } = V();
+          const m = F.fit.h;
+          const hand = F.P('LeftHand');
+          const along = F.fwd('LeftHand');
+          const side = F.side('LeftHand');
+          const black = [0.08, 0.08, 0.09, 1];
+          const a = add(hand, mul(along, 0.1 * m));
+          const b = add(hand, mul(along, -0.08 * m));
+          F.bar(a, b, 0.016 * m, 0.016 * m, [[0, black]], 8, side, 0.3);
+          F.ball(a, [side, F.up('LeftHand'), along], [0.035 * m, 0.035 * m, 0.02 * m], black, 12);
+          F.ball(b, [side, F.up('LeftHand'), along], [0.032 * m, 0.032 * m, 0.02 * m], black, 12);
+          F.point('receiver', hand);
+        },
+      },
+      // (stage 5) a pair of gloves held in the left hand: two soft dark leather shapes, the fingers hanging
+      gloves: {
+        name: 'gloves',
+        draw: F => {
+          const { add, mul } = V();
+          const m = F.fit.h;
+          const axes = [F.side('LeftHand'), F.up('LeftHand'), F.fwd('LeftHand')];
+          const c = add(F.P('LeftHand'), mul(axes[1], -0.06 * m));
+          const leather = [0.22, 0.17, 0.15, 1];
+          F.ball(add(c, mul(axes[0], -0.015 * m)), axes, [0.04 * m, 0.1 * m, 0.012 * m], leather, 10);
+          F.ball(add(c, add(mul(axes[0], 0.02 * m), mul(axes[1], -0.015 * m))), axes, [0.04 * m, 0.1 * m, 0.012 * m], [0.19, 0.15, 0.13, 1], 10);
+          F.point('gloves', c);
+        },
+      },
+      // (stage 5) a little notebook in the left hand and a pencil in the right (points `notebook`)
+      notebook: {
+        name: 'notebook and pencil',
+        draw: F => {
+          const { add, mul } = V();
+          const m = F.fit.h;
+          const axes = [F.side('LeftHand'), F.up('LeftHand'), F.fwd('LeftHand')];
+          const c = add(F.P('LeftHand'), mul(axes[2], 0.05 * m));
+          F.ball(c, axes, [0.05 * m, 0.008 * m, 0.075 * m], [0.24, 0.2, 0.16, 1], 4, 10);
+          F.ball(add(c, mul(axes[1], 0.007 * m)), axes, [0.046 * m, 0.004 * m, 0.07 * m], [0.94, 0.92, 0.86, 1], 4, 10);
+          const hand = F.P('RightHand');
+          const along = F.fwd('RightHand');
+          F.bar(add(hand, mul(along, 0.07 * m)), add(hand, mul(along, -0.03 * m)), 0.005 * m, 0.003 * m, [[0, [0.7, 0.55, 0.2, 1]]], 6, F.side('RightHand'), 0.3);
+          F.point('notebook', c);
+        },
+      },
     },
     hats: {
       // a pilot's leather flying helmet worn: a close leather shell over the skull and down over the ears, a strap

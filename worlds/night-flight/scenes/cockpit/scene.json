@@ -141,7 +141,8 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "storm": 0,
@@ -179,7 +180,11 @@
     "radioman_mood": "neutral",
     "bob": 0,
     "night": 0,
-    "gap": 0
+    "gap": 0,
+    "roll": 0,
+    "water": 0,
+    "climb": 0,
+    "house": 1
   },
   "states": {
     "storm": {
@@ -241,6 +246,46 @@
       ],
       "smooth": true,
       "means": "in the storm (storm 1, above 0): a gap in the cloud overhead with stars in it — 0 closed, 1 open; a little starlight comes down through it"
+    },
+    "roll": {
+      "range": [
+        -70,
+        70
+      ],
+      "smooth": true,
+      "means": "the plane laid on a wing, degrees (the anchor `plane` tilted, the seated people with it): 0 level; ± its top toward or away from the viewer — a little in the storm's jolts, ~60 when it is thrown on a wing (М5 lost)"
+    },
+    "water": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "in the storm: the sea glimpsed far below through a rent in the cloud as the plane is laid on a wing — seen as the lightning lights it: 0 none, 1 there"
+    },
+    "climb": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the climb out of the storm (М6): 0 not begun … 1 at the top — the cloud masses sinking past, the gap overhead opening wider, its light growing; at 1 the piece `above` begins (above 1)"
+    },
+    "house": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "at dusk: the lone house's window below the plane — 0 dark, 1 lit"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [
@@ -261,12 +306,13 @@
     },
     {
       "id": "plane",
-      "name": "Fabien's plane: the anchor its parts and its people are on, rising and falling a little in the air",
+      "name": "Fabien's plane: the anchor its parts and its people are on, rising and falling a little in the air, laid on a wing by `roll`",
       "unseen": true,
       "across": 0.7,
       "distance": 3.2,
       "place": {
-        "elevation": "bob"
+        "elevation": "bob",
+        "tilt": "roll"
       }
     },
     {

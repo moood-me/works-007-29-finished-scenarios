@@ -52,3 +52,9 @@ the front cockpit, his radio operator behind. Its three skies are the scenario's
   `#note` — for the motion); the plane laid on a wing (the miss of М5) — a `tilt` on the anchor `plane` would tip the
   seated people with it, untried.
 - Seen on the GPU (a sheet: the night over Trelew; the storm with the gap open).
+
+## Contract for the check
+
+```json
+{"beats": {"dusk":{"after":[],"tells":["dusk:window"],"seconds":8}, "note_back":{"after":["dusk"],"tells":["note_back:read","note_back:tap"],"seconds":8}, "trelew":{"after":[],"tells":["trelew:note","trelew:answer","trelew:under"],"seconds":14}, "storm":{"after":[],"tells":["storm:note","storm:answer"],"seconds":12}, "gap":{"after":[],"tells":["gap:note"],"seconds":8}, "key_held":{"after":["gap"],"tells":["key_held:end"],"seconds":6}, "lamp_note":{"after":["gap"],"tells":["lamp_note:write","lamp_note:tap"],"seconds":14}, "laugh_note":{"after":["gap"],"tells":["laugh_note:write","laugh_note:closed"],"seconds":12}, "above":{"after":[],"tells":["above:face","above:note","above:last"],"seconds":18}}}
+```
