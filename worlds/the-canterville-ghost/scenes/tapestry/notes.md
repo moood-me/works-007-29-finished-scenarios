@@ -69,7 +69,7 @@ Pieces (seconds without lines). Shots: the room is small and the operator comes 
 | wall_parts | talk, sandwich, stamp | the tapestry stirs, the wall parts; he stands, holds out his hand | |
 | into_wall | wall_parts | hand in hand into the opening; the wall shuts | |
 | hand_down | wall_parts | he bows (plays) or sits back; the wall shuts; she runs out | |
-| dark | — | the two in the dark way, shapes passing | dark |
+| dark | — | the two hand in hand deep in the dark way (7.2 m; her left in his right), toward us; shapes behind; the camera in the way itself, between the open leaves (its own eye: the dark fills the frame, their faces near) | dark |
 | lantern | — | Washington with his lantern: pounds and sits (shares) / goes (watch) / sits | evening |
 | knock_evening | — | Mr Otis with a candle knocks on the tapestry | evening |
 | wait_wall | — | Mr Otis (in his coat: the same night he sits in the corridor) knocks, sets the candle down, sits; the wall parts, she steps out with the casket | night |
@@ -85,6 +85,11 @@ Motions Kimodo could not make (the lead's word): `stamp` — Virginia draws hers
 - His chain (`shackles`) runs from the hand at his brow straight down to the hand on his knee: it reads as a rod.
 - His cloak is the cast's flat tube down his back — sitting, it stands out behind him like a slab (the engine hangs
   cloth only before a garment, not behind the back).
+- **Mirror, once deployed:** an engine branch (moood repo, `engine3-unreflected`) adds a person's key `<id>_reflected:
+  false` — not deployed yet. Once it is, give Sir Simon `simon_reflected: false` (in `people()` of lib.js) and drop the
+  gap below.
+- The `dark` look was lifted after the play test (2026-10-29, fixes): ambient 0.12 (a cool grey), vignette 0.45, his
+  `ghost_dark` 1.4 over 3.2 m — the two read in it; the room is not seen there any more.
 - The mirror cannot leave him out: the engine has no person who is not mirrored ("в зеркале его нет" in the
   scenario). He sits where the mirror does not see him from the start; a viewer leaning far to the left may; in
   `rehearse` he stands before it and is mirrored, faintly (the mirror is rough and weak) — an engine gap.

@@ -268,18 +268,37 @@ function FILM(scene) {
           o.look('virginia');
         }
         await s.wait(1);
-        // she comes down to her mother; Mrs Otis gets up and takes her face in her hands
+        // she comes down to her mother; Washington and Mr Otis come down after her (whoever was up the stair, and Mr
+        // Otis to her from wherever he stood) and stand by, in the shot at the stair's foot — Mr Otis says his «How
+        // could you!» there, his face to us; Mrs Otis gets up and takes her face in her hands, near enough for her
+        // elbows to bend
         w.reach(null);
         glide(s, SH.foot, 3);
         m.on(null);
         const up = m.go('stand_up', { from: [ARM[0], ARM[1]], turn: 200 });
+        const brother = s.sequence(async q => {
+          if (trap === 'watch' && !shares) return; // (in at the door with his lantern: he stays there)
+          await q.wait(0.8);
+          const b = q.person('washington');
+          await b.walk([[1.2, 7.2], [1.3, 6.75]]);
+          await b.turn(235);
+          b.look('virginia');
+        });
+        const father = s.sequence(async q => {
+          await q.wait(shares ? 0.5 : 2.2);
+          const f = q.person('otis');
+          await f.walk(shares ? [[0.9, 5.6], [0.35, 6.5]] : [[1.2, 7.2], [0.35, 6.5]]);
+          await f.turn(225);
+          f.look('virginia');
+        });
         await v.walk([[1.1, 7.2], [0.7, 6.0], [-0.3, 5.9]]);
         await up;
         await v.turn(260);
-        await m.walk([[-0.2, 5.5], [-0.9, 5.9]]);
+        await m.walk([[-0.2, 5.5], [-0.75, 5.9]]);
         await m.turn(100);
         m.look('virginia');
         v.look('mrs_otis');
+        await s.all(brother, father);
         m.reach({ r: 'virginia#head', l: 'virginia#head' });
         s.tell('midnight:hold');
         await s.wait(2);

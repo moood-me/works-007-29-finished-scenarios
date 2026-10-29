@@ -243,7 +243,10 @@ const NEAR = [-0.1, 4.75];
 const MIRROR = [2.3, 3.75];
 const LISTEN = [2.85, 3.3];
 const OPENING = [-1.4, 5.0];
-const DEEP = [-1.4, 6.6];
+// in the dark way: the two stand past the leaves of the wall (they swing back along its sides to 6.0 m), before the
+// shapes (7.6 m); the camera inside the way too, between the leaves — only the dark way and the two in the frame
+const DEEP = [-1.4, 7.2];
+const IN_DARK = { eye: [-1.42, 5.5, 1.5], at: [-1.42, 7.2, 1.32] };
 const TAPESTRY = [-1.4, 4.75];
 // the camera: the scene's own (wide), or framing someone
 const CAM = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
@@ -251,6 +254,11 @@ const CAM = { camera_target: null, camera_shot: 'full', camera_frame: null, came
 // (a small room: the operator comes near — `full` frames a person whole, `medium` from the waist; nearer it goes
 // into them)
 const shot = (target, size, frame = null) => ({ ...CAM, camera_target: target, camera_shot: size, camera_frame: frame });
+// the camera's own eye and the point it looks at, [across, away, up] (the scene's picture camera stands at 0, 0, its eye
+// 1.7 m up; camera_x, camera_z, camera_h move it, camera_yaw, camera_pitch turn it)
+const DEG = 180 / Math.PI, EYE = 1.7;
+const eye = ([ex, ez, eh], [tx, tz, th]) => ({ ...CAM, camera_x: ex, camera_z: ez, camera_h: eh - EYE,
+  camera_yaw: Math.atan2(tx - ex, tz - ez) * DEG, camera_pitch: Math.atan2(th - eh, Math.hypot(tx - ex, tz - ez)) * DEG });
 // the room at rest by day: every key a piece may move, as it is when nothing has happened
 const ROOM = { evening: 0, night: 0, vision: 0, dark: 0, wall: 0, stir: 0, shapes: 0, stub: 'none', turnip: false, lantern: false,
   candle_floor: false, door: 120 };
@@ -584,20 +592,27 @@ function film(scene) {
         await s.wait(1);
       },
     },
-    // 4.1, 4С.5 — the dark behind the wall: the room gone dark, the wall open, the camera in the opening; the two stand
-    // hand in hand in his light; shapes and wings pass
+    // 4.1, 4С.5 — the dark behind the wall: the room gone dark, the wall open; the two stand hand in hand deep in the
+    // dark way (her left hand in his right), toward us, in his light; shapes and wings pass behind them. The camera is in
+    // the way itself (its own eye), so the dark fills the frame — no room, no leaves at its sides; their faces near
     dark: {
       tells: ['dark:voices'],
       seconds: 8,
-      from: () => ({ ...ROOM, ...people(scene), wall: 1, dark: 1, shapes: 1, simon_on: null, simon_a: -1.2, simon_d: DEEP[1], simon_turn: 175,
+      from: () => ({ ...ROOM, ...people(scene), wall: 1, dark: 1, shapes: 1, simon_on: null, simon_a: -1.15, simon_d: DEEP[1], simon_turn: 175,
         simon_do: 'stand', simon_look: 'virginia', simon_reach: { r: 'virginia#hand_l' }, virginia_a: -1.65, virginia_d: DEEP[1] - 0.05,
-        virginia_turn: 185, virginia_do: 'stand', virginia_look: [-1.4, 5.0, 1.5], virginia_reach: { l: 'simon#hand_r' },
-        ...shot('virginia', 'full', 0.4) }),
+        virginia_turn: 185, virginia_do: 'stand', virginia_look: [-1.5, 5.6, 1.45], virginia_reach: { l: 'simon#hand_r' },
+        ...eye(IN_DARK.eye, IN_DARK.at) }),
       run: async s => {
+        const v = s.person('virginia');
         await s.wait(2.5);
+        // the whispers from the dark at her side: she turns her head to them, then to him, then on ahead
         s.tell('dark:voices');
-        s.person('virginia').look('simon');
-        await s.wait(5.5);
+        v.look([-2.0, 6.9, 1.6]);
+        await s.wait(2);
+        v.look('simon');
+        await s.wait(2);
+        v.look([-1.5, 5.6, 1.45]);
+        await s.wait(1.5);
       },
     },
     // 4.2: evening, the room empty; Washington opens the door with a lantern — `shares`: pounds on the wall, sets the

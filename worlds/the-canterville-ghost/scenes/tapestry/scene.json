@@ -62,14 +62,14 @@
         }
       },
       "dark": {
-        "ambient": 0.03,
-        "ambientColor": "#202030",
+        "ambient": 0.12,
+        "ambientColor": "#3a4058",
         "bounce": 0.2,
         "haze": 0.05,
         "hazeColor": "#05050a",
         "hazeGlow": 0.9,
         "shafts": 0,
-        "vignette": 0.7,
+        "vignette": 0.45,
         "lights": {
           "sun": 0,
           "daylight": 0,
@@ -179,8 +179,8 @@
         "distance": "ghost_d"
       },
       "color": "#d6f4ea",
-      "strength": 1.0,
-      "reach": 2.6,
+      "strength": 1.4,
+      "reach": 3.2,
       "on": "dark"
     },
     {

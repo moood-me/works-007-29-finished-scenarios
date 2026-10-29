@@ -107,6 +107,10 @@ departure, wedding).
 - The porch moments are seen from inside: the carriage through the open door, the people in the hall and at the
   threshold. «She turns at the bottom of the porch steps to look up at the Tapestry Room's windows» and the chains
   heard from them want the house's front seen from outside — not painted here (no façade); stage 5 or a place of its own.
+- `midnight` (after the play test, 2026-10-29): whoever went up the stair (Mr Otis, Washington) comes down after her
+  and stands by at the stair's foot — no one left on the stair cut by the frame (it had read as stray legs); Mr Otis
+  says «How could you!» from there, his face to us; Mrs Otis takes her face from 0.45 m (her elbows bend; from 0.6 m
+  the arms went out straight).
 - Mr Otis «buttoning his coat»: he wears his frock coat (the cast has no greatcoat); stage 5's motion.
 
 ## Contract for the check
