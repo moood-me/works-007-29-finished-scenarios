@@ -299,7 +299,6 @@
   {"text":"Mrs Umney","translation":"миссис Амни","where":"games/the-canterville-ghost/bespoke/people.json.mrs_umney short"},
   {"text":"voices","translation":"голоса","where":"games/the-canterville-ghost/bespoke/people.json.voices short"},
   {"text":"Cecil","translation":"Сесил","where":"games/the-canterville-ghost/bespoke/people.json.cecil short"},
-  {"text":"In truth: the hall — the great staircase and its landing, the clock, an armchair at the foot of the stairs, the window onto the pond, the front door.","translation":"На самом деле: холл — парадная лестница с площадкой, часы, кресло у подножия лестницы, окно на пруд, входная дверь.","where":"games/the-canterville-ghost/bespoke/story.js"},
   {"text":"plays","translation":"играет","where":"games/the-canterville-ghost/bespoke/story.js"},
   {"text":"is tired","translation":"устал","where":"games/the-canterville-ghost/bespoke/story.js"},
   {"text":"Sir Simon grows tired","translation":"Сэр Саймон устаёт","where":"games/the-canterville-ghost/bespoke/story.js"},
