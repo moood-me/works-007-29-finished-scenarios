@@ -7,7 +7,8 @@
     "mode": "picture"
   },
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "light": {
     "ambient": 0.66,
@@ -39,13 +40,53 @@
     }
   ],
   "state": {
+    "moment": "water",
+    "staged": "water",
+    "year": 6,
+    "stream": true,
     "mist": 1,
+    "hives": true,
+    "elzeard_here": true,
+    "elzeard_a": 2.9,
+    "elzeard_d": 15.6,
+    "elzeard_turn": 195,
+    "elzeard_do": "stand",
     "elzeard_look": "traveller",
+    "elzeard_mood": "neutral",
+    "elzeard_with": null,
+    "traveller_here": true,
+    "traveller_a": 2.6,
+    "traveller_d": 5.8,
+    "traveller_turn": 240,
+    "traveller_do": "stand",
     "traveller_look": "lina",
+    "traveller_mood": "neutral",
+    "traveller_with": null,
+    "lina_here": true,
+    "lina_a": -1.0,
+    "lina_d": 7.6,
+    "lina_turn": 120,
+    "lina_do": "stand",
     "lina_look": "traveller",
-    "lina_mood": "smile"
+    "lina_mood": "smile",
+    "lina_with": null,
+    "jan_here": false,
+    "chief_here": false,
+    "ranger_here": false
   },
   "states": {
+    "year": {
+      "values": [
+        0,
+        6,
+        20
+      ],
+      "means": "the years since the prologue, as the place has them: 0 — the bed dry, the slope bare (the prologue and the first chapter); 6 — the water back, the young oaks, the first willows (the second chapter); 20 — the valley a meadow, the wood grown, the willows big (the third chapter)"
+    },
+    "stream": {
+      "type": "boolean",
+      "means": "the water running in the bed (the water, the new green on the banks); false — the dry bed, white with stones"
+    },
     "mist": {
       "range": [
         0,
@@ -53,6 +94,122 @@
       ],
       "smooth": true,
       "means": "the morning mist over the valley floor and the foot of the slope: 0 gone, 1 as at sunrise"
+    },
+    "hives": {
+      "type": "boolean",
+      "means": "Elzéard's five hives at the wood's edge up the stream (the second chapter; in the third while they are not taken to his house)"
+    },
+    "moment": {
+      "values": [
+        "dry",
+        "water",
+        "far_edge",
+        "meadow",
+        "delegation"
+      ],
+      "means": "which moment of the scenario the stream shows (script.js lays it out; notes.md): dry — the prologue and the first chapter, the bed dry and white, the slope bare; water — 2.2–2.4, the water running for the first time, six years on; far_edge — 2.6, the dead maples and the new beeches at the slope's far edge; meadow — the third chapter, the valley a meadow, the wood grown; delegation — 3.2, Lina leading the town's people up along the stream"
+    },
+    "staged": {
+      "values": [
+        "dry",
+        "water",
+        "far_edge",
+        "meadow",
+        "delegation"
+      ],
+      "means": "the moment the script last laid out (the script's own: it lays a moment out again only when this differs)"
+    },
+    "elzeard_a": {
+      "range": [
+        -12,
+        10
+      ],
+      "means": "where Elzéard stands, metres right of the view's line (the moment sets it)"
+    },
+    "elzeard_d": {
+      "range": [
+        -6,
+        30
+      ],
+      "means": "where Elzéard stands, metres ahead (the moment sets it)"
+    },
+    "traveller_a": {
+      "range": [
+        -12,
+        10
+      ],
+      "means": "where the Traveller stands, metres right of the view's line (the moment sets it)"
+    },
+    "traveller_d": {
+      "range": [
+        -6,
+        30
+      ],
+      "means": "where the Traveller stands, metres ahead (the moment sets it)"
+    },
+    "lina_a": {
+      "range": [
+        -12,
+        10
+      ],
+      "means": "where Lina stands, metres right of the view's line (the moment sets it)"
+    },
+    "lina_d": {
+      "range": [
+        -6,
+        30
+      ],
+      "means": "where Lina stands, metres ahead (the moment sets it)"
+    },
+    "jan_a": {
+      "range": [
+        -12,
+        10
+      ],
+      "means": "where Jan stands, metres right of the view's line (the moment sets it)"
+    },
+    "jan_d": {
+      "range": [
+        -6,
+        30
+      ],
+      "means": "where Jan stands, metres ahead (the moment sets it)"
+    },
+    "chief_a": {
+      "range": [
+        -12,
+        10
+      ],
+      "means": "where the chief from town stands, metres right of the view's line (the moment sets it)"
+    },
+    "chief_d": {
+      "range": [
+        -6,
+        30
+      ],
+      "means": "where the chief from town stands, metres ahead (the moment sets it)"
+    },
+    "ranger_a": {
+      "range": [
+        -12,
+        10
+      ],
+      "means": "where the ranger stands, metres right of the view's line (the moment sets it)"
+    },
+    "ranger_d": {
+      "range": [
+        -6,
+        30
+      ],
+      "means": "where the ranger stands, metres ahead (the moment sets it)"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md, Pieces)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [
@@ -89,15 +246,15 @@
     },
     {
       "id": "wood_far",
-      "name": "The young wood up the slope",
+      "name": "The wood up the slope",
       "across": 0,
       "distance": 120,
-      "height": 5,
+      "height": 13,
       "box": [
-        -16.9,
-        -5.6,
-        16.9,
-        0.1
+        -17.6,
+        -13.8,
+        17.6,
+        0.2
       ],
       "copies": [
         {
@@ -1973,15 +2130,15 @@
     },
     {
       "id": "oak_a",
-      "name": "A young oak, tall",
+      "name": "An oak, tall",
       "across": 0,
       "distance": 30,
-      "height": 4.2,
+      "height": 12.5,
       "box": [
-        -1.9,
-        -4.4,
-        2.1,
-        0.1
+        -4.6,
+        -13.3,
+        5,
+        0.2
       ],
       "copies": [
         {
@@ -2310,15 +2467,15 @@
     },
     {
       "id": "oak_b",
-      "name": "A young oak, round",
+      "name": "An oak, round",
       "across": 0,
       "distance": 30,
-      "height": 3.6,
+      "height": 11,
       "box": [
-        -2.3,
-        -4.1,
-        2.1,
-        0.1
+        -5.8,
+        -11.9,
+        5,
+        0.2
       ],
       "copies": [
         {
@@ -2724,15 +2881,15 @@
     },
     {
       "id": "oak_c",
-      "name": "A young oak, small",
+      "name": "An oak, small",
       "across": 0,
       "distance": 30,
-      "height": 2.9,
+      "height": 9,
       "box": [
-        -1.6,
-        -3.3,
-        2.2,
-        0.1
+        -3.4,
+        -9.8,
+        3.6,
+        0.2
       ],
       "copies": [
         {
@@ -2949,14 +3106,14 @@
     },
     {
       "id": "willow",
-      "name": "A first willow by the water",
+      "name": "A willow by the water",
       "across": 0,
       "distance": 12,
-      "height": 2.4,
+      "height": 6,
       "box": [
-        -1.6,
-        -2.6,
-        1.6,
+        -3.4,
+        -6.2,
+        3.4,
         0.1
       ],
       "copies": [
@@ -3008,6 +3165,254 @@
           "distance": 34,
           "scale": 1.5,
           "flip": true
+        }
+      ]
+    },
+    {
+      "id": "maple_sticks",
+      "name": "Dead maples at the slope's far edge",
+      "across": 6,
+      "distance": 13,
+      "height": 1.4,
+      "box": [
+        -0.25,
+        -1.42,
+        0.25,
+        0.03
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 3.42,
+          "distance": 11.43,
+          "scale": 1.11,
+          "flip": true
+        },
+        {
+          "across": 4.31,
+          "distance": 11.33,
+          "scale": 0.97,
+          "flip": false
+        },
+        {
+          "across": 5.31,
+          "distance": 11.34,
+          "scale": 1.05,
+          "flip": true
+        },
+        {
+          "across": 6.36,
+          "distance": 11.48,
+          "scale": 1.09,
+          "flip": true
+        },
+        {
+          "across": 7.39,
+          "distance": 11.41,
+          "scale": 1.13,
+          "flip": false
+        },
+        {
+          "across": 8.31,
+          "distance": 11.3,
+          "scale": 1.03,
+          "flip": false
+        },
+        {
+          "across": 4,
+          "distance": 12.81,
+          "scale": 0.99,
+          "flip": true
+        },
+        {
+          "across": 4.83,
+          "distance": 12.77,
+          "scale": 1.05,
+          "flip": false
+        },
+        {
+          "across": 5.88,
+          "distance": 12.82,
+          "scale": 0.97,
+          "flip": true
+        },
+        {
+          "across": 6.96,
+          "distance": 12.76,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 7.92,
+          "distance": 12.83,
+          "scale": 1.11,
+          "flip": false
+        },
+        {
+          "across": 3.31,
+          "distance": 14.35,
+          "scale": 0.92,
+          "flip": false
+        },
+        {
+          "across": 4.38,
+          "distance": 14.24,
+          "scale": 0.94,
+          "flip": true
+        },
+        {
+          "across": 5.32,
+          "distance": 14.2,
+          "scale": 0.91,
+          "flip": false
+        },
+        {
+          "across": 6.46,
+          "distance": 14.22,
+          "scale": 1.02,
+          "flip": false
+        },
+        {
+          "across": 7.45,
+          "distance": 14.25,
+          "scale": 0.97,
+          "flip": false
+        },
+        {
+          "across": 8.43,
+          "distance": 14.28,
+          "scale": 1.08,
+          "flip": false
+        },
+        {
+          "across": 3.88,
+          "distance": 15.76,
+          "scale": 0.97,
+          "flip": false
+        },
+        {
+          "across": 4.94,
+          "distance": 15.65,
+          "scale": 1.1,
+          "flip": false
+        },
+        {
+          "across": 5.93,
+          "distance": 15.73,
+          "scale": 1.09,
+          "flip": true
+        },
+        {
+          "across": 6.86,
+          "distance": 15.84,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": 7.94,
+          "distance": 15.79,
+          "scale": 0.91,
+          "flip": false
+        }
+      ]
+    },
+    {
+      "id": "beech_young",
+      "name": "Elzéard's beeches at the slope's far edge",
+      "across": 6,
+      "distance": 13,
+      "height": 5.2,
+      "box": [
+        -2.4,
+        -5.6,
+        2.4,
+        0.1
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 3.69,
+          "distance": 12.19,
+          "scale": 0.91,
+          "flip": true,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 5.6,
+          "distance": 12.15,
+          "scale": 1.02,
+          "flip": false,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 7.48,
+          "distance": 12.08,
+          "scale": 1.08,
+          "flip": true,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 4.64,
+          "distance": 13.58,
+          "scale": 1.05,
+          "flip": false,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 6.59,
+          "distance": 13.59,
+          "scale": 1.01,
+          "flip": true,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 8.63,
+          "distance": 13.48,
+          "scale": 1,
+          "flip": true,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 3.69,
+          "distance": 15.1,
+          "scale": 1,
+          "flip": true,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 5.65,
+          "distance": 14.92,
+          "scale": 0.95,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 7.71,
+          "distance": 14.94,
+          "scale": 1.09,
+          "flip": false,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 4.65,
+          "distance": 16.37,
+          "scale": 0.98,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 6.65,
+          "distance": 16.38,
+          "scale": 0.94,
+          "flip": false,
+          "tint": "#f6f1e4"
+        },
+        {
+          "across": 8.72,
+          "distance": 16.35,
+          "scale": 1.06,
+          "flip": false,
+          "tint": "#f2f4ea"
         }
       ]
     },
@@ -3390,7 +3795,7 @@
       "height": 0.6,
       "box": [
         -0.7,
-        -0.72,
+        -0.9,
         0.7,
         0.04
       ],
@@ -3551,7 +3956,11 @@
       },
       "across": 2.9,
       "distance": 15.6,
-      "shadow": true
+      "shadow": true,
+      "place": {
+        "across": "elzeard_a",
+        "distance": "elzeard_d"
+      }
     },
     {
       "id": "traveller",
@@ -3563,7 +3972,11 @@
       },
       "across": 2.6,
       "distance": 5.8,
-      "shadow": true
+      "shadow": true,
+      "place": {
+        "across": "traveller_a",
+        "distance": "traveller_d"
+      }
     },
     {
       "id": "lina",
@@ -3575,6 +3988,58 @@
       },
       "across": -1,
       "distance": 7.6,
+      "shadow": true,
+      "place": {
+        "across": "lina_a",
+        "distance": "lina_d"
+      }
+    },
+    {
+      "id": "jan",
+      "name": "Jan",
+      "person": {
+        "cast": "cast",
+        "who": "jan_40",
+        "turn": 280
+      },
+      "across": 1.2,
+      "distance": 8.4,
+      "place": {
+        "across": "jan_a",
+        "distance": "jan_d"
+      },
+      "shadow": true
+    },
+    {
+      "id": "chief",
+      "name": "The chief from town",
+      "person": {
+        "cast": "cast",
+        "who": "chief",
+        "turn": 260
+      },
+      "across": 2.4,
+      "distance": 9.6,
+      "place": {
+        "across": "chief_a",
+        "distance": "chief_d"
+      },
+      "shadow": true
+    },
+    {
+      "id": "ranger",
+      "name": "The young ranger",
+      "person": {
+        "cast": "cast",
+        "who": "ranger",
+        "turn": 250
+      },
+      "across": 3.6,
+      "distance": 10.6,
+      "place": {
+        "across": "ranger_a",
+        "distance": "ranger_d"
+      },
       "shadow": true
     }
   ],

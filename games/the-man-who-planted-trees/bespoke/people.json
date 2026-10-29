@@ -1,0 +1,82 @@
+{
+  "narrator": {
+    "voice": "Sadaltager",
+    "how": "the Traveller as an old man, remembering: low, unhurried, plain and warm; short sentences, a little dry humour; never sentimental — the feeling is in the pauses",
+    "short": "the Traveller, old"
+  },
+  "traveller": {
+    "voice": "Achird",
+    "how": "a young man, curious and talkative, quick and friendly; counts things aloud when he is embarrassed; jokes when refused; goes quiet and short when moved; older in the later chapters, slower and plainer",
+    "short": "the Traveller"
+  },
+  "elzeard": {
+    "voice": "Algenib",
+    "how": "an old shepherd who almost never speaks: low, slow, even, a little hoarse; one word or a few, flat as stones, no emphasis; never asks, never thanks; a rare short laugh",
+    "short": "Elzéard"
+  },
+  "lina": {
+    "voice": "Autonoe",
+    "how": "a village girl, later a woman, from a charcoal burners' hamlet: quick, sharp-tongued and stubborn, laughs first when ashamed, rough when tender; plain country speech; with city people curt and closed",
+    "short": "Lina"
+  },
+  "jan": {
+    "voice": "Alnilam",
+    "how": "a former soldier, then a district forester: dry, terse, matter-of-fact; jokes so dryly it hardly sounds like a joke; writes as he talks; warm underneath, never says so",
+    "short": "Jan"
+  },
+  "father": {
+    "voice": "Fenrir",
+    "how": "a charcoal burner, Lina's father: rough, bitter, shouting, worn out by a hungry life",
+    "short": "Lina's father"
+  },
+  "chief": {
+    "voice": "Puck",
+    "how": "an official from the city: hearty, booming, enthusiastic and pleased with himself; understands nothing and laughs at his own jokes",
+    "short": "the Chief"
+  },
+  "ranger": {
+    "voice": "Orus",
+    "how": "a young ranger from the city: serious, stiff and by the book, a little self-important",
+    "short": "the ranger"
+  },
+  "axeman": {
+    "voice": "Rasalgethi",
+    "how": "a village man with an axe: gruff, practical, unbothered, a little mocking",
+    "short": "a man with an axe"
+  },
+  "visitor_a": {
+    "voice": "Pulcherrima",
+    "how": "a visitor from the city: eager, curious, a little loud, polite",
+    "short": "a visitor"
+  },
+  "visitor_b": {
+    "voice": "Erinome",
+    "how": "another visitor from the city: brisk, curious, a little pushy, friendly",
+    "short": "a visitor"
+  },
+  "boy": {
+    "voice": "Leda",
+    "how": "a boy of ten, a visitor's son: eager, shy, wanting to try",
+    "short": "a boy"
+  },
+  "neighbour_a": {
+    "voice": "Kore",
+    "how": "a village woman come back to the plateau: warm, practical, cheerful",
+    "short": "a neighbour woman"
+  },
+  "neighbour_b": {
+    "voice": "Iapetus",
+    "how": "a village man come back to the plateau: steady, plain, a little shy",
+    "short": "a neighbour"
+  },
+  "child_a": {
+    "voice": "Leda",
+    "how": "a village girl of eight: bright, quick, laughing",
+    "short": "a girl"
+  },
+  "child_b": {
+    "voice": "Zephyr",
+    "how": "a village boy of nine: eager, loud, curious",
+    "short": "a boy"
+  }
+}

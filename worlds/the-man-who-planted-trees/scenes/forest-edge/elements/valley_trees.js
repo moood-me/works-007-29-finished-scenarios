@@ -1,5 +1,7 @@
 // A clump of round trees on the valley floor — along its hedges and lanes: three crowns together, each a dark lower
-// round and a paler upper one, on short trunks
+// round and a paler upper one, on short trunks. Only from the third chapter (`year` 20): before, the valley is as bare
+// as the plateau
+if (e.state.year < 20) return;
 const tree = (x, h) => {
   g.fillStyle = "#4f453a";
   g.fillRect(x - 0.18, -h * 0.4, 0.36, h * 0.4);

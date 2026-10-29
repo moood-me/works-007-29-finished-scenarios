@@ -1,5 +1,7 @@
 // The window lit from within: a warm pane, a little brighter in the middle, with its wooden cross; its light (`pane`)
 // is the scene's window_light. With the lamp out, a dark pane
+// Not there in the epilogue's hut beyond the ridge (`hut`).
+if (e.state.hut) return;
 const lit = e.state.lamp > 0.5;
 if (lit) {
   const pane = g.createRadialGradient(0, -0.38, 0.02, 0, -0.38, 0.45);

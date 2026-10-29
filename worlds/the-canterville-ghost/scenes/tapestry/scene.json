@@ -222,6 +222,7 @@
       0.48
     ],
     "simon_mood": "tired",
+    "simon_reflected": false,
     "simon_look": [
       0.2,
       3.9,

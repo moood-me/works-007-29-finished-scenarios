@@ -22,6 +22,19 @@ the room.
   sneakers; his plastic knight in his hands (part `knight`, its shield his `accent`).
 - `dad_grey` — Dad at fifty-six: grey hair, a brown cardigan, brown trousers; his phrasebook in his hands (part
   `phrasebook`, its cover his `accent`).
+- `translator` — the woman on the square (chapter 3), fifty-five, from a tour group: short permed hair going grey, a
+  camel trench coat, a red scarf (her `accent`).
+- `guide` — the tour group's guide: young, a ponytail, the company's teal jacket and cap; her flag (part `flag`, its
+  pennant her `accent`).
+- `tourist_cap`, `tourist_hat`, `tourist_coat` — three of the group: an older man in a khaki jacket and a cap, a woman
+  in a pink jacket and a sun hat, a man in a navy windbreaker.
+- `jack_five` — Jack at five (the prologue): a small round-headed boy, a mustard sweater, navy corduroys (the kitchen's
+  and Jack's room's key `young` dresses `jack` so).
+- `nurse` — the nurse on the ward's corridor (2.1): pale teal scrubs, a white cardigan, dark hair in a bun.
+- `mark_grown` — Mark at twenty-two (3.4): broad, the same sandy-red hair, a red jacket over a white T-shirt, jeans;
+  his sports bag (part `duffel`) by `_with`.
+- `boy_a`, `boy_b` — Mark's friends at the bus stop (1.7), ten: a tall blond one in a striped blue sweatshirt with a
+  navy backpack, a stocky dark-curled one in a mustard windbreaker with a red backpack (part `backpack`).
 
 ## Hats
 
@@ -37,6 +50,17 @@ the room.
 - `knight` — a little silver plastic knight held to the chest in both hands, a blue shield (the look's `accent`), its
   light-up sword gone grey; the point `knight`.
 - `phrasebook` — a small book held open in both hands before the chest; the point `book` (cover: the look's `accent`).
+- `letter` — Laohu unfolded: a thin square of red wrapping paper with gold stars, the old yellow tape across it (a flat
+  tube with cut ends), held open in both hands before the chest, tipped a little away, its outside away from the reader (her writing on its back is an insert's); the point
+  `letter`.
+- `flag` — a tour guide's little flag held up in the right hand, its pennant the look's `accent`; the point `flag`.
+- `frog` — a paper frog of green wrapping paper sitting on the open right hand; the point `frog`.
+- `backpack` — a school backpack on the back, its flap a shade darker, two straps (the look's `accent`); the point
+  `backpack`.
+- `duffel` — a sports bag carried by its handles in the right hand, hanging at the side (the look's `accent`); the point
+  `bag`.
+- `oranges` — a string bag of six oranges hanging from the left hand; the point `oranges`.
+- `receiver` — a telephone's black receiver held to the ear in the right hand; the point `receiver`.
 
 ## Motions (Kimodo)
 
@@ -49,3 +73,41 @@ shoulder height (a loop); `holding_toy` — stands still, sullen, a small thing 
 loop); `crouch_scraps` — squats low, the hands between the knees holding something small (a loop); `offer_hand` —
 stands stooping a little, the right hand held out before her, the left forearm level at the waist as if carrying a
 plate (a loop).
+Stage 5 (`r3/menagerie-pieces-b`, the ward's and the square's pieces; each looked at with `look_at_motion` before it
+was put): `hold_hand_bed` — sits leaning forward, both hands together before the knees, still (a loop; the hands are
+set on the other's hand by `_reach`); `phone_call` — stands, the right hand at the ear holding a receiver, the head
+bowed (a loop; with the part `receiver`); `doze_chair` — sits leaning back, the arms crossed, the head back, asleep (a
+loop; the second take — the first and the asked-for head dropped forward did not come: the arms crossed and the head
+upright; this one reads as asleep with `eyes_closed`); `lie_bed` — lies on the back, still, the arms at the sides (a
+loop; its feet the way the person's turn faces; with `<id>_on` a point of a bed, e.g. the ward's `bed_top#lie`);
+`peel` — sits picking at something held before the chest with both hands, then the hands down to the lap (a loop);
+`check_watch` — sits, lifts the left wrist and looks at it, then the hands back to the lap (once, 3 s); `beckon` —
+stands, the right arm thrown forward and up toward someone, then down (once, 3 s: a guide calling her group);
+`sit_down` — stands, sits down on a seat behind and stays (once, 3 s: `go('sit_down', {to, turn})`, then `_on` the
+seat); `rise` — sits on a chair, stands up and steps forward (once, 3 s: `go('rise', {from})`; the first take rose
+from the floor).
+Stage 5 (`r3/menagerie-pieces-a`, the kitchen's, the yard's, Jack's room's and the attic's pieces; made by a helper
+agent, each looked at with `look_at_motion` before it was put; how each truly moves): `fold_sheet` — sits at chair
+height, the hands busy at the chest, dropping to the lap at its end (a loop with a reset; folding reads weakly);
+`cry_child` — stands, head bowed, the fists at the face, the arms dropping at the end (a loop with a reset);
+`hold_palms` — stands still, the hands cupped together before the chest, the head down (a loop); `squat_comfort` — a
+deep squat, the right hand reaching forward and down, patting (a loop); `tear_paper` — the hands together at the chest
+pulled apart once, the arms ending low (once); `throw_down` — an arm swing, then bent forward to the ground, staying
+bent (once); `mock` — the head wagging, the hands by the ears, back to standing at its end; `run_off` — a start, then a
+real run (as a gait); `sit_step` — sits low, the knees up, the forearms on them, still (a loop: a low step); `drop_in_fire`
+— stands, bends to the bucket at 2 s, up again, the arms down; `hold_down` — sits at chair height, the arms forward at
+the table's edge, still (a loop); `write_palm` — sits, one hand lifts and rests (no clear tracing: the reach gives the
+hand to his palm); `write_table` — sits, a small movement of the right hand, mostly still; `sit_down` — leans and sits
+down on a chair (once, 2.4 s; the same motion was asked by both stage-5 authors, this take kept at the merge);
+`jacket_off` — the arms cross, the shoulders shrug the jacket off (once); `tape_box` — stands leaning a little over
+the table, the forearms forward (a loop; no tape pulled); `carry_box` — a walk with the arms forward and low (a gait:
+the part `box` sits low); `sit_floor` — cross-legged on the floor, the hands low before him (a loop); `stroke` —
+cross-legged, leaning over the lap, nearly still (the reach puts the hand on Laohu); `take_down` — the arms overhead,
+lowered to the chest (once); `hold_over_fire` — leans, an arm out low before him, then straightens (once);
+`handshake` — the right arm out forward, then back (once, weak); `wave` — the right arm raised and waving overhead
+(once). Kimodo did not give (two takes each): `write_step` and `smooth_sheet` (both sat at chair height, the hands
+idle) — the yard's pieces sit Jack on the step with `sit_step`; `hum_carry` (the arms stretched forward, no cradling)
+— Jack walks his own walk, Laohu in the crook of his arm (the scene's `laohu_held`); `palm_on_tree` (no palm on
+anything) — Dad stands, his hand on the bark by `_reach` (`apple#trunk`).
+Parts (stage 5): `box` — a moving box carried in both arms before the chest (point `box`); `shoebox` — the shoe box of
+animals held in both hands, its lid on (point `shoebox`).

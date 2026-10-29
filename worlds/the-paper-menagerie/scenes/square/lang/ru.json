@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Square","translation":"Площадь","where":"worlds/the-paper-menagerie/scenes/square/scene.json title"},
+  {"text":"A spring afternoon on the square. The tour bus is boarding; on the bench a stranger reads a letter that is not hers.","translation":"Весенний день на площади. Туристы садятся в автобус; на скамейке чужая женщина читает чужое письмо.","where":"worlds/the-paper-menagerie/scenes/square/scene.json caption"}
+]}

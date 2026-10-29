@@ -1,18 +1,17 @@
 // The sky of a late summer afternoon: a deep clear blue overhead, paling to a warm cream over the valley, warmer on
 // the right, where the sun stands behind the viewer's shoulder; a few heaped fair-weather clouds, flat-bottomed, in
-// the scene's straight-edged style, drifting slowly
-const A = e.aspect;
+// the scene's straight-edged style, drifting slowly. In the first chapter's morning (`morning` over a half) a cooler,
+// paler sky, a misty cream low down
+const A = e.aspect, morning = e.state.morning > 0.5;
 const sky = g.createLinearGradient(0, -0.35, 0, 1.25);
-sky.addColorStop(0, "#5f86bd");
-sky.addColorStop(0.2, "#7ea0cb");
-sky.addColorStop(0.4, "#adc2d9");
-sky.addColorStop(0.52, "#e4dccb");
-sky.addColorStop(0.6, "#f2dfbd");
-sky.addColorStop(1, "#f2dfbd");
+const STOPS = morning
+  ? [[0, "#7890b6"], [0.2, "#93a8c8"], [0.4, "#c2cad8"], [0.52, "#e6e2dc"], [0.6, "#efe6d8"], [1, "#efe6d8"]]
+  : [[0, "#5f86bd"], [0.2, "#7ea0cb"], [0.4, "#adc2d9"], [0.52, "#e4dccb"], [0.6, "#f2dfbd"], [1, "#f2dfbd"]];
+for (const [at, colour] of STOPS) sky.addColorStop(at, colour);
 g.fillStyle = sky;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);
 const warm = g.createRadialGradient(A + 0.3, 0.6, 0, A + 0.3, 0.6, 1.3);
-warm.addColorStop(0, "rgba(255, 220, 170, 0.5)");
+warm.addColorStop(0, morning ? "rgba(255, 214, 172, 0.4)" : "rgba(255, 220, 170, 0.5)");
 warm.addColorStop(1, "rgba(255, 220, 170, 0)");
 g.fillStyle = warm;
 g.fillRect(-0.3, -0.35, A + 0.6, 1.6);

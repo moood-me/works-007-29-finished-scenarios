@@ -1,6 +1,7 @@
 // The apple tree Dad planted, near us on the right (metres from its foot): a crooked dark trunk leaning a little toward
 // the house, its boughs reaching left over the yard, the crown in white-pink blossom with a few new leaves — the
-// blossom a layer that stirs in the wind; at its foot the tin bucket, waiting for the evening.
+// blossom a layer that stirs in the wind; at its foot the tin bucket, waiting for the evening. Points: `crown`,
+// `bucket`, `fire` (over its rim, where the paper burns), `trunk` (where a hand lies on the bark).
 g.fillStyle = '#5b463c';
 g.beginPath();
 g.moveTo(-0.17, 0);
@@ -19,8 +20,9 @@ for (const [x1, y1, cx, cy, x2, y2, w] of [
   [-0.7, -3.5, -1.6, -3.9, -2.2, -4.3, 0.05],
 ])
   ((g.lineWidth = w), g.beginPath(), g.moveTo(x1, y1), g.quadraticCurveTo(cx, cy, x2, y2), g.stroke());
-// the tin bucket
-g.fillStyle = '#a3a9ad';
+// the tin bucket (a year on, `sold`, gone rusty)
+const rusty = !!e.state.sold;
+g.fillStyle = rusty ? '#9a7f6a' : '#a3a9ad';
 g.beginPath();
 g.moveTo(-0.78, -0.34);
 g.lineTo(-0.42, -0.34);
@@ -28,8 +30,16 @@ g.lineTo(-0.47, 0);
 g.lineTo(-0.73, 0);
 g.closePath();
 g.fill();
-g.fillStyle = '#7c8286';
+g.fillStyle = rusty ? '#7d5a44' : '#7c8286';
 g.fillRect(-0.79, -0.36, 0.38, 0.035);
+if (rusty) {
+  for (let i = 0; i < 14; i++) {
+    g.fillStyle = i % 2 ? 'rgba(150,80,44,0.55)' : 'rgba(120,64,40,0.5)';
+    g.beginPath();
+    g.arc(-0.74 + e.rnd() * 0.28, -0.3 + e.rnd() * 0.27, 0.012 + e.rnd() * 0.02, 0, Math.PI * 2);
+    g.fill();
+  }
+}
 g.fillStyle = 'rgba(255,255,255,0.25)';
 g.fillRect(-0.7, -0.32, 0.04, 0.3);
 g.strokeStyle = '#6f7478';
@@ -63,3 +73,5 @@ e.layer('blossom', { pivot: [-0.2, -2.3], wind: { strength: 0.22, gust: 0.45, sc
 });
 e.at(-1.2, -3.5, 'crown');
 e.at(-0.6, -0.3, 'bucket');
+e.at(-0.6, -0.4, 'fire');
+e.at(-0.05, -1.35, 'trunk');

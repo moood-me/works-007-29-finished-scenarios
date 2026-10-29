@@ -1,6 +1,8 @@
 // A water buffalo folded from brown kraft paper, standing in a flower pot on the sill as in a field: the terracotta
 // pot, its dark soil, the buffalo on it — broad facets, swept-back horns. It breathes: its body is a layer animate
 // swells a little.
+// (Not there while the kitchen is packed, `packed`.)
+if (e.state.packed) return;
 g.fillStyle = '#b8653f';
 g.beginPath();
 g.moveTo(-0.09, -0.11);

@@ -6,6 +6,11 @@ const { add, sub, mul, mix, unit, cross } = MooodShapes.V;
 const KERCHIEF = F => F.head.egg.map(e => e * F.head.r * F.head.out * 1.1);
 const ZIP = [0.62, 0.63, 0.66, 1];
 const TAG = [0.93, 0.9, 0.8, 1];
+// (a string bag's net, its oranges)
+const NET = [0.85, 0.8, 0.62, 1];
+const ORANGE = [0.95, 0.55, 0.16, 1];
+// (a telephone's handset)
+const HANDSET = [0.13, 0.13, 0.14, 1];
 const PAGES = [0.95, 0.92, 0.84, 1];
 // (the plate and the buns on it; Laohu's paper — red, its darker folds, the gold stars; the knight's plastic: silver,
 // dark grey, the dead sword's grey)
@@ -16,6 +21,16 @@ const STAR = [0.93, 0.78, 0.35, 1];
 const SILVER = [0.74, 0.76, 0.8, 1];
 const VISOR = [0.25, 0.26, 0.3, 1];
 const BLADE = [0.55, 0.58, 0.62, 1];
+// (the letter: the wrapping's red, the old yellow tape; the flag's pole; the frog's green paper, light and dark)
+const LETTER = [[0.86, 0.27, 0.22, 1]];
+const TAPE = [0.93, 0.83, 0.5, 1];
+const POLE = [0.82, 0.82, 0.8, 1];
+// (the moving box's cardboard; the shoe box and its lid)
+const CARTON = [0.78, 0.62, 0.42, 1];
+const SHOEBOX = [[0.86, 0.82, 0.74, 1], [0.62, 0.32, 0.28, 1]];
+const FROG = [[0.48, 0.7, 0.42, 1], [0.38, 0.58, 0.34, 1]];
+// (a backpack's flap: its colour a shade darker — made once a figure)
+const FLAP = F => [F.colors.accent[0] * 0.78, F.colors.accent[1] * 0.78, F.colors.accent[2] * 0.78, F.colors.accent[3]];
 return {
   ...data,
   characters: {
@@ -134,6 +149,169 @@ return {
         bottom: '#3f5a7a',
         shoes: '#ebe9e2',
         accent: '#2f5fa8',
+      },
+    },
+    // — the square (chapter 3) —
+    // the translator: a woman of fifty-five from a tour group, a northerner — short permed hair, black going grey, a
+    // camel trench coat, a red scarf (her `accent`), dark trousers; the letter in her hands is given by `_with`
+    translator: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'woman',
+      garment: 'coat',
+      hair: 'bob',
+      scarf: true,
+      face: 'simple',
+      body: { height: 0.89, thick: 0.96, shoulders: 0.9, hips: 1.06 },
+      colors: {
+        skin: '#e9c3a0',
+        hair: '#4a4344',
+        top: '#ddd6c8',
+        bottom: '#3a3640',
+        garment: '#bf9a6a',
+        shoes: '#3a2e2a',
+        accent: '#c0443a',
+      },
+    },
+    // the group's guide: young, a ponytail, the tour company's teal jacket and cap; her little flag held up is part
+    // `flag` (its pennant her `accent`), given by `_with`
+    guide: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'woman',
+      garment: 'jacket',
+      hair: 'ponytail',
+      hat: 'cap',
+      face: 'simple',
+      body: { height: 0.9, thick: 0.82, shoulders: 0.86 },
+      colors: {
+        skin: '#ecc7a2',
+        hair: '#1d1a1c',
+        top: '#f1eee6',
+        bottom: '#2f3442',
+        garment: '#2f8f8a',
+        shoes: '#e8e6df',
+        hat: '#2f8f8a',
+        accent: '#f0c23e',
+      },
+    },
+    // three of the group: an older man in a khaki jacket and a cap; a woman in a pink jacket and a sun hat; a man of
+    // forty in a navy windbreaker
+    tourist_cap: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'man',
+      garment: 'jacket',
+      hair: 'short',
+      hat: 'cap',
+      face: 'simple',
+      body: { height: 0.95, thick: 1.0, shoulders: 1.0 },
+      colors: { skin: '#e2b994', hair: '#a9a39a', top: '#e6e2d6', bottom: '#4d4a44', garment: '#a69a72', shoes: '#3a3330', hat: '#4f5a46' },
+    },
+    tourist_hat: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'woman',
+      garment: 'jacket',
+      hair: 'bob',
+      hat: 'hat',
+      face: 'simple',
+      body: { height: 0.88, thick: 0.92, shoulders: 0.88, hips: 1.04 },
+      colors: { skin: '#edc8a6', hair: '#231e20', top: '#f2ece2', bottom: '#5a5560', garment: '#d98a9a', shoes: '#efece6', hat: '#efe2c4' },
+    },
+    tourist_coat: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'man',
+      garment: 'jacket',
+      hair: 'short',
+      face: 'simple',
+      body: { height: 0.98, thick: 0.94, shoulders: 1.02 },
+      colors: { skin: '#e6bf9c', hair: '#1c1a1d', top: '#d5dbe2', bottom: '#33363e', garment: '#34456b', shoes: '#26232a' },
+    },
+    // — the people the game names besides (stage 5) —
+    // Jack at five (the prologue): the same black-brown hair, a round small head on a little body, a mustard sweater,
+    // navy corduroys, red-brown shoes
+    jack_five: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'child',
+      garment: 'none',
+      hair: 'short',
+      face: 'simple',
+      body: { height: 0.62, head: 1.24, legs: 0.9, thick: 0.92 },
+      colors: { skin: '#ecc8a6', hair: '#2b2220', top: '#d9a441', bottom: '#3f5277', shoes: '#8a3b2e' },
+    },
+    // the nurse on the ward's corridor (2.1): a woman of forty in pale teal scrubs, a white cardigan over them, her
+    // dark hair in a bun, white shoes
+    nurse: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'woman',
+      garment: 'jacket',
+      hair: 'bun',
+      face: 'simple',
+      body: { height: 0.92, thick: 0.94, shoulders: 0.88, hips: 1.04 },
+      colors: {
+        skin: '#e4b996',
+        hair: '#3a2a22',
+        top: '#8fbfc0',
+        bottom: '#8fbfc0',
+        garment: '#f1efe8',
+        shoes: '#f2f1ec',
+      },
+    },
+    // Mark at twenty-two (3.4, across the street by his car): grown broad, the same sandy-red hair, a red jacket again
+    // over a white T-shirt, jeans, white sneakers; his bag (part `duffel`) given by `_with`
+    mark_grown: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'man',
+      garment: 'jacket',
+      hair: 'short',
+      face: 'simple',
+      body: { height: 1.02, thick: 0.96, shoulders: 1.06 },
+      colors: {
+        skin: '#f0cdb0',
+        hair: '#b5683a',
+        top: '#ece9e2',
+        bottom: '#3f5a7a',
+        garment: '#a8433b',
+        shoes: '#ebe9e2',
+        accent: '#3d4a5c',
+      },
+    },
+    // two boys at the bus stop (1.7), ten, Mark's friends: a tall one with a blond crop, a striped blue sweatshirt and
+    // a navy backpack; a stocky one with dark curls, a mustard windbreaker and a red backpack (part `backpack`, its
+    // colour their `accent`)
+    boy_a: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'child',
+      garment: 'none',
+      hair: 'short',
+      face: 'simple',
+      parts: ['backpack'],
+      body: { height: 0.83, head: 1.06, thick: 0.86 },
+      colors: { skin: '#f1d0b4', hair: '#d8b56a', top: '#5b7fb8', bottom: '#4a4f5c', shoes: '#3b3a40', accent: '#2f3c66' },
+    },
+    boy_b: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'child',
+      garment: 'jacket',
+      hair: 'bob',
+      face: 'simple',
+      parts: ['backpack'],
+      body: { height: 0.78, head: 1.1, thick: 1.0 },
+      colors: {
+        skin: '#d9a982',
+        hair: '#3a2a24',
+        top: '#e9e4d8',
+        bottom: '#3c4a62',
+        garment: '#cf9a3a',
+        shoes: '#e8e6df',
+        accent: '#b53f36',
       },
     },
   },
@@ -279,6 +457,171 @@ return {
           F.bar(hilt, add(hilt, mul(up, 0.15 * h)), 0.007 * h, 0.004 * h, [[0, BLADE]], 6, fwd, 0.4);
           F.bar(add(hilt, mul(across, -0.02 * h)), add(hilt, mul(across, 0.02 * h)), 0.005 * h, 0.005 * h, [[0, VISOR]], 4, fwd, 1);
           F.point('knight', head);
+        },
+      },
+      // — the square and the last dusk (chapter 3) —
+      // the letter: Laohu unfolded — a square of red wrapping paper with gold stars, held open in both hands before
+      // the chest, its outside (red, the stars, the old yellow tape across it) away from the reader — her writing on
+      // its back is a close-up's (an insert), not drawn on the part; the point `letter`
+      letter: {
+        name: 'the letter',
+        draw: F => {
+          const l = F.P('LeftHand'),
+            r = F.P('RightHand'),
+            h = F.fit.h,
+            across = unit(sub(r, l)),
+            fwdH = F.fwd('Hips');
+          let face = unit(cross(across, [0, 1, 0]));
+          if (face[0] * fwdH[0] + face[1] * fwdH[1] + face[2] * fwdH[2] < 0) face = mul(face, -1);
+          // the sheet tipped a little, its top away from whoever holds it (the back of it to their eyes): drawn as a
+          // flat tube from one held edge to the other, square in section, its ends cut — a thin sheet, not a slab
+          const up = unit(add(mul(unit(cross(face, across)), 0.8), mul(face, 0.6))),
+            out = unit(cross(across, up)),
+            c = add(mix(l, r, 0.5), mul(up, 0.06 * h)),
+            ax = [across, up, out],
+            edge = s => add(c, mul(across, s * 0.17 * h));
+          F.tube([edge(-1), edge(1)], [[0, 0.16 * h], [1, 0.16 * h]], [[0, LETTER[0]]], 8, up, 0.012, 8, true);
+          F.tube([add(edge(-1), add(mul(up, 0.03 * h), mul(out, 0.0025 * h))), add(edge(1), add(mul(up, 0.03 * h), mul(out, 0.0025 * h)))], [[0, 0.016 * h], [1, 0.016 * h]], [[0, TAPE]], 8, up, 0.1, 8, true);
+          for (const [x, y] of [[-0.1, 0.09], [0.07, -0.08], [0.11, 0.1]])
+            F.ball(add(c, add(mul(across, x * h), add(mul(up, y * h), mul(out, 0.0025 * h)))), ax, [0.009 * h, 0.009 * h, 0.0008 * h], STAR, 6);
+          F.point('letter', c);
+        },
+      },
+      // the guide's little flag: a short pole held up in the right hand, a pennant at its top (the look's accent);
+      // the point `flag`
+      flag: {
+        name: 'a tour flag',
+        draw: F => {
+          const hand = F.P('RightHand'),
+            h = F.fit.h,
+            up = [0, 1, 0],
+            fwd = unit([F.fwd('Hips')[0], 0, F.fwd('Hips')[2]]),
+            across = cross(up, fwd);
+          const top = add(hand, mul(up, 0.62 * h));
+          F.bar(add(hand, mul(up, -0.06 * h)), top, 0.007 * h, 0.006 * h, [[0, POLE]], 6, fwd, 1);
+          F.ball(add(top, add(mul(up, -0.07 * h), mul(across, 0.11 * h))), [across, up, fwd], [0.11 * h, 0.065 * h, 0.004 * h], F.colors.accent, 3, 6);
+          F.point('flag', top);
+        },
+      },
+      // a school backpack on the back: a rounded block between the shoulder blades, its flap a shade darker, two straps
+      // over the shoulders (the look's accent)
+      backpack: {
+        name: 'a backpack',
+        draw: F => {
+          const chest = F.P('Chest'),
+            h = F.fit.h,
+            fwd = F.fwd('Chest'),
+            side = F.side('Chest'),
+            up = F.up('Chest'),
+            ax = [side, up, fwd];
+          const at = add(chest, add(mul(fwd, -(0.12 * F.k + 0.05 * h)), mul(up, -0.03 * h)));
+          F.ball(at, ax, [0.12 * h, 0.15 * h, 0.055 * h], F.colors.accent, 8, 3);
+          F.ball(add(at, add(mul(up, 0.08 * h), mul(fwd, -0.03 * h))), ax, [0.11 * h, 0.06 * h, 0.03 * h], F.keep(FLAP), 8, 3);
+          for (const s of [-1, 1]) {
+            const top = add(at, add(mul(side, s * 0.065 * h), mul(up, 0.13 * h)));
+            F.bar(top, add(top, add(mul(fwd, 0.13 * F.k + 0.07 * h), mul(up, -0.02 * h))), 0.012 * h, 0.012 * h, [[0, F.colors.accent]], 4, side, 0.3);
+          }
+          F.point('backpack', at);
+        },
+      },
+      // a sports bag carried by its handles in the right hand, hanging at the side: a soft dark cylinder lying along the
+      // way he faces, a pale stripe round each end (the look's accent); the point `bag`
+      duffel: {
+        name: 'a sports bag',
+        draw: F => {
+          const hand = F.P('RightHand'),
+            h = F.fit.h,
+            fwd = unit([F.fwd('Hips')[0], 0, F.fwd('Hips')[2]]),
+            across = cross([0, 1, 0], fwd),
+            up = [0, 1, 0],
+            ax = [fwd, up, across];
+          const at = add(hand, mul(up, -0.13 * h));
+          F.bar(hand, add(at, mul(up, 0.08 * h)), 0.008 * h, 0.008 * h, [[0, F.colors.accent]], 4, fwd, 0.4);
+          F.ball(at, ax, [0.26 * h, 0.11 * h, 0.11 * h], F.colors.accent, 10);
+          for (const s of [-1, 1]) F.ball(add(at, mul(fwd, s * 0.2 * h)), ax, [0.015 * h, 0.104 * h, 0.104 * h], TAG, 10);
+          F.point('bag', at);
+        },
+      },
+      // a string bag of oranges carried in the left hand, hanging at the side: six oranges in a loose net, its two
+      // handles in the fist; the point `oranges`
+      oranges: {
+        name: 'a bag of oranges',
+        draw: F => {
+          const hand = F.P('LeftHand'),
+            h = F.fit.h,
+            fwd = unit([F.fwd('Hips')[0], 0, F.fwd('Hips')[2]]),
+            across = cross([0, 1, 0], fwd),
+            up = [0, 1, 0],
+            ax = [across, up, fwd];
+          const at = add(hand, mul(up, -0.13 * h));
+          F.bar(hand, add(at, mul(up, 0.05 * h)), 0.005 * h, 0.005 * h, [[0, NET]], 4, fwd, 0.4);
+          for (const [x, y, z] of [[-0.035, 0, 0.02], [0.035, 0, -0.01], [0, 0, -0.04], [-0.02, -0.06, 0], [0.025, -0.06, 0.02], [0, 0.055, 0]])
+            F.ball(add(at, add(mul(across, x * h), add(mul(up, y * h), mul(fwd, z * h)))), ax, [0.038 * h, 0.036 * h, 0.038 * h], ORANGE, 8);
+          F.point('oranges', at);
+        },
+      },
+      // a telephone's black receiver held to the ear in the right hand: a bar from the ear down past the mouth, a
+      // round cup at each end; the point `receiver`
+      receiver: {
+        name: 'a telephone receiver',
+        draw: F => {
+          const hand = F.P('RightHand'),
+            h = F.fit.h,
+            up = F.up('RightHand'),
+            side = F.side('RightHand'),
+            fwd = F.fwd('RightHand');
+          const a = add(hand, mul(up, 0.09 * h)),
+            b = add(hand, mul(up, -0.08 * h));
+          F.bar(a, b, 0.018 * h, 0.018 * h, [[0, HANDSET]], 6, side, 0.7);
+          for (const c of [a, b]) F.ball(c, [side, up, fwd], [0.03 * h, 0.022 * h, 0.03 * h], HANDSET, 8);
+          F.point('receiver', hand);
+        },
+      },
+      // a paper frog sitting on the open right hand: green wrapping paper, folded squat; the point `frog`
+      frog: {
+        name: 'a paper frog',
+        draw: F => {
+          const hand = F.P('RightHand'),
+            h = F.fit.h,
+            up = [0, 1, 0],
+            fwd = unit([F.fwd('Hips')[0], 0, F.fwd('Hips')[2]]),
+            across = cross(up, fwd);
+          const at = add(hand, mul(up, 0.035 * h));
+          F.ball(at, [across, up, fwd], [0.04 * h, 0.025 * h, 0.045 * h], FROG[0], 4, 6);
+          F.ball(add(at, add(mul(up, 0.022 * h), mul(fwd, 0.02 * h))), [across, up, fwd], [0.025 * h, 0.016 * h, 0.022 * h], FROG[1], 4, 6);
+          F.point('frog', at);
+        },
+      },
+      // a cardboard moving box carried in both arms before the chest, taped shut; the point `box`
+      box: {
+        name: 'a moving box',
+        draw: F => {
+          const l = F.P('LeftHand'),
+            r = F.P('RightHand'),
+            h = F.fit.h,
+            across = unit(sub(r, l)),
+            fwd = unit(cross(across, [0, 1, 0])),
+            up = cross(fwd, across);
+          const c = add(mix(l, r, 0.5), add(mul(up, 0.06 * h), mul(fwd, 0.1 * h)));
+          F.ball(c, [across, up, fwd], [0.2 * h, 0.14 * h, 0.16 * h], CARTON, 4, 8);
+          F.ball(add(c, mul(up, 0.141 * h)), [across, up, fwd], [0.03 * h, 0.002 * h, 0.16 * h], TAPE, 4, 6);
+          F.point('box', c);
+        },
+      },
+      // the shoe box of animals held in both hands before the chest, its lid on; the point `shoebox`
+      shoebox: {
+        name: 'a shoe box',
+        draw: F => {
+          const l = F.P('LeftHand'),
+            r = F.P('RightHand'),
+            h = F.fit.h,
+            across = unit(sub(r, l)),
+            fwd = unit(cross(across, [0, 1, 0])),
+            up = cross(fwd, across);
+          const c = add(mix(l, r, 0.5), add(mul(up, 0.04 * h), mul(fwd, 0.06 * h)));
+          F.ball(c, [across, up, fwd], [0.17 * h, 0.06 * h, 0.1 * h], SHOEBOX[0], 4, 8);
+          F.ball(add(c, mul(up, 0.062 * h)), [across, up, fwd], [0.175 * h, 0.012 * h, 0.105 * h], SHOEBOX[1], 4, 8);
+          F.point('shoebox', c);
         },
       },
       // a square of paper held up between the hands, its face to whoever she faces, being folded: its colour the

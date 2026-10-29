@@ -1,0 +1,52 @@
+{
+  "jack": {
+    "voice": "Zephyr",
+    "how": "a boy of five to ten: quick, a little sulky, shy of grown-ups; hides feelings behind short words; when he speaks Mandarin Chinese, a child's plain home Chinese, natural",
+    "short": "Jack"
+  },
+  "jack_grown": {
+    "voice": "Iapetus",
+    "how": "a young man of twenty-one, quiet and tired, says little and keeps it plain; tender only in what he does, never in big words; when he speaks Mandarin Chinese, a little rusty, plain home Chinese",
+    "short": "Jack"
+  },
+  "mom": {
+    "voice": "Vindemiatrix",
+    "how": "a Chinese woman in her thirties and forties, small and gentle, light and quietly cheerful, hiding her weight under a joke; in Mandarin Chinese a native speaker, warm, quick and natural, a village accent; in English slow and careful, with a Chinese accent, choosing every word",
+    "short": "Mom"
+  },
+  "dad": {
+    "voice": "Algieba",
+    "how": "an American father in his forties and fifties: kind, awkward, a once-stammering man; rambles a little about small things, very short about what matters; never raises his voice",
+    "short": "Dad"
+  },
+  "mark": {
+    "voice": "Fenrir",
+    "how": "an American boy of ten from across the street: loud, quick, hurt and showing off, repeating what grown-ups say",
+    "short": "Mark"
+  },
+  "mark_grown": {
+    "voice": "Umbriel",
+    "how": "an American man of twenty-two, easy-going on the surface, a little awkward",
+    "short": "Mark"
+  },
+  "kids": {
+    "voice": "Puck",
+    "how": "a couple of boys of ten at a school bus stop, jeering together, laughing",
+    "short": "the boys"
+  },
+  "nurse": {
+    "voice": "Sulafat",
+    "how": "a hospital nurse in her fifties, tired and warm, kind without fuss; says hard things gently, as she does every day",
+    "short": "the nurse"
+  },
+  "translator": {
+    "voice": "Gacrux",
+    "how": "a Chinese woman of about fifty-five from a tour group, from the north of China, in a hurry: quick, talkative, practical; reading aloud she slows down despite herself and is moved; in Mandarin Chinese a native northern speaker; in other languages fluent with a light Chinese accent",
+    "short": "the woman"
+  },
+  "guide": {
+    "voice": "Alnilam",
+    "how": "a tour guide calling across a square, loud and cheerful",
+    "short": "the guide"
+  }
+}

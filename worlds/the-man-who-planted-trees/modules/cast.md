@@ -33,17 +33,47 @@ Fourteen years on (the third chapter):
 - `jan_40` — Jan at 40, the district's forester, the Traveller's comrade from the regiment: solid, clean-shaven, a
   bottle-green forester's coat to the knee, a peaked cap; his notebook in his left hand (of his look).
 
-Older ages (Elzéard 75/85, the Traveller 50, Lina 47), Jan at 26 and the others come with the scenes that need them.
+The village (М1, its own scene):
+
+- `charcoal_burner` — Lina's father, the charcoal burner, about fifty: thickset, a soot-black leather apron over a grey
+  shirt, a flat cap, his skin dark with coal dust.
+- `jan_26` — Jan at 26, the night they are let go from the regiment: the same grey-olive greatcoat and field cap as the
+  Traveller's, broader, dark-haired, clean-shaven, his kitbag on its strap.
+- `lina_47` — Lina at 47 (the epilogue): broad, the rust-red kerchief, a sage-green dress, shoes.
+- `traveller_50` — the Traveller at 50: grey hair, a short grey beard, the faded blue-grey jacket, the bag.
+- `neighbour_woman`, `neighbour_man` — villagers come back (the epilogue): a dun dress and a bun (no kerchief: the
+  rust-red is Lina's alone); shirt sleeves and a felt hat (a spade by `_with`).
+- `village_girl`, `village_boy` — the village's children (the epilogue).
+
+The years after (the house, the forest's edge, the stream across the years):
+
+- `elzeard_75`, `elzeard_85` — Elzéard at 75 and 85: leaner, the hair snow-white, the jacket faded paler; the rod.
+- `chief` — the chief from town (3.2): stout, a camel town coat, a dark hat.
+- `ranger` — the young ranger (3.2, 3.5): a lighter forester's green jacket, a cap.
+- `axeman` — a man of the village with an axe (3.1): a worn brown jacket, a cap, the axe (of his look).
+- `visitor_a`, `visitor_b` — visitors come to look (3.5 on the Name, the finals): a woman in a plum town coat and hat
+  with a basket (of her look); a man in a grey-blue town coat and hat with a notebook (of his look).
+- The boy of the final «The Pupil» is the village's `village_boy`.
 
 ## Things (the cast's parts: a look's `parts`, or `<id>_with`)
 
 `rod` — the iron rod, upright in the right hand from the ground to a hand's width over the fist; its top is the
 person's point `#rod`. `mug` — a tin mug upright in the right hand (`#mug`). `satchel` — the bag at the left hip
 (`#bag`). `flask` — the flask at the right hip (`#flask`). `pail` — a wooden pail hanging from the right hand by its
-bail (`#pail`). `notebook` — a forester's notebook in the left hand (`#notebook`). `beard` — a short beard in the
+bail (`#pail`). `notebook` — a forester's notebook in the left hand (`#notebook`). `spade` — a spade upright in the right hand, its blade
+on the ground (`#spade`). `letter` — a sheet of letter paper in the left hand (`#letter`). `gourd` — a gourd of water in the right hand
+(`#gourd`). `flask_hand` — the Traveller's flask taken off the hip, in his right hand (`#flask`; worn in place of
+`flask`). `axe` — an axe hanging from the right hand, the head by the knee (`#axe`). `basket` — a
+wicker basket hanging from the right hand (`#basket`). `beard` — a short beard in the
 hair's colour (worn, not held).
 
 ## Motions
 
 `hands_behind` — stands still, the hands clasped behind the back, looking far ahead (a loop). Besides the engine's
 `stand` and `walk`.
+
+The village's (stage 5): `shake_flask` (once: a small thing lifted to the ear in the right hand, shaken, lowered —
+disappointed), `pour` (once: a cup in the right hand tipped out forward at waist height), `drink` (once: a cup to the
+mouth, head back), `spade` (once: bent digging with a shovel), `load_sack` (a loop: a heavy load lifted from the
+ground and heaved forward onto a cart), `tie_bag` (a loop: crouched, tying a bag on the ground), `beckon` (once: the
+right hand waving someone over), `carry_pail_walk` (a gait: walking with a pail in the right hand).
