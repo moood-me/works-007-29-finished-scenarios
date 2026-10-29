@@ -6,7 +6,7 @@ the front cockpit, his radio operator behind. Its three skies are the scenario's
 (their loops); no camera moves. The showcase goes through the three skies.
 
 - **Where things are.** Camera `picture`, level with the cockpits. The plane is built on an unseen anchor `plane`
-  (across 0.7, distance 3.2; its `elevation` is the key `bob`): `fuselage` (a card, its right side, nose left — the
+  (at Fabien's seat: across 0.15, distance 3.2; its `elevation` is the key `bob`, 1.6 m level; it turns about that point — `pitch` its `roll`, `roll` its `tilt`): `fuselage` (a card, its right side, nose left — the
   line's silver and blue as the Chilean mail at the field; the cowling, the exhaust `#exhaust`, the propeller a blur
   — the layer `prop`; the windscreens, the cabane struts, the near wheel, the tail; points `#cockpit`,
   `#rear_cockpit`), `deck` (a plane: its top, the cockpits cut through it), `far_wall` (its far side's inside, seen
@@ -85,11 +85,13 @@ the note passing between them.
 
 ## After the browser test (2026-10-29)
 
-- **The nose raised in the climb.** The plane is a chain of three anchors: `plane_air` (where it is, `bob`),
-  `plane_pitch` on it at Fabien's seat (across −0.55, 1.6 m up) turned to face the right (`facing` 90 — its line runs
-  away from the viewer, so its `tilt` is the nose: key `pitch`, − up), and `plane` on that turned back (`facing` 270,
-  0.55 m along and 1.6 m down: where it was) with `roll` on its tilt as before. The script sets `pitch` from `climb`:
-  −14·sin(π·climb) — up as it starts climbing, the most halfway, level at the top. Seen on the GPU (render 1263).
+- **The nose raised in the climb.** The anchor `plane` turns in its own face by its `roll` (the engine's word for a
+  card's or an anchor's turn in its face; `place.roll` = key `pitch`, − the nose up), about Fabien's seat, where the
+  anchor now is (its parts and the two seats moved by 0.55 across and 1.6 down to stay where they were). The script
+  sets `pitch` from `climb`: −14·sin(π·climb) — up as it starts climbing, the most halfway, level at the top.
+  (Until 2026-10-29 it was a chain of three anchors turned 90° and back, the engine having no such turn; gone. Seen on
+  the GPU, render 2697 — the same picture as the chain's, render 2700.) The bank (`roll` key, the anchor's `tilt`) is
+  now about the seat too, no longer about a point 1.6 m below it; it is applied after the pitch, about the level line.
 - **The storm lit.** The look `storm` brighter (ambient 0.72, its colour lighter, less haze), the cockpit lamps
   stronger and wider (`panel` 2.3 / 1.8 m, `radio_lamp` 1.5 / 1.5 m); Fabien looks ahead a little toward the lens
   (`STORM_LOOK`), his face lit by the lamp. The sky stays black-violet, the rain and the lightning as they were.

@@ -16,7 +16,7 @@ scene.every(0.7, () => {
 // thrown — sudden drops and lifts of a hand's breadth or more.
 const bob = () => {
   const rough = scene.get('storm') > 0.5 && scene.get('above') < 0.5;
-  const to = (scene.random() * 2 - 1) * (rough ? 0.18 : 0.04);
+  const to = 1.6 + (scene.random() * 2 - 1) * (rough ? 0.18 : 0.04);
   const over = rough ? 0.35 + 0.6 * scene.random() : 2.2 + 1.6 * scene.random();
   scene.set('bob', to, over, rough ? 'out' : 'inOut');
   scene.after(over, bob);

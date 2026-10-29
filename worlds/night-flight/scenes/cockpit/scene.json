@@ -153,9 +153,9 @@
     "fabien_on": {
       "on": "plane",
       "at": [
-        -0.55,
+        0.0,
         0.4,
-        1.28
+        -0.32
       ]
     },
     "fabien_look": [
@@ -167,9 +167,9 @@
     "radioman_on": {
       "on": "plane",
       "at": [
-        1.05,
+        1.6,
         0.4,
-        1.28
+        -0.32
       ]
     },
     "radioman_look": [
@@ -178,7 +178,7 @@
       0.2
     ],
     "radioman_mood": "neutral",
-    "bob": 0,
+    "bob": 1.6,
     "night": 0,
     "gap": 0,
     "roll": 0,
@@ -227,11 +227,11 @@
     },
     "bob": {
       "range": [
-        -0.4,
-        0.4
+        1.2,
+        2.0
       ],
       "smooth": true,
-      "means": "how far the plane has risen (+) or sunk (−) in the air from where it flies, metres: moved by the scene's script — a slow few centimetres at dusk and over the clouds, jolts in the storm"
+      "means": "the height of the plane's anchor (Fabien's seat) in the air, metres: 1.6 where it flies, a little more risen, less sunk — moved by the scene's script: a slow few centimetres at dusk and over the clouds, jolts in the storm"
     },
     "night": {
       "values": [
@@ -278,7 +278,7 @@
         20
       ],
       "smooth": true,
-      "means": "the plane's nose, degrees (the anchor `plane_pitch` tilted about Fabien's seat, everything on the plane with it): 0 level, − the nose up, + down; set by the scene's script from `climb`"
+      "means": "the plane's nose, degrees (the anchor `plane` turned in its own face — its `roll` — about Fabien's seat, everything on the plane with it): 0 level, − the nose up, + down; set by the scene's script from `climb`"
     },
     "house": {
       "range": [
@@ -320,47 +320,23 @@
       }
     },
     {
-      "id": "plane_air",
-      "name": "Where Fabien's plane is in the air: rising and falling a little (`bob`)",
+      "id": "plane",
+      "name": "Fabien's plane: the anchor its parts and its people are on, at Fabien's seat (the plane turns about it) — rising and sinking a little (`bob`), its nose raised or dropped (`pitch`: turned in its own face), laid on a wing (`roll`: tilted about its length)",
       "unseen": true,
-      "across": 0.7,
+      "across": 0.15,
       "distance": 3.2,
       "place": {
-        "elevation": "bob"
-      }
-    },
-    {
-      "id": "plane_pitch",
-      "name": "The plane's pitch, about Fabien's seat: turned to face the right (its line then runs away from the viewer), so its tilt raises or drops the nose (`pitch`)",
-      "unseen": true,
-      "on": "plane_air",
-      "across": -0.55,
-      "distance": 0,
-      "elevation": 1.6,
-      "facing": 90,
-      "place": {
-        "tilt": "pitch"
-      }
-    },
-    {
-      "id": "plane",
-      "name": "Fabien's plane: the anchor its parts and its people are on — turned back to face the viewer on its pitch, laid on a wing by `roll`",
-      "unseen": true,
-      "on": "plane_pitch",
-      "across": 0,
-      "distance": -0.55,
-      "elevation": -1.6,
-      "facing": 270,
-      "place": {
+        "elevation": "bob",
+        "roll": "pitch",
         "tilt": "roll"
       }
     },
     {
       "id": "wing",
       "name": "The parasol wing over the front cockpit",
-      "across": -2.5,
+      "across": -1.95,
       "distance": 7.4,
-      "elevation": 2.75,
+      "elevation": 1.15,
       "facing": 180,
       "tilt": -90,
       "height": 14,
@@ -375,7 +351,7 @@
     {
       "id": "far_wall",
       "name": "The fuselage's far side, inside",
-      "across": 0.0,
+      "across": 0.55,
       "distance": 0.8,
       "facing": 180,
       "height": 1.6,
@@ -385,16 +361,17 @@
         1.75,
         -0.6
       ],
-      "on": "plane"
+      "on": "plane",
+      "elevation": -1.6
     },
     {
       "id": "cockpit_floor",
       "name": "The cockpits' floor",
       "plane": true,
       "unseen": true,
-      "across": 0.25,
+      "across": 0.8,
       "distance": 0.4,
-      "elevation": 0.85,
+      "elevation": -0.75,
       "width": 2.8,
       "depth": 0.7,
       "walk": true,
@@ -404,9 +381,9 @@
       "id": "deck",
       "name": "The top of the fuselage, the cockpits cut through it",
       "plane": true,
-      "across": 0.4,
+      "across": 0.95,
       "distance": 0.4,
-      "elevation": 1.5,
+      "elevation": -0.1,
       "width": 5.2,
       "depth": 0.8,
       "on": "plane"
@@ -415,9 +392,9 @@
       "id": "tailplane",
       "name": "The tailplane",
       "plane": true,
-      "across": 5.15,
+      "across": 5.7,
       "distance": 0.4,
-      "elevation": 1.32,
+      "elevation": -0.28,
       "width": 1.1,
       "depth": 3.4,
       "on": "plane"
@@ -425,7 +402,7 @@
     {
       "id": "fuselage",
       "name": "Fabien's plane, its right side",
-      "across": 0.0,
+      "across": 0.55,
       "distance": 0.0,
       "facing": 180,
       "height": 2.6,
@@ -435,7 +412,8 @@
         6.35,
         0.05
       ],
-      "on": "plane"
+      "on": "plane",
+      "elevation": -1.6
     },
     {
       "id": "fabien",

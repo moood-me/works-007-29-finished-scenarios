@@ -27,9 +27,9 @@ function film(scene) {
   const DOWN = [-5, 1.5, -6]; // below, ahead: the house, the town
   const STORM_LOOK = [-8, 2.0, 1.9]; // in the storm: ahead into the dark, a little toward the lens (his face lit by the lamp, seen)
   const SEATS = {
-    fabien_on: { on: 'plane', at: [-0.55, 0.4, 1.28] }, fabien_turn: 245, fabien_do: 'fly_seated', fabien_look: [-3, 0.8, 1.9],
+    fabien_on: { on: 'plane', at: [0, 0.4, -0.32] }, fabien_turn: 245, fabien_do: 'fly_seated', fabien_look: [-3, 0.8, 1.9],
     fabien_reach: null, fabien_with: [],
-    radioman_on: { on: 'plane', at: [1.05, 0.4, 1.28] }, radioman_turn: 270, radioman_do: 'write_seated', radioman_look: 'fabien',
+    radioman_on: { on: 'plane', at: [1.6, 0.4, -0.32] }, radioman_turn: 270, radioman_do: 'write_seated', radioman_look: 'fabien',
     radioman_reach: null, radioman_with: [],
   };
   const SKY = {
