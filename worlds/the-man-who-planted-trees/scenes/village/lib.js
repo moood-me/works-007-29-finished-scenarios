@@ -616,15 +616,15 @@ function film(scene) {
         await t.walk([[1.6, 14.5], [WELL_TRAV[0], WELL_TRAV[1]]]);
         await t.turn(WELL_TRAV[2]);
         t.look("lina");
-        s.camera({ target: "lina", shot: "medium", frame: 0.6 });
+        s.camera({ target: "lina", shot: "full", frame: 0.6 });
         s.tell("coal_cart:lina");
         await s.wait(5);
         s.camera({ target: "pair_well", shot: "full" });
         await s.wait(2);
       },
     },
-    // 1.7 «Сажает дубы»: Lina laughs — «Дубы. Здесь»; her father, not turning — «Дурак он»; she looks up at the slope
-    // longer than she needs to
+    // 1.7 «Сажает дубы»: Lina laughs — «Дубы. Здесь»; her father, not turning — «Дурак он» (the whole square, he at
+    // his cart); she looks up at the slope longer than she needs to (she and the slope she looks at)
     oaks_laugh: {
       after: ["coal_cart"], tells: ["oaks_laugh:laugh", "oaks_laugh:father", "oaks_laugh:slope"], seconds: 14,
       from: () => COAL(),
@@ -633,10 +633,11 @@ function film(scene) {
         s.tell("oaks_laugh:laugh");
         await l.do("laugh_short", { loop: false });
         l.do("stand");
+        s.camera({ target: null, glide: 1 });
         s.tell("oaks_laugh:father");
         await s.wait(2.5);
         l.look(SLOPE);
-        s.camera({ target: "lina", shot: "medium", frame: 0.45 });
+        s.camera({ target: "lina", shot: "wide", frame: 0.45 });
         s.tell("oaks_laugh:slope");
         await s.wait(5);
       },
