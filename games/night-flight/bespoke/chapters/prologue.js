@@ -2,9 +2,9 @@
 // below, his note “San Julián. Sky clear”; the tap of the key becomes the inker's in the bureau — three mails in the
 // air, the player leads the blue flag; later, Robineau's papers: the board doubts the night, Pellerin's fine by the
 // rule, Madame Fabien's message (“the line is for the service”), Roblet's order ready.
-// Stand-ins: none. Not in the scenes yet: Robineau in the bureau — his voice only.
+// Stage 4: Robineau in the bureau with his folder (П.3); the map's flags as the night has them.
 // Reads: nothing. Leaves: nothing.
-import { SKY, bureau, clock } from '../story.js';
+import { FLAGS, SKY, bureau, clock } from '../story.js';
 import { flag } from '../minigames/all.js';
 
 export default {
@@ -25,10 +25,11 @@ export default {
     // П.2: the tap becomes the inker's; М1 the flag; “three in the air”
     async g => {
       await g.scene('bureau', { here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
-        keys: { ...bureau(clock(19, 50), { tape: 1 }), riviere_look: 'map', telegraphist_look: 'tel_inker' } });
+        keys: { ...bureau(clock(19, 50), { tape: 1, flags: FLAGS.evening }), riviere_look: 'map', telegraphist_look: 'tel_inker' } });
       await g.plate(tr('The tap of the key becomes the tap of the inker: the bureau of the night mail, at the edge of a great field. Rivière at the map of the three lines.'));
       await g.say('telegraphist', 'Patagonian: passed San Julián. Sky clear');
       await g.play(flag);
+      g.set('blue', 'san_julian');
       g.set('tape', 0);
       await g.plate(tr('On the map two more flags are in the air — over the Andes, and over the river in the north; the red one, the European mail’s, stands at the field.'));
       await g.say('riviere', 'Three in the air');
@@ -37,9 +38,10 @@ export default {
     },
     // П.3: Robineau's papers
     async g => {
-      await g.scene('bureau', { here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
-        keys: { ...bureau(clock(22, 5)), riviere_look: 'rob_desk', telegraphist_look: 'riviere' } });
+      await g.scene('bureau', { here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral', robineau: 'neutral' },
+        keys: { ...bureau(clock(22, 5), { flags: FLAGS.julian }), riviere_look: 'rob_desk', telegraphist_look: 'riviere', robineau_spot: 'desk', robineau_look: 'riviere' } });
       await g.plate(tr('Later. The clock over the map: five past ten; outside the bureau’s window it is dark. Robineau, the inspector, comes up with his folder.'));
+      g.here('robineau', true);
       await g.say('robineau', 'The board asks whether the night flights should not be suspended till spring. After last winter');
       await g.say('riviere', 'They will not close the night until I close it myself');
       await g.say('robineau', 'The Chilean mail is late. Pellerin ran into a storm over the Andes. By the rule — a fine for being late');

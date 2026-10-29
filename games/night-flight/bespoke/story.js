@@ -5,8 +5,8 @@
 // are — people stand, the scenes only say who is there, their faces and where they look, and the scenes' own keys (the
 // bureau's clock and inker, the field's floodlights, the cockpit's skies). What the scenario's film would show is a
 // plate with “Next” (g.plate, g.sheet); a mini-game is its stub — a mark to press and a card saying what it will be
-// (minigames/stub.js); a place the world has not got yet — the people in one of its scenes and a label saying where it
-// really is (PLACES).
+// (minigames/stub.js). Stage 4: every place has its own scene now (PLACES), and the people the scenario puts there are
+// in it — standing or sitting where the scene's spot keys put them.
 //   g.state — what the play carries: {scales, shown, marks, choices} (game.js); what follows from it: facts(g.state)
 //   g.signal — aborts when the step is left
 //   g.scene(place, {here, moods, keys}, {cut}) — that place of the game (PLACES: the world's scene it is played on, and
@@ -45,33 +45,65 @@
 // (a dry run: game.js, check/run.mjs): then nothing of it is said, shown or heard, a plate goes by at once, and a
 // minigame gives its `skipped`.
 
-// The game's places (scenario §4) and the world's scene each is played on — the one map of them: a place whose own
-// scene is not made yet stands in one of the ready ones, its people there, and `where` says (a label high on the left)
-// where it really is. When the place's own scene comes (stage 4), its line here becomes `{ folder: '<its folder>' }`
-// — nothing else changes: the steps name places, never folders. (The bureau is also the map's background, game.js.)
+// The game's places (scenario §4) and the world's scene each is played on — the one map of them. At stage 3 a place
+// whose own scene was not made yet stood in one of the ready ones with a label (`where`) saying where it really was;
+// since stage 4 every place has its own scene. The steps name places, never folders. (The bureau is also the map's
+// background, game.js.)
 export const PLACES = {
-  office: { folder: 'bureau', where: tr('In truth: Rivière’s office upstairs — a desk with a lamp and the log, a telephone, the visitor’s chair, a big window onto the field.') }, // С1
+  office: { folder: 'office' }, // С1 Rivière's office
   bureau: { folder: 'bureau' }, // С2 the bureau
   field: { folder: 'field' }, // С3 the field by the hangar
   cockpit: { folder: 'cockpit' }, // С4 Fabien's cockpit
 };
 
 // The scenes' own keys at the scenario's hours. The bureau: its lamps, the office door's glass, the inker, the clock
-// (minutes after midnight: clock(22, 5) — five past ten). The field: its floodlights (dark — the field black, only the
-// hangar's lamps; lit), the hangar's lamps, Rivière's window upstairs. The cockpit: its three skies — dusk, the storm,
-// over the clouds — and the instrument lamps.
+// (minutes after midnight: clock(22, 5) — five past ten; the scene takes dusk and dawn from it), the map's flags
+// (FLAGS — where the night has got to), the hangar in its window (`outside`). Its people's places are its spot keys
+// (riviere_spot, robineau_spot, pilot_spot, telegraphist_spot), given by the steps. The field: its floodlights (dark —
+// the field black, only the hangar's lamps; lit), the hangar's lamps, Rivière's window upstairs; the plane (PLANE). The
+// cockpit: its skies — dusk, the night over the steppe, the storm, over the clouds — and the instrument lamps. The
+// office: OFFICE — its lamps, the floodlights below, the rain.
 export const clock = (h, m) => h * 60 + m;
-export const bureau = (time, { tape = 0, lamps = 1 } = {}) => ({ lamps, office: 1, tape, time });
+export const FLAGS = {
+  // the evening: the Patagonian at Río Gallegos, the Chilean over the Andes, the Asunción up the river, the European
+  // at the field
+  evening: { blue: 'south', west: 'air', north: 'air', red: 'field' },
+  // the Patagonian past San Julián (П.2's flag)
+  julian: { blue: 'san_julian', west: 'air', north: 'air', red: 'field' },
+  // the Chilean in (1.1), the Patagonian by Trelew
+  trelew: { blue: 'trelew', west: 'field', north: 'air', red: 'field' },
+  // all in but the Patagonian, held by Trelew (2.1's flag on)
+  night: { blue: 'trelew', west: 'field', north: 'field', red: 'field' },
+  // the blue flag led into the sea, to the bearing (3.6)
+  sea: { blue: 'sea', west: 'field', north: 'field', red: 'field' },
+  // the night taken down (the dawn's Ф.5)
+  down: { blue: 'off', west: 'off', north: 'off', red: 'off' },
+};
+export const bureau = (time, { tape = 0, lamps = 1, flags = FLAGS.night, outside = 'european' } = {}) => ({ lamps, office: 1, tape, time, ...flags, outside });
 export const FIELD = {
   dark: { floods: 0, hangar: 1, office: 1 },
   lit: { floods: 1, hangar: 1, office: 1 },
 };
-export const SKY = {
-  dusk: { storm: 0, rain: 0, above: 0, panel: 0 },
-  night: { storm: 0, rain: 0, above: 0, panel: 1 },
-  storm: { storm: 1, rain: 1, above: 0, panel: 1 },
-  above: { storm: 1, rain: 0, above: 1, panel: 1 },
+// the plane before the hangar, standing (its engine still or running), or in the air over the field — coming down out of
+// the dark to it (the Chilean, 1.1) or gone up and away north (the European, Ш3)
+export const PLANE = {
+  stand: (plane, engine = 0) => ({ plane, plane_a: 4.2, plane_d: 13.6, plane_h: 0, plane_pitch: 0, engine, plane_lights: 0, chocks: 1 }),
+  coming: plane => ({ plane, plane_a: -90, plane_d: 320, plane_h: 35, plane_pitch: -4, engine: 1, plane_lights: 1, chocks: 0 }),
+  away: plane => ({ plane, plane_a: -40, plane_d: 140, plane_h: 25, plane_pitch: 6, engine: 1, plane_lights: 1, chocks: 0 }),
 };
+export const SKY = {
+  dusk: { storm: 0, rain: 0, above: 0, panel: 0, night: 0 },
+  night: { storm: 0, rain: 0, above: 0, panel: 1, night: 1 },
+  storm: { storm: 1, rain: 1, above: 0, panel: 1, night: 0 },
+  above: { storm: 1, rain: 0, above: 1, panel: 1, night: 0 },
+};
+// the office at three: its lamps, the floodlights below (out only when the European was stood down), the rain begun;
+// below the window — the European standing or gone, Roblet where Ш1 put him, Robineau by the hangar's wall if he went
+// out alone (3.7)
+export const OFFICE = f => ({
+  lamp: 1, floods: f.ending === 'dawn' ? 0 : 1, rain: 0.6, plane: f.ending === 'dawn' ? 'standing' : 'gone',
+  yard_roblet: f.roblet === 'keep' ? 'hangar' : f.roblet === 'remove' ? 'chocks' : 'none', yard_robineau: f.robineau === 'silent' ? 1 : 0,
+});
 
 // The scales (scenario §8), each with two sides: where they start, their bounds, its name in the gauge, its two ends
 // (`sides`: the left one, the right one), the side the player reads when it moves (up: delta > 0, down: delta < 0),

@@ -2,9 +2,10 @@
 // the storm from the south, the fields closed, no word from Fabien — “hold the European until he comes in”; in the
 // cockpit, “Where to?” — “I don’t know”, the plane thrown about; half past twelve: Robineau back from supper with
 // Pellerin, and the European pilot sits down to wait; twenty-five to two, the telephone — ⚑ what she is told.
-// Stand-ins: none. Not in the scenes yet: Robineau and the Asunción pilot in the bureau — voices and plates.
+// Stage 4: the Asunción pilot and Robineau in the bureau; the European pilot sits down on the bench; Rivière at the
+// telephone on Robineau's desk.
 // Reads: choices.roblet, .fine; marks.touched. Leaves: choices.phone, marks.phone, scales.told.
-import { SKY, bureau, clock, facts } from '../story.js';
+import { FLAGS, SKY, bureau, clock, facts } from '../story.js';
 import { flag_north, stick } from '../minigames/all.js';
 
 export default {
@@ -21,11 +22,13 @@ export default {
     async g => {
       const { roblet } = facts(g.state);
       await g.scene('bureau', { here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
-        keys: { ...bureau(clock(23, 20), { tape: 1 }), riviere_look: 'map', telegraphist_look: 'tel_inker' } });
+        keys: { ...bureau(clock(23, 20), { tape: 1, flags: FLAGS.trelew }), riviere_look: 'map', telegraphist_look: 'tel_inker', asuncion_look: 'riviere' } });
       await g.plate(tr('Twenty past eleven. Over the roof, the drone of an engine — the Asunción mail is landing on time.'));
       await g.say('telegraphist', 'Asunción: landed');
       await g.play(flag_north);
+      g.set('north', 'field');
       g.set('tape', 0);
+      g.here('asuncion', true);
       await g.plate(tr('The Asunción mail’s pilot comes in and lays his report on Robineau’s empty desk — Robineau is at supper with Pellerin.'));
       if (roblet === 'fire') {
         await g.say('asuncion', 'Sorry for the old man');
@@ -60,8 +63,8 @@ export default {
     // 2.3: Robineau back from supper; the European pilot comes in
     async g => {
       const { fine, touched } = facts(g.state);
-      await g.scene('bureau', { here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
-        keys: { ...bureau(clock(0, 30)), riviere_look: 'rob_desk', telegraphist_look: 'tel_inker' } });
+      await g.scene('bureau', { here: ['riviere', 'telegraphist', 'robineau'], moods: { riviere: 'neutral', telegraphist: 'neutral', robineau: 'neutral' },
+        keys: { ...bureau(clock(0, 30)), riviere_look: 'robineau', telegraphist_look: 'tel_inker', robineau_spot: 'desk', robineau_look: 'riviere' } });
       await g.plate(tr('Half past twelve. Robineau comes back from supper.'));
       if (fine === 'robineau') {
         await g.say('robineau', 'I gave him the form. Over the soup. He signed it and went off to bed');
@@ -84,13 +87,14 @@ export default {
       }
       await g.plate(tr('Robineau sees “Fabien” on the tape, falls silent and takes off his coat.'));
       g.here('pilot', true);
+      g.set('pilot_spot', 'bench');
       g.set('pilot_look', 'map');
       await g.plate(tr('The door from the field: the European mail’s pilot, his helmet in his hand. He looks at the map — there is no blue flag at the field —, sits down on the bench by the telegraph and lays his helmet on his knees. He asks nothing.'));
     },
     // 2.4: ⚑ the telephone
     async g => {
-      await g.scene('bureau', { here: ['riviere', 'telegraphist', 'pilot'], moods: { riviere: 'neutral', telegraphist: 'neutral', pilot: 'neutral' },
-        keys: { ...bureau(clock(1, 35)), riviere_look: 'rob_phone', pilot_look: 'riviere', telegraphist_look: 'riviere' } });
+      await g.scene('bureau', { here: ['riviere', 'telegraphist', 'pilot', 'robineau'], moods: { riviere: 'neutral', telegraphist: 'neutral', pilot: 'neutral', robineau: 'neutral' },
+        keys: { ...bureau(clock(1, 35)), riviere_spot: 'desk', pilot_spot: 'bench', robineau_spot: 'desk', riviere_look: 'rob_phone', pilot_look: 'riviere', telegraphist_look: 'riviere', robineau_look: 'riviere' } });
       await g.plate(tr('Twenty-five to two. The telephone rings.'));
       await g.say('telegraphist', 'Madame Fabien');
       await g.plate(tr('Rivière takes the receiver — his face close; hers only a voice. In the receiver the wind can be heard banging a shutter at her house.'));

@@ -2,10 +2,15 @@
 // into the light; Pellerin — “Fine. A bit of a breeze” — and his shaking hands; ⚑ a chance: touch his shoulder; the
 // fine for the forty minutes over the Andes — ⚑ whose hand signs it; Roblet in the hangar gate, the nut not locked —
 // ⚑ Roblet: dismiss, keep on the engines, take off the engines; Fabien over Trelew: “No. We’ll outrun it.”
-// Stand-ins: none. Not in the scenes yet: Pellerin and the mechanics on the field — voices and plates.
+// Stage 4: Pellerin and the mechanics on the field; the Chilean mail coming down out of the dark, then standing; Roblet's
+// box at his feet, in his hands or gone; the spanner from hand to hand.
 // Reads: nothing. Leaves: choices.touch, .fine, .roblet; marks.touched, .fine, .roblet; scales.exceptions.
-import { FIELD, SKY } from '../story.js';
+import { FIELD, PLANE, SKY } from '../story.js';
 import { light, pen, box, spanner } from '../minigames/all.js';
+
+// the mechanics at the plane; listening, their faces to Roblet (1.3–1.4)
+const MECHANICS = ['mechanic', 'mechanic_b', 'mechanic_c'];
+const AT_ENGINES = { toolbox: 1, roblet_spot: 'front', mechanic_look: 'roblet', mechanic_b_look: 'roblet', mechanic_c_look: 'roblet' };
 
 export default {
   number: 'I', title: tr('The Andes'),
@@ -26,12 +31,16 @@ export default {
   steps: [
     // 1.1: the landing; М8 the light; ⚑ a chance — touch his shoulder
     async g => {
-      await g.scene('field', { here: ['riviere'], moods: { riviere: 'neutral' }, keys: { ...FIELD.dark, riviere_look: 'hangar_front#switch' } });
+      await g.scene('field', { here: ['riviere', ...MECHANICS], moods: { riviere: 'neutral', pellerin: 'smile' },
+        keys: { ...FIELD.dark, ...PLANE.coming('chilean'), toolbox: 0, riviere_look: 'hangar_front#switch', mechanic_look: 'plane#nose', mechanic_b_look: 'plane#nose', mechanic_c_look: 'plane#nose' } });
       await g.plate(tr('Twenty past ten. The field is dark; over it the drone of an engine, lower and lower. Rivière stands at the switch on the hangar wall.'));
       await g.play(light);
       g.set('floods', 1);
       g.set('riviere_look', null);
+      for (const [k, v] of Object.entries(PLANE.stand('chilean'))) g.set(k, v);
       await g.plate(tr('The floodlights come on one after another, and out of the dark the Chilean mail lands into the light. The engine stops. Pellerin comes out from behind the wing and pulls off his helmet.'));
+      g.here('pellerin', true);
+      for (const id of ['riviere', ...MECHANICS]) g.set(`${id}_look`, 'pellerin');
       await g.say('pellerin', 'Fine. A bit of a breeze', { how: 'to the mechanics, offhand, with a grin' });
       await g.plate(tr('The mechanics laugh.'));
       await g.say('pellerin', 'The ridge like a wall — and me under it, like a fly under the ceiling', { how: 'showing it with his hands, laughing' });
@@ -51,7 +60,7 @@ export default {
     },
     // 1.2: ⚑ the fine
     async g => {
-      await g.scene('field', { here: ['riviere', 'robineau'], moods: { riviere: 'neutral', robineau: 'sad' }, keys: { ...FIELD.lit, riviere_look: 'robineau', robineau_look: 'riviere' } });
+      await g.scene('field', { here: ['riviere', 'robineau', ...MECHANICS], moods: { riviere: 'neutral', robineau: 'sad' }, keys: { ...FIELD.lit, ...PLANE.stand('chilean'), toolbox: 0, riviere_look: 'robineau', robineau_look: 'riviere' } });
       await g.plate(tr('By the workbench Robineau, with the form of the fine.'));
       await g.say('robineau', 'I asked him to supper tonight. He said yes', { how: 'in an undertone' });
       await g.say('riviere', 'The fine');
@@ -83,7 +92,7 @@ export default {
     },
     // 1.3: Roblet
     async g => {
-      await g.scene('field', { here: ['riviere', 'robineau', 'roblet'], moods: { riviere: 'neutral', robineau: 'thinking', roblet: 'sad' }, keys: FIELD.lit });
+      await g.scene('field', { here: ['riviere', 'robineau', 'roblet', ...MECHANICS], moods: { riviere: 'neutral', robineau: 'thinking', roblet: 'sad' }, keys: { ...FIELD.lit, ...PLANE.stand('chilean'), ...AT_ENGINES } });
       await g.plate(tr('Half past ten. In the hangar gate, Roblet: his cap in his hands, at his feet his tool box, already packed.'));
       await g.say('robineau', 'The nut on the petrol pipe of the Asunción mail. Not locked. The plane came down at night in a field. The pilot unhurt. Lucky');
       await g.say('roblet', 'Twenty years, sir. The first engines here — my hands. I… one nut…');
@@ -92,7 +101,7 @@ export default {
     },
     // 1.4: ⚑ Roblet
     async g => {
-      await g.scene('field', { here: ['riviere', 'robineau', 'roblet'], moods: { riviere: 'neutral', robineau: 'thinking', roblet: 'sad' }, keys: FIELD.lit }, { cut: true });
+      await g.scene('field', { here: ['riviere', 'robineau', 'roblet', ...MECHANICS], moods: { riviere: 'neutral', robineau: 'thinking', roblet: 'sad' }, keys: { ...FIELD.lit, ...PLANE.stand('chilean'), ...AT_ENGINES } }, { cut: true });
       const roblet = await g.choose('roblet', { 'roblet#chest': [
         { id: 'fire', label: tr('Dismiss him') },
         { id: 'keep', label: tr('Keep him on the engines') },
@@ -105,9 +114,11 @@ export default {
         await g.say('roblet', 'I understand');
         await g.plate(tr('He does not understand. He puts on his cap, picks up his box and goes across the field to the gate. The mechanics do not raise their heads.'));
         g.here('roblet', false);
+        g.set('toolbox', 0);
       } else if (roblet === 'keep') {
         await g.plate(tr('Rivière does not sign. He picks up the box and gives it to Roblet, from hand to hand.'));
         await g.play(box);
+        g.set('roblet_with', ['toolbox_held']);
         await g.say('riviere', 'The European mail is yours tonight. You will check it twice');
         await g.say('roblet', 'Twice');
         g.mood('robineau', 'surprised');
@@ -115,8 +126,11 @@ export default {
         await g.plate(tr('The mechanics look at Rivière.'));
       } else {
         await g.say('riviere', 'Not the engines. The field: the chocks, the store');
+        g.set('roblet_with', ['spanner']);
         await g.plate(tr('Rivière holds out his hand for the spanner Roblet is holding.'));
         await g.play(spanner);
+        g.set('roblet_with', null);
+        g.set('riviere_with', ['spanner']);
         await g.plate(tr('The palm is not taken back. Roblet’s fingers open slowly; the spanner passes from hand to hand.'));
         await g.say('roblet', 'Better you had fired me');
         await g.plate(tr('A pause. He picks up the chocks.'));

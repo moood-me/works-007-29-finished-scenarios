@@ -58,5 +58,15 @@
     "voice": "Puck",
     "how": "a young mechanic of the field: quick, plain, a little unsure before the director",
     "short": "a mechanic"
+  },
+  "mechanic_b": {
+    "voice": "Puck",
+    "how": "an older mechanic of the field: stocky, slow, says little",
+    "short": "a mechanic"
+  },
+  "mechanic_c": {
+    "voice": "Puck",
+    "how": "a lanky mechanic of the field: quiet",
+    "short": "a mechanic"
   }
 }

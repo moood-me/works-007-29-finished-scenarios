@@ -178,7 +178,7 @@ export default async function (b) {
     b.hush();
     view.quiet();
     view.gauge(null);
-    await b.show(PLACES.bureau.folder, { state: { ...bureau(clock(1, 0)), madame_here: false, riviere_here: false, pilot_here: false, telegraphist_here: false }, captions: false });
+    await b.show(PLACES.bureau.folder, { state: { ...bureau(clock(1, 0)), madame_here: false, riviere_here: false, pilot_here: false, telegraphist_here: false, robineau_here: false, asuncion_here: false }, captions: false });
     const drawn = trees(b, sky(), { grow: reveal, author: !!author });
     const notice = replay?.done && anew() ? view.hint(tr('If you keep it, the chapters after this one will have to be played again.')) : () => {};
     let asked = null; // (an option that would leave the replay: asked again)

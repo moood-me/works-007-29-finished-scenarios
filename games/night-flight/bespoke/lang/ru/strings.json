@@ -442,7 +442,6 @@
   {"text":"the European pilot","translation":"пилот европейской","where":"games/night-flight/bespoke/people.json.pilot short"},
   {"text":"the Asunción pilot","translation":"пилот асунсьонской","where":"games/night-flight/bespoke/people.json.asuncion short"},
   {"text":"a mechanic","translation":"механик","where":"games/night-flight/bespoke/people.json.mechanic short"},
-  {"text":"In truth: Rivière’s office upstairs — a desk with a lamp and the log, a telephone, the visitor’s chair, a big window onto the field.","translation":"На самом деле: кабинет Ривьера наверху — стол с лампой и журналом, телефон, стул для посетителя, большое окно на поле.","where":"games/night-flight/bespoke/story.js"},
   {"text":"Exceptions","translation":"Исключения","where":"games/night-flight/bespoke/story.js"},
   {"text":"not one","translation":"ни одного","where":"games/night-flight/bespoke/story.js"},
   {"text":"the rule bends","translation":"правило гнётся","where":"games/night-flight/bespoke/story.js"},

@@ -3,14 +3,15 @@
 // minute — ⚑ the last minute: the bearing, her words, his own; in the cockpit, the gap and the stars, the note that
 // came, the climb above the clouds; the last tape; a quarter to three, the fuel counted out — the flag led into the sea
 // or held at Trelew; the bridge; ⚑ Robineau, his shoulders shaking: “Get to work”, “Sit down”, or nothing.
-// Stand-ins: none. Not in the scenes yet: Robineau in the bureau — his voice and plates.
+// Stage 4: Robineau in the bureau (standing at his desk, sitting to his report, on the bench beside Rivière); the
+// European pilot gets up from the bench; the blue flag in the sea or by Trelew; the gap in the storm.
 // Reads: scales.told, choices.phone, .minute. Leaves: choices.minute, .robineau; marks.bearing, .minute, .robineau;
 // scales.exceptions.
-import { SKY, bureau, clock, facts } from '../story.js';
+import { FLAGS, SKY, bureau, clock, facts } from '../story.js';
 import { tape, climb, flag_sea, flag_hold } from '../minigames/all.js';
 
-const ALL = ['riviere', 'telegraphist', 'pilot', 'madame'];
-const MOODS = { riviere: 'neutral', telegraphist: 'neutral', pilot: 'neutral', madame: 'sad' };
+const ALL = ['riviere', 'telegraphist', 'pilot', 'madame', 'robineau'];
+const MOODS = { riviere: 'neutral', telegraphist: 'neutral', pilot: 'neutral', madame: 'sad', robineau: 'sad' };
 
 export default {
   number: 'III', title: tr('The Stars'),
@@ -29,7 +30,7 @@ export default {
     // 3.1: she comes
     async g => {
       const { storm, phone } = facts(g.state);
-      await g.scene('bureau', { here: ALL, moods: { ...MOODS, riviere: 'surprised' }, keys: bureau(storm ? clock(1, 45) : clock(2, 10)) });
+      await g.scene('bureau', { here: ALL, moods: { ...MOODS, riviere: 'surprised' }, keys: { ...bureau(storm ? clock(1, 45) : clock(2, 10)), robineau_look: 'madame' } });
       await g.plate(tr('Madame Fabien in the doorway: her coat thrown on, no hat. Rivière gets up; on the bench the European pilot gets up too.'));
       if (storm) {
         await g.say('madame', 'You told the truth. I couldn’t stay at home');
@@ -91,7 +92,7 @@ export default {
     // 3.4: the stars; the note that came; М6 up
     async g => {
       const { minute } = facts(g.state);
-      await g.scene('cockpit', { here: ['fabien', 'radioman'], moods: { fabien: 'thinking', radioman: 'thinking' }, keys: SKY.storm });
+      await g.scene('cockpit', { here: ['fabien', 'radioman'], moods: { fabien: 'thinking', radioman: 'thinking' }, keys: { ...SKY.storm, gap: 1, fabien_look: [-2, 1.5, 5] } });
       await g.plate(tr('The storm. Overhead, a gap in the clouds, and stars in it. The radio operator catches something, writes, and passes a note forward.'));
       if (minute === 'bearing') {
         await g.say('radioman', 'Comodoro: hold the key. Bearing', { how: 'a note written in the air, read short over the engine' });
@@ -114,6 +115,7 @@ export default {
       await g.play(climb);
       g.set('above', 1);
       g.set('rain', 0);
+      g.set('gap', 0);
       g.mood('fabien', 'neutral');
       await g.plate(tr('The plane comes out above the clouds: the moon, a white sea of cloud, silence, stars. Fabien’s face in the moonlight.'));
       await g.say('narrator', 'He knew that from this beauty there was no coming back. And still he climbed');
@@ -148,10 +150,11 @@ export default {
     // 3.6: silence; М1 the flag — into the sea, or held at Trelew; the bridge; to the office
     async g => {
       const { bearing } = facts(g.state);
-      await g.scene('bureau', { here: ALL, moods: { ...MOODS, riviere: 'tired' }, keys: { ...bureau(clock(2, 45)), riviere_look: 'map', madame_look: 'map', telegraphist_look: 'clock' } });
+      await g.scene('bureau', { here: ALL, moods: { ...MOODS, riviere: 'tired' }, keys: { ...bureau(clock(2, 45)), riviere_look: 'map', madame_look: 'map', telegraphist_look: 'clock', robineau_look: 'map' } });
       await g.plate(tr('A quarter to three. Rivière at the map. The telegraphist looks at the clock and counts the fuel under his breath, minute by minute.'));
       if (bearing) {
         await g.play(flag_sea);
+        g.set('blue', 'sea');
         await g.plate(tr('Rivière has led the blue flag from Trelew into the sea, to the point of the bearing. She looks at where he has put it.'));
       } else {
         await g.play(flag_hold);
@@ -170,11 +173,14 @@ export default {
         await g.plate(tr('She goes without a word.'));
       }
       g.here('madame', false);
+      g.here('robineau', false);
       await g.plate(tr('Robineau takes her to the office; she stands at the window over the field.'));
     },
     // 3.7: ⚑ Robineau
     async g => {
-      await g.scene('bureau', { here: ['riviere', 'telegraphist'], moods: { riviere: 'tired', telegraphist: 'sad' }, keys: { ...bureau(clock(2, 48)), riviere_look: 'rob_desk', telegraphist_look: 'tel_inker' } });
+      const { bearing } = facts(g.state);
+      await g.scene('bureau', { here: ['riviere', 'telegraphist', 'robineau'], moods: { riviere: 'tired', telegraphist: 'sad', robineau: 'sad' },
+        keys: { ...bureau(clock(2, 48), { flags: bearing ? FLAGS.sea : FLAGS.night }), riviere_look: 'robineau', telegraphist_look: 'tel_inker', robineau_spot: 'desk', robineau_look: 'rob_top' } });
       await g.plate(tr('Robineau comes back and stands at his desk over his papers; his shoulders are shaking. The telegraphist is at the inker.'));
       const robineau = await g.choose('robineau', { 'riviere#chest': [
         { id: 'work', label: tr('“Get to work, Robineau”') },
@@ -183,13 +189,19 @@ export default {
       ] });
       if (robineau === 'work') {
         await g.say('riviere', 'Get to work, Robineau');
+        g.set('robineau_spot', 'writing');
         await g.plate(tr('Robineau sits down to his report. Rivière’s hand rises over his shoulder — and comes down.'));
       } else if (robineau === 'sit') {
         await g.say('riviere', 'Sit down');
+        g.set('riviere_spot', 'bench');
+        g.set('robineau_spot', 'bench');
+        g.set('robineau_look', 'riviere');
+        g.set('riviere_look', null);
         await g.plate(tr('Rivière sits down on the bench by the telegraph; Robineau, not believing it, sits down beside him. They are silent. The telegraphist looks at them and turns away to the inker.'));
       } else {
         g.set('riviere_look', 'map');
         await g.plate(tr('Rivière turns away to the map. Robineau stands; then he takes his folder and goes out onto the field, without his coat.'));
+        g.here('robineau', false);
       }
       g.apply('robineau');
     },
