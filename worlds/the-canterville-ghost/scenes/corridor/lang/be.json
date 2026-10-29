@@ -1,8 +1,8 @@
 {"strings": [
-  {"text":"YE OTIS GHOSTE","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
-  {"text":"Ye Onlie True and Originale Spook.","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
-  {"text":"Beware of Ye Imitationes.","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
-  {"text":"All others are Counterfeite.","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
-  {"text":"The Corridor","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json title"},
-  {"text":"Canterville Chase, one o'clock at night. Something clanks in the corridor.","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json caption"}
+  {"text":"YE OTIS GHOSTE","translation":"ПРЫВІД ОТЫСАЎ","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"Ye Onlie True and Originale Spook.","translation":"Адзіны сапраўдны і арыгінальны прывід.","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"Beware of Ye Imitationes.","translation":"Сцеражыцеся падробак.","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"All others are Counterfeite.","translation":"Усе астатнія — фальшыўкі.","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"The Corridor","translation":"Калідор","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json title"},
+  {"text":"Canterville Chase, one o'clock at night. Something clanks in the corridor.","translation":"Кентэрвільскі замак, гадзіна ночы. У калідоры нешта бразгае.","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json caption"}
 ]}
