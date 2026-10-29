@@ -91,10 +91,16 @@ export default {
       await g.say('simon', 'I have not slept for three hundred years. I am so tired', { how: 'very quietly, the actor gone out of his voice' });
       await g.say('virginia', 'Then why don’t you go to sleep?');
       await g.say('simon', 'Far away beyond the pine-woods there is a little garden. There the grass grows long and deep, there are the great white stars of the hemlock flower, and the nightingale sings all night long…', { how: 'dreamily, slowly, almost singing' });
-      await g.play(nightingale);
-      await g.plate(tr('The tapestries darken; in the window, instead of the avenue, moonlit grass; a nightingale sings.'));
-      await g.say('virginia', 'You mean the Garden of Death');
-      await g.say('simon', 'To lie in the soft brown earth, and listen to silence. To have no yesterday, and no tomorrow');
+      const { touched } = await g.play(nightingale);
+      if (touched) {
+        // (М5 touched: he breaks off, and says the rest shorter)
+        await g.say('simon', 'You are not listening', { how: 'breaking off, hurt, then tired' });
+        await g.say('virginia', 'You mean the Garden of Death');
+      } else {
+        await g.plate(tr('The tapestries darken; in the window, instead of the avenue, moonlit grass; a nightingale sings.'));
+        await g.say('virginia', 'You mean the Garden of Death');
+        await g.say('simon', 'To lie in the soft brown earth, and listen to silence. To have no yesterday, and no tomorrow');
+      }
       await g.say('simon', 'You can open its doors for me. For Love is always with you, and Love is stronger than Death');
     },
     // 3.6: the prophecy; the wall parts

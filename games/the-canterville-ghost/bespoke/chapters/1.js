@@ -3,7 +3,8 @@
 // insulted; the stain comes back, morning after morning, and the family bets on its colour; the dry almond, and her
 // reds scraped out of the box; ⚑ the paints.
 // Stand-ins (story.js PLACES): the corridor — the library; the garden by the house — the Garden of Death.
-// Reads: nothing. Leaves: choices.goodnight, choices.paints, marks.goodnight, marks.paints, scales.
+// Reads: nothing. Leaves: choices.goodnight, choices.paints, marks.goodnight, marks.paints, scales; the mini-games' traces:
+// marks.creaked (М2 — he turns at the creak), marks.sketch (М3 — the blot stays on the sketch, «Пятно»).
 import { LIBRARY, CORRIDOR, GROUNDS, facts } from '../story.js';
 import { door, sketch } from '../minigames/all.js';
 
@@ -20,7 +21,8 @@ export default {
       await g.scene('corridor', { here: ['simon'], moods: { simon: 'angry' }, keys: CORRIDOR.chains });
       g.title(tr('The First Night'));
       await g.plate(tr('Night, one o’clock. In the corridor — a clank of metal, footsteps, a groan. There is light under Virginia’s door.'));
-      await g.play(door);
+      const { creaked } = await g.play(door);
+      g.mark('creaked', creaked, null);
     },
     // 1.2: the lubricator; the pillow; ⚑ “Good night, sir” — a chance at the crack of her door
     async g => {
@@ -37,11 +39,14 @@ export default {
       await g.plate(tr('The ghost stands still. Then he snatches up the bottle, dashes it on the floor and howls. From the twins’ door a pillow flies past his head. He backs away to the wall — past Virginia’s door, past the crack she is looking through.'));
       const goodnight = await g.choose('goodnight', { 'simon#chest': [
         { id: 'wish', label: tr('Whisper: “Good night, sir”') },
-      ] }, { within: 5000, otherwise: 'pass' });
+      ] }, { within: 3000, otherwise: 'pass', touch: tr('An old man in fetters at the crack of her door.') });
       if (goodnight === 'wish') {
         await g.say('virginia', 'Good night, sir', { how: 'a whisper through the crack of the door' });
         g.mood('simon', 'surprised');
         await g.plate(tr('He stops dead and looks into the crack. His eyes go out — just an old man. He goes into the wall without answering.'));
+      } else if (g.state.marks.creaked) {
+        g.mood('simon', 'angry');
+        await g.plate(tr('He turns at the creak and looks into the crack with burning eyes — and goes past without a word, into the wall.'));
       } else {
         await g.plate(tr('He goes past without noticing the crack, and into the wall.'));
       }
@@ -83,7 +88,8 @@ export default {
     async g => {
       await g.scene('grounds', { here: ['virginia', 'mrs_umney'], moods: { virginia: 'thinking' }, keys: GROUNDS.paint });
       await g.plate(tr('Morning in the garden. Virginia at her easel, painting the old dry almond tree.'));
-      await g.play(sketch);
+      const { blot } = await g.play(sketch);
+      g.mark('sketch', blot ? 'blot' : 'clean', null);
       await g.say('mrs_umney', 'It does not flower. Not as long as I can remember', { how: 'in passing, to herself' });
       g.mood('virginia', 'surprised');
       await g.plate(tr('Virginia reaches for her red — the cakes of red and of vermilion are nearly gone, scraped out. She looks at the house.'));

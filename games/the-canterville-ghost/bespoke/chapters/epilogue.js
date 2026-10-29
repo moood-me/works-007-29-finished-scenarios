@@ -57,6 +57,7 @@ export default {
         }
         if (f.paints === 'leave') await g.plate(tr('Virginia leaves her sketch of the dry almond on the window-sill by the library: her paint-box has stood there since that night — she would not let it be cleared away. The sketch goes on top of it.'));
         else await g.plate(tr('Virginia leaves her sketch of the dry almond on the window-sill by the library.'));
+        if (g.state.marks.sketch === 'blot') await g.plate(tr('On the sketch, on the old trunk, the blot where the brush slipped that morning.'));
         if (f.warned) await g.plate(tr('That morning her candle-end lay at her door. She takes it with her.'));
         if (f.door === 'stay') {
           await g.scene('hall', { here: ['otis', 'virginia'], moods: { otis: 'tired', virginia: 'sad' }, keys: OTIS });

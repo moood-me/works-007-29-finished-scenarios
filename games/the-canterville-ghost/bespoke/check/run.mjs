@@ -62,21 +62,37 @@ const view = new Proxy({}, { get: () => nothing });
 const hub = { offer: () => new Promise(nothing), ask: async () => null, withdraw: nothing };
 // a point ('id', 'id#name') of a scene: a person there now ('id', 'id#chest'), or its element and its name in the
 // element's code
-function point(folder, ref, where, present) {
+// (a person's points: the engine's — people/player.js POINTS — and the cast's parts' — `flame`, `torch`, `book`)
+const BODY = new Set(['head', 'hand_r', 'hand_l', 'hands', 'chest', 'hips', 'foot_r', 'foot_l', 'feet', 'flame', 'torch', 'book']);
+// what the scene lacks yet that the pieces' contract asks of it (game.md «Stage 5 — pieces»): `wait` — said apart, as
+// waited for, not as wrong
+function point(folder, ref, where, present, wait = null) {
   const s = SCENES.get(folder), [id, name] = ref.split('#');
   if (!s) return;
+  const no = wait ?? miss;
   if (s.objects.get(id)?.person) {
     if (!present.has(id)) miss(`${where}: the point “${ref}” — “${id}” is not there now`);
-    else if (name && name !== 'chest') miss(`${where}: the point “${ref}” — a person's point is their head or “#chest”`);
-  } else if (!s.objects.has(id)) miss(`${where}: the point “${ref}” — no element “${id}” in the scene “${folder}”`);
-  else if (name && !new RegExp(`['"\`]${name}['"\`]`).test(s.code(id))) miss(`${where}: the point “${ref}” — the element's code names no “${name}”`);
+    else if (name && !BODY.has(name)) miss(`${where}: the point “${ref}” — a person has no point “${name}”`);
+  } else if (!s.objects.has(id)) no(`${where}: the point “${ref}” — no element “${id}” in the scene “${folder}”`);
+  else if (name && !new RegExp(`['"\`]${name}['"\`]`).test(s.code(id))) no(`${where}: the point “${ref}” — the element's code names no “${name}”`);
 }
+// the keys a mini-game moves: the scene's (its states) or a person's of it
+function moves(folder, k, where, wait) {
+  const s = SCENES.get(folder);
+  if (!s || s.states[k]) return;
+  const person = /^(.+)_(do|turn|look|reach|with|wear|gait|steps|on|here|still|mood|a|d|candle)$/.exec(k)?.[1];
+  if (person && s.objects.get(person)?.person) return;
+  wait(`${where}: the key “${k}” — not in the states of the scene “${folder}”`);
+}
+const waits = new Map();
+const pending = text => waits.set(text, (waits.get(text) ?? 0) + 1);
 
 const lines = new Map(); // `${who}\n${text}` → {who, text}
 // a step played unseen on `state` (its choices made as they say, the first offered where they say nothing) → {state,
 // made: the choice it made, titles: the titles it showed}
-async function step(c, s, state, where) {
+async function step(c, s, state, where, result = null) {
   const j = jump(Infinity);
+  j.result = result;
   const g = context(b, view, hub, structuredClone(state), j);
   let folder = null, present = new Set();
   const made = [], titles = [];
@@ -125,24 +141,17 @@ async function step(c, s, state, where) {
     if (choice) made.push(choice);
     return choose(choice, offers, chance);
   };
-  g.play = (m, o) => { point(folder, atOf(m), where, present); return play(m, o); };
+  g.play = (m, o) => {
+    for (const ref of m.points ?? []) point(folder, ref, m.title, present, pending);
+    for (const k of m.keys ?? []) moves(folder, k, m.title, pending);
+    return play(m, o);
+  };
   g.title = text => { titles.push(text); return title(text); };
   let broke = null;
   await Promise.race([CHAPTERS[c].steps[s](g).catch(e => { broke = e; }), j.idle]);
   if (broke) miss(`${where}: the step broke: ${broke.message}`);
   return { state: g.state, made, titles };
 }
-// (a stub's point: as stub.js was given it)
-const POINTS = new Map();
-const stubs = await load('minigames/all.js');
-for (const [name, m] of Object.entries(stubs)) {
-  const src = readFileSync(join(game, 'minigames/all.js'), 'utf8');
-  const at = new RegExp(`export const ${name} = stub\\(\\{[^]*?at: '([^']+)'`).exec(src)?.[1];
-  if (!at) miss(`minigames/all.js: “${name}” has no point`);
-  POINTS.set(m, at ?? '');
-}
-const atOf = m => POINTS.get(m) ?? '';
-
 // --- every path: depth first, a step played again for each option of the choice it makes
 const STEPS = CHAPTERS.flatMap((ch, c) => ch.steps.map((_, s) => [c, s]));
 const ends = new Map(); // `${ending} ${form}` → paths
@@ -182,13 +191,20 @@ for (const p of PLAYS) {
   for (const [c, s] of STEPS) state = (await step(c, s, { ...state, choices: { ...p.choices, ...state.choices } }, p.label)).state;
   const f = facts(state), named = ENDINGS.find(e => p.label.startsWith(`${e.label} —`))?.id;
   if (named !== f.ending) miss(`PLAYS “${p.label}” ends in “${f.ending}”`);
+  // and once more with every mini-game missed (its `missed`: the trace a miss leaves, scenario §7)
+  let missed = fresh();
+  for (const [c, s] of STEPS) missed = (await step(c, s, { ...missed, choices: { ...p.choices, ...missed.choices } }, `${p.label} (missed)`, m => m.missed)).state;
 }
+// every mini-game has the trace of a miss
+for (const [name, m] of Object.entries(await load('minigames/all.js'))) if (!m.missed) miss(`minigames: “${name}” has no “missed”`);
 
 const out = [];
 out.push(`paths: ${paths}`);
 for (const [k, n] of [...ends].sort()) out.push(`  ${k}: ${n}`);
 out.push('', misses.size ? 'DOES NOT MATCH:' : 'nothing to fix');
 for (const [text, n] of misses) out.push(`  ${text} (paths: ${n})`);
+out.push('', waits.size ? 'WAITED FOR (the pieces’ contract, game.md):' : 'nothing waited for');
+for (const [text, n] of waits) out.push(`  ${text} (paths: ${n})`);
 out.push('', `lines said (${lines.size}):`);
 for (const { who, text } of lines.values()) out.push(`  ${who} | ${text}`);
 console.log(out.join('\n'));

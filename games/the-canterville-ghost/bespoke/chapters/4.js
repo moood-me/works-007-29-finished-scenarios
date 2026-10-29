@@ -79,8 +79,9 @@ export default {
       await g.plate(tr('At her door.'));
       await g.say('otis', 'Promise me: never alone. Not to him, not after him');
       await g.plate(tr('He holds out his hand.'));
-      await g.play(word);
+      const { slips } = await g.play(word);
       await g.say('virginia', 'I promise');
+      if (slips) await g.plate(tr('She takes her hand back first; Papa holds his out a moment longer.'));
       await g.plate(tr('He sets an armchair at her door and sits down in it with a book.'));
       await g.say('otis', 'I’ll sit here. I can’t sleep anyway');
       g.mark('word', 'given', tr('You promised Papa: “Never alone.”'));
@@ -138,7 +139,8 @@ export default {
         await g.say('virginia', 'I know');
         await g.plate(tr('The wall parts.'));
       } else if (door === 'stay') {
-        await g.play(threshold);
+        const { stepped } = await g.play(threshold);
+        if (stepped) await g.plate(tr('She takes half a step over the threshold, and stops. He does not turn.'));
         if (wished) {
           await g.say('virginia', 'Good night, sir', { how: 'a whisper after him down the corridor' });
           await g.plate(tr('He stops, without turning round.'));
@@ -149,9 +151,10 @@ export default {
         g.here('simon', false);
         await g.plate(tr('His light vanishes into the wall. She shuts her door. Papa sleeps.'));
       } else {
-        await g.play(shoulder);
+        const { sharp } = await g.play(shoulder);
         g.mood('otis', 'surprised');
-        await g.plate(tr('Papa wakes and sees the light at the end of the corridor. He gets up.'));
+        if (sharp) await g.plate(tr('Papa starts up; the book falls from his knees. He sees the light at the end of the corridor. He gets up.'));
+        else await g.plate(tr('Papa wakes and sees the light at the end of the corridor. He gets up.'));
         g.mood('otis', 'neutral');
         await g.say('otis', 'Sir. My daughter stays', { how: 'slowly, very politely, standing between them' });
         if (plays) await g.plate(tr('The ghost makes a long, old-fashioned bow; he still holds his chains in his hand.'));
@@ -236,7 +239,8 @@ async function dark(g) {
   await g.plate(tr('Darkness beyond the wall: only his pale light, and her face and hands in it. Shadows, wings, whispers:'));
   await g.say('voices', 'Go back, little Virginia! Go back!');
   await g.say('simon', 'Do not listen');
-  await g.play(hand);
+  const { slips } = await g.play(hand);
+  if (slips) await g.plate(tr('Her hand lost his in the dark and searched — and his found hers by itself.'));
 }
 // 4.3 / 4С.5: his one request
 async function pray(g) {
@@ -277,7 +281,8 @@ async function tears(g) {
     await g.plate(tr('He looks at her tears as at a miracle.'));
   }
   await g.plate(tr('He takes a little casket out of his sleeve and lays it in her palm, without a word.'));
-  await g.play(release);
+  const { long } = await g.play(release);
+  if (long) await g.plate(tr('His hand slips out of hers by itself.'));
   g.mood('simon', 'tired');
   await g.plate(tr('He lies down in the grass under the yew.'));
   if (wished) await g.say('simon', 'Good night, Miss Virginia', { how: 'very softly, falling asleep' });

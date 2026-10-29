@@ -6,9 +6,8 @@
 // (docs/new-games/kentervilskoe-prividenie/scenario.md), each a row of steps on the world's scenes; the choices, the
 // scales (Sir Simon: plays — is tired; Virginia: shares — keeps it to herself) and what is remembered carry from chapter
 // to chapter; the wall (3.7) and, after it, the chair (4С.4) decide the finale (story.js facts).
-// Stage 3 (moood-me/moood docs/writing/game-stages.md): the play whole on the world's three scenes, people standing;
-// what the film would show — plates with “Next”; the mini-games — stubs (minigames/stub.js); places not drawn yet —
-// the people in a scene of the world and a label saying where it really is (story.js PLACES).
+// Stage 5 under way (moood-me/moood docs/writing/game-stages.md): the places on their scenes, the mini-games real
+// (minigames/); the scenes' pieces in place of the plates as they come (game.md «Stage 5 — pieces»).
 //   The map of the play (moood docs/games/games.md §2), at stage 3 a row of leaves over the library (map.js) — the
 // world has no map's scene yet. What can be done on it is its own drawing — pressed, the language's mark opens there,
 // born open (story.js hub.ask): the main run's pointer — “Start”, “Continue” (from the beginning of the step it stopped

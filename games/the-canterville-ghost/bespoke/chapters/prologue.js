@@ -1,7 +1,7 @@
 // Prologue. “Pinkerton’s Champion” (scenario §5, П.1–П.5). The evening they arrive, a storm: the bloodstain before the
 // hearth, Pinkerton’s Champion rubs it out — thunder; in the window, behind the family’s backs, an old face only Virginia
 // sees; ⚑ the face (it only colours).
-// Reads: nothing. Leaves: choices.face, marks.face, scales.virginia.
+// Reads: nothing. Leaves: choices.face, marks.face, scales.virginia. М1 touched — «There was someone… I think».
 import { LIBRARY } from '../story.js';
 import { glass } from '../minigames/all.js';
 
@@ -34,9 +34,7 @@ export default {
     async g => {
       await g.scene('library', { here: ['virginia', 'otis'], moods: { virginia: 'thinking', otis: 'laugh' }, keys: LIBRARY.evening }, { cut: true });
       await g.plate(tr('Everyone is laughing and fanning Mrs Umney. Virginia is looking at the dark window.'));
-      await g.play(glass);
-      g.here('simon', true);
-      g.mood('simon', 'sad');
+      const { touched } = await g.play(glass);
       g.mood('virginia', 'afraid');
       await g.plate(tr('Lightning: in the glass, behind the family’s backs, an old face, its eyes like red coals. It is looking at the clean floor.'));
       const face = await g.choose('face', { 'virginia#chest': [
@@ -44,8 +42,8 @@ export default {
         { id: 'silent', label: tr('Say nothing') },
       ] });
       if (face === 'told') {
-        await g.say('virginia', 'There was someone. In the window');
-        g.here('simon', false);
+        if (touched) await g.say('virginia', 'There was someone… I think', { how: 'unsure, quietly' });
+        else await g.say('virginia', 'There was someone. In the window');
         await g.plate(tr('Everyone turns round: in the window there is only rain.'));
         await g.say('washington', 'A reflection, Ginny. Shall I take that out too?');
         g.mood('virginia', 'sad');
@@ -55,7 +53,6 @@ export default {
       } else {
         g.mood('virginia', 'thinking');
         await g.plate(tr('She looks at the window till Mrs Umney opens her eyes. The face is gone. She says nothing.'));
-        g.here('simon', false);
       }
       g.apply('face');
     },

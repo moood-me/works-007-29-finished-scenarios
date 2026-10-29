@@ -71,13 +71,15 @@ export default {
         { id: 'defend', label: tr('Tell the boys: “Don’t”') },
       ] });
       if (trap === 'warn') {
-        await g.scene('tapestry', { here: ['virginia'], moods: { virginia: 'afraid' } });
+        await g.scene('corridor', { here: ['virginia'], moods: { virginia: 'afraid' }, keys: CORRIDOR.candle });
         await g.plate(tr('A quarter to midnight. She takes a candle and goes to the Tapestry Chamber.'));
-        await g.play(candle);
-        await g.plate(tr('The room is empty.'));
+        const { out } = await g.play(candle);
+        await g.scene('tapestry', { here: ['virginia'], moods: { virginia: 'afraid' } }, { cut: true });
+        if (out) await g.plate(tr('The candle has gone out. In the dark she finds the window-sill by feel. The room is empty.'));
+        else await g.plate(tr('The room is empty.'));
         await g.say('virginia', 'Sir Simon. It is Virginia. Don’t go round the corner tonight', { how: 'a whisper into an empty room' });
         await g.wait(1500);
-        await g.say('simon', 'Young lady. Ghosts do not change their routes', { at: 'narrator', how: 'from inside the wall, deeply offended' });
+        await g.say('simon', 'Young lady. Ghosts do not change their routes', { at: 'narrator', how: 'out of the dark, from inside the wall, deeply offended' });
         g.mood('virginia', 'sad');
         await g.plate(tr('She leaves the candle-end on the window-sill.'));
         await g.scene('corridor', { here: ['simon'], moods: { simon: 'disgusted' }, keys: CORRIDOR.midnight });
@@ -131,7 +133,7 @@ export default {
       await g.plate(tr('Night; the house has grown too quiet. Papa at his desk under the lamp, writing letters to London. Virginia in the doorway, in her nightgown.'));
       await g.say('otis', 'Can’t sleep? Neither can I. Sit down', { how: 'without raising his head, warmly' });
       await g.plate(tr('She sits on the window-sill with her sketchbook and draws him at his lamp.'));
-      await g.play(portrait);
+      const { askew } = await g.play(portrait);
       g.mood('virginia', 'thinking');
       await g.say('virginia', 'Papa. If a person did something very bad — long, long ago — may one pity him?');
       await g.plate(tr('Papa lays down his pen and thinks.'));
@@ -152,8 +154,14 @@ export default {
       g.mood('virginia', 'neutral');
       g.mood('otis', 'smile');
       await g.plate(tr('Papa takes the drawing and looks at it.'));
-      await g.say('otis', 'It is like me. Let it stand here');
-      await g.plate(tr('He stands it against his inkstand. In the doorway, Mrs Otis in her shawl.'));
+      if (askew) {
+        g.mood('otis', 'laugh');
+        await g.say('otis', 'My nose is longer, I believe', { how: 'amused, warmly' });
+        await g.plate(tr('He laughs — and stands it against his inkstand all the same. In the doorway, Mrs Otis in her shawl.'));
+      } else {
+        await g.say('otis', 'It is like me. Let it stand here');
+        await g.plate(tr('He stands it against his inkstand. In the doorway, Mrs Otis in her shawl.'));
+      }
       await g.say('mrs_otis', 'Your feet are like ice. Off to bed');
       await g.say('otis', 'Go. I’ll sit up a while. I can’t sleep anyway');
     },
