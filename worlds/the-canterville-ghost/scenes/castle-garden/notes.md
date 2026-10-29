@@ -66,3 +66,22 @@ Added to the cast for this place: the characters `mrs_umney`, `cecil`, `mrs_otis
 By day the sun low behind the viewer on the right (`sun`), a fresh morning ambient; the look `night` (moonlight from
 `sky#disc`, the night ambient, the sun out) and `clouds` (the moon's light dimmed). Torches (`torches`, `torch_held`)
 and the candle (`candle`) light the funeral warm.
+
+## Looked at
+
+Rendered on the studio (picture of the default; frames of the funeral at night and of an autumn day with Virginia
+sitting, Cecil on the grass and the coaches): every face reads; the funeral is lit warm by the torches under the
+moon, readable; the colours are the world's (the library's and the tapestry room's storybook look).
+
+## What is not right yet
+
+- Virginia at the easel shows her face: the board is seen from behind (its back, her box of colours on its shelf);
+  the study itself is never seen in this view — M3 «Этюд» (stage 5) needs its own close-up of the sheet.
+- The mourners stand behind the churchyard railing as seen from the garden: its bars cross them. A closer shot of
+  the funeral is stage 5's camera.
+- The cross of almond blossom laid on the coffin is a ridge of flowers along its top: the coffin is a side-on card,
+  its lid seen almost edge on from the garden.
+- The coaches are seen from behind only (they go away from the viewer); their horses are legs and tails under them.
+- Mrs Umney passing and Virginia painting are standing poses (`stand`, `offer` with a brush): the walk past and the
+  brush stroke are stage 5's.
+
