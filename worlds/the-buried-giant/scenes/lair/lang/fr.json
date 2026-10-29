@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Dragon's Lair","translation":"Le repaire de la dragonne","where":"worlds/the-buried-giant/scenes/lair/scene.json title"},
+  {"text":"Her breath is the mist.","translation":"Son haleine, c’est la brume.","where":"worlds/the-buried-giant/scenes/lair/scene.json caption"}
+]}

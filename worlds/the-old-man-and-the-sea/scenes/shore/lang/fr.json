@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Beach","translation":"La plage","where":"worlds/the-old-man-and-the-sea/scenes/shore/scene.json title"},
+  {"text":"Eighty-four days now without taking a fish.","translation":"Quatre-vingt-quatre jours déjà sans prendre un poisson.","where":"worlds/the-old-man-and-the-sea/scenes/shore/scene.json caption"}
+]}

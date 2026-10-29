@@ -7,5 +7,5 @@
     "river": 15
   },
   "main": "terrace",
-  "languages": ["en", "ru", "uk", "de", "es", "ja", "be"]
+  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr"]
 }

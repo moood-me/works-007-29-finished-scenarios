@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Judge's Garden","translation":"Le jardin du juge","where":"worlds/traps/scenes/garden/scene.json title"},
+  {"text":"A July evening on the hill. The table under the chestnut is laid for one more.","translation":"Un soir de juillet sur la colline. La table sous le châtaignier est mise pour un convive de plus.","where":"worlds/traps/scenes/garden/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Kitchen on a Friday","translation":"La cuisine, un vendredi","where":"worlds/story-of-your-life/scenes/kitchen/scene.json title"},
+  {"text":"Friday, early. A car is waiting under the window; she has only come for the warm sleeping bag.","translation":"Vendredi, tôt le matin. Une voiture attend sous la fenêtre ; elle n’est passée que pour prendre le sac de couchage chaud.","where":"worlds/story-of-your-life/scenes/kitchen/scene.json caption"}
+]}

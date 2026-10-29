@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Of Mice and Men","translation":"Des souris et des hommes","where":"worlds/of-mice-and-men/world.json title"},
+  {"text":"A ranch bunkhouse, a barn, a pool by the river. Two men and a dream of a little place.","translation":"Le baraquement d’un ranch, une grange, une mare au bord de la rivière. Deux hommes et le rêve d’un petit bout de terre.","where":"worlds/of-mice-and-men/world.json description"}
+]}

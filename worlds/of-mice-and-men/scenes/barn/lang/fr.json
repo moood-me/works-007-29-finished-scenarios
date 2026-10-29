@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Barn","translation":"La grange","where":"worlds/of-mice-and-men/scenes/barn/scene.json title"},
+  {"text":"Sunday afternoon. The sun comes through the cracks in lines across the hay.","translation":"Dimanche après-midi. Le soleil passe par les fentes et se pose en raies sur le foin.","where":"worlds/of-mice-and-men/scenes/barn/scene.json caption"}
+]}

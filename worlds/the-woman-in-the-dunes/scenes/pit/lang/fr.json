@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Pit","translation":"Le trou","where":"worlds/the-woman-in-the-dunes/scenes/pit/scene.json title"},
+  {"text":"At the bottom of the pit the sea is only heard.","translation":"Au fond du trou, la mer, on ne fait que l’entendre.","where":"worlds/the-woman-in-the-dunes/scenes/pit/scene.json caption"}
+]}

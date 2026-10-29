@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Farm Kitchen","translation":"La cuisine de la ferme","where":"worlds/the-ocean-at-the-end-of-the-lane/scenes/farm-kitchen/scene.json title"},
+  {"text":"Hempstock Farm, at the end of the lane.","translation":"La ferme Hempstock, au bout du chemin.","where":"worlds/the-ocean-at-the-end-of-the-lane/scenes/farm-kitchen/scene.json caption"}
+]}

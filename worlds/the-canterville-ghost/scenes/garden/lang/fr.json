@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Garden of Death","translation":"Le Jardin de la Mort","where":"worlds/the-canterville-ghost/scenes/garden/scene.json title"},
+  {"text":"Far beyond the pine woods there is a little garden. The grass grows long and deep there.","translation":"Loin, par-delà les bois de pins, il y a un petit jardin. L’herbe y pousse haute et drue.","where":"worlds/the-canterville-ghost/scenes/garden/scene.json caption"}
+]}

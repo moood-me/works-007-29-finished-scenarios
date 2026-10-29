@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Gate to the Field","translation":"La barrière du champ","where":"worlds/klara-and-the-sun/scenes/field/scene.json title"},
+  {"text":"Sunset. Rick at the gate with his bird; across the field the Sun goes down into Mr McBain's barn.","translation":"Coucher de soleil. Rick à la barrière avec son oiseau ; de l’autre côté du champ, le Soleil descend dans la grange de M. McBain.","where":"worlds/klara-and-the-sun/scenes/field/scene.json caption"}
+]}
