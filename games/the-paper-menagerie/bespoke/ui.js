@@ -5,7 +5,6 @@
 //   view.toast(text, kind) — a slip in the corner: 'scale' (a scale set: its name and value), 'rule' (what a scale
 //     means, the first time), 'mark' (remembered), 'know' (what Jack now knows), 'promise' (a promise given), 'kept'
 //     (a promise kept, or what came of it); three at most
-//   view.sub(text | null) — the subtitle under a line said in Chinese: its meaning in the play's language
 //   view.plate(text, {signal}) — a plate low over the scene: what happens here that the scene does not show, and
 //     “Next”; → once it is pressed (or Space / Enter)
 //   view.sheet(title, lines, {signal}) — the same, a list
@@ -33,8 +32,6 @@ export function ui(layer) {
   const toasts = el('div', 'toasts', layer);
   const label = el('p', 'where', layer);
   label.hidden = true;
-  const sub = el('p', 'sub', layer);
-  sub.hidden = true;
   let hinted = () => {};
   // a plate (or a sheet) waiting for “Next”: one at a time
   function plate(fill, { signal } = {}) {
@@ -83,10 +80,6 @@ export function ui(layer) {
         for (const line of lines) el('li', '', list).textContent = line;
       }, opts);
     },
-    sub(text) {
-      sub.hidden = !text;
-      sub.textContent = text ?? '';
-    },
     where(text) {
       label.hidden = !text;
       label.textContent = text ?? '';
@@ -111,7 +104,6 @@ export function ui(layer) {
     },
     quiet() {
       toasts.replaceChildren();
-      sub.hidden = true;
       hinted();
       label.hidden = true;
     },

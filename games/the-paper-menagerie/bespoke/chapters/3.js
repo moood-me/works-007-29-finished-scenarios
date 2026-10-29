@@ -95,13 +95,13 @@ export default {
       await piece(g, 'bench', {
         ask: async () => {
           if (f.lang === 2) {
-            await g.say('jack_grown', '阿姨，您能帮我念一下吗？', { sub: tr('Auntie, could you read this for me?'), how: 'in Mandarin Chinese, plain home Chinese, a little shy' });
-            await g.say('translator', '你说话像乡下人。像我奶奶。', { sub: tr('You talk like a villager. Like my grandmother.'), how: 'surprised, warming at once' });
+            await g.say('jack_grown', 'Auntie, could you read this for me?', { spoken: '阿姨，您能帮我念一下吗？', how: 'in Mandarin Chinese, plain home Chinese, a little shy' });
+            await g.say('translator', 'You talk like a villager. Like my grandmother.', { spoken: '你说话像乡下人。像我奶奶。', how: 'surprised, warming at once' });
           } else if (f.lang === 1) await g.say('jack_grown', 'Could you read this for me? Read it as it is — in Chinese. I’ll understand', { how: 'a little shy' });
           else await g.say('jack_grown', 'Could you read this for me? It’s in Chinese', { how: 'a little shy' });
         },
-        warm: () => (f.lang === 2 ? g.say('translator', '这么暖和。', { sub: tr('So warm.'), how: 'surprised' }) : g.say('translator', 'So warm', { how: 'surprised' })),
-        wind: () => (f.lang === 2 ? g.say('translator', '风吹的。', { sub: tr('The wind.'), how: 'brushing it off' }) : g.say('translator', 'The wind', { how: 'brushing it off' })),
+        warm: () => (f.lang === 2 ? g.say('translator', 'So warm.', { spoken: '这么暖和。', how: 'surprised' }) : g.say('translator', 'So warm', { how: 'surprised' })),
+        wind: () => (f.lang === 2 ? g.say('translator', 'The wind.', { spoken: '风吹的。', how: 'brushing it off' }) : g.say('translator', 'The wind', { how: 'brushing it off' })),
       }, () => g.scene('square', { beat: 'bench', here: SQUARE, moods: { jack: 'neutral', translator: 'neutral' }, keys: { tear: 'taped' } }));
       // (whose voice: 2 — the woman's first, then hers; 1 — the woman's, the last line hers; 0 — the woman translating)
       const who = f.lang > 0 ? 'translator' : 'en', on = f.lang === 2 ? 'mom' : who;
@@ -115,7 +115,7 @@ export default {
           await read(g, on, 'p3');
           if (f.talk === 'grandma') {
             g.mood('jack', 'surprised');
-            if (f.lang === 2) await g.say('jack_grown', '接着念。', { sub: tr('Go on.'), how: 'in Mandarin Chinese, hoarse' });
+            if (f.lang === 2) await g.say('jack_grown', 'Go on.', { spoken: '接着念。', how: 'in Mandarin Chinese, hoarse' });
             else await g.say('jack_grown', 'Go on', { how: 'hoarse' });
             g.kept(tr('“I’ll finish later” — she finished it here.'));
           }
@@ -130,13 +130,13 @@ export default {
     async g => {
       const f = facts(g.state);
       await piece(g, 'tear', {
-        open: () => (f.lang === 2 ? g.say('translator', '这儿撕破了，边叠在一起了。字在底下。', { sub: tr('It’s torn here, the edges overlap. The word is under them.'), how: 'peering, practical' })
+        open: () => (f.lang === 2 ? g.say('translator', 'It’s torn here, the edges overlap. The word is under them.', { spoken: '这儿撕破了，边叠在一起了。字在底下。', how: 'peering, practical' })
           : g.say('translator', 'It’s torn here, the edges overlap. The word is under them', { how: 'peering, practical' })),
       }, () => g.scene('square', { beat: 'tear', here: SQUARE, moods: { jack: 'sad', translator: 'thinking' }, keys: { tear: 'taped' } }, { cut: true }));
       const { missed } = await g.play(peel);
       if (missed) {
         g.mark('curled', true, null);
-        if (f.lang === 2) await g.say('translator', '看不清。大概是——“一个人”。', { sub: tr('I can’t see. Probably — “alone”.'), how: 'squinting, gently' });
+        if (f.lang === 2) await g.say('translator', 'I can’t see. Probably — “alone”.', { spoken: '看不清。大概是——“一个人”。', how: 'squinting, gently' });
         else await g.say('translator', 'I can’t see. Probably — “alone”', { how: 'squinting, gently' });
       }
       const who = f.lang === 2 ? 'mom' : f.lang === 1 ? 'translator' : 'en';
@@ -153,9 +153,10 @@ export default {
       if (f.asked) g.kept(tr('“I’ll tell you later” — “Here is later.”'));
       else g.kept(tr('“I’ll tell you later” — she told it in the letter.'));
       await piece(g, 'reading_end', {
-        back: () => (f.lang === 2 ? g.say('jack_grown', '不用。我就这样拿着。', { sub: tr('Don’t. I’ll keep it like this.'), how: 'in Mandarin Chinese, gently' })
+        back: () => (f.lang === 2 ? g.say('jack_grown', 'Don’t. I’ll keep it like this.', { spoken: '不用。我就这样拿着。', how: 'in Mandarin Chinese, gently' })
           : g.say('jack_grown', 'Don’t. I’ll keep it like this', { how: 'gently' })),
-        guide: () => g.say('guide', '周阿姨！上车了！', { sub: f.lang > 0 ? tr('Auntie Zhou! The bus!') : null, how: 'shouting across the square in Mandarin Chinese' }),
+        guide: () => (f.lang > 0 ? g.say('guide', 'Auntie Zhou! The bus!', { spoken: '周阿姨！上车了！', how: 'shouting across the square in Mandarin Chinese' })
+          : g.say('guide', '周阿姨！上车了！', { how: 'shouting across the square in Mandarin Chinese' })),
       });
     },
     // 3.4: Mark across the street; the box of the woken animals; ⚑ what does she write? (`mark` toward the street, then
@@ -242,7 +243,7 @@ export default {
         await g.play(fold);
         await piece(g, 'tiger_up', {
           up: () => g.mood('jack', 'smile'),
-          hum: () => (f.lang === 2 ? g.say('jack_grown', '两只老虎，两只老虎，跑得快……', { sub: tr('Two tigers, two tigers, running fast…'), how: 'humming the children’s song softly, with the words, in Mandarin Chinese' })
+          hum: () => (f.lang === 2 ? g.say('jack_grown', 'Two tigers, two tigers, running fast…', { spoken: '两只老虎，两只老虎，跑得快……', how: 'humming the children’s song softly, with the words, in Mandarin Chinese' })
             : f.lang === 1 ? g.say('jack_grown', 'Mm-mm, mm-mm…', { how: 'humming the first line of the children’s song Two Tigers without words, to the tune of Frère Jacques' }) : null),
         });
       } else if (f.ending === 'letter') {
@@ -254,10 +255,10 @@ export default {
         await g.play(flame);
         await piece(g, 'smoke_up', {
           say: async () => {
-            if (f.lang === 2) await g.say('jack_grown', '妈妈，老虎——给你。', { sub: tr('Mom, Laohu — for you.'), how: 'into the fire, in Mandarin Chinese, quietly' });
+            if (f.lang === 2) await g.say('jack_grown', 'Mom, Laohu — for you.', { spoken: '妈妈，老虎——给你。', how: 'into the fire, in Mandarin Chinese, quietly' });
             else if (f.lang === 1) {
               await g.say('jack_grown', 'Mom, Laohu — for you', { how: 'into the fire, quietly' });
-              await g.say('jack_grown', '爱。', { sub: tr('Ài.'), how: 'into the fire, the one word in Mandarin Chinese, barely aloud' });
+              await g.say('jack_grown', 'Ài.', { spoken: '爱。', how: 'into the fire, the one word in Mandarin Chinese, barely aloud' });
             } else await g.say('jack_grown', 'Mom, Laohu — for you', { how: 'into the fire, quietly' });
           },
         });

@@ -1,10 +1,10 @@
 /* The Paper Menagerie — what the game draws over the scene: slips of paper (cream, warm ink), the red and gold of
    Laohu's wrapping paper for what is the player's and for the scales. Plates with “Next” (till the
-   scenes' pieces come), the label of a stand-in place, the scales, the subtitles under her Chinese, the map's row of
+   scenes' pieces come), the label of a stand-in place, the scales, the map's row of
    leaves. */
 #layer { --paper: #f7efe0; --paper-edge: #dcc9a6; --ink: #2a2220; --ink-soft: #6e5c50; --sea: #b8322a; --lamp: #d9a227;
   --serif: Georgia, "Times New Roman", serif; }
-#layer .gauge, #layer .toasts, #layer .where, #layer .hint, #layer .title, #layer .sub { pointer-events: none; }
+#layer .gauge, #layer .toasts, #layer .where, #layer .hint, #layer .title { pointer-events: none; }
 
 #layer .slip, #layer .plate, #layer .where, #layer .gauge .row, #layer .hint {
   box-sizing: border-box; color: var(--ink); font-family: var(--serif); background: var(--paper);
@@ -30,11 +30,6 @@
 #layer .slip.promise, #layer .slip.kept { border-left: 4px solid #7a5aa0; }
 #layer .slip .head { display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
 
-/* the subtitle under a line said in Chinese, low in the middle, over the speech's place */
-#layer .sub { position: absolute; left: 50%; bottom: 96px; translate: -50% 0; margin: 0; max-width: min(760px, calc(100vw - 32px));
-  padding: 4px 14px; border-radius: 4px; background: rgba(20, 14, 12, 0.62); color: #fff8ea; text-align: center;
-  font: 20px/1.35 var(--serif); }
-#layer .sub[hidden] { display: none; }
 #layer .slip.gone { opacity: 0; translate: 0 -6px; }
 @keyframes pm-in { from { opacity: 0; translate: 0 6px; } }
 

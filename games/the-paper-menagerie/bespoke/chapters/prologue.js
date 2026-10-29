@@ -26,7 +26,7 @@ export default {
     // П.2: her tiger in his palms; М1 «Palms» (`palms`)
     async g => {
       await piece(g, 'palms', {
-        give: () => g.say('mom', '拿着。别出声。', { sub: tr('Hold it. Quiet.'), how: 'softly, in Mandarin Chinese, to a crying child' }),
+        give: () => g.say('mom', 'Hold it. Quiet.', { spoken: '拿着。别出声。', how: 'softly, in Mandarin Chinese, to a crying child' }),
       }, () => g.scene('kitchen', { beat: 'palms', here: HOME, moods: { jack: 'sad', mom: 'smile', dad: 'neutral' } }, { cut: true }));
       await g.play(palms);
       g.mood('jack', 'laugh');
@@ -36,29 +36,29 @@ export default {
     async g => {
       await piece(g, 'menagerie', {
         name: async () => {
-          await g.say('mom', '老虎。', { sub: tr('Laohu. Tiger.') });
-          await g.say('jack', '老虎！', { sub: tr('Laohu!'), how: 'delighted, in Mandarin Chinese' });
+          await g.say('mom', 'Laohu. Tiger.', { spoken: '老虎。' });
+          await g.say('jack', 'Laohu!', { spoken: '老虎！', how: 'delighted, in Mandarin Chinese' });
         },
         dad: () => g.say('dad', 'How she does it — don’t ask. I don’t know either', { how: 'getting up, half amused' }),
         fold: async () => {
-          await g.say('mom', '不行。活的不能拆开。', { sub: tr('No. You don’t unfold a living one.') });
-          await g.say('jack', '拆了会怎么样？', { sub: tr('Or what?') });
-          await g.say('mom', '拆了就变成纸了。', { sub: tr('Or it turns into paper.') });
+          await g.say('mom', 'No. You don’t unfold a living one.', { spoken: '不行。活的不能拆开。' });
+          await g.say('jack', 'Or what?', { spoken: '拆了会怎么样？' });
+          await g.say('mom', 'Or it turns into paper.', { spoken: '拆了就变成纸了。' });
           g.know(tr('You don’t unfold a living one: it turns into paper.'));
         },
-        song: () => g.say('mom', '两只老虎，两只老虎，跑得快，跑得快……', { sub: tr('Two tigers, two tigers, running fast, running fast…'), how: 'singing under her breath, the children’s song to the tune of Frère Jacques' }),
+        song: () => g.say('mom', 'Two tigers, two tigers, running fast, running fast…', { spoken: '两只老虎，两只老虎，跑得快，跑得快……', how: 'singing under her breath, the children’s song to the tune of Frère Jacques' }),
       }, () => g.scene('kitchen', { beat: 'menagerie', here: HOME, moods: { jack: 'smile', mom: 'smile', dad: 'smile' } }, { cut: true }));
     },
     // П.4: night; “Where is she?” — “Far away. I'll tell you later.” (`bedtime`)
     async g => {
       await piece(g, 'bedtime', {
         ask: async () => {
-          await g.say('jack', '妈妈，谁教你的？', { sub: tr('Mom, who taught you?'), how: 'sleepily, in Mandarin Chinese' });
-          await g.say('mom', '我妈妈。', { sub: tr('My mom.') });
-          await g.say('jack', '她在哪儿？', { sub: tr('Where is she?'), how: 'sleepily, in Mandarin Chinese' });
+          await g.say('jack', 'Mom, who taught you?', { spoken: '妈妈，谁教你的？', how: 'sleepily, in Mandarin Chinese' });
+          await g.say('mom', 'My mom.', { spoken: '我妈妈。' });
+          await g.say('jack', 'Where is she?', { spoken: '她在哪儿？', how: 'sleepily, in Mandarin Chinese' });
         },
         blanket: async () => {
-          await g.say('mom', '很远。以后再告诉你。', { sub: tr('Far away. I’ll tell you later.'), how: 'lightly, as if it were nothing; under it, “far away” means “nowhere”' });
+          await g.say('mom', 'Far away. I’ll tell you later.', { spoken: '很远。以后再告诉你。', how: 'lightly, as if it were nothing; under it, “far away” means “nowhere”' });
           g.promise(tr('Mom: “I’ll tell you later” — where her mother is.'));
         },
       }, () => g.scene('room', { beat: 'bedtime', here: ['mom', 'jack'], moods: { jack: 'tired', mom: 'smile' }, keys: { menagerie: 'shelf' } }));

@@ -33,7 +33,7 @@ export default {
     async g => {
       await piece(g, 'ingots', {
         say: async () => {
-          await g.say('mom', '今天是清明。死去的人回家。我的家人很远，我给他们寄。烧了的，他们在那边就有了。', { sub: tr('Today is Qingming. The dead come home. Mine are far away — I send them things. What burns, they will have there.') });
+          await g.say('mom', 'Today is Qingming. The dead come home. Mine are far away — I send them things. What burns, they will have there.', { spoken: '今天是清明。死去的人回家。我的家人很远，我给他们寄。烧了的，他们在那边就有了。' });
           g.know(tr('Qingming: the dead come home; what burns, they will have there.'));
         },
       }, async () => {
@@ -43,17 +43,17 @@ export default {
       const { missed } = await g.play(ingot);
       if (missed) {
         g.mark('ingot', 'crooked', null);
-        await g.say('mom', '给外婆，这样也很好。', { sub: tr('For Grandma, this one is good enough.'), how: 'laughing' });
+        await g.say('mom', 'For Grandma, this one is good enough.', { spoken: '给外婆，这样也很好。', how: 'laughing' });
       }
       await piece(g, 'ingot_name', {
         write: async () => {
-          await g.say('jack', '让他们知道是谁送的。', { sub: tr('So they know who it’s from.'), how: 'in Mandarin Chinese, a little proud' });
+          await g.say('jack', 'So they know who it’s from.', { spoken: '让他们知道是谁送的。', how: 'in Mandarin Chinese, a little proud' });
           g.mood('mom', 'laugh');
         },
         call: async () => {
           await g.say('mark', 'Jack! Come out!', { how: 'shouting from the street' });
           g.mood('mom', 'smile');
-          await g.say('mom', '去吧。晚上一起烧。', { sub: tr('Go. We’ll burn them tonight.') });
+          await g.say('mom', 'Go. We’ll burn them tonight.', { spoken: '去吧。晚上一起烧。' });
           g.promise(tr('Mom: “We’ll burn them tonight.”'));
         },
       });
@@ -72,7 +72,7 @@ export default {
     async g => {
       await piece(g, 'plate', {
         hand: async () => {
-          await g.say('mom', '给我。我来修。叫你的朋友也来吃。', { sub: tr('Give them to me. I’ll fix it. Call your friend, let him eat too.') });
+          await g.say('mom', 'Give them to me. I’ll fix it. Call your friend, let him eat too.', { spoken: '给我。我来修。叫你的朋友也来吃。' });
           await g.say('mark', 'What’s she jabbering? At school they say you talk like that with her too. My mom says your dad ordered her from a catalogue. Like a vacuum cleaner', { how: 'loud, mean, repeating the grown-ups' });
           await g.say('mark', 'Tell her to talk normal');
         },
@@ -92,7 +92,7 @@ export default {
         });
       } else if (yard === 'chinese') {
         await piece(g, 'yard_chinese', {
-          give: () => g.say('jack', '妈妈，你修好它。', { sub: tr('Fix it, Mom.'), how: 'in Mandarin Chinese, quietly but clearly' }),
+          give: () => g.say('jack', 'Fix it, Mom.', { spoken: '妈妈，你修好它。', how: 'in Mandarin Chinese, quietly but clearly' }),
           go: () => g.say('mark', 'Fine, sit there with your trash', { how: 'hurt, sneering' }),
         });
         g.mood('mom', 'smile');
@@ -111,8 +111,8 @@ export default {
       const burnt = () => g.kept(tr('“We’ll burn them tonight” — his ingot burned with hers.'));
       const fire = f.yard === 'english' ? { pass: () => g.say('mom', 'Dinner soon', { how: 'in English, slowly' }), ingot: burnt }
         : f.yard === 'chinese' ? { speak: async () => {
-          await g.say('mom', '外公外婆看得见你。跟他们说句话。', { sub: tr('Grandma and Grandpa can see you. Say something to them.') });
-          await g.say('jack', '你们好。', { sub: tr('Hello.'), how: 'into the fire, awkwardly, in Mandarin Chinese' });
+          await g.say('mom', 'Grandma and Grandpa can see you. Say something to them.', { spoken: '外公外婆看得见你。跟他们说句话。' });
+          await g.say('jack', 'Hello.', { spoken: '你们好。', how: 'into the fire, awkwardly, in Mandarin Chinese' });
         }, ingot: burnt }
           : { ingot: burnt };
       await piece(g, 'fire', fire, () => g.scene('yard', { beat: 'fire', here: ['mom', 'jack', 'dad'], moods: { mom: f.yard === 'run' ? 'sad' : 'neutral', jack: f.yard === 'run' ? 'sad' : 'neutral' }, keys: YARD(f) }));
@@ -145,8 +145,8 @@ export default {
             await g.say('mom', 'Now. Tomorrow it will be just paper', { how: 'in English, slowly, choosing the words' });
             await g.say('mom', 'Hold. Two hands is not enough', { how: 'in English, slowly' });
           } else {
-            await g.say('mom', '现在修。明天就只是纸了。', { sub: tr('Now. Tomorrow it will be just paper.') });
-            await g.say('mom', '按住。两只手不够。', { sub: tr('Hold it. Two hands aren’t enough.') });
+            await g.say('mom', 'Now. Tomorrow it will be just paper.', { spoken: '现在修。明天就只是纸了。' });
+            await g.say('mom', 'Hold it. Two hands aren’t enough.', { spoken: '按住。两只手不够。' });
           }
           g.know(tr('Torn paper remembers its folds until night; tomorrow it is just paper.'));
         },
@@ -165,15 +165,15 @@ export default {
             await g.say('mom', '“Ài” — here', { how: 'in English, slowly; “ài” in Chinese; touching her chest' });
             await g.say('mom', 'But I will', { how: 'in English, quietly, firmly' });
           } else if (f.yard === 'chinese') {
-            await g.say('mom', '有马克在，我就说英语。你要跟他们一起上学。', { sub: tr('In front of Mark I’ll speak English. You have to go to school with them.') });
+            await g.say('mom', 'In front of Mark I’ll speak English. You have to go to school with them.', { spoken: '有马克在，我就说英语。你要跟他们一起上学。' });
           } else {
-            await g.say('mom', '我们家的门很响。', { sub: tr('Our door is a loud one.'), how: 'out of the corner of her mouth, almost laughing' });
-            await g.say('mom', '没关系。', { sub: tr('It’s all right.') });
+            await g.say('mom', 'Our door is a loud one.', { spoken: '我们家的门很响。', how: 'out of the corner of her mouth, almost laughing' });
+            await g.say('mom', 'It’s all right.', { spoken: '没关系。' });
           }
         },
         sign: async () => {
           g.mood('mom', 'smile');
-          await g.say('mom', '爱。', { sub: tr('Ài — love.') });
+          await g.say('mom', 'Ài — love.', { spoken: '爱。' });
           g.know(tr('The sign 爱 — ài, love: she wrote it on your palm.'));
         },
       });
@@ -187,21 +187,21 @@ export default {
         { id: 'silent', label: tr('Say nothing') },
       ] });
       if (asked === 'asked') {
-        if (f.lang === 2) await g.say('jack', '爸爸是从 catalogue 上把你买来的吗？', { sub: tr('Did Dad buy you from a catalogue?'), how: 'in Mandarin Chinese; the one word “catalogue” in English, Mark’s word' });
+        if (f.lang === 2) await g.say('jack', 'Did Dad buy you from a catalogue?', { spoken: '爸爸是从 catalogue 上把你买来的吗？', how: 'in Mandarin Chinese; the one word “catalogue” in English, Mark’s word' });
         else await g.say('jack', 'Did Dad buy you?', { how: 'blurting it out, a child asking what burns' });
         await piece(g, 'asked', {
           look: async () => {
             g.mood('mom', 'sad');
             if (f.lang === 0) await g.say('mom', 'No. I chose. Many letters. His — about apple tree', { how: 'in English, slowly, to her son' });
-            else await g.say('mom', '不是。是我自己选的。信有很多。他的信里写了一棵苹果树。', { sub: tr('No. I chose myself. There were many letters. His was about an apple tree.') });
+            else await g.say('mom', 'No. I chose myself. There were many letters. His was about an apple tree.', { spoken: '不是。是我自己选的。信有很多。他的信里写了一棵苹果树。' });
             g.know(tr('She chose Dad herself: there were many letters, and his were about an apple tree.'));
           },
           dad: () => g.say('dad', 'She chose. I only wrote the letters. Bad ones', { how: 'not coming in, short' }),
           hammer: async () => {
-            if (f.lang === 2) await g.say('jack', '那在他之前呢？你在哪儿？', { sub: tr('And before him? Where were you?'), how: 'in Mandarin Chinese' });
+            if (f.lang === 2) await g.say('jack', 'And before him? Where were you?', { spoken: '那在他之前呢？你在哪儿？', how: 'in Mandarin Chinese' });
             else await g.say('jack', 'And before him? Where were you?');
             if (f.lang === 0) await g.say('mom', 'Far. I tell you later', { how: 'in English, lightly, not looking up' });
-            else await g.say('mom', '很远。以后再告诉你。', { sub: tr('Far away. I’ll tell you later.'), how: 'lightly, not looking up' });
+            else await g.say('mom', 'Far away. I’ll tell you later.', { spoken: '很远。以后再告诉你。', how: 'lightly, not looking up' });
             g.promise(tr('Mom: “I’ll tell you later” — where she was before Dad.'));
           },
         });
@@ -242,7 +242,7 @@ export default {
         at.laohu = async () => {
           if (f.yard === 'english') await g.say('mark', 'Whoa, the trash is alive? Man', { how: 'laughing, half impressed' });
           else await g.say('kids', 'His trash follows him around!', { at: 'boy_a', how: 'jeering, laughing' });
-          await g.say('mom', '老虎。', { sub: tr('Laohu.'), how: 'quietly, from the porch' });
+          await g.say('mom', 'Laohu.', { spoken: '老虎。', how: 'quietly, from the porch' });
         };
       }
       if (f.zoo === 2) {

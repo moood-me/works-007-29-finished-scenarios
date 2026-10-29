@@ -21,11 +21,12 @@
 //   g.set(key, value, seconds) — one of the shown scene's own keys (or a person's): at once, or moved over seconds;
 //     g.get(key) — what it is now
 //   g.wait(ms) — time of the game's own (a pause)
-//   g.say(who, text, {at, how, sub}) — someone of the game's people (people.json) says it over `at` (default: over
+//   g.say(who, text, {at, how, spoken}) — someone of the game's people (people.json) says it over `at` (default: over
 //     their body in the scene if it is here — BODY: Jack grown is the scene's `jack` —, else low in the middle, as the
-//     narrator), in their voice (how: this line's own manner); sub — a subtitle under it in the play's language: a
-//     line said in Chinese (scenario §1) is written in Chinese — heard and shown so in every language — and, where
-//     Jack understands it, its meaning under it; → a breath after it is heard
+//     narrator), in their voice (how: this line's own manner); spoken — what the voice says instead (bespoke.say's): a
+//     line said in Chinese (scenario §1) where Jack understands it is its meaning, shown in the play's language, and
+//     its Chinese, heard; where he does not, the Chinese itself, shown and heard as it is; → a breath after it is
+//     heard
 //   g.plate(text) — a plate over the scene: what happens here that the scene does not show; → once “Next” is pressed
 //   g.sheet(title, lines) — the same, a list
 //   g.choose(choice, {ref: options}, {within, otherwise}) — the player presses one of the points ('id#point' | 'id'),
@@ -211,7 +212,6 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
     if (gone() || fast || showing || playing || waiting || unseen()) return;
     fast = true;
     b.hush();
-    view.sub(null);
     b.instant(true);
     for (const w of waits) { clearTimeout(w.timer); w.ok(); }
     waits.clear();
@@ -312,14 +312,11 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       put(`${id}_mood`, mood);
     },
     wait: sleep,
-    async say(who, text, { at = present.has(BODY[who] ?? who) ? BODY[who] ?? who : 'narrator', how, sub = null } = {}) {
+    async say(who, text, { at = present.has(BODY[who] ?? who) ? BODY[who] ?? who : 'narrator', how, spoken } = {}) {
       if (gone()) return never;
       if (unseen()) return sleep(300 + text.length * 60);
       if (fast) await alive(land());
-      view.sub(sub);
-      try {
-        return await alive(b.say(who, text, how ? { at, how } : { at })).then(after);
-      } finally { if (!gone()) view.sub(null); }
+      return alive(b.say(who, text, { at, ...(how ? { how } : {}), ...(spoken != null ? { spoken } : {}) })).then(after);
     },
     async plate(text) {
       if (gone()) return never;
@@ -415,7 +412,6 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       left.abort();
       hub.withdraw();
       b.hush();
-      view.sub(null);
       view.where(null);
     },
   };

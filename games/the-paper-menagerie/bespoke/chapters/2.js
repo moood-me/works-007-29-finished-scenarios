@@ -60,10 +60,10 @@ export default {
       await piece(g, 'ward_in', {
         greet: async () => {
           if (f.lang === 2) {
-            await g.say('mom', '杰克。你瘦了。', { sub: tr('Jieke. You’ve got thin.') });
-            await g.say('jack_grown', '你也是，妈。', { sub: tr('So have you, Mom.'), how: 'in Mandarin Chinese, gently' });
+            await g.say('mom', 'Jieke. You’ve got thin.', { spoken: '杰克。你瘦了。' });
+            await g.say('jack_grown', 'So have you, Mom.', { spoken: '你也是，妈。', how: 'in Mandarin Chinese, gently' });
           } else if (f.lang === 1) {
-            await g.say('mom', '杰克。你瘦了。', { sub: tr('Jieke. You’ve got thin.') });
+            await g.say('mom', 'Jieke. You’ve got thin.', { spoken: '杰克。你瘦了。' });
             await g.say('jack_grown', 'So have you, Mom', { how: 'gently' });
           } else {
             await g.say('mom', 'Jack. You are thin', { how: 'in English, slowly' });
@@ -76,15 +76,15 @@ export default {
         touch: async () => {
           g.mood('mom', 'neutral');
           if (f.lang === 0) await g.say('mom', 'Don’t touch. This one — only once', { how: 'in English, slowly; matter-of-fact, as if about the dishes' });
-          else await g.say('mom', '别碰。这个——只能一次。', { sub: tr('Don’t touch. This one is for once only.'), how: 'matter-of-fact, as if about the dishes' });
+          else await g.say('mom', 'Don’t touch. This one is for once only.', { spoken: '别碰。这个——只能一次。', how: 'matter-of-fact, as if about the dishes' });
           g.know(tr('Of the crooked fold at the tail she said: “for once only”. You didn’t understand.'));
         },
         suit: async () => {
           g.mood('mom', 'smile');
           if (f.lang === 0) await g.say('mom', 'Suit? Show me', { how: 'in English, brightening' });
-          else await g.say('mom', '西装？给我看看。', { sub: tr('A suit? Show me.'), how: 'brightening' });
+          else await g.say('mom', 'A suit? Show me.', { spoken: '西装？给我看看。', how: 'brightening' });
           if (f.lang === 0) await g.say('mom', 'Good', { how: 'in English, proud' });
-          else await g.say('mom', '好。', { sub: tr('Good.'), how: 'proud' });
+          else await g.say('mom', 'Good.', { spoken: '好。', how: 'proud' });
         },
       });
       const talk = await g.choose('talk', { 'jack#chest': [
@@ -93,17 +93,17 @@ export default {
         { id: 'hand', label: tr('Take her hand') },
       ] });
       if (talk === 'grandma') {
-        if (f.lang === 2) await g.say('jack_grown', '跟我讲讲你妈妈。', { sub: tr('Tell me about your mom.'), how: 'in Mandarin Chinese, carefully' });
+        if (f.lang === 2) await g.say('jack_grown', 'Tell me about your mom.', { spoken: '跟我讲讲你妈妈。', how: 'in Mandarin Chinese, carefully' });
         else await g.say('jack_grown', 'Tell me about your mom', { how: 'carefully' });
         await piece(g, 'talk_grandma', {
           say: async () => {
             if (f.lang === 0) await g.say('mom', 'She folded me animals. From newspapers…', { how: 'in English, slowly, far away' });
-            else await g.say('mom', '她给我折小动物。用报纸……', { sub: tr('She folded animals for me. Out of newspapers…'), how: 'far away' });
+            else await g.say('mom', 'She folded animals for me. Out of newspapers…', { spoken: '她给我折小动物。用报纸……', how: 'far away' });
             g.mood('mom', 'tired');
           },
           end: async () => {
             if (f.lang === 0) await g.say('mom', 'I finish later. Show me the sleeve again', { how: 'in English, lightly, changing the subject' });
-            else await g.say('mom', '以后再说完。再给我看看袖子。', { sub: tr('I’ll finish later. Show me the sleeve again.'), how: 'lightly, changing the subject' });
+            else await g.say('mom', 'I’ll finish later. Show me the sleeve again.', { spoken: '以后再说完。再给我看看袖子。', how: 'lightly, changing the subject' });
             g.promise(tr('Mom: “I’ll finish later” — about her mother.'));
           },
         });
@@ -111,20 +111,21 @@ export default {
         await piece(g, 'talk_forty', {
           say: async () => {
             if (f.lang === 0) await g.say('mom', 'Tall building? How many floors?', { how: 'in English, eager' });
-            else await g.say('mom', '楼高吗？多少层？', { sub: tr('A tall building? How many floors?'), how: 'eager' });
-            if (f.lang === 2) await g.say('jack_grown', '四十层。', { sub: tr('Forty.'), how: 'in Mandarin Chinese, a little proud' });
+            else await g.say('mom', 'A tall building? How many floors?', { spoken: '楼高吗？多少层？', how: 'eager' });
+            if (f.lang === 2) await g.say('jack_grown', 'Forty.', { spoken: '四十层。', how: 'in Mandarin Chinese, a little proud' });
             else await g.say('jack_grown', 'Forty', { how: 'a little proud' });
           },
           end: async () => {
             g.mood('mom', 'laugh');
             if (f.lang === 0) await g.say('mom', 'Forty. I wash windows on third floor — I was scared', { how: 'in English, laughing' });
-            else await g.say('mom', '四十层。我以前在三楼擦窗户——都害怕。', { sub: tr('Forty. I used to wash windows on the third floor — I was scared.'), how: 'laughing' });
+            else await g.say('mom', 'Forty. I used to wash windows on the third floor — I was scared.', { spoken: '四十层。我以前在三楼擦窗户——都害怕。', how: 'laughing' });
             g.mood('mom', 'surprised');
           },
         });
       } else {
         await piece(g, 'talk_hand', {
-          say: () => g.say('mom', '两只老虎，两只老虎，跑得快，跑得快。一只没有耳朵，一只没有尾巴……', { sub: f.lang > 0 ? tr('Two tigers, two tigers, running fast, running fast. One has no ears, one has no tail…') : null, how: 'singing very softly, the children’s song to the tune of Frère Jacques' }),
+          say: () => (f.lang > 0 ? g.say('mom', 'Two tigers, two tigers, running fast, running fast. One has no ears, one has no tail…', { spoken: '两只老虎，两只老虎，跑得快，跑得快。一只没有耳朵，一只没有尾巴……', how: 'singing very softly, the children’s song to the tune of Frère Jacques' })
+            : g.say('mom', '两只老虎，两只老虎，跑得快，跑得快。一只没有耳朵，一只没有尾巴……', { how: 'singing very softly, the children’s song to the tune of Frère Jacques' })),
         });
       }
       g.apply('talk');
@@ -137,14 +138,15 @@ export default {
         mom: async () => {
           if (f.talk === 'forty') {
             if (f.lang === 0) await g.say('mom', 'Go. Forty floors', { how: 'in English, smiling' });
-            else await g.say('mom', '去吧。四十层。', { sub: tr('Go. Forty floors.'), how: 'smiling' });
+            else await g.say('mom', 'Go. Forty floors.', { spoken: '去吧。四十层。', how: 'smiling' });
           } else if (f.talk === 'grandma') {
             if (f.lang === 0) await g.say('mom', 'Go. I finish later', { how: 'in English, lightly' });
-            else await g.say('mom', '去吧。以后再说完。', { sub: tr('Go. I’ll finish later.'), how: 'lightly' });
+            else await g.say('mom', 'Go. I’ll finish later.', { spoken: '去吧。以后再说完。', how: 'lightly' });
           } else {
-            await g.say('mom', '真奇怪，真奇怪。', { sub: f.lang > 0 ? tr('How strange, how strange.') : null, how: 'finishing the line of the song, very softly' });
+            if (f.lang > 0) await g.say('mom', 'How strange, how strange.', { spoken: '真奇怪，真奇怪。', how: 'finishing the line of the song, very softly' });
+            else await g.say('mom', '真奇怪，真奇怪。', { how: 'finishing the line of the song, very softly' });
             if (f.lang === 0) await g.say('mom', 'Go', { how: 'in English, softly' });
-            else await g.say('mom', '去吧。', { sub: tr('Go.'), how: 'softly' });
+            else await g.say('mom', 'Go.', { spoken: '去吧。', how: 'softly' });
           }
         },
       }, () => g.scene('ward', { beat: 'coat', here: ALL, moods: { mom: 'smile', jack: 'thinking', dad: 'tired' }, keys: WARDS(f) }));
@@ -158,10 +160,10 @@ export default {
           say: () => g.say('jack_grown', 'I’ll stay, Dad', { how: 'quietly, decided' }),
           turn: async () => {
             if (f.lang === 0) await g.say('mom', 'Silly', { how: 'in English, softly' });
-            else await g.say('mom', '傻孩子。', { sub: tr('Silly.'), how: 'softly' });
+            else await g.say('mom', 'Silly.', { spoken: '傻孩子。', how: 'softly' });
             g.mood('mom', 'sad');
             if (f.lang === 0) await g.say('mom', 'Okay', { how: 'in English, flat, turning away' });
-            else await g.say('mom', '好吧。', { sub: tr('All right.'), how: 'flat, turning away' });
+            else await g.say('mom', 'All right.', { spoken: '好吧。', how: 'flat, turning away' });
           },
         });
       } else {
@@ -170,7 +172,7 @@ export default {
             await g.say('jack_grown', 'I’ll be back on Friday', { how: 'gently, a promise' });
             g.promise(tr('Jack: “I’ll be back on Friday.”'));
             if (f.lang === 0) await g.say('mom', 'Go', { how: 'in English' });
-            else await g.say('mom', '去吧。', { sub: tr('Go.') });
+            else await g.say('mom', 'Go.', { spoken: '去吧。' });
           },
         });
       }
@@ -182,36 +184,36 @@ export default {
       if (f.stayed) {
         await piece(g, 'night', {
           bag: () => (f.lang === 0 ? g.say('mom', 'Hang straight. It will crease', { how: 'in English, slowly, practical' })
-            : g.say('mom', '挂直了。会皱的。', { sub: tr('Hang it straight. It’ll crease.'), how: 'practical' })),
+            : g.say('mom', 'Hang it straight. It’ll crease.', { spoken: '挂直了。会皱的。', how: 'practical' })),
           tiger: async () => {
             if (f.lang === 0) await g.say('mom', 'Laohu. <short pause> Home', { how: 'in English, with pauses, two words' });
-            else await g.say('mom', '把老虎带回家。带回它住的地方。', { sub: tr('Take Laohu home. To where he lived.') });
+            else await g.say('mom', 'Take Laohu home. To where he lived.', { spoken: '把老虎带回家。带回它住的地方。' });
             g.promise(tr('Mom: “Take Laohu home.”'));
           },
           talk: async () => {
             g.mood('mom', 'smile');
             if (f.lang === 2) {
-              await g.say('mom', '门口的葱还绿吗？', { sub: tr('Are the onions by the porch still green?') });
-              await g.say('jack_grown', '绿。', { sub: tr('Green.'), how: 'in Mandarin Chinese, softly' });
-              await g.say('mom', '你爸还打呼噜吗？', { sub: tr('Is your father still snoring?') });
-              await g.say('jack_grown', '打。', { sub: tr('He snores.'), how: 'in Mandarin Chinese, smiling' });
-              await g.say('mom', '让他打吧。', { sub: tr('Let him snore.') });
+              await g.say('mom', 'Are the onions by the porch still green?', { spoken: '门口的葱还绿吗？' });
+              await g.say('jack_grown', 'Green.', { spoken: '绿。', how: 'in Mandarin Chinese, softly' });
+              await g.say('mom', 'Is your father still snoring?', { spoken: '你爸还打呼噜吗？' });
+              await g.say('jack_grown', 'He snores.', { spoken: '打。', how: 'in Mandarin Chinese, smiling' });
+              await g.say('mom', 'Let him snore.', { spoken: '让他打吧。' });
             } else if (f.lang === 1) {
-              await g.say('mom', '门口的葱还绿吗？', { sub: tr('Are the onions by the porch still green?') });
+              await g.say('mom', 'Are the onions by the porch still green?', { spoken: '门口的葱还绿吗？' });
               await g.say('jack_grown', 'Green', { how: 'softly' });
-              await g.say('mom', '你爸还打呼噜吗？', { sub: tr('Is your father still snoring?') });
+              await g.say('mom', 'Is your father still snoring?', { spoken: '你爸还打呼噜吗？' });
               await g.say('jack_grown', 'He snores', { how: 'smiling' });
               g.mood('mom', 'laugh');
-              await g.say('mom', '跟以前一样。', { sub: tr('Like before.'), how: 'laughing softly' });
+              await g.say('mom', 'Like before.', { spoken: '跟以前一样。', how: 'laughing softly' });
             } else {
               await g.say('mom', '杰克，你小时候，门口的葱，你爸爸打呼噜，老虎在你枕头上走来走去……', { how: 'quickly and warmly, a rush of memories' });
               g.mood('mom', 'sad');
             }
           },
           last: async () => {
-            if (f.lang > 0) await g.say('mom', '别一个人。', { sub: tr('Don’t be alone.'), how: 'very quietly' });
+            if (f.lang > 0) await g.say('mom', 'Don’t be alone.', { spoken: '别一个人。', how: 'very quietly' });
             else {
-              await g.say('mom', '爱。', { sub: tr('Ài.'), how: 'a whisper' });
+              await g.say('mom', 'Ài.', { spoken: '爱。', how: 'a whisper' });
               await g.say('jack_grown', 'I know, Mom', { how: 'barely aloud' });
             }
             g.mood('mom', 'eyes_closed');
