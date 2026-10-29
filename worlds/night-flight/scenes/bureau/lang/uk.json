@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Bureau","translation":"Бюро","where":"worlds/night-flight/scenes/bureau/scene.json title"},
+  {"text":"A quarter to two. She stands by the door and does not sit down.","translation":"За чверть друга. Вона стоїть біля дверей і не сідає.","where":"worlds/night-flight/scenes/bureau/scene.json caption"}
+]}

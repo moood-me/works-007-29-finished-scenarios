@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Klara and the Sun","translation":"Клара і Сонце","where":"worlds/klara-and-the-sun/world.json title"},
+  {"text":"A shop window in the sun, then a quiet house: an Artificial Friend and the sick girl she watches over.","translation":"Вітрина на сонці, потім тихий дім: Штучна Подруга і хвора дівчинка, яку вона доглядає.","where":"worlds/klara-and-the-sun/world.json description"}
+]}

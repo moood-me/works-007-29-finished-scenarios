@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Dining Room","translation":"Їдальня","where":"worlds/traps/scenes/dining/scene.json title"},
+  {"text":"Soup by candlelight. The defender leans to his client's ear: say nothing, for God's sake.","translation":"Суп при свічках. Захисник нахиляється до вуха підзахисного: мовчіть, заради бога.","where":"worlds/traps/scenes/dining/scene.json caption"}
+]}

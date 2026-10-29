@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Gate to the Field","translation":"Хвіртка в поле","where":"worlds/klara-and-the-sun/scenes/field/scene.json title"},
+  {"text":"Sunset. Rick at the gate with his bird; across the field the Sun goes down into Mr McBain's barn.","translation":"Захід сонця. Рік біля хвіртки зі своїм птахом; за полем Сонце сідає в сарай містера Макбейна.","where":"worlds/klara-and-the-sun/scenes/field/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Helmers' Parlour","translation":"Вітальня Гельмерів","where":"worlds/a-doll-s-house/scenes/parlour/scene.json title"},
+  {"text":"Christmas Eve. The tree is trimmed; a letter box with a little glass window waits in the hall.","translation":"Святвечір. Ялинку прикрашено; у передпокої чекає поштова скринька зі скляним віконцем.","where":"worlds/a-doll-s-house/scenes/parlour/scene.json caption"}
+]}
