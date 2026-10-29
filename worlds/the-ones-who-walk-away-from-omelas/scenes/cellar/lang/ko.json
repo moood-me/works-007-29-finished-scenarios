@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Cellar","translation":"지하실","where":"worlds/the-ones-who-walk-away-from-omelas/scenes/cellar/scene.json title"},
+  {"text":"Under one of the beautiful buildings of Omelas there is a room.","translation":"오멜라스의 아름다운 건물 가운데 하나, 그 아래에 방이 하나 있다.","where":"worlds/the-ones-who-walk-away-from-omelas/scenes/cellar/scene.json caption"}
+]}

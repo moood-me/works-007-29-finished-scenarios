@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Yard","translation":"마당","where":"worlds/leaf-by-niggle/scenes/yard/scene.json title"},
+  {"text":"After the storm the Inspector of Houses came round.","translation":"폭풍이 지나간 뒤 가옥 조사관이 찾아왔다.","where":"worlds/leaf-by-niggle/scenes/yard/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Dining Room","translation":"식당","where":"worlds/traps/scenes/dining/scene.json title"},
+  {"text":"Soup by candlelight. The defender leans to his client's ear: say nothing, for God's sake.","translation":"촛불 아래의 수프. 변호인이 의뢰인의 귀에 몸을 기울인다. 제발, 아무 말도 하지 마시오.","where":"worlds/traps/scenes/dining/scene.json caption"}
+]}

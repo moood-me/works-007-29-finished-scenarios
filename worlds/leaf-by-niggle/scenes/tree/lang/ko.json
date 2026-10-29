@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Tree","translation":"나무","where":"worlds/leaf-by-niggle/scenes/tree/scene.json title"},
+  {"text":"Before him stood the Tree, his Tree, finished.","translation":"그의 앞에 나무가, 그의 나무가, 완성된 채 서 있었다.","where":"worlds/leaf-by-niggle/scenes/tree/scene.json caption"}
+]}

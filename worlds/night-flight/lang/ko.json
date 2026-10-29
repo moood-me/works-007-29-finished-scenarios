@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Night Flight","translation":"야간 비행","where":"worlds/night-flight/world.json title"},
+  {"text":"An airfield office at night, the mail planes out over the dark, and one that does not answer.","translation":"밤의 비행장 사무실, 어둠 위로 나간 우편기들, 그리고 응답하지 않는 한 대.","where":"worlds/night-flight/world.json description"}
+]}

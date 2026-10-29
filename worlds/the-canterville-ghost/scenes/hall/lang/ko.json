@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Hall","translation":"홀","where":"worlds/the-canterville-ghost/scenes/hall/scene.json title"},
+  {"text":"The great hall of Canterville Chase: the oak stair and its landing, the old clock, the armchair at the stair's foot, the front door onto the porch.","translation":"캔터빌 체이스의 큰 홀: 참나무 계단과 층계참, 오래된 괘종시계, 계단 아래의 안락의자, 현관으로 나가는 정문.","where":"worlds/the-canterville-ghost/scenes/hall/scene.json caption"}
+]}

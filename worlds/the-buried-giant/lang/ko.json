@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Buried Giant","translation":"파묻힌 거인","where":"worlds/the-buried-giant/world.json title"},
+  {"text":"A land under a pale mist that takes memory with it: an old couple walk across it to find their son, past a giant's cairn, a dragon's pit and a ferryman's shore. After Kazuo Ishiguro.","translation":"기억을 앗아 가는 희부연 안개 아래의 땅. 늙은 부부가 아들을 찾아 그 땅을 건넌다. 거인의 돌무덤을 지나, 용의 구덩이를 지나, 뱃사공의 물가까지. 가즈오 이시구로에 따라.","where":"worlds/the-buried-giant/world.json description"}
+]}

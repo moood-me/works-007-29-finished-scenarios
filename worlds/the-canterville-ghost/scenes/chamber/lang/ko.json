@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Secret Chamber","translation":"비밀의 방","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json title"},
+  {"text":"Behind the panel on the landing: a low stone room, an iron ring in the wall, the moon at a little barred window.","translation":"층계참 판벽 뒤: 나지막한 돌방, 벽에 박힌 쇠고리, 창살 친 작은 창에 걸린 달.","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json caption"}
+]}

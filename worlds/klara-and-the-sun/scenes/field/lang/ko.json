@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Gate to the Field","translation":"들판으로 난 문","where":"worlds/klara-and-the-sun/scenes/field/scene.json title"},
+  {"text":"Sunset. Rick at the gate with his bird; across the field the Sun goes down into Mr McBain's barn.","translation":"해 질 녘. 릭이 새를 데리고 문가에 서 있고, 들판 건너편에서 해님이 맥베인 씨의 헛간 속으로 내려간다.","where":"worlds/klara-and-the-sun/scenes/field/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Valdrada","translation":"발드라다","where":"worlds/invisible-cities/scenes/valdrada/scene.json title"},
+  {"text":"Everything here happens twice: once in the city, once in the water.","translation":"이곳에서는 모든 일이 두 번 일어난다. 한 번은 도시에서, 한 번은 물속에서.","where":"worlds/invisible-cities/scenes/valdrada/scene.json caption"}
+]}

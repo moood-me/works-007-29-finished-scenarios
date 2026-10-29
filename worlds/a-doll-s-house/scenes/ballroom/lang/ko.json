@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Stenborgs' Ballroom","translation":"스텐보리 댁 무도회장","where":"worlds/a-doll-s-house/scenes/ballroom/scene.json title"},
+  {"text":"Upstairs, the night of the fancy-dress ball. Nora is to dance the tarantella.","translation":"위층, 가장무도회의 밤. 노라는 타란텔라를 추기로 되어 있다.","where":"worlds/a-doll-s-house/scenes/ballroom/scene.json caption"}
+]}

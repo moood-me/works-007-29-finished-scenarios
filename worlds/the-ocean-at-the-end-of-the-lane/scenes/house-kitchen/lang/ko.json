@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Kitchen at Home","translation":"우리 집 부엌","where":"worlds/the-ocean-at-the-end-of-the-lane/scenes/house-kitchen/scene.json title"},
+  {"text":"Ursula Monkton has come to help.","translation":"어설라 몽크턴이 집안일을 도우러 왔다.","where":"worlds/the-ocean-at-the-end-of-the-lane/scenes/house-kitchen/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Room Upstairs","translation":"위층 방","where":"worlds/traps/scenes/room/scene.json title"},
+  {"text":"After the verdict. The prosecutor in the doorway: the best defendant in ten years! The judge with his candle: the sentence, fair copy, by morning.","translation":"판결이 내려진 뒤. 문간의 검사: 십 년 만에 만난 최고의 피고인이야! 촛불을 든 판사: 판결문은 아침까지 정서해 두지.","where":"worlds/traps/scenes/room/scene.json caption"}
+]}

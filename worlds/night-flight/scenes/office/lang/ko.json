@@ -1,0 +1,6 @@
+{"strings": [
+  {"text":"Fabien, radio operator. Over the sea, a hundred and fifty east of Trelew. 2:45.","translation":"파비앵, 통신사. 해상, 트렐레우 동쪽 150킬로미터. 2시 45분.","where":"worlds/night-flight/scenes/office/elements/log_page.js"},
+  {"text":"Fabien, radio operator. Position unknown.","translation":"파비앵, 통신사. 위치 불명.","where":"worlds/night-flight/scenes/office/elements/log_page.js"},
+  {"text":"Rivière’s Office","translation":"리비에르의 사무실","where":"worlds/night-flight/scenes/office/scene.json title"},
+  {"text":"Three o’clock. The first rain on the glass.","translation":"세 시. 유리창에 첫 빗방울.","where":"worlds/night-flight/scenes/office/scene.json caption"}
+]}

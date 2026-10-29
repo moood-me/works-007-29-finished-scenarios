@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Pool","translation":"웅덩이","where":"worlds/of-mice-and-men/scenes/pool/scene.json title"},
+  {"text":"The green pool below the road, at sundown.","translation":"해 질 녘, 길 아래의 초록빛 웅덩이.","where":"worlds/of-mice-and-men/scenes/pool/scene.json caption"}
+]}

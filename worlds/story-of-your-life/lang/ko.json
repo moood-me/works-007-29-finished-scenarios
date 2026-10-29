@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Story of Your Life","translation":"네 인생의 이야기","where":"worlds/story-of-your-life/world.json title"},
+  {"text":"A tent with a looking glass, a linguist, and a language that shows the whole of a life at once.","translation":"거울 앞의 천막, 한 언어학자, 그리고 한 인생 전체를 한꺼번에 보여 주는 언어.","where":"worlds/story-of-your-life/world.json description"}
+]}

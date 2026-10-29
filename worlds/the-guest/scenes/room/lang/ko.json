@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Ali","translation":"알리","where":"worlds/the-guest/scenes/room/elements/plaque.js"},
+  {"text":"Daru's Room","translation":"다뤼의 방","where":"worlds/the-guest/scenes/room/scene.json title"},
+  {"text":"The gendarme has gone. His revolver on the table, his rope on the nail.","translation":"헌병은 떠났다. 탁자 위에는 그의 권총, 못에는 그의 밧줄.","where":"worlds/the-guest/scenes/room/scene.json caption"}
+]}

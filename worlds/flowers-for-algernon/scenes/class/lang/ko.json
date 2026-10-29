@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Night Class","translation":"야간 학급","where":"worlds/flowers-for-algernon/scenes/class/scene.json title"},
+  {"text":"A Tuesday evening in April. \"Charlie, read.\"","translation":"4월의 어느 화요일 저녁. “찰리, 읽어 봐요.”","where":"worlds/flowers-for-algernon/scenes/class/scene.json caption"}
+]}

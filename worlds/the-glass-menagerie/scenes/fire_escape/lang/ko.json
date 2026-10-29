@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Paradise","translation":"파라다이스","where":"worlds/the-glass-menagerie/scenes/fire_escape/elements/sign.js"},
+  {"text":"The Fire Escape","translation":"비상계단","where":"worlds/the-glass-menagerie/scenes/fire_escape/scene.json title"},
+  {"text":"Friday, seven o'clock. Two men smoke on the landing; in the window a yellow dress.","translation":"금요일, 일곱 시. 두 남자가 층계참에서 담배를 피우고, 창 안에는 노란 드레스.","where":"worlds/the-glass-menagerie/scenes/fire_escape/scene.json caption"}
+]}

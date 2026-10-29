@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Paradise","translation":"파라다이스","where":"worlds/the-glass-menagerie/scenes/room/elements/sign.js"},
+  {"text":"The Flat","translation":"셋집","where":"worlds/the-glass-menagerie/scenes/room/scene.json title"},
+  {"text":"An evening off the alley. The glass on the shelf catches the lamp.","translation":"골목 안쪽의 저녁. 선반 위의 유리가 등불을 받아 반짝인다.","where":"worlds/the-glass-menagerie/scenes/room/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Shepherd's House","translation":"양치기의 집","where":"worlds/the-man-who-planted-trees/scenes/shepherds-house/scene.json title"},
+  {"text":"One lit window for a day's walk around.","translation":"하루를 걸어도 불 켜진 창은 이것 하나뿐.","where":"worlds/the-man-who-planted-trees/scenes/shepherds-house/scene.json caption"}
+]}

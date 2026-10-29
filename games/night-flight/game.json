@@ -10,5 +10,5 @@
     "relationships": 40
   },
   "world": "../../worlds/night-flight",
-  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant", "pt", "pl"]
+  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant", "pt", "pl", "ko"]
 }

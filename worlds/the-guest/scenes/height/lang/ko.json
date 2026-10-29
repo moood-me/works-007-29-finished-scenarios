@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Height","translation":"언덕 위","where":"worlds/the-guest/scenes/height/scene.json title"},
+  {"text":"East, the roofs of Tingit. South, the stones, and no road.","translation":"동쪽에는 탱기트의 지붕들. 남쪽에는 돌무더기뿐, 길은 없다.","where":"worlds/the-guest/scenes/height/scene.json caption"}
+]}

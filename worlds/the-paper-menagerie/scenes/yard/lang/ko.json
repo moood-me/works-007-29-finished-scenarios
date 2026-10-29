@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Yard","translation":"마당","where":"worlds/the-paper-menagerie/scenes/yard/scene.json title"},
+  {"text":"A Sunday morning in spring. A plate of buns, and red paper on the grass.","translation":"봄날의 일요일 아침. 찐빵 한 접시, 풀밭 위의 빨간 종이.","where":"worlds/the-paper-menagerie/scenes/yard/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Judge's Garden","translation":"판사의 정원","where":"worlds/traps/scenes/garden/scene.json title"},
+  {"text":"A July evening on the hill. The table under the chestnut is laid for one more.","translation":"언덕 위의 7월 저녁. 밤나무 아래 식탁에 한 사람 몫이 더 차려져 있다.","where":"worlds/traps/scenes/garden/scene.json caption"}
+]}

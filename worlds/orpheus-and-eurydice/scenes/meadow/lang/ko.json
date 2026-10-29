@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Meadow","translation":"풀밭","where":"worlds/orpheus-and-eurydice/scenes/meadow/scene.json title"},
+  {"text":"Below, where the pale flowers grow. She sits by the stream.","translation":"아래, 창백한 꽃들이 자라는 곳. 그녀는 시냇가에 앉아 있다.","where":"worlds/orpheus-and-eurydice/scenes/meadow/scene.json caption"}
+]}

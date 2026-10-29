@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Rock","translation":"바위","where":"worlds/the-fog-horn/scenes/rock/scene.json title"},
+  {"text":"The last clear evening before the fog.","translation":"안개가 오기 전 마지막 맑은 저녁.","where":"worlds/the-fog-horn/scenes/rock/scene.json caption"}
+]}
