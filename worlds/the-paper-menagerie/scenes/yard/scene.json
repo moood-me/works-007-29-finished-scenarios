@@ -1170,7 +1170,7 @@
       "id": "stop",
       "name": "The school bus stop: the sign on its post, a concrete block",
       "shadow": true,
-      "across": -3.6,
+      "across": -2.1,
       "distance": -2.9,
       "facing": 0,
       "height": 2.4,
@@ -1303,7 +1303,7 @@
         "turn": 20,
         "does": "hands_in_pockets"
       },
-      "across": -2.7,
+      "across": -1.25,
       "distance": -2.6,
       "place": {
         "across": "boy_a_a",
@@ -1318,8 +1318,8 @@
         "who": "boy_b",
         "turn": 345
       },
-      "across": -4.4,
-      "distance": -2.5,
+      "across": -2.5,
+      "distance": -2.45,
       "place": {
         "across": "boy_b_a",
         "distance": "boy_b_d"
