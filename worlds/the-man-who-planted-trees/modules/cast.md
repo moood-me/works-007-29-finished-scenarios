@@ -33,14 +33,27 @@ Fourteen years on (the third chapter):
 - `jan_40` — Jan at 40, the district's forester, the Traveller's comrade from the regiment: solid, clean-shaven, a
   bottle-green forester's coat to the knee, a peaked cap; his notebook in his left hand (of his look).
 
-Older ages (Elzéard 75/85, the Traveller 50, Lina 47), Jan at 26 and the others come with the scenes that need them.
+The village (М1, its own scene):
+
+- `charcoal_burner` — Lina's father, the charcoal burner, about fifty: thickset, a soot-black leather apron over a grey
+  shirt, a flat cap, his skin dark with coal dust.
+- `jan_26` — Jan at 26, the night they are let go from the regiment: the same grey-olive greatcoat and field cap as the
+  Traveller's, broader, dark-haired, clean-shaven, his kitbag on its strap.
+- `lina_47` — Lina at 47 (the epilogue): broad, the rust-red kerchief, a sage-green dress, shoes.
+- `traveller_50` — the Traveller at 50: grey hair, a short grey beard, the faded blue-grey jacket, the bag.
+- `neighbour_woman`, `neighbour_man` — villagers come back (the epilogue): a dun dress and a bun (no kerchief: the
+  rust-red is Lina's alone); shirt sleeves and a felt hat (a spade by `_with`).
+- `village_girl`, `village_boy` — the village's children (the epilogue).
+
+Older ages of Elzéard (75/85) come with the scenes that need them.
 
 ## Things (the cast's parts: a look's `parts`, or `<id>_with`)
 
 `rod` — the iron rod, upright in the right hand from the ground to a hand's width over the fist; its top is the
 person's point `#rod`. `mug` — a tin mug upright in the right hand (`#mug`). `satchel` — the bag at the left hip
 (`#bag`). `flask` — the flask at the right hip (`#flask`). `pail` — a wooden pail hanging from the right hand by its
-bail (`#pail`). `notebook` — a forester's notebook in the left hand (`#notebook`). `beard` — a short beard in the
+bail (`#pail`). `notebook` — a forester's notebook in the left hand (`#notebook`). `spade` — a spade upright in the right hand, its blade
+on the ground (`#spade`). `beard` — a short beard in the
 hair's colour (worn, not held).
 
 ## Motions

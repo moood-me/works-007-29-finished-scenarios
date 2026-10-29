@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Village","translation":"Деревня","where":"worlds/the-man-who-planted-trees/scenes/village/scene.json title"},
+  {"text":"The last village at the plateau's edge.","translation":"Последняя деревня на краю плато.","where":"worlds/the-man-who-planted-trees/scenes/village/scene.json caption"}
+]}
