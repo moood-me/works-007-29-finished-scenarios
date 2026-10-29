@@ -466,7 +466,7 @@ function film(scene) {
   const SILL = [8.11, 12.55], JAN_WALL = [7.3, 13.6, 170];
   // the scene's own camera set there (the operator would go round to the wall): from the square's right, looking at
   // the doorway; and at the mound: from beside Lina's father's house, the mound before the Traveller
-  const AT_DOOR = { ...CAM0, camera_x: 5.5, camera_z: 8.5, camera_yaw: 26 };
+  const AT_DOOR = { ...CAM0, camera_x: 6.8, camera_z: 8.2, camera_yaw: 10 };
   const AT_MOUND = { ...CAM0, camera_x: -6.0, camera_z: 14.5, camera_yaw: -16 };
   // the epilogue: the pit on the square, Lina left of it, the neighbours round it, the children at the fountain
   const PIT = { lina: [-0.4, 8.7, 120], neighbour_a: [0.3, 9.7, 175], neighbour_b: [1.35, 9.0, 235], child_a: [-2.8, 11.9, 160],
