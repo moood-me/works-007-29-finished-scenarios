@@ -26,7 +26,7 @@ lengths are a man's metres times `F.fit.h`.
 - `washington` — Washington Otis, the eldest son: fair-haired, good-looking, a dark blue-grey frock coat over a light
   waistcoat.
 - `twin_star`, `twin_stripes` — the twins («Звёзды и Полосы»), ten years old, alike as two peas: navy short jackets
-  and knickerbockers, white shirts and stockings, sandy hair.
+  and knickerbockers, white shirts and stockings, brown hair.
 
 ## Parts
 

@@ -240,16 +240,16 @@ return {
       colors: { skin: '#efcbab', hair: '#c9a866', top: '#b8b0a0', garment: '#3a4252', bottom: '#2c3038', shoes: '#1c1a1a' },
     },
     // the twins, ten years old, "the Stars and Stripes": two boys alike as two peas — the same short jackets and
-    // knickerbockers of navy cloth, white shirts and stockings, the same sandy hair
+    // knickerbockers of navy cloth, white shirts and stockings, the same brown hair
     twin_star: {
       kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
       body: { height: 0.78 },
-      colors: { skin: '#f0cfb0', hair: '#b88a4e', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
+      colors: { skin: '#f0cfb0', hair: '#7a5030', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
     },
     twin_stripes: {
       kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
       body: { height: 0.78 },
-      colors: { skin: '#f0cfb0', hair: '#b88a4e', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
+      colors: { skin: '#f0cfb0', hair: '#7a5030', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
     },
   },
   shapes: {
