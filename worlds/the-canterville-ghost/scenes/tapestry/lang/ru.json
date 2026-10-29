@@ -1,34 +1,8 @@
-{
- "strings": [
-  {
-   "text": "The Tapestry Chamber",
-   "translation": "Гобеленовая комната",
-   "where": "worlds/the-canterville-ghost/scenes/tapestry/scene.json title"
-  },
-  {
-   "text": "Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.",
-   "translation": "Осень, ближе к вечеру. Дверь Гобеленовой комнаты приоткрыта.",
-   "where": "worlds/the-canterville-ghost/scenes/tapestry/scene.json caption"
-  },
-  {
-   "text": "YE OTIS GHOSTE",
-   "translation": "ПРИЗРАК ОТИСОВ",
-   "where": "worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"
-  },
-  {
-   "text": "Ye Onlie True and Originale Spook.",
-   "translation": "Единственный подлинный.",
-   "where": "worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"
-  },
-  {
-   "text": "Beware of Ye Imitationes.",
-   "translation": "Берегись подделок.",
-   "where": "worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"
-  },
-  {
-   "text": "All others are Counterfeite.",
-   "translation": "Все прочие — фальшивка.",
-   "where": "worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"
-  }
- ]
-}
+{"strings": [
+  {"text":"YE OTIS GHOSTE","translation":"ПРИЗРАК ОТИСОВ","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"Ye Onlie True and Originale Spook.","translation":"Единственный подлинный.","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"Beware of Ye Imitationes.","translation":"Берегись подделок.","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"All others are Counterfeite.","translation":"Все прочие — фальшивка.","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"The Tapestry Chamber","translation":"Гобеленовая комната","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json title"},
+  {"text":"Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.","translation":"Осень, ближе к вечеру. Дверь Гобеленовой комнаты приоткрыта.","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json caption"}
+]}

@@ -1,4 +1,8 @@
 {"strings": [
+  {"text":"YE OTIS GHOSTE","translation":"","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"Ye Onlie True and Originale Spook.","translation":"","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"Beware of Ye Imitationes.","translation":"","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"All others are Counterfeite.","translation":"","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
   {"text":"The Tapestry Chamber","translation":"Гобеленова кімната","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json title"},
   {"text":"Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.","translation":"Осінь, надвечір. Двері Гобеленової кімнати прочинені.","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json caption"}
 ]}

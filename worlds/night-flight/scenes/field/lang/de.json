@@ -1,4 +1,21 @@
 {"strings": [
+  {"text":"The Board of the Line","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"To the Director of the Southern Line","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"On suspending","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"the night flights","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"In view of the losses","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"of last winter, the Board","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"asks the Director to consider","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"whether the night service","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"should not be suspended","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"until the spring.","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"URGENT","translation":"","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"ORDER","translation":"","where":"worlds/night-flight/scenes/field/elements/paper.js"},
+  {"text":"Roblet, mechanic, is dismissed","translation":"","where":"worlds/night-flight/scenes/field/elements/paper.js"},
+  {"text":"from the service of the line","translation":"","where":"worlds/night-flight/scenes/field/elements/paper.js"},
+  {"text":"for a fault in the inspection","translation":"","where":"worlds/night-flight/scenes/field/elements/paper.js"},
+  {"text":"of an engine.","translation":"","where":"worlds/night-flight/scenes/field/elements/paper.js"},
+  {"text":"The Director:","translation":"","where":"worlds/night-flight/scenes/field/elements/paper.js"},
   {"text":"The Field by the Hangar","translation":"Das Feld am Hangar","where":"worlds/night-flight/scenes/field/scene.json title"},
   {"text":"Half past ten. His cap in his hands, his tool box already packed.","translation":"Halb elf. Die Mütze in den Händen, die Werkzeugkiste schon gepackt.","where":"worlds/night-flight/scenes/field/scene.json caption"}
 ]}
