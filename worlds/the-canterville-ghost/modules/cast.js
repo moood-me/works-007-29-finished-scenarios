@@ -312,7 +312,7 @@ const SHAWL = F => ({
   yp: [[0, 0.055 * F.k], [2, 0.065 * F.k], [4, 0.055 * F.k]],
   back: [null, null, null],
   bp: [[0, 0.16 * F.k], [1, 0.11 * F.k], [2, 0.015 * F.k]],
-  end: [null, null],
+  ends: [[null, null], [null, null]],
   ep: [[0, 0.05 * F.k], [1, 0.04 * F.k]],
   col: [[0, SHAWL_C]],
 });
@@ -337,10 +337,11 @@ function shawl(F) {
   K.back[1] = F.clear(add(K.back[0], add(mul(u, -0.2 * h), mul(f, -0.02 * k))), -1, 0.03 * k);
   K.back[2] = F.clear(add(K.back[1], mul(u, -0.17 * h)), -1, 0.03 * k);
   F.tube(K.back, K.bp, K.col, 8, s, 0.25);
-  for (const i of [0, 4]) {
-    K.end[0] = add(K.yoke[i], mul(f, 0.05 * k));
-    K.end[1] = F.clear(add(K.end[0], add(mul(u, -0.27 * h), mul(f, 0.03 * k))), 1, 0.03 * k);
-    F.tube(K.end, K.ep, K.col, 8, s, 0.5);
+  for (const j of [0, 1]) {
+    const end = K.ends[j];
+    end[0] = add(K.yoke[j * 4], mul(f, 0.05 * k));
+    end[1] = F.clear(add(end[0], add(mul(u, -0.27 * h), mul(f, 0.03 * k))), 1, 0.03 * k);
+    F.tube(end, K.ep, K.col, 8, s, 0.5);
   }
 }
 // a little old casket of dark wood bound in brass, held in both hands before the chest (with `clasped`; its point
