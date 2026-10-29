@@ -591,7 +591,7 @@
       "box": [
         -1.09,
         -2.54,
-        1.09,
+        0.31,
         0.02
       ]
     },
@@ -600,7 +600,7 @@
       "name": "The partition's cut end",
       "inside": true,
       "across": 1.11,
-      "distance": 2.06,
+      "distance": 2.85,
       "facing": 180,
       "height": 2.52,
       "box": [

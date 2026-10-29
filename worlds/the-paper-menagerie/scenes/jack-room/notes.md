@@ -8,8 +8,8 @@ yard: the same paper animals, the same cast, the same light words.
 
 - **Where things are.** Camera `picture`, horizon 0.36: the house cut open like a doll's house, laid a little right of
   the viewer's line so that the bed stands within every screen's frame. The room on the left (across −2.35…1.05), the
-  hall on the right (1.17…2.95), the partition between them seen almost edge on
-  (`partition`, its cut end `partition_edge`); floor (`floor`: oak boards, the braided rug, the hall's runner) at 0 from
+  hall on the right (1.17…2.95), the partition between them seen almost edge on and
+  cut open from 2.85 m toward us (`partition`, its cut end `partition_edge`); floor (`floor`: oak boards, the braided rug, the hall's runner) at 0 from
   distance 2.05 to the back wall at 4.2; ceilings at 2.5 (`ceiling_room` with the stick-on stars; `ceiling_hall` with
   the hall's bulb and the hatch). Walls: `back_wall` (Jack's wallpaper — lib's `wallpaper`; the hall's paint — lib's
   `hall`; his crayon tiger over the shelf, a rocket poster, a photo in the hall), `left_wall` (the pennant, his school
@@ -77,7 +77,7 @@ The showcase plays these one after another (5 s each).
   cast part `shoebox` (or the box element following his hands) and a carrying motion.
 - The paper frog in Dad's hands is an element whose animate carries it to `dad#hands` each frame, drawn in front of
   him.
-- The partition is seen almost edge on, its cut end a pale strip down the frame's middle; whoever stands in the hall
-  stands right of it (across 1.3 and on) to be seen — and keeps their hands out of the wall (cards do not stop them).
+- The partition is cut open just before the doorway (2.85 m), so the hall is seen; whoever stands in the hall stands
+  right of it (across 1.45 and on) and keeps their hands out of the wall (cards do not stop them).
 - 3.2 says «внизу, на кухне» of the animals in the kitchen; the yard paints the house one-storey, so the kitchen is
   across the hall, not below.
