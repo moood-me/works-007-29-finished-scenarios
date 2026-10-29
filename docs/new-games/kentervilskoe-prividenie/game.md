@@ -141,8 +141,7 @@ The contract between the game (`games/`, the game's author) and the scenes (`wor
    **«The dark behind the wall»** (4.1, 4С.5 — the game's place `dark`) is this room with `wall` 1, `dark` 1, the
    camera in the opening: it continues `into_wall` in the same room.
 4. The garden (Death) gets keys `nightingale` (0 silent … 1 sings: the bird's lift; the song is the game's sound),
-   `parcel` (bool: her parcel on the grass), `simon_fade` (0..1: gone into the earth), point `hands` (where their
-   hands meet).
+   `parcel` (bool: her parcel on the grass), `simon_fade` (0..1: gone into the earth).
 5. Parts (cast): `parcel` (a little paper parcel in the hand), `casket` (a small old casket in the hand), `lantern`
    (in the right hand), `newspaper` (held open in both hands, seated), `sketchbook` (on the knees, seated), `stub` (a
    candle-end in the fingers). The pillow flying is the corridor's own prop.
@@ -441,7 +440,7 @@ moment named) · tells.
 | `portrait` | М10 | library, `sleepless` | trace | `sketchbook#start` → `sketchbook#end` (an insert `sketchbook`) | `sketchbook_open`, `portrait` 0..1, `askew` | 8 | askew: Mr Otis «My nose is longer, I believe» and a laugh |
 | `nightingale` | М5 | tapestry, his «Far away…» | touch nothing | — | `vision` 0..1 | 10 | touched: «You are not listening» and a shorter line |
 | `hand` | М6 | tapestry, `dark` | hold | `virginia#hand_r` (their joined hands) | `shapes` (grow when let go), `virginia_reach` | 12 | let go: her hand gropes (`virginia_reach` null), his finds it |
-| `release` | М7 | garden, `tears` | hold, then let go | `hands` (garden point) | `simon_reach` | 5 | held too long: his hand slips out by itself |
+| `release` | М7 | garden, `tears` | hold, then let go | `simon#hand_r` | `simon_reach` | 5 | held too long: his hand slips out by itself |
 | `word` | М9 | corridor, `word` | hold | `otis#hand_r` | `virginia_reach` → `otis#hand_r` | 5 | let go first: he holds a moment longer |
 | `tiptoe` | М8 | corridor, `farewell_go` | balance (lead) | — | `virginia_a`, `virginia_d` along x ≈ 0.6 past the chair | 8 | a creak: Mr Otis mutters «Ginny?..», sleeps on |
 | `threshold` | М8в | corridor, `farewell_go` | touch nothing | — | `simon_d`, `ghost_d`, `ghost_light` | 6 | touched: half a step out (`virginia_d` + 0.3); he does not turn |
@@ -449,4 +448,5 @@ moment named) · tells.
 
 «Доброй ночи» (1.2): one touch on `simon#chest` within 3 s right after `smash:crack` (a press with no petals).
 Person points the language needs (`#chest`, `#hand_r`) are the engine's; scene points to add: `door_virginia#handle`,
-`board#root`, `board#fork`, `sketchbook#start`, `sketchbook#end`, the garden's `hands`.
+`board#root`, `board#fork`, `sketchbook#start`, `sketchbook#end`. (People's points the game uses: `#chest`,
+`#hand_r`, `#hand_l`, the candle's `#flame`.)
