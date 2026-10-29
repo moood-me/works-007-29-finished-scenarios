@@ -42,3 +42,37 @@ e.layer('reel', { pivot: RC }, c => {
   c.fillRect(RC[0] - 0.008, RC[1] - 0.1, 0.016, 0.2);
 });
 e.at(-0.2, -0.11, 'ink');
+// (stage 5) the tape drawn out of the inker hand over hand (М9: `tape_pull`, its length shown by animate) — a strip
+// out level to the left toward the hands that pull it; what is on it by `tape_mark`: words — groups of dots and
+// dashes; line — one long line, no words; cut — words breaking off into nothing
+const mark = e.state.tape_mark ?? 'words';
+const A = [-0.2, -0.11];
+const B = [-0.98, -0.11];
+e.layer('pulled', { pivot: A, box: [-1.0, -0.14, -0.15, -0.08] }, c => {
+  const ang = Math.atan2(B[1] - A[1], B[0] - A[0]);
+  const len = Math.hypot(B[0] - A[0], B[1] - A[1]);
+  c.save();
+  c.translate(A[0], A[1]);
+  c.rotate(ang);
+  c.fillStyle = '#efe9d9';
+  c.fillRect(0, -0.011, len, 0.022);
+  c.fillStyle = '#2a2a3a';
+  if (mark === 'line') c.fillRect(0.03, -0.002, len - 0.06, 0.004);
+  else {
+    const stop = mark === 'cut' ? len * 0.6 : len - 0.03;
+    let x = 0.04;
+    while (x < stop) {
+      const word = 3 + Math.floor(e.rnd() * 4);
+      for (let k = 0; k < word && x < stop; k++) {
+        const dash = e.rnd() < 0.4;
+        c.fillRect(x, -0.002, dash ? 0.016 : 0.005, 0.004);
+        x += (dash ? 0.016 : 0.005) + 0.006;
+      }
+      x += 0.022;
+    }
+    if (mark === 'cut') for (let k = 0; k < 4; k++) {
+      c.fillRect(stop + 0.02 + k * 0.035 + 0.01 * e.rnd(), -0.002, 0.004, 0.004);
+    }
+  }
+  c.restore();
+});

@@ -8,8 +8,7 @@
 // taken down). Points: `field` (the field's dot), `blue`, `west`, `north`, `red` (each flag where it stands). All of
 // it hung 0.2 m lower than drawn (under the clock).
 g.translate(0, 0.2);
-const X = lon => -1.2 + (lon + 80) * 0.0533;
-const Y = lat => -2.82 + (-14 - lat) * 0.0402;
+const { X, Y } = e.lib.MAP;
 // the frame and the paper
 g.fillStyle = '#3a2a1e';
 g.fillRect(-1.33, -2.93, 2.66, 1.91);
@@ -93,34 +92,33 @@ const flag = (c, x, y, color) => {
   c.closePath();
   c.fill();
 };
-const fx = X(field[0]);
-const fy = Y(field[1]);
 const S = e.state;
-// where each flag stands by its key ([lon, lat]; at the field each has its own place about the dot); null — taken down
-const AT = {
-  blue: { south: [-69.2, -51.6], san_julian: [-67.7, -49.3], trelew: [-65.3, -43.25], sea: [-63.4, -43.6], off: null },
-  west: { air: [-69.6, -33.1], field: 'field', off: null },
-  north: { air: [-59.2, -29.2], field: 'field', off: null },
-  red: { field: 'field', north: [-55.4, -31.6], off: null },
-};
-const NEAR = { west: [-0.03, 0], north: [0.01, 0.01], red: [0.05, -0.005] };
-const where = (name, key) => {
-  const p = AT[name][key] ?? null;
-  if (p === 'field') return [fx + NEAR[name][0], fy + NEAR[name][1]];
-  return p && [X(p[0]), Y(p[1])];
-};
-const COLORS = { west: '#c9a83a', north: '#5d7d3a', red: '#b02a24' };
+const M = e.lib.MAP;
+const [fx, fy] = M.FIELD;
+const hand = S.flag_hand && S.flag_hand !== 'none' ? S.flag_hand : null;
+const COLORS = { blue: '#2f56a6', west: '#c9a83a', north: '#5d7d3a', red: '#b02a24' };
+// each flag where its key puts it — but the one in Rivière's hand (`flag_hand`), which is the layer `led` (stage 5:
+// moved along its way by animate, `flag_u`, `flag_slip`); a flag's point is its cloth (the 0.2 m the map hangs lower added)
 for (const name of ['west', 'north', 'red']) {
-  const p = where(name, S[name]);
-  if (p) flag(g, p[0], p[1], COLORS[name]);
-  // (a point as painted: the 0.2 m the map hangs lower added; a flag's point its cloth)
+  const p = M.where(name, S[name]);
+  if (p && name !== hand) flag(g, p[0], p[1], COLORS[name]);
   e.at(...(p ? [p[0], p[1] + 0.11] : [fx, fy + 0.2]), name);
 }
 e.at(fx, fy + 0.2, 'field');
-const b = where('blue', S.blue);
+const b = M.where('blue', S.blue);
 e.layer('blue', {}, c => {
   c.translate(0, 0.2);
-  if (b) flag(c, b[0], b[1], '#2f56a6');
+  if (b && hand !== 'blue') flag(c, b[0], b[1], COLORS.blue);
 });
 e.at(...(b ? [b[0], b[1] + 0.11] : [fx, fy + 0.2]), 'blue');
+// (stage 5) where the flags are led to: San Julián, the sea at the bearing, the north line's end; the drawer under the
+// map is `map_drawer#drawer`
+for (const [name, p] of [['san_julian', M.where('blue', 'san_julian')], ['sea', M.where('blue', 'sea')], ['north_end', M.where('red', 'north')]]) e.at(p[0], p[1] + 0.11, name);
+if (hand) {
+  const p = M.where(hand, S[hand]) ?? [fx, fy];
+  e.layer('led', { pivot: [p[0], p[1] + 0.2] }, c => {
+    c.translate(0, 0.2);
+    flag(c, p[0], p[1], COLORS[hand]);
+  });
+}
 e.at(0, -1.75);
