@@ -5,6 +5,7 @@
 // And its pieces (the game sets `beat`: modules/beats, lib.film).
 const stage = () => {
   const k = scene.lib.moment(scene.kit.cast.characters, scene.state.moment, scene.state.menagerie);
+  if (scene.state.young && scene.state.moment !== 'packed') k.jack_wear = scene.kit.cast.characters.jack_five;
   for (const key in k) scene.set(key, k[key]);
 };
 if (!scene.get('beat')) stage();
@@ -12,5 +13,8 @@ scene.on('change', 'moment', () => stage());
 scene.on('change', 'menagerie', () => {
   if (!scene.get('beat')) stage();
 });
-scene.on('change', 'young', v => scene.set('jack_wear', v ? scene.kit.cast.characters.jack_five : null));
+scene.on('change', 'young', v => {
+  if (!scene.get('beat')) stage();
+  else scene.set('jack_wear', v ? scene.kit.cast.characters.jack_five : null);
+});
 scene.kit.beats.play(scene, scene.lib.film(scene));
