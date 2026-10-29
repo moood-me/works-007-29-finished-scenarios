@@ -1,6 +1,7 @@
 // The chamber's far wall (6.5 m, 3.1 m high): plaster over the oak dado, a tapestry of the hunt on the left; on the
 // right the deep window under its Tudor arch (x 0.6…2.6, from 0.5 m to 2.7 m), cut through — its embrasure, its seat
-// and its glass are elements of their own.
+// and its glass are elements of their own. The middle of the tapestry and the wall under it (x −2.0…−0.8, up to
+// 2.9 m) is cut out: it is the two leaves that part (`wall_l`, `wall_r`, key `wall`), painted the same.
 e.lib.wall(g, -3.25, 3.25, 3.1);
 e.lib.tapestry(g, e, -3.1, -2.85, 0.25, -0.98, 1);
 // the dressed stone round the window
@@ -14,4 +15,8 @@ g.stroke();
 g.globalCompositeOperation = 'destination-out';
 e.lib.arch(g, 0.6, 2.6, -2.7, -0.5, 0.36);
 g.fill();
+g.globalCompositeOperation = 'source-over';
+// the part that parts: the two leaves paint it
+g.globalCompositeOperation = 'destination-out';
+g.fillRect(-2.0, -2.9, 1.2, 2.94);
 g.globalCompositeOperation = 'source-over';
