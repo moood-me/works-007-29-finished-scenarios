@@ -55,3 +55,7 @@ guide calls, she glances at the bus and back up at Jack.
   writing is not drawn on the part (a sheet that small and two-sided read as a red box).
 - The guide holds her flag with `showing_suit` (a motion made for holding up a suit bag by its hook): it reads as a
   hand raised with a flag; a calling gesture is stage 5's motion.
+- The letter in her hands still reads as a small red box, not a thin sheet: an `F.ball` 0.001·h thick is drawn with
+  depth all the same (the part's ball seems to keep a minimum thickness or round its edges). A flat sheet held in the
+  hands wants a part drawn as a sheet (`F.cloth` is only for what is worn from the start) — stage 5, or a question for
+  the engine.
