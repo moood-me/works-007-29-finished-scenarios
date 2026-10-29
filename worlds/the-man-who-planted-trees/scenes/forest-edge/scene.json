@@ -6695,7 +6695,7 @@
       "name": "A boy",
       "person": {
         "cast": "cast",
-        "who": "boy",
+        "who": "village_boy",
         "turn": 250
       },
       "across": 1.5,

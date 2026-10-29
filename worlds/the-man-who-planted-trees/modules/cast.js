@@ -72,10 +72,6 @@ return {
     elzeard_85: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'jacket', hair: 'short', hat: 'hat', parts: ['rod'],
       body: { height: 0.98, thick: 0.75, shoulders: 0.94, neck: 1.05 },
       colors: { skin: '#c69470', hair: '#efece6', top: '#d6d0c2', garment: '#746652', bottom: '#4d473e', hat: '#3e362e', shoes: '#2a241f' } },
-    // the Traveller at fifty (the epilogue): the beard and the hair gone grey-brown, the blue-grey jacket faded, the bag
-    traveller_50: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'jacket', hair: 'short', parts: ['satchel', 'beard'],
-      body: { height: 1.0, thick: 0.94, shoulders: 1.0 },
-      colors: { skin: '#c59878', hair: '#8c8379', top: '#ddd6c6', garment: '#5d6b74', bottom: '#4a463e', shoes: '#2e2822' } },
     // the chief from town (3.2): good-natured, delighted, stout; a camel town coat, a dark hat
     chief: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'coat', hair: 'short', hat: 'hat',
       body: { height: 0.97, thick: 1.22, shoulders: 1.04 },
@@ -98,9 +94,37 @@ return {
     visitor_b: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'coat', hair: 'short', hat: 'hat', parts: ['notebook'],
       body: { height: 1.0, thick: 0.95, shoulders: 1.0 },
       colors: { skin: '#dab08e', hair: '#2e2620', top: '#e8e2d6', garment: '#5c6670', bottom: '#3a3a38', hat: '#2e2c2a', shoes: '#1f1b18' } },
-    // a boy of nine among the visitors (the final «The Pupil»), who asks to try the rod: a straw-coloured shirt
-    boy: { kind: 'shapes', style: 'plateau', who: 'child', garment: 'none', hair: 'short',
-      colors: { skin: '#e0b08c', hair: '#7a5a3a', top: '#c9b48a', bottom: '#5a4a3a', shoes: '#3a2e26' } },
+    // the village (М1). Lina's father, the charcoal burner, about fifty: thickset, a soot-black leather apron over a grey
+    // shirt, a flat cap, his skin dark with coal dust
+    charcoal_burner: { kind: 'shapes', style: 'plateau', who: 'smith', garment: 'apron', hair: 'short', hat: 'cap',
+      body: { height: 1.0, thick: 1.08, shoulders: 1.06 },
+      colors: { skin: '#b08466', hair: '#3a3330', top: '#5f5a52', garment: '#2f2b28', bottom: '#3b3631', hat: '#2a2724', shoes: '#1f1b18' } },
+    // Jan at twenty-six, the night they are let go from the regiment (2.1): the same grey-olive greatcoat and field cap
+    // as the Traveller's, broader in the shoulders, dark-haired, clean-shaven; his kitbag on its strap
+    jan_26: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'coat', hair: 'short', hat: 'cap', parts: ['satchel'],
+      body: { height: 1.02, thick: 0.94, shoulders: 1.05 },
+      colors: { skin: '#d6aa88', hair: '#2e231c', top: '#cfc9b9', garment: '#6b6f57', bottom: '#4a4a40', hat: '#585b48', shoes: '#2b2620' } },
+    // thirty years on (the epilogue): Lina at forty-seven — broad, steady, the rust-red kerchief; a sage-green dress, shoes
+    lina_47: { kind: 'shapes', style: 'plateau', who: 'woman', garment: 'dress', hair: 'long', hat: 'kerchief',
+      body: { height: 0.92, thick: 1.0, shoulders: 0.94 },
+      colors: { skin: '#c09070', hair: '#3b302a', top: '#5f6b52', garment: '#5f6b52', hat: '#a4523c', shoes: '#3a2e26' } },
+    // the Traveller at fifty: grey-haired, a short grey beard, the faded blue-grey jacket, the bag on its strap
+    traveller_50: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'jacket', hair: 'short', parts: ['satchel', 'beard'],
+      body: { height: 0.99, thick: 0.93, shoulders: 0.99 },
+      colors: { skin: '#c4977a', hair: '#9a9088', top: '#ddd6c6', garment: '#55697a', bottom: '#4a463e', shoes: '#2e2822' } },
+    // the villagers come back (the epilogue): a neighbour woman — a dun dress, her hair in a bun, no kerchief (the rust-red
+    // is Lina's alone); a neighbour man in his shirt sleeves and a felt hat, a spade (the part `spade`, by `_with`)
+    neighbour_woman: { kind: 'shapes', style: 'plateau', who: 'woman', garment: 'dress', hair: 'bun',
+      body: { height: 0.91, thick: 0.95, shoulders: 0.9 },
+      colors: { skin: '#cfa07e', hair: '#4a3a2c', top: '#7a6f5c', garment: '#7a6f5c', shoes: '#3a2e26' } },
+    neighbour_man: { kind: 'shapes', style: 'plateau', who: 'man', garment: 'tunic', hair: 'short', hat: 'hat',
+      body: { height: 0.98, thick: 0.95, shoulders: 1.0 },
+      colors: { skin: '#c4946e', hair: '#5a4a3a', top: '#cfc6ae', bottom: '#4e4a42', hat: '#5a4c3a', shoes: '#2e2822' } },
+    // the village's children (the epilogue): a girl in a lavender-grey smock, a boy in a pale shirt
+    village_girl: { kind: 'shapes', style: 'plateau', who: 'child', garment: 'dress', hair: 'long',
+      colors: { skin: '#dcae8a', hair: '#6a4a2c', top: '#8e8498', garment: '#8e8498', shoes: '#3a2e26' } },
+    village_boy: { kind: 'shapes', style: 'plateau', who: 'child', garment: 'tunic', hair: 'short',
+      colors: { skin: '#d8a888', hair: '#8a6a3c', top: '#c4b996', bottom: '#5a5446', shoes: '#3a2e26' } },
   },
   shapes: {
     // the world's style: the engine's flat geometry — straight edges, clean colours, the scene's light; a simple face
@@ -137,6 +161,20 @@ return {
         F.tube([add(rim, mul(right, -0.13 * m)), add(hand, [0, -0.01 * m, 0]), add(rim, mul(right, 0.13 * m))],
           [[0, 0.006 * m], [2, 0.006 * m]], [[0, HOOP]], 5, fwd, 0.4);
         F.point('pail', add(foot, [0, 0.14 * m, 0]));
+      } },
+      // a spade held upright in the right hand, its blade on the ground: an ash handle, an iron blade; its point (the
+      // blade's foot) is the person's `#spade`
+      spade: { name: 'spade', draw: F => {
+        const m = F.fit.h, h = F.P('RightHand'), right = rightOf(F), floor = floorOf(F);
+        const K = F.keep(() => ({ foot: [0, 0, 0], neck: [0, 0, 0], top: [0, 0, 0], wood: [[0, WOOD]], iron: [[0, IRON]] }));
+        K.foot[0] = K.neck[0] = K.top[0] = h[0];
+        K.foot[2] = K.neck[2] = K.top[2] = h[2];
+        K.foot[1] = floor;
+        K.neck[1] = floor + 0.3 * m;
+        K.top[1] = h[1] + 0.12 * m;
+        F.bar(K.neck, K.top, 0.016 * m, 0.016 * m, K.wood, 6, right);
+        F.bar(K.foot, K.neck, 0.1 * m, 0.095 * m, K.iron, 6, right, 0.12);
+        F.point('spade', K.foot);
       } },
       // a short beard, the hair's colour, round the jaw and the chin under the mouth
       beard: { name: 'beard', draw: F => {
