@@ -21,13 +21,12 @@
     "shafts": 0.3
   },
   "lights": [{"id": "window_day", "of": "window", "daylight": 1.8, "reach": 6.5}, {"id": "sun", "from": [270, 24], "through": ["window"], "color": "#ffe8c2", "strength": 1.3, "on": "sun"}, {"id": "candle", "of": "table_things#flame", "color": "#ffb46a", "strength": 0.5, "reach": 1.8, "on": "candle", "flicker": 0.2}],
-  "modules": ["cast", "beats"],
+  "modules": ["cast"],
   "state": {
     "candle": 1,
     "rain": 1,
     "sun": 0,
     "dim": 0,
-    "brings": "letter",
     "letter_table": false,
     "tea": false,
     "cobweb": 1,
@@ -65,7 +64,6 @@
     "rain": {"range": [0, 1], "smooth": true, "means": "the rain: on the window's panes and falling in the yard; 0 none, 1 a steady summer rain"},
     "sun": {"range": [0, 1], "smooth": true, "means": "the morning's light: 0 grey (rain, overcast), 1 a clear morning, the sun slanting in at the window onto the floor"},
     "dim": {"range": [0, 1], "smooth": true, "means": "the room grown older with Matryona («Оставь»): 0 as it is, 1 greyer, dimmer, its colours gone"},
-    "brings": {"values": ["letter", "none", "hat"], "means": "what Matryona brings in on a finale's morning (the piece brought): her letter, nothing, his hat back from Grandmother's"},
     "letter_table": {"type": "boolean", "means": "her letter lying on his table (Д1)"},
     "tea": {"type": "boolean", "means": "a glass of tea in its holder on the table, by the letter (Д1, once Matryona has set it down)"},
     "cobweb": {"range": [0, 1], "smooth": true, "means": "the cobweb in the back-right corner: 1 hanging, 0 swept down (between: torn loose, falling)"},
@@ -74,12 +72,10 @@
     "coat_drying": {"type": "boolean", "means": "his wet frock coat hung on the stove to dry («Окно», У4)"},
     "hat_peg": {"type": "boolean", "means": "his top hat on its nail on the right wall (false: he has it, or it was left at Grandmother's)"},
     "door": {"range": [0, 1], "smooth": true, "means": "the door to the stair: 0 shut, 0.6 ajar (as it stands), 1 wide open (someone passing)"},
-    "moment": {"values": ["none", "tea", "letter", "corner", "stove", "window"], "means": "the stage-4 standing layout of a step (people placed, no motion): tea — Д1, the tea set by the letter; letter — a finale's morning, Matryona holding out the letter; corner — «Минута»'s last frame; stove — «Окно» У4; window — the open window; none — nothing set"},
+    "moment": {"values": ["none", "tea", "letter", "corner", "monday", "window"], "means": "the stage-4 standing layout of a step (people placed, no motion; set once coat_drying is set): tea — Д1, the tea set by the letter, Matryona asking him; letter — a finale's morning, Matryona holding out the letter; corner — «Минута»'s last frame, Matryona by the corner, he reading; monday — «Окно», he in his chair (in his dressing gown while his coat dries), Matryona at the stove (coat_drying) or in the door; window — the open window, his hand on the wet sill, two crossing the yard below; none — nothing set"},
     "leaf_near_f": {"range": [90, 170], "smooth": true, "means": "the near leaf's facing (the script's, from window)"},
     "leaf_far_f": {"range": [10, 90], "smooth": true, "means": "the far leaf's facing (the script's, from window)"},
-    "door_f": {"range": [90, 180], "smooth": true, "means": "the door leaf's facing (the script's, from door)"},
-    "beat": {"type": "string", "means": "the piece playing (modules/beats): the game names one"},
-    "beat_next": {"type": "string", "means": "the piece the game will name next (modules/beats: its cut made ready)"}
+    "door_f": {"range": [90, 180], "smooth": true, "means": "the door leaf's facing (the script's, from door)"}
   },
   "objects": [
     {"id": "yard", "name": "The house across the courtyard", "across": -7.5, "distance": 6, "facing": 90, "height": 11.5, "box": [-12, -11.5, 12, 0]},

@@ -31,10 +31,8 @@ const MOODS = {
 const BOARDS = [0.42, 0.27, 0.2, 1], PAGES = [0.93, 0.9, 0.81, 1];
 // a letter's: its paper (folded, a little grey) and its red wax seal
 const PAPER = [0.94, 0.92, 0.86, 1], SEAL = [0.62, 0.12, 0.1, 1];
-// the writing on an open letter (her hand, a faded ink), a glass of tea's: the tea, the glass's rim, the brass holder,
-// the saucer; the long brush's bristles; the Dreamer's own hat's felt (whoever holds it)
-const SCRIPT = [0.42, 0.36, 0.4, 1], TEA = [0.55, 0.3, 0.12, 1], RIM = [0.86, 0.86, 0.82, 1], BRASS = [0.72, 0.56, 0.28, 1],
-  SAUCER = [0.92, 0.9, 0.85, 1], BRISTLE = [0.5, 0.44, 0.36, 1], HIS_HAT = [0.23, 0.2, 0.19, 1];
+// the writing on an open letter (her hand, a faded ink)
+const SCRIPT = [0.42, 0.36, 0.4, 1];
 // a top hat held by its brim: the opening at `c` turned to the holder, the crown out along `out` (unit); a little
 // wider at the top, as hats of the time were; `colour` its felt
 function topHat(F, c, out, colour) {
@@ -357,30 +355,7 @@ return {
         F.point('letter_open', add(mid, mul(n, 0.01 * m)));
       } },
       // a glass of tea in a brass holder on its saucer, carried in both hands before the chest (the saucer on the hands
-      // between them)
-      tea: { name: 'glass of tea', draw: F => {
-        const { add, mul, mix } = V(), m = F.fit.h, c = add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), [0, 0.02 * m, 0]);
-        const axes = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
-        F.ball(c, axes, [0.075 * m, 0.008 * m, 0.075 * m], SAUCER, 14);
-        F.bar(add(c, [0, 0.008 * m, 0]), add(c, [0, 0.1 * m, 0]), 0.03 * m, 0.034 * m, [[0, TEA], [0.85, RIM]], 12, [1, 0, 0]);
-        F.bar(add(c, [0, 0.006 * m, 0]), add(c, [0, 0.055 * m, 0]), 0.036 * m, 0.037 * m, [[0, BRASS]], 12, [1, 0, 0]);
-      } },
       // the long brush on a pole she sweeps the cobweb down with, held in both hands: the pole from below the left hand up
-      // through the right and on beyond it, the bristles across its top end
-      brush: { name: 'long brush', draw: F => {
-        const { add, sub, mul, unit, cross } = V(), m = F.fit.h, l = F.P('LeftHand'), r = F.P('RightHand'), d = sub(r, l);
-        const along = Math.hypot(d[0], d[1], d[2]) > 0.06 ? unit(d) : [0, 1, 0];
-        const tail = add(l, mul(along, -0.35 * m)), head = add(r, mul(along, 0.95 * m));
-        const side = unit(cross(along, Math.abs(along[1]) > 0.9 ? [1, 0, 0] : [0, 1, 0])), axes = [side, along, cross(side, along)];
-        F.bar(tail, head, 0.014 * m, 0.013 * m, [[0, WOOD]], 8, side);
-        F.ball(add(head, mul(along, 0.04 * m)), axes, [0.13 * m, 0.05 * m, 0.045 * m], BRISTLE, 12);
-        F.point('brush', add(head, mul(along, 0.06 * m)));
-      } },
-      // the Dreamer's own top hat in the right hand at the chest, its crown out — its dark felt whoever holds it
-      his_hat: { name: 'his hat in the right hand', draw: F => {
-        const { add, mul } = V(), m = F.fit.h;
-        topHat(F, add(F.P('RightHand'), mul(F.fwd('Chest'), 0.02 * m)), F.fwd('Chest'), HIS_HAT);
-      } },
       // the same letter after the puddle (the mark «Пятно»): a brown water stain spread over a corner of it
       letter_stained: { name: 'stained letter', draw: F => {
         const { add, sub, mul, cross, unit } = V(), m = F.fit.h, hand = F.P('RightHand');
