@@ -79,7 +79,8 @@ function point(folder, ref, where, present, wait = null) {
     if (!present.has(id)) miss(`${where}: the point “${ref}” — “${id}” is not there now`);
     else if (name && !BODY.has(name)) miss(`${where}: the point “${ref}” — a person has no point “${name}”`);
   } else if (!s.objects.has(id)) no(`${where}: the point “${ref}” — no element “${id}” in the scene “${folder}”`);
-  else if (name && !new RegExp(`['"\`]${name}['"\`]`).test(s.code(id))) no(`${where}: the point “${ref}” — the element's code names no “${name}”`);
+  // (a name made in a loop — `cracked_${k}` — is named by its stem)
+  else if (name && !new RegExp(`['"\`]${name}['"\`]`).test(s.code(id)) && !(/_\d+$/.test(name) && s.code(id).includes(`\`${name.replace(/\d+$/, '')}\${`))) no(`${where}: the point “${ref}” — the element's code names no “${name}”`);
 }
 // the keys a mini-game moves: the scene's (its states) or a person's of it
 function moves(folder, k, where, wait) {

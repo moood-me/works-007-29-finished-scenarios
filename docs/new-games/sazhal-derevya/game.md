@@ -26,15 +26,17 @@
 | Место | Шаги | Сцена, ключи |
 | --- | --- | --- |
 | `village0` М1 | П.1–П.2, 1.7 | `village` `time` prologue (`home_door` 120 → 180, `mug`, кружка у Лины уходит — `lina_wear {parts: []}`, `wet`; 1.7 `cart`, отец, Лина у колодца) |
-| `house0` М2 | П.3–П.5, 1.5; 1.6 | `shepherds-house` `moment` arrival; 1.6 — leaving |
+| `house0` М2 | П.3; 1.6 | `shepherds-house` `moment` arrival; 1.6 — leaving |
+| `inside0` М2 inside | П.4–П.5; 1.5 | `house-inside` `moment` arrival; 1.5 — button |
 | `slope0` М3 | 1.1–1.4 | `forest-edge` `moment` planting (1.4: `rod_ground`, прут из рук Эльзеара — точка выбора `rod`) |
 | `village6` М1 | 2.1, начало 2.2 | `village` `time` chapter2, `dawn` |
 | `stream6` М4 | 2.2–2.4 | `stream` `moment` water |
 | `slope6` М3 | 2.5 | `forest-edge` `moment` grove (`own_oak` по «Свой дуб»; Лина — если знает) |
 | `far6` М3 | 2.6 | `stream` `moment` far_edge |
-| `house6` М2 | 2.7 | `shepherds-house` `moment` night |
+| `inside6` М2 inside | 2.7 | `house-inside` `moment` night |
 | `edge20` М3 | 3.1; 3.2–3.3 | `forest-edge` `moment` edge; delegation — по пути: `bread`, `hives` stands / hives, `stumps` none / begun, `beeches` slope / row (`beech_row` 13 → 14), мужик с топором |
-| `house20` М2 | 3.4; 3.5 (Имя) | `shepherds-house` `moment` evening (`bread_step`); ranger; empty (приезжие, потом `door` propped) |
+| `inside20` М2 inside | 3.4 | `house-inside` `moment` evening (`bread_step`) |
+| `house20` М2 | 3.5 (Имя) | `shepherds-house` `moment` ranger; empty (приезжие; `door` shut → propped) |
 | `stumps20` М3 | 3.5 (Тишина) | `forest-edge` `moment` stumps (`stump_bread`, когда Лина знает) |
 | `village30` М1 | Э.1, финал «Рассказ» | `village` `time` epilogue (`stump` dug → planted, `edge` whole / regrown, соседи, дети; «Рассказ» — `rod`) + подпись |
 | `house30` М2 | Э.2 (Тишина) | `shepherds-house` `moment` last_silence |
@@ -45,7 +47,13 @@
 `<id>_wear` берёт только сам объект облика (`scene.kit.cast.characters.<name>`), а у игры есть только имя облика.
 Дом, опушка и ручей это делают сами (их скрипт по `moment`); деревне нужно так же (или чтобы `_wear` понимал имя) —
 вопрос к ведущему. Пока у `village30` подпись: «Лине здесь сорок семь, Путнику пятьдесят». Внутри дома (стол, лампа,
-сто желудей) сцены нет — П.4, 1.5, 2.7, 3.4 идут у двери дома, «в доме» говорит плашка.
+сто желудей) — своя сцена `house-inside` (с 2026-10-29).
+
+**Куски (стадия 5).** Шаги в доме, доме внутри, на опушке и у ручья идут на кусках сцен (`piece(g, name, {момент:
+реплики})`, контракты — notes.md сцен); плашки, где кусок показывает действие, сняты; оставлены те, что говорят то,
+чего сцена не показывает (годы, текст письма и страницы Яна, мысли). Деревня — пока без кусков (`r3/trees-pieces-village`
+ещё идёт): её шаги на плашках. Вставка «листы тетради в ведре» («Два прута») и жёлудь в руке (МИ2) — пока плашка и
+метка языка мини-игр.
 
 ## Люди
 
@@ -303,16 +311,16 @@ points exist in the scenes now (the branch check finds them); a piece only needs
 
 | id | § | place, moment | gesture | marks on | keys the game drives | s | a miss leaves |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `acorns` | МИ1 | house0 `arrival` | tap the 8 cracked (dashed marks) among 13 laid in a row between `elzeard#hands` and `traveller#hands`; the good ones (quiet spots) are not to be tapped | between `elzeard#hands` and `traveller#hands` | — | 12 | `{self}`: he finishes the sorting himself (a plate) |
+| `acorns` | МИ1 | inside0 `arrival`, after `table` | the table close (`close` 1): tap the 10 cracked ones out (dashed marks); the good heap (a quiet spot) not to be tapped | `table_close#cracked_0…9`, `table_close#heap` | `close`, `acorns` heap → sorted, `cracked_out` (a bit each) | 12 | `{self}`: he finishes the sorting himself (a plate) |
 | `hand_in` | МИ2 | slope0 `planting` | pull, ×5: an acorn from `pail#top` to `plant_spot` | `pail#top` → `plant_spot` | — | 12 | `{took}` (3 dropped): he takes the pail himself (a plate) |
 | `stream` | МИ3 | stream6 `water` | hold 6 s (keep) | `traveller#hand_r` | — | 7 | `{pulled}`: Lina «Холодной боишься?» |
-| `beech` | МИ4 | edge20 `edge` | hold till full (the rod in), then pull slowly ×2 (the earth) | `traveller#rod`, then `slope_spot` (Slope) / `beech_next` (Road) | — (the chapter sets `beech_row` 14 on the Road after it) | 10 | `{crooked}`: Slope — «И так вырастет»; Road — straightened again (a plate) |
+| `beech` | МИ4 | edge20 `edge`, after `beech` | hold till full (the rod in), then pull slowly ×2 (the earth) | `traveller#rod`, then `new_beech#top` | `new_beech` none → straight (crooked on a jerk); the chapter on the Road: `beech_row` 14, `new_beech` none | 10 | `{crooked}`: Slope — «И так вырастет»; Road — straightened again (a plate) |
 | `linden` | МИ5 | village30, `stump` dug | hold till full (2 s); let go early twice — missed | `stump#spot` | — (the chapter sets `stump` planted, `wet` after it) | 8 | `{lina}`: Lina «Ну» |
 | `hand` | МИ6 | house30 `last_silence` / hut30 `hut` | hold till full, then let go within 15 s | `elzeard#rod` (Elzéard holds the rod) | `traveller_reach` {r: `elzeard#rod`} → null | 10 | `{early}`: «Держи»; `{long}`: he takes his hand away (a plate) |
-| `trunks` | guiding | slope6 `grove` | pull slowly ×4 | `traveller#hand_r` | `traveller_a`, `traveller_d` (−0.6, +3.6 m from where he stands, over 0.3 s) | 40 | — |
-| `count` | guiding | house6 `night`, house20 `evening` | 10 taps | `elzeard#hands` | — | 8 | — |
-| `row` | guiding | edge20 `delegation` | pull slowly ×3 | `traveller#chest` | `traveller_a/_d` (−0.3, +4.2), `jan_a/_d` (−0.7, +4.4) | 10 | — |
-| `door` | guiding | house20 `empty` | pull slowly ×2 | `traveller#hand_r` | — (the chapter sets `door` propped after it) | 5 | — |
+| `trunks` | guiding | slope6 `grove`, before `oaks` | pull slowly ×4 | `traveller#hand_r` | — | 40 | — |
+| `count` | guiding | inside6 after `hundred_night`, inside20 after `count_slow` | the table close (`close` 1, `acorns` counting): 10 taps | `table_close#next` | `close`, `acorns`, `counted` 0 → 10 | 8 | — |
+| `row` | guiding | edge20 `delegation`, before `the_row` | pull slowly ×3 | `traveller#chest` | — | 10 | — |
+| `door` | guiding | house20 `empty`, after `empty_house` | pull slowly ×2 | `door_glow#handle` | `door` open → shut (the chapter then: propped) | 5 | — |
 | `stumps` | guiding | stumps20 `stumps` | hold till full, ×3 | `traveller#rod` | — | 8 | — |
 
 A piece before a mini-game ends with its people as the moment has them (the marks stand on them): Elzéard with the rod

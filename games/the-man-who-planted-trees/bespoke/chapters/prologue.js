@@ -3,6 +3,7 @@
 // acorns on the table; ⚑ a question about his family. Both choices only colour (§3: the prologue and chapter I are for
 // trying). No map after it: the prologue and chapter I are one map (§11) — game.js `onward`.
 // Reads: nothing. Leaves: choices.drink, choices.ask, marks.drink, marks.ask.
+import { piece } from '../story.js';
 import { acorns } from '../minigames/all.js';
 
 export default {
@@ -52,18 +53,13 @@ export default {
     },
     // П.3–П.5: the lit window; the gourd of water; a hundred acorns; ⚑ the question
     async g => {
-      await g.scene('house0', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'tired' }, keys: { lamp: 1 } });
-      await g.plate(tr('The climb at dusk. Ahead, a small light — a lamp in the window of a stone house. Elzéard at the door; the dog lifts its head.'));
-      await g.plate(tr('Without a word he holds out a gourd of water.'));
-      g.mood('traveller', 'surprised');
-      await g.say('narrator', 'He did not ask who I was');
-      await g.plate(tr('In the house: soup, the lamp. Elzéard pours a sack of acorns out on the table.'));
+      await piece(g, 'climb', {
+        gourd: async () => { g.mood('traveller', 'surprised'); await g.say('narrator', 'He did not ask who I was'); },
+      }, () => g.scene('house0', { beat: 'climb', here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'tired' } }));
+      await piece(g, 'table', {}, () => g.scene('inside0', { beat: 'table', here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'thinking' } }));
       const sorted = await g.play(acorns);
       if (sorted.self) await g.plate(tr('Elzéard finishes the sorting himself, without a word and faster, and takes one cracked acorn out of the Traveller’s heap.'));
-      await g.plate(tr('He counts them off in tens.'));
-      await g.say('elzeard', 'A hundred');
-      await g.plate(tr('He lowers them into a pail of water.'));
-      g.mood('traveller', 'thinking');
+      await piece(g, 'hundred', { end: () => g.say('elzeard', 'A hundred') });
       const ask = await g.choose('ask', { 'traveller#chest': [
         { id: 'ask', label: tr('“Are you alone here?”') },
         { id: 'silent', label: tr('Sit in silence') },
@@ -73,11 +69,9 @@ export default {
         await g.wait(1500);
         g.mood('elzeard', 'sad');
         await g.say('elzeard', 'There was a son. There was a wife', { how: 'not at once; flat and quiet' });
-        await g.plate(tr('He gets up and goes out to the dog. The Traveller is alone at the lamp.'));
-        g.here('elzeard', false);
+        await piece(g, 'out_to_dog');
       } else {
-        await g.plate(tr('Elzéard pushes the pail of acorns over to him. They sit.'));
-        await g.say('narrator', 'We were silent until night');
+        await piece(g, 'silence', { sit: () => g.say('narrator', 'We were silent until night') });
       }
       await g.say('narrator', 'In the morning I went after him. He did not object');
       g.apply('ask');

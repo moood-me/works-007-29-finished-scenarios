@@ -61,16 +61,18 @@ export const PLACES = {
   // the prologue and chapter I — the dead plateau
   village0: { folder: 'village', keys: { time: 'prologue', coal: 1, fountain: 0, dawn: 0 } }, // М1
   house0: { folder: 'shepherds-house', keys: { moment: 'arrival' } }, // М2
+  inside0: { folder: 'house-inside', keys: { moment: 'arrival' } }, // М2 inside (П.4–П.5; 1.5: moment button)
   slope0: { folder: 'forest-edge', keys: { moment: 'planting' } }, // М3, the bare slope
   // chapter II — six years on
   village6: { folder: 'village', keys: { time: 'chapter2', coal: 0, fountain: 0 } }, // М1
   stream6: { folder: 'stream', keys: { moment: 'water' } }, // М4
   slope6: { folder: 'forest-edge', keys: { moment: 'grove' } }, // М3, the young oaks and the hives
   far6: { folder: 'stream', keys: { moment: 'far_edge' } }, // М3, the far edge: the maples, the beeches
-  house6: { folder: 'shepherds-house', keys: { moment: 'night' } }, // М2
+  inside6: { folder: 'house-inside', keys: { moment: 'night' } }, // М2 inside (2.7)
   // chapter III — fourteen years more
   edge20: { folder: 'forest-edge', keys: { moment: 'edge' } }, // М3, the forest edge above the village
-  house20: { folder: 'shepherds-house', keys: { moment: 'evening' } }, // М2
+  house20: { folder: 'shepherds-house', keys: { moment: 'ranger' } }, // М2 (3.5 on the Name: the ranger, then empty)
+  inside20: { folder: 'house-inside', keys: { moment: 'evening' } }, // М2 inside (3.4)
   stumps20: { folder: 'forest-edge', keys: { moment: 'stumps' } }, // М3, the lower edge felled (Silence)
   // the epilogue — ten years more
   village30: { folder: 'village', keys: { time: 'epilogue', coal: 0, fountain: 1, dawn: 0, smoke_home: 1, smoke_edge: 1, smoke_b1: 1, smoke_b2: 1, smoke_l2: 1, smoke_r1: 1 }, where: tr('In truth: Lina is forty-seven here, the Traveller fifty.') }, // М1

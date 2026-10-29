@@ -1,23 +1,16 @@
 // The guidings (scenario §7: «ведения» — a light gesture with no miss, not mini-games): the Traveller led, a count
-// finished, a door shut, the rod pushed in beside the old man's. Each leaves nothing in the story but the time it took.
-//   trunks (2.5, the young oaks, `slope6`): pull slowly at `traveller#hand_r` — he goes from trunk to trunk toward his
-//     own oak (`traveller_a`, `traveller_d` from where the moment `grove` has him), touching the bark: a pause meant,
-//     near silence
-//   count (2.7, 3.4, the house at night and in the evening): ten taps at `elzeard#hands` — the last ten acorns counted
-//     with him
-//   row (3.3, the forest edge, `delegation`): pull slowly at `traveller#chest` — he and Jan go along the row toward the
-//     wood (`traveller_a/_d`, `jan_a/_d`)
-//   door (3.5 on the Name, the empty house): pull slowly at `traveller#hand_r` — the open door pulled to; the chapter
-//     props it (`door` propped)
-//   stumps (3.5 on Silence, the felled lower edge): press and hold at `traveller#rod`, three times — the rod in beside
+// finished, a door shut, the rod pushed in beside the old man's. Each leaves nothing in the story but the time it took;
+// what moves the people is the scenes' pieces around them (the guiding only the gesture and what it touches).
+//   trunks (2.5, the young oaks, `slope6`, before the piece `oaks`): pull slowly at `traveller#hand_r`, four lengths —
+//     from trunk to trunk, touching the bark: a pause meant, near silence
+//   count (2.7, 3.4, inside the house, after `hundred_night` / `count_slow`): the table close (`close` 1, the insert
+//     `table_close`), ten taps at `table_close#next` — the last ten acorns counted with him (`counted` 0 → 10)
+//   row (3.3, the forest edge, before the piece `the_row`): pull slowly at `traveller#chest`, three lengths
+//   door (3.5 on the Name, the empty house, after `empty_house`): pull slowly at `door_glow#handle` — the open door
+//     pulled to (`door` shut); the chapter props it (`door` propped)
+//   stumps (3.5 on Silence, in the piece `stumps`): press and hold at `traveller#rod`, three times — the rod in beside
 //     the old man's, the same dull blow
 import { along, taps, until, teach, settle } from './hands.js';
-
-// where a person stands now, and a way from there (metres): their _a/_d moved along it with the guiding
-const walk = (g, id, da, dd) => {
-  const a0 = g.get(`${id}_a`) ?? 0, d0 = g.get(`${id}_d`) ?? 0;
-  return u => { g.set(`${id}_a`, a0 + da * u, 0.3); g.set(`${id}_d`, d0 + dd * u, 0.3); };
-};
 
 export const trunks = {
   title: tr('From Trunk to Trunk'),
@@ -25,12 +18,11 @@ export const trunks = {
   skipped: {},
   missed: {},
   points: ['traveller#hand_r'],
-  keys: ['traveller_a', 'traveller_d'],
+  keys: [],
   async run(g, b, opts, signal) {
     const mg = g.minigame({ phrase: tr('Oaks taller than a man; leaves; birds.') });
     settle(signal, () => {});
-    const go = walk(g, 'traveller', -0.6, 3.6);
-    if (!(await along(g, b, mg, { at: 'traveller#hand_r', pulls: 4, frame: go }))) return this.skipped;
+    if (!(await along(g, b, mg, { at: 'traveller#hand_r', pulls: 4 }))) return this.skipped;
     await mg.end({ as: 'neutral' });
     return {};
   },
@@ -41,12 +33,18 @@ export const count = {
   about: 8,
   skipped: {},
   missed: {},
-  points: ['elzeard#hands'],
-  keys: [],
+  points: ['table_close#next'],
+  keys: ['close', 'counted', 'acorns'],
   async run(g, b, opts, signal) {
     const mg = g.minigame({ phrase: tr('Acorns in tens on the table; the last ten.') });
-    settle(signal, () => {});
-    if (!(await taps(g, b, mg, { at: 'elzeard#hands', n: 10 }))) return this.skipped;
+    const over = settle(signal, () => { g.set('counted', 10); g.set('close', 0); });
+    g.set('acorns', 'counting');
+    g.set('counted', 0);
+    g.set('close', 1, 0.6);
+    if (!(await taps(g, b, mg, { at: 'table_close#next', n: 10, tap: k => g.set('counted', k) }))) return this.skipped;
+    g.set('counted', 10);
+    g.set('close', 0, 0.6);
+    over();
     await mg.end({ as: 'clean' });
     return {};
   },
@@ -58,12 +56,11 @@ export const row = {
   skipped: {},
   missed: {},
   points: ['traveller#chest'],
-  keys: ['traveller_a', 'traveller_d', 'jan_a', 'jan_d'],
+  keys: [],
   async run(g, b, opts, signal) {
     const mg = g.minigame({ phrase: tr('Trunks in a row, as straight as a regiment.') });
     settle(signal, () => {});
-    const t = walk(g, 'traveller', -0.3, 4.2), j = walk(g, 'jan', -0.7, 4.4);
-    if (!(await along(g, b, mg, { at: 'traveller#chest', pulls: 3, frame: u => { t(u); j(u); } }))) return this.skipped;
+    if (!(await along(g, b, mg, { at: 'traveller#chest', pulls: 3 }))) return this.skipped;
     await mg.end({ as: 'neutral' });
     return {};
   },
@@ -74,12 +71,14 @@ export const door = {
   about: 5,
   skipped: {},
   missed: {},
-  points: ['traveller#hand_r'],
-  keys: [],
+  points: ['door_glow#handle'],
+  keys: ['door'],
   async run(g, b, opts, signal) {
     const mg = g.minigame({ phrase: tr('The house is empty and clean; the door is open.') });
-    settle(signal, () => {});
-    if (!(await along(g, b, mg, { at: 'traveller#hand_r', pulls: 2 }))) return this.skipped;
+    const over = settle(signal, () => g.set('door', 'shut'));
+    if (!(await along(g, b, mg, { at: 'door_glow#handle', pulls: 2 }))) return this.skipped;
+    g.set('door', 'shut');
+    over();
     await mg.end({ as: 'neutral' });
     return {};
   },

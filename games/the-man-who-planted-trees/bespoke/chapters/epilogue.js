@@ -6,7 +6,7 @@
 // and the Name) — its last shot the iron rod in other hands. The finale's name comes over black after it (game.js
 // closing); the step remembers which it played (marks.ending).
 // Reads: facts — drank, asked, learned, lied, slope, named, knows, ending.
-import { facts } from '../story.js';
+import { facts, piece } from '../story.js';
 import { linden, hand } from '../minigames/all.js';
 
 export default {
@@ -44,19 +44,17 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.named) {
-        await g.scene('hut30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' }, keys: { elzeard_with: ['rod'] } });
+        await g.scene('hut30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' } });
         if (f.slope) await g.plate(tr('The last meeting. Three hours’ walk beyond the ridge — as every month: before dawn, along the bed of the stream, so that no one follows.'));
         else await g.plate(tr('The last meeting. Three hours’ walk beyond the ridge.'));
         await g.plate(tr('A hut; behind it, a slope of young trees waist-high — his ten years; ahead, on the bare ground, a new edge of tiny seedlings. Elzéard is eighty-five. He does not raise his head at once: he finishes the row, and only then straightens up.'));
+        await piece(g, 'hut', { up: () => said(g, f) });
       } else {
-        await g.scene('house30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' }, keys: { elzeard_with: ['rod'] } });
+        await g.scene('house30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' } });
         await g.plate(tr('The last meeting. Elzéard is eighty-five. By the old house, the hives; on the porch, bread nobody has touched. He is planting by the porch, slowly.'));
+        await piece(g, 'last_house', { up: () => said(g, f) });
       }
-      if (f.asked) await g.say('elzeard', 'You asked about my son, that time', { how: 'old, slow, plain' });
-      else await g.say('elzeard', 'You didn’t ask, that time', { how: 'old, slow, plain' });
-      await g.wait(1500);
-      await g.plate(tr('He holds out the rod.'));
-      await g.say('elzeard', 'It’s got heavy');
+      await piece(g, 'rod_held', { out: () => g.say('elzeard', 'It’s got heavy') });
       const rod = await g.play(hand);
       if (rod.early) await g.say('elzeard', 'Hold it', { how: 'steadying the wavering rod; one word, old and plain' });
       else if (rod.long) await g.plate(tr('The old man takes his hand away himself.'));
@@ -73,29 +71,33 @@ export default {
         await g.say('narrator', 'When I think that one man, with only his own two hands, made this land out of a desert — I think that people can, after all');
         await g.plate(tr('The wind turns the pages back, to “It was.”'));
       } else if (f.ending === 'plaque') {
-        await g.scene('board30', { here: ['traveller', 'visitor_a', 'visitor_b'], moods: { traveller: 'neutral' }, keys: { stumps: f.knows ? 'none' : 'begun_old' } });
-        if (f.knows) await g.plate(tr('The forest edge; the forest under guard.'));
-        else await g.plate(tr('The forest edge; the forest under guard. At its rim, old stumps grown over with young trees.'));
-        await g.plate(tr('A board: “The Forest of Elzéard”. Visitors read it aloud and argue whether it was really one man; none of them knows what he looked like. Beyond the ridge, three hours away — a slope of young trees waist-high, and an edge of tiny seedlings he planted last.'));
-        await g.plate(tr('The Traveller pushes the rod in right under the board, lays an acorn, closes the earth with his foot — the visitors do not turn round. He pulls the rod out and goes.'));
-        await g.say('narrator', 'Thousands knew his name. Him — hardly anyone');
+        await piece(g, 'plaque', {
+          read: () => g.plate(tr('A board: “The Forest of Elzéard”. Visitors read it aloud and argue whether it was really one man; none of them knows what he looked like. Beyond the ridge, three hours away — a slope of young trees waist-high, and an edge of tiny seedlings he planted last.')),
+          rod: () => g.say('narrator', 'Thousands knew his name. Him — hardly anyone'),
+        }, () => g.scene('board30', { beat: 'plaque', here: ['traveller', 'visitor_a', 'visitor_b'], moods: { traveller: 'neutral' }, keys: { stumps: f.knows ? 'none' : 'begun_old' } }));
       } else if (f.ending === 'rods') {
-        await g.scene('beeches30', { here: ['traveller'], moods: { traveller: 'neutral' } });
-        await g.plate(tr('The slope across the stream; the Traveller’s beeches taller than a man. He plants with his own rod; Elzéard’s rod stands in the earth beside him, as it did that day.'));
-        await g.plate(tr('In the pail of acorns — pages from the notebook, seeds wrapped in them. Below, by the old forest, stumps and young trees as tall as a man.'));
+        await piece(g, 'two_rods', {
+          plant: () => g.plate(tr('In the pail of acorns — pages from the notebook, seeds wrapped in them. Below, by the old forest, stumps and young trees as tall as a man.')),
+        }, () => g.scene('beeches30', { beat: 'two_rods', here: ['traveller'], moods: { traveller: 'neutral' } }));
         await g.say('narrator', 'The notebook went on seeds. The slope remained');
       } else {
-        await g.scene('pupil30', { here: ['traveller', 'boy', 'visitor_a', 'visitor_b'], moods: { traveller: 'neutral' } });
-        await g.plate(tr('The forest edge; visitors.'));
-        await g.say('visitor_a', 'Is it you — Elzéard?', { how: 'eager, a little shy' });
-        await g.say('traveller', 'No', { how: 'plain, older now' });
-        await g.plate(tr('Nothing more; he does not look at the ridge. The visitors crowd round him all the same.'));
-        await g.say('visitor_b', 'Show us how he planted');
-        g.mood('traveller', 'smile');
-        await g.plate(tr('A boy asks to try — the Traveller gives him the rod and sets his hands the right way. Across the stream, his beeches stand in uncut grass.'));
+        await piece(g, 'pupil', {
+          ask: () => g.say('visitor_a', 'Is it you — Elzéard?', { how: 'eager, a little shy' }),
+          no: async () => {
+            await g.say('traveller', 'No', { how: 'plain, older now' });
+            await g.say('visitor_b', 'Show us how he planted');
+          },
+          hands: () => { g.mood('traveller', 'smile'); },
+        }, () => g.scene('pupil30', { beat: 'pupil', here: ['traveller', 'boy', 'visitor_a', 'visitor_b'], moods: { traveller: 'neutral' } }));
         await g.say('narrator', 'They asked me every day. Him — no one. I went to him once a month, before dawn, along the bed of the stream; he nodded and planted');
       }
       g.mark('ending', f.ending, null);
     },
   ],
 };
+
+// the old man's first words at the last meeting (§5 Э.2: by the mark «Спросил о сыне»)
+function said(g, f) {
+  if (f.asked) return g.say('elzeard', 'You asked about my son, that time', { how: 'old, slow, plain' });
+  return g.say('elzeard', 'You didn’t ask, that time', { how: 'old, slow, plain' });
+}

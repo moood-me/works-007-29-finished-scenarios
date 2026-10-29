@@ -4,6 +4,7 @@
 // what the shepherd does up there. Its choices only lean the scales (§3, §8); the map after it is the prologue's too.
 // Reads: nothing. Leaves: choices.rod, choices.farewell, choices.tell, their marks (and the promise marks.back),
 // scales.path, scales.word.
+import { piece } from '../story.js';
 import { hand_in } from '../minigames/all.js';
 
 export default {
@@ -17,17 +18,16 @@ export default {
   steps: [
     // 1.1–1.2: the mist, the rod, the acorn; handing them
     async g => {
-      await g.scene('slope0', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'thinking' } });
-      g.title(tr('A Hundred Acorns'));
-      await g.plate(tr('Morning, mist on the bare slope. Elzéard leaves the sheep to the dog and goes out with an iron rod and a pail. He drives the rod into the earth, lays an acorn in the hole, closes the earth with his foot. The blow of the rod is dull.'));
-      await g.say('narrator', 'He was planting oaks');
+      await piece(g, 'rod_mist', { blow: () => g.say('narrator', 'He was planting oaks') }, async () => {
+        await g.scene('slope0', { beat: 'rod_mist', here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'thinking' } });
+        g.title(tr('A Hundred Acorns'));
+      });
       const handed = await g.play(hand_in);
       if (handed.took) await g.plate(tr('Elzéard takes up the pail himself. The Traveller stands there empty-handed.'));
     },
     // 1.3: on a stone — his facts, in a few words
     async g => {
-      await g.scene('slope0', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'surprised' } }, { cut: true });
-      await g.plate(tr('They sit on a stone.'));
+      await piece(g, 'stone', {}, () => g.scene('slope0', { beat: 'stone', here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'surprised' } }, { cut: true }));
       await g.say('elzeard', 'Three years. A hundred thousand. Twenty came up. Mice will eat half. Ten thousand oaks will be left', { how: 'short, factual, each fact a breath apart' });
       await g.say('traveller', 'Whose land is this?');
       await g.say('elzeard', 'I don’t know. Not mine');
@@ -40,53 +40,39 @@ export default {
     },
     // 1.4: ⚑ the rod left standing
     async g => {
-      await g.scene('slope0', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'thinking' } }, { cut: true });
-      await g.plate(tr('Elzéard goes off to move the sheep; the rod is left standing in the earth.'));
-      g.here('elzeard', false);
-      g.set('elzeard_with', []);
-      g.set('rod_ground', true);
-      const rod = await g.choose('rod', { rod: [
+      await piece(g, 'rod_left', {}, () => g.scene('slope0', { beat: 'rod_left', here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'thinking' } }, { cut: true }));
+      const rod = await g.choose('rod', { 'rod#top': [
         { id: 'take', label: tr('Take the rod') },
         { id: 'wait', label: tr('Wait for him') },
       ] });
       if (rod === 'take') {
-        await g.plate(tr('The Traveller pushes the rod in himself, lays an acorn, closes the earth — clumsily.'));
-        g.here('elzeard', true);
-        g.set('rod_ground', false);
-        g.set('elzeard_with', ['rod']);
-        await g.plate(tr('Elzéard comes back, looks at his hole by the stone, takes the rod and plants on, as if that was how it should be.'));
+        await piece(g, 'took_rod');
       } else {
-        g.here('elzeard', true);
-        g.set('rod_ground', false);
-        g.set('elzeard_with', ['rod']);
-        await g.plate(tr('Elzéard comes back and plants on. The Traveller counts aloud.'));
-        await g.say('traveller', 'Forty-one… forty-two…', { how: 'counting under his breath, in time with the rod' });
-        await g.say('elzeard', 'Don’t count. You put me off');
+        await piece(g, 'counting', { count: async () => {
+          await g.say('traveller', 'Forty-one… forty-two…', { how: 'counting under his breath, in time with the rod' });
+          await g.say('elzeard', 'Don’t count. You put me off');
+        } });
       }
       g.apply('rod');
       g.gauge('path');
     },
     // 1.5: the evening — the razor, the button
     async g => {
-      await g.scene('house0', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'thinking' }, keys: { lamp: 1 } });
-      await g.plate(tr('Evening, the house. Elzéard shaves at the window, then sews on a button.'));
-      await g.say('narrator', 'His buttons were sewn on as if they could never be lost');
-      await g.plate(tr('Silence; the lamp.'));
+      await piece(g, 'button', { sew: () => g.say('narrator', 'His buttons were sewn on as if they could never be lost') },
+        () => g.scene('inside0', { beat: 'button', here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'thinking' }, keys: { moment: 'button' } }));
     },
     // 1.6: ⚑ at the door at dawn
     async g => {
-      await g.scene('house0', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'sad' }, keys: { moment: 'leaving' } });
-      await g.plate(tr('Dawn, the threshold. The Traveller is leaving. Elzéard at the door.'));
+      await piece(g, 'dawn_door', {}, () => g.scene('house0', { beat: 'dawn_door', here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'sad' }, keys: { moment: 'leaving' } }));
       const farewell = await g.choose('farewell', { 'traveller#chest': [
         { id: 'back', label: tr('“I’ll be back”') },
         { id: 'hand', label: tr('Raise a hand without a word') },
       ] });
       if (farewell === 'back') {
         await g.say('traveller', 'I’ll be back');
-        await g.plate(tr('Elzéard looks at him and nods.'));
-        await g.say('elzeard', 'The slope is here');
+        await piece(g, 'farewell_back', { nod: () => g.say('elzeard', 'The slope is here') });
       } else {
-        await g.plate(tr('The Traveller raises his hand. Elzéard nods and turns to the sheep.'));
+        await piece(g, 'farewell_hand');
       }
       g.apply('farewell');
     },
