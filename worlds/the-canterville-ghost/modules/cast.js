@@ -180,8 +180,8 @@ function candle(F) {
   const s = F.side('LeftHand');
   F.ball(at(-0.02), [s, up, F.fwd('LeftHand')], [0.07 * k, 0.012 * F.fit.h, 0.07 * k], BRASS, 14);
   F.bar(at(-0.01), at(0.13), 0.016 * k, 0.016 * k, [[0, WAX]], 8, s);
-  F.ball(at(0.155), [s, up, F.fwd('LeftHand')], [0.012 * k, 0.025 * F.fit.h, 0.012 * k], FLAME, 8);
-  F.point('flame', at(0.155));
+  F.ball(at(0.165), [s, up, F.fwd('LeftHand')], [0.018 * k, 0.036 * F.fit.h, 0.018 * k], FLAME, 8);
+  F.point('flame', at(0.165));
 }
 // a book lying shut on the lap of one who sits: on the thighs, near the knees, its spine toward the right knee
 const BOOK = [0.3, 0.16, 0.12, 1];

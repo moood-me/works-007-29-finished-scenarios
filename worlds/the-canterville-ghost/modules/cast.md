@@ -48,4 +48,5 @@ before the chest (holding something out), a loop; `upright` — stands upright, 
 loop; `brood` — sits (on a seat: `<id>_on`), the right hand to the brow, the left on the knee, tired, a loop; `sit_ground` —
 sits on the ground, the knees up, the arms loose on them, looking ahead, a loop; `pray` — kneels upright, the hands
 together at the chin, a loop; `doze` — sits (on a seat: `<id>_on`), leaning back asleep, the arms folded, the head
-tipped back, a loop (with `<id>_mood` `eyes_closed`).
+tipped back, a loop (with `<id>_mood` `eyes_closed`); `hold_candle` — stands holding a candle up before the chest in the left hand (with `candle`), the right hand
+hanging, a loop.
