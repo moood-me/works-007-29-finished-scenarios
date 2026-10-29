@@ -40,3 +40,8 @@ What is not right yet:
 - The suit bag is a rigid shape held out from the hand, not cloth (it does not swing).
 - A light edge on the floor in front of the bed (the bedside lamp's pool cut off along a straight line) — the engine's;
   not yet looked into.
+
+## Stage 4
+
+- `crane` (boolean, true by default): the menu crane on the sill is there only on «Зверинец» 2 — a game sets it false
+  on 0–1.

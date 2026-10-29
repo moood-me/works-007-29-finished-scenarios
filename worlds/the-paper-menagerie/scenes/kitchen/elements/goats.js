@@ -1,6 +1,8 @@
 // Two paper goats on the sill, folded from wrapping paper (one green with white dots, one white with blue stripes):
 // flat facets, each fold a shade lighter or darker, the creases drawn. Each goat's head and neck is a layer of its own,
 // pivoting at the neck: animate nods them now and then, a little stiffly, as paper moves.
+// (Not there while the kitchen is packed, `packed`.)
+if (e.state.packed) return;
 const poly = (l, pts, fill) => {
   l.fillStyle = fill;
   l.beginPath();

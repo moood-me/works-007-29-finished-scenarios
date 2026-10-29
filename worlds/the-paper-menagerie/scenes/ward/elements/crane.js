@@ -1,6 +1,7 @@
 // A paper crane on the sill, folded from a white page of the hospital's menu, still: its body a diamond, the neck and
 // the tail sharp points up, the head bent down, the wings two flat triangles; the printed lines of the menu show
-// faintly across its folds.
+// faintly across its folds. There while `crane` ('Menagerie' 2).
+if (!e.state.crane) return;
 const W = '#f6f4ec',
   S = '#e4e1d4',
   D = '#d2cebe';

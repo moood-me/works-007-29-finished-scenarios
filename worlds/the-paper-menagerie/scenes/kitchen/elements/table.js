@@ -14,6 +14,22 @@ for (let y = -0.38; y < 0.4; y += 0.09) {
     g.fillRect(x + 0.004, y - 0.022, 0.012, 0.006);
   }
 }
+// the roll of tape, always
+const tape = () => {
+  g.fillStyle = '#d8d2bc';
+  g.beginPath();
+  g.arc(0.5, -0.22, 0.045, 0, Math.PI * 2);
+  g.fill();
+  g.fillStyle = '#f1e6bf';
+  g.beginPath();
+  g.arc(0.5, -0.22, 0.025, 0, Math.PI * 2);
+  g.fill();
+};
+// (packed, `packed`: the oilcloth bare but for the tape — the box on it is `table_box`)
+if (e.state.packed) {
+  tape();
+  return;
+}
 // the torn wrapping paper: red with gold stars, crumpled scraps
 const star = (x, y, r) => {
   g.beginPath();
@@ -58,15 +74,7 @@ g.fillStyle = '#e2b93f';
 g.fillRect(0.05, -0.36, 0.15, 0.15);
 g.fillStyle = '#eccb5c';
 g.fillRect(0.065, -0.375, 0.15, 0.15);
-// the roll of tape
-g.fillStyle = '#d8d2bc';
-g.beginPath();
-g.arc(0.5, -0.22, 0.045, 0, Math.PI * 2);
-g.fill();
-g.fillStyle = '#f1e6bf';
-g.beginPath();
-g.arc(0.5, -0.22, 0.025, 0, Math.PI * 2);
-g.fill();
+tape();
 // the scissors
 g.strokeStyle = '#8a8d90';
 g.lineWidth = 0.008;

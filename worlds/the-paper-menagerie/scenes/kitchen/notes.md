@@ -23,3 +23,23 @@ stand in the story. No one moves but a look; no camera moves.
 - **People** (modules/cast, style `paper`): Mom behind the table, folding a yellow square (part `sheet`), her eyes on
   Jack; Jack standing at the table's left end over Laohu, his right hand on its edge (`jack_reach`); Dad in from the
   hall, hands in his pockets, watching her. The showcase: Jack looks up at her and she at the tiger; back.
+
+## Stage 4: a year on, and «the whole house» (keys)
+
+The evening above stays the scene's own state; chapter 3 is keys over it:
+
+| key | what it shows |
+|---|---|
+| `day` 0/1 | by day (chapter 3): `sky` a clear spring day, the windows across the street dark, the light's look `day` (the afterglow out), the `sun` coming in; set at once (the sky is painted by it) |
+| `packed` | the kitchen packed, the house sold (3.1): boxes on the floor (`boxes`, three stacks — copies), an open box on the table being taped (`table_box`, point `table_box#box`), the oilcloth bare but for the tape, the shelf bare, Dad's cap gone from the hook; the goats, the buffalo, Laohu and the shark not here |
+| `menagerie` | «весь дом» («Зверинец» 2): `"sill"` — 3.1, three cranes and two frogs on the bare sill, the only things not packed; `"awake"` — 3.2, the cranes up on the curtains and their rod (each a layer that hops now and then), frogs on the table and the floor (`frogs`, copies, breathing), the shark back in the sink; `"none"` |
+| `suit_bag` | Jack's suit in its bag on the hook by the door, the tag still on it («Остался», 3.1; point `right_wall#suit`) |
+
+- **People**: every person has `place` keys now (`<id>_a`, `<id>_d`). A year on Mom is not here (`mom_here: false`),
+  Dad is `dad_grey` without the book (`dad_wear: {...dad_grey, parts: []}`), Jack `jack_grown` without the bag. 3.2:
+  Dad with a paper frog on his palm — the cast's part `frog` (`dad_with: ["frog"]`, point `dad#frog`) with
+  `offer_hand`.
+- **The showcase** goes on after the evening: a year on (packed, by day, the cranes on the sill, the suit on its hook)
+  → the house wakes (Dad alone with a frog on his palm, looking up at the cranes).
+- 3.2's «Dad in the doorway» is in Jack's room (С3) in the scenario; here the kitchen shows the same awakening for a game
+  that wants to see it downstairs.

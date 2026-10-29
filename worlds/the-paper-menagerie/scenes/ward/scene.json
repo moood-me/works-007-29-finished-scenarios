@@ -66,7 +66,8 @@
       0.38,
       3.6,
       0.58
-    ]
+    ],
+    "crane": true
   },
   "states": {
     "lamp": {
@@ -80,6 +81,10 @@
     "laohu_ear": {
       "type": "boolean",
       "means": "Laohu has lost an ear (the game's 'Ear' mark): true — one ear, the torn one taped flat"
+    },
+    "crane": {
+      "type": "boolean",
+      "means": "the paper crane folded from the hospital menu on the sill ('Menagerie' 2): true there, false not"
     }
   },
   "objects": [
