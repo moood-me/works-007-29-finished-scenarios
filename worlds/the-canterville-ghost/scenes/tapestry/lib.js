@@ -284,6 +284,7 @@ function film(scene) {
   const W = id => scene.kit.cast.characters[id];
   return {
     // 1.6: night, she not here; on the seat he rubs his sleeve, gets up, listens at the wall, and goes back to the seat
+    // (the walk seen from the scene's own camera: a shot following him to the right wall would stand past the room's end)
     insulted: {
       tells: ['insulted:ear', 'insulted:seat'],
       seconds: 14,
@@ -292,6 +293,7 @@ function film(scene) {
         const p = s.person('simon');
         await s.wait(2.5);
         p.look(null);
+        s.camera({ target: null });
         await rise(p);
         await p.walk([LISTEN]);
         await p.turn(180);
@@ -300,6 +302,7 @@ function film(scene) {
         await s.wait(3);
         p.do('stand');
         await sit(p);
+        s.camera({ target: 'simon', shot: 'medium' });
         p.look([0.2, 3.9, 0.2]);
         s.tell('insulted:seat');
       },
@@ -508,7 +511,7 @@ function film(scene) {
         await p.turn(250);
         p.look('virginia');
         p.do('offer');
-        s.camera({ target: 'simon#hand_r', shot: 'medium' });
+        s.camera({ target: 'simon', shot: 'full', frame: 0.6 });
         await s.wait(1);
         v.look('simon');
         s.tell('wall_parts:hand');
