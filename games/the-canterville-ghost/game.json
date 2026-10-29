@@ -10,5 +10,5 @@
     "relationships": 50
   },
   "world": "../../worlds/the-canterville-ghost",
-  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant"]
+  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant", "ko"]
 }
