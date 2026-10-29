@@ -84,7 +84,7 @@
     },
     {
       "id": "candle",
-      "at": "otis#candle",
+      "at": "otis#flame",
       "color": "#ffd08a",
       "strength": 1.0,
       "reach": 3,
@@ -121,10 +121,10 @@
     "mrs_otis_d": 8.2,
     "washington_a": -3.0,
     "washington_d": 7.5,
-    "twin_a_a": -0.35,
-    "twin_a_d": 8.0,
-    "twin_b_a": -2.55,
-    "twin_b_d": 8.1,
+    "twin_star_a": -0.35,
+    "twin_star_d": 8.0,
+    "twin_stripes_a": -2.55,
+    "twin_stripes_d": 8.1,
     "virginia_with": [
       "brush"
     ],
@@ -146,12 +146,12 @@
     ],
     "washington_look": "coffin#lid",
     "washington_mood": "sad",
-    "twin_a_here": false,
-    "twin_a_look": "coffin#lid",
-    "twin_a_mood": "sad",
-    "twin_b_here": false,
-    "twin_b_look": "coffin#lid",
-    "twin_b_mood": "sad"
+    "twin_star_here": false,
+    "twin_star_look": "coffin#lid",
+    "twin_star_mood": "sad",
+    "twin_stripes_here": false,
+    "twin_stripes_look": "coffin#lid",
+    "twin_stripes_mood": "sad"
   },
   "states": {
     "night": {
@@ -336,37 +336,37 @@
       "smooth": true,
       "means": "where Washington stands, metres ahead of the viewer"
     },
-    "twin_a_a": {
+    "twin_star_a": {
       "range": [
         -16,
         16
       ],
       "smooth": true,
-      "means": "where A twin stands, metres right of the viewer's line"
+      "means": "where Twin Star stands, metres right of the viewer's line"
     },
-    "twin_a_d": {
+    "twin_star_d": {
       "range": [
         3,
         40
       ],
       "smooth": true,
-      "means": "where A twin stands, metres ahead of the viewer"
+      "means": "where Twin Star stands, metres ahead of the viewer"
     },
-    "twin_b_a": {
+    "twin_stripes_a": {
       "range": [
         -16,
         16
       ],
       "smooth": true,
-      "means": "where The other twin stands, metres right of the viewer's line"
+      "means": "where Twin Stripes stands, metres right of the viewer's line"
     },
-    "twin_b_d": {
+    "twin_stripes_d": {
       "range": [
         3,
         40
       ],
       "smooth": true,
-      "means": "where The other twin stands, metres ahead of the viewer"
+      "means": "where Twin Stripes stands, metres ahead of the viewer"
     }
   },
   "objects": [
@@ -1214,35 +1214,35 @@
       }
     },
     {
-      "id": "twin_a",
-      "name": "A twin",
+      "id": "twin_star",
+      "name": "Twin Star",
       "person": {
         "cast": "cast",
-        "who": "twin",
+        "who": "twin_star",
         "turn": 200,
         "does": "stand"
       },
       "across": -0.35,
       "distance": 8.0,
       "place": {
-        "across": "twin_a_a",
-        "distance": "twin_a_d"
+        "across": "twin_star_a",
+        "distance": "twin_star_d"
       }
     },
     {
-      "id": "twin_b",
-      "name": "The other twin",
+      "id": "twin_stripes",
+      "name": "Twin Stripes",
       "person": {
         "cast": "cast",
-        "who": "twin",
+        "who": "twin_stripes",
         "turn": 165,
         "does": "stand"
       },
       "across": -2.55,
       "distance": 8.1,
       "place": {
-        "across": "twin_b_a",
-        "distance": "twin_b_d"
+        "across": "twin_stripes_a",
+        "distance": "twin_stripes_d"
       }
     }
   ],

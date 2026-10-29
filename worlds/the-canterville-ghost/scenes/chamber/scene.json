@@ -1,0 +1,526 @@
+{
+  "engine": 3,
+  "title": "The Secret Chamber",
+  "caption": "Behind the panel on the landing: a low stone room, an iron ring in the wall, the moon at a little barred window.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.36,
+    "ambientColor": "#7c88b2",
+    "bounce": 0.6,
+    "haze": 0.1,
+    "hazeColor": "#262c40",
+    "hazeGlow": 0.7,
+    "shafts": 1.8,
+    "tint": "#c9d2ea",
+    "tintStrength": 0.05,
+    "vignette": 0.45,
+    "grain": 0.07,
+    "wind": [
+      1,
+      0,
+      0.3
+    ]
+  },
+  "lights": [
+    {
+      "id": "moon",
+      "from": [
+        102,
+        7.5
+      ],
+      "color": "#b8ccf2",
+      "strength": 4.0,
+      "through": [
+        "window"
+      ]
+    },
+    {
+      "id": "otis_candle",
+      "at": "otis#flame",
+      "color": "#ffc47e",
+      "strength": 1.3,
+      "reach": 4.0,
+      "flicker": 0.25
+    },
+    {
+      "id": "washington_candle",
+      "at": "washington#flame",
+      "color": "#ffc47e",
+      "strength": 1.3,
+      "reach": 4.0,
+      "flicker": 0.25
+    },
+    {
+      "id": "landing",
+      "across": -4.0,
+      "distance": 5.6,
+      "elevation": 1.7,
+      "color": "#ffb468",
+      "strength": 0.8,
+      "reach": 3.0,
+      "on": "landing"
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "moment": "family",
+    "landing": 1,
+    "otis_a": 1.6,
+    "otis_d": 4.65,
+    "virginia_look": "skeleton#skull",
+    "virginia_mood": "sad",
+    "otis_with": [
+      "candle"
+    ],
+    "otis_look": "virginia",
+    "otis_mood": "sad",
+    "washington_with": [
+      "candle"
+    ],
+    "washington_look": "virginia",
+    "washington_mood": "sad",
+    "mrs_otis_look": "virginia",
+    "mrs_otis_mood": "sad",
+    "twin_star_look": "window#window",
+    "twin_star_mood": "surprised",
+    "twin_stripes_look": "window#window",
+    "twin_stripes_mood": "surprised"
+  },
+  "states": {
+    "moment": {
+      "values": [
+        "family",
+        "father"
+      ],
+      "means": "who is here: family - the night he died, the whole family come in with candles through the panel from the hall (Virginia in her riding habit kneeling, Mr Otis by her, Mrs Otis and Washington by the panel, the twins at the window); father - the last night, Virginia (in her white frock) kneeling and Mr Otis alone with his candle in the passage mouth"
+    },
+    "landing": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the candles on the staircase landing beyond the open panel: 0 dark, 1 lit"
+    },
+    "otis_a": {
+      "range": [
+        -3,
+        3
+      ],
+      "means": "where Mr Otis stands, metres right of the middle (the moment sets it)"
+    },
+    "otis_d": {
+      "range": [
+        1,
+        6
+      ],
+      "means": "where Mr Otis stands, metres away (the moment sets it)"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The night sky",
+      "sky": true
+    },
+    {
+      "id": "lawn",
+      "name": "The garden under the window",
+      "plane": true,
+      "across": 10,
+      "distance": 10,
+      "elevation": -2.2,
+      "width": 30,
+      "depth": 30
+    },
+    {
+      "id": "almond",
+      "name": "The old almond tree in blossom",
+      "across": 6.3,
+      "distance": 10,
+      "elevation": -2.2,
+      "height": 5.5,
+      "box": [
+        -2.8,
+        -5.4,
+        2.8,
+        0.1
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The stone floor",
+      "plane": true,
+      "across": 0,
+      "distance": 3.25,
+      "width": 6.0,
+      "depth": 4.7
+    },
+    {
+      "id": "ceiling",
+      "name": "The low stone ceiling",
+      "across": 0,
+      "distance": 5.65,
+      "elevation": 2.4,
+      "facing": 180,
+      "tilt": -90,
+      "height": 4.75,
+      "box": [
+        -3.0,
+        -4.75,
+        3.0,
+        0.05
+      ]
+    },
+    {
+      "id": "passage",
+      "name": "The narrow stair in the wall, going up into the dark",
+      "across": 1.7,
+      "distance": 6.2,
+      "facing": 180,
+      "height": 2.2,
+      "box": [
+        -0.75,
+        -2.2,
+        0.75,
+        0.02
+      ]
+    },
+    {
+      "id": "passage_floor",
+      "name": "The passage floor at the stair foot",
+      "plane": true,
+      "across": 1.7,
+      "distance": 5.9,
+      "elevation": 0.002,
+      "width": 1.5,
+      "depth": 0.6
+    },
+    {
+      "id": "back_wall",
+      "name": "The far wall: the iron ring and the passage mouth",
+      "across": 0,
+      "distance": 5.6,
+      "facing": 180,
+      "height": 2.4,
+      "box": [
+        -3.0,
+        -2.42,
+        3.0,
+        0.02
+      ]
+    },
+    {
+      "id": "hall",
+      "name": "The staircase landing beyond the open panel",
+      "across": -4.4,
+      "distance": 6.6,
+      "facing": 90,
+      "height": 2.2,
+      "box": [
+        -2.0,
+        -2.2,
+        1.6,
+        0.02
+      ]
+    },
+    {
+      "id": "hall_floor",
+      "name": "The landing floor",
+      "plane": true,
+      "across": -4.2,
+      "distance": 6.0,
+      "elevation": 0.002,
+      "width": 2.4,
+      "depth": 5.0
+    },
+    {
+      "id": "door_jamb",
+      "name": "The far side of the panel opening",
+      "across": -3.25,
+      "distance": 5.1,
+      "facing": 180,
+      "height": 1.85,
+      "box": [
+        -0.25,
+        -1.85,
+        0.25,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall: the open panel to the hall",
+      "across": -3.0,
+      "distance": 3.25,
+      "facing": 90,
+      "height": 2.4,
+      "box": [
+        -2.35,
+        -2.42,
+        2.35,
+        0.02
+      ]
+    },
+    {
+      "id": "reveal",
+      "name": "The far side of the little window opening",
+      "across": 3.125,
+      "distance": 5.2,
+      "facing": 180,
+      "height": 1.7,
+      "box": [
+        -0.125,
+        -1.7,
+        0.125,
+        -1.1
+      ]
+    },
+    {
+      "id": "sill",
+      "name": "The little window sill",
+      "plane": true,
+      "across": 3.125,
+      "distance": 4.85,
+      "elevation": 1.1,
+      "width": 0.25,
+      "depth": 0.7
+    },
+    {
+      "id": "window",
+      "name": "The little barred window onto the garden",
+      "across": 3.25,
+      "distance": 4.85,
+      "facing": 270,
+      "height": 1.7,
+      "box": [
+        -0.35,
+        -1.7,
+        0.35,
+        -1.1
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall: the little window",
+      "across": 3.0,
+      "distance": 3.25,
+      "facing": 270,
+      "height": 2.4,
+      "box": [
+        -2.35,
+        -2.42,
+        2.35,
+        0.02
+      ]
+    },
+    {
+      "id": "skeleton",
+      "name": "The skeleton chained to the ring",
+      "across": -0.15,
+      "distance": 5.42,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -1.3,
+        -1.05,
+        1.1,
+        0.08
+      ],
+      "shadow": true
+    },
+    {
+      "id": "trencher",
+      "name": "The old trencher",
+      "plane": true,
+      "across": -1.62,
+      "distance": 5.25,
+      "elevation": 0.012,
+      "width": 0.36,
+      "depth": 0.36
+    },
+    {
+      "id": "ewer",
+      "name": "The old ewer",
+      "across": -2.02,
+      "distance": 5.35,
+      "height": 0.34,
+      "box": [
+        -0.16,
+        -0.37,
+        0.18,
+        0.01
+      ]
+    },
+    {
+      "id": "motes",
+      "name": "Dust in the moonbeam",
+      "particles": {
+        "kind": "dust",
+        "at": [
+          0.8,
+          5.2,
+          1.1
+        ],
+        "source": [
+          3.6,
+          0.8,
+          0.7
+        ]
+      }
+    },
+    {
+      "id": "virginia",
+      "name": "Virginia",
+      "person": {
+        "cast": "cast",
+        "who": "virginia_habit",
+        "turn": 248,
+        "does": "pray"
+      },
+      "across": 1.0,
+      "distance": 4.45
+    },
+    {
+      "id": "otis",
+      "name": "Mr Otis",
+      "person": {
+        "cast": "cast",
+        "who": "otis",
+        "turn": 225,
+        "does": "offer"
+      },
+      "across": 1.6,
+      "distance": 4.65,
+      "place": {
+        "across": "otis_a",
+        "distance": "otis_d"
+      }
+    },
+    {
+      "id": "mrs_otis",
+      "name": "Mrs Otis",
+      "person": {
+        "cast": "cast",
+        "who": "mrs_otis",
+        "turn": 120,
+        "does": "clasped"
+      },
+      "across": -1.75,
+      "distance": 3.8
+    },
+    {
+      "id": "washington",
+      "name": "Washington",
+      "person": {
+        "cast": "cast",
+        "who": "washington",
+        "turn": 120,
+        "does": "offer"
+      },
+      "across": -2.75,
+      "distance": 4.75
+    },
+    {
+      "id": "twin_star",
+      "name": "Twin (Star)",
+      "person": {
+        "cast": "cast",
+        "who": "twin_star",
+        "turn": 120,
+        "does": "stand"
+      },
+      "across": 2.35,
+      "distance": 4.25
+    },
+    {
+      "id": "twin_stripes",
+      "name": "Twin (Stripes)",
+      "person": {
+        "cast": "cast",
+        "who": "twin_stripes",
+        "turn": 165,
+        "does": "stand"
+      },
+      "across": 2.7,
+      "distance": 5.48
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "chamber gothic comedy, pizzicato strings tiptoeing, a harpsichord, sly and dry, Victorian manor at night",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, slow and tender, a lament for someone three hundred years tired",
+        "weight": 1.0
+      },
+      {
+        "text": "music box waltz, slightly out of tune, old English country house, moonlight",
+        "weight": 0
+      },
+      {
+        "text": "distant church organ, low and soft, through thick stone walls",
+        "weight": 0.6
+      },
+      {
+        "text": "bassoon and clarinet, comic and pompous, a theatrical villain's entrance",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, a girl's quiet pity, glassy and clear",
+        "weight": 0
+      },
+      {
+        "text": "low string drone with clanking metallic percussion, chains in a corridor",
+        "weight": 0
+      },
+      {
+        "text": "Elizabethan lute galliard, faded, as if remembered",
+        "weight": 0
+      },
+      {
+        "text": "ragtime piano, American, cheerful, very far away in another wing",
+        "weight": 0
+      },
+      {
+        "text": "thunderstorm rumble under a slow minor piano",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, Victorian, restrained melancholy",
+        "weight": 0.3
+      },
+      {
+        "text": "boys' choir, a single held note, a garden under the moon",
+        "weight": 0.5
+      },
+      {
+        "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom",
+        "weight": 0.4
+      },
+      {
+        "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense",
+        "weight": 0
+      },
+      {
+        "text": "mock-heroic brass fanfare, muted, slightly ridiculous",
+        "weight": 0
+      },
+      {
+        "text": "slow harpsichord pavane, dignified and dusty",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.4,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}

@@ -166,17 +166,42 @@ function bottle(F) {
   F.bar(at(0.05), at(0.1), 0.012 * k, 0.012 * k, [[0, GLASS]], 8, s);
   F.bar(at(0.1), at(0.125), 0.014 * k, 0.014 * k, [[0, CORK]], 8, s);
 }
-// (the garden by the castle: what its people carry — a torch, a candle, a brush, the cross of almond blossom)
+// a candle in a little brass candlestick, held in the right hand and standing upright whatever the hand does; its
+// flame glows (the point `flame`: a scene's light "at" "<id>#flame" — the candle lights nothing by itself)
+const BRASS = [0.66, 0.5, 0.24, 1];
+const WAX = [0.93, 0.9, 0.82, 1];
+const FLAME = [1, 0.84, 0.5, 2];
+const UPRIGHT = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+// what a candle keeps from frame to frame (F.keep): the heights up from the hand (its foot, the stem, the wax's
+// foot and top, the flame), its colours, the flame's size
+const CANDLE = F => ({
+  up: [-0.02, -0.005, 0.03, 0.17, 0.2].map(y => [0, y * F.fit.h, 0]),
+  brass: [[0, BRASS]],
+  wax: [[0, WAX]],
+  flame: [0.009 * F.k, 0.024 * F.fit.h, 0.009 * F.k],
+});
+function candle(F) {
+  const { add, mul } = V();
+  const k = F.k;
+  const h = F.fit.h;
+  const c = add(F.P('RightHand'), add(mul(F.up('RightHand'), 0.06 * h), mul(F.fwd('RightHand'), 0.02 * k)));
+  const s = F.side('RightHand');
+  const K = F.keep(CANDLE);
+  const at = i => add(c, K.up[i]);
+  F.bar(at(0), at(1), 0.055 * k, 0.055 * k, K.brass, 14, s);
+  F.bar(at(1), at(2), 0.014 * k, 0.014 * k, K.brass, 8, s);
+  F.bar(at(2), at(3), 0.013 * k, 0.013 * k, K.wax, 8, s);
+  const flame = at(4);
+  F.ball(flame, UPRIGHT, K.flame, FLAME, 8);
+  F.point('flame', flame);
+}
+// (the garden by the castle: what its people carry — a torch, a brush, the cross of almond blossom; the torch upright by
+// the candle's UPRIGHT)
 const WOOD = [0.34, 0.24, 0.16, 1];
 const PITCH = [0.16, 0.12, 0.1, 1];
-const FLAME = [1, 0.62, 0.22, 2];
-const WAX = [0.95, 0.92, 0.84, 1];
-const BRASS = [0.7, 0.56, 0.3, 1];
 const BLOSSOM = [0.97, 0.95, 0.93, 1];
 const PINK = [0.95, 0.8, 0.84, 1];
 const TWIG = [0.3, 0.22, 0.18, 1];
-// the world's own axes: what is held upright whatever the hand does (a torch, a candle)
-const UPRIGHT = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
 // a torch held upright in the right hand: a stave, a head of pitch-soaked tow, its flame glowing (the point `torch`:
 // a scene's fire and light there)
 function torch(F) {
@@ -191,19 +216,6 @@ function torch(F) {
   const flame = add(head, [0, 0.11 * h, 0]);
   F.ball(flame, UPRIGHT, [0.05 * k, 0.1 * h, 0.05 * k], FLAME, 10);
   F.point('torch', flame);
-}
-// a candle in a brass dish held upright in the right hand, its flame glowing (the point `candle`)
-function candle(F) {
-  const { add } = V();
-  const h = F.fit.h;
-  const k = F.k;
-  const dish = add(F.P('RightHand'), [0, 0.04 * h, 0]);
-  F.ball(dish, UPRIGHT, [0.06 * k, 0.012 * h, 0.06 * k], BRASS, 12);
-  const wick = add(dish, [0, 0.15 * h, 0]);
-  F.bar(dish, wick, 0.014 * k, 0.014 * k, [[0, WAX]], 8, [1, 0, 0]);
-  const flame = add(wick, [0, 0.025 * h, 0]);
-  F.ball(flame, UPRIGHT, [0.012 * k, 0.026 * h, 0.012 * k], FLAME, 8);
-  F.point('candle', flame);
 }
 // a long paint brush in the right hand, pointing out before her and a little up
 function brush(F) {
@@ -279,6 +291,32 @@ return {
       body: { height: 1.02, shoulders: 1.04, thick: 1.04 },
       colors: { skin: '#ebc7a7', hair: '#857560', top: '#8a8a88', garment: '#2e333d', bottom: '#2b2c31', shoes: '#191818' },
     },
+    // Mrs Lucretia R. Otis: a handsome, healthy middle-aged woman, her dark hair up in a knot, a gown of deep plum
+    // to the floor
+    mrs_otis: {
+      kind: 'shapes', style: 'canterville', who: 'woman', garment: 'gown', hair: 'bun', face: 'storybook',
+      body: { height: 0.95, thick: 1.0 },
+      colors: { skin: '#efcfb2', hair: '#5a3a26', top: '#5e3446', garment: '#5e3446', bottom: '#5e3446', shoes: '#2a1e1c' },
+    },
+    // Washington Otis, the eldest son: a fair-haired, rather good-looking young man in a dark blue-grey frock coat
+    // over a light waistcoat
+    washington: {
+      kind: 'shapes', style: 'canterville', who: 'man', garment: 'coat', hair: 'short', face: 'storybook',
+      body: { height: 1.0, thick: 0.92 },
+      colors: { skin: '#efcbab', hair: '#c9a866', top: '#b8b0a0', garment: '#3a4252', bottom: '#2c3038', shoes: '#1c1a1a' },
+    },
+    // the twins, ten years old, "the Stars and Stripes": two boys alike as two peas — the same short jackets and
+    // knickerbockers of navy cloth, white shirts and stockings, the same brown hair
+    twin_star: {
+      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
+      body: { height: 0.78 },
+      colors: { skin: '#f0cfb0', hair: '#7a5030', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
+    },
+    twin_stripes: {
+      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
+      body: { height: 0.78 },
+      colors: { skin: '#f0cfb0', hair: '#7a5030', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
+    },
     // Mrs Umney, the housekeeper: an old woman, stout, in black silk to the floor, a white cap over grey hair
     mrs_umney: {
       kind: 'shapes', style: 'canterville', who: 'woman', garment: 'frock', hair: 'bun', hat: 'bonnet', face: 'storybook',
@@ -290,25 +328,6 @@ return {
       kind: 'shapes', style: 'canterville', who: 'teen', garment: 'jacket', hair: 'short', face: 'storybook',
       body: { height: 0.93, shoulders: 0.94, thick: 0.84 },
       colors: { skin: '#f0cdb0', hair: '#a07a4a', top: '#ece6da', garment: '#2f3c5e', bottom: '#d6c49c', shoes: '#2a201a' },
-    },
-    // Mrs Otis: a handsome, healthy, practical woman, dark hair in a bun, a dress of dark plum
-    mrs_otis: {
-      kind: 'shapes', style: 'canterville', who: 'woman', garment: 'frock', hair: 'bun', face: 'storybook',
-      body: { height: 0.95, shoulders: 0.92, thick: 0.96 },
-      colors: { skin: '#efcbac', hair: '#5e4030', top: '#4a2f44', garment: '#4a2f44', bottom: '#4a2f44', shoes: '#1e1a1c' },
-    },
-    // Washington Otis, the eldest son: tall, fair, good-looking, a black frock coat over a light waistcoat
-    washington: {
-      kind: 'shapes', style: 'canterville', who: 'man', garment: 'coat', hair: 'short', face: 'storybook',
-      body: { height: 1.0, shoulders: 1.0, thick: 0.92 },
-      colors: { skin: '#f0cfb2', hair: '#d0ae6c', top: '#cfc8b8', garment: '#262a33', bottom: '#3a3c42', shoes: '#191818' },
-    },
-    // the twins, "the Stars and Stripes", about ten: two boys of one look — short navy jackets, grey knickerbockers,
-    // white stockings, sandy hair
-    twin: {
-      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
-      body: { height: 0.74 },
-      colors: { skin: '#f2d0b2', hair: '#c49a5a', top: '#e8e2d6', garment: '#283456', bottom: '#7a7a80', shoes: '#241e1a', socks: '#ece8e0' },
     },
     // Virginia years later, the young Duchess of Cheshire (a look of hers for <id>_wear): grown, her hair up, a deep
     // blue dress with a pale lilac sash
@@ -342,6 +361,8 @@ return {
       habit: { name: 'riding habit', hang: [{ to: 2.0, from: 'waist', flare: 0.36, off: 0.96 }], sleeves: 'garment', bodice: true },
       // an old doublet to the hips, its trunk hose puffed out round the tops of the thighs, in tatters
       doublet: { name: 'doublet', hang: [{ to: 0.36, from: 'shoulders', flare: 0.35, ragged: true }], sleeves: 'garment' },
+      // a lady's gown: a full skirt from the waist to the floor, long sleeves, the bodice in its colour
+      gown: { name: 'gown', hang: [{ to: 2.05, from: 'waist', flare: 0.45, off: 0.96 }], sleeves: 'garment', bodice: true },
     },
     parts: {
       ruff: { name: 'ruff', draw: ruff },
@@ -350,6 +371,7 @@ return {
       fetters: { name: 'leg irons', draw: fetters },
       cloak: { name: 'cloak', draw: cloak },
       bottle: { name: 'a bottle of oil', draw: bottle },
+      candle: { name: 'a candle', draw: candle },
       // a white stock at the throat, in the look's accent colour
       stock: {
         name: 'stock',
@@ -369,7 +391,6 @@ return {
         },
       },
       torch: { name: 'torch', draw: torch },
-      candle: { name: 'candle', draw: candle },
       brush: { name: 'paint brush', draw: brush },
       almond_cross: { name: 'cross of almond blossom', draw: almondCross },
     },
