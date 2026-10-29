@@ -1,7 +1,7 @@
 // Prologue. “Laohu” (scenario §5, П.1–П.4). The evening after Christmas: a five-year-old crying over a broken robot,
 // his mother folding a tiger out of wrapping paper and breathing it alive; “you don't unfold a living one”; her song,
 // her animals; at night — “Where is she?” — “Far away. I'll tell you later.” No choice: the map does not come after it.
-// Jack is five here; the kitchen's Jack is the world's only boy (ten) — the plate says his age.
+// Jack is five here: the kitchen's and his room's key `young`.
 // Reads: nothing. Leaves: nothing but what the player was told.
 import { KITCHEN, ROOM } from '../story.js';
 import { palms } from '../minigames/all.js';
@@ -13,7 +13,7 @@ export default {
   steps: [
     // П.1: the robot; she folds without looking at her hands
     async g => {
-      await g.scene('kitchen', { here: ['mom', 'jack', 'dad'], moods: { jack: 'sad', mom: 'neutral', dad: 'sad' }, keys: KITCHEN.evening });
+      await g.scene('kitchen', { here: ['mom', 'jack', 'dad'], moods: { jack: 'sad', mom: 'neutral', dad: 'sad' }, keys: { ...KITCHEN.evening, young: true } });
       g.title(tr('The Paper Menagerie'));
       await g.plate(tr('The evening after Christmas. Torn wrapping paper all over the table. Jack — he is five — is crying over his wind-up robot: one of its legs has snapped off.'));
       await g.say('dad', 'We’ll buy another one tomorrow', { how: 'squatting by the boy, helpless' });
@@ -21,7 +21,7 @@ export default {
     },
     // П.2: М1 «Palms»
     async g => {
-      await g.scene('kitchen', { here: ['mom', 'jack', 'dad'], moods: { jack: 'sad', mom: 'smile', dad: 'neutral' }, keys: KITCHEN.evening }, { cut: true });
+      await g.scene('kitchen', { here: ['mom', 'jack', 'dad'], moods: { jack: 'sad', mom: 'smile', dad: 'neutral' }, keys: { ...KITCHEN.evening, young: true } }, { cut: true });
       await g.plate(tr('She puts a paper tiger into Jack’s palms.'));
       await g.say('mom', '拿着。别出声。', { sub: tr('Hold it. Quiet.'), how: 'softly, in Mandarin Chinese, to a crying child' });
       const { missed } = await g.play(palms);
@@ -32,7 +32,7 @@ export default {
     },
     // П.3: “Laohu”; you don't unfold a living one; the song; the menagerie
     async g => {
-      await g.scene('kitchen', { here: ['mom', 'jack', 'dad'], moods: { jack: 'smile', mom: 'smile', dad: 'smile' }, keys: KITCHEN.evening }, { cut: true });
+      await g.scene('kitchen', { here: ['mom', 'jack', 'dad'], moods: { jack: 'smile', mom: 'smile', dad: 'smile' }, keys: { ...KITCHEN.evening, young: true } }, { cut: true });
       await g.say('mom', '老虎。', { sub: tr('Laohu. Tiger.') });
       await g.say('jack', '老虎！', { sub: tr('Laohu!'), how: 'delighted, in Mandarin Chinese' });
       await g.plate(tr('The tiger pounces on the scraps of paper.'));
@@ -49,7 +49,7 @@ export default {
     },
     // П.4: night; “Where is she?” — “Far away. I'll tell you later.”
     async g => {
-      await g.scene('room', { here: ['mom', 'jack'], moods: { jack: 'tired', mom: 'smile' }, keys: ROOM.bedtime });
+      await g.scene('room', { here: ['mom', 'jack'], moods: { jack: 'tired', mom: 'smile' }, keys: { ...ROOM.bedtime, young: true } });
       await g.plate(tr('Night. Jack is falling asleep, Laohu under his hand. Mom sits beside him.'));
       await g.say('jack', '妈妈，谁教你的？', { sub: tr('Mom, who taught you?'), how: 'sleepily, in Mandarin Chinese' });
       await g.say('mom', '我妈妈。', { sub: tr('My mom.') });

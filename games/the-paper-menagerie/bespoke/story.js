@@ -58,24 +58,22 @@
 // where it really is. When the place's own scene comes (stage 4), its line here becomes `{ folder: '<its folder>' }`
 // — nothing else changes: the steps name places, never folders. The world's scenes have the people of their own
 // years: the kitchen and the yard — Jack at ten, Mom, Dad, Mark (the yard); the ward — Jack at twenty-one, Mom ill, Dad
-// grey; the square — Jack grown, the woman, the guide, the tourists. A look of another year is the cast's object
-// (`<id>_wear`), which a game cannot name: so chapter 3 at home — Jack grown, Dad grey — stands in the ward until the
-// kitchen and the yard have a key that dresses their people a year on (game.md, asks of the world); the house and the
-// yard as they really are said by the label. Jack's room and the attic are their own scenes: the room's moments (its
+// grey; the square — Jack grown, the woman, the guide, the tourists. The kitchen and the yard dress their people a year
+// on by their key `year` (Jack grown, Dad grey, Mom not here), Jack at five by `young` (the kitchen, Jack's room). Jack's room and the attic are their own scenes: the room's moments (its
 // key `moment`) dress it and its people, a year on too. (The kitchen is also the map's background, game.js.)
 export const PLACES = {
   kitchen: { folder: 'kitchen' }, // С2 the kitchen
   room: { folder: 'jack-room' }, // С3 Jack's room (its key `moment`: ROOM)
   yard: { folder: 'yard' }, // С1 the yard
   dusk: { folder: 'yard' }, // С1 at dusk, the fire (the yard's keys: DUSK)
-  stop: { folder: 'yard', where: tr('In truth: the same yard on Monday morning — across the street, behind you, the school bus stop: Mark and two boys.') }, // С1, the bus stop
+  stop: { folder: 'yard' }, // С1 toward the street: the bus stop (the yard's key `view` street)
   ward: { folder: 'ward' }, // С5 the ward
   hallway: { folder: 'ward', where: tr('In truth: the hospital corridor outside the ward door — and, down it, a payphone.') }, // С5, the corridor
-  house: { folder: 'ward', where: tr('In truth: the kitchen, a spring later — empty, boxes on the floor, the house sold.') }, // С2 in chapter 3
+  house: { folder: 'kitchen' }, // С2 in chapter 3 (its keys `year` 1, `packed`, `day`: HOUSE)
   bare: { folder: 'jack-room' }, // С3 in chapter 3 (its `moment` packed: the room emptied, Jack grown)
   attic: { folder: 'attic' }, // С4 the attic
   square: { folder: 'square' }, // С6 the square
-  porch: { folder: 'ward', where: tr('In truth: the yard at dusk, a spring later — the porch steps, the apple tree, her rusty bucket under it; across the street, Mark’s house.') }, // С1 in chapter 3
+  porch: { folder: 'yard' }, // С1 in chapter 3 (its keys `year` 1, `dusk`, `sold`: PORCH)
 };
 // The kitchen's hours (its lamp over the table) and the ward's (the bedside lamp)
 export const KITCHEN = { evening: { lamp: 1 }, morning: { lamp: 0 }, night: { lamp: 0.35 } };
@@ -101,9 +99,15 @@ export const UP = { jack_a: -4.4, jack_d: 8.85, jack_turn: 180, jack_look: 'mom'
 // The yard's people as they are when the step has none of the scene's things in their hands — no plate, no scraps —,
 // standing (the scene's own pose is 1.3's: Jack squatting with the scraps, Mom holding out her hand)
 export const EMPTY = { mom_wear: { parts: [] }, mom_do: 'stand', mom_reach: null, jack_with: [], jack_do: 'stand' };
-// Jack grown in chapter 3, where the ward stands in: no suit bag in his hand (it is chapter 2's), standing; no menu
-// crane on the sill
-export const GROWN = { jack_wear: { parts: [] }, jack_do: 'stand', crane: false };
+// Chapter 3 at home: the kitchen packed, by day (HOUSE); the yard at dusk, the house sold (PORCH: Dad on the top step,
+// Jack before him with the letter, as the yard's notes have them; `shoebox` and `menu_house` by the play, given by the
+// steps)
+export const HOUSE = { year: 1, packed: true, day: 1, lamp: 0 };
+export const PORCH = {
+  year: 1, dusk: 1, sold: true, porch_lamp: 1, house_lights: 0, fire: 0, scraps: false, view: 'house',
+  dad_on: [-1.25, 6.86, 0.42], dad_do: 'sitting_on_bed', dad_look: 'jack',
+  jack_with: ['letter'], jack_a: -0.15, jack_d: 5.6, jack_turn: 200, jack_do: 'stand', jack_look: 'jack#letter',
+};
 // whose body a voice is in the scenes: Jack grown speaks from the scene's `jack` (the ward's is twenty-one)
 export const BODY = { jack_grown: 'jack' };
 

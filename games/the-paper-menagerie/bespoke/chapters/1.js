@@ -3,7 +3,7 @@
 // which language Jack answers her in front of Mark (the language at home, set once); the fire in the bucket; the tape
 // and 爱 on his palm; ⚑ the question — “Did Dad buy you?”; ⚑ the box (the menagerie, set once); the gate on Monday
 // morning.
-// Stand-ins (story.js PLACES): the bus stop (1.7) is behind the yard's eye: the label says it.
+// The bus stop (1.7) — the yard seen toward the street (its key `view`), the school bus by `bus_a`.
 // Reads: the miss marks; the yard. Leaves: choices.yard, choices.asked, choices.box; scales.language,
 // scales.menagerie; marks.yard, marks.asked, marks.ear, marks.seam, marks.ingot.
 import { DUSK, EMPTY, KITCHEN, MENAGERIE, ROOM, UP, facts } from '../story.js';
@@ -251,7 +251,7 @@ export default {
     // 1.7: the gate, Monday morning
     async g => {
       const f = facts(g.state);
-      await g.scene('stop', { here: ['mom', 'jack', 'mark'], moods: { mom: 'neutral', jack: 'neutral', mark: 'neutral' }, keys: { ...EMPTY, scraps: false } });
+      await g.scene('stop', { here: ['mom', 'jack', 'mark', 'boy_a', 'boy_b'], moods: { mom: 'neutral', jack: 'neutral', mark: 'neutral' }, keys: { ...EMPTY, scraps: false, view: 'street', bus_a: 40 } });
       await g.plate(tr('Morning. At the bus stop across the street, Mark and two boys. Mom on the porch, by the door — she goes no further.'));
       if (f.yard === 'english') {
         g.mood('mark', 'smile');
@@ -263,7 +263,7 @@ export default {
       } else if (f.yard === 'chinese') {
         g.mood('mark', 'angry');
         await g.say('mark', 'Nee-e-e haa-o-o!', { how: 'drawling, mocking a Chinese greeting' });
-        await g.say('kids', 'Nee-haaa-o!', { how: 'picking it up, laughing' });
+        await g.say('kids', 'Nee-haaa-o!', { at: 'boy_a', how: 'picking it up, laughing' });
         g.mood('jack', 'sad');
         await g.plate(tr('It is a nickname already. Jack stands apart by the gate; on the bus he sits alone.'));
       } else {
@@ -273,7 +273,7 @@ export default {
       if (f.zoo > 0) {
         await g.plate(f.seam ? tr('Laohu limps after Jack to the gate — falls, gets up again.') : tr('Laohu limps after Jack to the gate.'));
         if (f.yard === 'english') await g.say('mark', 'Whoa, the trash is alive? Man', { how: 'laughing, half impressed' });
-        else await g.say('kids', 'His trash follows him around!', { how: 'jeering, laughing' });
+        else await g.say('kids', 'His trash follows him around!', { at: 'boy_a', how: 'jeering, laughing' });
         await g.say('mom', '老虎。', { sub: tr('Laohu.'), how: 'quietly, from the porch' });
         await g.plate(tr('The tiger hobbles back to her.'));
       }
@@ -282,9 +282,10 @@ export default {
         if (f.yard === 'english') {
           await g.say('mark', 'You’ve got a whole bunch of them in there? A zoo!', { how: 'laughing' });
           await g.plate(tr('And Jack laughs along with everyone.'));
-        } else await g.say('kids', 'Trash zoo! Trash zoo!', { how: 'chanting, all the way to the bus' });
+        } else await g.say('kids', 'Trash zoo! Trash zoo!', { at: 'boy_a', how: 'chanting, all the way to the bus' });
       }
       if (f.zoo === 0) await g.plate(tr('Nobody follows him.'));
+      g.set('bus_a', -0.6, 4);
     },
   ],
 };

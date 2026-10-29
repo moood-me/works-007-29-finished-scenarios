@@ -5,20 +5,20 @@
 // ⚑ Laohu (hinge 2) — fold him, keep the letter, or give him to her in the fire: the finale, «The Tiger», «The Letter»
 // or «The Smoke», its form by the train (2.3), its details by the language, the menagerie and the marks — Dad, the ear,
 // the seam, the sign.
-// Jack's room a year on (its moment `packed`) and the attic are their own scenes.
-// Stand-ins (story.js PLACES): the kitchen a spring later and the yard at dusk — the ward (Jack
-// grown and Dad grey are the cast's looks of another year, which a game cannot name on the kitchen's and the yard's
-// people: game.md, asks of the world), Mom not there; Mark grown is a voice. The square is its own scene: the woman on
-// the bench, the guide at the coach, the tourists; the letter goes from Jack's hands to hers and back (the cast's part
-// `letter`).
+// All on their own scenes: the kitchen and the yard a year on (their key `year`: Jack grown, Dad grey), Jack's room
+// (its moment `packed`), the attic, the square (the woman, the guide, the tourists; the letter from hand to hand), Mark
+// grown across the street (the yard toward the street, `view`).
 // Reads: everything. Leaves: choices.father, choices.laohu; marks.father, marks.crooked.
-import { GROWN, MENAGERIE, WARD, ENDINGS, facts } from '../story.js';
+import { HOUSE, MENAGERIE, PORCH, ENDINGS, facts } from '../story.js';
 import { read } from '../letter.js';
 import { flame, fold, peel, sign, smooth, stroke } from '../minigames/all.js';
 
 const label = id => ENDINGS.find(e => e.id === id).label;
 // the square's people (С6): Jack, the woman on the bench, the guide at the coach, three of the group
 const SQUARE = ['jack', 'translator', 'guide', 'tourist_cap', 'tourist_hat', 'tourist_coat'];
+// the shoebox of the woken animals on the step (3.4–3.6): the attic's (Zoo 0–1) or full (Zoo 2); the paper house on
+// top if he went
+const BOX = f => ({ shoebox: f.zoo === 2 ? 2 : 1, menu_house: !f.stayed });
 
 export default {
   number: '3', title: tr('Qingming'),
@@ -39,7 +39,7 @@ export default {
     // 3.1: the boxes; the day circled on the calendar; the suit or “you eating there?”
     async g => {
       const f = facts(g.state);
-      await g.scene('house', { here: ['jack', 'dad'], moods: { jack: 'neutral', dad: 'tired' }, keys: { ...WARD.evening, ...GROWN } });
+      await g.scene('house', { here: ['jack', 'dad'], moods: { jack: 'neutral', dad: 'tired' }, keys: { ...HOUSE, menagerie: f.zoo === 2 ? 'sill' : 'none', suit_bag: f.stayed } });
       g.title(tr('Qingming'));
       await g.plate(tr('The next spring, the first Qingming without her. The house is sold. Jack is helping Dad clear it out: an empty kitchen, boxes. Dad seals a box with tape — the same crackle.'));
       await g.say('dad', 'The new people move in tomorrow. I told them — not before. Today… she always burned paper on this day. I circled it on the calendar', { how: 'rambling a little, then short' });
@@ -92,7 +92,7 @@ export default {
       if (f.lang === 2) await g.plate(tr('Jack recognizes his name — “Jieke” — and at the bottom, the sign from his palm: 爱.'));
       else if (f.lang === 1) await g.plate(tr('Jack recognizes only 爱 — at the bottom.'));
       else await g.plate(tr('Only her handwriting. The sign at the bottom seems familiar.'));
-      await g.scene('house', { here: ['jack', 'dad'], moods: { jack: 'neutral', dad: 'sad' }, keys: { ...WARD.evening, ...GROWN } });
+      await g.scene('house', { here: ['jack', 'dad'], moods: { jack: 'neutral', dad: 'sad' }, keys: { ...HOUSE, menagerie: f.zoo === 2 ? 'awake' : 'none', jack_with: ['letter'] } });
       await g.plate(tr('Jack walks through the kitchen with the sheet.'));
       await g.say('dad', 'That’s her hand', { how: 'very quietly' });
       await g.say('jack_grown', 'I’ll find someone to read it');
@@ -180,7 +180,7 @@ export default {
     // 3.4: Mark across the street; the box of the woken animals; ⚑ what does she write?
     async g => {
       const f = facts(g.state);
-      await g.scene('porch', { here: ['jack', 'dad'], moods: { jack: 'neutral', dad: 'tired' }, keys: { ...WARD.evening, ...GROWN } });
+      await g.scene('porch', { here: ['jack', 'mark_grown'], moods: { jack: 'neutral' }, keys: { ...PORCH, ...BOX(f), view: 'street' } });
       await g.plate(tr('Dusk. Across the street, by Mark’s house, a car; grown-up Mark is carrying out a bag.'));
       if (f.yard === 'english') {
         await g.plate(tr('Mark waves and crosses the street.'));
@@ -192,6 +192,10 @@ export default {
         await g.say('mark_grown', 'Hey', { how: 'across the street, a nod' });
         await g.say('jack_grown', 'Hey');
       }
+      g.here('mark_grown', false);
+      g.set('view', 'house');
+      g.here('dad', true);
+      g.mood('dad', 'tired');
       if (f.zoo < 2) await g.plate(tr('Dad on the porch step with the last box. Beside it, the shoebox of animals — during the day Jack gathered the woken ones into it: the goats, the deer, the buffalo, dusty, from the attic.'));
       else await g.plate(tr('Dad on the porch step with the last box. Beside it, the shoebox of animals — during the day Jack gathered the woken ones into it: it is full — cranes, frogs, the shark, new ones he has never seen; the lid won’t close.'));
       if (!f.stayed) await g.plate(tr('On top, the paper house from the hospital. It did not wake: she never breathed on it.'));
@@ -221,7 +225,7 @@ export default {
     // 3.5: М8 «The Character»
     async g => {
       const f = facts(g.state);
-      await g.scene('porch', { here: ['jack'], moods: { jack: 'thinking' }, keys: { ...WARD.evening, ...GROWN } });
+      await g.scene('porch', { here: ['jack'], moods: { jack: 'thinking' }, keys: { ...PORCH, ...BOX(f) } });
       await g.plate(f.lang === 2 ? tr('Jack sits down on the step, takes Dad’s pen and writes his own sign under hers — 爱. From memory.') : tr('Jack sits down on the step, takes Dad’s pen and writes his own sign under hers — 爱, copying hers, stroke by stroke.'));
       const { missed } = await g.play(sign);
       if (missed) g.mark('crooked', true, tr('His 爱 came out crooked — and it will stay so.'));
@@ -229,7 +233,8 @@ export default {
     },
     // 3.6: ⚑ Laohu (hinge 2) — sunset; the animals fall asleep; the sheet still remembers the tiger's folds
     async g => {
-      await g.scene('porch', { here: ['jack'], moods: { jack: 'sad' }, keys: { ...WARD.night, ...GROWN } });
+      const f = facts(g.state);
+      await g.scene('porch', { here: ['jack'], moods: { jack: 'sad' }, keys: { ...PORCH, ...BOX(f) } });
       await g.plate(tr('The sun is setting behind the apple tree. The car at the gate is packed; the house is empty. In the shoebox on the step the animals move slower and slower; a goat lies down — and it is paper now, then the deer.'));
       await g.plate(tr('The sheet in Jack’s hands still trembles along the tiger’s folds — it remembers: under his finger it lies along them by itself, as if ready to fold. He runs a finger along the crooked fold at the tail, her “for once only” — it lies like a dead line and doesn’t stir. Under the apple tree — her bucket, rusty.'));
       await g.sheet(tr('What Jack knows'), [
@@ -250,7 +255,7 @@ export default {
     // the finale (scenario §9), part one: its image — the tiger, the letter, the smoke
     async g => {
       const f = facts(g.state);
-      await g.scene('porch', { here: ['jack', 'dad'], moods: { jack: 'sad', dad: 'tired' }, keys: { ...WARD.night, ...GROWN } });
+      await g.scene('porch', { here: ['jack', 'dad'], moods: { jack: 'sad', dad: 'tired' }, keys: { ...PORCH, ...BOX(f) } });
       g.title(label(f.ending));
       await g.plate(tr('The yard, dusk, the first Qingming without her; the house is sold. The animals in the shoebox on the step have fallen asleep. Jack will take the box with him.'));
       if (f.ending === 'tiger') {
@@ -287,7 +292,7 @@ export default {
     // the finale, part two: Dad, by the mark; the line of the train; the last line
     async g => {
       const f = facts(g.state);
-      await g.scene('porch', { here: ['jack', 'dad'], moods: { jack: 'sad', dad: 'sad' }, keys: { ...WARD.dark, ...GROWN } }, { cut: true });
+      await g.scene('porch', { here: ['jack', 'dad'], moods: { jack: 'sad', dad: 'sad' }, keys: { ...PORCH, ...BOX(f) } }, { cut: true });
       if (f.ending === 'tiger') {
         if (f.father === 'all') {
           await g.plate(tr('Dad stands by the apple tree, his palm on the bark, as during the day; he turns to the tiger not at once.'));
