@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Invisible Cities","translation":"Нябачныя гарады","where":"worlds/invisible-cities/world.json title"},
+  {"text":"A garden over night water at the edge of an empire that is ending. An old khan at his chessboard, a traveller who tells him cities, a ship waiting for dawn.","translation":"Сад над начной вадой на краі імперыі, што канчаецца. Стары хан за шахматнай дошкай, падарожнік, які расказвае яму гарады, і карабель, што чакае світання.","where":"worlds/invisible-cities/world.json description"}
+]}

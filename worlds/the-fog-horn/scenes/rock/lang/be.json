@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Rock","translation":"Скала","where":"worlds/the-fog-horn/scenes/rock/scene.json title"},
+  {"text":"The last clear evening before the fog.","translation":"Апошні ясны вечар перад туманам.","where":"worlds/the-fog-horn/scenes/rock/scene.json caption"}
+]}

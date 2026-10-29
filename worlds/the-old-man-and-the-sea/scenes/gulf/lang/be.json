@@ -1,0 +1,7 @@
+{"strings": [
+  {"text":"The Gulf","translation":"Гальфстрым","where":"worlds/the-old-man-and-the-sea/scenes/gulf/scene.json title"},
+  {"text":"He was an old man who fished alone in a skiff in the Gulf Stream.","translation":"Стары рыбачыў адзін на сваёй лодцы ў Гальфстрыме.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/scene.json caption"},
+  {"text":"Fish, I love you and respect you very much. But I will kill you dead before this day ends.","who":"santiago","translation":"Рыба, я вельмі цябе люблю і паважаю. Але я заб'ю цябе, перш чым скончыцца гэты дзень.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"},
+  {"text":"I wish I had the boy.","who":"santiago","translation":"Шкада, са мной няма хлопчыка.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"},
+  {"text":"He is two feet longer than the skiff.","who":"santiago","translation":"Ён на два футы даўжэйшы за лодку.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"}
+]}

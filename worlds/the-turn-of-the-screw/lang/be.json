@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Turn of the Screw","translation":"Паварот шрубы","where":"worlds/the-turn-of-the-screw/world.json title"},
+  {"text":"A country house, a governess and two children. Figures that may be there, or may not.","translation":"Загарадны дом, гувернантка і двое дзяцей. Постаці, якія, можа быць, там ёсць, а можа быць, і няма.","where":"worlds/the-turn-of-the-screw/world.json description"}
+]}

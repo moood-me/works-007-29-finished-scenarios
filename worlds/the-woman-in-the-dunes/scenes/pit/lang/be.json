@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Pit","translation":"Яма","where":"worlds/the-woman-in-the-dunes/scenes/pit/scene.json title"},
+  {"text":"At the bottom of the pit the sea is only heard.","translation":"На дне ямы мора толькі чуваць.","where":"worlds/the-woman-in-the-dunes/scenes/pit/scene.json caption"}
+]}
