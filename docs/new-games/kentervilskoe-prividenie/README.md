@@ -1,0 +1,17 @@
+# Кентервильское привидение
+
+По рассказу Оскара Уайльда. Стадии — `moood-me/moood:docs/writing/game-stages.md`.
+
+- Стадия 1, сценарий: `scenario.md` — прошёл ревью.
+- Стадия 2, внешний вид: мир `worlds/the-canterville-ghost`, сцены `library` (С1), `tapestry` (С3), `garden` (С4 Сад
+  Смерти) — одобрен.
+- Стадия 3, сценарий на трёх сценах — сделана 2026-10-29 (ветка `r3/canterville-game`): игра
+  `games/the-canterville-ghost`, вся от пролога до трёх финалов, с голосами, на трёх готовых сценах; С2, С5, С6, С7 —
+  в чужих сценах с подписью, где действие на самом деле. Как она устроена — `game.md`; история —
+  `docs/history/2026-10-29-kentervil-stage3.md`. Павел её между стадиями не смотрит (2026-10-29: стадии 3–5 за ночь).
+- Стадия 4 (все сцены) — С2 коридор, С5 каморка, С6 сад у замка, С7 холл делаются в своих ветках
+  (`r3/canterville-corridor`, `-chamber`, `-castle-garden`, …).
+- Стадия 5 (вся игра) — не начата.
+
+Адрес игры в студии: `moood-me/works-007-29-finished-scenarios@r3/canterville-game:games/the-canterville-ghost`
+(страница игры — `http://localhost:8080/games/<адрес>`, «Play it»).
