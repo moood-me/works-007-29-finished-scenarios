@@ -48,7 +48,11 @@ export default {
     // 2.3: palms in the water
     async g => {
       await g.scene('stream6', { here: ['traveller', 'lina'], moods: { traveller: 'thinking', lina: 'smile' }, keys: { mist: 0.8 } }, { cut: true });
-      await g.play(stream);
+      const water = await g.play(stream);
+      if (water.pulled) {
+        g.mood('lina', 'laugh');
+        await g.say('lina', 'Scared of cold water?', { how: 'teasing, laughing' });
+      }
       g.mood('lina', 'sad');
       await g.say('lina', 'First time in my life. Father didn’t live to see it', { how: 'quietly, her hand still in the water' });
     },

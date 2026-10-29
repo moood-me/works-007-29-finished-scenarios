@@ -91,12 +91,14 @@
 - Финал — последний шаг эпилога; после него последний кадр уходит в чёрное, по нему — название финала, карта выходит
   из чёрного; на карте в эпилоге последняя строка — «Финал» с четырьмя финалами, сыгранный выделен.
 
-## Заглушки (`minigames/all.js`)
+## Мини-игры и ведения (`minigames/`, стадия 5)
 
-Мини-игры §7: МИ1 `acorns`, МИ2 `hand_in`, МИ3 `stream`, МИ4 `beech`, МИ5 `linden`, МИ6 `hand`. Ведения (лёгкий
-жест без неудачи, §7): `trunks` (2.5), `count` (2.7, 3.4), `row` (3.3), `door` (3.5 Имя), `stumps` (3.5 Тишина). Каждая
-— кружок на человеке и карточка (жест, что делают руки, что чувствуется, след неудачи; у ведения — «ведение, без
-неудачи»). Неудачи на стадии 3 не играются (кружок — всегда «чисто»); их следы (§7) — стадия 5.
+На языке мини-игр (`hands.js` — «Кентервильского», с двумя своими для ведений: `along`, `taps`). Мини-игры §7: МИ1
+`acorns`, МИ2 `hand_in`, МИ3 `stream`, МИ4 `beech`, МИ5 `linden`, МИ6 `hand` — каждая со следом неудачи (`missed`),
+и главы его читают: Эльзеар досортировывает сам (плашка), берёт ведро сам (плашка), Лина «Холодной боишься?», Путник
+«И так вырастет» (Склон) / выпрямляет бук (Дорога, плашка), Лина «Ну», Эльзеар «Держи» / сам убирает руку (плашка).
+Ведения (`guidings.js`, без неудачи): `trunks`, `count`, `row`, `door`, `stumps`. Точки и ключи — таблица в «Stage 5 —
+pieces» внизу; она — единственная правда для авторов сцен.
 
 ## Проверка
 
@@ -293,21 +295,26 @@ pose it ends in).
 - `pupil` · edge30 · the visitors round him; «Это вы — Эльзеар?» — «Нет»; the boy with the rod, the Traveller sets his
   hands; across the stream his beeches in uncut grass
 
-### Mini-games and guidings (each in the pose its piece ended in)
+### Mini-games and guidings (each in the pose its piece ended in) — as coded (`minigames/`)
 
-| id | § | place, after | gesture | marks on | keys the game drives | s | a miss leaves |
+The single truth for the scenes' authors: the points every mark stands on (a person's — the engine's `#hands`,
+`#hand_r`, `#chest`, the cast's `#rod`; a scene's — an element or a named point) and the keys the game drives. All the
+points exist in the scenes now (the branch check finds them); a piece only needs to end with the people there.
+
+| id | § | place, moment | gesture | marks on | keys the game drives | s | a miss leaves |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `acorns` | МИ1 | house inside, `table` | tap (8–10 cracked ones) | an insert of the table: each acorn a point | `acorns` (heap → tens) | 10 | he finishes the sorting himself, takes one cracked acorn from “yours” |
-| `hand_in` | МИ2 | slope0, `rod_mist` | pull slowly, ×5 | `acorn` in the hand → the hole (`hole` point by the rod) | Elzéard's `plant_rod` in step | 10 | he takes the pail himself; the Traveller empty-handed |
-| `stream` | МИ3 | stream6, `palms` | hold | `traveller#hand_r` in the water | the water's sound (the game's) | 6 | he pulls the hand out; Lina: «Холодной боишься?» (a new line) |
-| `beech` | МИ4 | edge20 / his slope, `beech` | press and hold, then pull down | the rod's top `traveller#rod` | `beech` (crooked / straight) | 8 | crooked: Slope — left so; Road — straightened again |
-| `linden` | МИ5 | village30, `alive` | press and hold | the spade `traveller#spade` | `square` planting → linden | 6 | Lina presses the earth with her foot: «Ну» (a new line) |
-| `hand` | МИ6 | house30 / hut30, `rod_held` | hold, then let go | `elzeard#rod` | `elzeard_reach`, `traveller_reach` on the rod | 8 | let go at once: the rod wavers, «Держи»; held 15 s: he takes his hand away |
-| `trunks` | ведение | slope6, `oaks` | pull slowly | trunk to trunk (points on three oaks) | `traveller` walking | 40 | — |
-| `count` | ведение | house inside, `hundred_night`, `hundred_slow` | tap ×10 | an insert of the table: the last ten | `acorns` count | 8 | — |
-| `row` | ведение | edge20, `the_row` | pull slowly | along the row (points on its trunks) | `traveller`, `jan` walking | 10 | — |
-| `door` | ведение | house20, `empty_house` | pull slowly | `door#handle` | `door` open → shut → propped | 5 | — |
-| `stumps` | ведение | stumps20, `stumps` | press and hold | `traveller#rod` | `plant_rod` beside Elzéard's | 6 | — |
+| `acorns` | МИ1 | house0 `arrival` | tap the 8 cracked (dashed marks) among 13 laid in a row between `elzeard#hands` and `traveller#hands`; the good ones (quiet spots) are not to be tapped | between `elzeard#hands` and `traveller#hands` | — | 12 | `{self}`: he finishes the sorting himself (a plate) |
+| `hand_in` | МИ2 | slope0 `planting` | pull, ×5: an acorn from `pail#top` to `plant_spot` | `pail#top` → `plant_spot` | — | 12 | `{took}` (3 dropped): he takes the pail himself (a plate) |
+| `stream` | МИ3 | stream6 `water` | hold 6 s (keep) | `traveller#hand_r` | — | 7 | `{pulled}`: Lina «Холодной боишься?» |
+| `beech` | МИ4 | edge20 `edge` | hold till full (the rod in), then pull slowly ×2 (the earth) | `traveller#rod`, then `slope_spot` (Slope) / `beech_next` (Road) | — (the chapter sets `beech_row` 14 on the Road after it) | 10 | `{crooked}`: Slope — «И так вырастет»; Road — straightened again (a plate) |
+| `linden` | МИ5 | village30, `stump` dug | hold till full (2 s); let go early twice — missed | `stump#spot` | — (the chapter sets `stump` planted, `wet` after it) | 8 | `{lina}`: Lina «Ну» |
+| `hand` | МИ6 | house30 `last_silence` / hut30 `hut` | hold till full, then let go within 15 s | `elzeard#rod` (Elzéard holds the rod) | `traveller_reach` {r: `elzeard#rod`} → null | 10 | `{early}`: «Держи»; `{long}`: he takes his hand away (a plate) |
+| `trunks` | guiding | slope6 `grove` | pull slowly ×4 | `traveller#hand_r` | `traveller_a`, `traveller_d` (−0.6, +3.6 m from where he stands, over 0.3 s) | 40 | — |
+| `count` | guiding | house6 `night`, house20 `evening` | 10 taps | `elzeard#hands` | — | 8 | — |
+| `row` | guiding | edge20 `delegation` | pull slowly ×3 | `traveller#chest` | `traveller_a/_d` (−0.3, +4.2), `jan_a/_d` (−0.7, +4.4) | 10 | — |
+| `door` | guiding | house20 `empty` | pull slowly ×2 | `traveller#hand_r` | — (the chapter sets `door` propped after it) | 5 | — |
+| `stumps` | guiding | stumps20 `stumps` | hold till full, ×3 | `traveller#rod` | — | 8 | — |
 
-The lines a miss adds (Lina's «Холодной боишься?», «Ну», Elzéard's «Держи») are written in the game at stage 5 and
-voiced then.
+A piece before a mini-game ends with its people as the moment has them (the marks stand on them): Elzéard with the rod
+in his hand in `hut`/`last_silence` (`elzeard#rod`), the Traveller with his own rod in `edge` and `stumps`
+(`traveller#rod`).
