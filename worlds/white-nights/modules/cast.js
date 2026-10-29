@@ -29,6 +29,10 @@ const MOODS = {
 const BOARDS = [0.42, 0.27, 0.2, 1], PAGES = [0.93, 0.9, 0.81, 1];
 // a letter's: its paper (folded, a little grey) and its red wax seal
 const PAPER = [0.94, 0.92, 0.86, 1], SEAL = [0.62, 0.12, 0.1, 1];
+// the writing on an open letter (her hand, a faded ink), a glass of tea's: the tea, the glass's rim, the brass holder,
+// the saucer; the long brush's bristles; the Dreamer's own hat's felt (whoever holds it)
+const SCRIPT = [0.42, 0.36, 0.4, 1], TEA = [0.55, 0.3, 0.12, 1], RIM = [0.86, 0.86, 0.82, 1], BRASS = [0.72, 0.56, 0.28, 1],
+  SAUCER = [0.92, 0.9, 0.85, 1], BRISTLE = [0.5, 0.44, 0.36, 1], HIS_HAT = [0.23, 0.2, 0.19, 1];
 // a top hat held by its brim: the opening at `c` turned to the holder, the crown out along `out` (unit); a little
 // wider at the top, as hats of the time were; `colour` its felt
 function topHat(F, c, out, colour) {
@@ -58,6 +62,21 @@ function coatFront(F) {
   F.ball(add(add(neck, mul(fw, 0.052 * F.k)), mul(uc, -0.022 * F.fit.h)), axes, K.shirt, F.colors.top, 10);
   for (const sx of [-1, 1]) F.tube([front(shoulders, sx * 0.38), front(chest, sx * 0.3), front(waist, sx * 0.04)], K.lapel, [[0, shade]], 6, fw);
   for (const u of [0.25, 0.6, 0.95]) F.ball(mix(front(chest, 0.12), front(waist, 0.1), u), axes, K.button, BUTTON, 6);
+}
+// a dressing gown's front over the chest: the wide shawl collar of its lining's colour (the accent) crossed from the
+// shoulders down to the waist, the shirt's white at the throat, a cord tied at the waist, its two tassels hanging
+const ROBE = F => ({ axes: [null, null, null], shirt: [0.045 * F.k, 0.05 * F.fit.h, 0.014 * F.k], knot: [0.03 * F.k, 0.03 * F.k, 0.025 * F.k],
+  collar: [[0, 0.034 * F.k], [1, 0.04 * F.k], [2, 0.016 * F.k]], cord: [[0, 0.009 * F.k], [1, 0.008 * F.k], [2, 0.014 * F.k]] });
+function robeFront(F) {
+  const { add, mul, mix } = V(), K = F.keep(ROBE), secs = F.trunk(1.16), hips = secs[1], waist = secs[2], chest = secs[3], shoulders = secs[4];
+  const front = (s, x = 0) => add(add(s[0], mul(s[2], s[4])), mul(s[1], x * s[3]));
+  const uc = F.up('Chest'), fw = chest[2], axes = K.axes;
+  axes[0] = chest[1]; axes[1] = uc; axes[2] = fw;
+  F.ball(add(mix(front(shoulders), front(chest), 0.35), mul(fw, 0.004 * F.k)), axes, K.shirt, F.colors.top, 10);
+  for (const sx of [-1, 1]) F.tube([front(shoulders, sx * 0.5), front(chest, sx * 0.3), front(waist, sx * 0.06)], K.collar, [[0, F.colors.accent]], 6, fw);
+  const knot = front(waist, 0.12);
+  F.ball(knot, axes, K.knot, F.colors.accent, 8);
+  for (const sx of [0.08, 0.18]) F.tube([knot, mix(front(waist, sx), front(hips, sx), 0.6), front(hips, sx + 0.02)], K.cord, [[0, F.colors.accent]], 6, fw);
 }
 // (eased 0…1 as x goes from a to b)
 const smooth = (a, b, x) => {
@@ -122,6 +141,11 @@ return {
     matryona: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'shawled', hair: 'short', hat: 'kerchief',
       body: { height: 0.9, thick: 1.06, shoulders: 0.94, head: 1.03 },
       colors: { skin: '#e0bea0', hair: '#8f877c', top: '#a3593f', garment: '#5f5247', hat: '#ddd4bf', accent: '#cfc4ab', shoes: '#2a2522' } },
+    // the Dreamer at home, his frock coat drying by the stove: an old dressing gown of faded brick-brown wool to the shin,
+    // its shawl collar and cord of a darker lining (the «Окно» finale, after he stood in the rain)
+    dreamer_robe: { kind: 'shapes', style: 'litho', who: 'man', garment: 'robe', hair: 'swept',
+      body: { height: 1.0, thick: 0.84, shoulders: 0.94, neck: 1.05 },
+      colors: { skin: '#e2c0a4', hair: '#54392a', top: '#e8e2d6', garment: '#7d574a', accent: '#4f3b33', bottom: '#77736c', shoes: '#2a2522', hat: '#3a3431' } },
   },
   shapes: {
     // the world's style: the slender figure of `shadow` (a small head, a long neck, hands with fingers, pointed shoes)
@@ -183,6 +207,9 @@ return {
       frockcoat: { name: 'frock coat', hang: [{ to: 0.98, from: 'shoulders', flare: 0.04, folds: false }], sleeves: 'garment', draw: coatFront },
       // a longer frock coat, to just below the knee, as straight
       longcoat: { name: 'long frock coat', hang: [{ to: 1.05, from: 'shoulders', flare: 0.05, folds: false }], sleeves: 'garment', draw: coatFront },
+      // a man's old dressing gown: from the shoulders to the shin, a little fuller than a coat, soft folds; its collar and
+      // cord (robeFront)
+      robe: { name: 'dressing gown', hang: [{ to: 1.32, from: 'shoulders', flare: 0.12 }], sleeves: 'garment', draw: robeFront },
       // a dress to the ankles from the waist, its bodice and sleeves in its colour, a mantle over the shoulders down
       // to the hips (the top's colour)
       caped: { name: 'dress with a mantle', hang: [{ to: 1.95, from: 'waist', flare: 0.5, off: 0.94 },
@@ -290,6 +317,46 @@ return {
         F.ball(c, axes, [0.1 * m, 0.07 * m, 0.004 * m], PAPER, 10, 6);
         for (const s of [-1, 1]) F.ball(add(c, mul(face, s * 0.005 * m)), axes, [0.013 * m, 0.013 * m, 0.004 * m], SEAL, 8);
         F.point('letter', c);
+      } },
+      // an open letter held in both hands before the chest, between them, its written face turned to the reader's face —
+      // a sheet a little taller than wide, her lines across it in a faded ink; its point `letter_open`
+      letter_open: { name: 'open letter', draw: F => {
+        const { add, sub, mul, dot, cross, unit, mix } = V(), m = F.fit.h;
+        const c = mix(F.P('LeftHand'), F.P('RightHand'), 0.5), s = unit(sub(F.P('RightHand'), F.P('LeftHand')));
+        const toFace = unit(sub(F.P('Head'), c)), n = unit(sub(toFace, mul(s, dot(toFace, s)))), up = cross(n, s), axes = [s, n, up];
+        const mid = add(c, mul(up, 0.05 * m));
+        F.ball(mid, axes, [0.105 * m, 0.003 * m, 0.135 * m], PAPER, 4, 3);
+        for (let k = 0; k < 6; k++) {
+          const y = 0.09 - k * 0.032, w = k === 5 ? 0.04 : 0.075;
+          const a = add(add(mid, mul(up, y * m)), mul(n, 0.004 * m));
+          F.bar(add(a, mul(s, -0.075 * m)), add(a, mul(s, (w * 2 - 0.075) * m)), 0.0025 * m, 0.0025 * m, [[0, SCRIPT]], 4, n, 0.3);
+        }
+        F.point('letter_open', add(mid, mul(n, 0.01 * m)));
+      } },
+      // a glass of tea in a brass holder on its saucer, carried in both hands before the chest (the saucer on the hands
+      // between them)
+      tea: { name: 'glass of tea', draw: F => {
+        const { add, mul, mix } = V(), m = F.fit.h, c = add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), [0, 0.02 * m, 0]);
+        const axes = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+        F.ball(c, axes, [0.075 * m, 0.008 * m, 0.075 * m], SAUCER, 14);
+        F.bar(add(c, [0, 0.008 * m, 0]), add(c, [0, 0.1 * m, 0]), 0.03 * m, 0.034 * m, [[0, TEA], [0.85, RIM]], 12, [1, 0, 0]);
+        F.bar(add(c, [0, 0.006 * m, 0]), add(c, [0, 0.055 * m, 0]), 0.036 * m, 0.037 * m, [[0, BRASS]], 12, [1, 0, 0]);
+      } },
+      // the long brush on a pole she sweeps the cobweb down with, held in both hands: the pole from below the left hand up
+      // through the right and on beyond it, the bristles across its top end
+      brush: { name: 'long brush', draw: F => {
+        const { add, sub, mul, unit, cross } = V(), m = F.fit.h, l = F.P('LeftHand'), r = F.P('RightHand'), d = sub(r, l);
+        const along = Math.hypot(d[0], d[1], d[2]) > 0.06 ? unit(d) : [0, 1, 0];
+        const tail = add(l, mul(along, -0.35 * m)), head = add(r, mul(along, 0.95 * m));
+        const side = unit(cross(along, Math.abs(along[1]) > 0.9 ? [1, 0, 0] : [0, 1, 0])), axes = [side, along, cross(side, along)];
+        F.bar(tail, head, 0.014 * m, 0.013 * m, [[0, WOOD]], 8, side);
+        F.ball(add(head, mul(along, 0.04 * m)), axes, [0.13 * m, 0.05 * m, 0.045 * m], BRISTLE, 12);
+        F.point('brush', add(head, mul(along, 0.06 * m)));
+      } },
+      // the Dreamer's own top hat in the right hand at the chest, its crown out — its dark felt whoever holds it
+      his_hat: { name: 'his hat in the right hand', draw: F => {
+        const { add, mul } = V(), m = F.fit.h;
+        topHat(F, add(F.P('RightHand'), mul(F.fwd('Chest'), 0.02 * m)), F.fwd('Chest'), HIS_HAT);
       } },
     },
   },
