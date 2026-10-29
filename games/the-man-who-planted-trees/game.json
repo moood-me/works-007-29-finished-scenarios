@@ -1,0 +1,14 @@
+{
+  "type": "bespoke",
+  "title": "The Man Who Planted Trees",
+  "description": "A dead plateau, an empty flask, and a shepherd who says almost nothing and plants a hundred acorns a day. You are the Traveller, twenty when you first climb up to his lamp and fifty at the end: you saw one man silently bring dead land back to life — what will you do with what you saw? Stay beside him and give it your life, or go your way and come back once a year? Name him, so that the forest is his and guarded, or keep the silence he lives by, though a forest that is nobody's gets cut?",
+  "line": "One man, a hundred acorns a day — and thirty years in which you decide where your life is and whose the forest will be.",
+  "source": "after the story by Jean Giono",
+  "genres": {
+    "drama": 60,
+    "nature": 60,
+    "relationships": 40
+  },
+  "world": "../../worlds/the-man-who-planted-trees",
+  "languages": ["en", "ru"]
+}
