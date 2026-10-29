@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Meadow at Night","translation":"夜の草原","where":"worlds/the-ocean-at-the-end-of-the-lane/scenes/meadow-night/scene.json title"},
+  {"text":"Lettie came running back with the ocean in a bucket.","translation":"レティがバケツに海を入れて走って戻ってきた。","where":"worlds/the-ocean-at-the-end-of-the-lane/scenes/meadow-night/scene.json caption"}
+]}

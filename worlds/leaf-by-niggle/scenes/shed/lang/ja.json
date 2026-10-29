@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Shed","translation":"小屋","where":"worlds/leaf-by-niggle/scenes/shed/scene.json title"},
+  {"text":"A tall shed on the old potato bed. One leaf is finished.","translation":"古いじゃがいも畑に建つ背の高い小屋。一枚の葉だけが仕上がっている。","where":"worlds/leaf-by-niggle/scenes/shed/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"No One Writes to the Colonel","translation":"大佐に手紙は来ない","where":"worlds/no-one-writes-to-the-colonel/world.json title"},
+  {"text":"A river town in the rains. An old colonel waits for a letter; a fighting rooster waits for January.","translation":"雨季の川沿いの町。年老いた大佐は手紙を待ち、闘鶏の雄鶏は一月を待つ。","where":"worlds/no-one-writes-to-the-colonel/world.json description"}
+]}

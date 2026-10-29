@@ -6,5 +6,5 @@
     "quiet": 40
   },
   "main": "shepherds-house",
-  "languages": ["en", "ru", "uk", "de", "es"]
+  "languages": ["en", "ru", "uk", "de", "es", "ja"]
 }
