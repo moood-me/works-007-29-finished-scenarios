@@ -5165,10 +5165,10 @@
       "person": {
         "cast": "cast",
         "who": "lina",
-        "turn": 125
+        "turn": 112
       },
-      "across": -0.75,
-      "distance": 7.7,
+      "across": -0.8,
+      "distance": 7.6,
       "place": {
         "across": "lina_a",
         "distance": "lina_d"
@@ -5181,10 +5181,10 @@
       "person": {
         "cast": "cast",
         "who": "traveller",
-        "turn": 245
+        "turn": 250
       },
-      "across": 1.7,
-      "distance": 6.4,
+      "across": 1.8,
+      "distance": 7.5,
       "place": {
         "across": "traveller_a",
         "distance": "traveller_d"
