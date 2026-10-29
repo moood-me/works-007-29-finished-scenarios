@@ -5,20 +5,20 @@
 // ⚑ Laohu (hinge 2) — fold him, keep the letter, or give him to her in the fire: the finale, «The Tiger», «The Letter»
 // or «The Smoke», its form by the train (2.3), its details by the language, the menagerie and the marks — Dad, the ear,
 // the seam, the sign.
-// All on their own scenes: the kitchen and the yard a year on (their key `year`: Jack grown, Dad grey), Jack's room
-// (its moment `packed`), the attic, the square (the woman, the guide, the tourists; the letter from hand to hand), Mark
-// grown across the street (the yard toward the street, `view`).
-// Reads: everything. Leaves: choices.father, choices.laohu; marks.father, marks.crooked.
-import { HOUSE, MENAGERIE, PORCH, ENDINGS, facts } from '../story.js';
+// On the scenes' pieces (game.md «Stage 5 — pieces»): the kitchen a year on (`boxes`, `her_hand`), the attic and Jack's
+// room (`wake_*`, `unfold`, `open`), the yard a year on (`mark` toward the street, `step`, `father_*`, `sign`,
+// `sunset`, the finales' pieces, `dad_end`). The square (3.3) is its own scene; its pieces are to come (r3/menagerie-
+// pieces-b): the woman on the bench, the guide at the coach, the tourists; the letter from hand to hand.
+// Reads: everything. Leaves: choices.father, choices.laohu; marks.father, marks.crooked, marks.curled.
+import { KIT, ROOMS, YARD, ENDINGS, facts, piece } from '../story.js';
 import { read } from '../letter.js';
 import { flame, fold, peel, sign, smooth, stroke } from '../minigames/all.js';
 
 const label = id => ENDINGS.find(e => e.id === id).label;
 // the square's people (С6): Jack, the woman on the bench, the guide at the coach, three of the group
 const SQUARE = ['jack', 'translator', 'guide', 'tourist_cap', 'tourist_hat', 'tourist_coat'];
-// the shoebox of the woken animals on the step (3.4–3.6): the attic's (Zoo 0–1) or full (Zoo 2); the paper house on
-// top if he went
-const BOX = f => ({ shoebox: f.zoo === 2 ? 2 : 1, menu_house: !f.stayed });
+// the yard a year on: Jack and Dad
+const PAIR = ['jack', 'dad'];
 
 export default {
   number: '3', title: tr('Qingming'),
@@ -36,66 +36,58 @@ export default {
     ] },
   ],
   steps: [
-    // 3.1: the boxes; the day circled on the calendar; the suit or “you eating there?”
+    // 3.1: the boxes; the day circled on the calendar; the suit or “you eating there?” (`boxes`)
     async g => {
       const f = facts(g.state);
-      await g.scene('house', { here: ['jack', 'dad'], moods: { jack: 'neutral', dad: 'tired' }, keys: { ...HOUSE, menagerie: f.zoo === 2 ? 'sill' : 'none', suit_bag: f.stayed } });
-      g.title(tr('Qingming'));
-      await g.plate(tr('The next spring, the first Qingming without her. The house is sold. Jack is helping Dad clear it out: an empty kitchen, boxes. Dad seals a box with tape — the same crackle.'));
-      await g.say('dad', 'The new people move in tomorrow. I told them — not before. Today… she always burned paper on this day. I circled it on the calendar', { how: 'rambling a little, then short' });
-      if (f.lang > 0) await g.say('jack_grown', 'Qingming', { how: 'quietly' });
-      else {
-        await g.say('jack_grown', 'Her day, with the paper… what’s it called, in hers?', { how: 'quietly, searching' });
-        await g.say('dad', 'Don’t remember. You used to know');
-      }
-      if (f.stayed) {
-        await g.plate(tr('Dad takes the suit bag down off a nail: the suit, the tag on the sleeve never cut off.'));
-        await g.say('dad', 'Yours. Been hanging here… well, I didn’t know where to put it', { how: 'awkward' });
-        await g.plate(tr('Jack takes it; he doesn’t look at the tag.'));
-      } else {
-        if (f.talk === 'forty') await g.say('dad', 'Forty floors, then. You eating there at least?', { how: 'trying to sound casual' });
-        else await g.say('dad', 'You eating there at least?', { how: 'trying to sound casual' });
-        await g.say('jack_grown', 'Fine', { how: 'short' });
-      }
-      if (f.zoo === 2) {
-        await g.plate(tr('On the bare window sill, paper cranes and frogs — the only things not packed.'));
-        await g.say('dad', 'Didn’t touch these. Didn’t know how', { how: 'quietly' });
-      }
+      await piece(g, 'boxes', {
+        dad: async () => {
+          await g.say('dad', 'The new people move in tomorrow. I told them — not before. Today… she always burned paper on this day. I circled it on the calendar', { how: 'rambling a little, then short' });
+          if (f.lang > 0) await g.say('jack_grown', 'Qingming', { how: 'quietly' });
+          else {
+            await g.say('jack_grown', 'Her day, with the paper… what’s it called, in hers?', { how: 'quietly, searching' });
+            await g.say('dad', 'Don’t remember. You used to know');
+          }
+        },
+        suit: async () => {
+          if (f.stayed) await g.say('dad', 'Yours. Been hanging here… well, I didn’t know where to put it', { how: 'awkward' });
+          else {
+            if (f.talk === 'forty') await g.say('dad', 'Forty floors, then. You eating there at least?', { how: 'trying to sound casual' });
+            else await g.say('dad', 'You eating there at least?', { how: 'trying to sound casual' });
+            await g.say('jack_grown', 'Fine', { how: 'short' });
+          }
+        },
+        sill: () => (f.zoo === 2 ? g.say('dad', 'Didn’t touch these. Didn’t know how', { how: 'quietly' }) : null),
+      }, async () => {
+        await g.scene('house', { beat: 'boxes', here: PAIR, moods: { jack: 'neutral', dad: 'tired' }, keys: { ...KIT(f), suit_bag: f.stayed, menagerie: f.zoo === 2 ? 'sill' : 'none' } });
+        g.title(tr('Qingming'), tr('The next spring. The first Qingming without her'));
+      });
     },
-    // 3.2: the rustle; the animals wake; М6 «Stroking»; Laohu unfolds himself, from her crooked fold
+    // 3.2: the rustle; the animals wake; М6 «Stroking»; Laohu unfolds himself, from her crooked fold (`wake_attic`,
+    // `wake_room` | `wake_shelf` | `wake_house`; `unfold`, М6, `open`; the kitchen's `her_hand`)
     async g => {
       const f = facts(g.state);
+      const room = beat => g.scene('bare', { beat, here: f.zoo === 2 ? PAIR : ['jack'], moods: { jack: 'surprised', dad: 'surprised' }, keys: ROOMS(f) });
       if (f.zoo === 0) {
-        await g.scene('attic', { here: ['jack'], moods: { jack: 'surprised' } });
-        await g.plate(tr('A rustle — from the attic. In the dusty light the shoebox trembles. Jack lifts it down through the hatch and sits on the floor of his room with it; the lid rises — out come the dusty goats, the deer, the buffalo, and Laohu, in his tape.'));
-        await g.scene('bare', { here: ['jack'], moods: { jack: 'surprised' }, keys: { moment: 'packed', menagerie: MENAGERIE[f.zoo], laohu_ear: f.ear, laohu_seam: f.seam } });
-      } else if (f.zoo === 1) {
-        await g.scene('bare', { here: ['jack'], moods: { jack: 'surprised' }, keys: { moment: 'packed', menagerie: MENAGERIE[f.zoo], laohu_ear: f.ear, laohu_seam: f.seam } });
-        await g.plate(tr('A rustle. On the empty shelf Laohu stretches; overhead, in the attic, the box with the others rustles.'));
-      } else {
-        await g.scene('bare', { here: ['jack', 'dad'], moods: { jack: 'surprised', dad: 'surprised' }, keys: { moment: 'packed', menagerie: MENAGERIE[f.zoo], laohu_ear: f.ear, laohu_seam: f.seam } });
-        await g.plate(tr('A rustle. Laohu stretches on the shelf — alone; the others are downstairs, in the kitchen: from there, a rustle; the cranes fly from the sill onto the curtain, the frogs slap across the floor.'));
-        await g.say('dad', 'Jack!..', { how: 'calling from downstairs, startled' });
-        await g.plate(tr('Dad in the doorway with a paper frog on his palm — silent.'));
-      }
+        await piece(g, 'wake_attic', {}, () => g.scene('attic', { beat: 'wake_attic', here: ['jack'], moods: { jack: 'surprised' } }));
+        await piece(g, 'wake_room', {}, () => room('wake_room'));
+      } else if (f.zoo === 1) await piece(g, 'wake_shelf', {}, () => room('wake_shelf'));
+      else await piece(g, 'wake_house', { call: () => g.say('dad', 'Jack!..', { at: 'narrator', how: 'calling from downstairs, startled' }) }, () => room('wake_house'));
       g.know(tr('Today is Qingming: the dead come home, and her animals wake — for one day.'));
-      const looks = f.ear && f.seam ? tr('Laohu — one-eared, limping worse — comes to Jack and rubs against him.')
-        : f.ear ? tr('Laohu — one-eared — comes to Jack and rubs against him.')
-          : f.seam ? tr('Laohu — limping worse — comes to Jack and rubs against him.') : tr('Laohu comes to Jack and rubs against him.');
-      await g.plate(looks);
-      const { missed } = await g.play(stroke);
-      if (missed) await g.plate(tr('He grumbles — and lies down all the same.'));
-      await g.plate(tr('He purrs. Then he lies down in Jack’s lap — and unfolds himself: first the fold at the tail comes apart — the crooked, extra one Laohu never had — then the others, one by one, carefully, as she folded them, only backwards.'));
-      g.know(tr('He unfolded himself — from her crooked fold, the one “for once only”.'));
+      await piece(g, 'unfold');
+      await g.play(stroke);
+      await piece(g, 'open', {
+        tail: () => g.know(tr('He unfolded himself — from her crooked fold, the one “for once only”.')),
+        flat: () => g.know(f.lang === 2 ? tr('On the back of the wrapping, columns of her writing. You recognize your name — “Jieke” — and at the bottom the sign from your palm, 爱.')
+          : f.lang === 1 ? tr('On the back of the wrapping, columns of her writing. You recognize only 爱, at the bottom.')
+            : tr('On the back of the wrapping, columns of her writing. You can’t read it; the sign at the bottom seems familiar.')),
+      });
       g.mood('jack', 'sad');
-      await g.plate(tr('A flat sheet, warm, trembling along its folds. On the back of the wrapping paper — columns of Chinese characters. Across it, the old yellow tape; the lines go round it. Lower down, a fresh tear: the edges overlap right across a line, a clear strip of tape over them — a word gone under the overlap.'));
-      if (f.lang === 2) await g.plate(tr('Jack recognizes his name — “Jieke” — and at the bottom, the sign from his palm: 爱.'));
-      else if (f.lang === 1) await g.plate(tr('Jack recognizes only 爱 — at the bottom.'));
-      else await g.plate(tr('Only her handwriting. The sign at the bottom seems familiar.'));
-      await g.scene('house', { here: ['jack', 'dad'], moods: { jack: 'neutral', dad: 'sad' }, keys: { ...HOUSE, menagerie: f.zoo === 2 ? 'awake' : 'none', jack_with: ['letter'] } });
-      await g.plate(tr('Jack walks through the kitchen with the sheet.'));
-      await g.say('dad', 'That’s her hand', { how: 'very quietly' });
-      await g.say('jack_grown', 'I’ll find someone to read it');
+      await piece(g, 'her_hand', {
+        dad: async () => {
+          await g.say('dad', 'That’s her hand', { how: 'very quietly' });
+          await g.say('jack_grown', 'I’ll find someone to read it');
+        },
+      }, () => g.scene('house', { beat: 'her_hand', here: PAIR, moods: { jack: 'neutral', dad: 'sad' }, keys: { ...KIT(f), suit_bag: false, menagerie: f.zoo === 2 ? 'awake' : 'none' } }));
     },
     // 3.3: the square; the woman; the letter's first half
     async g => {
@@ -148,6 +140,7 @@ export default {
       else await g.say('translator', 'It’s torn here, the edges overlap. The word is under them', { how: 'peering, practical' });
       const { missed } = await g.play(peel);
       if (missed) {
+        g.mark('curled', true, null);
         await g.plate(tr('The edge of the tear stays folded under.'));
         if (f.lang === 2) await g.say('translator', '看不清。大概是——“一个人”。', { sub: tr('I can’t see. Probably — “alone”.'), how: 'squinting, gently' });
         else await g.say('translator', 'I can’t see. Probably — “alone”', { how: 'squinting, gently' });
@@ -177,66 +170,62 @@ export default {
       g.here('translator', false);
       await g.plate(tr('She goes to the bus without looking back.'));
     },
-    // 3.4: Mark across the street; the box of the woken animals; ⚑ what does she write?
+    // 3.4: Mark across the street; the box of the woken animals; ⚑ what does she write? (`mark` toward the street, then
+    // `step`, `father_<choice>`)
     async g => {
       const f = facts(g.state);
-      await g.scene('porch', { here: ['jack', 'mark_grown'], moods: { jack: 'neutral' }, keys: { ...PORCH, ...BOX(f), view: 'street' } });
-      await g.plate(tr('Dusk. Across the street, by Mark’s house, a car; grown-up Mark is carrying out a bag.'));
-      if (f.yard === 'english') {
-        await g.plate(tr('Mark waves and crosses the street.'));
-        await g.say('mark_grown', 'Heard. Sorry, man. She brought us buns that time, remember?', { how: 'awkward, sincere' });
-        await g.plate(tr('He pats Jack on the shoulder and goes back to the car.'));
-      } else if (f.yard === 'chinese') {
-        await g.plate(tr('Mark sees Jack — and looks past him. He gets into the car.'));
-      } else {
-        await g.say('mark_grown', 'Hey', { how: 'across the street, a nod' });
-        await g.say('jack_grown', 'Hey');
-      }
+      await piece(g, 'mark', {
+        say: async () => {
+          if (f.yard === 'english') await g.say('mark_grown', 'Heard. Sorry, man. She brought us buns that time, remember?', { how: 'awkward, sincere' });
+          else if (f.yard === 'run') {
+            await g.say('mark_grown', 'Hey', { how: 'across the street, a nod' });
+            await g.say('jack_grown', 'Hey');
+          }
+        },
+      }, () => g.scene('porch', { beat: 'mark', here: ['jack', 'mark_grown'], moods: { jack: 'neutral' }, keys: YARD(f) }));
       g.here('mark_grown', false);
-      g.set('view', 'house');
       g.here('dad', true);
       g.mood('dad', 'tired');
-      if (f.zoo < 2) await g.plate(tr('Dad on the porch step with the last box. Beside it, the shoebox of animals — during the day Jack gathered the woken ones into it: the goats, the deer, the buffalo, dusty, from the attic.'));
-      else await g.plate(tr('Dad on the porch step with the last box. Beside it, the shoebox of animals — during the day Jack gathered the woken ones into it: it is full — cranes, frogs, the shark, new ones he has never seen; the lid won’t close.'));
-      if (!f.stayed) await g.plate(tr('On top, the paper house from the hospital. It did not wake: she never breathed on it.'));
-      await g.say('dad', 'What does she write?', { how: 'for once asking, not looking at the sheet' });
+      await piece(g, 'step', {
+        ask: () => g.say('dad', 'What does she write?', { how: 'for once asking, not looking at the sheet' }),
+      });
       const father = await g.choose('father', { 'jack#chest': [
         { id: 'all', label: tr('Tell him everything') },
         { id: 'apple', label: tr('“About the village. And about the apple tree”') },
         { id: 'later', label: tr('“Later, Dad”') },
       ] });
+      g.set('father', father);
       if (father === 'all') {
-        await g.plate(tr('Jack tells him everything: the scar, the iron, “not at once”. Dad sits for a long time.'));
-        await g.say('dad', 'The scar… I thought — from the stove', { how: 'very quietly, stunned' });
-        g.here('dad', false);
-        await g.plate(tr('He gets up, goes to the apple tree and stands with his palm on its bark.'));
+        await piece(g, 'father_all', {
+          scar: () => g.say('dad', 'The scar… I thought — from the stove', { how: 'very quietly, stunned' }),
+        });
       } else if (father === 'apple') {
         await g.say('jack_grown', 'About the village. And about the apple tree');
-        g.mood('dad', 'smile');
-        await g.say('dad', 'About the apple tree, then. I planted it in the spring, before the first letter. So I wouldn’t be lying', { how: 'smiling, short' });
+        await piece(g, 'father_apple', {
+          smile: () => g.say('dad', 'About the apple tree, then. I planted it in the spring, before the first letter. So I wouldn’t be lying', { how: 'smiling, short' }),
+        });
       } else {
         await g.say('jack_grown', 'Later, Dad');
-        await g.say('dad', 'Later. Okay', { how: 'nodding, as he nodded to her all his life' });
-        g.here('dad', false);
-        await g.plate(tr('He carries the box into the house.'));
+        await piece(g, 'father_later', {
+          nod: () => g.say('dad', 'Later. Okay', { how: 'nodding, as he nodded to her all his life' }),
+        });
       }
       g.apply('father');
     },
-    // 3.5: М8 «The Character»
+    // 3.5: М8 «The Character» (`sign`)
     async g => {
       const f = facts(g.state);
-      await g.scene('porch', { here: ['jack'], moods: { jack: 'thinking' }, keys: { ...PORCH, ...BOX(f) } });
-      await g.plate(f.lang === 2 ? tr('Jack sits down on the step, takes Dad’s pen and writes his own sign under hers — 爱. From memory.') : tr('Jack sits down on the step, takes Dad’s pen and writes his own sign under hers — 爱, copying hers, stroke by stroke.'));
+      await piece(g, 'sign', {}, () => g.scene('porch', { beat: 'sign', here: ['jack'], moods: { jack: 'thinking' }, keys: YARD(f) }));
       const { missed } = await g.play(sign);
       if (missed) g.mark('crooked', true, tr('His 爱 came out crooked — and it will stay so.'));
-      await g.plate(tr('One sign — ten seconds. On the sheet there are dozens of columns.'));
+      g.know(tr('One sign — ten seconds. On the sheet there are dozens of columns.'));
     },
-    // 3.6: ⚑ Laohu (hinge 2) — sunset; the animals fall asleep; the sheet still remembers the tiger's folds
+    // 3.6: ⚑ Laohu (hinge 2) — sunset; the animals fall asleep; the sheet still remembers the tiger's folds (`sunset`)
     async g => {
       const f = facts(g.state);
-      await g.scene('porch', { here: ['jack'], moods: { jack: 'sad' }, keys: { ...PORCH, ...BOX(f) } });
-      await g.plate(tr('The sun is setting behind the apple tree. The car at the gate is packed; the house is empty. In the shoebox on the step the animals move slower and slower; a goat lies down — and it is paper now, then the deer.'));
-      await g.plate(tr('The sheet in Jack’s hands still trembles along the tiger’s folds — it remembers: under his finger it lies along them by itself, as if ready to fold. He runs a finger along the crooked fold at the tail, her “for once only” — it lies like a dead line and doesn’t stir. Under the apple tree — her bucket, rusty.'));
+      await piece(g, 'sunset', {
+        fold: () => g.know(tr('The sheet still trembles along the tiger’s folds; her crooked fold at the tail lies dead — it will not fold again.')),
+      }, () => g.scene('porch', { beat: 'sunset', here: ['jack'], moods: { jack: 'sad' }, keys: YARD(f) }));
       await g.sheet(tr('What Jack knows'), [
         tr('You don’t unfold a living one: unfolded by hand, he is just paper — and there is no one to breathe into him.'),
         tr('At night paper forgets its folds: folded after that, even along the same lines, it is just paper.'),
@@ -252,89 +241,65 @@ export default {
       g.apply('laohu');
       if (laohu === 'smoke') g.know(tr('She sent paper to her own for twenty years, and no one sent her any. There, she has no one to fold a tiger for her.'));
     },
-    // the finale (scenario §9), part one: its image — the tiger, the letter, the smoke
+    // the finale (scenario §9), part one: its image — the tiger, the letter, the smoke (`tiger`, «fold», `tiger_up` |
+    // `letter_end`, «smooth», `letter_flat` | `smoke`, «flame», `smoke_up`)
     async g => {
       const f = facts(g.state);
-      await g.scene('porch', { here: ['jack', 'dad'], moods: { jack: 'sad', dad: 'tired' }, keys: { ...PORCH, ...BOX(f) } });
-      g.title(label(f.ending));
-      await g.plate(tr('The yard, dusk, the first Qingming without her; the house is sold. The animals in the shoebox on the step have fallen asleep. Jack will take the box with him.'));
+      const open = name => async () => {
+        await g.scene('porch', { beat: name, here: PAIR, moods: { jack: 'sad', dad: 'tired' }, keys: YARD(f) });
+        g.title(label(f.ending));
+      };
       if (f.ending === 'tiger') {
-        const { missed } = await g.play(fold);
-        if (missed) await g.plate(tr('The folds find themselves: the paper folds on its own.'));
-        await g.plate(tr('The folds along the old lines — the paper remembers them; the crooked fold at the tail it doesn’t find, and the tiger folds without it. Her lines go inside; last of all, her 爱 — and his under it.'));
-        if (f.crooked) await g.plate(tr('His — crooked.'));
-        await g.plate(tr('The sheet becomes a tiger: tape across his back.'));
-        if (f.ear) await g.plate(tr('One ear.'));
-        if (f.seam) await g.plate(tr('He limps.'));
-        g.mood('jack', 'smile');
-        await g.plate(tr('Laohu stands up on the step, shakes himself and purrs. Jack takes him into the crook of his arm.'));
-        if (f.lang === 2) await g.say('jack_grown', '两只老虎，两只老虎，跑得快……', { sub: tr('Two tigers, two tigers, running fast…'), how: 'humming the children’s song softly, with the words, in Mandarin Chinese' });
-        else if (f.lang === 1) await g.plate(tr('He hums the first line of “Two Tigers” — without the words.'));
-        else await g.plate(tr('He just carries him.'));
+        await piece(g, 'tiger', {}, open('tiger'));
+        await g.play(fold);
+        await piece(g, 'tiger_up', {
+          up: () => g.mood('jack', 'smile'),
+          hum: () => (f.lang === 2 ? g.say('jack_grown', '两只老虎，两只老虎，跑得快……', { sub: tr('Two tigers, two tigers, running fast…'), how: 'humming the children’s song softly, with the words, in Mandarin Chinese' })
+            : f.lang === 1 ? g.say('jack_grown', 'Mm-mm, mm-mm…', { how: 'humming the first line of the children’s song Two Tigers without words, to the tune of Frère Jacques' }) : null),
+        });
       } else if (f.ending === 'letter') {
-        await g.plate(tr('The porch step, the lamp over the door.'));
-        const { missed } = await g.play(smooth);
-        if (missed) await g.plate(tr('The sheet lies flat by itself.'));
-        await g.plate(tr('It is getting dark. The sheet trembles along its folds one last time — and lies flat; the folds are visible and move no more.'));
-        await g.plate(f.crooked ? tr('At the bottom — her 爱, and his, crooked.') : tr('At the bottom — her 爱, and his, even.'));
+        await piece(g, 'letter_end', {}, open('letter_end'));
+        await g.play(smooth);
+        await piece(g, 'letter_flat');
       } else {
-        await g.plate(tr('Her bucket under the apple tree; the fire.'));
-        const { missed } = await g.play(flame);
-        if (missed) await g.plate(tr('The flame takes the sheet by itself.'));
-        await g.plate(tr('The sheet burns; the smoke goes up through the apple tree — and for a moment something striped seems to pass through the smoke. And is gone.'));
-        if (f.lang === 2) await g.say('jack_grown', '妈妈，老虎——给你。', { sub: tr('Mom, Laohu — for you.'), how: 'into the fire, in Mandarin Chinese, quietly' });
-        else if (f.lang === 1) {
-          await g.say('jack_grown', 'Mom, Laohu — for you', { how: 'into the fire, quietly' });
-          await g.say('jack_grown', '爱。', { sub: tr('Ài.'), how: 'into the fire, the one word in Mandarin Chinese, barely aloud' });
-        } else await g.say('jack_grown', 'Mom, Laohu — for you', { how: 'into the fire, quietly' });
+        await piece(g, 'smoke', {}, open('smoke'));
+        await g.play(flame);
+        await piece(g, 'smoke_up', {
+          say: async () => {
+            if (f.lang === 2) await g.say('jack_grown', '妈妈，老虎——给你。', { sub: tr('Mom, Laohu — for you.'), how: 'into the fire, in Mandarin Chinese, quietly' });
+            else if (f.lang === 1) {
+              await g.say('jack_grown', 'Mom, Laohu — for you', { how: 'into the fire, quietly' });
+              await g.say('jack_grown', '爱。', { sub: tr('Ài.'), how: 'into the fire, the one word in Mandarin Chinese, barely aloud' });
+            } else await g.say('jack_grown', 'Mom, Laohu — for you', { how: 'into the fire, quietly' });
+          },
+        });
       }
     },
-    // the finale, part two: Dad, by the mark; the line of the train; the last line
+    // the finale, part two: Dad, by the mark; the line of the train; the last line (`dad_end`)
     async g => {
       const f = facts(g.state);
-      await g.scene('porch', { here: ['jack', 'dad'], moods: { jack: 'sad', dad: 'sad' }, keys: { ...PORCH, ...BOX(f) } }, { cut: true });
-      if (f.ending === 'tiger') {
-        if (f.father === 'all') {
-          await g.plate(tr('Dad stands by the apple tree, his palm on the bark, as during the day; he turns to the tiger not at once.'));
-          await g.say('dad', 'Hello, beast', { how: 'softly, hoarse' });
-          g.here('dad', false);
-          await g.plate(tr('He stays by the apple tree; Jack walks to the gate alone.'));
-        } else if (f.father === 'apple') {
-          g.mood('dad', 'smile');
-          await g.plate(tr('Dad waves from the porch.'));
-        } else {
-          await g.plate(tr('Dad locks the door and asks about nothing; at the gate they shake hands.'));
-        }
-      } else if (f.ending === 'letter') {
-        if (f.father === 'all') {
-          await g.plate(tr('Dad sits down beside him and takes out his phrasebook, the bookmark at page twelve.'));
-          await g.say('dad', 'Let’s do it together. I’m on twelve', { how: 'shy, determined' });
-        } else if (f.father === 'apple') {
-          await g.plate(tr('Dad gives him the phrasebook.'));
-          await g.say('dad', 'Take it. No use to me now', { how: 'gruff, gentle' });
-        } else {
-          g.here('dad', false);
-          await g.plate(tr('Dad carries the last box to the car and waits there; Jack is on the step alone.'));
-        }
-      } else if (f.father === 'all') {
-        await g.plate(tr('Dad stands beside him, his hand on Jack’s back — as his hand was on her back that evening by the bucket, long ago.'));
-      } else if (f.father === 'apple') {
-        await g.say('dad', 'That’s how she did it', { how: 'from the porch, quietly' });
-      } else {
-        g.here('dad', false);
-        await g.plate(tr('Dad opens a window and looks at the fire.'));
-        await g.say('dad', 'That you… well', { at: 'narrator', how: 'from the window, unsure' });
-        await g.say('jack_grown', 'Mom’s');
-        await g.plate(tr('Dad nods and closes the window.'));
-      }
-      if (!f.stayed) await g.say('jack_grown', 'The last thing she said to me herself: “Go”. And I went. Here — I’m back', { how: 'grown-up, very quiet' });
-      else if (f.lang > 0) await g.say('jack_grown', 'The last thing she said to me herself: “Don’t be alone”', { how: 'grown-up, very quiet' });
-      else await g.say('jack_grown', 'The last thing she said to me herself was one word. I knew it', { how: 'grown-up, very quiet' });
-      if (f.ending === 'tiger') await g.say('jack_grown', 'Once a year, at Qingming, he wakes up. I don’t unfold him', { how: 'grown-up, very quiet' });
-      else if (f.ending === 'smoke') await g.say('jack_grown', 'He never woke for me again. At Qingming I fold the paper myself', { how: 'grown-up, very quiet' });
-      else if (f.lang === 2) await g.say('jack_grown', 'Reading her hand took me two years. Aloud — in her accent', { how: 'grown-up, very quiet' });
-      else if (f.lang === 1) await g.say('jack_grown', 'A year later I read the first line', { how: 'grown-up, very quiet' });
-      else await g.say('jack_grown', 'A year later I recognized the second sign in it — the first I learned myself, after her 爱. It was “I”', { how: 'grown-up, very quiet' });
+      const dad = {
+        tiger: { all: () => g.say('dad', 'Hello, beast', { how: 'softly, hoarse' }) },
+        letter: { all: () => g.say('dad', 'Let’s do it together. I’m on twelve', { how: 'shy, determined' }), apple: () => g.say('dad', 'Take it. No use to me now', { how: 'gruff, gentle' }) },
+        smoke: { apple: () => g.say('dad', 'That’s how she did it', { how: 'from the porch, quietly' }),
+          later: async () => {
+            await g.say('dad', 'That you… well', { how: 'from the door, unsure' });
+            await g.say('jack_grown', 'Mom’s');
+          } },
+      }[f.ending][f.father] ?? (() => null);
+      await piece(g, 'dad_end', {
+        say: dad,
+        last: async () => {
+          if (!f.stayed) await g.say('jack_grown', 'The last thing she said to me herself: “Go”. And I went. Here — I’m back', { how: 'grown-up, very quiet' });
+          else if (f.lang > 0) await g.say('jack_grown', 'The last thing she said to me herself: “Don’t be alone”', { how: 'grown-up, very quiet' });
+          else await g.say('jack_grown', 'The last thing she said to me herself was one word. I knew it', { how: 'grown-up, very quiet' });
+          if (f.ending === 'tiger') await g.say('jack_grown', 'Once a year, at Qingming, he wakes up. I don’t unfold him', { how: 'grown-up, very quiet' });
+          else if (f.ending === 'smoke') await g.say('jack_grown', 'He never woke for me again. At Qingming I fold the paper myself', { how: 'grown-up, very quiet' });
+          else if (f.lang === 2) await g.say('jack_grown', 'Reading her hand took me two years. Aloud — in her accent', { how: 'grown-up, very quiet' });
+          else if (f.lang === 1) await g.say('jack_grown', 'A year later I read the first line', { how: 'grown-up, very quiet' });
+          else await g.say('jack_grown', 'A year later I recognized the second sign in it — the first I learned myself, after her 爱. It was “I”', { how: 'grown-up, very quiet' });
+        },
+      }, () => g.scene('porch', { beat: 'dad_end', here: PAIR, moods: { jack: 'sad', dad: 'sad' }, keys: YARD(f) }, { cut: true }));
     },
   ],
 };

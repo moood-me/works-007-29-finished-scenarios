@@ -11,7 +11,8 @@
 //   view.sheet(title, lines, {signal}) — the same, a list
 //   view.where(text | null) — the label high on the left: where this really happens (a stand-in scene)
 //   view.hint(text) — one line low in the middle; → a function that takes it away
-//   view.title(text, {signal}) — words in the middle of the frame; → once they have gone (9 s)
+//   view.title(text, {signal, under}) — words in the middle of the frame (under: a smaller line beneath); → once they
+//     have gone (9 s)
 //   view.quiet() — what a chapter left showing (its slips, its hint, its label) taken away: the map comes
 //   view.author({chapters, plays: [labels], at() → {chapter, step}, games(as, chapter, step) → promise of [titles of
 //     its minigames], go(as, chapter, step, game)}) — the author's map, opened by his sign on the map (→ toggle)
@@ -98,9 +99,10 @@ export function ui(layer) {
       hinted = off;
       return off;
     },
-    title(text, { signal } = {}) {
+    title(text, { signal, under = null } = {}) {
       const t = el('div', 'title', layer);
       el('span', 'words', t).textContent = text;
+      if (under) el('span', 'under', t).textContent = under;
       return new Promise(ok => {
         const timers = [setTimeout(() => t.classList.add('on'), 60), setTimeout(() => t.classList.remove('on'), 6600),
           setTimeout(() => { t.remove(); ok(); }, 9000)];
