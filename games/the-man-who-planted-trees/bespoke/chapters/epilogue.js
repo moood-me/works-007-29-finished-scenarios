@@ -44,12 +44,12 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.named) {
-        await g.scene('hut30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' } });
+        await g.scene('hut30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' }, keys: { elzeard_with: ['rod'] } });
         if (f.slope) await g.plate(tr('The last meeting. Three hours’ walk beyond the ridge — as every month: before dawn, along the bed of the stream, so that no one follows.'));
         else await g.plate(tr('The last meeting. Three hours’ walk beyond the ridge.'));
         await g.plate(tr('A hut; behind it, a slope of young trees waist-high — his ten years; ahead, on the bare ground, a new edge of tiny seedlings. Elzéard is eighty-five. He does not raise his head at once: he finishes the row, and only then straightens up.'));
       } else {
-        await g.scene('house30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' } });
+        await g.scene('house30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' }, keys: { elzeard_with: ['rod'] } });
         await g.plate(tr('The last meeting. Elzéard is eighty-five. By the old house, the hives; on the porch, bread nobody has touched. He is planting by the porch, slowly.'));
       }
       if (f.asked) await g.say('elzeard', 'You asked about my son, that time', { how: 'old, slow, plain' });

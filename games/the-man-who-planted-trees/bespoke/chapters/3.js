@@ -11,7 +11,7 @@ import { beech, row, count, door, stumps } from '../minigames/all.js';
 // the forest edge in chapter III by the path (scenario §4, §12): the bread on the stone and the hives' empty stands
 // (Lina knows), or the hives and the edge begun to be cut (she does not); his beeches on his own slope (the Slope) or
 // in his row by the path, `row` of them (the Road)
-const edge = (f, row) => ({ bread: f.knows, hives: f.knows ? 'stands' : 'hives', stumps: f.knows ? 'none' : 'begun',
+const edge = (f, row) => ({ traveller_with: ['rod'], bread: f.knows, hives: f.knows ? 'stands' : 'hives', stumps: f.knows ? 'none' : 'begun',
   beeches: f.slope ? 'slope' : 'row', beech_row: f.slope ? 0 : row });
 
 export default {
@@ -224,7 +224,7 @@ export default {
         if (f.slope) await g.say('narrator', 'He went beyond the ridge. He was seventy-five');
         else await g.say('narrator', 'He went beyond the ridge. He was seventy-six');
       } else {
-        await g.scene('stumps20', { here: ['traveller', 'jan'], moods: { traveller: 'sad', jan: 'sad', lina: 'neutral' }, keys: { beeches: f.slope ? 'slope' : 'row', beech_row: f.slope ? 0 : 14 } });
+        await g.scene('stumps20', { here: ['traveller', 'jan'], moods: { traveller: 'sad', jan: 'sad', lina: 'neutral' }, keys: { traveller_with: ['rod'], beeches: f.slope ? 'slope' : 'row', beech_row: f.slope ? 0 : 14 } });
         if (f.slope) await g.plate(tr('A month later.'));
         else await g.plate(tr('A year later.'));
         await g.plate(tr('The lower edge of the forest above the village — stumps, fresh or a year old; the wood has been carted away. Among the stumps, Jan with his notebook counts them and marks each one; at one he lays his palm on the cut, as he laid it on the bark that day, and stands so.'));
