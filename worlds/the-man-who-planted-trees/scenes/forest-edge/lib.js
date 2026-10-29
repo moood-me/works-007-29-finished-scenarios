@@ -362,7 +362,7 @@ function FILM(scene) {
     own_oak: CAM([1.2, 13.2, 1.6], [-0.6, 16.8, 1.5]),
     axe_path: CAM([-1.8, 6.0, 1.6], [-2.0, 9.6, 1.4]),
     loud: CAM([0.3, 6.6, 1.6], [1.6, 8.0, 1.6]),
-    chief: CAM([2.2, 6.2, 1.6], [3.4, 8.4, 1.6]),
+    chief: CAM([3.6, 5.6, 1.65], [3.4, 8.4, 1.6]),
     hug: CAM([0.6, 4.2, 1.6], [0.6, 6.3, 1.5]),
     row: CAM([2.2, 20.5, 1.7], [2.0, 26.0, 1.5]),
     row_jan: CAM([1.4, 24.6, 1.6], [2.4, 26.4, 1.6]),
@@ -373,7 +373,7 @@ function FILM(scene) {
     palm: CAM([-8.4, 18.2, 1.5], [-6.5, 15.8, 0.8]),
     lina_stumps: CAM([-3.6, 10.2, 1.55], [-4.0, 12.0, 1.5]),
     board: CAM([0.6, 9.4, 1.6], [-0.6, 13.6, 1.3]),
-    two_rods: CAM([2.6, 7.6, 1.6], [1.4, 10.8, 1.2]),
+    two_rods: CAM([-0.2, 7.6, 1.15], [1.3, 10.9, 1.0]),
     pupil: CAM([0.2, 5.2, 1.5], [1.1, 7.6, 1.2]),
   };
   const old = () => (scene.get("year") >= 20 ? "walk_old" : null);
@@ -478,7 +478,7 @@ function FILM(scene) {
     // (Lina knows — `lina_here`) Lina at an oak by the hives, her palm on its bark («Я всем расскажу»), then down almost
     // running; Elzéard's «Зря» — his face close
     oaks: {
-      after: [], tells: ["oaks:hives", "oaks:lina", "oaks:zrya"], seconds: 22,
+      after: [], tells: ["oaks:hives", "oaks:lina", "oaks:zrya"], seconds: 26,
       from: () => merge(CAM0, NONE,
         who("traveller", [0.4, 7.2, 300], "stand", { look: [-6.5, 14, 3] }), who("elzeard", [-5.4, 11.3, 110], "stand", { look: "hives:2" }),
         who("lina", [-6.5, 13.3, 275], "touch_bark", { look: "edge_first:1#bark" })),
@@ -666,7 +666,7 @@ function FILM(scene) {
     // Ш2 «name»: Jan writes slowly; he goes to the chief and reads aloud; Lina — her line close — turns and walks ahead
     // along the path, her back to him
     named: {
-      after: ["the_row"], tells: ["named:good", "named:read", "named:chief", "named:lina"], seconds: 26,
+      after: ["the_row"], tells: ["named:good", "named:read", "named:chief", "named:lina"], seconds: 32,
       from: () => merge(CAM0, NONE, who("traveller", [0.4, 6.6, 120], "stand", { look: "jan" }), who("jan", [1.4, 7.0, 240], "write_standing", { look: "traveller" }),
         who("lina", [-1.2, 7.4, 140], "stand", { look: "traveller" }), who("chief", [3.4, 9.4, 215], "stand", { look: "jan" }), who("ranger", [4.0, 10.6, 210], "stand", { look: "chief" })),
       run: async (s) => {
@@ -736,7 +736,7 @@ function FILM(scene) {
     // down from the wood between the stumps with his rod and plants; the Traveller beside him (the guiding `stumps`);
     // Lina at the stumps — close
     stumps: {
-      after: [], tells: ["stumps:palm", "stumps:down", "stumps:rod", "stumps:lina"], seconds: 36,
+      after: [], tells: ["stumps:palm", "stumps:down", "stumps:rod", "stumps:lina"], seconds: 50,
       from: () => merge(CAM0, NONE, who("jan", [-5.4, 12.2, 160], "stand", { look: [-7.09, 16.59, 0.42] }), who("elzeard", [-9.5, 24, 160], "stand"),
         who("traveller", [-1.6, 9.0, 225], "stand", { look: "jan" }), who("lina", [-0.1, 7.6, 205], "stand", { look: "jan" })),
       run: async (s) => {

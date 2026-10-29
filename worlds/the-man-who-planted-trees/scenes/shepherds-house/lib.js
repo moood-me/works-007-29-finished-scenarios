@@ -194,7 +194,7 @@ function FILM(scene) {
     // Э.2 the Name: the hut beyond the ridge, the young trees behind, the seedlings ahead; the Traveller comes; Elzéard
     // does not look up at once — he finishes the row, and only then straightens
     hut: {
-      after: [], tells: ["hut:up"], seconds: 22,
+      after: [], tells: ["hut:up"], seconds: 34,
       from: () => merge(CAM0, who("elzeard", [-1.8, 5.2, 100], "stand", { gait: "walk_old" }), who("traveller", [-4.4, 0.6, 50], "stand", { look: "elzeard" })),
       run: async (s) => {
         const e = s.person("elzeard"), t = s.person("traveller");

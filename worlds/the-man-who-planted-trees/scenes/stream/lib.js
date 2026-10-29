@@ -238,7 +238,7 @@ function FILM(scene) {
   const wide = (s, over = 1.5) => view(s, CAM0, over);
   const SH = {
     lina: CAM([0.2, 5.6, 1.5], [-1.0, 7.6, 1.5]),
-    palms: CAM([0.6, 5.2, 1.2], [-1.0, 6.9, 0.7]),
+    palms: CAM([-2.6, 4.6, 1.2], [-1.0, 7.0, 0.8]),
     letter: CAM([0.6, 5.8, 1.55], [-0.9, 7.6, 1.5]),
     maples: CAM([2.0, 6.4, 1.6], [4.6, 12.0, 1.2]),
   };
@@ -280,7 +280,7 @@ function FILM(scene) {
     },
     // 2.4: Lina stands with her letter, writes, and looks up the slope — then the choice «Откуда вода»
     letter: {
-      after: ["palms"], tells: ["letter:write", "letter:look"], seconds: 14,
+      after: [], tells: ["letter:write", "letter:look"], seconds: 14,
       from: () => merge(CAM0, who("traveller", [0.4, 6.6, 250], "stand", { look: "lina" }), who("lina", [-0.9, 7.6, 120], "write_standing", { with: ["letter"], look: "lina#letter" })),
       run: async (s) => {
         const l = s.person("lina");
