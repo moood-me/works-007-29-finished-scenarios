@@ -72,7 +72,7 @@ function film(scene) {
     wide: CAM0,
     room: CAM([0.1, 0.6, 1.6], [-0.2, 2.6, 1.15]),
     folding: CAM([-0.05, 1.55, 1.35], [-0.1, 2.75, 1.1]),
-    palms: CAM([-0.3, 1.5, 1.0], [-0.95, 2.15, 0.78]),
+    palms: CAM([-0.45, 0.95, 1.05], [-1.1, 1.8, 0.8]),
     table: CAM([-0.2, 0.8, 1.45], [-0.35, 2.4, 1.05]),
     jack: CAM([-0.3, 1.45, 1.15], [-1.0, 2.2, 1.0]),
     mom: CAM([-0.45, 1.75, 1.2], [-0.1, 2.9, 1.12]),
@@ -162,12 +162,17 @@ function film(scene) {
         const mom = s.person('mom'), jack = s.person('jack');
         glide(s, SH.palms, 3);
         mom.do('stand');
-        await mom.walk([[-0.75, 2.75], [-0.85, 2.55]]);
-        await mom.turn(215);
+        jack.do('stand');
+        await s.all(mom.walk([[-0.9, 2.85], [-1.6, 2.6], [-1.45, 1.7]]), (async () => {
+          await s.wait(1.5);
+          await jack.walk([[-1.05, 1.9]]);
+          await jack.turn(200);
+        })());
+        await mom.turn(110);
         jack.look('mom');
         jack.do('hold_palms');
         s.set('mom_wear', { parts: [] });
-        put(s, { laohu: 'paper', laohu_breath: 0, laohu_held: 'jack', laohu_a: -0.95, laohu_d: 2.2, laohu_e: 0.55, laohu_dir: 1 });
+        put(s, { laohu: 'paper', laohu_breath: 0, laohu_held: 'jack', laohu_a: -1.05, laohu_d: 1.75, laohu_e: 0.6, laohu_dir: 1 });
         mom.reach({ r: 'jack#hands' });
         s.tell('palms:give');
         await s.wait(1.6);
@@ -182,17 +187,18 @@ function film(scene) {
     // she sings and he walks in time; the menagerie at the window; Dad asleep in his chair, Laohu growls at the snore
     menagerie: {
       after: ['palms'], tells: ['menagerie:name', 'menagerie:dad', 'menagerie:fold', 'menagerie:song', 'menagerie:snore'], seconds: 33,
-      from: () => merge(PROLOGUE({ mom_wear: { parts: [] }, laohu: 'alive', laohu_breath: 1, laohu_held: 'jack', laohu_a: -0.95, laohu_d: 2.2, laohu_e: 0.55 }), SH.palms,
-        who('jack', [-1.0, 2.1, 100], 'hold_palms', { look: 'jack#hands' }), who('dad', [-1.45, 2.4, 120], 'squat_comfort', { look: 'jack#hands' }),
-        who('mom', [-0.85, 2.55, 215], 'stand', { look: 'jack#hands' })),
+      from: () => merge(PROLOGUE({ mom_wear: { parts: [] }, laohu: 'alive', laohu_breath: 1, laohu_held: 'jack', laohu_a: -1.05, laohu_d: 1.75, laohu_e: 0.6 }), SH.palms,
+        who('jack', [-1.05, 1.9, 200], 'hold_palms', { look: 'jack#hands' }), who('dad', [-1.45, 2.4, 120], 'squat_comfort', { look: 'jack#hands' }),
+        who('mom', [-1.45, 1.7, 110], 'stand', { look: 'jack#hands' })),
       run: async s => {
         const mom = s.person('mom'), jack = s.person('jack'), dad = s.person('dad');
         // he jumps out of the palms onto the paper
         await shake(s);
         s.set('laohu_held', 'none');
-        await hop(s, [-0.55, 2.1, 0.76], { over: 0.45, lift: 0.12, rest: 0.4 });
+        await hop(s, [-0.55, 2.0, 0.76], { over: 0.45, lift: 0.12, rest: 0.4 });
         s.set('laohu_dir', 1);
         jack.do('stand');
+        jack.turn(110);
         for (const p of [jack, mom, dad]) p.look('laohu');
         glide(s, SH.table, 1.5);
         s.tell('menagerie:name');
