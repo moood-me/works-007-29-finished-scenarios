@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Gagins' Terrace","translation":"La terraza de los Gaguin","where":"worlds/asya/scenes/terrace/scene.json title"},
+  {"text":"An evening above the Rhine.","translation":"Un anochecer sobre el Rin.","where":"worlds/asya/scenes/terrace/scene.json caption"}
+]}

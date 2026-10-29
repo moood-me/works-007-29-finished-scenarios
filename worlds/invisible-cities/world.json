@@ -7,5 +7,5 @@
     "water": 20
   },
   "main": "garden",
-  "languages": ["en", "ru"]
+  "languages": ["en", "ru", "es"]
 }

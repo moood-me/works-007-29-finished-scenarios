@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Shed","translation":"El cobertizo","where":"worlds/leaf-by-niggle/scenes/shed/scene.json title"},
+  {"text":"A tall shed on the old potato bed. One leaf is finished.","translation":"Un cobertizo alto sobre el viejo bancal de patatas. Una hoja está terminada.","where":"worlds/leaf-by-niggle/scenes/shed/scene.json caption"}
+]}
