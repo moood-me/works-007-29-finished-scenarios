@@ -4,7 +4,7 @@
 // snap each), the last one a red tiger's shape of folded paper. Nothing while both are 0.
 const R = 0.15;
 e.layer('creases', { pivot: [0, 0] }, l => {
-  l.strokeStyle = 'rgba(110,30,20,0.55)';
+  l.strokeStyle = 'rgba(252,232,200,0.75)';
   l.lineWidth = 0.004;
   l.beginPath();
   for (const k of [-0.5, 0, 0.5]) {

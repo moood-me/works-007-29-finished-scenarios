@@ -37,7 +37,7 @@ function film(scene) {
     tree: CAM([1.7, 3.0, 1.6], [4.2, 5.4, 1.4]),
     up: CAM([2.0, 3.2, 1.3], [3.8, 5.4, 4.2]),
     box: CAM([0.1, 5.0, 1.05], [-0.6, 6.86, 0.5]),
-    sheet: CAM([-0.3, 5.5, 1.25], [-0.4, 6.86, 0.4]),
+    sheet: CAM([-0.55, 4.75, 1.2], [-1.3, 6.5, 0.6]),
     stop: CAMS([0.0, 0.6, 1.6], [-2.6, -2.6, 1.2]),
     gate: CAMS([1.2, -3.2, 1.55], [-0.2, -1.2, 1.45]),
     across: CAMS([-0.9, 1.0, 1.6], [-3.0, -8.0, 1.3]),
@@ -67,7 +67,7 @@ function film(scene) {
   const AWAY = { mom: [-9.5, 9.5, 180], jack: [-9.0, 9.5, 180], mark: [-9.8, 9.2, 180], dad: [-9.3, 9.8, 180], mark_grown: [-4.0, -11, 0],
     boy_a: [-2.7, -2.6, 20], boy_b: [-4.4, -2.5, 345] };
   const away = (...ids) => merge(...ids.map(id => who(id, AWAY[id])));
-  const DOOR = [-1.0, 8.15], STEP = [-0.55, 6.62], TOP = [-1.25, 6.86, 0.42], LOW = [-0.3, 6.58, 0.22], BUCKET = [3.8, 5.4];
+  const DOOR = [-1.0, 8.15], STEP = [-0.55, 6.62], TOP = [-1.25, 6.86, 0.42], LOW = [-1.3, 6.58, 0.22], BUCKET = [3.8, 5.4];
   // a paper hop: held, then a quick snap to the next spot (angular, as paper moves)
   const hop = async (s, to, { over = 0.28, rest = 0.3, lift = 0.05 } = {}) => {
     const a0 = s.state.laohu_a, d0 = s.state.laohu_d, e0 = s.state.laohu_e;
@@ -609,7 +609,7 @@ function film(scene) {
       from: () => merge(PORCH(), SITTING(), who('dad', [-1.6, 7.6, 180], 'stand'), SH.sheet, { menagerie_sleep: 0.45, tremble: 0, porch_lamp: 1 }),
       run: async s => {
         const jack = s.person('jack');
-        jack.reach({ r: [-0.55, 6.86, 0.42] });
+        jack.reach({ r: [-1.0, 6.86, 0.42] });
         await s.wait(1);
         put(s, { jack_with: [], step_sheet: true });
         jack.reach(null);
@@ -684,7 +684,7 @@ function film(scene) {
       run: async s => {
         const dad = s.person('dad'), jack = s.person('jack'), f = s.state.father, end = s.state.ending;
         if (f === 'all' && end === 'letter') {
-          put(s, { dad_on: [-0.75, 6.58, 0.22], dad_a: -0.75, dad_d: 6.58, dad_do: 'reading_seated', dad_look: 'dad#book' });
+          put(s, { dad_on: [-0.75, 6.58, 0.22], dad_a: -0.75, dad_d: 6.58, dad_turn: 180, dad_do: 'reading_seated', dad_look: 'dad#book' });
           await glide(s, SH.two, 2);
         } else if (f === 'all' && end === 'smoke') {
           await dad.walk([[2.9, 5.2]]);
