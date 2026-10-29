@@ -62,7 +62,8 @@ person's point `#rod`. `mug` — a tin mug upright in the right hand (`#mug`). `
 (`#bag`). `flask` — the flask at the right hip (`#flask`). `pail` — a wooden pail hanging from the right hand by its
 bail (`#pail`). `notebook` — a forester's notebook in the left hand (`#notebook`). `spade` — a spade upright in the right hand, its blade
 on the ground (`#spade`). `letter` — a sheet of letter paper in the left hand (`#letter`). `gourd` — a gourd of water in the right hand
-(`#gourd`). `axe` — an axe hanging from the right hand, the head by the knee (`#axe`). `basket` — a
+(`#gourd`). `flask_hand` — the Traveller's flask taken off the hip, in his right hand (`#flask`; worn in place of
+`flask`). `axe` — an axe hanging from the right hand, the head by the knee (`#axe`). `basket` — a
 wicker basket hanging from the right hand (`#basket`). `beard` — a short beard in the
 hair's colour (worn, not held).
 
@@ -70,3 +71,9 @@ hair's colour (worn, not held).
 
 `hands_behind` — stands still, the hands clasped behind the back, looking far ahead (a loop). Besides the engine's
 `stand` and `walk`.
+
+The village's (stage 5): `shake_flask` (once: a small thing lifted to the ear in the right hand, shaken, lowered —
+disappointed), `pour` (once: a cup in the right hand tipped out forward at waist height), `drink` (once: a cup to the
+mouth, head back), `spade` (once: bent digging with a shovel), `load_sack` (a loop: a heavy load lifted from the
+ground and heaved forward onto a cart), `tie_bag` (a loop: crouched, tying a bag on the ground), `beckon` (once: the
+right hand waving someone over), `carry_pail_walk` (a gait: walking with a pail in the right hand).
