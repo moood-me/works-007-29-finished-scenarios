@@ -50,8 +50,8 @@ the room.
 - `knight` — a little silver plastic knight held to the chest in both hands, a blue shield (the look's `accent`), its
   light-up sword gone grey; the point `knight`.
 - `phrasebook` — a small book held open in both hands before the chest; the point `book` (cover: the look's `accent`).
-- `letter` — Laohu unfolded: a square of red wrapping paper with gold stars, the old yellow tape across it, held open
-  in both hands before the chest, its outside away from the reader (her writing on its back is an insert's); the point
+- `letter` — Laohu unfolded: a thin square of red wrapping paper with gold stars, the old yellow tape across it (a flat
+  tube with cut ends), held open in both hands before the chest, tipped a little away, its outside away from the reader (her writing on its back is an insert's); the point
   `letter`.
 - `flag` — a tour guide's little flag held up in the right hand, its pennant the look's `accent`; the point `flag`.
 - `frog` — a paper frog of green wrapping paper sitting on the open right hand; the point `frog`.
@@ -82,4 +82,7 @@ upright; this one reads as asleep with `eyes_closed`); `lie_bed` — lies on the
 loop; its feet the way the person's turn faces; with `<id>_on` a point of a bed, e.g. the ward's `bed_top#lie`);
 `peel` — sits picking at something held before the chest with both hands, then the hands down to the lap (a loop);
 `check_watch` — sits, lifts the left wrist and looks at it, then the hands back to the lap (once, 3 s); `beckon` —
-stands, the right arm thrown forward and up toward someone, then down (once, 3 s: a guide calling her group).
+stands, the right arm thrown forward and up toward someone, then down (once, 3 s: a guide calling her group);
+`sit_down` — stands, sits down on a seat behind and stays (once, 3 s: `go('sit_down', {to, turn})`, then `_on` the
+seat); `rise` — sits on a chair, stands up and steps forward (once, 3 s: `go('rise', {from})`; the first take rose
+from the floor).

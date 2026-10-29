@@ -74,8 +74,11 @@ the corridor names `view: 'corridor'` and `camera_on: 'corridor_eye'` in its sta
 | `lamp` | as before: 1 the evening, 0.6 darkening, 0.3 the night |
 
 People have `place` keys now (`<id>_a`, `<id>_d`); `nurse` (the cast's) is in the corridor (here false unless the game
-says). Mom in bed: `mom_on: "bed_top#lie"` (the bed's point), `mom_do: "lie_bed"`, `mom_turn: 90` — on her back, her
-head on the pillow, her right hand on the near side (M5's `mom#hand_r`). Dad's oranges: the cast's part `oranges`.
+says). Mom in bed: `mom_on: [0.72, 3.98, 0.5]`, `mom_do: "lie_bed"`, `mom_turn: 90` — on her back, her head on the
+pillow, her right hand on the near side (M5's `mom#hand_r`). Sitting down and getting up: `sit_down`, `rise`.
+**Cameras**: the ward's own (lib.js `SH`: an eye and the point it looks at — Mom from her right or left, the two on the
+bed's edge, the bedside table, Mom in bed from above, the chair, the window; in the corridor from `corridor_eye`): the
+operator, in a room this small, framed Mom's back and went behind people. Dad's oranges: the cast's part `oranges`.
 
 ### Pieces
 
@@ -105,14 +108,14 @@ table's top where the tiger stood («Остался»).
 
 ### What is not right yet
 
-- Dad sits down and gets up without a motion of it: `_on` set as he reaches the chair (a third of a second's change
-  of pose). Kimodo was busy for `sit_down`; see the history note.
 - Dad has no coat to put on in `coat`: his look has no coat, he only gets up and goes.
 - In `talk_hand` Jack lays the bag down where no element shows it (his look loses the part as he sits).
 - `doze_chair` is Dad asleep leaning back with his arms crossed, not with his head dropped forward (two takes).
+- Mom in bed is held over it by `_on` (`[0.72, 3.98, 0.5]`), not laid on a `walk` plane: on such a plane a lying motion
+  floats about its height above it (the history note: an engine gap with its repro).
 
 ## Contract for the check
 
 ```json
-{"beats": {"door":{"after":[],"tells":["door:dad","door:nurse","door:ticket","door:book","door:tiger"],"seconds":20}, "ward_in":{"after":[],"tells":["ward_in:greet"],"seconds":9}, "once":{"after":["ward_in"],"tells":["once:touch","once:suit"],"seconds":14}, "talk_grandma":{"after":["once"],"tells":["talk_grandma:say","talk_grandma:end"],"seconds":12}, "talk_forty":{"after":["once"],"tells":["talk_forty:say","talk_forty:end"],"seconds":10}, "talk_hand":{"after":["once"],"tells":["talk_hand:say","talk_hand:end"],"seconds":14}, "coat":{"after":["talk_grandma","talk_forty","talk_hand"],"tells":["coat:dad","coat:mom"],"seconds":9}, "stay":{"after":["coat"],"tells":["stay:say","stay:turn"],"seconds":14}, "go":{"after":["coat"],"tells":["go:hand","go:door"],"seconds":10}, "night":{"after":[],"tells":["night:bag","night:tiger","night:talk","night:last"],"seconds":26}, "phone":{"after":[],"tells":["phone:dad","phone:pocket"],"seconds":14}, "menu":{"after":[],"tells":["menu:door"],"seconds":8}, "friday":{"after":[],"tells":["friday:back","friday:house"],"seconds":12}, "silence":{"after":["friday"],"tells":["silence:dark"],"seconds":6}}}
+{"beats": {"door":{"after":[],"tells":["door:dad","door:nurse","door:ticket","door:book","door:tiger"],"seconds":24}, "ward_in":{"after":[],"tells":["ward_in:greet"],"seconds":9}, "once":{"after":["ward_in"],"tells":["once:touch","once:suit"],"seconds":14}, "talk_grandma":{"after":["once"],"tells":["talk_grandma:say","talk_grandma:end"],"seconds":12}, "talk_forty":{"after":["once"],"tells":["talk_forty:say","talk_forty:end"],"seconds":10}, "talk_hand":{"after":["once"],"tells":["talk_hand:say","talk_hand:end"],"seconds":14}, "coat":{"after":["talk_grandma","talk_forty","talk_hand"],"tells":["coat:dad","coat:mom"],"seconds":9}, "stay":{"after":["coat"],"tells":["stay:say","stay:turn"],"seconds":14}, "go":{"after":["coat"],"tells":["go:hand","go:door"],"seconds":10}, "night":{"after":[],"tells":["night:bag","night:tiger","night:talk","night:last"],"seconds":26}, "phone":{"after":[],"tells":["phone:dad","phone:pocket"],"seconds":14}, "menu":{"after":[],"tells":["menu:door"],"seconds":8}, "friday":{"after":[],"tells":["friday:back","friday:house"],"seconds":12}, "silence":{"after":["friday"],"tells":["silence:dark"],"seconds":6}}}
 ```

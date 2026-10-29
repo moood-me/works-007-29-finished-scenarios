@@ -55,10 +55,7 @@ guide calls, she glances at the bus and back up at Jack.
   writing is not drawn on the part (a sheet that small and two-sided read as a red box).
 - The guide holds her flag with `showing_suit` (a motion made for holding up a suit bag by its hook): it reads as a
   hand raised with a flag; a calling gesture is stage 5's motion.
-- The letter in her hands still reads as a small red box, not a thin sheet: an `F.ball` 0.001·h thick is drawn with
-  depth all the same (the part's ball seems to keep a minimum thickness or round its edges). A flat sheet held in the
-  hands wants a part drawn as a sheet (`F.cloth` is only for what is worn from the start) — stage 5, or a question for
-  the engine.
+- (stage 5) The letter in her hands read as a small red box: drawn now as a thin sheet (see «Stage 5: pieces»).
 
 ## Stage 5: pieces
 
@@ -85,10 +82,16 @@ its own changes; the game's are `here`, the moods and `tear`.
 half between them (two steps, the second opened anew), so the tear is its own piece now — `tear` (after `reading`,
 tells `tear:open`), and `reading_end` goes on from it. Asked of the game's author with this push.
 
+**Cameras**: the square's own (lib.js `SH`: an eye and the point it looks at — her face from her left, her reading,
+the two of them, her on the right of the frame beside the close-up, Jack): the operator, framing a seated woman, came
+in to her lap.
+
+The letter in hands (the cast's part `letter`) is now a thin sheet tipped a little away from the holder — a flat tube
+with cut ends (as an `F.ball` with four sides it read as a red rhombus slab).
+
 ### What is not right yet
 
-- The letter in her hands (the cast's part `letter`): see the render notes in the history — a held sheet drawn as an
-  `F.ball` reads as a thin red slab.
+- The guide's call (`beckon`) is far off and small in the wide shot.
 
 ## Contract for the check
 
