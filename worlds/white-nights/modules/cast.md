@@ -1,7 +1,7 @@
 # cast — the people of «White Nights» as the engine's people
 
 A module for scenes with people (elements with `person`: `{"cast": "cast", "who": …}` — the engine's people.md). In
-the scene's `modules`. 13 looks, 16 parts, 2 motions of its own (below) besides the engine's `stand` and `walk`. The parts'
+the scene's `modules`. Its looks, parts and motions of its own (below) besides the engine's `stand` and `walk`. The parts'
 lengths are a man's metres times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
@@ -30,12 +30,16 @@ expressions, by name). Hems are even (no ragged edge).
 - `fyokla` — Fyokla, Grandmother's deaf old servant: thin and bent, a faded grey-blue dress to the floor, a dark
   moss-green shawl, a white kerchief over grey hair.
 - `gentleman` — the gentleman in a tailcoat on the first night, a little drunk: a black tailcoat, a top hat, a flushed face.
-- `dvornik` — the yard-keeper of the prologue: a red shirt, a long white apron, a peaked cap; his broom (`broom`).
+- `yardman` — the yard-keeper of the prologue: a red shirt, a long white apron, a peaked cap; his broom (`broom`).
 - `nanny` — a nurse-maid at the morning's end: a blue-grey dress, a cream shawl, a white kerchief.
 - `child` — her child, five or so, in a white frock, eating a bagel (`bagel`).
 - `passerby` — a man in the returned city: a brown long coat, a top hat.
 - `matryona` — Matryona, the Dreamer's servant, past sixty: short and broad, a brown homespun dress to the floor, a
   faded brick-red shawl over the shoulders, a washed linen kerchief (`kerchief`) tied under the chin over grey hair.
+
+- `dreamer_robe` — the Dreamer at home in an old dressing gown of faded brick-brown wool to the shin, its shawl collar
+  and cord of a darker lining (the room, «Окно», while his frock coat dries): for `dreamer_wear` — the look's object,
+  `scene.kit.cast.characters.dreamer_robe`.
 
 At home Nastenka is the same character with her look changed over it: `"look": {"garment": "frock"}` — her dress
 without the mantle.
@@ -68,6 +72,8 @@ The hat's colour is the look's `colors.hat`.
   `<id>#letter`.
 - `broom` — the yard-keeper's birch broom upright in both hands, its twigs on the ground before his feet.
 - `bagel` — a bagel in the right hand.
+- `letter_open` — an open letter held in both hands before the chest, its written face (a few lines of a faded ink)
+  turned to the reader's face; point `<id>#letter_open` (with the seated loop `read`).
 
 ## Hair
 
@@ -82,13 +88,22 @@ showing under it, and over the chest the coat's front (`coatFront`: a waistcoat 
 only at the throat under a dark stock wound round the neck, buttons), `caped` (a dress to the ankles with a mantle over the
 shoulders to the hips), `frock` (the same dress without the mantle, a little shorter and narrower, smooth — it is sat in), `aproned` (a working girl's dress to the ankles, a linen apron over it from the waist to below the knee — cloth that
 swings —, keys at the hip), `shawled` (an old woman's fuller dress to the floor,
-a shawl over the shoulders to the hips, the top's colour); `tophat` (a tall black top hat worn a little back, a narrow brim, a silk band), `mobcap` (an old woman's white linen cap, a ribbon bow under the chin), `kerchief` (a working woman's linen kerchief drawn close over the hair and the brow, knotted under the chin — the accent —, its corner at the nape).
+a shawl over the shoulders to the hips, the top's colour), `robe` (a man's old dressing gown from the shoulders to the shin, a
+shawl collar crossed to the waist and a cord tied there, both the accent's colour); `tophat` (a tall black top hat worn a little back, a narrow brim, a silk band), `mobcap` (an old woman's white linen cap, a ribbon bow under the chin), `kerchief` (a working woman's linen kerchief drawn close over the hair and the brow, knotted under the chin — the accent —, its corner at the nape).
 
 ## Motions
 
-Made by the motion model (make_motion), put in with put_motion (`cast.data.json`). Both are seated loops: the person
-sits on a seat by `<id>_on: [across, distance, top]` (the hips over it), `<id>_do: {"motion": …, "loop": true}`.
+Made by the motion model (make_motion), put in with put_motion (`cast.data.json`). `seated` and `read` are seated loops:
+the person sits on a seat by `<id>_on: [across, distance, top]` (the hips over it), `<id>_do: {"motion": …, "loop": true}`.
 
 - `seated` — sits still on a chair, the hands resting on the thighs, breathing slowly (the head free for `_look`).
 - `read` — sits holding a book open in both hands at the chest, reading, now and then turning a page (with the part
   `book`).
+- `old_walk` — an old woman's walk, slow, small steps, a little bent forward, the arms hanging (Matryona's `_gait`).
+- `stand_up` (once) — gets up from a chair and steps forward (`go('stand_up', {from: seat, turn})`).
+- `put_pocket` (once) — folds a small paper with both hands and puts it into the inside pocket of the coat, on the chest.
+- `nod` (once) — standing, nods once, slowly.
+- `hang` (once) — reaches up and hangs something on a hook at head height with the right hand.
+
+The last five are motions made before (reused by their keys), put in for the room: `old_walk` is Matryona's gait
+there; the other four wait for its stage-5 pieces.
