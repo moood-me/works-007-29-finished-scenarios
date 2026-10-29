@@ -172,7 +172,7 @@
     "otis_d": 6.1,
     "otis_with": [
       "bottle",
-      "candle"
+      "candle_l"
     ],
     "otis_candle": 1,
     "otis_look": "simon",
@@ -180,7 +180,7 @@
     "virginia_a": 1.8,
     "virginia_d": 6.35,
     "virginia_with": [
-      "candle"
+      "candle_l"
     ],
     "virginia_candle": 1,
     "virginia_look": "simon",
@@ -188,18 +188,18 @@
     "washington_here": false,
     "washington_a": -0.5,
     "washington_d": 8.3,
-    "washington_look": "twin_stars",
+    "washington_look": "twin_star",
     "washington_mood": "smile",
-    "twin_stars_here": false,
-    "twin_stars_a": -1.55,
-    "twin_stars_d": 7.4,
-    "twin_stars_mood": "laugh",
-    "twin_stars_look": "washington",
+    "twin_star_here": false,
+    "twin_star_a": -1.55,
+    "twin_star_d": 7.4,
+    "twin_star_mood": "laugh",
+    "twin_star_look": "washington",
     "twin_stripes_here": false,
     "twin_stripes_a": -0.75,
     "twin_stripes_d": 7.2,
     "twin_stripes_mood": "laugh",
-    "twin_stripes_look": "twin_stars"
+    "twin_stripes_look": "twin_star"
   },
   "states": {
     "evening": {
@@ -296,7 +296,7 @@
         1
       ],
       "smooth": true,
-      "means": "the light of the candle in Mr Otis's hand (otis_with having candle): 0 none, 1 burning"
+      "means": "the light of the candle in Mr Otis's hand (otis_with having candle_l): 0 none, 1 burning"
     },
     "virginia_a": {
       "type": "number",
@@ -312,7 +312,7 @@
         1
       ],
       "smooth": true,
-      "means": "the light of the candle in Virginia's hand (virginia_with having candle): 0 none, 1 burning"
+      "means": "the light of the candle in Virginia's hand (virginia_with having candle_l): 0 none, 1 burning"
     },
     "washington_a": {
       "type": "number",
@@ -322,21 +322,21 @@
       "type": "number",
       "means": "Washington's place along"
     },
-    "twin_stars_a": {
+    "twin_star_a": {
       "type": "number",
-      "means": "the twin with the red tie: place across"
+      "means": "the twin Star: place across"
     },
-    "twin_stars_d": {
+    "twin_star_d": {
       "type": "number",
-      "means": "the twin with the red tie: place along"
+      "means": "the twin Star: place along"
     },
     "twin_stripes_a": {
       "type": "number",
-      "means": "the twin with the blue tie: place across"
+      "means": "the twin Stripes: place across"
     },
     "twin_stripes_d": {
       "type": "number",
-      "means": "the twin with the blue tie: place along"
+      "means": "the twin Stripes: place along"
     }
   },
   "objects": [
@@ -806,24 +806,24 @@
       }
     },
     {
-      "id": "twin_stars",
-      "name": "The twin with the red tie",
+      "id": "twin_star",
+      "name": "The twin Star",
       "person": {
         "cast": "cast",
-        "who": "twin_stars",
+        "who": "twin_star",
         "turn": 150,
         "does": "stand"
       },
       "across": -1.55,
       "distance": 7.4,
       "place": {
-        "across": "twin_stars_a",
-        "distance": "twin_stars_d"
+        "across": "twin_star_a",
+        "distance": "twin_star_d"
       }
     },
     {
       "id": "twin_stripes",
-      "name": "The twin with the blue tie",
+      "name": "The twin Stripes",
       "person": {
         "cast": "cast",
         "who": "twin_stripes",

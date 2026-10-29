@@ -166,43 +166,63 @@ function bottle(F) {
   F.bar(at(0.05), at(0.1), 0.012 * k, 0.012 * k, [[0, GLASS]], 8, s);
   F.bar(at(0.1), at(0.125), 0.014 * k, 0.014 * k, [[0, CORK]], 8, s);
 }
-// a bedroom candle carried in the left hand: a brass chamberstick (its dish and ring), a white candle standing upright
-// whatever the hand does, its flame glowing (the point `flame` — a scene's light goes `at` "<id>#flame")
-const BRASS = [0.62, 0.48, 0.22, 1];
+// a candle in a little brass candlestick, held in the right hand and standing upright whatever the hand does; its
+// flame glows (the point `flame`: a scene's light "at" "<id>#flame" — the candle lights nothing by itself)
+const BRASS = [0.66, 0.5, 0.24, 1];
 const WAX = [0.93, 0.9, 0.82, 1];
 const FLAME = [1, 0.84, 0.5, 2];
+const UPRIGHT = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+// what a candle keeps from frame to frame (F.keep): the heights up from the hand (its foot, the stem, the wax's
+// foot and top, the flame), its colours, the flame's size
+const CANDLE = F => ({
+  up: [-0.02, -0.005, 0.03, 0.17, 0.2].map(y => [0, y * F.fit.h, 0]),
+  brass: [[0, BRASS]],
+  wax: [[0, WAX]],
+  flame: [0.009 * F.k, 0.024 * F.fit.h, 0.009 * F.k],
+});
 function candle(F) {
   const { add, mul } = V();
   const k = F.k;
-  const c = add(F.P('LeftHand'), mul(F.fwd('LeftHand'), 0.03 * k));
-  const at = y => add(c, [0, y * F.fit.h, 0]);
-  const up = [0, 1, 0];
-  const s = F.side('LeftHand');
-  F.ball(at(-0.02), [s, up, F.fwd('LeftHand')], [0.07 * k, 0.012 * F.fit.h, 0.07 * k], BRASS, 14);
-  F.bar(at(-0.01), at(0.13), 0.016 * k, 0.016 * k, [[0, WAX]], 8, s);
-  F.ball(at(0.165), [s, up, F.fwd('LeftHand')], [0.018 * k, 0.036 * F.fit.h, 0.018 * k], FLAME, 8);
-  F.point('flame', at(0.165));
+  const h = F.fit.h;
+  const c = add(F.P('RightHand'), add(mul(F.up('RightHand'), 0.06 * h), mul(F.fwd('RightHand'), 0.02 * k)));
+  const s = F.side('RightHand');
+  const K = F.keep(CANDLE);
+  const at = i => add(c, K.up[i]);
+  F.bar(at(0), at(1), 0.055 * k, 0.055 * k, K.brass, 14, s);
+  F.bar(at(1), at(2), 0.014 * k, 0.014 * k, K.brass, 8, s);
+  F.bar(at(2), at(3), 0.013 * k, 0.013 * k, K.wax, 8, s);
+  const flame = at(4);
+  F.ball(flame, UPRIGHT, K.flame, FLAME, 8);
+  F.point('flame', flame);
 }
-// a book lying shut on the lap of one who sits: on the thighs, near the knees, its spine toward the right knee
-const BOOK = [0.3, 0.16, 0.12, 1];
-function book(F) {
-  const { add, mul, mix } = V();
-  const k = F.k;
-  const c = add(mix(mix(F.P('LeftLeg'), F.P('LeftShin'), 0.7), mix(F.P('RightLeg'), F.P('RightShin'), 0.7), 0.5), [0, 0.06 * F.fit.h, 0]);
-  F.ball(c, [F.side('Hips'), [0, 1, 0], F.fwd('Hips')], [0.1 * k, 0.022 * F.fit.h, 0.075 * k], BOOK, 8, 4);
-  F.point('book', c);
-}
-// a boy's wide white Eton collar over the jacket and a little tie under it, in the look's accent colour
-const COLLAR = [0.95, 0.94, 0.9, 1];
-function eton(F) {
+// the same candle carried in the left hand (`candle_l`) — for one whose right hand is busy (Mr Otis holding out the
+// bottle) or who holds it up before the chest (`hold_candle`); its point is `flame` too
+function candleLeft(F) {
   const { add, mul } = V();
   const k = F.k;
-  const uc = F.up('Chest');
-  const fc = F.fwd('Chest');
-  const sc = F.side('Chest');
-  const c = add(F.P('Neck1'), mul(uc, -0.015 * F.fit.h));
-  F.ball(c, [sc, uc, fc], [0.12 * k, 0.018 * F.fit.h, 0.09 * k], COLLAR, 16);
-  F.ball(add(c, add(mul(fc, 0.07 * k), mul(uc, -0.04 * F.fit.h))), [sc, uc, fc], [0.022 * k, 0.04 * F.fit.h, 0.015 * k], F.colors.accent, 8);
+  const h = F.fit.h;
+  const c = add(F.P('LeftHand'), add(mul(F.up('LeftHand'), 0.06 * h), mul(F.fwd('LeftHand'), 0.02 * k)));
+  const s = F.side('LeftHand');
+  const K = F.keep(CANDLE);
+  const at = i => add(c, K.up[i]);
+  F.bar(at(0), at(1), 0.055 * k, 0.055 * k, K.brass, 14, s);
+  F.bar(at(1), at(2), 0.014 * k, 0.014 * k, K.brass, 8, s);
+  F.bar(at(2), at(3), 0.013 * k, 0.013 * k, K.wax, 8, s);
+  const flame = at(4);
+  F.ball(flame, UPRIGHT, K.flame, FLAME, 8);
+  F.point('flame', flame);
+}
+// a book lying shut on the lap of one who sits: on the thighs, near the knees (its point `book`)
+const BOOK = [0.3, 0.16, 0.12, 1];
+const BOOK_SIZE = F => ({ radii: [0.1 * F.k, 0.022 * F.fit.h, 0.075 * F.k], axes: [null, [0, 1, 0], null] });
+function book(F) {
+  const { add, mix } = V();
+  const K = F.keep(BOOK_SIZE);
+  const c = add(mix(mix(F.P('LeftLeg'), F.P('LeftShin'), 0.7), mix(F.P('RightLeg'), F.P('RightShin'), 0.7), 0.5), [0, 0.06 * F.fit.h, 0]);
+  K.axes[0] = F.side('Hips');
+  K.axes[2] = F.fwd('Hips');
+  F.ball(c, K.axes, K.radii, BOOK, 8, 4);
+  F.point('book', c);
 }
 return {
   ...data,
@@ -243,6 +263,32 @@ return {
       body: { height: 1.02, shoulders: 1.04, thick: 1.04 },
       colors: { skin: '#ebc7a7', hair: '#857560', top: '#8a8a88', garment: '#2e333d', bottom: '#2b2c31', shoes: '#191818' },
     },
+    // Mrs Lucretia R. Otis: a handsome, healthy middle-aged woman, her dark hair up in a knot, a gown of deep plum
+    // to the floor
+    mrs_otis: {
+      kind: 'shapes', style: 'canterville', who: 'woman', garment: 'gown', hair: 'bun', face: 'storybook',
+      body: { height: 0.95, thick: 1.0 },
+      colors: { skin: '#efcfb2', hair: '#5a3a26', top: '#5e3446', garment: '#5e3446', bottom: '#5e3446', shoes: '#2a1e1c' },
+    },
+    // Washington Otis, the eldest son: a fair-haired, rather good-looking young man in a dark blue-grey frock coat
+    // over a light waistcoat
+    washington: {
+      kind: 'shapes', style: 'canterville', who: 'man', garment: 'coat', hair: 'short', face: 'storybook',
+      body: { height: 1.0, thick: 0.92 },
+      colors: { skin: '#efcbab', hair: '#c9a866', top: '#b8b0a0', garment: '#3a4252', bottom: '#2c3038', shoes: '#1c1a1a' },
+    },
+    // the twins, ten years old, "the Stars and Stripes": two boys alike as two peas — the same short jackets and
+    // knickerbockers of navy cloth, white shirts and stockings, the same brown hair
+    twin_star: {
+      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
+      body: { height: 0.78 },
+      colors: { skin: '#f0cfb0', hair: '#7a5030', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
+    },
+    twin_stripes: {
+      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
+      body: { height: 0.78 },
+      colors: { skin: '#f0cfb0', hair: '#7a5030', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
+    },
     // Virginia at night (the same girl, a look of hers): a long white nightgown falling loose from the shoulders to
     // the floor, long sleeves, no sash, her hair loose
     virginia_night: {
@@ -253,28 +299,9 @@ return {
     // Mr Otis woken in the night (the same man, a look of his): a quilted dressing gown of dark wine red to the
     // calves over his nightshirt, slippers
     otis_gown: {
-      kind: 'shapes', style: 'canterville', who: 'man', garment: 'gown', hair: 'short', face: 'storybook',
+      kind: 'shapes', style: 'canterville', who: 'man', garment: 'dressing_gown', hair: 'short', face: 'storybook',
       body: { height: 1.02, shoulders: 1.04, thick: 1.04 },
       colors: { skin: '#ebc7a7', hair: '#857560', top: '#e8e2d6', garment: '#6e2a30', bottom: '#e8e2d6', shoes: '#5a3a28' },
-    },
-    // Washington Otis, the elder brother, about eighteen: fair-haired and good-looking, a light tweed jacket, a white
-    // shirt, dark trousers
-    washington: {
-      kind: 'shapes', style: 'canterville', who: 'man', garment: 'jacket', hair: 'short', face: 'storybook',
-      body: { height: 1.0, shoulders: 1.0, thick: 0.9, head: 1.02 },
-      colors: { skin: '#efcaa8', hair: '#d8b46e', top: '#ece6da', garment: '#a48e6a', bottom: '#45413c', shoes: '#2a2018' },
-    },
-    // the twins, "the Stars and Stripes", about ten, as alike as two peas: sandy hair, short navy jackets with wide
-    // white Eton collars, knee breeches and black stockings — told apart by their ties, red and blue
-    twin_stars: {
-      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true, parts: ['eton'],
-      body: { height: 0.78, head: 1.12, legs: 0.96, shoulders: 0.86, thick: 0.84 },
-      colors: { skin: '#f2cfb0', hair: '#c49a5a', top: '#ece8e0', garment: '#2c3550', bottom: '#2c3550', socks: '#26252b', shoes: '#1e1a18', accent: '#b8322e' },
-    },
-    twin_stripes: {
-      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true, parts: ['eton'],
-      body: { height: 0.78, head: 1.12, legs: 0.96, shoulders: 0.86, thick: 0.84 },
-      colors: { skin: '#f2cfb0', hair: '#c49a5a', top: '#ece8e0', garment: '#2c3550', bottom: '#2c3550', socks: '#26252b', shoes: '#1e1a18', accent: '#3a62a8' },
     },
   },
   shapes: {
@@ -294,10 +321,12 @@ return {
       habit: { name: 'riding habit', hang: [{ to: 2.0, from: 'waist', flare: 0.36, off: 0.96 }], sleeves: 'garment', bodice: true },
       // an old doublet to the hips, its trunk hose puffed out round the tops of the thighs, in tatters
       doublet: { name: 'doublet', hang: [{ to: 0.36, from: 'shoulders', flare: 0.35, ragged: true }], sleeves: 'garment' },
+      // a lady's gown: a full skirt from the waist to the floor, long sleeves, the bodice in its colour
+      gown: { name: 'gown', hang: [{ to: 2.05, from: 'waist', flare: 0.45, off: 0.96 }], sleeves: 'garment', bodice: true },
       // a nightgown: loose from the shoulders to the floor, no waist, long sleeves
       nightgown: { name: 'nightgown', hang: [{ to: 2.05, from: 'shoulders', flare: 0.32, off: 0.96 }], sleeves: 'garment' },
       // a man's dressing gown: from the shoulders to the calves, its sleeves in the same quilted cloth
-      gown: { name: 'dressing gown', hang: [{ to: 1.6, from: 'shoulders', flare: 0.22 }], sleeves: 'garment' },
+      dressing_gown: { name: 'dressing gown', hang: [{ to: 1.6, from: 'shoulders', flare: 0.22 }], sleeves: 'garment' },
     },
     parts: {
       ruff: { name: 'ruff', draw: ruff },
@@ -306,9 +335,9 @@ return {
       fetters: { name: 'leg irons', draw: fetters },
       cloak: { name: 'cloak', draw: cloak },
       bottle: { name: 'a bottle of oil', draw: bottle },
-      candle: { name: 'a bedroom candle', draw: candle },
+      candle: { name: 'a candle', draw: candle },
+      candle_l: { name: 'a candle in the left hand', draw: candleLeft },
       book: { name: 'a book on the lap', draw: book },
-      eton: { name: 'Eton collar and tie', draw: eton },
       // a white stock at the throat, in the look's accent colour
       stock: {
         name: 'stock',

@@ -21,24 +21,27 @@ lengths are a man's metres times `F.fit.h`.
 - `simon_garden` — Sir Simon in the Garden of Death, out of time: the same look without his irons (no `shackles`, no
   `fetters`).
 - `otis` — Mr Hiram B. Otis, the American Minister: a black frock coat, a grey waistcoat, brown hair going grey.
+- `mrs_otis` — Mrs Lucretia R. Otis: handsome, healthy, middle-aged; her dark hair up in a knot (`bun`), a gown of
+  deep plum to the floor (the garment `gown`).
+- `washington` — Washington Otis, the eldest son: fair-haired, good-looking, a dark blue-grey frock coat over a light
+  waistcoat.
+- `twin_star`, `twin_stripes` — the twins («Звёзды и Полосы»), ten years old, alike as two peas: navy short jackets
+  and knickerbockers, white shirts and stockings, brown hair.
 - `virginia_night` — Virginia at night (another look of hers): a long white nightgown loose from the shoulders to the
   floor (the garment `nightgown`), no sash, her hair loose.
 - `otis_gown` — Mr Otis woken in the night (another look of his): a quilted dressing gown of dark wine red to the calves
-  (the garment `gown`) over his nightshirt, slippers.
-- `washington` — Washington Otis, the elder brother, about eighteen: fair-haired, a light tweed jacket, a white shirt,
-  dark trousers.
-- `twin_stars`, `twin_stripes` — the twins, "the Stars and Stripes", about ten, alike: sandy hair, short navy jackets
-  with wide white Eton collars (`eton`), knee breeches, black stockings; told apart by their ties — red (`twin_stars`)
-  and blue (`twin_stripes`).
+  (the garment `dressing_gown`) over his nightshirt, slippers.
 
 ## Parts
 
 `ruff`, `beard`, `shackles` (manacles and the chain sagging from wrist to wrist), `fetters` (irons on the ankles, a
 chain on the floor between), `cloak` (a flat swinging tube down the back: the engine hangs a sheet of cloth, `F.cloth`,
 only before a garment) — Sir Simon's; `sash`, `stock` — Virginia's; `bottle` — the bottle of oil for the chains in the right hand
-(Mr Otis's, by `otis_with`); `candle` — a bedroom candle in its brass chamberstick, in the left hand, standing upright, its
-flame glowing (the point `<id>#flame`: a scene's light goes `at` it), by `<id>_with`; `book` — a book lying shut on the
-lap of one who sits (the point `<id>#book`), by `<id>_with`; `eton` — the twins' white collar and tie.
+(Mr Otis's, by `otis_with`). `candle` — a candle in a brass candlestick in the right hand, upright
+whatever the hand does, its flame glowing; its point `flame` is where a scene puts its light (`"at": "otis#flame"`;
+whoever carries one, by `<id>_with: ["candle"]`). `candle_l` — the same candle in the left hand (point `flame`
+too): for one whose right hand is busy (Mr Otis holding out the bottle) and for `hold_candle`. `book` — a book lying
+shut on the lap of one who sits (point `<id>#book`), by `<id>_with`.
 
 ## Motions (Kimodo)
 
@@ -47,6 +50,6 @@ with both arms raised over the head (the ghost's frightening), a loop; `offer` �
 before the chest (holding something out), a loop; `upright` — stands upright, both hands clasped behind the back, a
 loop; `brood` — sits (on a seat: `<id>_on`), the right hand to the brow, the left on the knee, tired, a loop; `sit_ground` —
 sits on the ground, the knees up, the arms loose on them, looking ahead, a loop; `pray` — kneels upright, the hands
-together at the chin, a loop; `doze` — sits (on a seat: `<id>_on`), leaning back asleep, the arms folded, the head
-tipped back, a loop (with `<id>_mood` `eyes_closed`); `hold_candle` — stands holding a candle up before the chest in the left hand (with `candle`), the right hand
-hanging, a loop.
+together at the chin, a loop; `doze` — sits (on a seat: `<id>_on`), leaning back asleep, the arms folded, the
+head tipped back, a loop (with `<id>_mood` `eyes_closed`); `hold_candle` — stands holding a candle up before the chest in
+the left hand (with `candle_l`), the right hand hanging, a loop.
