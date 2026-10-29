@@ -17,7 +17,20 @@
     "tint": "#c9d2ea",
     "tintStrength": 0.05,
     "vignette": 0.5,
-    "grain": 0.07
+    "grain": 0.07,
+    "looks": {
+      "day": {
+        "ambient": 0.62,
+        "ambientColor": "#d8ccb4",
+        "tint": "#ffe9c4",
+        "tintStrength": 0.05,
+        "shafts": 0.7,
+        "hazeColor": "#8a7c66",
+        "lights": {
+          "moon": 0
+        }
+      }
+    }
   },
   "lights": [
     {
@@ -58,11 +71,58 @@
       "elevation": 1.6,
       "color": "#bdf0df",
       "strength": 2.0,
-      "reach": 3.6
+      "reach": 3.6,
+      "on": "ghost_light"
+    },
+    {
+      "id": "sun",
+      "from": [
+        -12,
+        24
+      ],
+      "color": "#fff0d4",
+      "strength": 2.2,
+      "through": [
+        "window"
+      ],
+      "on": "day"
+    },
+    {
+      "id": "lightning",
+      "from": [
+        4,
+        22
+      ],
+      "color": "#e4ecff",
+      "strength": 5.0,
+      "through": [
+        "window"
+      ],
+      "on": "flash"
+    },
+    {
+      "id": "passage",
+      "across": -5.3,
+      "distance": 7.4,
+      "elevation": 1.9,
+      "color": "#ffcf8a",
+      "strength": 1.2,
+      "reach": 3.5,
+      "flicker": 0.2
+    },
+    {
+      "id": "washington_candle",
+      "at": "washington#flame",
+      "color": "#ffcf8a",
+      "strength": 1.4,
+      "reach": 3.2,
+      "on": "washington_candle",
+      "flicker": 0.25
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "fire": 1,
@@ -74,7 +134,49 @@
     "simon_mood": "angry",
     "otis_with": [
       "bottle"
-    ]
+    ],
+    "day": 0,
+    "rain": 0,
+    "flash": 0,
+    "face": 0,
+    "ghost_light": 1,
+    "stain": "scarlet",
+    "rug": false,
+    "drawing": "none",
+    "paints": false,
+    "sketch": "none",
+    "sketch_on": true,
+    "doors": 0,
+    "washington_candle": 0,
+    "sketchbook_open": 0,
+    "portrait": 0,
+    "askew": false,
+    "virginia_a": -0.35,
+    "virginia_d": 3.7,
+    "simon_a": 1.25,
+    "simon_d": 3.35,
+    "otis_a": -2.3,
+    "otis_d": 4.9,
+    "mrs_otis_here": false,
+    "mrs_otis_a": -5.0,
+    "mrs_otis_d": 7.0,
+    "washington_here": false,
+    "washington_a": -5.0,
+    "washington_d": 7.8,
+    "twin_star_here": false,
+    "twin_star_a": -5.4,
+    "twin_star_d": 7.2,
+    "twin_stripes_here": false,
+    "twin_stripes_a": -5.4,
+    "twin_stripes_d": 7.6,
+    "mrs_umney_here": false,
+    "mrs_umney_a": -5.6,
+    "mrs_umney_d": 7.0,
+    "cecil_here": false,
+    "cecil_a": -5.6,
+    "cecil_d": 7.8,
+    "door_l_f": 90,
+    "door_r_f": 90
   },
   "states": {
     "fire": {
@@ -92,6 +194,220 @@
       ],
       "smooth": true,
       "means": "the oil lamp on Mr Otis's desk: 0 out, 1 lit"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md, Pieces)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "day": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 night or evening (the moon, or the storm, at the window), 1 the morning: daylight through the great window"
+    },
+    "rain": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "rain running down the great window (the prologue's storm): 0 none, 1 lashing"
+    },
+    "flash": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lightning in the painted window: 0 none, 1 the flash (the window white, its light through the room)"
+    },
+    "face": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the old face with burning eyes in the glass of the great window, behind the family: 0 not there, 1 plain"
+    },
+    "ghost_light": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Sir Simon's own pale light before him: 1 when he is here, 0 when not"
+    },
+    "stain": {
+      "values": [
+        "none",
+        "dull",
+        "vermilion",
+        "purple",
+        "scarlet",
+        "emerald",
+        "half",
+        "brown"
+      ],
+      "means": "the bloodstain before the hearth: none (rubbed off), dull (old, dark), vermilion, purple, scarlet, emerald (each morning another colour: he takes Virginia's paints), half (only half of it), brown (the last one: it will not come off)"
+    },
+    "rug": {
+      "type": "boolean",
+      "means": "a rug unrolled over the floor before the hearth, over the stain (the epilogue)"
+    },
+    "drawing": {
+      "values": [
+        "none",
+        "sill",
+        "inkstand",
+        "drawer"
+      ],
+      "means": "Virginia's drawing of her father: none, lying on the window seat, standing propped by the inkstand on his desk, put away in the desk's drawer (not seen)"
+    },
+    "paints": {
+      "type": "boolean",
+      "means": "her paint-box open on the window seat"
+    },
+    "sketch": {
+      "values": [
+        "none",
+        "clean",
+        "blot"
+      ],
+      "means": "her study of the almond: none, clean, with a blot (M3 missed)"
+    },
+    "sketch_on": {
+      "type": "boolean",
+      "means": "the study lies on the window seat (with sketch clean or blot): false while she still holds it"
+    },
+    "doors": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the library's double doors in the left wall: 0 shut, 1 standing open onto the passage"
+    },
+    "door_l_f": {
+      "type": "number",
+      "means": "the near leaf's facing (the script's, from doors): 90 shut, 0 open"
+    },
+    "door_r_f": {
+      "type": "number",
+      "means": "the far leaf's facing (the script's, from doors): 90 shut, 180 open"
+    },
+    "washington_candle": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light of the candle in Washington's hand (washington_with candle_l): 0 none, 1 burning"
+    },
+    "sketchbook_open": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "M10 Portrait: the insert of her sketchbook close up, 0 closed ... 1 open"
+    },
+    "portrait": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "M10: how much of her pencil portrait of her father is drawn, along the line from sketchbook#start to sketchbook#end"
+    },
+    "askew": {
+      "type": "boolean",
+      "means": "M10 missed: the portrait's nose drawn askew, too long"
+    },
+    "plays": {
+      "type": "boolean",
+      "means": "the game's: Sir Simon still plays (the scale at 2 or less) - the departure's variant"
+    },
+    "shares": {
+      "type": "boolean",
+      "means": "the game's: Virginia shares with her own (the scale at 1 or less) - the fireside's and the funeral breakfast's variant"
+    },
+    "virginia_a": {
+      "type": "number",
+      "means": "virginia: place across (metres right of the middle)"
+    },
+    "virginia_d": {
+      "type": "number",
+      "means": "virginia: place away from the viewer (metres)"
+    },
+    "simon_a": {
+      "type": "number",
+      "means": "simon: place across (metres right of the middle)"
+    },
+    "simon_d": {
+      "type": "number",
+      "means": "simon: place away from the viewer (metres)"
+    },
+    "otis_a": {
+      "type": "number",
+      "means": "otis: place across (metres right of the middle)"
+    },
+    "otis_d": {
+      "type": "number",
+      "means": "otis: place away from the viewer (metres)"
+    },
+    "mrs_otis_a": {
+      "type": "number",
+      "means": "mrs_otis: place across (metres right of the middle)"
+    },
+    "mrs_otis_d": {
+      "type": "number",
+      "means": "mrs_otis: place away from the viewer (metres)"
+    },
+    "washington_a": {
+      "type": "number",
+      "means": "washington: place across (metres right of the middle)"
+    },
+    "washington_d": {
+      "type": "number",
+      "means": "washington: place away from the viewer (metres)"
+    },
+    "twin_star_a": {
+      "type": "number",
+      "means": "twin_star: place across (metres right of the middle)"
+    },
+    "twin_star_d": {
+      "type": "number",
+      "means": "twin_star: place away from the viewer (metres)"
+    },
+    "twin_stripes_a": {
+      "type": "number",
+      "means": "twin_stripes: place across (metres right of the middle)"
+    },
+    "twin_stripes_d": {
+      "type": "number",
+      "means": "twin_stripes: place away from the viewer (metres)"
+    },
+    "mrs_umney_a": {
+      "type": "number",
+      "means": "mrs_umney: place across (metres right of the middle)"
+    },
+    "mrs_umney_d": {
+      "type": "number",
+      "means": "mrs_umney: place away from the viewer (metres)"
+    },
+    "cecil_a": {
+      "type": "number",
+      "means": "cecil: place across (metres right of the middle)"
+    },
+    "cecil_d": {
+      "type": "number",
+      "means": "cecil: place away from the viewer (metres)"
     }
   },
   "objects": [
@@ -104,6 +420,16 @@
       "elevation": 0,
       "width": 8.1,
       "depth": 9.1
+    },
+    {
+      "id": "passage_floor",
+      "name": "The passage's floor beyond the doors",
+      "plane": true,
+      "across": -4.95,
+      "distance": 7.4,
+      "elevation": 0,
+      "width": 1.9,
+      "depth": 2.8
     },
     {
       "id": "rug",
@@ -335,7 +661,11 @@
         "does": "clasped"
       },
       "across": -0.35,
-      "distance": 3.7
+      "distance": 3.7,
+      "place": {
+        "across": "virginia_a",
+        "distance": "virginia_d"
+      }
     },
     {
       "id": "simon",
@@ -347,7 +677,11 @@
         "does": "loom"
       },
       "across": 1.25,
-      "distance": 3.35
+      "distance": 3.35,
+      "place": {
+        "across": "simon_a",
+        "distance": "simon_d"
+      }
     },
     {
       "id": "otis",
@@ -359,7 +693,324 @@
         "does": "offer"
       },
       "across": -2.3,
-      "distance": 4.9
+      "distance": 4.9,
+      "place": {
+        "across": "otis_a",
+        "distance": "otis_d"
+      }
+    },
+    {
+      "id": "mrs_otis",
+      "name": "Mrs Otis",
+      "person": {
+        "cast": "cast",
+        "who": "mrs_otis",
+        "turn": 90,
+        "does": "stand"
+      },
+      "across": -5.0,
+      "distance": 7.0,
+      "place": {
+        "across": "mrs_otis_a",
+        "distance": "mrs_otis_d"
+      }
+    },
+    {
+      "id": "washington",
+      "name": "Washington",
+      "person": {
+        "cast": "cast",
+        "who": "washington",
+        "turn": 90,
+        "does": "stand"
+      },
+      "across": -5.0,
+      "distance": 7.8,
+      "place": {
+        "across": "washington_a",
+        "distance": "washington_d"
+      }
+    },
+    {
+      "id": "twin_star",
+      "name": "The twin Star",
+      "person": {
+        "cast": "cast",
+        "who": "twin_star",
+        "turn": 90,
+        "does": "stand"
+      },
+      "across": -5.4,
+      "distance": 7.2,
+      "place": {
+        "across": "twin_star_a",
+        "distance": "twin_star_d"
+      }
+    },
+    {
+      "id": "twin_stripes",
+      "name": "The twin Stripes",
+      "person": {
+        "cast": "cast",
+        "who": "twin_stripes",
+        "turn": 90,
+        "does": "stand"
+      },
+      "across": -5.4,
+      "distance": 7.6,
+      "place": {
+        "across": "twin_stripes_a",
+        "distance": "twin_stripes_d"
+      }
+    },
+    {
+      "id": "mrs_umney",
+      "name": "Mrs Umney",
+      "person": {
+        "cast": "cast",
+        "who": "mrs_umney",
+        "turn": 90,
+        "does": "stand"
+      },
+      "across": -5.6,
+      "distance": 7.0,
+      "place": {
+        "across": "mrs_umney_a",
+        "distance": "mrs_umney_d"
+      }
+    },
+    {
+      "id": "cecil",
+      "name": "Cecil",
+      "person": {
+        "cast": "cast",
+        "who": "cecil",
+        "turn": 90,
+        "does": "stand"
+      },
+      "across": -5.6,
+      "distance": 7.8,
+      "place": {
+        "across": "cecil_a",
+        "distance": "cecil_d"
+      }
+    },
+    {
+      "id": "passage",
+      "name": "The passage beyond the doors: its far wall",
+      "across": -5.9,
+      "distance": 7.4,
+      "facing": 90,
+      "height": 3.0,
+      "box": [
+        -1.6,
+        -3.02,
+        1.6,
+        0.02
+      ]
+    },
+    {
+      "id": "door_l",
+      "name": "The near leaf of the library's doors",
+      "across": -4.02,
+      "distance": 6.8,
+      "facing": 90,
+      "place": {
+        "facing": "door_l_f"
+      },
+      "height": 2.4,
+      "box": [
+        -0.02,
+        -2.42,
+        0.62,
+        0.02
+      ]
+    },
+    {
+      "id": "door_r",
+      "name": "The far leaf of the library's doors",
+      "across": -4.02,
+      "distance": 8.0,
+      "facing": 90,
+      "place": {
+        "facing": "door_r_f"
+      },
+      "height": 2.4,
+      "box": [
+        -0.62,
+        -2.42,
+        0.02,
+        0.02
+      ]
+    },
+    {
+      "id": "breakfast_top",
+      "name": "The breakfast table's top, its cloth and the breakfast",
+      "plane": true,
+      "across": -2.0,
+      "distance": 8.3,
+      "elevation": 0.75,
+      "width": 1.84,
+      "depth": 0.94
+    },
+    {
+      "id": "breakfast",
+      "name": "The breakfast table by the window",
+      "across": -2.0,
+      "distance": 7.83,
+      "facing": 180,
+      "height": 0.76,
+      "box": [
+        -0.95,
+        -0.8,
+        0.95,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "chairs",
+      "name": "The chairs round the breakfast table and at the desk",
+      "across": -2.65,
+      "distance": 9.42,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -0.25,
+        -1.02,
+        0.25,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": -2.65,
+          "distance": 9.42,
+          "facing": 180
+        },
+        {
+          "across": -2.15,
+          "distance": 9.42,
+          "facing": 180
+        },
+        {
+          "across": -1.65,
+          "distance": 9.42,
+          "facing": 180
+        },
+        {
+          "across": -1.15,
+          "distance": 9.42,
+          "facing": 180
+        },
+        {
+          "across": -3.57,
+          "distance": 8.3,
+          "facing": 90
+        },
+        {
+          "across": -0.43,
+          "distance": 8.3,
+          "facing": 270
+        },
+        {
+          "across": -3.86,
+          "distance": 5.43,
+          "facing": 120
+        }
+      ]
+    },
+    {
+      "id": "sill_top",
+      "name": "The window seat's top",
+      "plane": true,
+      "across": -0.2,
+      "distance": 9.79,
+      "elevation": 0.5,
+      "width": 2.9,
+      "depth": 0.42
+    },
+    {
+      "id": "sill",
+      "name": "The window seat under the great window",
+      "across": -0.2,
+      "distance": 9.58,
+      "facing": 180,
+      "height": 0.52,
+      "box": [
+        -1.45,
+        -0.56,
+        1.45,
+        0.02
+      ]
+    },
+    {
+      "id": "face",
+      "name": "The old face in the window's glass",
+      "glows": true,
+      "across": -0.2,
+      "distance": 10.02,
+      "facing": 180,
+      "height": 1.2,
+      "box": [
+        -0.6,
+        -2.75,
+        0.6,
+        -1.45
+      ]
+    },
+    {
+      "id": "lightning",
+      "name": "The lightning's white in the window",
+      "glows": true,
+      "across": 0,
+      "distance": 10.03,
+      "facing": 180,
+      "height": 2.2,
+      "box": [
+        -1.45,
+        -3.05,
+        1.05,
+        -0.95
+      ]
+    },
+    {
+      "id": "rain_glass",
+      "name": "Rain running down the window",
+      "on": "window",
+      "distance": -0.02,
+      "across": -0.2,
+      "elevation": 2.0,
+      "particles": {
+        "kind": "drops",
+        "source": [
+          2.4,
+          0,
+          2.0
+        ],
+        "rate": 4,
+        "amount": "rain"
+      }
+    },
+    {
+      "id": "hearth_rug",
+      "name": "The rug over the stain",
+      "plane": true,
+      "across": 2.75,
+      "distance": 5.75,
+      "elevation": 0.012,
+      "width": 1.6,
+      "depth": 1.3
+    },
+    {
+      "id": "sketchbook",
+      "name": "Her sketchbook close up: the portrait of her father",
+      "insert": "sketchbook_open",
+      "iris": [
+        0.889,
+        0.5,
+        0.62,
+        0.46
+      ]
     }
   ],
   "music": {
