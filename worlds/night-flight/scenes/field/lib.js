@@ -34,11 +34,12 @@ function film(scene) {
   const AT_SWITCH = { r: 'hangar_front#switch' };
   const SH = {
     wide: CAM0,
-    switch_side: CAM([0.4, 19.35, 1.8], [-1.2, 19.95, 1.62]),
+    // (the picture's sky is painted only some 65° either side of ahead: every shot looks within ~20° of ahead)
+    switch: CAM([-0.3, 16.6, 1.85], [-1.1, 20.2, 1.6]),
     pellerin: CAM([-0.7, 6.0, 1.7], [-0.6, 8.6, 1.6]),
     group: CAM([-0.4, 5.2, 1.75], [-0.4, 9.0, 1.45]),
     pellerin_hands: CAM([-0.5, 7.3, 1.25], [-0.6, 8.55, 1.0]),
-    shadow: CAM([-2.7, 8.6, 1.75], [-3.6, 9.8, 1.65]),
+    shadow: CAM([-3.2, 7.4, 1.75], [-3.6, 9.8, 1.65]),
     both_I: CAM([-1.5, 6.0, 1.75], [-2.0, 9.2, 1.5]),
     touch: CAM([-0.9, 6.3, 1.7], [-1.0, 8.7, 1.6]),
     pass: CAM([-1.0, 5.6, 1.75], [-1.4, 10.0, 1.5]),
@@ -49,18 +50,18 @@ function film(scene) {
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
     two_hands: CAM([-0.3, 2.3, 1.3], [-0.5, 3.6, 1.05]),
     roblet_riv: CAM([-0.1, 1.7, 1.65], [-0.5, 4.0, 1.5]),
-    // chapter IV: Rivière at R4 (looking right at the pilot), the pilot by the fuselage at PILOT (looking left at him)
-    riviere: CAM([-1.2, 10.6, 1.75], [-3.0, 11.6, 1.65]),
-    pilot: CAM([0.6, 11.8, 1.75], [2.0, 13.15, 1.65]),
+    // chapter IV: Rivière at R4 (turned right and to us, to the pilot), the pilot by the fuselage at PILOT (turned left and to us)
+    riviere: CAM([-2.0, 9.3, 1.75], [-2.4, 11.0, 1.65]),
+    pilot: CAM([1.6, 11.3, 1.75], [2.0, 13.15, 1.65]),
     pilot_roblet: CAM([0.2, 9.3, 1.7], [0.3, 12.6, 1.5]),
     chocks: CAM([-0.2, 11.0, 1.5], [-0.4, 12.6, 1.25]),
-    young: CAM([0.9, 10.0, 1.7], [0.0, 12.5, 1.5]),
-    bench: CAM([10.6, 9.4, 1.6], [12.6, 11.8, 1.0]),
-    robineau_in: CAM([-3.0, 7.0, 1.7], [-4.5, 9.5, 1.5]),
+    young: CAM([0.4, 10.0, 1.7], [0.0, 12.5, 1.5]),
+    bench: CAM([12.0, 8.0, 1.6], [12.6, 11.8, 1.0]),
+    robineau_in: CAM([-3.0, 7.0, 1.7], [-3.3, 10.2, 1.5]),
     window: CAM([-27.5, 57.1, 5.6], [-31.4, 67.05, 6.0]),
-    robineau_up: CAM([-5.4, 9.8, 1.75], [-3.9, 10.9, 1.7]),
-    the_two: CAM([-1.6, 8.6, 1.7], [-3.4, 11.2, 1.6]),
-    switch_IV: CAM([0.4, 19.35, 1.8], [-1.5, 19.7, 1.6]),
+    // over his shoulder toward the lit window upstairs (his face away: the window is ahead)
+    robineau_up: CAM([-2.6, 8.8, 1.75], [-5.69, 18.3, 2.27]),
+    the_two: CAM([-1.2, 6.8, 1.75], [-2.6, 11.0, 1.55]),
   };
   // a person's whole starting state: where, facing, doing; nothing in the hands, no look, no reach, as they are dressed
   const P = (id, [a, d], turn, does = 'stand_easy', more = {}) => {
@@ -100,11 +101,11 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     ...P('mechanic_b', [-1.8, 12.9], 40, 'engine_work', { look: 'plane#cowling' }),
     ...P('mechanic_c', [0.3, 12.8], 340, 'engine_work', { look: 'plane#cowling' }),
   };
-  // chapter IV: Rivière before the plane on the left, the pilot by its side (his right hand to the fuselage), the
+  // chapter IV: Rivière before the plane on the left (turned to the pilot and to us), the pilot by its side (his right hand to the fuselage), the
   // mechanics at the bags, the young one at the engine; Robineau at Rivière's shoulder (or by the hangar's wall)
-  const R4 = [-3.0, 11.6];
+  const R4 = [-2.4, 11.0];
   const PILOT = [2.0, 13.15];
-  const BESIDE = [-3.9, 10.9];
+  const BESIDE = [-3.3, 10.4];
   const WALL = [-4.8, 16.0];
   const CREW = {
     ...P('mechanic', [-0.6, 12.4], 10, 'engine_work', { look: 'plane#cowling' }),
@@ -156,8 +157,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
 
   const CH4 = (more = {}) => ({
     ...DARK, ...STAND('european', 0.4), ...THINGS, cowling: 1, bags: 1,
-    ...P('riviere', R4, 100, 'hands_behind', { look: 'pilot' }),
-    ...P('pilot', PILOT, 265, 'stand_easy', { look: 'plane' }),
+    ...P('riviere', R4, 120, 'stand', { look: 'pilot' }),
+    ...P('pilot', PILOT, 250, 'stand_easy', { look: 'plane' }),
     ...P('robineau', BESIDE, 110, 'hold_waist', { look: 'riviere' }),
     ...P('pellerin', [2.0, 3.3], 235),
     ...CREW,
@@ -187,7 +188,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         r.do('stand');
         r.look('hangar_front#switch');
         r.reach(AT_SWITCH);
-        await glide(s, SH.switch_side, 2);
+        await glide(s, SH.switch, 2);
         r.look('plane');
         s.tell('dark_drone:switch');
         await s.wait(0.5);
@@ -207,7 +208,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         ...P('mechanic', [-3.6, 16.0], 150, 'stand_easy', { look: 'plane' }),
         ...P('mechanic_b', [-2.6, 15.2], 160, 'stand_easy', { look: 'plane' }),
         ...P('mechanic_c', [-4.6, 15.0], 140, 'stand_easy', { look: 'plane' }),
-        ...SH.switch_side,
+        ...SH.switch,
       }),
       run: async s => {
         const r = s.person('riviere'), p = s.person('pellerin');
@@ -218,7 +219,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         glide(s, SH.wide, 2);
         r.walk([[-2.6, 15.0], SHADOW]).then(() => {
           r.turn(112);
-          r.do('hands_behind');
+          r.do('stand');
           r.look('plane');
         });
         await s.path(['plane_a', 'plane_d', 'plane_h', 'plane_pitch'], [[110, 330, 35, -4], [25, 75, 3, -2], [16, 48, 0, 0]], { over: 7, ease: 'inOut' });
@@ -251,7 +252,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       seconds: 10,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, ...AWAY, ...R('front'), ...GROUP,
-        ...P('riviere', SHADOW, 112, 'hands_behind', { look: 'pellerin' }), ...SH.pellerin,
+        ...P('riviere', SHADOW, 112, 'stand', { look: 'pellerin' }), ...SH.pellerin,
       }),
       run: async s => {
         const p = s.person('pellerin');
@@ -279,7 +280,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       seconds: 6,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, ...AWAY, ...R('front'), ...GROUP,
-        ...P('riviere', SHADOW, 112, 'hands_behind', { look: 'pellerin' }), ...SH.group,
+        ...P('riviere', SHADOW, 112, 'stand', { look: 'pellerin' }), ...SH.group,
       }),
       run: async s => {
         const p = s.person('pellerin');
@@ -306,7 +307,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       seconds: 6,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, ...AWAY, ...R('front'), ...GROUP, pellerin_do: { motion: 'gloves_pockets', from: 3.9 },
-        ...P('riviere', SHADOW, 112, 'hands_behind', { look: 'pellerin' }), ...SH.both_I,
+        ...P('riviere', SHADOW, 112, 'stand', { look: 'pellerin' }), ...SH.both_I,
       }),
       run: async s => {
         const r = s.person('riviere'), p = s.person('pellerin');
@@ -329,7 +330,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       seconds: 5,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, ...AWAY, ...R('front'), ...GROUP, pellerin_do: { motion: 'gloves_pockets', from: 3.9 },
-        ...P('riviere', SHADOW, 112, 'hands_behind', { look: 'pellerin' }), ...SH.both_I,
+        ...P('riviere', SHADOW, 112, 'stand', { look: 'pellerin' }), ...SH.both_I,
       }),
       run: async s => {
         const r = s.person('riviere');
@@ -338,7 +339,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         s.tell('pass:by');
         r.look(null);
         await r.walk([[-1.3, 11.6], [-2.4, 14.6]]);
-        r.do('hands_behind');
+        r.do('stand');
         await s.wait(0.5);
       },
     },
@@ -355,7 +356,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         const r = s.person('riviere');
         await r.walk([[0.55, 5.65]]);
         await r.turn(115);
-        r.do('hands_behind');
+        r.do('stand');
         r.look('robineau');
         await glide(s, SH.fine, 1.5);
         s.tell('fine:near');
@@ -370,7 +371,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, ...R('front'), ...ENGINES, ...AWAY,
         ...P('robineau', [1.7, 5.4], 230, 'hold_waist', { with: ['form'], look: 'riviere' }),
-        ...P('riviere', [0.55, 5.65], 115, 'hands_behind', { look: 'robineau' }), ...SH.fine,
+        ...P('riviere', [0.55, 5.65], 115, 'stand', { look: 'robineau' }), ...SH.fine,
       }),
       run: async s => {
         const b = s.person('robineau');
@@ -393,7 +394,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, ...R('front'), ...ENGINES, ...AWAY,
         ...P('robineau', [1.7, 5.4], 230, 'hold_waist', { with: ['form'], look: 'riviere' }),
-        ...P('riviere', [0.55, 5.65], 115, 'hands_behind', { look: 'robineau' }), ...SH.fine,
+        ...P('riviere', [0.55, 5.65], 115, 'stand', { look: 'robineau' }), ...SH.fine,
       }),
       run: async s => {
         const r = s.person('riviere'), b = s.person('robineau');
@@ -412,7 +413,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         r.with([]);
         b.with(['form']);
         r.reach(null);
-        r.do('hands_behind');
+        r.do('stand');
         s.tell('fine_self:give');
         await b.do('put_pocket');
         b.with([]);
@@ -429,7 +430,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, ...R('front'), ...ENGINES, ...AWAY,
         ...P('robineau', [1.7, 5.4], 230, 'hold_waist', { with: ['form'], look: 'riviere' }),
-        ...P('riviere', [0.55, 5.65], 115, 'hands_behind', { look: 'robineau' }), ...SH.fine,
+        ...P('riviere', [0.55, 5.65], 115, 'stand', { look: 'robineau' }), ...SH.fine,
       }),
       run: async s => {
         const r = s.person('riviere'), b = s.person('robineau');
@@ -447,7 +448,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         });
         await r.do('tear_paper');
         r.with([]);
-        r.do('hands_behind');
+        r.do('stand');
         s.tell('fine_tear:torn');
         b.look('riviere');
         await glide(s, SH.wide, 2);
@@ -465,7 +466,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       seconds: 10,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere' }),
-        ...P('riviere', [0.7, 4.25], 200, 'hands_behind', { look: 'roblet' }),
+        ...P('riviere', [0.7, 4.25], 200, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.wide,
       }),
       run: async s => {
@@ -491,7 +492,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       seconds: 4,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere' }),
-        ...P('riviere', [0.7, 4.25], 200, 'hands_behind', { look: 'roblet' }),
+        ...P('riviere', [0.7, 4.25], 200, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.wide,
       }),
       run: async s => {
@@ -547,7 +548,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         s.tell('roblet_go:gate');
         o.here(false);
         o.gait(null);
-        r.do('hands_behind');
+        r.do('stand');
         await s.wait(0.5);
       },
     },
@@ -558,7 +559,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       seconds: 4,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere' }),
-        ...P('riviere', [0.7, 4.25], 200, 'hands_behind', { look: 'roblet' }),
+        ...P('riviere', [0.7, 4.25], 200, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.wide,
       }),
       run: async s => {
@@ -588,7 +589,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       }),
       run: async s => {
         const r = s.person('riviere');
-        r.do('hands_behind');
+        r.do('stand');
         ['mechanic', 'mechanic_b', 'mechanic_c'].forEach((id, i) => {
           const m = s.person(id);
           m.do('stand_easy');
@@ -607,7 +608,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       seconds: 3,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere' }),
-        ...P('riviere', [0.7, 4.25], 200, 'hands_behind', { look: 'roblet' }),
+        ...P('riviere', [0.7, 4.25], 200, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.wide,
       }),
       run: async s => {
@@ -638,7 +639,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       }),
       run: async s => {
         const r = s.person('riviere'), o = s.person('roblet');
-        r.do('hands_behind');
+        r.do('stand');
         await glide(s, SH.roblet_riv, 1.5);
         o.look('riviere');
         s.tell('chocks_pick:say');
@@ -674,7 +675,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         await r.turn(16);
         r.do('stand');
         r.reach(AT_SWITCH);
-        await glide(s, SH.switch_IV, 2.5);
+        await glide(s, SH.switch, 2.5);
         s.tell('european:switch');
         await s.wait(0.5);
       },
@@ -775,10 +776,10 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         r.reach(null);
         if (Math.hypot((scene.get('riviere_a') ?? 0) - R4[0], (scene.get('riviere_d') ?? 0) - R4[1]) > 0.3) {
           glide(s, SH.wide, 1.5);
-          await r.walk([[-3.0, 13.4], R4]);
+          await r.walk([[-2.6, 13.4], R4]);
         }
-        await r.turn(100);
-        r.do('hands_behind');
+        await r.turn(120);
+        r.do('stand');
         r.look('pilot');
         pl.look('office_windows#madame');
         await cut(s, SH.window);
@@ -786,7 +787,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         s.tell('window:her');
         await s.wait(1.5);
         await cut(s, SH.pilot);
-        await pl.turn(265);
+        await pl.turn(250);
         pl.look('riviere');
         s.tell('window:pilot');
         await s.wait(1);
@@ -884,7 +885,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         pl.here(false);
         await pullChocks(s, chocksMan());
         s.tell('takeoff:chocks');
-        r.do('hands_behind');
+        r.do('stand');
         r.look('plane');
         const run = away(s);
         await s.wait(4);
@@ -940,7 +941,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         await r.turn(16);
         r.do('stand');
         r.reach(AT_SWITCH);
-        await glide(s, SH.switch_IV, 2);
+        await glide(s, SH.switch, 2);
       },
     },
     // Ш3 after М8 off: the engine dies; the pilot stays by his plane, his hand on its side; Rivière walks away toward
@@ -949,8 +950,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       after: ['stand_down'],
       tells: ['dark_field:still', 'dark_field:walk'],
       seconds: 10,
-      from: () => ({ ...CH4(DARK), engine: 1, cowling: 0, madame_window: 1, ...P('pilot', PILOT, 265, 'hand_on_side', { look: 'plane' }),
-        ...P('riviere', SWITCH, 16, 'stand', { reach: AT_SWITCH }), ...P('robineau', [-2.3, 19.2], 30, 'hold_waist', { look: 'riviere' }), ...SH.switch_IV }),
+      from: () => ({ ...CH4(DARK), engine: 1, cowling: 0, madame_window: 1, ...P('pilot', PILOT, 250, 'hand_on_side', { look: 'plane' }),
+        ...P('riviere', SWITCH, 16, 'stand', { reach: AT_SWITCH }), ...P('robineau', [-2.3, 19.2], 30, 'hold_waist', { look: 'riviere' }), ...SH.switch }),
       run: async s => {
         const r = s.person('riviere'), o = s.person('roblet');
         s.move('engine', 0, { over: 3 });
@@ -1021,7 +1022,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         await run;
         await s.move('plane_lights', 0, { over: 2.5 });
         s.tell('timetable:gone');
-        r.do('hands_behind');
+        r.do('stand');
         await s.wait(1);
       },
     },
