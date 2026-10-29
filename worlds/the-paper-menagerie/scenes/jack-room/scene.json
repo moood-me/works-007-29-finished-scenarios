@@ -103,23 +103,23 @@
     "night": 1,
     "day": 0,
     "lamp": 1,
-    "hall": 0,
+    "hall": 0.35,
     "packed": false,
     "shelf": "animals",
     "zoo": false,
     "scraps": false,
     "box": "empty",
-    "box_a": -1.45,
+    "box_a": -0.95,
     "box_d": 3.0,
     "box_e": 0,
     "stir": false,
     "hatch": 0,
     "door": 270,
-    "goats_a": -0.55,
+    "goats_a": -0.05,
     "goats_d": 4.12,
     "goats_e": 0.88,
     "laohu_out": true,
-    "laohu_a": -2.4,
+    "laohu_a": -2.1,
     "laohu_d": 3.88,
     "laohu_e": 0.59,
     "laohu_tape": true,
@@ -129,26 +129,26 @@
     "laohu_ear": false,
     "laohu_seam": false,
     "dad_frog": false,
-    "jack_a": -2.05,
-    "jack_d": 3.25,
-    "jack_turn": 160,
+    "jack_a": -1.55,
+    "jack_d": 3.45,
+    "jack_turn": 130,
     "jack_on": [
-      -2.05,
-      3.25,
+      -1.55,
+      3.45,
       0.48
     ],
     "jack_do": "sitting_on_bed",
     "jack_look": "shoebox#box",
     "jack_mood": "sad",
     "mom_here": false,
-    "mom_a": -2.05,
-    "mom_d": 3.62,
+    "mom_a": -1.55,
+    "mom_d": 3.55,
     "mom_wear": {
       "parts": []
     },
     "dad_here": false,
-    "dad_a": 1.05,
-    "dad_d": 3.3
+    "dad_a": 1.95,
+    "dad_d": 3.35
   },
   "states": {
     "moment": {
@@ -214,7 +214,7 @@
         "empty",
         "bare"
       ],
-      "means": "what stands on the shelf: animals — the two goats, the deer, the buffalo, the books, the robot; deer — the goats and the buffalo out in the room, the deer left; empty — the animals put away, the books and the robot; bare — nothing (the room emptied). Its right end is Laohu's place when he is on the shelf (laohu_a −1.6, laohu_d 4.12, laohu_e 1.285)"
+      "means": "what stands on the shelf: animals — the two goats, the deer, the buffalo, the books, the robot; deer — the goats and the buffalo out in the room, the deer left; empty — the animals put away, the books and the robot; bare — nothing (the room emptied). Its right end is Laohu's place when he is on the shelf (laohu_a −1.1, laohu_d 4.12, laohu_e 1.285)"
     },
     "zoo": {
       "type": "boolean",
@@ -235,10 +235,10 @@
     },
     "box_a": {
       "range": [
-        -2.8,
-        2.4
+        -2.3,
+        2.9
       ],
-      "means": "where the shoe box stands, metres right of the middle (the stool under the hatch: 1.5)"
+      "means": "where the shoe box stands, metres right of the middle (the stool under the hatch: 2.0)"
     },
     "box_d": {
       "range": [
@@ -275,17 +275,17 @@
     },
     "goats_a": {
       "range": [
-        -2.8,
-        2.4
+        -2.3,
+        2.9
       ],
-      "means": "where the two goats are when out (`zoo`), metres right of the middle (the sill −0.55; the quilt −2.45)"
+      "means": "where the two goats are when out (`zoo`), metres right of the middle (the sill −0.05; the quilt −1.85)"
     },
     "goats_d": {
       "range": [
         2.5,
         4.2
       ],
-      "means": "where the goats are, metres away (the sill 4.12; the quilt 2.85)"
+      "means": "where the goats are, metres away (the sill 4.12; the quilt 3.0)"
     },
     "goats_e": {
       "range": [
@@ -300,10 +300,10 @@
     },
     "laohu_a": {
       "range": [
-        -2.8,
-        2.4
+        -2.3,
+        2.9
       ],
-      "means": "where Laohu stands, metres right of the middle (the pillow −2.4; the shelf −1.6)"
+      "means": "where Laohu stands, metres right of the middle (the pillow −2.1; the shelf −1.1)"
     },
     "laohu_d": {
       "range": [
@@ -349,10 +349,10 @@
     },
     "jack_a": {
       "range": [
-        -2.8,
-        2.4
+        -2.3,
+        2.9
       ],
-      "means": "where Jack stands, metres right of the middle (the hall: 0.7…2.4)"
+      "means": "where Jack stands, metres right of the middle (the hall: 1.2…2.9)"
     },
     "jack_d": {
       "range": [
@@ -363,10 +363,10 @@
     },
     "mom_a": {
       "range": [
-        -2.8,
-        2.4
+        -2.3,
+        2.9
       ],
-      "means": "where Mom stands, metres right of the middle (the hall: 0.7…2.4)"
+      "means": "where Mom stands, metres right of the middle (the hall: 1.2…2.9)"
     },
     "mom_d": {
       "range": [
@@ -377,10 +377,10 @@
     },
     "dad_a": {
       "range": [
-        -2.8,
-        2.4
+        -2.3,
+        2.9
       ],
-      "means": "where Dad stands, metres right of the middle (the hall: 0.7…2.4)"
+      "means": "where Dad stands, metres right of the middle (the hall: 1.2…2.9)"
     },
     "dad_d": {
       "range": [
@@ -413,7 +413,7 @@
     {
       "id": "street",
       "name": "Mark's house across the street, the bus stop",
-      "across": -2.5,
+      "across": -2.0,
       "distance": 26,
       "elevation": -0.6,
       "height": 6,
@@ -431,7 +431,7 @@
     {
       "id": "fence",
       "name": "The front fence and the gate",
-      "across": -1.4,
+      "across": -0.9,
       "distance": 12.7,
       "elevation": -0.6,
       "height": 1.0,
@@ -447,7 +447,7 @@
       "name": "The oak floor of the room and the hall",
       "plane": true,
       "inside": true,
-      "across": -0.2,
+      "across": 0.3,
       "distance": 3.15,
       "width": 5.4,
       "depth": 2.2
@@ -456,7 +456,7 @@
       "id": "ceiling_room",
       "name": "The ceiling of Jack's room",
       "inside": true,
-      "across": -1.14,
+      "across": -0.64,
       "distance": 4.2,
       "elevation": 2.5,
       "facing": 180,
@@ -473,7 +473,7 @@
       "id": "ceiling_hall",
       "name": "The ceiling of the hall, the attic hatch in it",
       "inside": true,
-      "across": 1.56,
+      "across": 2.06,
       "distance": 4.2,
       "elevation": 2.5,
       "facing": 180,
@@ -490,7 +490,7 @@
       "id": "attic_dark",
       "name": "The attic seen up through the open hatch",
       "inside": true,
-      "across": 1.5,
+      "across": 2.0,
       "distance": 3.78,
       "elevation": 3.05,
       "facing": 180,
@@ -507,7 +507,7 @@
       "id": "hatch_well",
       "name": "The open hatch's far side",
       "inside": true,
-      "across": 1.5,
+      "across": 2.0,
       "distance": 3.76,
       "elevation": 2.5,
       "facing": 180,
@@ -523,7 +523,7 @@
       "id": "hatch_side",
       "name": "The open hatch's right side",
       "inside": true,
-      "across": 1.81,
+      "across": 2.31,
       "distance": 3.4,
       "elevation": 2.5,
       "facing": 270,
@@ -539,7 +539,7 @@
       "id": "back_wall",
       "name": "The back wall: the window, the drawing, the hall",
       "inside": true,
-      "across": -0.2,
+      "across": 0.3,
       "distance": 4.2,
       "facing": 180,
       "height": 2.52,
@@ -554,7 +554,7 @@
       "id": "left_wall",
       "name": "The left wall over the bed",
       "inside": true,
-      "across": -2.85,
+      "across": -2.35,
       "distance": 3.15,
       "facing": 90,
       "height": 2.52,
@@ -569,7 +569,7 @@
       "id": "right_wall",
       "name": "The hall's far wall and the coat pegs",
       "inside": true,
-      "across": 2.45,
+      "across": 2.95,
       "distance": 3.15,
       "facing": 270,
       "height": 2.52,
@@ -584,14 +584,14 @@
       "id": "partition",
       "name": "The wall between the room and the hall, the doorway",
       "inside": true,
-      "across": 0.61,
+      "across": 1.11,
       "distance": 3.15,
       "facing": 270,
       "height": 2.52,
       "box": [
         -1.09,
         -2.54,
-        1.09,
+        0.31,
         0.02
       ]
     },
@@ -599,8 +599,8 @@
       "id": "partition_edge",
       "name": "The partition's cut end",
       "inside": true,
-      "across": 0.61,
-      "distance": 2.06,
+      "across": 1.11,
+      "distance": 2.85,
       "facing": 180,
       "height": 2.52,
       "box": [
@@ -614,7 +614,7 @@
       "id": "door",
       "name": "Jack's door",
       "inside": true,
-      "across": 0.61,
+      "across": 1.11,
       "distance": 3.8,
       "facing": 270,
       "height": 2.0,
@@ -632,7 +632,7 @@
       "id": "window",
       "name": "The window onto the street",
       "inside": true,
-      "across": -0.4,
+      "across": 0.1,
       "distance": 4.17,
       "elevation": 0.85,
       "facing": 180,
@@ -649,7 +649,7 @@
       "id": "sill",
       "name": "The window sill: the scraps, the buffalo in its pot",
       "inside": true,
-      "across": -0.4,
+      "across": 0.1,
       "distance": 4.11,
       "elevation": 0.88,
       "facing": 180,
@@ -665,7 +665,7 @@
       "id": "goats",
       "name": "The paper goats out of the shelf",
       "inside": true,
-      "across": -0.55,
+      "across": -0.05,
       "distance": 4.12,
       "elevation": 0.88,
       "height": 0.22,
@@ -685,7 +685,7 @@
       "id": "shelf",
       "name": "The shelf over the bed: the paper animals, the books, the robot",
       "inside": true,
-      "across": -1.95,
+      "across": -1.45,
       "distance": 4.12,
       "elevation": 1.25,
       "facing": 180,
@@ -701,7 +701,7 @@
       "id": "bed_head",
       "name": "The bed's headboard",
       "inside": true,
-      "across": -2.355,
+      "across": -1.855,
       "distance": 4.16,
       "facing": 180,
       "height": 1.0,
@@ -718,7 +718,7 @@
       "name": "The bed: the patchwork quilt, the sheet turned down",
       "plane": true,
       "inside": true,
-      "across": -2.355,
+      "across": -1.855,
       "distance": 3.325,
       "elevation": 0.48,
       "width": 0.96,
@@ -728,7 +728,7 @@
       "id": "pillow",
       "name": "The pillow",
       "inside": true,
-      "across": -2.355,
+      "across": -1.855,
       "distance": 3.92,
       "elevation": 0.48,
       "height": 0.27,
@@ -744,7 +744,7 @@
       "id": "bed_side",
       "name": "The bed's long side, the quilt hanging over it",
       "inside": true,
-      "across": -1.875,
+      "across": -1.375,
       "distance": 3.325,
       "facing": 90,
       "height": 0.5,
@@ -760,7 +760,7 @@
       "id": "bed_foot",
       "name": "The bed's footboard",
       "inside": true,
-      "across": -2.355,
+      "across": -1.855,
       "distance": 2.49,
       "facing": 180,
       "height": 0.65,
@@ -776,7 +776,7 @@
       "id": "nightstand",
       "name": "The bedside cupboard",
       "inside": true,
-      "across": -1.55,
+      "across": -1.05,
       "distance": 3.98,
       "facing": 180,
       "height": 0.55,
@@ -793,7 +793,7 @@
       "name": "The bedside cupboard's top",
       "plane": true,
       "inside": true,
-      "across": -1.55,
+      "across": -1.05,
       "distance": 4.13,
       "elevation": 0.55,
       "width": 0.44,
@@ -803,7 +803,7 @@
       "id": "lamp",
       "name": "The bedside lamp and the alarm clock",
       "inside": true,
-      "across": -1.58,
+      "across": -1.08,
       "distance": 4.1,
       "elevation": 0.55,
       "height": 0.34,
@@ -818,7 +818,7 @@
       "id": "desk",
       "name": "Jack's desk under the window",
       "inside": true,
-      "across": -0.4,
+      "across": 0.1,
       "distance": 3.88,
       "facing": 180,
       "height": 0.72,
@@ -835,7 +835,7 @@
       "name": "The desk's top: exercise books, crayons",
       "plane": true,
       "inside": true,
-      "across": -0.4,
+      "across": 0.1,
       "distance": 4.03,
       "elevation": 0.72,
       "width": 1.0,
@@ -845,7 +845,7 @@
       "id": "frogs",
       "name": "Paper frogs on the desk",
       "inside": true,
-      "across": -0.15,
+      "across": 0.35,
       "distance": 3.98,
       "elevation": 0.72,
       "height": 0.05,
@@ -860,7 +860,7 @@
       "id": "chair",
       "name": "Jack's chair at the desk",
       "inside": true,
-      "across": -0.25,
+      "across": 0.25,
       "distance": 3.5,
       "facing": 180,
       "height": 0.86,
@@ -876,7 +876,7 @@
       "id": "stool",
       "name": "The step stool under the hatch",
       "inside": true,
-      "across": 1.5,
+      "across": 2.0,
       "distance": 3.4,
       "facing": 180,
       "height": 0.47,
@@ -892,7 +892,7 @@
       "id": "hatch_lid",
       "name": "The attic hatch's lid hanging open",
       "inside": true,
-      "across": 1.5,
+      "across": 2.0,
       "distance": 3.75,
       "elevation": 2.5,
       "facing": 180,
@@ -908,7 +908,7 @@
       "id": "hatch_cord",
       "name": "The shut hatch's pull cord",
       "inside": true,
-      "across": 1.5,
+      "across": 2.0,
       "distance": 3.07,
       "elevation": 2.5,
       "facing": 180,
@@ -924,7 +924,7 @@
       "id": "cartons",
       "name": "Cardboard cartons, packed",
       "inside": true,
-      "across": 0.2,
+      "across": 0.7,
       "distance": 2.8,
       "facing": 180,
       "height": 0.42,
@@ -937,25 +937,25 @@
       "shadow": true,
       "copies": [
         {
-          "across": 0.2,
+          "across": 0.7,
           "distance": 2.8
         },
         {
-          "across": 0.18,
+          "across": 0.68,
           "distance": 2.88,
           "elevation": 0.42,
           "scale": 0.8,
           "tint": "#f0e6d8"
         },
         {
-          "across": -2.5,
+          "across": -2.0,
           "distance": 2.75,
           "elevation": 0.48,
           "scale": 0.85,
           "tint": "#e8dccb"
         },
         {
-          "across": -2.2,
+          "across": -1.7,
           "distance": 3.3,
           "elevation": 0.48,
           "scale": 0.75
@@ -967,33 +967,33 @@
       "name": "The cartons' taped tops",
       "plane": true,
       "inside": true,
-      "across": 0.2,
+      "across": 0.7,
       "distance": 3.0,
       "elevation": 0.42,
       "width": 0.5,
       "depth": 0.4,
       "copies": [
         {
-          "across": 0.2,
+          "across": 0.7,
           "distance": 3.0,
           "elevation": 0.42
         },
         {
-          "across": 0.18,
+          "across": 0.68,
           "distance": 3.04,
           "elevation": 0.756,
           "scale": 0.8,
           "tint": "#f0e6d8"
         },
         {
-          "across": -2.5,
+          "across": -2.0,
           "distance": 2.92,
           "elevation": 0.837,
           "scale": 0.85,
           "tint": "#e8dccb"
         },
         {
-          "across": -2.2,
+          "across": -1.7,
           "distance": 3.45,
           "elevation": 0.7949999999999999,
           "scale": 0.75
@@ -1004,7 +1004,7 @@
       "id": "shoebox",
       "name": "The shoe box",
       "inside": true,
-      "across": -1.45,
+      "across": -0.95,
       "distance": 3.0,
       "height": 0.3,
       "box": [
@@ -1036,7 +1036,7 @@
       "id": "laohu",
       "name": "Laohu, the paper tiger",
       "inside": true,
-      "across": -2.4,
+      "across": -1.9,
       "distance": 3.88,
       "elevation": 0.59,
       "height": 0.32,
@@ -1057,7 +1057,7 @@
       "id": "motes",
       "name": "Dust in the sunlight",
       "inside": true,
-      "across": -0.4,
+      "across": 0.1,
       "distance": 3.0,
       "elevation": 1.2,
       "particles": {
@@ -1077,11 +1077,11 @@
       "person": {
         "cast": "cast",
         "who": "jack",
-        "turn": 160,
+        "turn": 130,
         "does": "sitting_on_bed"
       },
-      "across": -2.05,
-      "distance": 3.25,
+      "across": -1.55,
+      "distance": 3.45,
       "place": {
         "across": "jack_a",
         "distance": "jack_d"
@@ -1094,10 +1094,10 @@
       "person": {
         "cast": "cast",
         "who": "mom",
-        "turn": 200
+        "turn": 130
       },
-      "across": -2.05,
-      "distance": 3.62,
+      "across": -1.55,
+      "distance": 3.55,
       "place": {
         "across": "mom_a",
         "distance": "mom_d"
@@ -1110,10 +1110,10 @@
       "person": {
         "cast": "cast",
         "who": "dad",
-        "turn": 235
+        "turn": 245
       },
-      "across": 1.05,
-      "distance": 3.3,
+      "across": 1.95,
+      "distance": 3.35,
       "place": {
         "across": "dad_a",
         "distance": "dad_d"
@@ -1123,8 +1123,8 @@
       "id": "frog",
       "name": "The paper frog on Dad's palm",
       "inside": true,
-      "across": 1.05,
-      "distance": 3.3,
+      "across": 1.95,
+      "distance": 3.35,
       "height": 1.9,
       "box": [
         -0.9,
