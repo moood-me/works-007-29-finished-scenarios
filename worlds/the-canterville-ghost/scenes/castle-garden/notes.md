@@ -85,3 +85,12 @@ moon, readable; the colours are the world's (the library's and the tapestry room
 - Mrs Umney passing and Virginia painting are standing poses (`stand`, `offer` with a brush): the walk past and the
   brush stroke are stage 5's.
 
+
+## Measured (measure_scene, 0b640c4 — before the merge; the default 1.5 state)
+
+Frames 16.7 ms p95 on desktop and laptop, 16.8 on the phone (FAIL by 0.1 ms); worst 16.8; GPU p95 5.5 / 4.4 / 3.5
+ms; no soft run (0 / 0.07 / 0.25 s); view pages 402 / 347 / 164 of the room 1419 / 1076 / 439; open about 2.5–2.8 s.
+FAILS: allocated a frame ~30 KB in all three — the engine's modules (sheets/cache.js record, people/player.js,
+people/shapes.js, cloth.js), the scene's own code ~0.4–0.5 KB of it, most of that the cast's `brush` part (fixed
+after the measure: the torch, the brush and the cross keep their vectors with F.keep); GC pause worst 2.2 ms
+(desktop) and 3.7 ms (phone) on the scene's thread. The engine's share is the engine's, not this scene's to mend.
