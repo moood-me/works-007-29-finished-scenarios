@@ -1,7 +1,7 @@
 // The apple tree Dad planted, near us on the right (metres from its foot): a crooked dark trunk leaning a little toward
 // the house, its boughs reaching left over the yard, the crown in white-pink blossom with a few new leaves — the
 // blossom a layer that stirs in the wind; at its foot the tin bucket, waiting for the evening. Points: `crown`,
-// `bucket`, `fire` (over its rim, where the paper burns).
+// `bucket`, `fire` (over its rim, where the paper burns), `trunk` (where a hand lies on the bark).
 g.fillStyle = '#5b463c';
 g.beginPath();
 g.moveTo(-0.17, 0);
@@ -74,3 +74,4 @@ e.layer('blossom', { pivot: [-0.2, -2.3], wind: { strength: 0.22, gust: 0.45, sc
 e.at(-1.2, -3.5, 'crown');
 e.at(-0.6, -0.3, 'bucket');
 e.at(-0.6, -0.4, 'fire');
+e.at(-0.05, -1.35, 'trunk');

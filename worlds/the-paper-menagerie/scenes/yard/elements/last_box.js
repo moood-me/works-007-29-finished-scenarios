@@ -1,5 +1,6 @@
-// The last of the moving boxes on the porch by the door, taped shut (a year on: there while `sold`).
-if (!e.state.sold) return;
+// The last of the moving boxes on the porch by the door, taped shut (a year on: there while `sold`, till Dad carries
+// it away: `last_box` false).
+if (!e.state.sold || e.state.last_box === false) return;
 g.fillStyle = '#b8905f';
 g.fillRect(-0.3, -0.42, 0.6, 0.42);
 g.fillStyle = '#9c7748';
