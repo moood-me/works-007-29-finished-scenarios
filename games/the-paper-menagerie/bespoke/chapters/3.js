@@ -7,8 +7,8 @@
 // the seam, the sign.
 // On the scenes' pieces (game.md «Stage 5 — pieces»): the kitchen a year on (`boxes`, `her_hand`), the attic and Jack's
 // room (`wake_*`, `unfold`, `open`), the yard a year on (`mark` toward the street, `step`, `father_*`, `sign`,
-// `sunset`, the finales' pieces, `dad_end`). The square (3.3) is its own scene; its pieces are to come (r3/menagerie-
-// pieces-b): the woman on the bench, the guide at the coach, the tourists; the letter from hand to hand.
+// `sunset`, the finales' pieces, `dad_end`), the square (`bench`, `reading` — the letter's first half read over it —,
+// `tear` and М7 in its close-up, then the second half, `reading_end`).
 // Reads: everything. Leaves: choices.father, choices.laohu; marks.father, marks.crooked, marks.curled.
 import { KIT, ROOMS, YARD, ENDINGS, facts, piece } from '../story.js';
 import { read } from '../letter.js';
@@ -89,86 +89,71 @@ export default {
         },
       }, () => g.scene('house', { beat: 'her_hand', here: PAIR, moods: { jack: 'neutral', dad: 'sad' }, keys: { ...KIT(f), suit_bag: false, menagerie: f.zoo === 2 ? 'awake' : 'none' } }));
     },
-    // 3.3: the square; the woman; the letter's first half
+    // 3.3: the square; the woman; the letter's first half (`bench`, `reading`)
     async g => {
       const f = facts(g.state);
-      await g.scene('square', { here: SQUARE, moods: { jack: 'neutral', translator: 'neutral' }, keys: { jack_with: ['letter'], jack_look: 'translator', translator_with: [], translator_look: 'jack' } });
-      await g.plate(tr('The square. A tour bus; the guide is calling. A woman on the bench looks at her watch.'));
-      if (f.lang === 2) {
-        await g.say('jack_grown', '阿姨，您能帮我念一下吗？', { sub: tr('Auntie, could you read this for me?'), how: 'in Mandarin Chinese, plain home Chinese, a little shy' });
-        await g.say('translator', '你说话像乡下人。像我奶奶。', { sub: tr('You talk like a villager. Like my grandmother.'), how: 'surprised, warming at once' });
-      } else if (f.lang === 1) {
-        await g.say('jack_grown', 'Could you read this for me? Read it as it is — in Chinese. I’ll understand', { how: 'a little shy' });
-      } else {
-        await g.say('jack_grown', 'Could you read this for me? It’s in Chinese', { how: 'a little shy' });
-      }
-      g.set('jack_with', []);
-      g.set('translator_with', ['letter']);
-      g.set('translator_look', 'translator#letter');
-      g.set('jack_look', 'translator#letter');
-      g.mood('translator', 'surprised');
-      await g.plate(tr('She takes the sheet — and raises her eyebrows.'));
-      if (f.lang === 2) await g.say('translator', '这么暖和。', { sub: tr('So warm.'), how: 'surprised' });
-      else await g.say('translator', 'So warm', { how: 'surprised' });
-      await g.plate(tr('The sheet trembles on her knees; she presses it down with her palm.'));
-      if (f.lang === 2) await g.say('translator', '风吹的。', { sub: tr('The wind.'), how: 'brushing it off' });
-      else await g.say('translator', 'The wind', { how: 'brushing it off' });
-      await g.plate(tr('She reads, not letting go of it.'));
+      await piece(g, 'bench', {
+        ask: async () => {
+          if (f.lang === 2) {
+            await g.say('jack_grown', '阿姨，您能帮我念一下吗？', { sub: tr('Auntie, could you read this for me?'), how: 'in Mandarin Chinese, plain home Chinese, a little shy' });
+            await g.say('translator', '你说话像乡下人。像我奶奶。', { sub: tr('You talk like a villager. Like my grandmother.'), how: 'surprised, warming at once' });
+          } else if (f.lang === 1) await g.say('jack_grown', 'Could you read this for me? Read it as it is — in Chinese. I’ll understand', { how: 'a little shy' });
+          else await g.say('jack_grown', 'Could you read this for me? It’s in Chinese', { how: 'a little shy' });
+        },
+        warm: () => (f.lang === 2 ? g.say('translator', '这么暖和。', { sub: tr('So warm.'), how: 'surprised' }) : g.say('translator', 'So warm', { how: 'surprised' })),
+        wind: () => (f.lang === 2 ? g.say('translator', '风吹的。', { sub: tr('The wind.'), how: 'brushing it off' }) : g.say('translator', 'The wind', { how: 'brushing it off' })),
+      }, () => g.scene('square', { beat: 'bench', here: SQUARE, moods: { jack: 'neutral', translator: 'neutral' }, keys: { tear: 'taped' } }));
       // (whose voice: 2 — the woman's first, then hers; 1 — the woman's, the last line hers; 0 — the woman translating)
-      const who = f.lang > 0 ? 'translator' : 'en';
-      await read(g, who, 'p0');
-      await read(g, who, 'p1');
-      if (f.lang === 2) await g.plate(tr('After a sentence the woman’s voice goes — and the letter is read by Mom’s voice.'));
-      const on = f.lang === 2 ? 'mom' : who;
-      await read(g, on, f.asked ? 'p2asked' : 'p2silent');
-      await read(g, on, 'p3');
-      if (f.talk === 'grandma') {
-        await g.plate(tr('At the words about the animals out of newspapers, Jack raises his head. The woman stops and looks at him. He nods.'));
-        if (f.lang === 2) await g.say('jack_grown', '接着念。', { sub: tr('Go on.'), how: 'in Mandarin Chinese, hoarse' });
-        else await g.say('jack_grown', 'Go on', { how: 'hoarse' });
-        g.kept(tr('“I’ll finish later” — she finished it here.'));
-      }
-      await read(g, on, 'p4');
-      await read(g, on, 'p5');
-      await read(g, on, 'p6');
+      const who = f.lang > 0 ? 'translator' : 'en', on = f.lang === 2 ? 'mom' : who;
+      await piece(g, 'reading', {
+        start: async () => {
+          await read(g, who, 'p0');
+          await read(g, who, 'p1');
+          await read(g, on, f.asked ? 'p2asked' : 'p2silent');
+          await read(g, on, 'p3');
+          if (f.talk === 'grandma') {
+            g.mood('jack', 'surprised');
+            if (f.lang === 2) await g.say('jack_grown', '接着念。', { sub: tr('Go on.'), how: 'in Mandarin Chinese, hoarse' });
+            else await g.say('jack_grown', 'Go on', { how: 'hoarse' });
+            g.kept(tr('“I’ll finish later” — she finished it here.'));
+          }
+          await read(g, on, 'p4');
+          await read(g, on, 'p5');
+          await read(g, on, 'p6');
+        },
+      });
     },
-    // 3.3: the tear; М7 «The Tape, Her Last»; the letter's second half; the woman goes
+    // 3.3: the tear; М7 «The Tape, Her Last»; the letter's second half; the woman goes (`tear`, М7, `reading_end`)
     async g => {
       const f = facts(g.state);
-      await g.scene('square', { here: SQUARE, moods: { jack: 'sad', translator: 'thinking' } }, { cut: true });
-      if (f.lang === 2) await g.say('translator', '这儿撕破了，边叠在一起了。字在底下。', { sub: tr('It’s torn here, the edges overlap. The word is under them.'), how: 'peering, practical' });
-      else await g.say('translator', 'It’s torn here, the edges overlap. The word is under them', { how: 'peering, practical' });
+      await piece(g, 'tear', {
+        open: () => (f.lang === 2 ? g.say('translator', '这儿撕破了，边叠在一起了。字在底下。', { sub: tr('It’s torn here, the edges overlap. The word is under them.'), how: 'peering, practical' })
+          : g.say('translator', 'It’s torn here, the edges overlap. The word is under them', { how: 'peering, practical' })),
+      }, () => g.scene('square', { beat: 'tear', here: SQUARE, moods: { jack: 'sad', translator: 'thinking' }, keys: { tear: 'taped' } }, { cut: true }));
       const { missed } = await g.play(peel);
       if (missed) {
         g.mark('curled', true, null);
-        await g.plate(tr('The edge of the tear stays folded under.'));
         if (f.lang === 2) await g.say('translator', '看不清。大概是——“一个人”。', { sub: tr('I can’t see. Probably — “alone”.'), how: 'squinting, gently' });
         else await g.say('translator', 'I can’t see. Probably — “alone”', { how: 'squinting, gently' });
-      } else await g.plate(tr('The edges come apart and lie side by side; the word, a little split along the tear.'));
+      }
       const who = f.lang === 2 ? 'mom' : f.lang === 1 ? 'translator' : 'en';
       await read(g, who, 'p7');
       await read(g, who, `p8${f.yard}`);
       await read(g, who, `p9${f.box}`);
       await read(g, who, 'p10');
-      if (f.lang === 1) await g.plate(tr('The last line — in Mom’s voice.'));
       if (f.lang > 0) await read(g, 'mom', 'p11');
       else {
         await g.say('translator', 'And at the bottom — “Mom”. And a sign before it…', { how: 'translating aloud, slowly' });
-        await g.plate(tr('The last word — in Mom’s voice.'));
         await g.say('mom', '爱。', { at: 'narrator', how: 'quietly, warmly' });
       }
       g.know(tr('Now you know her life: Sigulu, the famine, Hong Kong, the iron, the letters with the apple tree — and “alone”.'));
       if (f.asked) g.kept(tr('“I’ll tell you later” — “Here is later.”'));
       else g.kept(tr('“I’ll tell you later” — she told it in the letter.'));
-      await g.plate(tr('Out of habit the woman starts to fold the sheet — Jack takes it from her, flat.'));
-      g.set('translator_with', []);
-      g.set('jack_with', ['letter']);
-      g.set('jack_look', 'jack#letter');
-      if (f.lang === 2) await g.say('jack_grown', '不用。我就这样拿着。', { sub: tr('Don’t. I’ll keep it like this.'), how: 'in Mandarin Chinese, gently' });
-      else await g.say('jack_grown', 'Don’t. I’ll keep it like this', { how: 'gently' });
-      await g.say('guide', '周阿姨！上车了！', { sub: f.lang > 0 ? tr('Auntie Zhou! The bus!') : null, how: 'shouting across the square in Mandarin Chinese' });
-      g.here('translator', false);
-      await g.plate(tr('She goes to the bus without looking back.'));
+      await piece(g, 'reading_end', {
+        back: () => (f.lang === 2 ? g.say('jack_grown', '不用。我就这样拿着。', { sub: tr('Don’t. I’ll keep it like this.'), how: 'in Mandarin Chinese, gently' })
+          : g.say('jack_grown', 'Don’t. I’ll keep it like this', { how: 'gently' })),
+        guide: () => g.say('guide', '周阿姨！上车了！', { sub: f.lang > 0 ? tr('Auntie Zhou! The bus!') : null, how: 'shouting across the square in Mandarin Chinese' }),
+      });
     },
     // 3.4: Mark across the street; the box of the woken animals; ⚑ what does she write? (`mark` toward the street, then
     // `step`, `father_<choice>`)

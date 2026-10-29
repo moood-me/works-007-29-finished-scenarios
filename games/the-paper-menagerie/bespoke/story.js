@@ -1,10 +1,10 @@
 // What a chapter's steps play with: context(b, view, hub, state, j, {forward}) → g. Its state is a working copy — kept
 // only once the step is done (game.js). A step left behind (the player went to the map: ☰) does nothing more and never
 // ends: whatever it still calls returns a promise that never settles.
-// Stage 5 of the game (moood-me/moood docs/writing/game-stages.md), under way: the places on their own scenes where the
-// world has them (PLACES), the mini-games real (minigames/, on the language of mini-games); the scenes' pieces as they
-// come (the contract: game.md «Stage 5 — pieces») — till then what a piece will show is a plate with “Next” (g.plate,
-// g.sheet).
+// Stage 5 of the game (moood-me/moood docs/writing/game-stages.md): every place on its own scene (PLACES), every step on
+// the scenes' pieces (the contract: game.md «Stage 5 — pieces»), the mini-games real (minigames/, on the language of
+// mini-games). No narrator: what the pieces cannot show is told by the chapters' titles (when, where) and the slips —
+// what Jack knows, the promises; one list before the last choice (g.sheet).
 //   g.state — what the play carries: {scales, shown, marks, choices} (game.js); what follows from it: facts(g.state)
 //   g.signal — aborts when the step is left
 //   g.scene(place, {here, moods, keys}, {cut}) — that place of the game (PLACES: the world's scene it is played on, and
@@ -75,8 +75,6 @@ export const PLACES = {
   square: { folder: 'square' }, // С6 the square
   porch: { folder: 'yard' }, // С1 in chapter 3 (a year on: its pieces' `year`, `sold`)
 };
-// The ward's hours (the bedside lamp) — till its pieces come
-export const WARD = { evening: { lamp: 1 }, night: { lamp: 0.6 }, dark: { lamp: 0.3 } };
 // Jack's room's moments (its key `moment`: the light, what stands where and who is here) — for its pieces' openings
 // and the one moment with no piece, 1.5 «Run away» call (Mom at his door). `menagerie` — the menagerie as the room
 // shows it (MENAGERIE: by the scale).
@@ -90,6 +88,9 @@ export const MENAGERIE = ['attic', 'laohu', 'house'];
 // character left
 export const KIT = f => ({ laohu_ear: f.ear, laohu_seam: f.seam });
 export const ROOMS = (f, chosen = true) => ({ menagerie: chosen ? MENAGERIE[f.zoo] : 'shelf', laohu_ear: f.ear, laohu_seam: f.seam });
+// the ward — the menu crane (the whole house), the ear, and the things as the step has them (o): the tiger on the
+// nightstand, the paper house, the menu, the suit on the chair
+export const WARDS = (f, o = {}) => ({ crane: f.zoo === 2, laohu_ear: f.ear, laohu_here: true, menu_house: false, menu: 'none', suit_on_chair: false, ...o });
 export const YARD = f => ({
   way: f.yard, zoo: f.zoo, father: f.father, ending: f.ending, laohu_ear: f.ear, laohu_seam: f.seam,
   shoebox: f.zoo === 2 ? 2 : 1, menu_house: !f.stayed, tear: f.curled ? 'curled' : 'open', hanzi_crooked: f.crooked,

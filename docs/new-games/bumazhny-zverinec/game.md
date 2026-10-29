@@ -28,8 +28,10 @@
 - **Реестры** (§12) видны тостами: «Джек знает» (`g.know` — правила зверей, Цинмин, «на один раз», письмо), «Обещание»
   (`g.promise` — «Потом расскажу», «Вечером сожжём», «Вернусь в пятницу», «Отнеси Лаоху домой», «Тигра потом отнесу») и
   «Обещание» с исполнением (`g.kept`). Предметы — в плашках и ключах сцен (`laohu_ear`, `crane`, письмо из рук в руки).
-- **Мини-игры-заглушки** дают выбрать исход: «Сыграно» или «Промах: …» — чтобы на ревью был виден след провала (ухо,
-  шов, кривой слиток, кривой знак…). Пропуск (⏭) — «сыграно»: ветку не меняет.
+- **Мини-игры** (стадия 5) — настоящие, на языке мини-игр (`minigames/`, `hands.js` как у «Кентервиля»); каждая
+  возвращает `{missed}` — след провала (ухо, шов, кривой слиток, кривой знак, загнутый край). Пропуск (⏭) — «сыграно».
+- **Куски сцен** (стадия 5): каждый шаг открывает сцену на куске (`g.scene(place, {beat})`, `piece()`), реплики — на его
+  моментах. Плашек нет; рассказчика нет: время — вторая строка названия главы, внутреннее — тосты «Джек знает».
 - **Карта** после глав 1, 2, 3 (§10; после главы 3 — уже после финала, на её листке строка «Финал»). Пролог без выборов —
   после него сразу глава 1. Под выбором на карте — строка §10 «что сделал — что вышло» (`came` у варианта в главе).
 - **Таймер** только в 1.3: 8 с, дуга на знаке; не выбрал — «Убежать» (`within`/`otherwise`).
@@ -37,29 +39,11 @@
 
 ## Места — одна карта
 
-`story.js PLACES`: место сценария → папка сцены мира и, если сцена чужая, `where` — подпись «На самом деле: …». Шаги
-называют только места.
-
-| Место | Где в игре | Сейчас | Когда придёт своя сцена |
-| --- | --- | --- | --- |
-| `kitchen` С2 | П.1–П.3, 1.1, 1.5 | `kitchen` | — |
-| `room` С3 | П.4, 1.4 «Убежал», 1.5 «Убежал», 1.6 | `jack-room` (ключ `moment`: bedtime / ran / call / night / hatch; `menagerie`) | — |
-| `yard` С1 | 1.2, 1.3 | `yard` | — |
-| `dusk` С1 сумерки | 1.4 | `yard` с ключами `DUSK` (сумерки, огонь, лампа, папа) | — |
-| `stop` С1 утро | 1.7 | `yard` + подпись (остановка за спиной зрителя) | вид на улицу — см. просьбы |
-| `ward` С5 | 2.2–2.4 | `ward` | — |
-| `hallway` коридор | 2.1, утро 2.3а | `ward` + подпись (мамы нет) | вид/сцена коридора — см. просьбы |
-| `house` С2 через год | 3.1, конец 3.2 | `ward` + подпись | `kitchen` с ключами `packed`, `menagerie`, `suit_bag`, `day` — как только у кухни будет ключ «год спустя» |
-| `bare` С3 через год | 3.2 | `jack-room`, `moment` packed (Джек взрослый), `menagerie` по шкале | — |
-| `attic` С4 | 3.2 «Зверинец» 0 | `attic` | — |
-| `square` С6 | 3.3 | `square` | — |
-| `porch` С1 через год | 3.4–3.6, финалы | `ward` + подпись | `yard` с ключами `dusk`, `sold`, `shoebox`, `menu_house`, `fire` — как только у двора будет ключ «год спустя» |
-
-Комната Джека и чердак — свои сцены (`r3/menagerie-rooms`, влита): у комнаты моменты по ключу `moment`, в том числе
-`packed` — через год, Джек взрослый (скрипт сцены сам его переодевает). Почему кухня и двор главы 3 всё ещё в палате: в кухне и во дворе Джек десятилетний, папа сорокапятилетний; взрослый вид —
-объект облика из модуля `cast` (`<id>_wear: {...cast.jack_grown, parts: []}`), его берёт скрипт сцены
-(`scene.kit.cast`), а игра его назвать не может (`_wear` по имени не принимается: `docs/worlds/people.md`). Нужен ключ
-сцены — см. «Просьбы к миру», п. 1. Площадь — своя сцена (там `jack` — `jack_grown`).
+`story.js PLACES`: место сценария → папка сцены мира. Все места — свои сцены (стадия 5): `kitchen` С2, `room` С3
+(`jack-room`, моменты по ключу `moment`), `yard` С1, `stop` (двор в сторону улицы: `view` street — его открывает кусок
+`stop`), `ward` С5, `hallway` (палата, `view` corridor), `house` (кухня через год), `bare` (комната через год),
+`attic` С4, `square` С6, `porch` (двор через год). Год спустя и Джек пяти лет — ключи сцен `year`, `young` (их ставят
+куски). Подписей «на самом деле» больше нет.
 
 ## Люди и голоса
 
@@ -94,12 +78,6 @@
   `zoo`, `father`, метки `ear` (М3), `seam` (М4), `crooked` (М8), `ingot` (М2).
 - Метки-тосты — короткие фразы при выборе; на карте под выбором — строка §10.
 
-## Заглушки мини-игр (`minigames/all.js`)
-
-М1 `palms`, М2 `ingot`, М3 `scraps`, М4 `tape`, М5 `hand`, М6 `stroke`, М7 `peel`, М8 `sign`, финальные `fold`,
-`smooth`, `flame` — кружок на точке, карточка (жест, что делают руки, что чувствуется, след провала), лепестки
-«Сыграно» / «Промах: …».
-
 ## Проверка
 
 - `node games/the-paper-menagerie/bespoke/check/run.mjs` — все 972 пути (по 324 на финал): места и сцены, люди, ключи
@@ -109,10 +87,10 @@
   проваленными (метки `ear`, `seam`, `crooked`, `ingot` ставятся).
 - `moood-check` (`packages/check/cli.js`) и `check` студии — тексты и русский.
 
-## Что меняет стадия 5
+## Стадия 5 — сделано
 
-Только заглушки: строки `PLACES` (на свои сцены), `here` — люди, которых теперь видно; мини-игры `all.js` — на
-настоящие (имена те же); плашки, где действие сцены, — на куски сцен. Тексты, выборы, шкалы, финалы — как есть.
+Места — свои сцены; шаги — на кусках (`r3/menagerie-pieces-a`: кухня, двор, комната, чердак; `-b`: палата, площадь,
+люди и ключи); мини-игры — настоящие. Тексты, выборы, шкалы, финалы стадии 3 — те же; плашки ушли.
 
 ---
 
@@ -329,12 +307,13 @@ named) · tells. «M» — the mini-game is played after the piece, in its end p
 - `bench` · square · Jack with the letter (`jack_with` letter), the woman on the bench looks at her watch; the guide
   calls · Jack's line(s); she takes the letter (`translator_with`), surprised · 14 · wide → close on her face · lines
   at `bench:ask`, `bench:warm`, `bench:wind` · the same tells
-- `reading` · square · after `bench` · she reads; for Language 2 the shot goes close on the sheet as Mom's voice takes
-  over · ~60 (as long as the voice) · close on her face, the letter's insert · each paragraph at `reading:<id>` (the
-  game says it; the piece holds) · `reading:start`, `reading:tear`; then **M7** (`translator#letter`, the insert: the
-  clear strip, `tear` taped → open | curled); then `reading_end` · the rest, Jack takes the letter back flat; the guide
-  calls; she walks to the coach (`translator_here` false at the end) · 30 · · `reading_end:back`, `reading_end:guide`,
-  `reading_end:gone`
+- `reading` · square · after `bench` · close on her face reading · 6 (the game reads the letter's first half over it,
+  as long as the voices) · · `reading:start`
+- `tear` · square · after `reading` · she stops at the tear, the insert of the sheet's back opens (`letter_close` 1,
+  `tear` the game's) · 4 · close · `tear:open`; then **M7** there; then the letter's second half (changed 2026-10-29
+  with r3/menagerie-pieces-b: the tear is its own piece)
+- `reading_end` · square · after `tear` · the insert shut; Jack takes the sheet back, flat; the guide calls; she walks
+  to the coach · 22 · · `reading_end:back`, `reading_end:guide`, `reading_end:gone`
 - `mark` · yard toward the street · `year` 1, `dusk` 1, `sold`; Mark grown at his car · english: he crosses, pats Jack's
   shoulder; chinese: looks past, gets in; run: a nod · 10 · wide · at `mark:say` · `mark:say`
 - `step` · yard · `year` 1, `dusk` 1, `sold`, `shoebox` 1|2, `menu_house` (went); Dad on the top step (`dad_on`,
@@ -368,7 +347,7 @@ the points and keys each needs of its scene — the branch check lists what a sc
 | `tape` | М4 | kitchen, `tape` | hold | `laohu` (the element) | `tape_laid` 0..1 (her strip along the seam) | 6 | a crooked seam: mark `seam` (`laohu_seam`) |
 | `hand` | М5 | ward, `friday` | hold, then let go | `mom#hand_r` | `jack_reach`, `dad_reach` (persons') | 10 + 8 | Dad's palm on top, they let go together |
 | `stroke` | М6 | jack-room, `unfold` | lead slowly | `laohu` (the element) | `laohu_purr` 0..1 | 5 | he grumbles, lies down all the same |
-| `peel` | М7 | square, `reading` | lead slowly | `translator#letter` | `tear` `taped` / `open` / `curled` (the clear strip over the overlapped tear) | 5 | the edge stays curled: «看不清。大概是——“一个人”。» |
+| `peel` | М7 | square, `tear` | lead slowly | `translator#letter` | `tear` `taped` / `open` / `curled` (the clear strip over the overlapped tear) | 5 | the edge stays curled: «看不清。大概是——“一个人”。» |
 | `sign` | М8 | yard, `sign` | trace | an element `hanzi` (the bottom of her sheet, close: her 爱, room under it) with points `hanzi#start`, `hanzi#end` | `hanzi` 0..1 (his sign drawn), `hanzi_crooked` bool | 10 | crooked, and so it stays (mark `crooked`; the finales show it) |
 | `fold` | final | yard, `tiger` | fold (four slow pulls) | `jack#letter` | `fold` 0..1 (the sheet folding back into the tiger) | 8 | the folds find themselves |
 | `smooth` | final | yard, `letter_end` | lead slowly | `jack#letter` | `tremble` 1..0 | 8 | the sheet lies flat by itself |
