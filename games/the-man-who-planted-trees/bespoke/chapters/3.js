@@ -62,7 +62,9 @@ export default {
       }
       if (f.slope) await g.plate(tr('On his own slope by the stream, opposite the edge of the wood, the Traveller plants a beech.'));
       else await g.plate(tr('The fourteenth beech in his row.'));
-      await g.play(beech);
+      const planted = await g.play(beech, { slope: f.slope });
+      if (planted.crooked && f.slope) await g.say('traveller', 'It’ll grow anyway', { how: 'to himself, leaving the crooked sapling as it is' });
+      else if (planted.crooked) await g.plate(tr('The beech stands crooked. He straightens it again, so that the row stays straight.'));
       if (!f.slope) g.set('beech_row', 14);
     },
     // 3.2: the delegation

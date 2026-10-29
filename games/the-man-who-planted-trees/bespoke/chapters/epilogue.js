@@ -35,7 +35,8 @@ export default {
           if (f.slope) await g.plate(tr('She looks at his rod.'));
         }
       }
-      await g.play(linden);
+      const lime = await g.play(linden);
+      if (lime.lina) await g.say('lina', 'There', { how: 'pressing the earth down with her foot; short, kind' });
       g.set('stump', 'planted');
       g.set('wet', true);
     },
@@ -56,7 +57,9 @@ export default {
       await g.wait(1500);
       await g.plate(tr('He holds out the rod.'));
       await g.say('elzeard', 'It’s got heavy');
-      await g.play(hand);
+      const rod = await g.play(hand);
+      if (rod.early) await g.say('elzeard', 'Hold it', { how: 'steadying the wavering rod; one word, old and plain' });
+      else if (rod.long) await g.plate(tr('The old man takes his hand away himself.'));
       g.mood('traveller', 'sad');
       await g.say('narrator', 'A year later he was gone. Quietly, in his sleep');
     },

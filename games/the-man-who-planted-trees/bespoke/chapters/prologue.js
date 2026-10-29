@@ -58,7 +58,8 @@ export default {
       g.mood('traveller', 'surprised');
       await g.say('narrator', 'He did not ask who I was');
       await g.plate(tr('In the house: soup, the lamp. Elzéard pours a sack of acorns out on the table.'));
-      await g.play(acorns);
+      const sorted = await g.play(acorns);
+      if (sorted.self) await g.plate(tr('Elzéard finishes the sorting himself, without a word and faster, and takes one cracked acorn out of the Traveller’s heap.'));
       await g.plate(tr('He counts them off in tens.'));
       await g.say('elzeard', 'A hundred');
       await g.plate(tr('He lowers them into a pail of water.'));
