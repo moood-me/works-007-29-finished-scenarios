@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Glass Menagerie","translation":"玻璃動物園","where":"worlds/the-glass-menagerie/world.json title"},
+  {"text":"A small flat off an alley. A mother, a son who wants out, a daughter and her glass animals; a gentleman caller is coming.","translation":"小巷旁的一間小公寓。一位母親、一個想離開的兒子、一個女兒和她的玻璃小動物；一位紳士訪客就要來了。","where":"worlds/the-glass-menagerie/world.json description"}
+]}

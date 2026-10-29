@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Story of Your Life","translation":"你一生的故事","where":"worlds/story-of-your-life/world.json title"},
+  {"text":"A tent with a looking glass, a linguist, and a language that shows the whole of a life at once.","translation":"一頂設在窺鏡旁的帳篷、一位語言學家，以及一種能一次看見整個人生的語言。","where":"worlds/story-of-your-life/world.json description"}
+]}

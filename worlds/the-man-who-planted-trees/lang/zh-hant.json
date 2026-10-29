@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Man Who Planted Trees","translation":"種樹的男人","where":"worlds/the-man-who-planted-trees/world.json title"},
+  {"text":"A bare windswept plateau, a stone house with one lamp, and a shepherd who plants a hundred acorns a day. After Jean Giono.","translation":"一片光禿、被風吹襲的高原，一棟只點一盞燈的石屋，以及一個每天種下一百顆橡實的牧羊人。改編自讓．紀沃諾。","where":"worlds/the-man-who-planted-trees/world.json description"}
+]}

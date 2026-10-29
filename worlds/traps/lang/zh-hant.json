@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Traps","translation":"拋錨","where":"worlds/traps/world.json title"},
+  {"text":"A broken-down car, a villa for the night, and four old men who play at a trial after dinner.","translation":"一輛拋錨的車、一棟借宿一晚的別墅，以及四個晚飯後玩起審判遊戲的老人。","where":"worlds/traps/world.json description"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Flowers for Algernon","translation":"獻給阿爾吉儂的花束","where":"worlds/flowers-for-algernon/world.json title"},
+  {"text":"A plastic-box factory, a night class, a laboratory with a white mouse. A mind that rises, and falls.","translation":"一間塑膠盒工廠、一堂夜間課、一間有隻小白鼠的實驗室。一個升起、又墜落的心智。","where":"worlds/flowers-for-algernon/world.json description"}
+]}

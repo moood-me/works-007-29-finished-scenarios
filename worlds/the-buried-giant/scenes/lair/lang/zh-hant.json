@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Dragon's Lair","translation":"母龍的巢穴","where":"worlds/the-buried-giant/scenes/lair/scene.json title"},
+  {"text":"Her breath is the mist.","translation":"她的氣息就是那片霧。","where":"worlds/the-buried-giant/scenes/lair/scene.json caption"}
+]}

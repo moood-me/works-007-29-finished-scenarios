@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"No One Writes to the Colonel","translation":"沒有人寫信給上校","where":"worlds/no-one-writes-to-the-colonel/world.json title"},
+  {"text":"A river town in the rains. An old colonel waits for a letter; a fighting rooster waits for January.","translation":"雨季裡的河邊小鎮。一位老上校在等一封信；一隻鬥雞在等一月。","where":"worlds/no-one-writes-to-the-colonel/world.json description"}
+]}

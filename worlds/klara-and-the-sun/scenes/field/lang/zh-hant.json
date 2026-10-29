@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Gate to the Field","translation":"通往田野的柵門","where":"worlds/klara-and-the-sun/scenes/field/scene.json title"},
+  {"text":"Sunset. Rick at the gate with his bird; across the field the Sun goes down into Mr McBain's barn.","translation":"日落。瑞克帶著他的鳥站在柵門邊；田野另一頭，太陽沉進麥克貝恩先生的穀倉。","where":"worlds/klara-and-the-sun/scenes/field/scene.json caption"}
+]}

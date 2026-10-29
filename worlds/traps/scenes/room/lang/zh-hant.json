@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Room Upstairs","translation":"樓上的房間","where":"worlds/traps/scenes/room/scene.json title"},
+  {"text":"After the verdict. The prosecutor in the doorway: the best defendant in ten years! The judge with his candle: the sentence, fair copy, by morning.","translation":"判決之後。檢察官站在門口：十年來最棒的被告！法官拿著蠟燭：判決書，謄清，明天早上前交。","where":"worlds/traps/scenes/room/scene.json caption"}
+]}
