@@ -205,8 +205,8 @@ function room(scene) {
   const SH = {
     give: CAM([0.15, 1.55, 1.45], [0.15, 3.3, 1.15]),
     last: CAM([1.0, 1.35, 1.5], [1.0, 3.7, 1.35]),
-    stove: CAM([0.3, 0.25, 1.55], [-0.1, 2.4, 1.15]),
-    sill: CAM([-0.45, 2.85, 1.45], [-1.45, 3.72, 0.95]),
+    stove: CAM([0.4, 0.3, 1.55], [-0.2, 2.6, 1.15]),
+    sill: CAM([0.0, 2.35, 1.5], [-1.45, 3.72, 1.0]),
   };
   const merge = (...xs) => Object.assign({}, ...xs);
   // a person's whole starting state: where, facing, doing; nothing in the hands, no look, no reach, not seated
@@ -221,8 +221,10 @@ function room(scene) {
 
   const SEAT = [0.6, 3.45, 220], SEAT_H = 0.45;
   const IN = [-1.05, 4.4];
-  const ASK = [-0.1, 3.3], GIVE = [-0.25, 3.15], UNDER = [1.4, 3.75], STOVE = [-0.72, 1.45], WIN = [-0.95, 3.65];
+  const ASK = [-0.1, 3.3], GIVE = [-0.25, 3.15], UNDER = [1.4, 3.75], STOVE = [-0.85, 1.85], WIN = [-0.95, 3.65];
   const GIVE_AT = [0.2, 3.3, 1.0], WINDOW_AT = [-1.59, 3.65, 1.4];
+  // her look between him and us, so her face (and her sharp eyes) read
+  const TO_US = [0.15, 1.9, 1.3];
   // the room as it is on these mornings, but for what the game says (rain, sun, the cobweb, the dimness)
   const ROOM = { candle: 1, letter_table: false, tea: false, window: 0, wet: 0, hat_peg: true, door: 0.6,
     yard_man_here: false, yard_woman_here: false };
@@ -230,22 +232,23 @@ function room(scene) {
   // his frock coat drying (`coat_drying`, or as a caller says): he is in his dressing gown
   const dry = d => (d ?? !!scene.get('coat_drying'));
   const robe = d => (dry(d) ? V.dreamer_robe ?? null : null);
-  // Monday: Matryona at the stove (У4, the coat drying) or in the door (У: she has looked in)
-  const monday_m = (d, look = 'dreamer') => (dry(d) ? who('matryona', [...STOVE, 255], 'stand', { gait: 'old_walk', look })
-    : who('matryona', [...IN, 150], 'stand', { gait: 'old_walk', look }));
+  // Monday: Matryona at the stove, at his coat, talking to it and not to him (У4, the coat drying), or in the door
+  // looking at him (У: she has looked in)
+  const monday_m = d => (dry(d) ? who('matryona', [...STOVE, 220], 'stand', { gait: 'old_walk', look: 'coat_dry' })
+    : who('matryona', [...IN, 150], 'stand', { gait: 'old_walk', look: 'dreamer' }));
 
 
   // ---- the standing layouts (stage 4, `moment`), each where a piece leaves its people
   const layouts = {
     // Д1: the tea set down by the letter, Matryona asking him
     tea: () => merge(ROOM, SH.give, { letter_table: true, tea: true }, seated({ look: 'matryona' }),
-      who('matryona', [...ASK, 105], 'stand', { gait: 'old_walk', look: 'dreamer' })),
+      who('matryona', [...ASK, 115], 'stand', { gait: 'old_walk', look: TO_US })),
     // a finale's morning: Matryona holding out the letter to him
     letter: () => merge(ROOM, SH.give, seated({ look: 'matryona' }),
-      who('matryona', [...GIVE, 110], 'stand', { gait: 'old_walk', look: 'dreamer', with: ['letter'], reach: { r: GIVE_AT } })),
+      who('matryona', [...GIVE, 120], 'stand', { gait: 'old_walk', look: TO_US, with: ['letter'], reach: { r: GIVE_AT } })),
     // «Минута»'s last frame: Matryona under the cobweb (or the bare corner), he seated reading
     corner: () => merge(ROOM, SH.last, seated({ look: 'dreamer#letter_open', with: ['letter_open'], do: { motion: 'read', loop: true } }),
-      who('matryona', [...UNDER, 200], 'stand', { gait: 'old_walk', look: 'dreamer' })),
+      who('matryona', [...UNDER, 200], 'stand', { gait: 'old_walk', look: [0.7, 1.5, 1.35] })),
     // «Окно», Monday: he in his chair (in his dressing gown while his coat dries), Matryona at the stove or in the door
     monday: d => merge(ROOM, SH.stove, { coat_drying: dry(d) }, seated({ look: WINDOW_AT, wear: robe(d) }), monday_m(d)),
     // the open window: his hand on the wet sill; two crossing the yard below in the rain
