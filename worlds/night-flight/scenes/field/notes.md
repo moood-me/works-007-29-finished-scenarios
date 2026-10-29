@@ -132,3 +132,7 @@ point it looks at), from where the faces look.
 - `european`'s Robineau reads the game's `robineau` key (the contract lists it only for `takeoff`/`timetable`): the
   game should set it from the step's start.
 - `runup` does not set `roblet_spot`/`workbench` (the step's, as in `european`).
+
+## After the motions (2026-10-29)
+
+- `put_pocket` is played from 0.7 s: its first moments have the hands at the head (cast.md).

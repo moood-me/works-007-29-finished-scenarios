@@ -146,6 +146,13 @@ said to someone is in a medium or close shot.
 | release | next_evening | Rivière looks at the map a long time; close at the map (М1 `flag_late`) |
 | telegram | next_evening | Robineau lays the telegram; Rivière goes to the window, the dark field beyond |
 
+## After the browser test (2026-10-29)
+
+- The choices after `minute` and `shoulders` are Rivière's (a mark on `riviere#chest`): both pieces ended on a shot
+  without him (the key close; Robineau at his desk) — the mark had no place, the play waited. They now end on shots of
+  the two: `SH.minute` (from the front right: Rivière at the inker, the telegraphist's hand over the key) and
+  `SH.shoulders` (Rivière at the map, Robineau at his desk). Seen on the GPU (render 1262).
+
 ## Stage 5: what is not right yet
 
 - Faces turned to someone at the back of the room are seen in profile (the room is seen from its open side; a camera

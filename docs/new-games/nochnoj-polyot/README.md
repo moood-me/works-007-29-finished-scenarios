@@ -20,6 +20,8 @@
   `docs/history/2026-10-29-nochnoj-polyot-pieces.md`. Сторона игры (ветка `r3/night-flight-s5`): мини-игры
   настоящие, «Тронуть за плечо», таймеры, конец игры и карта; все шаги — на кусках сцен. История —
   `docs/history/2026-10-29-nochnoj-polyot-stage5-game.md`.
+- Правки после проверки в браузере (ветка `r3/night-flight-fix`): тупик выбора вне кадра, буря светлее, исход таймера
+  Ш2, нос в наборе высоты — `docs/history/2026-10-29-nochnoj-polyot-fixes.md`.
 
 Адрес игры в студии: `moood-me/works-007-29-finished-scenarios@r3/night-flight-game:games/night-flight`
 (страница игры — `http://localhost:8080/games/<адрес>`, «Play it»).

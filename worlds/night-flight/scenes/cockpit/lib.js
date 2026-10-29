@@ -60,11 +60,12 @@ function film(scene) {
     p.look(look);
     p.with([]);
   }
-  // one writes a note on his knee (Fabien) or his pad (the operator)
+  // one writes a note on his knee (Fabien) or his pad (the operator): `write_seated` — the cast's `write_knee` has
+  // the hands working before the chest, no pad on the knee (cast.md); writing on the pad is the nearer
   async function write(s, id, seconds = 2.5) {
     const p = s.person(id);
     p.look(`${id}#hand_r`);
-    p.do('write_knee');
+    p.do('write_seated');
     await s.wait(seconds);
   }
   // the operator taps the note out on his key

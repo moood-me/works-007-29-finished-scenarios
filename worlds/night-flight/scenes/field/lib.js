@@ -379,7 +379,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         await glide(s, SH.robineau_I, 1.5);
         b.look('robineau#form');
         await b.do('sign_paper');
-        await b.do('put_pocket');
+        await b.do('put_pocket', { from: 0.7 }); // (its first 0.7 s: the hands at the head — not this)
         b.with([]);
         b.do('hold_waist');
         b.look('riviere');
@@ -416,7 +416,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         r.reach(null);
         r.do('hands_behind');
         s.tell('fine_self:give');
-        await b.do('put_pocket');
+        await b.do('put_pocket', { from: 0.7 }); // (its first 0.7 s: the hands at the head — not this)
         b.with([]);
         b.do('hold_waist');
         s.tell('fine_self:pocket');

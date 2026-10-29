@@ -80,11 +80,22 @@ the note passing between them.
 
 ## Stage 5: what is not right yet
 
-- The nose is not raised in the climb (`climb` moves the sky, not the plane): a card assembly has no pitch in its
-  own plane (`place` turns an anchor by `facing` and `tilt`; `rotation` is a plane's). The sky sinking past reads as
-  the climb.
 - `roll` tilts the anchor about its length as seen from the side: the fuselage card leans toward or away from the
-  viewer (foreshortened), not banked across the frame.
+  viewer (foreshortened), not banked across the frame — that is a roll as it is, seen from beside.
+
+## After the browser test (2026-10-29)
+
+- **The nose raised in the climb.** The plane is a chain of three anchors: `plane_air` (where it is, `bob`),
+  `plane_pitch` on it at Fabien's seat (across −0.55, 1.6 m up) turned to face the right (`facing` 90 — its line runs
+  away from the viewer, so its `tilt` is the nose: key `pitch`, − up), and `plane` on that turned back (`facing` 270,
+  0.55 m along and 1.6 m down: where it was) with `roll` on its tilt as before. The script sets `pitch` from `climb`:
+  −14·sin(π·climb) — up as it starts climbing, the most halfway, level at the top. Seen on the GPU (render 1263).
+- **The storm lit.** The look `storm` brighter (ambient 0.72, its colour lighter, less haze), the cockpit lamps
+  stronger and wider (`panel` 2.3 / 1.8 m, `radio_lamp` 1.5 / 1.5 m); Fabien looks ahead a little toward the lens
+  (`STORM_LOOK`), his face lit by the lamp. The sky stays black-violet, the rain and the lightning as they were.
+- **Looks on the note.** The taker reads the note (`#note`, the cast part's point); the look comes off it before the
+  hand is emptied (`drop`) — the look stayed on a point gone with the part and warned.
+- `write_knee` (the cast's) has no pad on the knee: `write` plays `write_seated`.
 
 ## Contract for the check
 

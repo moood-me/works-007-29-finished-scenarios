@@ -80,3 +80,7 @@ the room's middle; the window's keys (lamp, floods, rain, plane, yard_*) are the
 ```json
 {"beats": {"office":{"after":[],"tells":["office:in"],"seconds":8}, "rises":{"after":["office"],"tells":["rises:up"],"seconds":5}, "gloves_on":{"after":["office","rises"],"tells":["gloves_on:end"],"seconds":4}, "tape_glove":{"after":["office","rises"],"tells":["tape_glove:end"],"seconds":4}, "leaves":{"after":["office","rises","gloves_on","tape_glove"],"tells":["leaves:door","leaves:look","leaves:gone"],"seconds":10}, "log":{"after":[],"tells":["log:open"],"seconds":5}, "log_done":{"after":[],"tells":["log_done:window"],"seconds":8}, "doorway":{"after":["log_done"],"tells":["doorway:in"],"seconds":4}}}
 ```
+
+## After the motions (2026-10-29)
+
+- `leave_turn` nod: the cast's `nod` has no nod (a still stand) — her look dips to his hands and comes back up.

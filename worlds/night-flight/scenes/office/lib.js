@@ -178,8 +178,13 @@ function film(scene) {
           await m.turn(95);
           m.look('riviere');
           await glide(s, HER.door.close, 1);
-          if (turn === 'nod') await m.do('nod');
-          else await s.wait(turn === 'wait' ? 3 : 1.5);
+          // (a nod: the head bowed to him and up again by her look — the cast's `nod` is a still stand, no nod in it)
+          if (turn === 'nod') {
+            m.look('riviere#hands');
+            await s.wait(0.6);
+            m.look('riviere');
+            await s.wait(0.9);
+          } else await s.wait(turn === 'wait' ? 3 : 1.5);
           m.do('stand');
         } else await s.wait(0.8);
         if (look === 'sky') m.look([0.4, 30, 14]);
