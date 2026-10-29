@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Field by the Hangar","translation":"Das Feld am Hangar","where":"worlds/night-flight/scenes/field/scene.json title"},
+  {"text":"Half past ten. His cap in his hands, his tool box already packed.","translation":"Halb elf. Die Mütze in den Händen, die Werkzeugkiste schon gepackt.","where":"worlds/night-flight/scenes/field/scene.json caption"}
+]}
