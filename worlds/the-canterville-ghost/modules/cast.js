@@ -204,44 +204,66 @@ const PINK = [0.95, 0.8, 0.84, 1];
 const TWIG = [0.3, 0.22, 0.18, 1];
 // a torch held upright in the right hand: a stave, a head of pitch-soaked tow, its flame glowing (the point `torch`:
 // a scene's fire and light there)
+// (what the torch keeps from frame to frame, F.keep: its heights up from the hand — the stave's foot and top, the
+// head, the flame —, its sizes, its colours; nothing made anew each frame)
+const TORCH = F => ({
+  up: [-0.26, 0.42, 0.47, 0.58].map(y => [0, y * F.fit.h, 0]),
+  head: [0.045 * F.k, 0.07 * F.fit.h, 0.045 * F.k],
+  flame: [0.05 * F.k, 0.1 * F.fit.h, 0.05 * F.k],
+  wood: [[0, WOOD]],
+});
 function torch(F) {
   const { add } = V();
-  const h = F.fit.h;
   const k = F.k;
+  const K = F.keep(TORCH);
   const hand = F.P('RightHand');
-  const top = add(hand, [0, 0.42 * h, 0]);
-  F.bar(add(hand, [0, -0.26 * h, 0]), top, 0.02 * k, 0.026 * k, [[0, WOOD]], 8, F.side('RightHand'));
-  const head = add(top, [0, 0.05 * h, 0]);
-  F.ball(head, UPRIGHT, [0.045 * k, 0.07 * h, 0.045 * k], PITCH, 10);
-  const flame = add(head, [0, 0.11 * h, 0]);
-  F.ball(flame, UPRIGHT, [0.05 * k, 0.1 * h, 0.05 * k], FLAME, 10);
+  F.bar(add(hand, K.up[0]), add(hand, K.up[1]), 0.02 * k, 0.026 * k, K.wood, 8, F.side('RightHand'));
+  F.ball(add(hand, K.up[2]), UPRIGHT, K.head, PITCH, 10);
+  const flame = add(hand, K.up[3]);
+  F.ball(flame, UPRIGHT, K.flame, FLAME, 10);
   F.point('torch', flame);
 }
 // a long paint brush in the right hand, pointing out before her and a little up
+const BRUSH = F => ({ lift: [0, 0.6, 0], tip: [0.008 * F.k, 0.018 * F.fit.h, 0.008 * F.k], axes: [null, null, null], wood: [[0, WOOD]] });
 function brush(F) {
   const { add, mul, unit } = V();
+  const K = F.keep(BRUSH);
   const hand = F.P('RightHand');
-  const dir = unit(add(F.fwd('Chest'), [0, 0.6, 0]));
-  F.bar(add(hand, mul(dir, -0.06 * F.fit.h)), add(hand, mul(dir, 0.2 * F.fit.h)), 0.007 * F.k, 0.004 * F.k, [[0, WOOD]], 6, F.side('Chest'));
-  F.ball(add(hand, mul(dir, 0.215 * F.fit.h)), [F.side('Chest'), dir, F.fwd('Chest')], [0.008 * F.k, 0.018 * F.fit.h, 0.008 * F.k], PITCH, 6);
+  const dir = unit(add(F.fwd('Chest'), K.lift));
+  F.bar(add(hand, mul(dir, -0.06 * F.fit.h)), add(hand, mul(dir, 0.2 * F.fit.h)), 0.007 * F.k, 0.004 * F.k, K.wood, 6, F.side('Chest'));
+  K.axes[0] = F.side('Chest');
+  K.axes[1] = dir;
+  K.axes[2] = F.fwd('Chest');
+  F.ball(add(hand, mul(dir, 0.215 * F.fit.h)), K.axes, K.tip, PITCH, 6);
 }
 // a cross of white and pink almond blossom held upright between both hands before the chest: two twigs, the flowers
 // bunched along them
 const CROSS = [[0, -0.3], [0, -0.24], [0, -0.18], [0, -0.12], [0, -0.06], [0, 0], [0, 0.06], [0, 0.12], [0, 0.18], [0, 0.23],
   [-0.15, 0.08], [-0.1, 0.08], [-0.05, 0.08], [0.05, 0.08], [0.1, 0.08], [0.15, 0.08]];
+// (what the cross keeps, F.keep: each flower's height up and its size, the twigs' ends, the axes, the colours)
+const ALMOND_CROSS = F => ({
+  up: CROSS.map(([, y]) => [0, y * F.fit.h, 0]),
+  ends: [[0, -0.32], [0, 0.25], [-0.17, 0.08], [0.17, 0.08]].map(([x, y]) => [x * F.fit.h, [0, y * F.fit.h, 0]]),
+  radii: CROSS.map((_, i) => { const r = (i % 3 === 1 ? 0.03 : 0.036) * F.k; return [r, r, r * 0.8]; }),
+  axes: [null, [0, 1, 0], null],
+  twig: [[0, TWIG]],
+});
 function almondCross(F) {
   const { add, mul, mix } = V();
   const h = F.fit.h;
   const k = F.k;
+  const K = F.keep(ALMOND_CROSS);
   const s = F.side('Chest');
   const f = F.fwd('Chest');
   const c = add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(f, 0.05 * k));
-  const at = (x, y) => add(c, add(mul(s, x * h), [0, y * h, 0]));
-  F.bar(at(0, -0.32), at(0, 0.25), 0.008 * k, 0.008 * k, [[0, TWIG]], 6, s);
-  F.bar(at(-0.17, 0.08), at(0.17, 0.08), 0.008 * k, 0.008 * k, [[0, TWIG]], 6, f);
+  const end = i => add(c, add(mul(s, K.ends[i][0]), K.ends[i][1]));
+  F.bar(end(0), end(1), 0.008 * k, 0.008 * k, K.twig, 6, s);
+  F.bar(end(2), end(3), 0.008 * k, 0.008 * k, K.twig, 6, f);
+  K.axes[0] = s;
+  K.axes[2] = f;
+  const front = mul(f, 0.012 * k);
   for (let i = 0; i < CROSS.length; i++) {
-    const r = (i % 3 === 1 ? 0.03 : 0.036) * k;
-    F.ball(add(at(CROSS[i][0], CROSS[i][1]), mul(f, 0.012 * k)), [s, [0, 1, 0], f], [r, r, r * 0.8], i % 3 === 1 ? PINK : BLOSSOM, 8);
+    F.ball(add(add(c, add(mul(s, CROSS[i][0] * h), K.up[i])), front), K.axes, K.radii[i], i % 3 === 1 ? PINK : BLOSSOM, 8);
   }
 }
 // a housekeeper's white cap: a soft crown set back on the head, a frilled band over the brow
