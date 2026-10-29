@@ -66,7 +66,6 @@ for (let j = 0; j < SLOTS; j++) {
 }
 e.at(R[0] + R[2] / 2, ny - size * 0.3, "name");
 // the leaf the wind turns: the right page lifted about the spine (its back a little darker), «It was.» on it
-e.layer("leaf", { pivot: [0.89, 0.5] }, (f) => {
-  sheet(f, R, false);
-  hand(f, WAS, R[0] + R[2] / 2, R[1] + R[3] * 0.42, 0.07);
-});
+e.layer("leaf", { pivot: [0.89, 0.5] }, (f) => sheet(f, R, false));
+// its word, on its face only (the animate hides it as the leaf shows its back)
+e.layer("leaf_word", { pivot: [0.89, 0.5] }, (f) => hand(f, WAS, R[0] + R[2] / 2, R[1] + R[3] * 0.42, 0.07));

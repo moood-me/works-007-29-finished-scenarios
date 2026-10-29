@@ -476,6 +476,8 @@ function film(scene) {
   // the pit's group seen whole, nearer: the scene's own camera dollied in (the operator on Lina came in at her side and
   // cut the spade off the frame)
   const AT_PIT = { ...CAM0, camera_x: 0.4, camera_z: 4.2 };
+  // the fountain's rim, the Traveller sitting on it, from a few steps before it (the operator came in to his knees)
+  const AT_RIM = { ...CAM0, camera_x: -2.3, camera_z: 8.2 };
 
   return {
     // П.1: the plateau's wind; the Traveller shakes his flask at his ear — empty — and comes on into the square, where
@@ -829,7 +831,8 @@ function film(scene) {
         t.turn(180);
         t.on(SEAT);
         t.do("sit_stone", { loop: true });
-        s.camera({ target: "traveller", shot: "medium" });
+        s.move("camera_z", AT_RIM.camera_z, { over: 2.5 });
+        s.move("camera_x", AT_RIM.camera_x, { over: 2.5 });
         await s.wait(1.5);
         t.with(["notebook"]);
         t.look("traveller#notebook");
@@ -848,7 +851,7 @@ function film(scene) {
     // on the rim, the rod beside him, the notebook on his knee
     story_wind: {
       after: ["story"], tells: ["story_wind:was"], seconds: 10,
-      from: () => merge(cam("traveller", "medium"), SQUARE0, { stump: "planted", rod: true, notebook_open: 1, notebook_page: "blank",
+      from: () => merge(AT_RIM, SQUARE0, { stump: "planted", rod: true, notebook_open: 1, notebook_page: "blank",
         notebook_name: 1 }, who("traveller", [SEAT[0], SEAT[1], 180], loop("sit_stone"), { on: SEAT, with: ["notebook"], look: "traveller#notebook" })),
       run: async (s) => {
         await s.move("notebook_turn", 1, { over: 2.5 });
@@ -858,7 +861,8 @@ function film(scene) {
         await s.wait(2.5);
         await s.move("notebook_open", 0, { over: 1 });
         s.person("traveller").look([0, 40, 6]);
-        s.camera({ target: null, glide: 4 });
+        s.move("camera_z", 0, { over: 4 });
+        s.move("camera_x", 0, { over: 4 });
         await s.wait(2);
       },
     },
