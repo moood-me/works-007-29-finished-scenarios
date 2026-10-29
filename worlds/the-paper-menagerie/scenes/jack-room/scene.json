@@ -1,0 +1,1216 @@
+{
+  "engine": 3,
+  "title": "Jack's Room",
+  "caption": "His bed, his window onto the street, and on the shelf the animals she folded.",
+  "horizon": 0.36,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.8,
+    "ambientColor": "#c4bedc",
+    "inside": 0.4,
+    "bounce": 0.55,
+    "haze": 0.04,
+    "hazeColor": "#d6a99a",
+    "hazeGlow": 0.08,
+    "tint": "#ffd9b4",
+    "tintStrength": 0.03,
+    "saturation": 0.96,
+    "vignette": 0.38,
+    "grain": 0.1,
+    "looks": {
+      "night": {
+        "ambient": 0.6,
+        "ambientColor": "#8f98cc",
+        "hazeColor": "#3a4470",
+        "hazeGlow": 0.12,
+        "tint": "#d2d8ff",
+        "tintStrength": 0.04,
+        "lights": {
+          "dusk": 0.4,
+          "afterglow": 0
+        }
+      },
+      "day": {
+        "ambient": 0.95,
+        "ambientColor": "#f2ece0",
+        "inside": 0.55,
+        "haze": 0.07,
+        "hazeColor": "#eadfcc",
+        "hazeGlow": 0.05,
+        "shafts": 1.2,
+        "tint": "#fff4e0",
+        "tintStrength": 0.03,
+        "lights": {
+          "afterglow": 0
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "lamp",
+      "of": "lamp#bulb",
+      "color": "#ffd29a",
+      "strength": 1.6,
+      "reach": 5,
+      "on": "lamp",
+      "flicker": 0.015
+    },
+    {
+      "id": "hall",
+      "of": "ceiling_hall#bulb",
+      "color": "#ffdcaa",
+      "strength": 1.3,
+      "reach": 4,
+      "on": "hall"
+    },
+    {
+      "id": "dusk",
+      "of": "window",
+      "daylight": 0.8
+    },
+    {
+      "id": "afterglow",
+      "from": [
+        -20,
+        12
+      ],
+      "color": "#f2c4b4",
+      "strength": 0.55
+    },
+    {
+      "id": "sun",
+      "from": [
+        -30,
+        28
+      ],
+      "through": [
+        "window"
+      ],
+      "color": "#fff0d2",
+      "strength": 2.0,
+      "on": "day"
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "moment": "night",
+    "menagerie": "shelf",
+    "night": 1,
+    "day": 0,
+    "lamp": 1,
+    "hall": 0,
+    "packed": false,
+    "shelf": "animals",
+    "zoo": false,
+    "scraps": false,
+    "box": "empty",
+    "box_a": -1.45,
+    "box_d": 3.0,
+    "box_e": 0,
+    "stir": false,
+    "hatch": 0,
+    "door": 270,
+    "goats_a": -0.55,
+    "goats_d": 4.12,
+    "goats_e": 0.88,
+    "laohu_out": true,
+    "laohu_a": -2.4,
+    "laohu_d": 3.88,
+    "laohu_e": 0.59,
+    "laohu_tape": true,
+    "laohu_fold": false,
+    "laohu_dust": false,
+    "laohu_asleep": false,
+    "laohu_ear": false,
+    "laohu_seam": false,
+    "dad_frog": false,
+    "jack_a": -2.05,
+    "jack_d": 3.25,
+    "jack_turn": 160,
+    "jack_on": [
+      -2.05,
+      3.25,
+      0.48
+    ],
+    "jack_do": "sitting_on_bed",
+    "jack_look": "shoebox#box",
+    "jack_mood": "sad",
+    "mom_here": false,
+    "mom_a": -2.05,
+    "mom_d": 3.62,
+    "mom_wear": {
+      "parts": []
+    },
+    "dad_here": false,
+    "dad_a": 1.05,
+    "dad_d": 3.3
+  },
+  "states": {
+    "moment": {
+      "values": [
+        "bedtime",
+        "night",
+        "hatch",
+        "ran",
+        "call",
+        "packed"
+      ],
+      "means": "which of the scenario's moments the room shows (notes.md has the table) — set at once, it sets the room's light, what stands where and who is here, by `menagerie` too: bedtime — the prologue's night (П.4), Mom sitting by Jack on his bed, Laohu by him; night — 1.6, Jack on his bed over the empty shoe box, the animals on the shelf, Laohu taped on the pillow; hatch — 1.6, the box shut on the stool under the open attic hatch in the hall, Jack under it; ran — 1.4 after running away, dusk: Jack at the window, the scraps on the sill, Dad at the shut door with the buns; call — 1.5 after running away, evening: Mom at the open door, Jack by the window with the scraps; packed — chapter 3 (3.2), the house sold: the room emptied, day, Jack grown"
+    },
+    "menagerie": {
+      "values": [
+        "shelf",
+        "attic",
+        "laohu",
+        "house"
+      ],
+      "means": "the game's «Зверинец», as it leaves the room (with `moment` sets what is where): shelf — not chosen yet, the animals at home on the shelf; attic (0) — all of them put away in the shoe box; laohu (1) — the rest put away, Laohu kept (asleep on the pillow); house (2) — none put away, the whole house awake (goats on the quilt, the buffalo on the sill, cranes on the curtains, frogs on the desk). In `packed`: attic — the box down from the attic, open on the floor, the dusty animals and Laohu out of it; laohu, house — Laohu alone on the bare shelf (house: Dad in the doorway with a paper frog)"
+    },
+    "night": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light toward night: 0 the spring dusk (pink and blue at the window), 1 night (navy and stars, Mark's window and the street lamp lit) — the look `night`"
+    },
+    "day": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light toward a spring afternoon: 1 day, the sun coming in at the window across the floor, dust in its beam — the look `day`"
+    },
+    "lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Jack's bedside lamp: 0 out, 1 lit — the warm light on the bed and the shelf"
+    },
+    "hall": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the hall's bare bulb: 0 out, 1 lit — the light on whoever stands at the door and under the hatch"
+    },
+    "packed": {
+      "type": "boolean",
+      "means": "the house sold and packed (chapter 3): the bed stripped to its ticking, the pillow, rug, curtains, lamp and pictures gone (their pale patches on the walls), cartons on the bed and the floor"
+    },
+    "shelf": {
+      "values": [
+        "animals",
+        "deer",
+        "empty",
+        "bare"
+      ],
+      "means": "what stands on the shelf: animals — the two goats, the deer, the buffalo, the books, the robot; deer — the goats and the buffalo out in the room, the deer left; empty — the animals put away, the books and the robot; bare — nothing (the room emptied). Its right end is Laohu's place when he is on the shelf (laohu_a −1.6, laohu_d 4.12, laohu_e 1.285)"
+    },
+    "zoo": {
+      "type": "boolean",
+      "means": "the whole house awake («Зверинец» 2): paper cranes perched on the curtains, the goats out (where goats_a/d/e put them), the buffalo in a flower pot on the sill, three frogs on the desk"
+    },
+    "scraps": {
+      "type": "boolean",
+      "means": "the torn pieces of Laohu laid out on the window sill (1.4 after running away)"
+    },
+    "box": {
+      "values": [
+        "none",
+        "empty",
+        "shut",
+        "opened"
+      ],
+      "means": "the shoe box, where box_a/d/e put it: none — not here; empty — its lid off and leaning by it, nothing in it yet; shut — the lid on (the animals inside); opened — down from the attic years on, dusty, the lid off, the dusty goats, deer and buffalo out round it"
+    },
+    "box_a": {
+      "range": [
+        -2.8,
+        2.4
+      ],
+      "means": "where the shoe box stands, metres right of the middle (the stool under the hatch: 1.5)"
+    },
+    "box_d": {
+      "range": [
+        2.5,
+        4.2
+      ],
+      "means": "where the shoe box stands, metres away (its front; the stool: 3.36)"
+    },
+    "box_e": {
+      "range": [
+        0,
+        1.5
+      ],
+      "means": "how high the shoe box stands (the floor 0; the stool 0.45; the quilt 0.48)"
+    },
+    "stir": {
+      "type": "boolean",
+      "means": "the box starts now and then, its lid lifting (Laohu scratching inside, the animals waking)"
+    },
+    "hatch": {
+      "range": [
+        0,
+        1
+      ],
+      "means": "the attic hatch in the hall ceiling: 0 shut (its cord hanging), 1 open (the lid hanging down, the dark attic up through it)"
+    },
+    "door": {
+      "range": [
+        180,
+        270
+      ],
+      "smooth": true,
+      "means": "Jack's door, degrees: 270 shut, 180 wide open into the hall; between, ajar"
+    },
+    "goats_a": {
+      "range": [
+        -2.8,
+        2.4
+      ],
+      "means": "where the two goats are when out (`zoo`), metres right of the middle (the sill −0.55; the quilt −2.45)"
+    },
+    "goats_d": {
+      "range": [
+        2.5,
+        4.2
+      ],
+      "means": "where the goats are, metres away (the sill 4.12; the quilt 2.85)"
+    },
+    "goats_e": {
+      "range": [
+        0,
+        1.5
+      ],
+      "means": "how high the goats are (the sill 0.88; the quilt 0.49)"
+    },
+    "laohu_out": {
+      "type": "boolean",
+      "means": "Laohu is to be seen (false: in the box, or torn to scraps)"
+    },
+    "laohu_a": {
+      "range": [
+        -2.8,
+        2.4
+      ],
+      "means": "where Laohu stands, metres right of the middle (the pillow −2.4; the shelf −1.6)"
+    },
+    "laohu_d": {
+      "range": [
+        2.5,
+        4.2
+      ],
+      "means": "where Laohu stands, metres away (the pillow 3.88; the shelf 4.12)"
+    },
+    "laohu_e": {
+      "range": [
+        0,
+        1.5
+      ],
+      "means": "how high Laohu stands (the floor 0; the quilt 0.49; the pillow 0.59; the shelf 1.285)"
+    },
+    "laohu_tape": {
+      "type": "boolean",
+      "means": "Laohu taped together after Mark tore him (1.5 on): a clear strip across his flank"
+    },
+    "laohu_fold": {
+      "type": "boolean",
+      "means": "Laohu as Mom folded him again in hospital: one fold too many at the tail, crooked; the old tape yellowed under fresh"
+    },
+    "laohu_dust": {
+      "type": "boolean",
+      "means": "Laohu dusty from years in the attic box"
+    },
+    "laohu_asleep": {
+      "type": "boolean",
+      "means": "Laohu asleep: his eyes two shut creases, his breath slow"
+    },
+    "laohu_ear": {
+      "type": "boolean",
+      "means": "the game's «Ухо»: Laohu has lost an ear, its stub taped flat"
+    },
+    "laohu_seam": {
+      "type": "boolean",
+      "means": "the game's «Шов»: the crooked seam — Laohu leans over to one side as he stands"
+    },
+    "dad_frog": {
+      "type": "boolean",
+      "means": "a paper frog sitting on Dad's hands (packed, «весь дом»)"
+    },
+    "jack_a": {
+      "range": [
+        -2.8,
+        2.4
+      ],
+      "means": "where Jack stands, metres right of the middle (the hall: 0.7…2.4)"
+    },
+    "jack_d": {
+      "range": [
+        2.5,
+        4.2
+      ],
+      "means": "where Jack stands, metres away"
+    },
+    "mom_a": {
+      "range": [
+        -2.8,
+        2.4
+      ],
+      "means": "where Mom stands, metres right of the middle (the hall: 0.7…2.4)"
+    },
+    "mom_d": {
+      "range": [
+        2.5,
+        4.2
+      ],
+      "means": "where Mom stands, metres away"
+    },
+    "dad_a": {
+      "range": [
+        -2.8,
+        2.4
+      ],
+      "means": "where Dad stands, metres right of the middle (the hall: 0.7…2.4)"
+    },
+    "dad_d": {
+      "range": [
+        2.5,
+        4.2
+      ],
+      "means": "where Dad stands, metres away"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The sky over the street",
+      "sky": true,
+      "redraw": {
+        "night": 0.1,
+        "day": 0.1
+      }
+    },
+    {
+      "id": "yard",
+      "name": "The front yard, the street, the lawns across it",
+      "plane": true,
+      "across": 0,
+      "distance": 60,
+      "elevation": -0.6,
+      "width": 300,
+      "depth": 110
+    },
+    {
+      "id": "street",
+      "name": "Mark's house across the street, the bus stop",
+      "across": -2.5,
+      "distance": 26,
+      "elevation": -0.6,
+      "height": 6,
+      "box": [
+        -11.5,
+        -6.4,
+        11.5,
+        0.05
+      ],
+      "redraw": {
+        "night": 0.5,
+        "day": 0.5
+      }
+    },
+    {
+      "id": "fence",
+      "name": "The front fence and the gate",
+      "across": -1.4,
+      "distance": 12.7,
+      "elevation": -0.6,
+      "height": 1.0,
+      "box": [
+        -6.1,
+        -1.05,
+        6.1,
+        0.03
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "The oak floor of the room and the hall",
+      "plane": true,
+      "inside": true,
+      "across": -0.2,
+      "distance": 3.15,
+      "width": 5.4,
+      "depth": 2.2
+    },
+    {
+      "id": "ceiling_room",
+      "name": "The ceiling of Jack's room",
+      "inside": true,
+      "across": -1.14,
+      "distance": 4.2,
+      "elevation": 2.5,
+      "facing": 180,
+      "height": 2.2,
+      "box": [
+        -1.78,
+        -2.17,
+        1.78,
+        0.03
+      ],
+      "tilt": -90
+    },
+    {
+      "id": "ceiling_hall",
+      "name": "The ceiling of the hall, the attic hatch in it",
+      "inside": true,
+      "across": 1.56,
+      "distance": 4.2,
+      "elevation": 2.5,
+      "facing": 180,
+      "height": 2.2,
+      "box": [
+        -0.94,
+        -2.17,
+        0.94,
+        0.03
+      ],
+      "tilt": -90
+    },
+    {
+      "id": "attic_dark",
+      "name": "The attic seen up through the open hatch",
+      "inside": true,
+      "across": 1.5,
+      "distance": 3.78,
+      "elevation": 3.05,
+      "facing": 180,
+      "height": 0.78,
+      "box": [
+        -0.33,
+        -0.76,
+        0.33,
+        0.02
+      ],
+      "tilt": -90
+    },
+    {
+      "id": "hatch_well",
+      "name": "The open hatch's far side",
+      "inside": true,
+      "across": 1.5,
+      "distance": 3.76,
+      "elevation": 2.5,
+      "facing": 180,
+      "height": 0.56,
+      "box": [
+        -0.31,
+        -0.56,
+        0.31,
+        0.01
+      ]
+    },
+    {
+      "id": "hatch_side",
+      "name": "The open hatch's right side",
+      "inside": true,
+      "across": 1.81,
+      "distance": 3.4,
+      "elevation": 2.5,
+      "facing": 270,
+      "height": 0.56,
+      "box": [
+        -0.36,
+        -0.56,
+        0.36,
+        0.01
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall: the window, the drawing, the hall",
+      "inside": true,
+      "across": -0.2,
+      "distance": 4.2,
+      "facing": 180,
+      "height": 2.52,
+      "box": [
+        -2.7,
+        -2.54,
+        2.7,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall over the bed",
+      "inside": true,
+      "across": -2.85,
+      "distance": 3.15,
+      "facing": 90,
+      "height": 2.52,
+      "box": [
+        -1.07,
+        -2.54,
+        1.07,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The hall's far wall and the coat pegs",
+      "inside": true,
+      "across": 2.45,
+      "distance": 3.15,
+      "facing": 270,
+      "height": 2.52,
+      "box": [
+        -1.07,
+        -2.54,
+        1.07,
+        0.02
+      ]
+    },
+    {
+      "id": "partition",
+      "name": "The wall between the room and the hall, the doorway",
+      "inside": true,
+      "across": 0.61,
+      "distance": 3.15,
+      "facing": 270,
+      "height": 2.52,
+      "box": [
+        -1.09,
+        -2.54,
+        1.09,
+        0.02
+      ]
+    },
+    {
+      "id": "partition_edge",
+      "name": "The partition's cut end",
+      "inside": true,
+      "across": 0.61,
+      "distance": 2.06,
+      "facing": 180,
+      "height": 2.52,
+      "box": [
+        -0.065,
+        -2.53,
+        0.065,
+        0.01
+      ]
+    },
+    {
+      "id": "door",
+      "name": "Jack's door",
+      "inside": true,
+      "across": 0.61,
+      "distance": 3.8,
+      "facing": 270,
+      "height": 2.0,
+      "box": [
+        -0.01,
+        -2.01,
+        0.85,
+        0.01
+      ],
+      "place": {
+        "facing": "door"
+      }
+    },
+    {
+      "id": "window",
+      "name": "The window onto the street",
+      "inside": true,
+      "across": -0.4,
+      "distance": 4.17,
+      "elevation": 0.85,
+      "facing": 180,
+      "height": 1.15,
+      "box": [
+        -0.74,
+        -1.24,
+        0.74,
+        0.05
+      ],
+      "translucent": 0.45
+    },
+    {
+      "id": "sill",
+      "name": "The window sill: the scraps, the buffalo in its pot",
+      "inside": true,
+      "across": -0.4,
+      "distance": 4.11,
+      "elevation": 0.88,
+      "facing": 180,
+      "height": 0.25,
+      "box": [
+        -0.55,
+        -0.26,
+        0.55,
+        0.02
+      ]
+    },
+    {
+      "id": "goats",
+      "name": "The paper goats out of the shelf",
+      "inside": true,
+      "across": -0.55,
+      "distance": 4.12,
+      "elevation": 0.88,
+      "height": 0.22,
+      "box": [
+        -0.26,
+        -0.22,
+        0.26,
+        0.01
+      ],
+      "place": {
+        "across": "goats_a",
+        "distance": "goats_d",
+        "elevation": "goats_e"
+      }
+    },
+    {
+      "id": "shelf",
+      "name": "The shelf over the bed: the paper animals, the books, the robot",
+      "inside": true,
+      "across": -1.95,
+      "distance": 4.12,
+      "elevation": 1.25,
+      "facing": 180,
+      "height": 0.45,
+      "box": [
+        -0.62,
+        -0.26,
+        0.62,
+        0.12
+      ]
+    },
+    {
+      "id": "bed_head",
+      "name": "The bed's headboard",
+      "inside": true,
+      "across": -2.355,
+      "distance": 4.16,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -0.5,
+        -1.0,
+        0.5,
+        0.01
+      ],
+      "shadow": true
+    },
+    {
+      "id": "bed_top",
+      "name": "The bed: the patchwork quilt, the sheet turned down",
+      "plane": true,
+      "inside": true,
+      "across": -2.355,
+      "distance": 3.325,
+      "elevation": 0.48,
+      "width": 0.96,
+      "depth": 1.66
+    },
+    {
+      "id": "pillow",
+      "name": "The pillow",
+      "inside": true,
+      "across": -2.355,
+      "distance": 3.92,
+      "elevation": 0.48,
+      "height": 0.27,
+      "box": [
+        -0.82,
+        -0.27,
+        0.82,
+        0.01
+      ],
+      "shadow": true
+    },
+    {
+      "id": "bed_side",
+      "name": "The bed's long side, the quilt hanging over it",
+      "inside": true,
+      "across": -1.875,
+      "distance": 3.325,
+      "facing": 90,
+      "height": 0.5,
+      "box": [
+        -0.84,
+        -0.5,
+        0.84,
+        0.01
+      ],
+      "shadow": true
+    },
+    {
+      "id": "bed_foot",
+      "name": "The bed's footboard",
+      "inside": true,
+      "across": -2.355,
+      "distance": 2.49,
+      "facing": 180,
+      "height": 0.65,
+      "box": [
+        -0.52,
+        -0.65,
+        0.52,
+        0.01
+      ],
+      "shadow": true
+    },
+    {
+      "id": "nightstand",
+      "name": "The bedside cupboard",
+      "inside": true,
+      "across": -1.55,
+      "distance": 3.98,
+      "facing": 180,
+      "height": 0.55,
+      "box": [
+        -0.22,
+        -0.56,
+        0.22,
+        0.01
+      ],
+      "shadow": true
+    },
+    {
+      "id": "nightstand_top",
+      "name": "The bedside cupboard's top",
+      "plane": true,
+      "inside": true,
+      "across": -1.55,
+      "distance": 4.13,
+      "elevation": 0.55,
+      "width": 0.44,
+      "depth": 0.3
+    },
+    {
+      "id": "lamp",
+      "name": "The bedside lamp and the alarm clock",
+      "inside": true,
+      "across": -1.58,
+      "distance": 4.1,
+      "elevation": 0.55,
+      "height": 0.34,
+      "box": [
+        -0.16,
+        -0.35,
+        0.18,
+        0.01
+      ]
+    },
+    {
+      "id": "desk",
+      "name": "Jack's desk under the window",
+      "inside": true,
+      "across": -0.4,
+      "distance": 3.88,
+      "facing": 180,
+      "height": 0.72,
+      "box": [
+        -0.51,
+        -0.73,
+        0.51,
+        0.01
+      ],
+      "shadow": true
+    },
+    {
+      "id": "desk_top",
+      "name": "The desk's top: exercise books, crayons",
+      "plane": true,
+      "inside": true,
+      "across": -0.4,
+      "distance": 4.03,
+      "elevation": 0.72,
+      "width": 1.0,
+      "depth": 0.32
+    },
+    {
+      "id": "frogs",
+      "name": "Paper frogs on the desk",
+      "inside": true,
+      "across": -0.15,
+      "distance": 3.98,
+      "elevation": 0.72,
+      "height": 0.05,
+      "box": [
+        -0.17,
+        -0.05,
+        0.17,
+        0.01
+      ]
+    },
+    {
+      "id": "chair",
+      "name": "Jack's chair at the desk",
+      "inside": true,
+      "across": -0.25,
+      "distance": 3.5,
+      "facing": 180,
+      "height": 0.86,
+      "box": [
+        -0.22,
+        -0.87,
+        0.22,
+        0.01
+      ],
+      "shadow": true
+    },
+    {
+      "id": "stool",
+      "name": "The step stool under the hatch",
+      "inside": true,
+      "across": 1.5,
+      "distance": 3.4,
+      "facing": 180,
+      "height": 0.47,
+      "box": [
+        -0.21,
+        -0.47,
+        0.21,
+        0.01
+      ],
+      "shadow": true
+    },
+    {
+      "id": "hatch_lid",
+      "name": "The attic hatch's lid hanging open",
+      "inside": true,
+      "across": 1.5,
+      "distance": 3.75,
+      "elevation": 2.5,
+      "facing": 180,
+      "height": 1.05,
+      "box": [
+        -0.31,
+        -0.01,
+        0.31,
+        1.05
+      ]
+    },
+    {
+      "id": "hatch_cord",
+      "name": "The shut hatch's pull cord",
+      "inside": true,
+      "across": 1.5,
+      "distance": 3.07,
+      "elevation": 2.5,
+      "facing": 180,
+      "height": 0.32,
+      "box": [
+        -0.02,
+        -0.01,
+        0.02,
+        0.32
+      ]
+    },
+    {
+      "id": "cartons",
+      "name": "Cardboard cartons, packed",
+      "inside": true,
+      "across": 0.2,
+      "distance": 2.8,
+      "facing": 180,
+      "height": 0.42,
+      "box": [
+        -0.26,
+        -0.43,
+        0.26,
+        0.01
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 0.2,
+          "distance": 2.8
+        },
+        {
+          "across": 0.18,
+          "distance": 2.88,
+          "elevation": 0.42,
+          "scale": 0.8,
+          "tint": "#f0e6d8"
+        },
+        {
+          "across": -2.5,
+          "distance": 2.75,
+          "elevation": 0.48,
+          "scale": 0.85,
+          "tint": "#e8dccb"
+        },
+        {
+          "across": -2.2,
+          "distance": 3.3,
+          "elevation": 0.48,
+          "scale": 0.75
+        }
+      ]
+    },
+    {
+      "id": "carton_tops",
+      "name": "The cartons' taped tops",
+      "plane": true,
+      "inside": true,
+      "across": 0.2,
+      "distance": 3.0,
+      "elevation": 0.42,
+      "width": 0.5,
+      "depth": 0.4,
+      "copies": [
+        {
+          "across": 0.2,
+          "distance": 3.0,
+          "elevation": 0.42
+        },
+        {
+          "across": 0.18,
+          "distance": 3.04,
+          "elevation": 0.756,
+          "scale": 0.8,
+          "tint": "#f0e6d8"
+        },
+        {
+          "across": -2.5,
+          "distance": 2.92,
+          "elevation": 0.837,
+          "scale": 0.85,
+          "tint": "#e8dccb"
+        },
+        {
+          "across": -2.2,
+          "distance": 3.45,
+          "elevation": 0.7949999999999999,
+          "scale": 0.75
+        }
+      ]
+    },
+    {
+      "id": "shoebox",
+      "name": "The shoe box",
+      "inside": true,
+      "across": -1.45,
+      "distance": 3.0,
+      "height": 0.3,
+      "box": [
+        -0.62,
+        -0.3,
+        0.62,
+        0.01
+      ],
+      "shadow": true,
+      "place": {
+        "across": "box_a",
+        "distance": "box_d",
+        "elevation": "box_e"
+      }
+    },
+    {
+      "id": "shoebox_top",
+      "name": "The shoe box from above",
+      "plane": true,
+      "inside": true,
+      "on": "shoebox",
+      "across": 0,
+      "distance": 0.1,
+      "elevation": 0.13,
+      "width": 0.36,
+      "depth": 0.22
+    },
+    {
+      "id": "laohu",
+      "name": "Laohu, the paper tiger",
+      "inside": true,
+      "across": -2.4,
+      "distance": 3.88,
+      "elevation": 0.59,
+      "height": 0.32,
+      "box": [
+        -0.24,
+        -0.32,
+        0.27,
+        0.01
+      ],
+      "shadow": true,
+      "place": {
+        "across": "laohu_a",
+        "distance": "laohu_d",
+        "elevation": "laohu_e"
+      }
+    },
+    {
+      "id": "motes",
+      "name": "Dust in the sunlight",
+      "inside": true,
+      "across": -0.4,
+      "distance": 3.0,
+      "elevation": 1.2,
+      "particles": {
+        "kind": "dust",
+        "source": [
+          1.8,
+          1.8,
+          1.6
+        ],
+        "amount": "day"
+      }
+    },
+    {
+      "id": "jack",
+      "name": "Jack",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "jack",
+        "turn": 160,
+        "does": "sitting_on_bed"
+      },
+      "across": -2.05,
+      "distance": 3.25,
+      "place": {
+        "across": "jack_a",
+        "distance": "jack_d"
+      }
+    },
+    {
+      "id": "mom",
+      "name": "Mom",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "mom",
+        "turn": 200
+      },
+      "across": -2.05,
+      "distance": 3.62,
+      "place": {
+        "across": "mom_a",
+        "distance": "mom_d"
+      }
+    },
+    {
+      "id": "dad",
+      "name": "Dad",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "dad",
+        "turn": 235
+      },
+      "across": 1.05,
+      "distance": 3.3,
+      "place": {
+        "across": "dad_a",
+        "distance": "dad_d"
+      }
+    },
+    {
+      "id": "frog",
+      "name": "The paper frog on Dad's palm",
+      "inside": true,
+      "across": 1.05,
+      "distance": 3.3,
+      "height": 1.9,
+      "box": [
+        -0.9,
+        -1.95,
+        0.9,
+        0.05
+      ],
+      "place": {
+        "across": "dad_a",
+        "distance": "dad_d"
+      },
+      "inFront": [
+        "dad"
+      ]
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a gentle Chinese lullaby on solo erhu, very slow, a mother humming a child to sleep",
+        "weight": 1.1
+      },
+      {
+        "text": "soft felt piano in a child's bedroom at night, plain chords, slow, tender",
+        "weight": 1.0
+      },
+      {
+        "text": "music box playing a simple folk tune, delicate, paper-thin, wonder",
+        "weight": 0.8
+      },
+      {
+        "text": "guzheng plucked softly, sparse notes, a quiet night",
+        "weight": 0.4
+      },
+      {
+        "text": "celesta and glockenspiel, small magical sparkles, childlike wonder",
+        "weight": 0
+      },
+      {
+        "text": "acoustic guitar fingerpicking, an American suburb at night, warm and simple",
+        "weight": 0
+      },
+      {
+        "text": "bamboo flute, breathy and slow, a faraway village remembered",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, very soft, bittersweet, restrained",
+        "weight": 0
+      },
+      {
+        "text": "toy piano, slightly out of tune, slow, intimate",
+        "weight": 0
+      },
+      {
+        "text": "ambient pad like lamplight on paper, slow warm swells",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, low and tender, a lament held back",
+        "weight": 0
+      },
+      {
+        "text": "harp arpeggios, gentle, luminous, dreamlike",
+        "weight": 0
+      },
+      {
+        "text": "rustling paper and soft wooden percussion, light, playful, slow",
+        "weight": 0
+      },
+      {
+        "text": "pipa, gentle tremolo, melancholy and warm",
+        "weight": 0
+      },
+      {
+        "text": "wordless humming, a woman's voice far away, lullaby",
+        "weight": 0
+      },
+      {
+        "text": "an empty house in spring daylight, sparse piano and room tone, quiet and open",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.2,
+    "brightness": 0.42,
+    "scale": "G_MAJOR_E_MINOR"
+  }
+}
