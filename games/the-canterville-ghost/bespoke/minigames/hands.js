@@ -290,7 +290,7 @@ export async function line(g, b, mg, { from, to, tolerance = 40, progress = () =
   const mark = mg.mark({ at: from, kind: 'dash' });
   const trace = mg.trace({ on: mark, line: [from, to], tolerance });
   const taught = teach(b, mg, [trace]);
-  let offs = 0, begun = null, self = null, from = 0;
+  let offs = 0, begun = null, self = null, was = 0;
   const t00 = mg.t;
   const touch = mg.on('down', () => { begun ??= mg.t; });
   const wrong = trace.on('off', () => {
@@ -301,8 +301,8 @@ export async function line(g, b, mg, { from, to, tolerance = 40, progress = () =
   });
   const done = await until(mg, ({ t }) => {
     const s = trace.state;
-    if (self == null && begun != null && t - begun >= LIMIT) { self = t; from = s.u; }
-    const u = self == null ? s.u : clamp(from + (1 - from) * (t - self) / SELF);
+    if (self == null && begun != null && t - begun >= LIMIT) { self = t; was = s.u; }
+    const u = self == null ? s.u : clamp(was + (1 - was) * (t - self) / SELF);
     progress(u);
     mg.plate.set({ fill: u, glow: s.tracing ? 'good' : 'idle' });
     return u >= 0.99 || (begun == null && t - t00 >= ALONE);
