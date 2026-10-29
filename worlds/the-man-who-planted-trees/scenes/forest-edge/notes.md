@@ -74,3 +74,45 @@ points (`#rod`, `#pail`, `#notebook`, `#axe`, `#basket`).
   palm on a stump and the rod between the stumps want stage 5's close shots.
 - The stumps and the oaks are separate copies by kind; a stump keeps the oak's copy scale.
 - The Road's row past fourteen stands as a second row beside the first (one tree a year for 24 years).
+
+## Pieces (stage 5)
+
+`lib.js` `film(scene)`, played by `script.js` (modules/beats: the game sets `beat`). A piece's `from` sets its
+people's places, turns, motions, looks, what they hold, the camera and its own things (`rod_ground`, `pail`,
+`new_beech`) — never the game's `_here`, `_mood`, the year's and the branch's keys (the moment's, then the game's), nor
+`_wear` (the moment's look of the year). Close shots are the operator's (`camera_target` + `camera_shot`). People's
+new motions are the cast's: `plant_rod`, `sit_stone`, `touch_bark`, `write_standing`, `laugh_short`, `palm_stump`,
+`walk_old` (Elzéard's gait at 75 and 85).
+
+| piece | place | what it shows (the tells: where the game says its lines) |
+|---|---|---|
+| `rod_mist` | slope0 | the mist; Elzéard drives the rod in three times (`blow`), the Traveller watching — then МИ2 at `plant_spot` |
+| `stone` | slope0 | both on the flat stone (`sit`), the rod in the ground by them |
+| `rod_left` | slope0 | he leaves the rod in the earth and goes to the sheep (`gone`) — the choice on `rod#top` |
+| `took_rod` | slope0, after `rod_left` | the Traveller plants, clumsy; Elzéard comes back, looks at the hole (`back`), plants on |
+| `counting` | slope0, after `rod_left` | Elzéard plants on; the Traveller counts (`count`) |
+| `oaks` | slope6 | the Traveller to the bank; Elzéard at his hives (`hives`); when `lina_here`: Lina's palm on an oak (`lina`), she runs down; «Зря» — Elzéard close (`zrya`) |
+| `own_oak` | slope6, after `oaks` | Elzéard leads him to the crooked oak by the stone (`there`) |
+| `edge` | edge20 | the Traveller comes to his row's end (Road) or his slope (`arrive`); Lina by the stream |
+| `axe` | edge20, after `edge` | Lina on the path before the axeman (`path`, `nobody`), «Не ничей!» close (`loud`), «А чей?» (`whose`), he goes (`go`) |
+| `beech` | edge20, after `edge` | the Traveller with the rod at this year's beech (`ready`) — then МИ4 on `new_beech` |
+| `delegation` | edge20 | Lina leads the chief, the ranger and Jan up from the valley (`jan_place`); the chief (`chief`), his laugh (`laugh`); Jan knows him (`alive`), a hand on his shoulder (`hug`), «Ты тогда сюда наверх ушёл» (`up`) |
+| `the_row` | edge20, after `delegation` | along a row to the wood; Jan's palm on the bark (`bark`), the notebook (`page`), Jan close — then Ш2 |
+| `named` | edge20, after `the_row` | Jan close (`good`), reads to the chief (`read`, `chief`); Lina close (`lina`), she walks ahead |
+| `unnamed` | edge20, after `the_row` | Jan's page or his hand on the shoulder (`silent`) (`jan`); the chief reads (`read`), Jan looks at the lower edge (`look`); Lina on the path before the chief, close (`lina`, `whose`, `answer`); he goes down (`down`) |
+| `stumps` | stumps20 | Jan's palm on a stump (`palm`), he goes down (`down`); Elzéard down between the stumps, plants (`rod`); the Traveller beside him (the guiding `stumps`); Lina close (`lina`) |
+| `plaque` | board30 | visitors at the board (`read`); the Traveller plants the rod under it (`rod`) and goes |
+| `two_rods` | beeches30 | he plants among his beeches by Elzéard's rod (`plant`) |
+| `pupil` | pupil30 | «Это вы — Эльзеар?» (`ask`) — «Нет» (`no`); he gives the boy the rod and sets his hands (`hands`) |
+
+Keys for the pieces: `new_beech` (none | crooked | straight — МИ4 drives it; on the Road set `beech_row` 14 and
+`new_beech` none once the year's tree stands in the row), `silent` (the game's: Ш2 silence — Jan's hand).
+
+Not right yet: the embrace is a hand on the shoulder (two people touching is not Kimodo's); the pail's notebook leaves
+want an insert («Два прута»); the Traveller's acorn in the hand (МИ2) is the mini-game's.
+
+## Contract for the check
+
+```json
+{"beats":{"rod_mist":{"after":[],"tells":["rod_mist:blow"],"seconds":22},"stone":{"after":[],"tells":["stone:sit"],"seconds":8},"rod_left":{"after":[],"tells":["rod_left:gone"],"seconds":9},"took_rod":{"after":["rod_left"],"tells":["took_rod:back"],"seconds":18},"counting":{"after":["rod_left"],"tells":["counting:count"],"seconds":18},"oaks":{"after":[],"tells":["oaks:hives","oaks:lina","oaks:zrya"],"seconds":26},"own_oak":{"after":["oaks"],"tells":["own_oak:there"],"seconds":14},"edge":{"after":[],"tells":["edge:arrive"],"seconds":12},"axe":{"after":["edge"],"tells":["axe:path","axe:nobody","axe:loud","axe:whose","axe:go"],"seconds":26},"beech":{"after":["edge"],"tells":["beech:ready"],"seconds":7},"delegation":{"after":[],"tells":["delegation:jan_place","delegation:chief","delegation:laugh","delegation:alive","delegation:hug","delegation:up"],"seconds":34},"the_row":{"after":["delegation"],"tells":["the_row:bark","the_row:page"],"seconds":22},"named":{"after":["the_row"],"tells":["named:good","named:read","named:chief","named:lina"],"seconds":32},"unnamed":{"after":["the_row"],"tells":["unnamed:jan","unnamed:read","unnamed:look","unnamed:lina","unnamed:whose","unnamed:answer","unnamed:down"],"seconds":34},"stumps":{"after":[],"tells":["stumps:palm","stumps:down","stumps:rod","stumps:lina"],"seconds":60},"plaque":{"after":[],"tells":["plaque:read","plaque:rod"],"seconds":22},"two_rods":{"after":[],"tells":["two_rods:plant"],"seconds":12},"pupil":{"after":[],"tells":["pupil:ask","pupil:no","pupil:hands"],"seconds":18}},"points":["plant_spot","rod#top","bread#seat","bread#loaf","hives:0","edge_first:0#bark","edge_first:1#bark","edge_a:0#bark","edge_first:0#cut","edge_a:0#cut","own_oak#bark","beech_next","slope_spot","new_beech#top","row_from","row_to","board#plate","board#foot","pail#top","stump_bread#loaf","traveller#rod","traveller#hand_r","elzeard#rod","jan#notebook","boy#hand_r"],"keys":["moment","beat","beat_next","new_beech","new_beech_a","new_beech_d","silent","rod_ground","rod_a","rod_d","pail","bread","hives","stumps","stump_bread","own_oak","beeches","beech_row","board"]}
+```

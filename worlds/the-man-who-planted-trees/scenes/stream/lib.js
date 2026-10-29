@@ -214,4 +214,139 @@ function beech(g, e, o) {
   else crown(g);
 }
 
-return { streamX, streamW, slope, channel, ground, WATER, oak, grownOak, oakOf, beech };
+// The stream's pieces (stage 5; modules/beats; the contract: game.md «Stage 5 — pieces» and notes.md «Contract for
+// the check»): `film(scene)` — each piece `{after, tells, seconds, from, run}`. `from` sets everything a piece begins at
+// — its people's places, turns, what they do, hold and look at, the camera — but never the game's: `<id>_here`,
+// `<id>_mood`, the year's keys (the moment sets those) nor `<id>_wear`. The scene tells `<piece>:<moment>` where the
+// game says its lines, and leaves the line's time after it.
+function FILM(scene) {
+  const CAM0 = { camera_target: null, camera_shot: "full", camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
+    camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
+  const who = (id, [a, d, turn], does = "stand", more = {}) => {
+    const o = { [`${id}_a`]: a, [`${id}_d`]: d, [`${id}_turn`]: turn, [`${id}_do`]: does, [`${id}_look`]: null, [`${id}_reach`]: null,
+      [`${id}_on`]: null, [`${id}_with`]: [], [`${id}_gait`]: null };
+    for (const [k, v] of Object.entries(more)) o[`${id}_${k}`] = v;
+    return o;
+  };
+  const merge = (...xs) => Object.assign({}, ...xs);
+  // shots: the eye and what it looks at (metres: across, ahead, up), glided to — the picture camera moved, never the
+  // operator (the picture's camera walks through no one); `wide` — back to the picture
+  const DEG = 180 / Math.PI, EYE = 1.7, CAMK = ["camera_x", "camera_z", "camera_h", "camera_yaw", "camera_pitch"];
+  const CAM = ([ex, ez, eh], [tx, tz, th]) => ({ ...CAM0, camera_x: ex, camera_z: ez, camera_h: eh - EYE,
+    camera_yaw: Math.atan2(tx - ex, tz - ez) * DEG, camera_pitch: Math.atan2(th - eh, Math.hypot(tx - ex, tz - ez)) * DEG });
+  const view = (s, c, over = 1.5) => (over ? s.all(...CAMK.map((k) => s.move(k, c[k], { over, ease: "inOut" }))) : s.all(...CAMK.map((k) => s.set(k, c[k]))));
+  const wide = (s, over = 1.5) => view(s, CAM0, over);
+  const SH = {
+    lina: CAM([0.2, 5.6, 1.5], [-1.0, 7.6, 1.5]),
+    palms: CAM([-2.6, 4.6, 1.2], [-1.0, 7.0, 0.8]),
+    letter: CAM([-0.2, 5.4, 1.55], [-0.9, 7.6, 1.5]),
+    maples: CAM([2.0, 6.4, 1.6], [4.6, 12.0, 1.2]),
+  };
+  const LINA = [-1.0, 7.6];
+
+  return {
+    // 2.2: the sound of water; the Traveller comes down to the stream; Lina by it, her pail — she knows him
+    water: {
+      after: [], tells: ["water:meet"], seconds: 12,
+      from: () => merge(CAM0, who("traveller", [4.2, 1.6, 330], "stand", { look: [-2.5, 9, 0] }), who("lina", [...LINA, 120], "stand", { look: [-2.6, 8.2, -0.3] })),
+      run: async (s) => {
+        const t = s.person("traveller"), l = s.person("lina");
+        await t.walk([[3.2, 4.4], [2.6, 5.8]]);
+        await t.turn(240);
+        l.look("traveller");
+        t.look("lina");
+        view(s, SH.lina);
+        s.tell("water:meet");
+        await s.wait(3);
+        wide(s);
+      },
+    },
+    // 2.3: both kneel at the water — then МИ3 (the Traveller's right hand in the water)
+    palms: {
+      after: ["water"], tells: ["palms:kneel"], seconds: 9,
+      from: () => merge(CAM0, who("traveller", [2.6, 5.8, 240], "stand", { look: "lina" }), who("lina", [...LINA, 120], "stand", { look: "traveller" })),
+      run: async (s) => {
+        const t = s.person("traveller"), l = s.person("lina");
+        await s.all(t.walk([[-0.9, 6.3]]), l.walk([[-1.0, 7.5]]));
+        await s.all(t.turn(265), l.turn(265));
+        t.do("kneel_water");
+        l.do("kneel_water");
+        t.look([-2.2, 6.6, -0.3]);
+        l.look([-2.2, 7.6, -0.3]);
+        view(s, SH.palms);
+        s.tell("palms:kneel");
+        await s.wait(2);
+      },
+    },
+    // 2.4: Lina stands with her letter, writes, and looks up the slope — then the choice «Откуда вода»
+    letter: {
+      after: [], tells: ["letter:write", "letter:look"], seconds: 14,
+      from: () => merge(CAM0, who("traveller", [0.4, 6.6, 250], "stand", { look: "lina" }), who("lina", [-0.9, 7.6, 120], "write_standing", { with: ["letter"], look: "lina#letter" })),
+      run: async (s) => {
+        const l = s.person("lina");
+        view(s, SH.letter, 0);
+        s.tell("letter:write");
+        await s.wait(4);
+        l.do("stand");
+        l.look([4, 60, 18]);
+        s.tell("letter:look");
+        await s.wait(3);
+        l.look("traveller");
+        wide(s);
+      },
+    },
+    // 2.4 «Это он»: the letter into her pocket; they go up the path toward the slope
+    letter_pocket: {
+      after: ["letter"], tells: ["letter_pocket:go"], seconds: 10,
+      from: () => merge(CAM0, who("traveller", [0.4, 6.6, 250], "stand", { look: "lina" }), who("lina", [-0.9, 7.6, 120], "stand", { with: ["letter"], look: "traveller" })),
+      run: async (s) => {
+        const l = s.person("lina"), t = s.person("traveller");
+        l.with([]);
+        s.tell("letter_pocket:go");
+        await s.wait(1.5);
+        await s.all(l.walk([[0.4, 9.4], [1.4, 13.2], [3.6, 16.8]]), s.sequence(async (q) => {
+          await q.wait(0.6);
+          await q.person("traveller").walk([[0.9, 9.0], [1.9, 13.0], [4.2, 16.6]]);
+        }));
+      },
+    },
+    // 2.4 «Земля отдохнула» / silence: she writes on; (silence) once more she looks up the slope
+    letter_write: {
+      after: ["letter"], tells: ["letter_write:look"], seconds: 9,
+      from: () => merge(CAM0, who("traveller", [0.4, 6.6, 250], "stand", { look: "lina" }), who("lina", [-0.9, 7.6, 120], "write_standing", { with: ["letter"], look: "lina#letter" })),
+      run: async (s) => {
+        const l = s.person("lina");
+        await s.wait(3);
+        l.look([4, 60, 18]);
+        s.tell("letter_write:look");
+        await s.wait(2.5);
+        l.look("lina#letter");
+        await s.wait(1.5);
+      },
+    },
+    // 2.6: the far edge — rows of dry maple sticks, the tiny beeches; Elzéard points
+    maples: {
+      after: [], tells: ["maples:point", "maples:beeches"], seconds: 12,
+      from: () => merge(CAM0, who("elzeard", [3.2, 10.2, 250], "stand", { look: "traveller" }), who("traveller", [1.4, 9.4, 115], "stand", { look: "elzeard" })),
+      run: async (s) => {
+        const e = s.person("elzeard");
+        view(s, SH.maples);
+        await e.turn(80);
+        e.look("maple_sticks:8");
+        e.do("point");
+        s.person("traveller").look("maple_sticks:8");
+        s.tell("maples:point");
+        await s.wait(3);
+        e.do("stand");
+        e.look("beech_young:4");
+        s.tell("maples:beeches");
+        await s.wait(2.5);
+        await e.turn(250);
+        e.look("traveller");
+        wide(s);
+      },
+    },
+  };
+}
+
+return { streamX, streamW, slope, channel, ground, WATER, oak, grownOak, oakOf, beech, film: FILM };

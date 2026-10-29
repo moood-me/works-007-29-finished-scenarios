@@ -188,6 +188,21 @@ return {
         F.ball(c, axes, [0.016 * m, 0.1 * m, 0.075 * m], BOOK, 6, 3);
         F.point('notebook', c);
       } },
+      // a sheet of letter paper held in the left hand, a little open, its point `letter`
+      letter: { name: 'letter', draw: F => {
+        const { add, mul } = V(), m = F.fit.h, axes = [F.side('LeftHand'), F.up('LeftHand'), F.fwd('LeftHand')];
+        const c = add(F.P('LeftHand'), mul(axes[2], 0.06 * m));
+        F.ball(c, axes, [0.004 * m, 0.11 * m, 0.08 * m], [0.9, 0.87, 0.8, 1], 4, 4);
+        F.point('letter', c);
+      } },
+      // a dried gourd of water held out in the right hand, round, its neck up; its point `gourd`
+      gourd: { name: 'gourd', draw: F => {
+        const { add, mul } = V(), m = F.fit.h, axes = [F.side('RightHand'), [0, 1, 0], F.fwd('RightHand')];
+        const c = add(F.P('RightHand'), [0, -0.06 * m, 0]);
+        F.ball(c, axes, [0.075 * m, 0.08 * m, 0.075 * m], [0.62, 0.5, 0.3, 1], 10);
+        F.ball(add(c, [0, 0.1 * m, 0]), axes, [0.03 * m, 0.045 * m, 0.03 * m], [0.6, 0.48, 0.28, 1], 8);
+        F.point('gourd', c);
+      } },
       // an axe hanging from the right hand, its head down by the knee, the blade forward; its point `axe` the head
       axe: { name: 'axe', draw: F => {
         const { add, mul, cross } = V(), m = F.fit.h, right = rightOf(F), fwd = cross(right, [0, 1, 0]);

@@ -54,3 +54,25 @@ hands in the water: the water's edge before Lina, `stones:k`).
 - 3.2's delegation walks up the path away from the viewer (the village is behind); standing, they are turned to Lina
   ahead of them so the faces read in profile — the walk is stage 5's.
 - The grown wood (year 20) is many big crowns over the slope; measured once (notes of the render in the history note).
+
+## Pieces (stage 5)
+
+`lib.js` `film(scene)`, played by `script.js` (modules/beats). `from` sets the people and the camera, never `_here`,
+`_mood`, `_wear` or the year's keys.
+
+| piece | place | what it shows (tells) |
+|---|---|---|
+| `water` | stream6 | the Traveller comes down to the stream; Lina knows him (`meet`) |
+| `palms` | stream6, after `water` | both kneel at the water (`kneel`) — then МИ3 (`traveller#hand_r`) |
+| `letter` | stream6 | Lina writes her letter (`write`), looks up the slope (`look`) — then the choice |
+| `letter_pocket` | after `letter` | the letter into her pocket, they go up (`go`) |
+| `letter_write` | after `letter` | she writes on, looks once more at the slope (`look`) |
+| `maples` | far6 | Elzéard points at the dead maples (`point`), then at the beeches (`beeches`) |
+
+New motions (cast): `kneel_water`, `write_standing`, `point`; the cast's part `letter`.
+
+## Contract for the check
+
+```json
+{"beats":{"water":{"after":[],"tells":["water:meet"],"seconds":12},"palms":{"after":["water"],"tells":["palms:kneel"],"seconds":9},"letter":{"after":[],"tells":["letter:write","letter:look"],"seconds":14},"letter_pocket":{"after":["letter"],"tells":["letter_pocket:go"],"seconds":10},"letter_write":{"after":["letter"],"tells":["letter_write:look"],"seconds":9},"maples":{"after":[],"tells":["maples:point","maples:beeches"],"seconds":12}},"points":["traveller#hand_r","lina#letter","maple_sticks:8","beech_young:4","hives:0"],"keys":["moment","beat","beat_next","hives"]}
+```

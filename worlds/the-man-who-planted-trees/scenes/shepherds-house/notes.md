@@ -50,3 +50,30 @@ Traveller shuts the door — `door` "propped"; the Road's 3.5 is a year later (`
   the letter on the table) — are inside the house. This scene is the house from outside; there is no room. The game
   can play them at the door (`night`, `evening`: the lamp lit, the door open), but the room is a place of its own.
 - «The old man slower» (3.4) is a motion's (stage 5); standing, Elzéard at 75 is leaner and white-haired.
+
+## Pieces (stage 5)
+
+`lib.js` `film(scene)`, played by `script.js` (modules/beats). `from` sets the people, the door and the camera, never
+`_here`, `_mood`, `_wear` or the moment's keys. The pieces inside the house (`table`, `hundred`, `silence`, `button`,
+`hundred_night`, `hundred_slow`…) are the scene `house-inside`'s.
+
+| piece | place | what it shows (tells) |
+|---|---|---|
+| `climb` | house0 | the Traveller comes up the path at dusk; Elzéard holds out a gourd of water (`gourd`) |
+| `out_to_dog` | house0 | (asked of his son) he comes out to the dog by the door (`out`) |
+| `dawn_door` | house0 (leaving) | the Traveller steps out at dawn (`out`) — then the choice |
+| `farewell_back` | after `dawn_door` | Elzéard nods, close (`nod`) |
+| `farewell_hand` | after `dawn_door` | the Traveller raises his hand (`hand`); Elzéard nods and goes to the sheep |
+| `ranger` | house20 (ranger) | the ranger at the door (`speak`); Elzéard nods (`nod`); the ranger goes; Elzéard laughs, close (`laugh`) |
+| `empty_house` | house20 (empty) | the strangers ask (`ask`) and go; the Traveller at the door (`door`) — then the guiding `door` (`door` open → shut → propped, the mark on `door_glow#handle`) |
+| `last_house` | house30 | Elzéard, old, plants by the porch (`plant`), turns to the Traveller (`up`) |
+| `hut` | hut30 | he finishes the row of seedlings and straightens (`up`) |
+| `rod_held` | after `last_house` or `hut` | he holds out the rod (`out`) — then МИ6 on `elzeard#rod` |
+
+New motions (cast): `offer`, `nod`, `raise_hand`, `laugh_short`, `plant_rod`, `walk_old`; the cast's part `gourd`.
+
+## Contract for the check
+
+```json
+{"beats":{"climb":{"after":[],"tells":["climb:gourd"],"seconds":16},"out_to_dog":{"after":[],"tells":["out_to_dog:out"],"seconds":9},"dawn_door":{"after":[],"tells":["dawn_door:out"],"seconds":9},"farewell_back":{"after":["dawn_door"],"tells":["farewell_back:nod"],"seconds":5},"farewell_hand":{"after":["dawn_door"],"tells":["farewell_hand:hand"],"seconds":9},"ranger":{"after":[],"tells":["ranger:speak","ranger:nod","ranger:laugh"],"seconds":20},"empty_house":{"after":[],"tells":["empty_house:ask","empty_house:door"],"seconds":18},"last_house":{"after":[],"tells":["last_house:plant","last_house:up"],"seconds":18},"hut":{"after":[],"tells":["hut:up"],"seconds":34},"rod_held":{"after":["last_house","hut"],"tells":["rod_held:out"],"seconds":8}},"points":["door_glow#handle","door_glow#door","door_leaf#handle","door_leaf#stick","step_gifts#loaf","porch_saplings:0#hole","seedlings:0#row","hut_front#door","rod#top","dog#head","elzeard#rod","elzeard#gourd","traveller#hand_r"],"keys":["moment","beat","beat_next","door","bread_step","time","lamp","hut"]}
+```
