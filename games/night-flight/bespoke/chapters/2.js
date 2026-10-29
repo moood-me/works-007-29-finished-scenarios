@@ -3,7 +3,7 @@
 // cockpit, “Where to?” — “I don’t know”, the plane thrown about; half past twelve: Robineau back from supper with
 // Pellerin, and the European pilot sits down to wait; twenty-five to two, the telephone — ⚑ what she is told.
 // Stage 4: the Asunción pilot and Robineau in the bureau; the European pilot sits down on the bench; Rivière at the
-// telephone on Robineau's desk.
+// telephone on Robineau's desk. Stage 5: М1 and М5 real (М5 missed: over on a wing, the water below).
 // Reads: choices.roblet, .fine; marks.touched. Leaves: choices.phone, marks.phone, scales.told.
 import { FLAGS, SKY, bureau, clock, facts } from '../story.js';
 import { flag_north, stick } from '../minigames/all.js';
@@ -26,7 +26,6 @@ export default {
       await g.plate(tr('Twenty past eleven. Over the roof, the drone of an engine — the Asunción mail is landing on time.'));
       await g.say('telegraphist', 'Asunción: landed');
       await g.play(flag_north);
-      g.set('north', 'field');
       g.set('tape', 0);
       g.here('asuncion', true);
       await g.plate(tr('The Asunción mail’s pilot comes in and lays his report on Robineau’s empty desk — Robineau is at supper with Pellerin.'));
@@ -57,7 +56,8 @@ export default {
       await g.say('radioman', 'Trelew closed. Comodoro closed. Where to?', { how: 'a note written in the air, read short over the engine' });
       await g.plate(tr('Fabien writes on his knee with one hand.'));
       await g.say('fabien', 'I don’t know', { how: 'a note written in the air, read short over the engine' });
-      await g.play(stick);
+      const { lost } = await g.play(stick);
+      if (lost) await g.plate(tr('The plane went over on a wing; Fabien righted it himself. In the lightning, for a moment, there was water below.'));
       await g.say('narrator', 'He no longer knew whether he was over land');
     },
     // 2.3: Robineau back from supper; the European pilot comes in

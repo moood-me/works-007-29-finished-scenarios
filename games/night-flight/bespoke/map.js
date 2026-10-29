@@ -9,9 +9,9 @@
 //   trees(b, chapters, {grow, author}) → { at(ref) → () => {x, y} | null — that element's page point now (refs:
 //     knot:<i>, fork:<i>:<k>, go:<i>, goreplay:<i>, badge:<i>, author); offer(refs, fn) — those take a press, fn(ref)
 //     told; remove() }
-//   chapters — as game.js sky() gives them: [{number, title, kind: here | played | next | future | end, rows: [{title,
-//     weight, options: [{label, state: chosen | tried | both | open | unseen}]}], go, replay, badge}]; grow — the
-//     chapter whose rows come one after another; author — the author's sign shown
+//   chapters — as game.js sky() gives them: [{number, title, kind: here | played | next | future, rows: [{title,
+//     weight, options: [{label, state: chosen | tried | both | open | unseen}], came: what came of the choice | null}], go,
+//     replay, badge}]; grow — the chapter whose rows come one after another; author — the author's sign shown
 const el = (tag, cls, text) => Object.assign(document.createElement(tag), cls ? { className: cls } : {}, text != null ? { textContent: text } : {});
 
 export function trees(b, chapters, { grow = null, author = false } = {}) {
@@ -55,14 +55,15 @@ export function trees(b, chapters, { grow = null, author = false } = {}) {
       const opts = el('ul', 'opts');
       for (const o of r.options) opts.append(el('li', `opt ${o.state}`, o.state === 'unseen' ? '' : o.label));
       li.append(opts);
+      if (r.came) li.append(el('p', 'came', r.came));
       rows.append(li);
     });
     if (c.go) leaf.append(hit(`go:${i}`, 'go', c.go));
     if (c.replay) leaf.append(hit(`goreplay:${i}`, 'go replay', tr('continue\nthe replay')));
   });
   if (author) strip.append(hit('author', 'author', tr('the author’s map')));
-  // (the chapter the play is at, in view)
-  requestAnimationFrame(() => root.querySelector('.leaf.here, .leaf.next, .leaf.end')?.scrollIntoView({ inline: 'center', block: 'nearest' }));
+  // (the chapter the play is at, in view — the play played through: its last)
+  requestAnimationFrame(() => (root.querySelector('.leaf.here, .leaf.next') ?? [...root.querySelectorAll('.leaf.played')].pop())?.scrollIntoView({ inline: 'center', block: 'nearest' }));
 
   return {
     at: ref => () => {

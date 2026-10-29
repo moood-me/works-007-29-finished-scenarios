@@ -4,7 +4,8 @@
 // came, the climb above the clouds; the last tape; a quarter to three, the fuel counted out — the flag led into the sea
 // or held at Trelew; the bridge; ⚑ Robineau, his shoulders shaking: “Get to work”, “Sit down”, or nothing.
 // Stage 4: Robineau in the bureau (standing at his desk, sitting to his report, on the bench beside Rivière); the
-// European pilot gets up from the bench; the blue flag in the sea or by Trelew; the gap in the storm.
+// European pilot gets up from the bench; the blue flag in the sea or by Trelew; the gap in the storm. Stage 5: М9, М6
+// and М1 real (М9 missed: the tape runs out by itself, and the telegraphist reads it).
 // Reads: scales.told, choices.phone, .minute. Leaves: choices.minute, .robineau; marks.bearing, .minute, .robineau;
 // scales.exceptions.
 import { FLAGS, SKY, bureau, clock, facts } from '../story.js';
@@ -52,8 +53,9 @@ export default {
     async g => {
       await g.scene('bureau', { here: ALL, moods: MOODS, keys: { ...bureau(clock(2, 15), { tape: 1 }), riviere_look: 'tel_inker', madame_look: 'tel_inker', pilot_look: 'tel_inker' } });
       await g.plate(tr('A quarter past two.'));
-      await g.play(tape);
-      await g.plate(tr('Rivière pulls the tape out of the inker himself, word by word:'));
+      const { self } = await g.play(tape);
+      if (self) await g.plate(tr('The tape has run out by itself; the telegraphist reads it:'));
+      else await g.plate(tr('Rivière pulls the tape out of the inker himself, word by word:'));
       await g.say('radioman', 'We see nothing. Trying to climb. Fuel for thirty minutes', { at: 'narrator', how: 'as the tape gives it, word by word: clipped, far away' });
       await g.plate(tr('Then a telegram from Comodoro; the telegraphist reads it off the tape, evenly, as he reads all the reports.'));
       await g.say('telegraphist', 'Comodoro: we catch him every other time. A gap — perhaps a minute. We ask for him under bearing, for the search: the key held in one long tone, the lines silent. Give him no words: if he answers, there will be no tone');
@@ -154,7 +156,6 @@ export default {
       await g.plate(tr('A quarter to three. Rivière at the map. The telegraphist looks at the clock and counts the fuel under his breath, minute by minute.'));
       if (bearing) {
         await g.play(flag_sea);
-        g.set('blue', 'sea');
         await g.plate(tr('Rivière has led the blue flag from Trelew into the sea, to the point of the bearing. She looks at where he has put it.'));
       } else {
         await g.play(flag_hold);

@@ -8,7 +8,9 @@
 // Stage 4: the field with the European mail (the pilot, the mechanics, the bags, her silhouette upstairs; the plane
 // going north or stood down); Rivière's office in its own scene (where she stands or sits, the rain, the field below);
 // the bureau at three, at dawn (the telegraphist dozing on the bench, the European rolled back into the hangar, the
-// flags taken down) and the next evening (the Chilean landing, or the field idle with Pellerin by his plane).
+// flags taken down) and the next evening (the Chilean landing, or the field idle with Pellerin by his plane). Stage 5:
+// the mini-games real — М8 up and down, М7 (missed: the pilot moves off by himself), М2 in the log (missed: a blot he
+// blots himself), М1 on the map.
 // Reads: choices.roblet, .robineau, .minute; scales.exceptions, .told. Leaves: choices.european, marks.european.
 import { ENDINGS, FIELD, FLAGS, OFFICE, PLANE, bureau, clock, facts } from '../story.js';
 import { light_european, chocks, light_off, log, flag_red, flag_late, flag_down, flag_blue } from '../minigames/all.js';
@@ -45,7 +47,6 @@ export default {
         keys: { ...FIELD.dark, ...ready(roblet), riviere_look: 'hangar_front#switch', robineau_look: 'riviere', roblet_look: 'riviere', pilot_look: 'plane' } });
       await g.plate(tr('Ten to three. The European mail by the hangar under the lamps, its engine warming up; the mechanics are loading the mail bags; the field behind it is dark. The pilot by the wing. Rivière goes out to the switch.'));
       await g.play(light_european);
-      g.set('floods', 1);
       g.set('riviere_look', null);
       await g.plate(tr('The floodlights come on one after another; the field is light to its very edge.'));
       if (roblet === 'keep') {
@@ -96,10 +97,11 @@ export default {
       ] }, { within: 10000, otherwise: 'silent' });
       if (european === 'fly') {
         await g.plate(tr('Rivière raises his hand.'));
-        await g.play(chocks);
+        const { long } = await g.play(chocks);
         g.set('chocks', 0);
         if (roblet === 'remove') await g.plate(tr('Roblet pulls away the chocks.'));
         else await g.plate(tr('The mechanics pull away the chocks.'));
+        if (long) await g.plate(tr('His hand still up, the pilot moves off by himself at the mechanic’s sign.'));
         g.here('pilot', false);
         for (const [k, v] of Object.entries(PLANE.away('european'))) g.set(k, v);
         g.set('riviere_look', 'plane');
@@ -121,7 +123,6 @@ export default {
         await g.say('robineau', 'To the board… shall I write?');
         await g.say('riviere', 'I will myself');
         await g.play(light_off);
-        g.set('floods', 0);
         g.set('engine', 0);
         await g.plate(tr('The floodlights he lit ten minutes ago go out one after another. The pilot stays by the wing, his hand on the side of the plane they did not let go.'));
         if (roblet === 'keep') {
@@ -192,7 +193,8 @@ export default {
       const f = facts(g.state);
       await g.scene('office', { here: ['riviere'], moods: { riviere: 'tired', robineau: 'sad' },
         keys: { ...OFFICE(f), rain: 1, riviere_spot: 'desk', riviere_look: 'desk_top#log', robineau_look: 'riviere' } }, { cut: true });
-      await g.play(log);
+      const { blot } = await g.play(log, { line: f.bearing ? 'bearing' : 'unknown' });
+      if (blot) await g.plate(tr('Rivière blots it himself.'));
       if (f.bearing) await g.plate(tr('Rivière writes: “Fabien, radio operator. Over the sea, a hundred and fifty east of Trelew. 2:45.”'));
       else await g.plate(tr('Rivière writes: “Fabien, radio operator. Position unknown.”'));
       g.set('riviere_look', 'pane');
@@ -214,7 +216,6 @@ export default {
           keys: { ...bureau(clock(3, 10), { flags: night(f), outside: 'empty' }), ...desk(f), riviere_look: 'map' } });
         await g.plate(tr('Rivière comes out of the office to the map. The telegraphist at the inker.'));
         await g.play(flag_red);
-        g.set('red', 'north');
         await g.say('narrator', 'Rivière the Great, Rivière the Conqueror, bearing his heavy victory');
       } else if (f.ending === 'silence') {
         await g.scene('bureau', { here: ['riviere', 'telegraphist', ...nearby(f)], moods: { riviere: 'tired', telegraphist: 'neutral', robineau: 'sad' },
@@ -228,7 +229,6 @@ export default {
         else if (f.roblet === 'remove') await g.plate(tr('In the window, on the field, the mechanics are rolling the European mail into the hangar.'));
         else await g.plate(tr('In the window, on the field, the mechanics are rolling the European mail into the hangar; Roblet’s workbench is empty.'));
         await g.play(flag_down);
-        g.set('red', 'off');
         await g.plate(tr('The other flags Rivière takes down by hand, one by one.'));
         for (const k of ['blue', 'west', 'north']) g.set(k, 'off');
         if (f.robineau === 'sit') await g.plate(tr('Robineau takes them down with him.'));
@@ -283,7 +283,6 @@ export default {
         await g.plate(tr('Then, with the same tapping as in the prologue:'));
         await g.say('telegraphist', 'Patagonian: passed San Julián. Sky clear');
         await g.play(flag_blue);
-        g.set('blue', 'san_julian');
         g.set('tape', 0);
         await g.plate(tr('Outside the window the Chilean mail is landing.'));
       } else if (f.ending === 'silence') {
@@ -291,7 +290,6 @@ export default {
         await g.plate(tr('Rivière looks at the map a long time.'));
         await g.say('riviere', 'Release');
         await g.play(flag_late);
-        g.set('red', 'north');
       } else {
         await g.plate(tr('Robineau lays a telegram from the board on the desk.'));
         await g.say('robineau', 'Night flights suspended pending inquiry', { how: 'reading a telegram aloud, flatly' });

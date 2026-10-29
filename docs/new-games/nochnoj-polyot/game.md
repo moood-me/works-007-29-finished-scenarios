@@ -542,7 +542,7 @@ moment named) · tells. Times are the bureau's `time`; «the stage-4 keys» — 
 | `box` | М3 | field, `box_lift` | hold, then let go | `riviere#hand_r` | `riviere_with`, `roblet_with`, `roblet_reach` | 4 | held too long: Roblet takes the box himself |
 | `spanner` | М4 | field, `palm` | hold, then let go | `riviere#hand_r` | `roblet_reach`, `roblet_with`, `riviere_with` | 4 | the palm taken back too soon: Roblet lays the spanner on the workbench himself |
 | `stick` | М5 | cockpit, `storm` | balance | `fabien#hands` | `roll`, `water`, `flash` | 10 | lost: the plane on a wing (`roll` ~60), Fabien rights it; the sea below in the lightning |
-| `climb` | М6 | cockpit, `key_held` / `lamp_note` / `laugh_note` | pull slowly | `fabien#hands` | `climb`, `bob` | 8 | too sharp: Fabien drags it up himself, with a jerk |
+| `climb` | М6 | cockpit, `key_held` / `lamp_note` / `laugh_note` | pull slowly | `fabien#hands` | `climb` | 8 | too sharp: Fabien drags it up himself, with a jerk |
 | `chocks` | М7 | field, `hand_up` | hold, then let go | `riviere#hand_r` (raised) | `engine` | 5 | held too long: the pilot moves off by himself at the mechanic's sign |
 | `light` | М8 | field, `dark_drone` | pull slowly (up) | `hangar_front#switch` | `lever` 0 → 1, `floods` 0 → 1 | 4 | too quick: a mechanic finishes pulling it |
 | `light_european` | М8 | field, `european` | pull slowly (up) | `hangar_front#switch` | the same | 4 | the same |

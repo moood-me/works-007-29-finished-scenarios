@@ -1,21 +1,24 @@
 // The check of the game's branches: node bespoke/check/run.mjs [a clone of the world — by default the world game.json
 // names]. No browser, no engine, nothing drawn. Every step of every chapter is played unseen, the way the author's map
 // plays it (jump.js: a dry run, story.js context(…, j)), on a page that knows only the scenes' specs (their scene.json
-// files in the clone): no time passes, a plate goes by at once, a minigame gives its `skipped`.
+// files and the «Contract for the check» of their notes.md): no time passes, a plate goes by at once, a minigame gives
+// its `skipped` — and on the PLAYS once more its `missed` (the trace a miss leaves, scenario §7).
 // Walked: every path — the play goes step by step from its beginning, and wherever a step makes a choice it is played
 // again for each of the choice's options (the chapter's `choices`), so every combination of the choices is played to
 // its end, each step on the state the steps before left.
 // Checked on every path, as it is played: the places the steps open are the game's (story.js PLACES), on scenes of the
 // world; the people a step names are the game's (people.json); the keys a step gives a scene (g.scene keys, g.set) are
-// in its scene.json's states, with a value they allow, or a person's of that scene; a choice's points and a minigame's
-// point are of the scene shown then — an element (a named point: named in that element's code) or a person there now
-// ('id', 'id#chest'); every line is said by one of people.json — over the narrator's place (`at`) when its sayer is a
+// in its scene.json's states, with a value they allow, or a person's of that scene; a choice's points are of the scene
+// shown then — an element (a named point: named in that element's code) or a person there now ('id', 'id#chest'); a
+// piece a step plays and its moments are in its scene's contract; a minigame's points and keys are the scene's — what
+// the pieces' contract asks and the scene lacks yet is said apart, as waited for (game.md «Stage 5 — pieces»); every line is said by one of people.json — over the narrator's place (`at`) when its sayer is a
 // person of the shown scene the step has not brought in; a choice offered is one of the chapter's list with the same
 // options (a chance or a timer: those offered and the one it passes to); nothing breaks. At each path's end: exactly one finale was
 // played (its title), and it is the one facts gives — by the rule of the scenario (§11: the European mail decides);
 // every choice of the play was made; the exceptions are the ones the choices bent and “what she was told” is the
 // telephone's (§8); the scales are whole numbers within their bounds; the game's PLAYS end as their labels say.
-// Printed: what does not match (with how many paths it was met on); how many paths end in each finale; every line said,
+// Printed: what does not match (with how many paths it was met on); what is waited for; how many paths end in each
+// finale; every line said,
 // once (who | text) — the voices are made from it.
 // Exit code: 0 — nothing to fix, 1 — something does not match.
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
@@ -49,7 +52,11 @@ for (const folder of readdirSync(join(world, 'scenes'))) {
   if (!existsSync(file)) continue;
   const spec = JSON.parse(readFileSync(file, 'utf8'));
   const code = id => { const f = join(world, 'scenes', folder, 'elements', `${id}.js`); return existsSync(f) ? readFileSync(f, 'utf8') : ''; };
-  SCENES.set(folder, { spec, objects: new Map((spec.objects ?? []).map(o => [o.id, o])), states: spec.states ?? {}, code });
+  // its pieces, as its notes.md's «Contract for the check» says them (none yet: what the game asks of them waits)
+  const notes = join(world, 'scenes', folder, 'notes.md');
+  const block = existsSync(notes) && /## Contract for the check\s*```json\s*([^]*?)```/.exec(readFileSync(notes, 'utf8'))?.[1];
+  const contract = block ? JSON.parse(block) : null;
+  SCENES.set(folder, { spec, objects: new Map((spec.objects ?? []).map(o => [o.id, o])), states: spec.states ?? {}, code, beats: contract?.beats ?? null });
 }
 const b = {
   specOf: async folder => {
@@ -62,25 +69,62 @@ const view = new Proxy({}, { get: () => nothing });
 const hub = { offer: () => new Promise(nothing), ask: async () => null, withdraw: nothing };
 // a point ('id', 'id#name') of a scene: a person there now ('id', 'id#chest'), or its element and its name in the
 // element's code
-function point(folder, ref, where, present) {
+// (a person's points: the engine's — people/player.js POINTS — and the cast's parts' — `flame`, `torch`, `book`)
+const BODY = new Set(['head', 'hand_r', 'hand_l', 'hands', 'chest', 'hips', 'foot_r', 'foot_l', 'feet', 'flame', 'torch', 'book']);
+// what the scene lacks yet that the pieces' contract asks of it (game.md «Stage 5 — pieces»): `wait` — said apart, as
+// waited for, not as wrong
+function point(folder, ref, where, present, wait = null) {
   const s = SCENES.get(folder), [id, name] = ref.split('#');
   if (!s) return;
+  const no = wait ?? miss;
   if (s.objects.get(id)?.person) {
     if (!present.has(id)) miss(`${where}: the point “${ref}” — “${id}” is not there now`);
-    else if (name && name !== 'chest') miss(`${where}: the point “${ref}” — a person's point is their head or “#chest”`);
-  } else if (!s.objects.has(id)) miss(`${where}: the point “${ref}” — no element “${id}” in the scene “${folder}”`);
-  else if (name && !new RegExp(`['"\`]${name}['"\`]`).test(s.code(id))) miss(`${where}: the point “${ref}” — the element's code names no “${name}”`);
+    else if (name && !BODY.has(name)) miss(`${where}: the point “${ref}” — a person has no point “${name}”`);
+  } else if (!s.objects.has(id)) no(`${where}: the point “${ref}” — no element “${id}” in the scene “${folder}”`);
+  else if (name && !new RegExp(`['"\`]${name}['"\`]`).test(s.code(id))) no(`${where}: the point “${ref}” — the element's code names no “${name}”`);
 }
+// the keys a mini-game moves: the scene's (its states) or a person's of it
+function moves(folder, k, where, wait) {
+  const s = SCENES.get(folder);
+  if (!s || s.states[k]) return;
+  const person = /^(.+)_(do|turn|look|reach|with|wear|gait|steps|on|here|still|mood|a|d|candle)$/.exec(k)?.[1];
+  if (person && s.objects.get(person)?.person) return;
+  wait(`${where}: the key “${k}” — not in the states of the scene “${folder}”`);
+}
+const waits = new Map();
+const pending = text => waits.set(text, (waits.get(text) ?? 0) + 1);
 
 const lines = new Map(); // `${who}\n${text}` → {who, text}
 // a step played unseen on `state` (its choices made as they say, the first offered where they say nothing) → {state,
 // made: the choice it made, titles: the titles it showed}
-async function step(c, s, state, where) {
+async function step(c, s, state, where, result = null) {
   const j = jump(Infinity);
+  j.result = result;
   const g = context(b, view, hub, structuredClone(state), j);
   let folder = null, present = new Set();
   const made = [], titles = [];
-  const { scene, say: speak, choose, play, title, here, set } = g;
+  const { scene, say: speak, choose, play, title, here, set, beat, told } = g;
+  // a piece of the shown scene, and a moment of it: in its contract — or waited for while the scene has none
+  const piece = name => {
+    const beats = SCENES.get(folder)?.beats;
+    if (!beats) pending(`the piece “${name}” — the scene “${folder}” has no contract of its pieces yet`);
+    else if (!beats[name]) miss(`${where}: the piece “${name}” — not in the contract of the scene “${folder}”`);
+  };
+  g.beat = (name, o) => { piece(name); return beat(name, o); };
+  g.told = (text, ms) => {
+    // (a piece's moments are listened for before its scene is opened: checked once it is)
+    queueMicrotask(() => know(text));
+    return told(text, ms);
+  };
+  const know = text => {
+    const [name, moment] = text.split(':');
+    if (name === 'beat') piece(moment);
+    else {
+      piece(name);
+      const beats = SCENES.get(folder)?.beats;
+      if (beats?.[name] && !beats[name].tells?.includes(text)) miss(`${where}: “${text}” — the piece does not tell it`);
+    }
+  };
   // a key of the shown scene's own: in its states, its value allowed — or a person's of the scene (`<id>_with`…)
   const PERSON = /^(.+)_(do|turn|look|reach|with|wear|gait|steps|on|here|still|mood)$/;
   const key = (k, v) => {
@@ -93,6 +137,7 @@ async function step(c, s, state, where) {
       miss(`${where}: the key “${k}” of the scene “${folder}” cannot be ${JSON.stringify(v)}`);
   };
   g.scene = (place, o = {}, x) => {
+    if (o.beat) queueMicrotask(() => piece(o.beat));
     const at = PLACES[place];
     if (!at) miss(`${where}: no place “${place}”`);
     else if (!SCENES.has(at.folder)) miss(`${where}: the place “${place}” — the world has no scene “${at.folder}”`);
@@ -125,24 +170,17 @@ async function step(c, s, state, where) {
     if (choice) made.push(choice);
     return choose(choice, offers, chance);
   };
-  g.play = (m, o) => { point(folder, atOf(m), where, present); return play(m, o); };
+  g.play = (m, o) => {
+    for (const ref of m.points ?? []) point(folder, ref, m.title, present, pending);
+    for (const k of m.keys ?? []) moves(folder, k, m.title, pending);
+    return play(m, o);
+  };
   g.title = text => { titles.push(text); return title(text); };
   let broke = null;
   await Promise.race([CHAPTERS[c].steps[s](g).catch(e => { broke = e; }), j.idle]);
   if (broke) miss(`${where}: the step broke: ${broke.message}`);
   return { state: g.state, made, titles };
 }
-// (a stub's point: as stub.js was given it)
-const POINTS = new Map();
-const stubs = await load('minigames/all.js');
-for (const [name, m] of Object.entries(stubs)) {
-  const src = readFileSync(join(game, 'minigames/all.js'), 'utf8');
-  const at = new RegExp(`export const ${name} = stub\\(\\{[^]*?at: '([^']+)'`).exec(src)?.[1];
-  if (!at) miss(`minigames/all.js: “${name}” has no point`);
-  POINTS.set(m, at ?? '');
-}
-const atOf = m => POINTS.get(m) ?? '';
-
 // --- every path: depth first, a step played again for each option of the choice it makes
 const STEPS = CHAPTERS.flatMap((ch, c) => ch.steps.map((_, s) => [c, s]));
 const ends = new Map(); // `${ending} ${form}` → paths
@@ -186,13 +224,20 @@ for (const p of PLAYS) {
   for (const [c, s] of STEPS) state = (await step(c, s, { ...state, choices: { ...p.choices, ...state.choices } }, p.label)).state;
   const f = facts(state), named = ENDINGS.find(e => p.label.startsWith(`${e.label} —`))?.id;
   if (named !== f.ending) miss(`PLAYS “${p.label}” ends in “${f.ending}”`);
+  // and once more with every mini-game missed (its `missed`: the trace a miss leaves, scenario §7)
+  let missed = fresh();
+  for (const [c, s] of STEPS) missed = (await step(c, s, { ...missed, choices: { ...p.choices, ...missed.choices } }, `${p.label} (missed)`, m => m.missed)).state;
 }
+// every mini-game has the trace of a miss
+for (const [name, m] of Object.entries(await load('minigames/all.js'))) if (!m.missed) miss(`minigames: “${name}” has no “missed”`);
 
 const out = [];
 out.push(`paths: ${paths}`);
 for (const [k, n] of [...ends].sort()) out.push(`  ${k}: ${n}`);
 out.push('', misses.size ? 'DOES NOT MATCH:' : 'nothing to fix');
 for (const [text, n] of misses) out.push(`  ${text} (paths: ${n})`);
+out.push('', waits.size ? 'WAITED FOR (the pieces’ contract, game.md):' : 'nothing waited for');
+for (const [text, n] of waits) out.push(`  ${text} (paths: ${n})`);
 out.push('', `lines said (${lines.size}):`);
 for (const { who, text } of lines.values()) out.push(`  ${who} | ${text}`);
 console.log(out.join('\n'));

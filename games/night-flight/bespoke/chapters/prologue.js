@@ -2,7 +2,8 @@
 // below, his note “San Julián. Sky clear”; the tap of the key becomes the inker's in the bureau — three mails in the
 // air, the player leads the blue flag; later, Robineau's papers: the board doubts the night, Pellerin's fine by the
 // rule, Madame Fabien's message (“the line is for the service”), Roblet's order ready.
-// Stage 4: Robineau in the bureau with his folder (П.3); the map's flags as the night has them.
+// Stage 4: Robineau in the bureau with his folder (П.3); the map's flags as the night has them. Stage 5: М1 real (it
+// leaves the blue flag at San Julián).
 // Reads: nothing. Leaves: nothing.
 import { FLAGS, SKY, bureau, clock } from '../story.js';
 import { flag } from '../minigames/all.js';
@@ -29,7 +30,6 @@ export default {
       await g.plate(tr('The tap of the key becomes the tap of the inker: the bureau of the night mail, at the edge of a great field. Rivière at the map of the three lines.'));
       await g.say('telegraphist', 'Patagonian: passed San Julián. Sky clear');
       await g.play(flag);
-      g.set('blue', 'san_julian');
       g.set('tape', 0);
       await g.plate(tr('On the map two more flags are in the air — over the Andes, and over the river in the north; the red one, the European mail’s, stands at the field.'));
       await g.say('riviere', 'Three in the air');
