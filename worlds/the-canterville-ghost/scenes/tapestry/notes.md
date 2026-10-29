@@ -16,7 +16,8 @@ and the girl who has come in at the door. People stand and sit and breathe; no m
 - **The left wall**: a tapestry and the door (4.2–5.2 m away) under its arch, its leaf `door` standing ajar out into
   the corridor (`corridor`, `corridor_floor` seen through it). **The right wall**: a tapestry nearer, and the old
   mirror further back in its brown-gilt frame (`mirror`: a plane, `reflect`, rough and weak — it shows the window
-  dimly), an oak chest under it.
+  dimly), an oak chest under it. Sir Simon is not in it (`simon_reflected` false in the scene's state: no mirror shows
+  him — set it true and he shows from that moment).
 - **People** (cast: modules/cast). Sir Simon sits on the window seat (`simon_on`), `brood` — his right hand to his brow,
   the left on his knee — `tired`, looking at the floor before him, his pale light (`ghost`) just before him. Virginia,
   in her riding habit (`virginia_habit`), stands at the far end of the room by the door, hands behind her back
@@ -85,14 +86,8 @@ Motions Kimodo could not make (the lead's word): `stamp` — Virginia draws hers
 - His chain (`shackles`) runs from the hand at his brow straight down to the hand on his knee: it reads as a rod.
 - His cloak is the cast's flat tube down his back — sitting, it stands out behind him like a slab (the engine hangs
   cloth only before a garment, not behind the back).
-- **Mirror, once deployed:** an engine branch (moood repo, `engine3-unreflected`) adds a person's key `<id>_reflected:
-  false` — not deployed yet. Once it is, give Sir Simon `simon_reflected: false` (in `people()` of lib.js) and drop the
-  gap below.
 - The `dark` look was lifted after the play test (2026-10-29, fixes): ambient 0.12 (a cool grey), vignette 0.45, his
   `ghost_dark` 1.4 over 3.2 m — the two read in it; the room is not seen there any more.
-- The mirror cannot leave him out: the engine has no person who is not mirrored ("в зеркале его нет" in the
-  scenario). He sits where the mirror does not see him from the start; a viewer leaning far to the left may; in
-  `rehearse` he stands before it and is mirrored, faintly (the mirror is rough and weak) — an engine gap.
 - The wall that parts is two leaves cut out of the far wall: a thin seam shows down the middle of the tapestry when it
   is seen close.
 - Sitting down on the floor (`sit_ground` for Washington and Mr Otis) is a loop: they go from standing to sitting in a
