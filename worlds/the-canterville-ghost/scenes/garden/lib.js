@@ -35,7 +35,7 @@ function film(scene) {
         p.do('sit_ground');
         v.do('pray');
         p.look('virginia');
-        s.camera({ target: 'virginia', shot: 'medium', frame: 0.35 });
+        s.camera({ target: 'virginia', shot: 'full', frame: 0.4 });
         s.tell('garden_come:sat');
         await s.wait(2);
         if (parcel) {
@@ -107,11 +107,11 @@ function film(scene) {
       after: ['garden_come', 'named_back', 'unnamed'],
       tells: ['tears:weep', 'tears:casket'],
       seconds: 12,
-      from: () => ({ ...AT, ...shot('virginia', 'medium', 0.35) }),
+      from: () => ({ ...AT, ...shot('virginia', 'full', 0.4) }),
       run: async s => {
         const p = s.person('simon');
         const v = s.person('virginia');
-        s.camera({ target: 'virginia', shot: 'medium', frame: 0.35 });
+        s.camera({ target: 'virginia', shot: 'full', frame: 0.4 });
         v.do('weep');
         s.tell('tears:weep');
         p.look('virginia');
