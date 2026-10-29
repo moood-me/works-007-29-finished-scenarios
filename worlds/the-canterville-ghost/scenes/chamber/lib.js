@@ -65,7 +65,9 @@ const KNEEL = [1.0, 4.45];
 const CAM = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
   camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
 // the camera at the little window, looking out through its bars at the almond in blossom
-const WINDOW = { camera_x: 2.6, camera_z: 3.9, camera_h: -0.2, camera_yaw: 31, camera_pitch: -2 };
+// (the eye in the window's opening, looking out and down at the tree: the wall round it fades before the eye, as near
+// things do — as if leaning to the bars)
+const WINDOW = { camera_x: 3.05, camera_z: 4.8, camera_h: -0.3, camera_yaw: 32, camera_pitch: -6 };
 async function toWindow(s) {
   await s.all(...Object.entries(WINDOW).map(([k, v]) => s.move(k, v, { over: 4, ease: 'inOut' })));
 }

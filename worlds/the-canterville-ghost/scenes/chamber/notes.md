@@ -70,7 +70,9 @@ jewels on faded velvet, and with the game's `stub` her candle-end on top of them
 - Virginia's face, kneeling with her hands at her chin and looking at the skull, is seen in profile, half behind her
   hands.
 - The almond is seen only through a sliver of the window from the viewer's place (the window is in a side wall, so
-  that the moon can fall on the ring in the far wall); the pieces take the camera to the window for it.
+  that the moon can fall on the ring in the far wall); the pieces take the camera into the window's opening, looking out
+  and down: the tree whole in blossom, the bars and the wall round them half faded before the eye (as near cards fade)
+  — from further back the deep reveal shows only sky.
 
 ## Measured
 
