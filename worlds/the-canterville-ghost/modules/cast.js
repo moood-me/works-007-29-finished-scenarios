@@ -172,18 +172,27 @@ const BRASS = [0.66, 0.5, 0.24, 1];
 const WAX = [0.93, 0.9, 0.82, 1];
 const FLAME = [1, 0.84, 0.5, 2];
 const UPRIGHT = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+// what a candle keeps from frame to frame (F.keep): the heights up from the hand (its foot, the stem, the wax's
+// foot and top, the flame), its colours, the flame's size
+const CANDLE = F => ({
+  up: [-0.02, -0.005, 0.03, 0.17, 0.2].map(y => [0, y * F.fit.h, 0]),
+  brass: [[0, BRASS]],
+  wax: [[0, WAX]],
+  flame: [0.009 * F.k, 0.024 * F.fit.h, 0.009 * F.k],
+});
 function candle(F) {
   const { add, mul } = V();
   const k = F.k;
   const h = F.fit.h;
   const c = add(F.P('RightHand'), add(mul(F.up('RightHand'), 0.06 * h), mul(F.fwd('RightHand'), 0.02 * k)));
   const s = F.side('RightHand');
-  const at = y => add(c, [0, y * h, 0]);
-  F.bar(at(-0.02), at(-0.005), 0.055 * k, 0.055 * k, [[0, BRASS]], 14, s);
-  F.bar(at(-0.005), at(0.03), 0.014 * k, 0.014 * k, [[0, BRASS]], 8, s);
-  F.bar(at(0.03), at(0.17), 0.013 * k, 0.013 * k, [[0, WAX]], 8, s);
-  const flame = at(0.2);
-  F.ball(flame, UPRIGHT, [0.009 * k, 0.024 * h, 0.009 * k], FLAME, 8);
+  const K = F.keep(CANDLE);
+  const at = i => add(c, K.up[i]);
+  F.bar(at(0), at(1), 0.055 * k, 0.055 * k, K.brass, 14, s);
+  F.bar(at(1), at(2), 0.014 * k, 0.014 * k, K.brass, 8, s);
+  F.bar(at(2), at(3), 0.013 * k, 0.013 * k, K.wax, 8, s);
+  const flame = at(4);
+  F.ball(flame, UPRIGHT, K.flame, FLAME, 8);
   F.point('flame', flame);
 }
 return {
