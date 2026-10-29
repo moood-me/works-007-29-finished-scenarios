@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Garden by the Castle","translation":"","where":"worlds/the-canterville-ghost/scenes/castle-garden/scene.json title"},
-  {"text":"The garden at Canterville. By the churchyard railing stands the old almond tree.","translation":"","where":"worlds/the-canterville-ghost/scenes/castle-garden/scene.json caption"}
+  {"text":"The Garden by the Castle","translation":"Сад біля замку","where":"worlds/the-canterville-ghost/scenes/castle-garden/scene.json title"},
+  {"text":"The garden at Canterville. By the churchyard railing stands the old almond tree.","translation":"Сад Кентервіля. Біля церковної огорожі стоїть старий мигдаль.","where":"worlds/the-canterville-ghost/scenes/castle-garden/scene.json caption"}
 ]}
