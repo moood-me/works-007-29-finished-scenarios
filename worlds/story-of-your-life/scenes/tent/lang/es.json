@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Tent at the Looking Glass","translation":"La tienda junto al espejo","where":"worlds/story-of-your-life/scenes/tent/scene.json title"},
+  {"text":"Morning at the looking glass. Beyond it, in the white room, two of them are waiting.","translation":"Mañana junto al espejo. Al otro lado, en la sala blanca, esperan dos de ellos.","where":"worlds/story-of-your-life/scenes/tent/scene.json caption"}
+]}

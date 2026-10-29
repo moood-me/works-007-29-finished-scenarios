@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Bureau","translation":"La oficina","where":"worlds/night-flight/scenes/bureau/scene.json title"},
+  {"text":"A quarter to two. She stands by the door and does not sit down.","translation":"Las dos menos cuarto. Ella está de pie junto a la puerta y no se sienta.","where":"worlds/night-flight/scenes/bureau/scene.json caption"}
+]}
