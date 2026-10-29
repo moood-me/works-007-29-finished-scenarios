@@ -29,3 +29,15 @@ g.translate(-0.43, -0.9);
 g.rotate(-0.5);
 g.fillRect(0, -0.16, 0.01, 0.16);
 g.restore();
+// her drawing of him, standing propped against the inkstand (`drawing` "inkstand"); its point `drawing`, where his
+// hand takes it from
+if (e.state.drawing === 'inkstand') {
+  g.fillStyle = '#f4efe2';
+  g.fillRect(-0.3, -1.06, 0.2, 0.26);
+  g.strokeStyle = '#3a3430';
+  g.lineWidth = 0.005;
+  g.beginPath();
+  g.ellipse(-0.2, -0.95, 0.05, 0.065, 0, 0, Math.PI * 2);
+  g.stroke();
+}
+e.at(-0.2, -0.88, 'drawing');
