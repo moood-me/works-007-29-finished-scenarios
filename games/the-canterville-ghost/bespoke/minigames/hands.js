@@ -284,14 +284,15 @@ export const wobble = (t, strength, seed = 0) => strength * (0.65 * Math.sin(1.1
 // line(g, b, mg, {from, to, tolerance, progress, off}) — “trace” (scenario §7: to draw): a dashed mark at `from`, the
 // finger along the line to `to`; progress(u) each frame (how far it has come, 0…1); off the line — off(n) (a mistake,
 // the first one taken as the slip that stays: a blot, a line askew) and the trace goes on from where it was. Drawn to
-// its end — done. The way out by time: never touched for ALONE s — done as it is. → {offs} | null
+// its end — done. The way out by time: never touched for ALONE s — done as it is; not drawn LIMIT s after the first
+// touch — the rest draws itself (SELF s). → {offs, self} | null
 export async function line(g, b, mg, { from, to, tolerance = 40, progress = () => {}, off = () => {} }) {
   const mark = mg.mark({ at: from, kind: 'dash' });
   const trace = mg.trace({ on: mark, line: [from, to], tolerance });
   const taught = teach(b, mg, [trace]);
-  let offs = 0, begun = false;
+  let offs = 0, begun = null, self = null, from = 0;
   const t00 = mg.t;
-  const touch = mg.on('down', () => { begun = true; });
+  const touch = mg.on('down', () => { begun ??= mg.t; });
   const wrong = trace.on('off', () => {
     offs++;
     g.failed();
@@ -300,9 +301,11 @@ export async function line(g, b, mg, { from, to, tolerance = 40, progress = () =
   });
   const done = await until(mg, ({ t }) => {
     const s = trace.state;
-    progress(s.u);
-    mg.plate.set({ fill: s.u, glow: s.tracing ? 'good' : 'idle' });
-    return s.u >= 0.99 || (!begun && t - t00 >= ALONE);
+    if (self == null && begun != null && t - begun >= LIMIT) { self = t; from = s.u; }
+    const u = self == null ? s.u : clamp(from + (1 - from) * (t - self) / SELF);
+    progress(u);
+    mg.plate.set({ fill: u, glow: s.tracing ? 'good' : 'idle' });
+    return u >= 0.99 || (begun == null && t - t00 >= ALONE);
   });
   touch();
   wrong();
@@ -312,5 +315,5 @@ export async function line(g, b, mg, { from, to, tolerance = 40, progress = () =
   mg.snap({ at: mark });
   trace.remove();
   mark.remove();
-  return { offs };
+  return { offs, self: self != null };
 }

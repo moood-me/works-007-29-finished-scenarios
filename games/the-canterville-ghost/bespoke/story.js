@@ -63,7 +63,7 @@ export const PLACES = {
   death: { folder: 'garden' }, // С4 the Garden of Death
   chamber: { folder: 'chamber' }, // С5 the secret chamber
   grounds: { folder: 'castle-garden' }, // С6 the garden by the castle
-  hall: { folder: 'library', where: tr('In truth: the hall — the great staircase and its landing, the clock, an armchair at the foot of the stairs, the window onto the pond, the front door.') }, // С7 (its scene is being made)
+  hall: { folder: 'hall' }, // С7 the hall
 };
 
 // The library's own hours (its keys: the fire, Mr Otis's lamp) — given only where the place is the library itself; and
@@ -123,6 +123,8 @@ export const GROUNDS = {
   last: { ...AUTUMN_NIGHT, grave: 'mound', cross: true },
   coaches: { autumn: 1, easel: false, coaches: true, coach_d: 30 },
 };
+// the hall: its key `moment` (its script lays the people out) — 4.2 calling, waiting; 4.6 midnight; the finales' departure, wedding
+export const HALL = Object.fromEntries(['calling', 'waiting', 'midnight', 'departure', 'wedding'].map(m => [m, { moment: m }]));
 // the secret chamber: its key `moment` (its script places the people)
 export const CHAMBER = { family: { moment: 'family' }, father: { moment: 'father' } };
 

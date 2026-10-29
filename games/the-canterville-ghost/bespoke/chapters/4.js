@@ -10,7 +10,7 @@
 // On the scenes' pieces (game.md «Stage 5 — pieces»): the dark is the Tapestry Chamber with its wall open.
 // Reads: choices.wall, choices.hunger, choices.trap, choices.goodnight, scales. Leaves: choices.name, choices.door,
 // marks.name, marks.door, marks.word.
-import { LIBRARY, OTIS, CORRIDOR, CHAMBER, facts, piece } from '../story.js';
+import { LIBRARY, CORRIDOR, CHAMBER, HALL, facts, piece } from '../story.js';
 import { hand, release, word, tiptoe, threshold, shoulder } from '../minigames/all.js';
 
 const FAMILY = ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'];
@@ -54,8 +54,8 @@ export default {
     async g => {
       const { wall, shares, trap } = facts(g.state);
       if (wall === 'go') {
-        // (the hall: its scene not merged yet — the place stands in the library with its label, no piece: game.md)
-        await g.scene('hall', { here: ['mrs_otis', 'twin_star', 'twin_stripes'], moods: { mrs_otis: 'afraid' } });
+        // (the hall: its pieces not made yet — its moment, narrated)
+        await g.scene('hall', { here: ['mrs_otis', 'twin_star', 'twin_stripes'], moods: { mrs_otis: 'afraid' }, keys: HALL.calling });
         await g.say('narrator', 'The supper bell rang; Virginia was not there. Mrs Otis called from the stairs; the twins ran up and down the corridor');
         await g.say('mrs_otis', 'Virginia! Ginny!', { how: 'calling up the stairs, worried' });
         await piece(g, 'lantern', { pound: () => (shares ? g.say('washington', 'Give her back!', { how: 'shouting, beating on the wall' }) : null) },
@@ -157,8 +157,8 @@ export default {
     async g => {
       const { wall, door, shares, trap, named, warned } = facts(g.state);
       if (wall === 'go') {
-        // (the hall: its scene not merged yet — no piece)
-        await g.scene('hall', { here: [...FAMILY, 'cecil'], moods: { otis: 'sad', virginia: 'tired', mrs_otis: 'afraid' }, keys: OTIS });
+        // (the hall: its pieces not made yet — its moment, narrated)
+        await g.scene('hall', { here: [...FAMILY, 'cecil'], moods: { otis: 'sad', virginia: 'tired', mrs_otis: 'afraid' }, keys: HALL.midnight });
         await g.say('narrator', 'The clock struck, and with its last stroke the whole house fell silent');
         await g.say('narrator', 'The panel on the landing of the stairs opened with a crack. On the landing stood Virginia, pale, with a little casket in her hands');
         if (shares) await g.say('narrator', 'Washington ran down from the Tapestry Chamber first and seized both her hands');
