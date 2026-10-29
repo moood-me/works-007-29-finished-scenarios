@@ -17,28 +17,15 @@ export default {
     // Э.1: the village alive; the linden
     async g => {
       const f = facts(g.state);
-      await g.scene('village30', { here: ['traveller', 'lina', 'neighbour_a', 'neighbour_b', 'child_a', 'child_b'], moods: { traveller: 'smile', lina: 'smile' }, keys: { stump: 'dug', edge: f.named ? 'whole' : 'regrown' } });
-      g.title(tr('Ten Years Later'));
-      await g.plate(tr('The village is alive: the fountain runs, children, new roofs.'));
-      if (!f.named) await g.plate(tr('Above the village, the edge of the forest: old stumps, and between them young oaks as tall as a man.'));
-      await g.plate(tr('On the square where the stump was, Lina — she is forty-seven — and her neighbours are planting a linden. She calls the Traveller over.'));
-      if (f.drank) await g.say('lina', 'Drink now, water-guzzler. There’s enough for the linden too');
-      else await g.say('lina', 'Remember, I used to water a stump? Funny, isn’t it?');
-      if (f.learned === 'told') await g.say('lina', 'His linden. I’ll ask him — he won’t come. And I’ll ask him all the same');
-      else {
-        g.mood('lina', 'neutral');
-        if (f.learned === 'jan' && f.lied) await g.say('lina', 'His linden. And the land, so, had rested', { how: 'without a smile' });
-        else if (f.learned === 'jan') await g.say('lina', 'His linden. You knew before anyone', { how: 'without a smile' });
-        else if (f.lied) await g.say('lina', 'His linden. I saw how the land rests', { how: 'without a smile' });
-        else {
-          await g.say('lina', 'His linden. I saw it myself', { how: 'without a smile' });
-          if (f.slope) await g.plate(tr('She looks at his rod.'));
-        }
-      }
+      await piece(g, 'alive', {
+        edge: () => (f.named ? null : g.plate(tr('Above the village, the edge of the forest: old stumps, and between them young oaks as tall as a man.'))),
+        call: () => calls(g, f),
+      }, async () => {
+        await g.scene('village30', { beat: 'alive', here: ['traveller', 'lina', 'neighbour_a', 'neighbour_b', 'child_a', 'child_b'], moods: { traveller: 'smile', lina: 'smile' }, keys: { edge: f.named ? 'whole' : 'regrown' } });
+        g.title(tr('Ten Years Later'));
+      });
       const lime = await g.play(linden);
-      if (lime.lina) await g.say('lina', 'There', { how: 'pressing the earth down with her foot; short, kind' });
-      g.set('stump', 'planted');
-      g.set('wet', true);
+      await piece(g, 'planted', { look: () => (lime.lina ? g.say('lina', 'There', { how: 'pressing the earth down with her foot; short, kind' }) : null) });
     },
     // Э.2: the last meeting; the rod
     async g => {
@@ -65,11 +52,9 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.ending === 'story') {
-        await g.scene('village30', { here: ['traveller', 'child_a', 'child_b'], moods: { traveller: 'thinking' }, keys: { stump: 'planted', edge: 'regrown', rod: true } });
-        await g.plate(tr('The village, the fountain. Above it, the edge of the forest: stumps still showing between the young oaks.'));
-        await g.plate(tr('The Traveller sits down on the rim of the fountain, the rod leaning beside him. He opens his notebook — a page for each year, on each one word: “It was.” He leafs to a blank page and, for the first time, writes the name.'));
+        await piece(g, 'story', {}, () => g.scene('village30', { beat: 'story', here: ['traveller', 'child_a', 'child_b'], moods: { traveller: 'thinking' }, keys: { stump: 'planted', edge: 'regrown' } }));
         await g.say('narrator', 'When I think that one man, with only his own two hands, made this land out of a desert — I think that people can, after all');
-        await g.plate(tr('The wind turns the pages back, to “It was.”'));
+        await piece(g, 'story_wind');
       } else if (f.ending === 'plaque') {
         await piece(g, 'plaque', {
           read: () => g.plate(tr('A board: “The Forest of Elzéard”. Visitors read it aloud and argue whether it was really one man; none of them knows what he looked like. Beyond the ridge, three hours away — a slope of young trees waist-high, and an edge of tiny seedlings he planted last.')),
@@ -100,4 +85,21 @@ export default {
 function said(g, f) {
   if (f.asked) return g.say('elzeard', 'You asked about my son, that time', { how: 'old, slow, plain' });
   return g.say('elzeard', 'You didn’t ask, that time', { how: 'old, slow, plain' });
+}
+
+// Lina at the pit (§5 Э.1): by «Выпил воду липы» and by how she came to know
+async function calls(g, f) {
+  if (f.drank) await g.say('lina', 'Drink now, water-guzzler. There’s enough for the linden too');
+  else await g.say('lina', 'Remember, I used to water a stump? Funny, isn’t it?');
+  if (f.learned === 'told') await g.say('lina', 'His linden. I’ll ask him — he won’t come. And I’ll ask him all the same');
+  else {
+    g.mood('lina', 'neutral');
+    if (f.learned === 'jan' && f.lied) await g.say('lina', 'His linden. And the land, so, had rested', { how: 'without a smile' });
+    else if (f.learned === 'jan') await g.say('lina', 'His linden. You knew before anyone', { how: 'without a smile' });
+    else if (f.lied) await g.say('lina', 'His linden. I saw how the land rests', { how: 'without a smile' });
+    else {
+      await g.say('lina', 'His linden. I saw it myself', { how: 'without a smile' });
+      if (f.slope) await g.plate(tr('She looks at his rod.'));
+    }
+  }
 }

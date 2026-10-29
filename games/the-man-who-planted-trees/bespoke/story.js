@@ -75,7 +75,7 @@ export const PLACES = {
   inside20: { folder: 'house-inside', keys: { moment: 'evening' } }, // М2 inside (3.4)
   stumps20: { folder: 'forest-edge', keys: { moment: 'stumps' } }, // М3, the lower edge felled (Silence)
   // the epilogue — ten years more
-  village30: { folder: 'village', keys: { time: 'epilogue', coal: 0, fountain: 1, dawn: 0, smoke_home: 1, smoke_edge: 1, smoke_b1: 1, smoke_b2: 1, smoke_l2: 1, smoke_r1: 1 }, where: tr('In truth: Lina is forty-seven here, the Traveller fifty.') }, // М1
+  village30: { folder: 'village', keys: { time: 'epilogue', coal: 0, fountain: 1, dawn: 0, smoke_home: 1, smoke_edge: 1, smoke_b1: 1, smoke_b2: 1, smoke_l2: 1, smoke_r1: 1 } }, // М1
   house30: { folder: 'shepherds-house', keys: { moment: 'last_silence' } }, // М2 (Silence)
   hut30: { folder: 'shepherds-house', keys: { moment: 'hut' } }, // the hut beyond the ridge (the Name)
   board30: { folder: 'forest-edge', keys: { moment: 'board' } }, // М3, the board (finale «The Plaque»)

@@ -43,17 +43,15 @@
 | `hut30` | Э.2 (Имя) | `shepherds-house` `moment` hut |
 | `board30`, `pupil30`, `beeches30` М3 | финалы «Табличка», «Ученик», «Два прута» | `forest-edge` `moment` board (`stumps` begun_old, если Лина не знала), pupil, two_rods |
 
-**Чего игра сделать не может:** возраст людей деревни (`village` без скрипта: Лина 17 и Путник 20 во всех `time`) —
-`<id>_wear` берёт только сам объект облика (`scene.kit.cast.characters.<name>`), а у игры есть только имя облика.
-Дом, опушка и ручей это делают сами (их скрипт по `moment`); деревне нужно так же (или чтобы `_wear` понимал имя) —
-вопрос к ведущему. Пока у `village30` подпись: «Лине здесь сорок семь, Путнику пятьдесят». Внутри дома (стол, лампа,
+Облики людей по годам — дело сцен (их скрипты по `moment` и, в деревне, по `time`); игра обликов не ставит. Внутри дома (стол, лампа,
 сто желудей) — своя сцена `house-inside` (с 2026-10-29).
 
 **Куски (стадия 5).** Шаги в доме, доме внутри, на опушке и у ручья идут на кусках сцен (`piece(g, name, {момент:
 реплики})`, контракты — notes.md сцен); плашки, где кусок показывает действие, сняты; оставлены те, что говорят то,
-чего сцена не показывает (годы, текст письма и страницы Яна, мысли). Деревня — пока без кусков (`r3/trees-pieces-village`
-ещё идёт): её шаги на плашках. Вставка «листы тетради в ведре» («Два прута») и жёлудь в руке (МИ2) — пока плашка и
-метка языка мини-игр.
+чего сцена не показывает (годы, текст письма и страницы Яна, мысли). Деревня — тоже на своих кусках (с 2026-10-29;
+облики людей по `time` — сцена сама; в «Рассказе» страницы тетради — её вставка `pages`, куски `story`, `story_wind`).
+«Листы тетради в ведре» («Два прута», опушка) — плашка: вставки страниц у опушки нет; жёлудь в руке (МИ2) — метка
+языка мини-игр под пальцем.
 
 ## Люди
 
@@ -315,7 +313,7 @@ points exist in the scenes now (the branch check finds them); a piece only needs
 | `hand_in` | МИ2 | slope0 `planting` | pull, ×5: an acorn from `pail#top` to `plant_spot` | `pail#top` → `plant_spot` | — | 12 | `{took}` (3 dropped): he takes the pail himself (a plate) |
 | `stream` | МИ3 | stream6 `water` | hold 6 s (keep) | `traveller#hand_r` | — | 7 | `{pulled}`: Lina «Холодной боишься?» |
 | `beech` | МИ4 | edge20 `edge`, after `beech` | hold till full (the rod in), then pull slowly ×2 (the earth) | `traveller#rod`, then `new_beech#top` | `new_beech` none → straight (crooked on a jerk); the chapter on the Road: `beech_row` 14, `new_beech` none | 10 | `{crooked}`: Slope — «И так вырастет»; Road — straightened again (a plate) |
-| `linden` | МИ5 | village30, `stump` dug | hold till full (2 s); let go early twice — missed | `stump#spot` | — (the chapter sets `stump` planted, `wet` after it) | 8 | `{lina}`: Lina «Ну» |
+| `linden` | МИ5 | village30, after `alive` | hold till full (2 s); let go early twice — missed | `traveller#spade` | — (the chapter plays `planted` after it) | 8 | `{lina}`: Lina «Ну» |
 | `hand` | МИ6 | house30 `last_silence` / hut30 `hut` | hold till full, then let go within 15 s | `elzeard#rod` (Elzéard holds the rod) | `traveller_reach` {r: `elzeard#rod`} → null | 10 | `{early}`: «Держи»; `{long}`: he takes his hand away (a plate) |
 | `trunks` | guiding | slope6 `grove`, before `oaks` | pull slowly ×4 | `traveller#hand_r` | — | 40 | — |
 | `count` | guiding | inside6 after `hundred_night`, inside20 after `count_slow` | the table close (`close` 1, `acorns` counting): 10 taps | `table_close#next` | `close`, `acorns`, `counted` 0 → 10 | 8 | — |

@@ -78,28 +78,27 @@ export default {
     },
     // 1.7: down through the village; the war; ⚑ what does the shepherd do
     async g => {
-      await g.scene('village0', { here: ['traveller', 'lina', 'father'], moods: { traveller: 'neutral', lina: 'neutral', father: 'tired' }, keys: { cart: true, smoke_home: 1, lina_a: 3.6, lina_d: 11.2 } });
-      await g.plate(tr('Down through the village. Lina’s father is loading charcoal onto a cart. Lina at the well.'));
-      await g.say('lina', 'Down below they’re shouting — war. All the young ones. You’re young');
-      await g.wait(1200);
-      g.mood('lina', 'smile');
-      await g.say('lina', 'Well, what about the shepherd? What does he do up there all day?');
+      await piece(g, 'coal_cart', { lina: async () => {
+        await g.say('lina', 'Down below they’re shouting — war. All the young ones. You’re young');
+        await g.wait(1200);
+        g.mood('lina', 'smile');
+        await g.say('lina', 'Well, what about the shepherd? What does he do up there all day?');
+      } }, () => g.scene('village0', { beat: 'coal_cart', here: ['traveller', 'lina', 'father'], moods: { traveller: 'neutral', lina: 'neutral', father: 'tired' }, keys: { smoke_home: 1 } }));
       const tell = await g.choose('tell', { 'traveller#chest': [
         { id: 'oaks', label: tr('“He plants oaks”') },
         { id: 'sheep', label: tr('“He grazes sheep”') },
       ] });
       if (tell === 'oaks') {
         await g.say('traveller', 'He plants oaks');
-        g.mood('lina', 'laugh');
-        await g.say('lina', 'Oaks. Here', { how: 'laughing' });
-        await g.say('father', 'He’s a fool', { how: 'not turning round, loading charcoal; gruff' });
-        g.mood('lina', 'thinking');
-        await g.plate(tr('Lina looks up at the slope longer than she needs to.'));
+        await piece(g, 'oaks_laugh', {
+          laugh: () => { g.mood('lina', 'laugh'); return g.say('lina', 'Oaks. Here', { how: 'laughing' }); },
+          father: () => g.say('father', 'He’s a fool', { how: 'not turning round, loading charcoal; gruff' }),
+          slope: () => { g.mood('lina', 'thinking'); },
+        });
       } else {
         await g.say('traveller', 'He grazes sheep');
         await g.say('lina', 'Well, yes. What else');
-        g.set('wet', true);
-        await g.plate(tr('She pours the water on the stump.'));
+        await piece(g, 'pour_again');
       }
       g.apply('tell');
       g.gauge('word');

@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"Inside the Shepherd's House","translation":"В доме пастуха","where":"scenes/house-inside/scene.json title"},
-  {"text":"One lamp, a table, a hundred acorns.","translation":"Одна лампа, стол, сто желудей.","where":"scenes/house-inside/scene.json caption"}
+  {"text":"Inside the Shepherd's House","translation":"В доме пастуха","where":"worlds/the-man-who-planted-trees/scenes/house-inside/scene.json title"},
+  {"text":"One lamp, a table, a hundred acorns.","translation":"Одна лампа, стол, сто желудей.","where":"worlds/the-man-who-planted-trees/scenes/house-inside/scene.json caption"}
 ]}

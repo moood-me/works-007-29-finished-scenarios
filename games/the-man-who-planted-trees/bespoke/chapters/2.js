@@ -17,22 +17,29 @@ export default {
   steps: [
     // 2.1: dawn, an empty house; Jan goes down
     async g => {
-      await g.scene('village6', { here: ['traveller', 'jan'], moods: { traveller: 'tired', jan: 'neutral' }, keys: { dawn: 1 } });
-      g.title(tr('Six Years Later'));
-      await g.plate(tr('Dawn, an empty house at the edge of the village. The Traveller slept on the floor, right by the door; Jan, in the corner.'));
-      await g.say('jan', 'By the door again', { how: 'tying up his kitbag, dry, not looking up' });
-      await g.plate(tr('On the threshold Jan pats the regiment’s notebook in his pocket.'));
-      await g.say('jan', 'Five years I wrote down the dead. Now I’ll go and count trees. At least they stand');
-      await g.say('traveller', 'I’m going up there. It was quiet there');
-      await g.say('jan', 'Don’t write the quiet down — it’ll be lost');
-      g.here('jan', false);
-      await g.plate(tr('Jan goes off down the road. The Traveller has not told him about the oaks: he does not know himself whether they are still there.'));
+      await piece(g, 'by_door', {
+        tie: async () => {
+          await g.plate(tr('Dawn, an empty house at the edge of the village. The Traveller slept on the floor, right by the door; Jan, in the corner.'));
+          await g.say('jan', 'By the door again', { how: 'tying up his kitbag, dry, not looking up' });
+        },
+        pat: async () => {
+          await g.say('jan', 'Five years I wrote down the dead. Now I’ll go and count trees. At least they stand');
+          await g.say('traveller', 'I’m going up there. It was quiet there');
+          await g.say('jan', 'Don’t write the quiet down — it’ll be lost');
+        },
+      }, async () => {
+        await g.scene('village6', { beat: 'by_door', here: ['traveller', 'jan'], moods: { traveller: 'tired', jan: 'neutral' }, keys: { dawn: 1 } });
+        g.title(tr('Six Years Later'));
+      });
+      await piece(g, 'jan_goes');
+      await g.plate(tr('The Traveller has not told Jan about the oaks: he does not know himself whether they are still there.'));
     },
     // 2.2: the empty village; the haze — leaves; water; Lina
     async g => {
       const f = facts(g.state);
-      await g.scene('village6', { here: ['traveller'], moods: { traveller: 'tired' }, keys: { dawn: 0.4 } }, { cut: true });
-      await g.plate(tr('The village is empty; a fresh grave mound. Over the plateau a grey haze, like mist: it is leaves.'));
+      await piece(g, 'haze', {
+        leaves: () => g.plate(tr('The village is empty; a fresh grave mound. Over the plateau a grey haze, like mist: it is leaves.')),
+      }, () => g.scene('village6', { beat: 'haze', here: ['traveller'], moods: { traveller: 'tired' }, keys: { dawn: 0.3 } }, { cut: true }));
       await piece(g, 'water', { meet: async () => {
         g.mood('traveller', 'surprised');
         if (f.drank) await g.say('lina', 'Ah, the water-guzzler', { how: 'recognizing him, teasing' });
