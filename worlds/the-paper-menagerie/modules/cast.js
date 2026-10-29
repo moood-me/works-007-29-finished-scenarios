@@ -473,13 +473,17 @@ return {
             fwdH = F.fwd('Hips');
           let face = unit(cross(across, [0, 1, 0]));
           if (face[0] * fwdH[0] + face[1] * fwdH[1] + face[2] * fwdH[2] < 0) face = mul(face, -1);
-          const up = unit(cross(face, across)),
+          // the sheet tipped a little, its top away from whoever holds it (the back of it to their eyes): drawn as a
+          // flat tube from one held edge to the other, square in section, its ends cut — a thin sheet, not a slab
+          const up = unit(add(mul(unit(cross(face, across)), 0.8), mul(face, 0.6))),
+            out = unit(cross(across, up)),
             c = add(mix(l, r, 0.5), mul(up, 0.06 * h)),
-            ax = [across, up, face];
-          F.ball(c, ax, [0.17 * h, 0.16 * h, 0.001 * h], LETTER[0], 4, 8);
+            ax = [across, up, out],
+            edge = s => add(c, mul(across, s * 0.17 * h));
+          F.tube([edge(-1), edge(1)], [[0, 0.16 * h], [1, 0.16 * h]], [[0, LETTER[0]]], 8, up, 0.012, 8, true);
+          F.tube([add(edge(-1), add(mul(up, 0.03 * h), mul(out, 0.0025 * h))), add(edge(1), add(mul(up, 0.03 * h), mul(out, 0.0025 * h)))], [[0, 0.016 * h], [1, 0.016 * h]], [[0, TAPE]], 8, up, 0.1, 8, true);
           for (const [x, y] of [[-0.1, 0.09], [0.07, -0.08], [0.11, 0.1]])
-            F.ball(add(c, add(mul(across, x * h), add(mul(up, y * h), mul(face, 0.002 * h)))), ax, [0.008 * h, 0.008 * h, 0.0005 * h], STAR, 5);
-          F.ball(add(c, add(mul(up, 0.03 * h), mul(face, 0.002 * h))), ax, [0.17 * h, 0.016 * h, 0.0005 * h], TAPE, 4, 8);
+            F.ball(add(c, add(mul(across, x * h), add(mul(up, y * h), mul(out, 0.0025 * h)))), ax, [0.009 * h, 0.009 * h, 0.0008 * h], STAR, 6);
           F.point('letter', c);
         },
       },
