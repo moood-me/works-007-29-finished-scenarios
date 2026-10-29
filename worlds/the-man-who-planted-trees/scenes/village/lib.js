@@ -536,7 +536,7 @@ function film(scene) {
         l.wear({ parts: [] });
         t.with(["mug"]);
         l.do("stand");
-        s.camera({ target: "traveller", shot: "medium" });
+        s.camera({ target: "traveller", shot: "full", frame: 0.6 });
         await t.do("drink", { loop: false });
         t.do("stand");
         l.reach({ r: "traveller#mug" });
@@ -588,7 +588,7 @@ function film(scene) {
         who("lina", LINA, "stand", { look: "traveller" })),
       run: async (s) => {
         const l = s.person("lina"), t = s.person("traveller");
-        s.camera({ target: null, glide: 2 });
+        s.camera({ target: "pair", shot: "wide", glide: 2 });
         await l.turn(350);
         l.look(SLOPE);
         l.reach({ r: SLOPE });
