@@ -50,7 +50,11 @@ for (const folder of readdirSync(join(world, 'scenes'))) {
   if (!existsSync(file)) continue;
   const spec = JSON.parse(readFileSync(file, 'utf8'));
   const code = id => { const f = join(world, 'scenes', folder, 'elements', `${id}.js`); return existsSync(f) ? readFileSync(f, 'utf8') : ''; };
-  SCENES.set(folder, { spec, objects: new Map((spec.objects ?? []).map(o => [o.id, o])), states: spec.states ?? {}, code });
+  // its pieces, as its notes.md's «Contract for the check» says them (none yet: what the game asks of them waits)
+  const notes = join(world, 'scenes', folder, 'notes.md');
+  const block = existsSync(notes) && /## Contract for the check\s*```json\s*([^]*?)```/.exec(readFileSync(notes, 'utf8'))?.[1];
+  const contract = block ? JSON.parse(block) : null;
+  SCENES.set(folder, { spec, objects: new Map((spec.objects ?? []).map(o => [o.id, o])), states: spec.states ?? {}, code, beats: contract?.beats ?? null });
 }
 const b = {
   specOf: async folder => {
@@ -63,15 +67,30 @@ const view = new Proxy({}, { get: () => nothing });
 const hub = { offer: () => new Promise(nothing), ask: async () => null, withdraw: nothing };
 // a point ('id', 'id#name') of a scene: a person there now ('id', 'id#chest'), or its element and its name in the
 // element's code
-function point(folder, ref, where, present) {
+// (a person's points: the engine's — people/player.js POINTS — and the cast's parts' — modules/cast.js F.point)
+const POINTS = new Set(['head', 'hand_r', 'hand_l', 'hands', 'chest', 'hips', 'foot_r', 'foot_l', 'feet', 'back']);
+// what the scene lacks yet that the pieces' contract asks of it (game.md «Stage 5 — pieces»): `wait` — said apart, as
+// waited for, not as wrong
+function point(folder, ref, where, present, wait = null) {
   const s = SCENES.get(folder), [id, name] = ref.split('#');
   if (!s) return;
+  const no = wait ?? miss;
   if (s.objects.get(id)?.person) {
     if (!present.has(id)) miss(`${where}: the point “${ref}” — “${id}” is not there now`);
-    else if (name && name !== 'chest' && !PARTS.has(name)) miss(`${where}: the point “${ref}” — a person's point is their head, “#chest” or a point of a part of the cast (modules/cast.js F.point)`);
-  } else if (!s.objects.has(id)) miss(`${where}: the point “${ref}” — no element “${id}” in the scene “${folder}”`);
-  else if (name && !new RegExp(`['"\`]${name}['"\`]`).test(s.code(id))) miss(`${where}: the point “${ref}” — the element's code names no “${name}”`);
+    else if (name && !POINTS.has(name) && !PARTS.has(name)) miss(`${where}: the point “${ref}” — a person has no point “${name}”`);
+  } else if (!s.objects.has(id)) no(`${where}: the point “${ref}” — no element “${id}” in the scene “${folder}”`);
+  else if (name && !new RegExp(`['"\`]${name}['"\`]`).test(s.code(id))) no(`${where}: the point “${ref}” — the element's code names no “${name}”`);
 }
+// the keys a mini-game moves: the scene's (its states) or a person's of it
+function moves(folder, k, where, wait) {
+  const s = SCENES.get(folder);
+  if (!s || s.states[k]) return;
+  const person = /^(.+)_(do|turn|look|reach|with|wear|gait|steps|on|here|still|mood|a|d)$/.exec(k)?.[1];
+  if (person && s.objects.get(person)?.person) return;
+  wait(`${where}: the key “${k}” — not in the states of the scene “${folder}”`);
+}
+const waits = new Map();
+const pending = text => waits.set(text, (waits.get(text) ?? 0) + 1);
 
 // the points the cast's parts name (a person's point by a part they have: `jack#letter`)
 const PARTS = new Set();
@@ -85,7 +104,28 @@ async function step(c, s, state, where, missed = false) {
   const g = context(b, view, hub, structuredClone(state), j);
   let folder = null, present = new Set();
   const made = [], titles = [];
-  const { scene, say: speak, choose, play, title, here, set } = g;
+  const { scene, say: speak, choose, play, title, here, set, beat, told } = g;
+  // a piece of the shown scene, and a moment of it: in its contract — or waited for while the scene has none
+  const piece = name => {
+    const beats = SCENES.get(folder)?.beats;
+    if (!beats) pending(`the piece “${name}” — the scene “${folder}” has no contract of its pieces yet`);
+    else if (!beats[name]) miss(`${where}: the piece “${name}” — not in the contract of the scene “${folder}”`);
+  };
+  g.beat = (name, o) => { piece(name); return beat(name, o); };
+  g.told = (text, ms) => {
+    // (a piece's moments are listened for before its scene is opened: checked once it is)
+    queueMicrotask(() => know(text));
+    return told(text, ms);
+  };
+  const know = text => {
+    const [name, moment] = text.split(':');
+    if (name === 'beat') piece(moment);
+    else {
+      piece(name);
+      const beats = SCENES.get(folder)?.beats;
+      if (beats?.[name] && !beats[name].tells?.includes(text)) miss(`${where}: “${text}” — the piece does not tell it`);
+    }
+  };
   // a key of the shown scene's own: in its states, its value allowed — or a person's of the scene (`<id>_with`…)
   const PERSON = /^(.+)_(do|turn|look|reach|with|wear|gait|steps|on|here|still|mood|a|d)$/;
   const key = (k, v) => {
@@ -98,6 +138,7 @@ async function step(c, s, state, where, missed = false) {
       miss(`${where}: the key “${k}” of the scene “${folder}” cannot be ${JSON.stringify(v)}`);
   };
   g.scene = (place, o = {}, x) => {
+    if (o.beat) queueMicrotask(() => piece(o.beat));
     const at = PLACES[place];
     if (!at) miss(`${where}: no place “${place}”`);
     else if (!SCENES.has(at.folder)) miss(`${where}: the place “${place}” — the world has no scene “${at.folder}”`);
@@ -131,23 +172,22 @@ async function step(c, s, state, where, missed = false) {
     if (choice) made.push(choice);
     return choose(choice, offers, chance);
   };
-  g.play = (m, o) => { point(folder, atOf(m), where, present); return play(m, o); };
+  g.play = (m, o) => {
+    for (const ref of m.points ?? []) point(folder, ref, m.title, present, pending);
+    for (const k of m.keys ?? []) moves(folder, k, m.title, pending);
+    return play(m, o);
+  };
   g.title = text => { titles.push(text); return title(text); };
   let broke = null;
   await Promise.race([CHAPTERS[c].steps[s](g).catch(e => { broke = e; }), j.idle]);
   if (broke) miss(`${where}: the step broke: ${broke.message}`);
   return { state: g.state, made, titles };
 }
-// (a stub's point: as stub.js was given it)
-const POINTS = new Map();
-const stubs = await load('minigames/all.js');
-for (const [name, m] of Object.entries(stubs)) {
-  const src = readFileSync(join(game, 'minigames/all.js'), 'utf8');
-  const at = new RegExp(`export const ${name} = stub\\(\\{[^]*?at: '([^']+)'`).exec(src)?.[1];
-  if (!at) miss(`minigames/all.js: “${name}” has no point`);
-  POINTS.set(m, at ?? '');
+// every mini-game has the trace of a miss, and says its points and keys
+for (const [name, m] of Object.entries(await load('minigames/all.js'))) {
+  if (!m.missed || !m.skipped) miss(`minigames: “${name}” has no “missed” or “skipped”`);
+  if (!Array.isArray(m.points) || !Array.isArray(m.keys)) miss(`minigames: “${name}” says no points or keys`);
 }
-const atOf = m => POINTS.get(m) ?? '';
 
 // --- every path: depth first, a step played again for each option of the choice it makes
 const STEPS = CHAPTERS.flatMap((ch, c) => ch.steps.map((_, s) => [c, s]));
@@ -204,6 +244,8 @@ out.push(`paths: ${paths}`);
 for (const [k, n] of [...ends].sort()) out.push(`  ${k}: ${n}`);
 out.push('', misses.size ? 'DOES NOT MATCH:' : 'nothing to fix');
 for (const [text, n] of misses) out.push(`  ${text} (paths: ${n})`);
+out.push('', waits.size ? 'WAITED FOR (the pieces’ contract, game.md):' : 'nothing waited for');
+for (const [text, n] of waits) out.push(`  ${text} (paths: ${n})`);
 out.push('', `lines said (${lines.size}):`);
 for (const { who, text } of lines.values()) out.push(`  ${who} | ${text}`);
 console.log(out.join('\n'));

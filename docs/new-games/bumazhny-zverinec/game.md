@@ -357,16 +357,19 @@ named) · tells. «M» — the mini-game is played after the piece, in its end p
 
 ### Mini-games (each in the pose its piece ended in; the game sets the keys named)
 
-| id | § | scene, after | gesture | marks on | keys the game drives | s | a miss leaves |
+The game side is written (`minigames/*.js`, on the language of mini-games, `hands.js` as Canterville's); these are
+the points and keys each needs of its scene — the branch check lists what a scene lacks as «waited for».
+
+| id | § | scene, after | gesture | marks on (points) | keys the game drives | s | a miss leaves |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `palms` | М1 | kitchen, `palms` | hold | `jack#chest` (his palms) | `laohu` alive, breathing | 8 | the tiger rolls off, stands up all the same |
-| `ingot` | М2 | kitchen, `ingots` | fold along the line | the insert of the yellow square (points `ingot#a` → `ingot#b`, to add) | `ingot_fold` 0..1 | 6 | a crooked ingot; her «给外婆，这样也很好。» (mark `ingot`) |
-| `scraps` | М3 | yard, `knight` | tap ×5 | `scraps#1…5` (to add) | `scraps` count | 8 | the ear into the drain: mark `ear` (`laohu_ear` everywhere after) |
-| `tape` | М4 | kitchen, `tape` | hold | `laohu` | `tape_hold` | 6 | a crooked seam: mark `seam` (`laohu_seam`) |
-| `hand` | М5 | ward, `friday` | hold, then let go | `mom#hand_r` | `jack_reach`, a sign «Отпусти» 8 s | 10 + 8 | Dad's palm on top (`dad_reach`), they let go together |
-| `stroke` | М6 | room, `unfold` | lead slowly | `laohu` | `laohu_purr` | 5 | he grumbles, lies down all the same |
-| `peel` | М7 | square, `reading` | lead slowly | `translator#letter` (insert: the strip) | `tear` taped → open / curled | 5 | the edge stays curled: «看不清。大概是——“一个人”。» |
-| `sign` | М8 | yard, `sign` | trace the strokes | the insert: 爱's strokes (points to add) | `sign` 0..1, `sign_crooked` | 10 | crooked, and so it stays (mark `crooked`; the finales show it) |
-| `fold` | final | yard, `tiger` | fold along the line | the sheet's folds | `fold` 0..1 | 8 | the folds find themselves |
-| `smooth` | final | yard, `letter_end` | lead slowly | the sheet | `tremble` → 0 | 8 | the sheet lies flat by itself |
-| `flame` | final | yard, `smoke` | hold, then let go | the sheet over `apple#fire` | `jack_reach`, `fire` | 8 | the flame takes it by itself |
+| `palms` | М1 | kitchen, `palms` | hold | `jack#hands` | `laohu_breath` 0..1 (the tiger warms, its sides rise; 1 — it stands) | 8 | the tiger rolls off, stands up all the same |
+| `ingot` | М2 | kitchen, `ingots` | fold along the line | an element `ingot` (the yellow square on the oilcloth, close) with points `ingot#start`, `ingot#end` | `ingot_fold` 0..1 | 6 | a crooked ingot; her «给外婆，这样也很好。» (mark `ingot`) |
+| `scraps` | М3 | yard, `knight` | tap ×5 | the yard's `scraps` element's points `scraps#s1` … `scraps#s5` | `scraps_left` 5..0 (that many still on the grass) | 8 | the ear into the drain: mark `ear` (`laohu_ear` everywhere after) |
+| `tape` | М4 | kitchen, `tape` | hold | `laohu` (the element) | `tape_laid` 0..1 (her strip along the seam) | 6 | a crooked seam: mark `seam` (`laohu_seam`) |
+| `hand` | М5 | ward, `friday` | hold, then let go | `mom#hand_r` | `jack_reach`, `dad_reach` (persons') | 10 + 8 | Dad's palm on top, they let go together |
+| `stroke` | М6 | jack-room, `unfold` | lead slowly | `laohu` (the element) | `laohu_purr` 0..1 | 5 | he grumbles, lies down all the same |
+| `peel` | М7 | square, `reading` | lead slowly | `translator#letter` | `tear` `taped` / `open` / `curled` (the clear strip over the overlapped tear) | 5 | the edge stays curled: «看不清。大概是——“一个人”。» |
+| `sign` | М8 | yard, `sign` | trace | an element `hanzi` (the bottom of her sheet, close: her 爱, room under it) with points `hanzi#start`, `hanzi#end` | `hanzi` 0..1 (his sign drawn), `hanzi_crooked` bool | 10 | crooked, and so it stays (mark `crooked`; the finales show it) |
+| `fold` | final | yard, `tiger` | fold (four slow pulls) | `jack#letter` | `fold` 0..1 (the sheet folding back into the tiger) | 8 | the folds find themselves |
+| `smooth` | final | yard, `letter_end` | lead slowly | `jack#letter` | `tremble` 1..0 | 8 | the sheet lies flat by itself |
+| `flame` | final | yard, `smoke` | hold, then let go | `jack#letter` | `fire` 0..1 (is), `jack_reach` (to `apple#fire`) | 8 | the flame takes it by itself |
