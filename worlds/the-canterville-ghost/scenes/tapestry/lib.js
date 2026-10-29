@@ -317,7 +317,7 @@ function film(scene) {
         s.tell('insulted:seat');
       },
     },
-    // 2.3: evening; before the mirror he looms, then bows to it (the mirror shows the room — and him, faintly: notes)
+    // 2.3: evening; before the mirror he looms, then bows to it (the mirror shows the room, not him: simon_reflected false)
     rehearse: {
       tells: ['rehearse:loom', 'rehearse:bow'],
       seconds: 12,
