@@ -135,9 +135,9 @@
    "height": 2.0,
    "box": [
     -0.25,
-    -2.0,
+    -2.02,
     0.25,
-    -1.05
+    0.02
    ]
   },
   {
@@ -429,7 +429,6 @@
  ],
  "state": {
   "moment": "arrival",
-  "staged": "arrival",
   "time": "dusk",
   "night": 0,
   "lamp": 1,
