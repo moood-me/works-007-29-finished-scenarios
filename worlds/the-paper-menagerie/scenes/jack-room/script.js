@@ -24,6 +24,10 @@ function stage() {
 stage();
 scene.on('change', 'moment', () => stage());
 scene.on('change', 'menagerie', () => stage());
-scene.on('change', 'young', () => stage());
+// (a piece sets `young` itself, with Jack's look and place: then the moment is not staged over it)
+scene.on('change', 'young', v => {
+  if (scene.get('beat')) scene.set('jack_wear', v ? scene.kit.cast.characters.jack_five : null);
+  else stage();
+});
 // its pieces (the game sets `beat`: modules/beats, lib.film) — a piece's start is cut to after the moment's
 scene.kit.beats.play(scene, scene.lib.film(scene));
