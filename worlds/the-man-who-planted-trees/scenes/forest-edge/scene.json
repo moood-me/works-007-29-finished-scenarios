@@ -6257,46 +6257,60 @@
           "tint": "#ffffff"
         },
         {
-          "across": 1.12,
-          "distance": 19.5,
-          "scale": 0.96,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": 2.71,
-          "distance": 19.45,
-          "scale": 1.03,
+          "across": 3.58,
+          "distance": 17.73,
+          "scale": 0.93,
           "flip": true,
           "tint": "#f2f4ea"
         },
         {
-          "across": 0.14,
-          "distance": 21.54,
-          "scale": 0.87,
-          "flip": false,
-          "tint": "#f6f1e4"
+          "across": 1.18,
+          "distance": 19.67,
+          "scale": 1.04,
+          "flip": true,
+          "tint": "#e8ecdf"
         },
         {
-          "across": 1.69,
-          "distance": 21.46,
-          "scale": 0.91,
+          "across": 2.51,
+          "distance": 19.53,
+          "scale": 1.02,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 4.09,
+          "distance": 19.51,
+          "scale": 1.08,
           "flip": false,
           "tint": "#ffffff"
         },
         {
-          "across": 3.35,
-          "distance": 21.72,
-          "scale": 0.86,
+          "across": 0.12,
+          "distance": 21.55,
+          "scale": 1.08,
           "flip": true,
           "tint": "#f6f1e4"
         },
         {
-          "across": 4.65,
+          "across": 1.88,
+          "distance": 21.5,
+          "scale": 0.97,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 3.25,
+          "distance": 21.67,
+          "scale": 0.84,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 4.61,
           "distance": 21.59,
-          "scale": 1.06,
-          "flip": true,
-          "tint": "#e8ecdf"
+          "scale": 0.87,
+          "flip": false,
+          "tint": "#ffffff"
         }
       ]
     },
@@ -6331,9 +6345,9 @@
     {
       "id": "board",
       "name": "The board at the forest's edge",
-      "across": 4.3,
-      "distance": 19.2,
-      "facing": 200,
+      "across": -0.6,
+      "distance": 13.6,
+      "facing": 185,
       "height": 1.8,
       "box": [
         -0.8,

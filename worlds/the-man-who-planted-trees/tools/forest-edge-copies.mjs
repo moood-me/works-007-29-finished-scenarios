@@ -99,7 +99,7 @@ for (const [a, d] of [[2.6, 13.2], [3.6, 14.4], [2.2, 15.6], [3.4, 16.9], [4.2, 
   copies.sheep.push({ across: r2(a + (rnd() - 0.5) * 0.4), distance: r2(d + (rnd() - 0.5) * 0.4), flip: rnd() < 0.5, scale: r2(0.92 + rnd() * 0.16) });
 }
 // the Traveller's beeches on the Slope: rows over the meadow right of the path, from the stone toward the brow
-const GAPS = [...PEOPLE, [2.4, 12], [1.1, 10.6], [4.3, 19.2], [3.6, 17.6], [4.8, 17.3]];
+const GAPS = [...PEOPLE, [2.4, 12], [1.1, 10.6], [-0.6, 13.6]];
 for (let k = 0, d0 = 9.6; d0 <= 21.6; k++, d0 += 2) {
   for (let a0 = lib.pathX(d0) + 1.3 + (k % 2) * 0.7; a0 <= lib.browA(d0) - 0.4; a0 += 1.5) {
     const a = a0 + (rnd() - 0.5) * 0.3, d = d0 + (rnd() - 0.5) * 0.3;
