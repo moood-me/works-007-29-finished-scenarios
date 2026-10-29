@@ -68,7 +68,7 @@ export const PLACES = {
   yard: { folder: 'yard' }, // С1 the yard
   stop: { folder: 'yard' }, // С1 toward the street: the bus stop (the yard's key `view` street)
   ward: { folder: 'ward' }, // С5 the ward
-  hallway: { folder: 'ward', where: tr('In truth: the hospital corridor outside the ward door — and, down it, a payphone.') }, // С5, the corridor
+  hallway: { folder: 'ward' }, // С5, the corridor outside the ward (its key `view` corridor), the payphone
   house: { folder: 'kitchen' }, // С2 in chapter 3 (a year on: its pieces' `year`)
   bare: { folder: 'jack-room' }, // С3 in chapter 3 (its `moment` packed: the room emptied, Jack grown)
   attic: { folder: 'attic' }, // С4 the attic
