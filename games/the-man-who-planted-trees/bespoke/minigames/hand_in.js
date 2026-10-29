@@ -41,7 +41,7 @@ export default {
       if (!ok) return this.skipped;
       mark.remove();
       if (!how) return this.missEnd(mg, { took: true });
-      if (how === 'in') { put++; mg.snap({ at: 'plant_spot' }); } else { drops++; g.failed(); mg.error('dropped', { chip: true }); }
+      if (how === 'in') { put++; mg.snap({ at: 'plant_spot' }); } else { drops++; g.failed(); mg.error('miss', { chip: true }); }
       if (drops >= DROPS) return this.missEnd(mg, { took: true });
       if (put >= TIMES) break;
     }
