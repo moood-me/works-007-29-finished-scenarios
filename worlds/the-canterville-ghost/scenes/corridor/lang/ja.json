@@ -1,8 +1,8 @@
 {"strings": [
-  {"text":"YE OTIS GHOSTE","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
-  {"text":"Ye Onlie True and Originale Spook.","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
-  {"text":"Beware of Ye Imitationes.","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
-  {"text":"All others are Counterfeite.","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
-  {"text":"The Corridor","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json title"},
-  {"text":"Canterville Chase, one o'clock at night. Something clanks in the corridor.","translation":"","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json caption"}
+  {"text":"YE OTIS GHOSTE","translation":"オーティス家ノ幽霊","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"Ye Onlie True and Originale Spook.","translation":"唯一無二ノ元祖本物オバケ。","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"Beware of Ye Imitationes.","translation":"模造品ニ御注意。","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"All others are Counterfeite.","translation":"他ハスベテ偽物ナリ。","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"The Corridor","translation":"廊下","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json title"},
+  {"text":"Canterville Chase, one o'clock at night. Something clanks in the corridor.","translation":"カンタヴィル・チェイス、夜中の一時。廊下で何かががちゃりと鳴る。","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json caption"}
 ]}
