@@ -88,8 +88,13 @@ function film(scene) {
     s.move('camera_z', z, { over: 1.5 });
     s.move('camera_h', h, { over: 1.5 });
   };
-  const up = p => {
+  // getting up from where they sit (the motion rise), if they sit
+  const up = async (s, id) => {
+    const p = s.person(id),
+      seat = s.get(`${id}_on`);
+    if (!Array.isArray(seat)) return;
     p.on(null);
+    await p.go('rise', { from: [seat[0], seat[1]], turn: s.get(`${id}_turn`) });
     p.do('stand');
   };
   return {
@@ -285,7 +290,7 @@ function film(scene) {
         shot(s, null, 'full', 0);
         s.move('lamp', 0.6, { over: 3 });
         dad.wear(DAD_PLAIN);
-        up(dad);
+        await up(s, 'dad');
         await dad.walk([[-1.2, 2.7], [1.0, 2.3], [DOOR_IN[0], DOOR_IN[1]]]);
         await dad.turn(285);
         dad.look('jack');
@@ -310,7 +315,7 @@ function film(scene) {
         const jack = s.person('jack'),
           mom = s.person('mom'),
           dad = s.person('dad');
-        up(jack);
+        await up(s, 'jack');
         s.tell('stay:say');
         await jack.walk([[-1.45, 2.95]]);
         await jack.turn(300);
@@ -350,7 +355,7 @@ function film(scene) {
       run: async s => {
         const jack = s.person('jack'),
           mom = s.person('mom');
-        up(jack);
+        await up(s, 'jack');
         await jack.walk([[0.8, 3.25]]);
         await jack.turn(230);
         jack.reach({ l: 'mom#hand_l' });
@@ -388,7 +393,7 @@ function film(scene) {
         mom.look('suit_chair#bag');
         s.tell('night:bag');
         await s.wait(2);
-        up(jack);
+        await up(s, 'jack');
         await jack.walk([[-1.5, 2.9]]);
         await jack.turn(330);
         jack.reach({ r: 'suit_chair#bag' });
