@@ -2,7 +2,9 @@
 // here, a little crooked, and asleep: paper, not stirring (drawn S times the sizes written). Flat facets, each fold a
 // shade lighter or darker, the creases drawn; the head down, the eyes two shut creases; the tail with one fold too
 // many near its root, bent askew; on its flank the old tape, yellowed, and over it a strip of fresh tape catching the
-// light. laohu_ear: the torn ear gone, its stub taped flat. Its head is its point.
+// light. laohu_ear: the torn ear gone, its stub taped flat. Its head is its point. `laohu_here` false: not here (taken
+// home after «Остался», 2.4).
+if (e.state.laohu_here === false) return;
 const S = 1.1,
   L = '#e8503f',
   M = '#d23a2e',

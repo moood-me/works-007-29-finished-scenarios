@@ -6,7 +6,7 @@
 // Her language: the language at home (scenario §1, §8) — 2 Mom's: both in Chinese, subtitled; 1 two languages: she in
 // Chinese, subtitled, he in English; 0 English: she in English, slowly — and what she says in Chinese is not
 // subtitled: Jack no longer understands it.
-// Stand-ins (story.js PLACES): the corridor outside the ward — the ward, Mom not seen. The menu crane on the sill —
+// The corridor outside the ward — the ward's view `corridor` (the nurse there). The menu crane on the sill —
 // only on the menagerie «the whole house» (the ward's key `crane`).
 // Reads: the language, the menagerie, marks.ear. Leaves: choices.talk, choices.train; marks.talk, marks.train.
 import { WARD, facts } from '../story.js';
@@ -30,7 +30,7 @@ export default {
     // 2.1: at the ward door — the nurse, the ticket, the phrasebook, the tiger folded anew
     async g => {
       const f = facts(g.state);
-      await g.scene('hallway', { here: ['jack', 'dad'], moods: { jack: 'tired', dad: 'tired' }, keys: { ...WARD.evening, crane: f.zoo === 2 } });
+      await g.scene('hallway', { here: ['jack', 'dad', 'nurse'], moods: { jack: 'tired', dad: 'tired' }, keys: { ...WARD.evening, crane: f.zoo === 2, view: 'corridor' } });
       g.title(tr('A Good Day'));
       await g.plate(tr('Eleven years later, autumn. Jack is twenty-one, his last year at university. Mom has been in hospital for three weeks. Tuesday. Dad, unshaven, with a bag of oranges. Jack with a suit bag over his shoulder — his first suit. In his hand a ticket: “Tue 23:00 → Wed 7:40”; the return — “Fri”.'));
       await g.say('dad', 'A good day today. She ate. Soup… well, half a bowl — that’s a lot, for her', { how: 'rambling a little, trying to sound hopeful' });
@@ -210,7 +210,7 @@ export default {
           await g.plate(tr('She falls asleep.'));
           await g.say('jack_grown', 'I know, Mom', { how: 'barely aloud' });
         }
-        await g.scene('hallway', { here: ['jack'], moods: { jack: 'tired' }, keys: { ...WARD.evening, crane: f.zoo === 2 } });
+        await g.scene('hallway', { here: ['jack'], moods: { jack: 'tired' }, keys: { ...WARD.evening, crane: f.zoo === 2, view: 'corridor' } });
         await g.plate(tr('Morning. Jack calls from the payphone in the corridor to say he won’t come. The answer: the position will go to another candidate.'));
         g.here('dad', true);
         await g.plate(tr('Dad comes down the corridor with oranges and sees his face.'));

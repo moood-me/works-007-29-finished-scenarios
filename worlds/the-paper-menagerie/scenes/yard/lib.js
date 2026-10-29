@@ -93,7 +93,7 @@ function film(scene) {
   const PORCH = () => merge(YEAR({ porch_lamp: 0.6 }), who('dad', [TOP[0], TOP[1], 180], 'sitting_on_bed', { on: TOP, look: 'jack' }),
     who('jack', [0.35, 6.0, 250], 'stand', { with: ['letter'], look: 'dad' }), away('mom', 'mark', 'mark_grown', 'boy_a', 'boy_b'));
   // the finales' Jack: sitting on the lower step with the sheet
-  const SITTING = () => who('jack', [LOW[0], LOW[1], 180], 'sitting_on_bed', { on: LOW, with: ['letter'], look: 'jack#letter' });
+  const SITTING = () => who('jack', [LOW[0], LOW[1], 180], 'sit_step', { on: LOW, with: ['letter'], look: 'jack#letter' });
 
   return {
     // ---- chapter 1, Qingming morning
@@ -470,7 +470,7 @@ function film(scene) {
         glide(s, SH.tree, 2.5);
         await dad.walk([[1.5, 5.6], [3.95, 5.15]]);
         await dad.turn(80);
-        dad.do('palm_on_tree');
+        dad.do('stand');
         dad.reach({ r: 'apple#trunk' });
         dad.look('apple#trunk');
         s.tell('father_all:tree');
@@ -520,7 +520,7 @@ function film(scene) {
         const jack = s.person('jack');
         await jack.walk([[LOW[0], LOW[1] - 0.25]]);
         await jack.turn(180);
-        put(s, { jack_on: LOW, jack_a: LOW[0], jack_d: LOW[1], jack_do: 'write_step', jack_look: 'jack#letter' });
+        put(s, { jack_on: LOW, jack_a: LOW[0], jack_d: LOW[1], jack_do: 'sit_step', jack_look: 'jack#letter' });
         s.tell('sign:pen');
         await s.wait(1.5);
         await s.move('hanzi_close', 1, { over: 0.8 });
@@ -582,7 +582,7 @@ function film(scene) {
         await s.wait(0.6);
         jack.reach(null);
         put(s, { laohu_held: 'arm' });
-        jack.gait('hum_carry');
+        jack.gait(null);
         glide(s, SH.two, 2);
         s.tell('tiger_up:hum');
         await jack.walk([[0.4, 5.6], [0.8, 4.6]]);
@@ -673,7 +673,7 @@ function film(scene) {
           : merge(SITTING(), { jack_with: [], jack_look: 'step_sheet' });
         const things = end === 'tiger' ? { laohu: 'taped', laohu_held: 'arm', laohu_a: 0.7, laohu_d: 4.7, laohu_e: 1.0 }
           : end === 'smoke' ? { fire: 0.6, stripes: 0 } : { step_sheet: true };
-        const dad = f === 'all' ? (end === 'tiger' ? who('dad', [3.95, 5.15, 80], 'palm_on_tree', { reach: { r: 'apple#trunk' }, look: 'apple#trunk' })
+        const dad = f === 'all' ? (end === 'tiger' ? who('dad', [3.95, 5.15, 80], 'stand', { reach: { r: 'apple#trunk' }, look: 'apple#trunk' })
             : end === 'smoke' ? who('dad', [2.6, 5.7, 120], 'stand', { look: 'apple#fire' })
             : who('dad', [-0.75, 6.4, 180], 'stand', { look: 'jack', with: ['phrasebook'] }))
           : f === 'apple' ? (end === 'letter' ? who('dad', [-1.2, 7.5, 180], 'stand', { look: 'jack', with: ['phrasebook'] }) : who('dad', [-1.0, 7.7, 180], 'stand', { look: 'jack' }))

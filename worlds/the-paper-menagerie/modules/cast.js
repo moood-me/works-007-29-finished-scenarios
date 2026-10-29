@@ -6,6 +6,11 @@ const { add, sub, mul, mix, unit, cross } = MooodShapes.V;
 const KERCHIEF = F => F.head.egg.map(e => e * F.head.r * F.head.out * 1.1);
 const ZIP = [0.62, 0.63, 0.66, 1];
 const TAG = [0.93, 0.9, 0.8, 1];
+// (a string bag's net, its oranges)
+const NET = [0.85, 0.8, 0.62, 1];
+const ORANGE = [0.95, 0.55, 0.16, 1];
+// (a telephone's handset)
+const HANDSET = [0.13, 0.13, 0.14, 1];
 const PAGES = [0.95, 0.92, 0.84, 1];
 // (the plate and the buns on it; Laohu's paper — red, its darker folds, the gold stars; the knight's plastic: silver,
 // dark grey, the dead sword's grey)
@@ -468,13 +473,17 @@ return {
             fwdH = F.fwd('Hips');
           let face = unit(cross(across, [0, 1, 0]));
           if (face[0] * fwdH[0] + face[1] * fwdH[1] + face[2] * fwdH[2] < 0) face = mul(face, -1);
-          const up = unit(cross(face, across)),
+          // the sheet tipped a little, its top away from whoever holds it (the back of it to their eyes): drawn as a
+          // flat tube from one held edge to the other, square in section, its ends cut — a thin sheet, not a slab
+          const up = unit(add(mul(unit(cross(face, across)), 0.8), mul(face, 0.6))),
+            out = unit(cross(across, up)),
             c = add(mix(l, r, 0.5), mul(up, 0.06 * h)),
-            ax = [across, up, face];
-          F.ball(c, ax, [0.17 * h, 0.16 * h, 0.001 * h], LETTER[0], 4, 8);
+            ax = [across, up, out],
+            edge = s => add(c, mul(across, s * 0.17 * h));
+          F.tube([edge(-1), edge(1)], [[0, 0.16 * h], [1, 0.16 * h]], [[0, LETTER[0]]], 8, up, 0.012, 8, true);
+          F.tube([add(edge(-1), add(mul(up, 0.03 * h), mul(out, 0.0025 * h))), add(edge(1), add(mul(up, 0.03 * h), mul(out, 0.0025 * h)))], [[0, 0.016 * h], [1, 0.016 * h]], [[0, TAPE]], 8, up, 0.1, 8, true);
           for (const [x, y] of [[-0.1, 0.09], [0.07, -0.08], [0.11, 0.1]])
-            F.ball(add(c, add(mul(across, x * h), add(mul(up, y * h), mul(face, 0.002 * h)))), ax, [0.008 * h, 0.008 * h, 0.0005 * h], STAR, 5);
-          F.ball(add(c, add(mul(up, 0.03 * h), mul(face, 0.002 * h))), ax, [0.17 * h, 0.016 * h, 0.0005 * h], TAPE, 4, 8);
+            F.ball(add(c, add(mul(across, x * h), add(mul(up, y * h), mul(out, 0.0025 * h)))), ax, [0.009 * h, 0.009 * h, 0.0008 * h], STAR, 6);
           F.point('letter', c);
         },
       },
@@ -531,6 +540,41 @@ return {
           F.ball(at, ax, [0.26 * h, 0.11 * h, 0.11 * h], F.colors.accent, 10);
           for (const s of [-1, 1]) F.ball(add(at, mul(fwd, s * 0.2 * h)), ax, [0.015 * h, 0.104 * h, 0.104 * h], TAG, 10);
           F.point('bag', at);
+        },
+      },
+      // a string bag of oranges carried in the left hand, hanging at the side: six oranges in a loose net, its two
+      // handles in the fist; the point `oranges`
+      oranges: {
+        name: 'a bag of oranges',
+        draw: F => {
+          const hand = F.P('LeftHand'),
+            h = F.fit.h,
+            fwd = unit([F.fwd('Hips')[0], 0, F.fwd('Hips')[2]]),
+            across = cross([0, 1, 0], fwd),
+            up = [0, 1, 0],
+            ax = [across, up, fwd];
+          const at = add(hand, mul(up, -0.13 * h));
+          F.bar(hand, add(at, mul(up, 0.05 * h)), 0.005 * h, 0.005 * h, [[0, NET]], 4, fwd, 0.4);
+          for (const [x, y, z] of [[-0.035, 0, 0.02], [0.035, 0, -0.01], [0, 0, -0.04], [-0.02, -0.06, 0], [0.025, -0.06, 0.02], [0, 0.055, 0]])
+            F.ball(add(at, add(mul(across, x * h), add(mul(up, y * h), mul(fwd, z * h)))), ax, [0.038 * h, 0.036 * h, 0.038 * h], ORANGE, 8);
+          F.point('oranges', at);
+        },
+      },
+      // a telephone's black receiver held to the ear in the right hand: a bar from the ear down past the mouth, a
+      // round cup at each end; the point `receiver`
+      receiver: {
+        name: 'a telephone receiver',
+        draw: F => {
+          const hand = F.P('RightHand'),
+            h = F.fit.h,
+            up = F.up('RightHand'),
+            side = F.side('RightHand'),
+            fwd = F.fwd('RightHand');
+          const a = add(hand, mul(up, 0.09 * h)),
+            b = add(hand, mul(up, -0.08 * h));
+          F.bar(a, b, 0.018 * h, 0.018 * h, [[0, HANDSET]], 6, side, 0.7);
+          for (const c of [a, b]) F.ball(c, [side, up, fwd], [0.03 * h, 0.022 * h, 0.03 * h], HANDSET, 8);
+          F.point('receiver', hand);
         },
       },
       // a paper frog sitting on the open right hand: green wrapping paper, folded squat; the point `frog`

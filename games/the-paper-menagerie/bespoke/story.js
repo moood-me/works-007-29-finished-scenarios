@@ -43,7 +43,8 @@
 //   g.mark(key, value, text) — remembered (state.marks[key]); text — what the player is told; null — told nothing
 //   g.know(text) — what Jack has come to know (scenario §12, the register of knowledge), told the player as it comes
 //   g.promise(text), g.kept(text) — a promise given (§12, promises), and kept — or what came of it — told the player
-//   g.title(text) — words over the scene, as a title; → once they have gone
+//   g.title(text, under) — words over the scene, as a title (under: a smaller line beneath — when and where, for a
+//     jump in time); → once they have gone
 //   g.done() → once the step's code is through: the page's ⏭ taken back; g.leave() — the step left behind (game.js)
 // The page's ⏭ (bespoke.forward) is the step's while it is played ({forward}: whether the player has seen the step —
 // game.js): where the step is seen, pressed, the step goes on at once to its next interaction — the next line said,
@@ -58,52 +59,41 @@
 // where it really is. When the place's own scene comes (stage 4), its line here becomes `{ folder: '<its folder>' }`
 // — nothing else changes: the steps name places, never folders. The world's scenes have the people of their own
 // years: the kitchen and the yard — Jack at ten, Mom, Dad, Mark (the yard); the ward — Jack at twenty-one, Mom ill, Dad
-// grey; the square — Jack grown, the woman, the guide, the tourists. A look of another year is the cast's object
-// (`<id>_wear`), which a game cannot name: so chapter 3 at home — Jack grown, Dad grey — stands in the ward until the
-// kitchen and the yard have a key that dresses their people a year on (game.md, asks of the world); the house and the
-// yard as they really are said by the label. Jack's room and the attic are their own scenes: the room's moments (its
+// grey; the square — Jack grown, the woman, the guide, the tourists. The kitchen and the yard dress their people a year
+// on by their key `year` (Jack grown, Dad grey, Mom not here), Jack at five by `young` (the kitchen, Jack's room). Jack's room and the attic are their own scenes: the room's moments (its
 // key `moment`) dress it and its people, a year on too. (The kitchen is also the map's background, game.js.)
 export const PLACES = {
   kitchen: { folder: 'kitchen' }, // С2 the kitchen
   room: { folder: 'jack-room' }, // С3 Jack's room (its key `moment`: ROOM)
   yard: { folder: 'yard' }, // С1 the yard
-  dusk: { folder: 'yard' }, // С1 at dusk, the fire (the yard's keys: DUSK)
-  stop: { folder: 'yard', where: tr('In truth: the same yard on Monday morning — across the street, behind you, the school bus stop: Mark and two boys.') }, // С1, the bus stop
+  stop: { folder: 'yard' }, // С1 toward the street: the bus stop (the yard's key `view` street)
   ward: { folder: 'ward' }, // С5 the ward
-  hallway: { folder: 'ward', where: tr('In truth: the hospital corridor outside the ward door — and, down it, a payphone.') }, // С5, the corridor
-  house: { folder: 'ward', where: tr('In truth: the kitchen, a spring later — empty, boxes on the floor, the house sold.') }, // С2 in chapter 3
+  hallway: { folder: 'ward' }, // С5, the corridor outside the ward (its key `view` corridor), the payphone
+  house: { folder: 'kitchen' }, // С2 in chapter 3 (a year on: its pieces' `year`)
   bare: { folder: 'jack-room' }, // С3 in chapter 3 (its `moment` packed: the room emptied, Jack grown)
   attic: { folder: 'attic' }, // С4 the attic
   square: { folder: 'square' }, // С6 the square
-  porch: { folder: 'ward', where: tr('In truth: the yard at dusk, a spring later — the porch steps, the apple tree, her rusty bucket under it; across the street, Mark’s house.') }, // С1 in chapter 3
+  porch: { folder: 'yard' }, // С1 in chapter 3 (a year on: its pieces' `year`, `sold`)
 };
-// The kitchen's hours (its lamp over the table) and the ward's (the bedside lamp)
-export const KITCHEN = { evening: { lamp: 1 }, morning: { lamp: 0 }, night: { lamp: 0.35 } };
+// The ward's hours (the bedside lamp) — till its pieces come
 export const WARD = { evening: { lamp: 1 }, night: { lamp: 0.6 }, dark: { lamp: 0.3 } };
-// Jack's room's moments (its key `moment` sets the light, what stands where and who is here — the steps' `here` name
-// the same people): П.4 bedtime (Mom and Jack); 1.4 «Run away» ran (Jack at the window, Dad at the door); 1.5 «Run away»
-// call (Mom at the door); 1.6 night (Jack on the bed), hatch (the box under the attic hatch); 3.2 packed (Jack grown;
-// Dad with a frog on «the whole house»). `menagerie` — the menagerie as the room shows it (MENAGERIE: by the scale).
+// Jack's room's moments (its key `moment`: the light, what stands where and who is here) — for its pieces' openings
+// and the one moment with no piece, 1.5 «Run away» call (Mom at his door). `menagerie` — the menagerie as the room
+// shows it (MENAGERIE: by the scale).
 export const ROOM = {
   bedtime: { moment: 'bedtime' }, ran: { moment: 'ran' }, call: { moment: 'call' }, night: { moment: 'night', menagerie: 'shelf' },
 };
 export const MENAGERIE = ['attic', 'laohu', 'house'];
-// The yard at dusk, the fire in the bucket (1.4) — its keys and where its people stand, as the yard's notes have them:
-// Mom and Jack at the bucket, Dad (not here till he comes) by her, his hand on her back; Jack up in his window, Mom
-// looking up at it (UP, «Run away»)
-export const DUSK = {
-  dusk: 1, porch_lamp: 1, house_lights: 1, fire: 1, scraps: false,
-  mom_a: 3.35, mom_d: 5.9, mom_turn: 150, mom_do: 'stand', mom_wear: { parts: [] }, mom_reach: null, mom_look: 'apple#fire',
-  jack_a: 2.8, jack_d: 5.3, jack_turn: 120, jack_do: 'stand', jack_with: [], jack_look: 'apple#fire',
-  dad_a: 3.85, dad_d: 6.25, dad_turn: 215, dad_reach: { r: 'mom#back' }, dad_look: 'mom',
-};
-export const UP = { jack_a: -4.4, jack_d: 8.85, jack_turn: 180, jack_look: 'mom', mom_look: 'house#jack_window' };
-// The yard's people as they are when the step has none of the scene's things in their hands — no plate, no scraps —,
-// standing (the scene's own pose is 1.3's: Jack squatting with the scraps, Mom holding out her hand)
-export const EMPTY = { mom_wear: { parts: [] }, mom_do: 'stand', mom_reach: null, jack_with: [], jack_do: 'stand' };
-// Jack grown in chapter 3, where the ward stands in: no suit bag in his hand (it is chapter 2's), standing; no menu
-// crane on the sill
-export const GROWN = { jack_wear: { parts: [] }, jack_do: 'stand', crane: false };
+// What the scenes' pieces take from the game (their notes.md «Stage 5»: a piece starts from every value but these and
+// the people's `_here`, `_mood`): the kitchen — the marks; Jack's room — the menagerie as it stands (before 1.6:
+// shelf) and the marks; the yard — the choices and the marks, the shoebox and the paper house, what the square and the
+// character left
+export const KIT = f => ({ laohu_ear: f.ear, laohu_seam: f.seam });
+export const ROOMS = (f, chosen = true) => ({ menagerie: chosen ? MENAGERIE[f.zoo] : 'shelf', laohu_ear: f.ear, laohu_seam: f.seam });
+export const YARD = f => ({
+  way: f.yard, zoo: f.zoo, father: f.father, ending: f.ending, laohu_ear: f.ear, laohu_seam: f.seam,
+  shoebox: f.zoo === 2 ? 2 : 1, menu_house: !f.stayed, tear: f.curled ? 'curled' : 'open', hanzi_crooked: f.crooked,
+});
 // whose body a voice is in the scenes: Jack grown speaks from the scene's `jack` (the ward's is twenty-one)
 export const BODY = { jack_grown: 'jack' };
 
@@ -166,7 +156,7 @@ export function facts(state) {
     yard: c.yard ?? 'english', asked: (c.asked ?? 'asked') === 'asked', box: c.box ?? 'attic', talk: c.talk ?? 'grandma',
     train: c.train ?? 'stay', father: c.father ?? 'all', laohu: c.laohu ?? 'fold',
     // the miss marks (scenario §8): the ear blown away (М3), the seam crooked (М4), the sign crooked (М8)
-    ear: !!m.ear, seam: !!m.seam, crooked: !!m.crooked,
+    ear: !!m.ear, seam: !!m.seam, crooked: !!m.crooked, curled: !!m.curled,
   };
   // the scales (scenario §8): the language at home by the yard, the menagerie by the box
   f.lang = { english: 0, run: 1, chinese: 2 }[f.yard];
@@ -409,10 +399,10 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
     know(text) { toast(text, 'know'); },
     promise(text) { toast(text, 'promise'); },
     kept(text) { toast(text, 'kept'); },
-    async title(text) {
+    async title(text, under = null) {
       if (gone()) return never;
       if (fast) await alive(land());
-      return unseen() ? sleep(9000) : alive(view.title(text, { signal: left.signal }));
+      return unseen() ? sleep(9000) : alive(view.title(text, { signal: left.signal, under }));
     },
     async done() {
       await land();
