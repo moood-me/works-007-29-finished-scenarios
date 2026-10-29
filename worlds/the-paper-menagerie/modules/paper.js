@@ -2,7 +2,7 @@
 // wrapping paper, painted and moved the same in every scene; the back of the wrapping, her letter, as it is seen close.
 // Flat paper facets, each fold a shade lighter or darker, the creases drawn; it moves as paper does — from pose to pose,
 // a little angular, never swaying smoothly.
-const S = 1.4;
+const S = 1.1;
 const L = '#e8503f', M = '#d23a2e', D = '#b02a20', CREASE = 'rgba(90,20,15,0.55)', GOLD = '#ecc65a';
 const poly = (l, pts, fill) => {
   l.fillStyle = fill;

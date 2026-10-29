@@ -1,6 +1,7 @@
 // The animals in the box: awake, they shift now and then from pose to pose; as `menagerie_sleep` goes 0 → 1 they lie
 // down one by one (the goat first, then the deer, the other goat, the buffalo, the rest) — each a snap over and down
 // behind the box's front — and stay paper.
+if (!e.state.shoebox) return;
 const P = e.kit.paper, k = e.state.menagerie_sleep ?? 0;
 const ORDER = [['goat1', -1], ['deer', 1], ['goat2', 1], ['buffalo', -1], ['crowd', 1]];
 ORDER.forEach(([name, side], i) => {

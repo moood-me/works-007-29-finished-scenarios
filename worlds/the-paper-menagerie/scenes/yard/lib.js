@@ -24,23 +24,23 @@ function film(scene) {
     wide: { ...CAM0, camera_on: null, view: 'house' },
     street: { ...CAM0, camera_on: 'street_eye', view: 'street' },
     steps: CAM([0.4, 2.6, 1.55], [-0.6, 6.2, 1.0]),
-    mark: CAM([0.6, 3.4, 1.35], [-0.5, 6.0, 1.05]),
-    grass: CAM([0.6, 2.2, 1.6], [0.0, 4.9, 0.4]),
-    mom: CAM([-0.2, 3.0, 1.15], [0.8, 4.5, 1.15]),
+    mark: CAM([-1.2, 3.9, 1.4], [-0.3, 6.0, 1.1]),
+    grass: CAM([0.6, 2.7, 1.0], [0.0, 4.6, 0.5]),
+    mom: CAM([0.1, 2.9, 1.65], [0.75, 4.55, 1.3]),
     step_mom: CAM([0.5, 4.4, 1.0], [-0.55, 6.5, 0.85]),
     two: CAM([0.9, 3.4, 1.2], [-0.3, 6.4, 0.75]),
-    fire: CAM([1.6, 2.6, 1.55], [3.75, 5.5, 0.9]),
-    bucket: CAM([3.2, 4.4, 1.1], [3.8, 5.4, 0.45]),
+    fire: CAM([2.3, 3.5, 1.5], [3.85, 5.6, 1.05]),
+    bucket: CAM([2.9, 4.0, 1.25], [3.8, 5.6, 0.85]),
     window: CAM([-3.2, 6.0, 2.1], [-4.4, 8.85, 1.75]),
-    dad: CAM([0.2, 2.8, 1.45], [-1.15, 6.86, 1.05]),
+    dad: CAM([1.2, 3.6, 1.4], [-0.6, 6.6, 1.0]),
     porch: CAM([0.3, 3.0, 1.6], [-1.0, 8.0, 1.5]),
     tree: CAM([1.7, 3.0, 1.6], [4.2, 5.4, 1.4]),
-    up: CAM([2.0, 3.2, 1.3], [3.8, 5.4, 4.2]),
+    up: CAM([2.2, 3.0, 1.4], [3.8, 5.4, 2.6]),
     box: CAM([0.1, 5.0, 1.05], [-0.6, 6.86, 0.5]),
-    sheet: CAM([-0.3, 5.5, 1.25], [-0.4, 6.86, 0.4]),
+    sheet: CAM([-0.55, 4.75, 1.2], [-1.3, 6.5, 0.6]),
     stop: CAMS([0.0, 0.6, 1.6], [-2.6, -2.6, 1.2]),
-    gate: CAMS([0.3, 1.2, 1.4], [-0.3, -1.2, 0.6]),
-    across: CAMS([0.3, 0.4, 1.6], [-2.5, -6.0, 1.4]),
+    gate: CAMS([1.2, -3.2, 1.55], [-0.2, -1.2, 1.45]),
+    across: CAMS([-0.9, 1.0, 1.6], [-3.0, -8.0, 1.3]),
   };
   const cast = scene.kit?.cast?.characters ?? {};
   const who = (id, [a, d, turn], does = 'stand', more = {}) => {
@@ -67,7 +67,7 @@ function film(scene) {
   const AWAY = { mom: [-9.5, 9.5, 180], jack: [-9.0, 9.5, 180], mark: [-9.8, 9.2, 180], dad: [-9.3, 9.8, 180], mark_grown: [-4.0, -11, 0],
     boy_a: [-2.7, -2.6, 20], boy_b: [-4.4, -2.5, 345] };
   const away = (...ids) => merge(...ids.map(id => who(id, AWAY[id])));
-  const DOOR = [-1.0, 8.15], STEP = [-0.55, 6.62], TOP = [-1.25, 6.86, 0.42], LOW = [-0.3, 6.58, 0.22], BUCKET = [3.8, 5.4];
+  const DOOR = [-1.0, 8.15], STEP = [-0.55, 6.62], TOP = [-1.25, 6.86, 0.42], LOW = [-1.3, 6.58, 0.22], BUCKET = [3.8, 5.4];
   // a paper hop: held, then a quick snap to the next spot (angular, as paper moves)
   const hop = async (s, to, { over = 0.28, rest = 0.3, lift = 0.05 } = {}) => {
     const a0 = s.state.laohu_a, d0 = s.state.laohu_d, e0 = s.state.laohu_e;
@@ -91,9 +91,9 @@ function film(scene) {
   // the year on, the last dusk: Dad on the top step by the shoebox, the last box on the porch; Jack before him with
   // her sheet
   const PORCH = () => merge(YEAR({ porch_lamp: 0.6 }), who('dad', [TOP[0], TOP[1], 180], 'sitting_on_bed', { on: TOP, look: 'jack' }),
-    who('jack', [-0.15, 5.6, 200], 'stand', { with: ['letter'], look: 'dad' }), away('mom', 'mark', 'mark_grown', 'boy_a', 'boy_b'));
+    who('jack', [0.35, 6.0, 250], 'stand', { with: ['letter'], look: 'dad' }), away('mom', 'mark', 'mark_grown', 'boy_a', 'boy_b'));
   // the finales' Jack: sitting on the lower step with the sheet
-  const SITTING = () => who('jack', [LOW[0], LOW[1], 180], 'sitting_on_bed', { on: LOW, with: ['letter'], look: 'jack#letter' });
+  const SITTING = () => who('jack', [LOW[0], LOW[1], 180], 'sit_step', { on: LOW, with: ['letter'], look: 'jack#letter' });
 
   return {
     // ---- chapter 1, Qingming morning
@@ -104,7 +104,7 @@ function film(scene) {
     knight: {
       tells: ['knight:show', 'knight:tear', 'knight:wind'], seconds: 22,
       from: () => merge(MORNING({ mom_wear: null, laohu: 'alive', laohu_a: -1.15, laohu_d: 7.3, laohu_e: 0.6, knight_lit: 1 }), SH.wide,
-        who('jack', [0.25, 5.0, 210], 'stand', { look: 'mark#knight' }), who('mark', [-0.35, 6.15, 160], 'holding_toy', { look: 'jack' }),
+        who('jack', [0.6, 5.25, 300], 'stand', { look: 'mark#knight' }), who('mark', [-0.35, 6.15, 160], 'holding_toy', { look: 'jack' }),
         away('mom', 'dad', 'mark_grown', 'boy_a', 'boy_b')),
       run: async s => {
         const jack = s.person('jack'), mark = s.person('mark');
@@ -271,7 +271,7 @@ function film(scene) {
       tells: ['fire:pass', 'fire:speak', 'fire:window', 'fire:ingot'], seconds: 14,
       from: () => {
         const w = scene.get('way');
-        const jack = w === 'chinese' ? who('jack', [3.25, 5.15, 60], 'drop_in_fire', { look: 'apple#fire' })
+        const jack = w === 'chinese' ? who('jack', [3.35, 5.75, 165], 'drop_in_fire', { look: 'apple#fire' })
           : w === 'run' ? who('jack', [-4.4, 8.85, 180], 'stand', { look: 'mom' })
           : who('jack', [0.3, 0.2, 0], 'stand');
         return merge(DUSK({ ingot_named: true }), SH.fire, who('mom', [4.2, 5.75, 210], 'drop_in_fire', { look: 'apple#fire' }), jack, away('mark', 'dad', 'mark_grown', 'boy_a', 'boy_b'));
@@ -315,7 +315,7 @@ function film(scene) {
       after: ['fire'], tells: ['dad_home:back', 'dad_home:talk'], seconds: 14,
       from: () => {
         const w = scene.get('way');
-        const jack = w === 'chinese' ? who('jack', [3.25, 5.15, 60], 'drop_in_fire', { look: 'apple#fire' })
+        const jack = w === 'chinese' ? who('jack', [3.35, 5.75, 165], 'drop_in_fire', { look: 'apple#fire' })
           : w === 'run' ? who('jack', [-4.4, 8.85, 180], 'stand', { look: 'mom' })
           : who('jack', [-0.4, 6.2, 110], 'stand', { look: 'apple#fire' });
         return merge(DUSK({ ingot_named: true }), SH.fire, who('mom', [4.2, 5.75, 210], 'drop_in_fire', { look: 'apple#fire' }), jack,
@@ -415,13 +415,13 @@ function film(scene) {
     // across the street. His line, Jack's, at `mark:say`
     mark: {
       tells: ['mark:say'], seconds: 12,
-      from: () => merge(YEAR({}), SH.across, who('jack', [-0.25, -0.9, 180], 'stand', { look: 'mark_grown' }),
+      from: () => merge(YEAR({}), SH.across, who('jack', [0.3, -1.0, 180], 'stand', { look: 'mark_grown' }),
         who('mark_grown', [-3.4, -8.7, 0], 'stand', { look: 'jack', with: ['duffel'] }), away('mom', 'mark', 'dad', 'boy_a', 'boy_b')),
       run: async s => {
         const m = s.person('mark_grown'), w = s.state.way;
         await s.wait(1.2);
         if (w === 'english') {
-          await m.walk([[-1.5, -5.0], [-0.4, -2.0]]);
+          await m.walk([[-1.5, -5.0], [0.1, -2.0]]);
           await m.turn(0);
           glide(s, SH.gate, 1.5);
           s.tell('mark:say');
@@ -438,6 +438,7 @@ function film(scene) {
           await s.wait(2);
         } else {
           m.look('jack');
+          glide(s, SH.gate, 1.5);
           s.tell('mark:say');
           await s.wait(4);
         }
@@ -469,7 +470,7 @@ function film(scene) {
         glide(s, SH.tree, 2.5);
         await dad.walk([[1.5, 5.6], [3.95, 5.15]]);
         await dad.turn(80);
-        dad.do('palm_on_tree');
+        dad.do('stand');
         dad.reach({ r: 'apple#trunk' });
         dad.look('apple#trunk');
         s.tell('father_all:tree');
@@ -519,7 +520,7 @@ function film(scene) {
         const jack = s.person('jack');
         await jack.walk([[LOW[0], LOW[1] - 0.25]]);
         await jack.turn(180);
-        put(s, { jack_on: LOW, jack_a: LOW[0], jack_d: LOW[1], jack_do: 'write_step', jack_look: 'jack#letter' });
+        put(s, { jack_on: LOW, jack_a: LOW[0], jack_d: LOW[1], jack_do: 'sit_step', jack_look: 'jack#letter' });
         s.tell('sign:pen');
         await s.wait(1.5);
         await s.move('hanzi_close', 1, { over: 0.8 });
@@ -581,7 +582,7 @@ function film(scene) {
         await s.wait(0.6);
         jack.reach(null);
         put(s, { laohu_held: 'arm' });
-        jack.gait('hum_carry');
+        jack.gait(null);
         glide(s, SH.two, 2);
         s.tell('tiger_up:hum');
         await jack.walk([[0.4, 5.6], [0.8, 4.6]]);
@@ -608,7 +609,7 @@ function film(scene) {
       from: () => merge(PORCH(), SITTING(), who('dad', [-1.6, 7.6, 180], 'stand'), SH.sheet, { menagerie_sleep: 0.45, tremble: 0, porch_lamp: 1 }),
       run: async s => {
         const jack = s.person('jack');
-        jack.reach({ r: [-0.55, 6.86, 0.42] });
+        jack.reach({ r: [-1.0, 6.86, 0.42] });
         await s.wait(1);
         put(s, { jack_with: [], step_sheet: true });
         jack.reach(null);
@@ -629,8 +630,8 @@ function film(scene) {
       run: async s => {
         const jack = s.person('jack');
         glide(s, SH.fire, 3);
-        await jack.walk([[2.0, 5.3], [3.15, 5.05]]);
-        await jack.turn(70);
+        await jack.walk([[2.4, 5.6], [3.75, 5.95]]);
+        await jack.turn(195);
         s.set('fire', 0.6, 1);
         jack.look('apple#fire');
         s.tell('smoke:hold');
@@ -641,7 +642,7 @@ function film(scene) {
     // striped (`stripes`); his words to her at `smoke_up:say`
     smoke_up: {
       after: ['smoke'], tells: ['smoke_up:say', 'smoke_up:stripes'], seconds: 13,
-      from: () => merge(PORCH(), who('jack', [3.15, 5.05, 70], 'stand', { with: ['letter'], look: 'apple#fire', reach: { r: 'apple#fire' } }),
+      from: () => merge(PORCH(), who('jack', [3.75, 5.95, 195], 'stand', { with: ['letter'], look: 'apple#fire', reach: { r: 'apple#fire' } }),
         who('dad', [-1.6, 7.6, 180], 'stand'), SH.bucket, { menagerie_sleep: 0.45, tremble: 1, fire: 1 }),
       run: async s => {
         const jack = s.person('jack');
@@ -668,12 +669,12 @@ function film(scene) {
         const f = scene.get('father'), end = scene.get('ending');
         const base = merge(PORCH(), { menagerie_sleep: 1, porch_lamp: 1, tremble: 0 }, SH.wide);
         const jack = end === 'tiger' ? who('jack', [0.8, 4.6, 200], 'stand', { look: 'laohu' })
-          : end === 'smoke' ? who('jack', [3.15, 5.05, 70], 'stand', { look: 'apple#fire' })
+          : end === 'smoke' ? who('jack', [3.75, 5.95, 195], 'stand', { look: 'apple#fire' })
           : merge(SITTING(), { jack_with: [], jack_look: 'step_sheet' });
         const things = end === 'tiger' ? { laohu: 'taped', laohu_held: 'arm', laohu_a: 0.7, laohu_d: 4.7, laohu_e: 1.0 }
           : end === 'smoke' ? { fire: 0.6, stripes: 0 } : { step_sheet: true };
-        const dad = f === 'all' ? (end === 'tiger' ? who('dad', [3.95, 5.15, 80], 'palm_on_tree', { reach: { r: 'apple#trunk' }, look: 'apple#trunk' })
-            : end === 'smoke' ? who('dad', [2.8, 5.4, 80], 'stand', { look: 'apple#fire' })
+        const dad = f === 'all' ? (end === 'tiger' ? who('dad', [3.95, 5.15, 80], 'stand', { reach: { r: 'apple#trunk' }, look: 'apple#trunk' })
+            : end === 'smoke' ? who('dad', [2.6, 5.7, 120], 'stand', { look: 'apple#fire' })
             : who('dad', [-0.75, 6.4, 180], 'stand', { look: 'jack', with: ['phrasebook'] }))
           : f === 'apple' ? (end === 'letter' ? who('dad', [-1.2, 7.5, 180], 'stand', { look: 'jack', with: ['phrasebook'] }) : who('dad', [-1.0, 7.7, 180], 'stand', { look: 'jack' }))
           : end === 'letter' ? who('dad', [-1.4, 7.6, 180], 'stand', { with: ['box'], gait: 'carry_box', look: 'jack' })
@@ -683,10 +684,11 @@ function film(scene) {
       run: async s => {
         const dad = s.person('dad'), jack = s.person('jack'), f = s.state.father, end = s.state.ending;
         if (f === 'all' && end === 'letter') {
-          put(s, { dad_on: [-0.75, 6.58, 0.22], dad_a: -0.75, dad_d: 6.58, dad_do: 'reading_seated', dad_look: 'dad#book' });
+          put(s, { dad_on: [-0.75, 6.58, 0.22], dad_a: -0.75, dad_d: 6.58, dad_turn: 180, dad_do: 'reading_seated', dad_look: 'dad#book' });
           await glide(s, SH.two, 2);
         } else if (f === 'all' && end === 'smoke') {
-          await dad.walk([[2.9, 5.2]]);
+          await dad.walk([[3.25, 5.95]]);
+          await dad.turn(165);
           dad.reach({ r: 'jack#back' });
           glide(s, SH.fire, 2);
         } else if (f === 'all') {

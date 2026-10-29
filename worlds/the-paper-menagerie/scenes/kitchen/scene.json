@@ -686,8 +686,8 @@
       "name": "Jack's broken wind-up robot",
       "inside": true,
       "shadow": true,
-      "across": -0.72,
-      "distance": 2.0,
+      "across": -0.35,
+      "distance": 2.35,
       "elevation": 0.76,
       "height": 0.22,
       "box": [

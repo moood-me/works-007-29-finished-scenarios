@@ -86,3 +86,28 @@ stands, the right arm thrown forward and up toward someone, then down (once, 3 s
 `sit_down` — stands, sits down on a seat behind and stays (once, 3 s: `go('sit_down', {to, turn})`, then `_on` the
 seat); `rise` — sits on a chair, stands up and steps forward (once, 3 s: `go('rise', {from})`; the first take rose
 from the floor).
+Stage 5 (`r3/menagerie-pieces-a`, the kitchen's, the yard's, Jack's room's and the attic's pieces; made by a helper
+agent, each looked at with `look_at_motion` before it was put; how each truly moves): `fold_sheet` — sits at chair
+height, the hands busy at the chest, dropping to the lap at its end (a loop with a reset; folding reads weakly);
+`cry_child` — stands, head bowed, the fists at the face, the arms dropping at the end (a loop with a reset);
+`hold_palms` — stands still, the hands cupped together before the chest, the head down (a loop); `squat_comfort` — a
+deep squat, the right hand reaching forward and down, patting (a loop); `tear_paper` — the hands together at the chest
+pulled apart once, the arms ending low (once); `throw_down` — an arm swing, then bent forward to the ground, staying
+bent (once); `mock` — the head wagging, the hands by the ears, back to standing at its end; `run_off` — a start, then a
+real run (as a gait); `sit_step` — sits low, the knees up, the forearms on them, still (a loop: a low step); `drop_in_fire`
+— stands, bends to the bucket at 2 s, up again, the arms down; `hold_down` — sits at chair height, the arms forward at
+the table's edge, still (a loop); `write_palm` — sits, one hand lifts and rests (no clear tracing: the reach gives the
+hand to his palm); `write_table` — sits, a small movement of the right hand, mostly still; `sit_down` — leans and sits
+down on a chair (once, 2.4 s; the same motion was asked by both stage-5 authors, this take kept at the merge);
+`jacket_off` — the arms cross, the shoulders shrug the jacket off (once); `tape_box` — stands leaning a little over
+the table, the forearms forward (a loop; no tape pulled); `carry_box` — a walk with the arms forward and low (a gait:
+the part `box` sits low); `sit_floor` — cross-legged on the floor, the hands low before him (a loop); `stroke` —
+cross-legged, leaning over the lap, nearly still (the reach puts the hand on Laohu); `take_down` — the arms overhead,
+lowered to the chest (once); `hold_over_fire` — leans, an arm out low before him, then straightens (once);
+`handshake` — the right arm out forward, then back (once, weak); `wave` — the right arm raised and waving overhead
+(once). Kimodo did not give (two takes each): `write_step` and `smooth_sheet` (both sat at chair height, the hands
+idle) — the yard's pieces sit Jack on the step with `sit_step`; `hum_carry` (the arms stretched forward, no cradling)
+— Jack walks his own walk, Laohu in the crook of his arm (the scene's `laohu_held`); `palm_on_tree` (no palm on
+anything) — Dad stands, his hand on the bark by `_reach` (`apple#trunk`).
+Parts (stage 5): `box` — a moving box carried in both arms before the chest (point `box`); `shoebox` — the shoe box of
+animals held in both hands, its lid on (point `shoebox`).

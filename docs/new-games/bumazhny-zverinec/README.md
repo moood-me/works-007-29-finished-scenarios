@@ -16,6 +16,9 @@
     мальчишки на остановке; ключи `young` (кухня, комната) и `year` (кухня, двор); вид двора на улицу (`view` street:
     калитка, остановка, автобус, дом Марка, его машина) и коридор больницы у палаты (`view` corridor, таксофон); куски
     палаты (14) и площади (4: `tear` — отдельным куском). История — `docs/history/2026-10-29-zverinec-pieces-b.md`.
+  - Куски кухни (13), двора (22), комнаты Джека (11) и чердака (1) — `r3/menagerie-pieces-a` (модуль мира `paper`:
+    Лаоху, её письмо, 爱; блоки «Contract for the check» в notes.md сцен). История —
+    `docs/history/2026-10-29-zverinec-pieces-a.md`.
 
 Адрес игры в студии: `moood-me/works-007-29-finished-scenarios@r3/menagerie-game:games/the-paper-menagerie`
 (страница игры — `http://localhost:8080/games/<адрес>`, «Play it»).
