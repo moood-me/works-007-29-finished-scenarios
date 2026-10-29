@@ -24,8 +24,8 @@ function film(scene) {
     wide: { ...CAM0, camera_on: null, view: 'house' },
     street: { ...CAM0, camera_on: 'street_eye', view: 'street' },
     steps: CAM([0.4, 2.6, 1.55], [-0.6, 6.2, 1.0]),
-    mark: CAM([0.6, 3.4, 1.35], [-0.5, 6.0, 1.05]),
-    grass: CAM([0.6, 2.2, 1.6], [0.0, 4.9, 0.4]),
+    mark: CAM([-1.2, 3.9, 1.4], [-0.3, 6.0, 1.1]),
+    grass: CAM([0.6, 2.7, 1.0], [0.0, 4.6, 0.5]),
     mom: CAM([-0.2, 3.0, 1.15], [0.8, 4.5, 1.15]),
     step_mom: CAM([0.5, 4.4, 1.0], [-0.55, 6.5, 0.85]),
     two: CAM([0.9, 3.4, 1.2], [-0.3, 6.4, 0.75]),
@@ -104,7 +104,7 @@ function film(scene) {
     knight: {
       tells: ['knight:show', 'knight:tear', 'knight:wind'], seconds: 22,
       from: () => merge(MORNING({ mom_wear: null, laohu: 'alive', laohu_a: -1.15, laohu_d: 7.3, laohu_e: 0.6, knight_lit: 1 }), SH.wide,
-        who('jack', [0.25, 5.0, 210], 'stand', { look: 'mark#knight' }), who('mark', [-0.35, 6.15, 160], 'holding_toy', { look: 'jack' }),
+        who('jack', [0.6, 5.25, 300], 'stand', { look: 'mark#knight' }), who('mark', [-0.35, 6.15, 160], 'holding_toy', { look: 'jack' }),
         away('mom', 'dad', 'mark_grown', 'boy_a', 'boy_b')),
       run: async s => {
         const jack = s.person('jack'), mark = s.person('mark');
