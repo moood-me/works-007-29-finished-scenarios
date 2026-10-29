@@ -465,7 +465,7 @@ function film(scene) {
         await v.walk([[0.6, 4.95]]);
         await v.turn(75);
         v.do('offer');
-        s.camera({ target: 'virginia#hand_r', shot: 'medium' });
+        s.camera({ target: 'simon', shot: 'full', frame: 0.65 });
         await s.wait(1.5);
         p.reach({ r: 'virginia#parcel' });
         p.look('virginia#parcel');
