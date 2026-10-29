@@ -326,7 +326,7 @@ function film(scene) {
     bedtime: {
       tells: ['bedtime:ask', 'bedtime:blanket'], seconds: 14,
       from: () => at('bedtime', null, { young: true, jack_wear: cast.jack_five ?? null, ...lying(true), jack_look: 'mom', laohu_tape: false,
-        mom_a: -1.42, mom_d: 3.6, mom_on: [-1.42, 3.6, BED], mom_turn: 235, mom_do: 'sitting_on_bed', mom_look: 'jack', ...SH.bed }),
+        mom_a: -1.4, mom_d: 3.45, mom_on: [-1.4, 3.45, BED], mom_turn: 200, mom_do: 'sitting_on_bed', mom_look: 'jack', ...SH.bed }),
       run: async s => {
         const mom = s.person('mom'), jack = s.person('jack');
         await s.wait(1);
