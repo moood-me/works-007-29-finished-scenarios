@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Shed","translation":"Der Schuppen","where":"worlds/leaf-by-niggle/scenes/shed/scene.json title"},
+  {"text":"A tall shed on the old potato bed. One leaf is finished.","translation":"Ein hoher Schuppen auf dem alten Kartoffelbeet. Ein Blatt ist fertig.","where":"worlds/leaf-by-niggle/scenes/shed/scene.json caption"}
+]}

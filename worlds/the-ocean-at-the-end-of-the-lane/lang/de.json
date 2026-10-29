@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Ocean at the End of the Lane","translation":"Der Ozean am Ende der Straße","where":"worlds/the-ocean-at-the-end-of-the-lane/world.json title"},
+  {"text":"A farmhouse at the end of a lane, a duck pond that is an ocean, and a boy of seven.","translation":"Ein Bauernhaus am Ende einer Straße, ein Ententeich, der ein Ozean ist, und ein siebenjähriger Junge.","where":"worlds/the-ocean-at-the-end-of-the-lane/world.json description"}
+]}

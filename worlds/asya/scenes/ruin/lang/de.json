@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Ruin","translation":"Die Ruine","where":"worlds/asya/scenes/ruin/scene.json title"},
+  {"text":"Sunset over the Rhine.","translation":"Sonnenuntergang über dem Rhein.","where":"worlds/asya/scenes/ruin/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Josie's Room","translation":"Josies Zimmer","where":"worlds/klara-and-the-sun/scenes/room/scene.json title"},
+  {"text":"Late afternoon. The Sun comes in over the field and lies across Josie's bed.","translation":"Später Nachmittag. Die Sonne kommt über das Feld herein und legt sich quer über Josies Bett.","where":"worlds/klara-and-the-sun/scenes/room/scene.json caption"}
+]}

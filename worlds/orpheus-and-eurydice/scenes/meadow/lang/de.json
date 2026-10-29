@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Meadow","translation":"Die Wiese","where":"worlds/orpheus-and-eurydice/scenes/meadow/scene.json title"},
+  {"text":"Below, where the pale flowers grow. She sits by the stream.","translation":"Unten, wo die blassen Blumen wachsen. Sie sitzt am Bach.","where":"worlds/orpheus-and-eurydice/scenes/meadow/scene.json caption"}
+]}

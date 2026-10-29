@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The House","translation":"Das Haus","where":"worlds/the-woman-in-the-dunes/scenes/house/scene.json title"},
+  {"text":"One room at the bottom of the pit; the sand comes in through the roof.","translation":"Ein Raum am Grund der Grube; der Sand rieselt durchs Dach herein.","where":"worlds/the-woman-in-the-dunes/scenes/house/scene.json caption"}
+]}

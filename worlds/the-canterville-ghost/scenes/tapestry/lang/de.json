@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Tapestry Chamber","translation":"Das Gobelinzimmer","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json title"},
+  {"text":"Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.","translation":"Herbst, am späten Nachmittag. Die Tür des Gobelinzimmers steht einen Spalt offen.","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json caption"}
+]}
