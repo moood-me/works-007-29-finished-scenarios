@@ -148,6 +148,9 @@ Not right yet:
 - Jack seen in his window (1.4 «Убежал») shows his head over the sill; the piece frames the window close.
 - The sheet's folding back («Сложить») is shown as flaps coming over the sheet in his hands (`folds`), then Laohu stands
   up on the step: a part of the cast cannot show a state of its own.
+- Motions Kimodo did not give (cast.md): writing on the step (Jack sits on it, `sit_step`, the pen unseen), carrying
+  Laohu humming (his own walk, Laohu in the crook of his arm), Dad's palm on the tree (standing, his hand on the bark by
+  `_reach`).
 
 ## Contract for the check
 
