@@ -3,11 +3,10 @@
 // which language Jack answers her in front of Mark (the language at home, set once); the fire in the bucket; the tape
 // and 爱 on his palm; ⚑ the question — “Did Dad buy you?”; ⚑ the box (the menagerie, set once); the gate on Monday
 // morning.
-// Stand-ins (story.js PLACES): Jack's room — the kitchen. The bus stop (1.7) is behind the yard's eye: the label says
-// it.
+// Stand-ins (story.js PLACES): the bus stop (1.7) is behind the yard's eye: the label says it.
 // Reads: the miss marks; the yard. Leaves: choices.yard, choices.asked, choices.box; scales.language,
 // scales.menagerie; marks.yard, marks.asked, marks.ear, marks.seam, marks.ingot.
-import { DUSK, EMPTY, KITCHEN, UP, facts } from '../story.js';
+import { DUSK, EMPTY, KITCHEN, MENAGERIE, ROOM, UP, facts } from '../story.js';
 import { ingot, scraps, tape } from '../minigames/all.js';
 
 export default {
@@ -145,7 +144,7 @@ export default {
         await g.plate(tr('Then Dad, to Jack, on the porch:'));
         await g.say('dad', 'Mrs Douglas caught me at the gate. Mark came home upset. You’ve got to go to school with them, Jack', { how: 'tired, not angry' });
       } else {
-        await g.scene('room', { here: ['jack'], moods: { jack: 'sad' }, keys: KITCHEN.night });
+        await g.scene('room', { here: ['jack', 'dad'], moods: { jack: 'sad', dad: 'neutral' }, keys: ROOM.ran });
         await g.plate(tr('Dad knocks at Jack’s door.'));
         await g.say('dad', 'What happened?', { at: 'narrator', how: 'through the door' });
         await g.plate(tr('Jack says nothing.'));
@@ -157,7 +156,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.yard === 'run') {
-        await g.scene('room', { here: ['jack', 'mom'], moods: { jack: 'sad', mom: 'neutral' }, keys: KITCHEN.night });
+        await g.scene('room', { here: ['jack', 'mom'], moods: { jack: 'sad', mom: 'neutral' }, keys: ROOM.call });
         await g.plate(tr('Mom comes to the door of his room and calls him to the kitchen. He brings the scraps himself.'));
       }
       await g.scene('kitchen', { here: ['mom', 'jack'], moods: { mom: 'neutral', jack: 'sad' }, keys: KITCHEN.evening });
@@ -233,14 +232,18 @@ export default {
     // 1.6: ⚑ the box (the menagerie)
     async g => {
       const f = facts(g.state);
-      await g.scene('room', { here: ['jack'], moods: { jack: 'thinking' }, keys: KITCHEN.night });
+      await g.scene('room', { here: ['jack'], moods: { jack: 'thinking' }, keys: { ...ROOM.night, laohu_seam: f.seam, laohu_ear: f.ear } });
       await g.plate(f.seam ? tr('Night, his room. Laohu limps across the pillow and keels over onto his side. On the shelf — the goats, the deer, the buffalo. In the window, the light on at Mark’s. Tomorrow — the school bus.') : tr('Night, his room. Laohu limps across the pillow. On the shelf — the goats, the deer, the buffalo. In the window, the light on at Mark’s. Tomorrow — the school bus.'));
       const box = await g.choose('box', { 'jack#chest': [
         { id: 'attic', label: tr('All of them into the box') },
         { id: 'laohu', label: tr('All but Laohu') },
         { id: 'all', label: tr('None of them') },
       ] });
-      if (box === 'attic') await g.plate(tr('A shoebox. Laohu scratches inside, then goes quiet. Jack carries the box to the hatch of the attic.'));
+      g.set('menagerie', MENAGERIE[{ attic: 0, laohu: 1, all: 2 }[box]]);
+      if (box === 'attic') {
+        g.set('moment', 'hatch');
+        await g.plate(tr('A shoebox. Laohu scratches inside, then goes quiet. Jack carries the box to the hatch of the attic.'));
+      }
       else if (box === 'laohu') await g.plate(tr('The others go into the box, up to the attic. Laohu falls asleep under his hand.'));
       else await g.plate(tr('The animals stay where they lived — on the shelf and on the sill, the window onto the street. In the night the goats walk across the blanket; Laohu climbs under the covers with him.'));
       g.apply('box');

@@ -2,9 +2,8 @@
 // his mother folding a tiger out of wrapping paper and breathing it alive; “you don't unfold a living one”; her song,
 // her animals; at night — “Where is she?” — “Far away. I'll tell you later.” No choice: the map does not come after it.
 // Jack is five here; the kitchen's Jack is the world's only boy (ten) — the plate says his age.
-// Stand-ins (story.js PLACES): Jack's room — the kitchen.
 // Reads: nothing. Leaves: nothing but what the player was told.
-import { KITCHEN } from '../story.js';
+import { KITCHEN, ROOM } from '../story.js';
 import { palms } from '../minigames/all.js';
 
 export default {
@@ -50,7 +49,7 @@ export default {
     },
     // П.4: night; “Where is she?” — “Far away. I'll tell you later.”
     async g => {
-      await g.scene('room', { here: ['mom', 'jack'], moods: { jack: 'tired', mom: 'smile' }, keys: KITCHEN.night });
+      await g.scene('room', { here: ['mom', 'jack'], moods: { jack: 'tired', mom: 'smile' }, keys: ROOM.bedtime });
       await g.plate(tr('Night. Jack is falling asleep, Laohu under his hand. Mom sits beside him.'));
       await g.say('jack', '妈妈，谁教你的？', { sub: tr('Mom, who taught you?'), how: 'sleepily, in Mandarin Chinese' });
       await g.say('mom', '我妈妈。', { sub: tr('My mom.') });

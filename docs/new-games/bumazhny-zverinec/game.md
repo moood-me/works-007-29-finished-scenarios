@@ -43,19 +43,20 @@
 | Место | Где в игре | Сейчас | Когда придёт своя сцена |
 | --- | --- | --- | --- |
 | `kitchen` С2 | П.1–П.3, 1.1, 1.5 | `kitchen` | — |
-| `room` С3 | П.4, 1.4 «Убежал», 1.5 «Убежал», 1.6 | `kitchen` + подпись | `{ folder: '<комната Джека>' }` (ветка `r3/menagerie-rooms`) |
+| `room` С3 | П.4, 1.4 «Убежал», 1.5 «Убежал», 1.6 | `jack-room` (ключ `moment`: bedtime / ran / call / night / hatch; `menagerie`) | — |
 | `yard` С1 | 1.2, 1.3 | `yard` | — |
 | `dusk` С1 сумерки | 1.4 | `yard` с ключами `DUSK` (сумерки, огонь, лампа, папа) | — |
 | `stop` С1 утро | 1.7 | `yard` + подпись (остановка за спиной зрителя) | вид на улицу — см. просьбы |
 | `ward` С5 | 2.2–2.4 | `ward` | — |
 | `hallway` коридор | 2.1, утро 2.3а | `ward` + подпись (мамы нет) | вид/сцена коридора — см. просьбы |
 | `house` С2 через год | 3.1, конец 3.2 | `ward` + подпись | `kitchen` с ключами `packed`, `menagerie`, `suit_bag`, `day` — как только у кухни будет ключ «год спустя» |
-| `bare` С3 через год | 3.2 | `ward` + подпись | `{ folder: '<комната Джека>' }` с ключом «год спустя» |
-| `attic` С4 | 3.2 «Зверинец» 0 | `ward` + подпись | `{ folder: '<чердак>' }` |
+| `bare` С3 через год | 3.2 | `jack-room`, `moment` packed (Джек взрослый), `menagerie` по шкале | — |
+| `attic` С4 | 3.2 «Зверинец» 0 | `attic` | — |
 | `square` С6 | 3.3 | `square` | — |
 | `porch` С1 через год | 3.4–3.6, финалы | `ward` + подпись | `yard` с ключами `dusk`, `sold`, `shoebox`, `menu_house`, `fire` — как только у двора будет ключ «год спустя» |
 
-Почему глава 3 дома всё ещё в палате: в кухне и во дворе Джек десятилетний, папа сорокапятилетний; взрослый вид —
+Комната Джека и чердак — свои сцены (`r3/menagerie-rooms`, влита): у комнаты моменты по ключу `moment`, в том числе
+`packed` — через год, Джек взрослый (скрипт сцены сам его переодевает). Почему кухня и двор главы 3 всё ещё в палате: в кухне и во дворе Джек десятилетний, папа сорокапятилетний; взрослый вид —
 объект облика из модуля `cast` (`<id>_wear: {...cast.jack_grown, parts: []}`), его берёт скрипт сцены
 (`scene.kit.cast`), а игра его назвать не может (`_wear` по имени не принимается: `docs/worlds/people.md`). Нужен ключ
 сцены — см. «Просьбы к миру», п. 1. Площадь — своя сцена (там `jack` — `jack_grown`).
@@ -129,7 +130,7 @@ every other starting value is the piece's. Each scene's `notes.md` gets a «Cont
 
 ### Asks of the world
 
-1. **A year on, by a key** (kitchen, yard; Jack's room): `year` 0/1 — 1 dresses the scene's people as chapter 3 has them
+1. **A year on, by a key** (kitchen, yard — as Jack's room's `moment: packed` already does): `year` 0/1 — 1 dresses the scene's people as chapter 3 has them
    (`jack` → the cast's `jack_grown` without the suit bag, `dad` → `dad_grey` without the book, `mom_here` false), done
    by the scene's script (`scene.kit.cast`), as the showcases do now. Without it a game cannot show chapter 3 at home
    (the game sets keys, it cannot name a look).

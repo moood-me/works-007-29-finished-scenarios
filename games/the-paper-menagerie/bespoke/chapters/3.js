@@ -5,13 +5,14 @@
 // ⚑ Laohu (hinge 2) — fold him, keep the letter, or give him to her in the fire: the finale, «The Tiger», «The Letter»
 // or «The Smoke», its form by the train (2.3), its details by the language, the menagerie and the marks — Dad, the ear,
 // the seam, the sign.
-// Stand-ins (story.js PLACES): the kitchen, Jack's room and the attic a spring later, the yard at dusk — the ward (Jack
+// Jack's room a year on (its moment `packed`) and the attic are their own scenes.
+// Stand-ins (story.js PLACES): the kitchen a spring later and the yard at dusk — the ward (Jack
 // grown and Dad grey are the cast's looks of another year, which a game cannot name on the kitchen's and the yard's
 // people: game.md, asks of the world), Mom not there; Mark grown is a voice. The square is its own scene: the woman on
 // the bench, the guide at the coach, the tourists; the letter goes from Jack's hands to hers and back (the cast's part
 // `letter`).
 // Reads: everything. Leaves: choices.father, choices.laohu; marks.father, marks.crooked.
-import { GROWN, WARD, ENDINGS, facts } from '../story.js';
+import { GROWN, MENAGERIE, WARD, ENDINGS, facts } from '../story.js';
 import { read } from '../letter.js';
 import { flame, fold, peel, sign, smooth, stroke } from '../minigames/all.js';
 
@@ -65,14 +66,14 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.zoo === 0) {
-        await g.scene('attic', { here: ['jack'], moods: { jack: 'surprised' }, keys: { ...WARD.night, ...GROWN } });
+        await g.scene('attic', { here: ['jack'], moods: { jack: 'surprised' } });
         await g.plate(tr('A rustle — from the attic. In the dusty light the shoebox trembles. Jack lifts it down through the hatch and sits on the floor of his room with it; the lid rises — out come the dusty goats, the deer, the buffalo, and Laohu, in his tape.'));
-        await g.scene('bare', { here: ['jack'], moods: { jack: 'surprised' }, keys: { ...WARD.night, ...GROWN } });
+        await g.scene('bare', { here: ['jack'], moods: { jack: 'surprised' }, keys: { moment: 'packed', menagerie: MENAGERIE[f.zoo], laohu_ear: f.ear, laohu_seam: f.seam } });
       } else if (f.zoo === 1) {
-        await g.scene('bare', { here: ['jack'], moods: { jack: 'surprised' }, keys: { ...WARD.night, ...GROWN } });
+        await g.scene('bare', { here: ['jack'], moods: { jack: 'surprised' }, keys: { moment: 'packed', menagerie: MENAGERIE[f.zoo], laohu_ear: f.ear, laohu_seam: f.seam } });
         await g.plate(tr('A rustle. On the empty shelf Laohu stretches; overhead, in the attic, the box with the others rustles.'));
       } else {
-        await g.scene('bare', { here: ['jack', 'dad'], moods: { jack: 'surprised', dad: 'surprised' }, keys: { ...WARD.night, ...GROWN } });
+        await g.scene('bare', { here: ['jack', 'dad'], moods: { jack: 'surprised', dad: 'surprised' }, keys: { moment: 'packed', menagerie: MENAGERIE[f.zoo], laohu_ear: f.ear, laohu_seam: f.seam } });
         await g.plate(tr('A rustle. Laohu stretches on the shelf — alone; the others are downstairs, in the kitchen: from there, a rustle; the cranes fly from the sill onto the curtain, the frogs slap across the floor.'));
         await g.say('dad', 'Jack!..', { how: 'calling from downstairs, startled' });
         await g.plate(tr('Dad in the doorway with a paper frog on his palm — silent.'));

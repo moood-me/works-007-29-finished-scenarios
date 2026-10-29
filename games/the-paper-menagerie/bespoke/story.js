@@ -57,24 +57,33 @@
 // grey; the square — Jack grown, the woman, the guide, the tourists. A look of another year is the cast's object
 // (`<id>_wear`), which a game cannot name: so chapter 3 at home — Jack grown, Dad grey — stands in the ward until the
 // kitchen and the yard have a key that dresses their people a year on (game.md, asks of the world); the house and the
-// yard as they really are said by the label. (The kitchen is also the map's background, game.js.)
+// yard as they really are said by the label. Jack's room and the attic are their own scenes: the room's moments (its
+// key `moment`) dress it and its people, a year on too. (The kitchen is also the map's background, game.js.)
 export const PLACES = {
   kitchen: { folder: 'kitchen' }, // С2 the kitchen
-  room: { folder: 'kitchen', where: tr('In truth: Jack’s room — a bed, a shelf with the paper animals, a window onto the street; in the corridor ceiling, the hatch to the attic.') }, // С3
+  room: { folder: 'jack-room' }, // С3 Jack's room (its key `moment`: ROOM)
   yard: { folder: 'yard' }, // С1 the yard
   dusk: { folder: 'yard' }, // С1 at dusk, the fire (the yard's keys: DUSK)
   stop: { folder: 'yard', where: tr('In truth: the same yard on Monday morning — across the street, behind you, the school bus stop: Mark and two boys.') }, // С1, the bus stop
   ward: { folder: 'ward' }, // С5 the ward
   hallway: { folder: 'ward', where: tr('In truth: the hospital corridor outside the ward door — and, down it, a payphone.') }, // С5, the corridor
   house: { folder: 'ward', where: tr('In truth: the kitchen, a spring later — empty, boxes on the floor, the house sold.') }, // С2 in chapter 3
-  bare: { folder: 'ward', where: tr('In truth: Jack’s room, a spring later — empty, a bare shelf, the hatch to the attic in the corridor ceiling.') }, // С3 in chapter 3
-  attic: { folder: 'ward', where: tr('In truth: the attic — a sloping roof, dusty light from a little window, boxes; a shoebox among them.') }, // С4
+  bare: { folder: 'jack-room' }, // С3 in chapter 3 (its `moment` packed: the room emptied, Jack grown)
+  attic: { folder: 'attic' }, // С4 the attic
   square: { folder: 'square' }, // С6 the square
   porch: { folder: 'ward', where: tr('In truth: the yard at dusk, a spring later — the porch steps, the apple tree, her rusty bucket under it; across the street, Mark’s house.') }, // С1 in chapter 3
 };
 // The kitchen's hours (its lamp over the table) and the ward's (the bedside lamp)
 export const KITCHEN = { evening: { lamp: 1 }, morning: { lamp: 0 }, night: { lamp: 0.35 } };
 export const WARD = { evening: { lamp: 1 }, night: { lamp: 0.6 }, dark: { lamp: 0.3 } };
+// Jack's room's moments (its key `moment` sets the light, what stands where and who is here — the steps' `here` name
+// the same people): П.4 bedtime (Mom and Jack); 1.4 «Run away» ran (Jack at the window, Dad at the door); 1.5 «Run away»
+// call (Mom at the door); 1.6 night (Jack on the bed), hatch (the box under the attic hatch); 3.2 packed (Jack grown;
+// Dad with a frog on «the whole house»). `menagerie` — the menagerie as the room shows it (MENAGERIE: by the scale).
+export const ROOM = {
+  bedtime: { moment: 'bedtime' }, ran: { moment: 'ran' }, call: { moment: 'call' }, night: { moment: 'night', menagerie: 'shelf' },
+};
+export const MENAGERIE = ['attic', 'laohu', 'house'];
 // The yard at dusk, the fire in the bucket (1.4) — its keys and where its people stand, as the yard's notes have them:
 // Mom and Jack at the bucket, Dad (not here till he comes) by her, his hand on her back; Jack up in his window, Mom
 // looking up at it (UP, «Run away»)
