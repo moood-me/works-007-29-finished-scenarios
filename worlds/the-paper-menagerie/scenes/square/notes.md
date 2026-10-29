@@ -28,7 +28,8 @@ Camera `picture`, horizon 0.46 (the frame's height at distance d is d metres: th
 
 - `translator` (new): a woman of fifty-five from the tour group, a northerner — short permed hair going grey, a camel
   trench coat, a red scarf; seated on the bench (`translator_on: [-1.3, 4.12, 0.45]`, motion `reading_seated`), the
-  letter open in her hands (`translator_with: ["letter"]`, point `translator#letter`), her face to us.
+  letter open in her hands (`translator_with: ["letter"]`, point `translator#letter`), her face to us, looking up at
+  Jack (looking down at the letter she shows the top of her head: a game keeps her reading glances short).
 - `jack`: Jack at twenty-two — the cast's `jack_grown` without the suit bag (`jack_wear: {"parts": []}`), standing by
   her at (−0.15, 3.85), turned toward her, his eyes on the letter.
 - `guide` (new): the group's guide in the company's teal jacket and cap, at the coach's door, her little flag held up
@@ -36,21 +37,21 @@ Camera `picture`, horizon 0.46 (the frame's height at distance d is d metres: th
   is boarding.
 - `tourist_cap`, `tourist_hat`, `tourist_coat` (new): three of the group by the door, waiting to get in.
 
-Added to the cast for this place: the characters above; the parts `letter` (Laohu unfolded — the red wrapping with its
-gold stars and the old yellow tape across it on the outside, her columns of writing on its cream back, toward the
-reader; point `letter`; used in the yard too) and `flag` (point `flag`). Every key a game needs here is a person's:
+Added to the cast for this place: the characters above; the parts `letter` (Laohu unfolded — one thin sheet of the red
+wrapping with its gold stars and the old yellow tape across it; her writing is not on the part; point `letter`; used in
+the yard too) and `flag` (point `flag`). Every key a game needs here is a person's:
 `<id>_here`, `_look`, `_mood`, `_with` (the letter passes from Jack's hands to hers and back: `jack_with` /
 `translator_with`), `_turn`; people have no `place` keys yet — stage 5 adds them where someone walks (the translator to
 the bus).
 
 ## The showcase
 
-The letter (both looking at it, the guide at her) → she looks up at Jack, surprised (the paper is warm) → the guide
-calls, she glances at the bus and back to the letter.
+She looks up at Jack, surprised (the paper is warm), he at the letter, then at her → she reads, he with her → the
+guide calls, she glances at the bus and back up at Jack.
 
 ## What is not right yet / for stage 5
 
 - 3.3's close-up of her face and the insert with the letter's writing (the tape peeled in M7) are stage 5's: the
-  writing is on the letter's back, toward the reader — the camera never sees it on the part.
+  writing is not drawn on the part (a sheet that small and two-sided read as a red box).
 - The guide holds her flag with `showing_suit` (a motion made for holding up a suit bag by its hook): it reads as a
   hand raised with a flag; a calling gesture is stage 5's motion.
