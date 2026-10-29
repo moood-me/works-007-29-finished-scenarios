@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Street by the House","translation":"A rua junto à casa","where":"worlds/a-doll-s-house/scenes/street/scene.json title"},
+  {"text":"Christmas Eve at dusk. Nora comes home with her arms full of parcels; the porter has brought the tree.","translation":"Véspera de Natal, ao entardecer. Nora chega em casa com os braços cheios de pacotes; o carregador trouxe a árvore.","where":"worlds/a-doll-s-house/scenes/street/scene.json caption"}
+]}

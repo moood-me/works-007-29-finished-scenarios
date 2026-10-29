@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Forest Edge","translation":"A orla da floresta","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/scene.json title"},
+  {"text":"The wood everyone says grew by itself.","translation":"O bosque que todos dizem ter crescido sozinho.","where":"worlds/the-man-who-planted-trees/scenes/forest-edge/scene.json caption"}
+]}

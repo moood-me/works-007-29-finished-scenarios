@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Glass Menagerie","translation":"À Margem da Vida","where":"worlds/the-glass-menagerie/world.json title"},
+  {"text":"A small flat off an alley. A mother, a son who wants out, a daughter and her glass animals; a gentleman caller is coming.","translation":"Um apartamentinho junto a um beco. Uma mãe, um filho que quer ir embora, uma filha e seus bichinhos de vidro; um pretendente está para chegar.","where":"worlds/the-glass-menagerie/world.json description"}
+]}

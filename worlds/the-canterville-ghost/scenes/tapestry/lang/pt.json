@@ -1,0 +1,8 @@
+{"strings": [
+  {"text":"YE OTIS GHOSTE","translation":"O PHANTASMA DOS OTIS","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"Ye Onlie True and Originale Spook.","translation":"O Único Verdadeiro e Original Espectro.","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"Beware of Ye Imitationes.","translation":"Cuidado com as Imitaçoens.","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"All others are Counterfeite.","translation":"Todos os outros são Contrafaçoens.","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"The Tapestry Chamber","translation":"O quarto das tapeçarias","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json title"},
+  {"text":"Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.","translation":"Outono, fim de tarde. A porta do quarto das tapeçarias está entreaberta.","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Paper Menagerie","translation":"O Zoológico de Papel","where":"worlds/the-paper-menagerie/world.json title"},
+  {"text":"A kitchen table, wrapping paper, and a mother whose folded animals breathe.","translation":"Uma mesa de cozinha, papel de embrulho e uma mãe cujos bichos de dobradura respiram.","where":"worlds/the-paper-menagerie/world.json description"}
+]}

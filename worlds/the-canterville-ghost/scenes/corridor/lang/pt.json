@@ -1,0 +1,8 @@
+{"strings": [
+  {"text":"YE OTIS GHOSTE","translation":"O PHANTASMA DOS OTIS","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"Ye Onlie True and Originale Spook.","translation":"O Único Verdadeiro e Original Espectro.","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"Beware of Ye Imitationes.","translation":"Cuidado com as Imitaçoens.","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"All others are Counterfeite.","translation":"Todos os outros são Contrafaçoens.","where":"worlds/the-canterville-ghost/scenes/corridor/elements/spook.js"},
+  {"text":"The Corridor","translation":"O corredor","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json title"},
+  {"text":"Canterville Chase, one o'clock at night. Something clanks in the corridor.","translation":"Canterville Chase, uma hora da madrugada. Alguma coisa tilinta no corredor.","where":"worlds/the-canterville-ghost/scenes/corridor/scene.json caption"}
+]}

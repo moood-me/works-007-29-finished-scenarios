@@ -1,0 +1,10 @@
+{"strings": [
+  {"text":"When a golden girl can win","translation":"Quando uma menina dourada arrancar","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"Prayer from out the lips of sin,","translation":"Uma prece dos lábios do pecado,","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"When the barren almond bears,","translation":"Quando a amendoeira estéril frutificar","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"And a little child gives away its tears,","translation":"E uma criancinha der o seu pranto,","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"Then shall all the house be still","translation":"Então a casa inteira há de sossegar","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"And peace come to Canterville.","translation":"E a paz voltará a Canterville.","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"The Library","translation":"A biblioteca","where":"worlds/the-canterville-ghost/scenes/library/scene.json title"},
+  {"text":"Canterville Chase, past midnight. The bloodstain by the fireplace is back again.","translation":"Canterville Chase, depois da meia-noite. A mancha de sangue junto à lareira voltou outra vez.","where":"worlds/the-canterville-ghost/scenes/library/scene.json caption"}
+]}

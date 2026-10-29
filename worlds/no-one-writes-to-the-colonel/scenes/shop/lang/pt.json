@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"No talk of politics here","translation":"Proibido falar de política","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/elements/back_wall.js"},
+  {"text":"The Tailors' Shop","translation":"A alfaiataria","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/scene.json title"},
+  {"text":"Friday, after the launch. Under the cover is Agustín's machine; nobody sits at it.","translation":"Sexta-feira, depois da lancha. Sob a capa está a máquina de Agustín; ninguém se senta a ela.","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/scene.json caption"}
+]}

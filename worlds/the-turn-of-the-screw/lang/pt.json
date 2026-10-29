@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Turn of the Screw","translation":"A Volta do Parafuso","where":"worlds/the-turn-of-the-screw/world.json title"},
+  {"text":"A country house, a governess and two children. Figures that may be there, or may not.","translation":"Uma casa de campo, uma preceptora e duas crianças. Figuras que podem estar ali, ou não.","where":"worlds/the-turn-of-the-screw/world.json description"}
+]}

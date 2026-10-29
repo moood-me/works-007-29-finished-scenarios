@@ -1,0 +1,7 @@
+{"strings": [
+  {"text":"The Gulf","translation":"O Golfo","where":"worlds/the-old-man-and-the-sea/scenes/gulf/scene.json title"},
+  {"text":"He was an old man who fished alone in a skiff in the Gulf Stream.","translation":"Era um velho que pescava sozinho num bote na Corrente do Golfo.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/scene.json caption"},
+  {"text":"Fish, I love you and respect you very much. But I will kill you dead before this day ends.","who":"santiago","translation":"Peixe, eu te amo e te respeito muito. Mas vou te matar antes que este dia acabe.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"},
+  {"text":"I wish I had the boy.","who":"santiago","translation":"Quem me dera ter o garoto aqui.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"},
+  {"text":"He is two feet longer than the skiff.","who":"santiago","translation":"Ele é dois pés mais comprido que o bote.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Leaf by Niggle","translation":"Folha de Cisco","where":"worlds/leaf-by-niggle/world.json title"},
+  {"text":"A painter's shed, one great unfinished canvas of a tree, and a neighbour who needs help.","translation":"O galpão de um pintor, uma grande tela inacabada de uma árvore e um vizinho que precisa de ajuda.","where":"worlds/leaf-by-niggle/world.json description"}
+]}
