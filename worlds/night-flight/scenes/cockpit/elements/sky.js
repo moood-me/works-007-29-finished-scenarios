@@ -15,8 +15,8 @@
 //   the stars in it.
 const A = e.aspect;
 const H = 0.5;
-const X0 = -0.3;
-const W = A + 0.6;
+const X0 = -1.3; // (stage 5) painted wider: the pieces' cameras turn a little right and left
+const W = A + 2.6;
 const Y0 = -0.35;
 const Y1 = 1.25;
 const storm = e.state.storm > 0.5;

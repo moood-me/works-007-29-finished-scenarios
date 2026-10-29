@@ -36,17 +36,17 @@ function film(scene) {
   // her shots by where she is: her face (medium, close), her hands
   const HER = {
     window: { medium: CAM([0.1, 3.2, 1.6], [-0.75, 4.75, 1.52]), close: CAM([-0.3, 3.85, 1.58], [-0.75, 4.75, 1.53]),
-      hands: CAM([-0.3, 3.9, 1.35], [-0.75, 4.75, 1.1]) },
+      hands: CAM([-0.15, 3.55, 1.45], [-0.75, 4.75, 1.15]) },
     door: { medium: CAM([-0.85, 2.9, 1.6], [-1.9, 4.2, 1.52]), close: CAM([-1.35, 3.45, 1.58], [-1.9, 4.2, 1.53]),
-      hands: CAM([-1.35, 3.5, 1.35], [-1.9, 4.2, 1.1]) },
+      hands: CAM([-1.0, 3.0, 1.45], [-1.9, 4.2, 1.15]) },
     chair: { medium: CAM([-0.5, 1.9, 1.35], [-1.3, 2.8, 1.15]), close: CAM([-0.75, 2.2, 1.3], [-1.3, 2.8, 1.17]),
-      hands: CAM([-0.8, 2.2, 1.1], [-1.3, 2.8, 0.75]) },
+      hands: CAM([-0.55, 1.85, 1.2], [-1.3, 2.8, 0.8]) },
   };
   const SH = {
     wide: CAM0,
     riv: CAM([-0.1, 3.3, 1.65], [0.75, 4.4, 1.6]), // Rivière just in, his face
     riv_window: CAM([0.9, 3.4, 1.65], [1.75, 4.85, 1.6]),
-    desk: CAM([1.05, 1.95, 1.45], [1.3, 3.6, 1.2]), // Rivière at his desk over the log
+    desk: CAM([0.85, 1.7, 1.25], [1.3, 3.6, 1.15]), // Rivière at his desk over the log
     window: CAM([0.4, 4.5, 1.8], [3.5, 60, -3.2]), // through the glass, down to the yard and the hangar
     doorway: CAM([-1.0, 3.0, 1.65], [-2.25, 4.15, 1.55]), // Robineau in the doorway
   };
