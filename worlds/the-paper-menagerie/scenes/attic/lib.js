@@ -6,14 +6,15 @@ function boards(g, x0, x1, y0, y1, w, seed) {
   let i = 0;
   for (let x = x0; x < x1; x += w, i++) {
     const h = anim.hash(i, seed);
+    const ww = Math.min(w, x1 - x);
     g.fillStyle = `rgba(${h < 0.5 ? '90,64,44' : '214,186,150'},${0.08 + 0.12 * anim.hash(i, seed + 1)})`;
-    g.fillRect(x, y0, w, y1 - y0);
+    g.fillRect(x, y0, ww, y1 - y0);
     g.fillStyle = 'rgba(60,42,30,0.45)';
     g.fillRect(x, y0, 0.008, y1 - y0);
     g.fillStyle = 'rgba(70,50,36,0.5)';
     const k = y0 + anim.hash(i, seed + 2) * (y1 - y0);
     g.beginPath();
-    g.ellipse(x + w * 0.5, k, 0.018, 0.03, 0, 0, Math.PI * 2);
+    g.ellipse(x + ww * 0.5, k, Math.min(0.018, ww / 2), 0.03, 0, 0, Math.PI * 2);
     g.fill();
   }
 }

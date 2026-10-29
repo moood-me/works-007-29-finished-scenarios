@@ -6,17 +6,19 @@ is a value of the key `moment`; what the menagerie's choice (1.6) left is the ke
 look; the animals breathe and stir; no motion of people, no camera moves. In the style of the kitchen, the ward and the
 yard: the same paper animals, the same cast, the same light words.
 
-- **Where things are.** Camera `picture`, horizon 0.36: the house cut open like a doll's house. The room on the left
-  (across −2.85…0.55), the hall on the right (0.67…2.45), the partition between them seen almost edge on
+- **Where things are.** Camera `picture`, horizon 0.36: the house cut open like a doll's house, laid a little right of
+  the viewer's line so that the bed stands within every screen's frame. The room on the left (across −2.35…1.05), the
+  hall on the right (1.17…2.95), the partition between them seen almost edge on
   (`partition`, its cut end `partition_edge`); floor (`floor`: oak boards, the braided rug, the hall's runner) at 0 from
   distance 2.05 to the back wall at 4.2; ceilings at 2.5 (`ceiling_room` with the stick-on stars; `ceiling_hall` with
   the hall's bulb and the hatch). Walls: `back_wall` (Jack's wallpaper — lib's `wallpaper`; the hall's paint — lib's
   `hall`; his crayon tiger over the shelf, a rocket poster, a photo in the hall), `left_wall` (the pennant, his school
   bag), `right_wall` (the hall's coat pegs). The floor is seen from 2.66 m on: nearer is below the frame.
 - **The room.** The bed along the left wall, head at the back (`bed_head`, `bed_top` — the patchwork quilt, `pillow` —
-  a form, `bed_side`, `bed_foot`; the mattress top at 0.48, the seats on its edge at across −2.05). Over its head the
+  a form, `bed_side`, `bed_foot`; the mattress top at 0.48, the seats on its edge at across −1.55; seated, people face the room — turn 70…130 —, their
+  feet on the floor). Over its head the
   `shelf` (1.25 m): books, the goats, the deer, the buffalo, the wind-up robot from the prologue's Christmas; its right
-  end (across −1.6) is Laohu's place. The bedside cupboard (`nightstand`, `nightstand_top`) and `lamp` (key `lamp`,
+  end (across −1.1) is Laohu's place. The bedside cupboard (`nightstand`, `nightstand_top`) and `lamp` (key `lamp`,
   light "lamp"; the alarm clock). The window onto the street (`window`, the curtains, the hanging crane; `sill` — the
   scraps, the buffalo's pot) and under it the `desk` (`desk_top`, `frogs`) and `chair`.
 - **The hall.** Jack's `door` (key `door`: 270 shut, 180 open flat into the hall), the attic hatch in its ceiling
@@ -43,7 +45,8 @@ yard: the same paper animals, the same cast, the same light words.
 ## Moments (`moment`) and the menagerie (`menagerie`)
 
 The table is lib.js `moment(which, menagerie)` → `{keys, here, moods}`. The scene's script (`script.js`) sets its
-`keys` as the scene opens and whenever either key changes: the room's keys and its people's places, turns, seats,
+`keys` by a cut (a new shot: people are put where the moment has them, not walked there) as the scene opens and
+whenever either key changes: the room's keys and its people's places, turns, seats,
 motions, looks, what they hold and wear (Jack and Dad grown in `packed`: `jack_wear` / `dad_wear` — the cast's
 `jack_grown` / `dad_grey` without the suit bag and the book; Mom's sheet left out everywhere). Who is here and their
 moods (`<id>_here`, `<id>_mood`) are the game's and are not set by the script; `here` and `moods` are the scenario's
@@ -53,12 +56,12 @@ script stages at every opening: keys a game set over a moment are to be given ag
 
 | moment | scenario | light | who and where | the menagerie |
 | --- | --- | --- | --- | --- |
-| `bedtime` | П.4 | night, lamp | Jack sitting on the bed's edge by the foot, looking at Laohu beside him; Mom sitting nearer the pillow, looking at him (`sitting_on_bed`) | on the shelf; Laohu on the quilt, no tape |
-| `night` (default) | 1.6 | night, lamp | Jack sitting on the bed's edge over the empty shoe box on the floor | shelf: as before; attic: box shut and stirring, shelf empty, Laohu in it; laohu: box shut, shelf empty, Laohu asleep on the pillow; house: the goats on the quilt, the buffalo on the sill, cranes, frogs, the deer on the shelf |
+| `bedtime` | П.4 | night, lamp, the hall's light low | Jack sitting on the bed's edge toward its foot, turned to Mom; Mom sitting nearer the pillow, looking at him (`sitting_on_bed`) | on the shelf; Laohu on the quilt between them, no tape |
+| `night` (default) | 1.6 | night, lamp, the hall's light low | Jack sitting on the bed's edge over the empty shoe box on the floor | shelf: as before; attic: box shut and stirring, shelf empty, Laohu in it; laohu: box shut, shelf empty, Laohu asleep on the pillow; house: the goats on the quilt, the buffalo on the sill, cranes, frogs, the deer on the shelf |
 | `hatch` | 1.6 (0, 1) | night, lamp, hall | Jack (ten) in the hall under the open hatch, looking up; the shut box on the stool; the door open | attic: Laohu in the box (it stirs); laohu: Laohu asleep on the pillow |
-| `ran` | 1.4 «Убежать» | dusk, hall | Jack at the window looking down into the yard; Dad in the hall at the shut door with the plate of buns (`offer_hand`, part `plate`) | the scraps on the sill |
-| `call` | 1.5 «Убежать» | evening (night 0.5), lamp, hall | Mom in the hall at the open door, looking at him; Jack by the window, the scraps in his hands (`holding_toy`, part `scraps`) | — |
-| `packed` | 3.2 | day | Jack grown (`jack_grown`, no suit bag); the room emptied, cartons | attic (and shelf): the box opened on the floor, the dusty animals out, Laohu dusty on the floor by it, the hatch open; laohu: Laohu alone on the bare shelf; house: the same, and Dad (`dad_grey`, no phrasebook) in the doorway with a paper frog on his hands (`holding_toy`, `dad_frog`) |
+| `ran` | 1.4 «Убежать» | dusk, hall | Jack at the window looking down into the yard; Dad in the hall by the shut door, the plate of buns on his left hand, his right raised to knock (`offer_hand`, part `plate`) | the scraps on the sill |
+| `call` | 1.5 «Убежать» | evening (night 0.5), lamp, hall | Mom in the hall by the open door, looking at him; Jack by the window, the scraps in his hands (`holding_toy`, part `scraps`) | — |
+| `packed` | 3.2 | day | Jack grown (`jack_grown`, no suit bag); the room emptied, cartons | attic (and shelf): the box opened on the floor, the dusty animals out, Laohu dusty on the floor by it, the hatch open; laohu: Laohu alone on the bare shelf; house: the same, and Dad (`dad_grey`, no phrasebook) in the hall by the open door with a paper frog on his hands (`holding_toy`, `dad_frog`) |
 
 The showcase plays these one after another (5 s each).
 
@@ -74,5 +77,7 @@ The showcase plays these one after another (5 s each).
   cast part `shoebox` (or the box element following his hands) and a carrying motion.
 - The paper frog in Dad's hands is an element whose animate carries it to `dad#hands` each frame, drawn in front of
   him.
+- The partition is seen almost edge on, its cut end a pale strip down the frame's middle; whoever stands in the hall
+  stands right of it (across 1.3 and on) to be seen — and keeps their hands out of the wall (cards do not stop them).
 - 3.2 says «внизу, на кухне» of the animals in the kitchen; the yard paints the house one-storey, so the kitchen is
   across the hall, not below.

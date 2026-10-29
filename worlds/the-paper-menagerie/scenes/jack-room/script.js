@@ -1,5 +1,5 @@
 // Jack's room: its moments (the key `moment`) and what the menagerie's choice left (the key `menagerie`) — the room's
-// light, what stands where, where its people are and what they do — set at once as the scene opens and whenever
+// light, what stands where, where its people are and what they do — set by a cut as the scene opens and whenever
 // either changes. Each moment is one of the scenario's (lib.js `moment`; notes.md has the table). The game sets
 // `moment` and `menagerie`, who is here and their moods (`<id>_here`, `<id>_mood` — the game's, not set here), then,
 // if it likes, any key over them.
@@ -14,9 +14,9 @@
 //             from the attic with the dusty animals and Laohu out of it, or Laohu alone on the bare shelf (and with
 //             «весь дом» Dad in the doorway with a paper frog).
 // `menagerie`: shelf — not chosen yet; attic (0), laohu (1), house (2) — the game's «Зверинец».
+// A moment is a new shot: its values are set by a cut, so that its people are put where it has them, not walked there.
 function stage() {
-  const { keys } = scene.lib.moment(scene.state.moment, scene.state.menagerie);
-  for (const key in keys) scene.set(key, keys[key]);
+  scene.cut(scene.lib.moment(scene.state.moment, scene.state.menagerie).keys);
 }
 stage();
 scene.on('change', 'moment', () => stage());

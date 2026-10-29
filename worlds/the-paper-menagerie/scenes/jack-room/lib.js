@@ -191,10 +191,10 @@ function moment(which, menagerie) {
   const k = {
     night: 0, day: 0, lamp: 0, hall: 0,
     packed: false, shelf: 'animals', zoo: false, scraps: false,
-    box: 'none', box_a: -1.45, box_d: 3.0, box_e: 0, stir: false,
+    box: 'none', box_a: -0.95, box_d: 3.0, box_e: 0, stir: false,
     hatch: 0, door: 270,
-    goats_a: -0.55, goats_d: 4.12, goats_e: 0.88,
-    laohu_out: true, laohu_a: -2.4, laohu_d: 3.88, laohu_e: 0.59,
+    goats_a: -0.05, goats_d: 4.12, goats_e: 0.88,
+    laohu_out: true, laohu_a: -1.9, laohu_d: 3.88, laohu_e: 0.59,
     laohu_tape: true, laohu_fold: false, laohu_dust: false, laohu_asleep: false,
     dad_frog: false,
     jack_wear: null, jack_with: null, jack_on: null, jack_do: 'stand',
@@ -214,45 +214,45 @@ function moment(which, menagerie) {
     k[`${id}_do`] = 'sitting_on_bed';
   };
   if (which === 'bedtime') {
-    Object.assign(k, { night: 1, lamp: 1, laohu_tape: false, laohu_a: -2.4, laohu_d: 2.92, laohu_e: BED + 0.01 });
-    seat('jack', -2.05, 3.05, 200, 'laohu', 'tired');
-    seat('mom', -2.05, 3.62, 200, 'jack', 'smile');
+    Object.assign(k, { night: 1, lamp: 1, hall: 0.35, laohu_tape: false, laohu_a: -1.85, laohu_d: 3.2, laohu_e: BED + 0.01 });
+    seat('jack', -1.55, 2.95, 70, 'mom', 'tired');
+    seat('mom', -1.55, 3.55, 130, 'jack', 'smile');
   } else if (which === 'hatch') {
-    Object.assign(k, { night: 1, lamp: 1, hall: 1, door: 180, hatch: 1, box: 'shut', box_a: 1.5, box_d: 3.36, box_e: 0.45, shelf: 'empty' });
+    Object.assign(k, { night: 1, lamp: 1, hall: 1, door: 180, hatch: 1, box: 'shut', box_a: 2, box_d: 3.36, box_e: 0.45, shelf: 'empty' });
     if (m === 'laohu') Object.assign(k, { laohu_asleep: true });
     else Object.assign(k, { laohu_out: false, stir: true });
-    person('jack', 1.08, 3.05, 200, 'ceiling_hall#hatch', 'sad');
+    person('jack', 1.58, 3.05, 200, 'ceiling_hall#hatch', 'sad');
   } else if (which === 'ran') {
     Object.assign(k, { hall: 1, scraps: true, laohu_out: false });
-    person('jack', -1.1, 3.62, 20, [5, 8, -0.6], 'sad');
-    person('dad', 1.05, 3.3, 235, 'door#door', 'sad');
+    person('jack', -0.6, 3.62, 20, [5, 8, -0.6], 'sad');
+    person('dad', 1.95, 3.35, 245, 'door#door', 'sad');
     Object.assign(k, { dad_do: 'offer_hand', dad_with: ['plate'] });
   } else if (which === 'call') {
     Object.assign(k, { night: 0.5, lamp: 1, hall: 1, door: 180, laohu_out: false });
-    person('jack', -1.1, 3.55, 120, 'mom', 'sad');
+    person('jack', -0.6, 3.55, 120, 'mom', 'sad');
     Object.assign(k, { jack_do: 'holding_toy', jack_with: ['scraps'] });
-    person('mom', 0.9, 3.35, 250, 'jack', 'neutral');
+    person('mom', 1.85, 3.4, 250, 'jack', 'neutral');
   } else if (which === 'packed') {
     Object.assign(k, { day: 1, packed: true, shelf: 'bare', door: 180, laohu_fold: true, jack_wear: { ...cast.jack_grown, parts: [] } });
     if (m === 'laohu' || m === 'house') {
-      Object.assign(k, { laohu_a: -1.6, laohu_d: 4.12, laohu_e: 1.285 });
-      person('jack', -0.75, 3.35, 250, 'laohu', 'neutral');
+      Object.assign(k, { laohu_a: -1.1, laohu_d: 4.12, laohu_e: 1.285 });
+      person('jack', -0.25, 3.35, 225, 'laohu', 'neutral');
       if (m === 'house') {
-        person('dad', 0.95, 3.3, 245, 'jack', 'neutral');
+        person('dad', 2, 3.35, 240, 'jack', 'neutral');
         Object.assign(k, { dad_wear: { ...cast.dad_grey, parts: [] }, dad_do: 'holding_toy', dad_frog: true });
       }
     } else {
-      Object.assign(k, { hatch: 1, box: 'opened', box_a: -1.3, box_d: 3.2, laohu_a: -0.85, laohu_d: 3.1, laohu_e: 0, laohu_dust: true });
-      person('jack', -0.55, 3.6, 220, 'laohu', 'surprised');
+      Object.assign(k, { hatch: 1, box: 'opened', box_a: -0.8, box_d: 3.2, laohu_a: -0.35, laohu_d: 3.1, laohu_e: 0, laohu_dust: true });
+      person('jack', -0.05, 3.6, 220, 'laohu', 'surprised');
     }
   } else {
     // night (1.6)
-    Object.assign(k, { night: 1, lamp: 1, box: 'empty' });
-    seat('jack', -2.05, 3.25, 160, 'shoebox#box', 'sad');
+    Object.assign(k, { night: 1, lamp: 1, hall: 0.35, box: 'empty', laohu_a: -2.1 });
+    seat('jack', -1.55, 3.45, 130, 'shoebox#box', 'sad');
     if (m === 'attic') Object.assign(k, { box: 'shut', stir: true, shelf: 'empty', laohu_out: false });
     else if (m === 'laohu') Object.assign(k, { box: 'shut', shelf: 'empty', laohu_asleep: true });
     else if (m === 'house') {
-      Object.assign(k, { zoo: true, shelf: 'deer', goats_a: -2.45, goats_d: 2.85, goats_e: BED + 0.01 });
+      Object.assign(k, { zoo: true, shelf: 'deer', goats_a: -1.85, goats_d: 3.0, goats_e: BED + 0.01 });
       k.jack_look = 'goats';
       moods.jack = 'smile';
     }
