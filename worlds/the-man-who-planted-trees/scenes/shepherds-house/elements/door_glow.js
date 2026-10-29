@@ -1,5 +1,7 @@
-// What is seen through the open door: the room lit by the lamp — a warm wall, the floor, the door leaf swung in
+// What is seen through the open door (its point `handle`: the open leaf's edge, where a hand pulls it shut): the room lit by the lamp — a warm wall, the floor, the door leaf swung in
 // against the jamb on the left; its light (`door`) is the scene's door_light. With the lamp out, a dark room
+// Not there in the epilogue's hut beyond the ridge (`hut`).
+if (e.state.hut) return;
 const lit = e.state.lamp > 0.5;
 g.fillStyle = lit ? "#f0b56f" : "#3a2f28";
 g.fillRect(-0.5, -1.95, 1, 1.95);
@@ -16,3 +18,4 @@ g.lineTo(-0.5, 0);
 g.closePath();
 g.fill();
 e.light(0, -1.1, 0.45, "#ffc27a", 0.8, "door");
+e.at(-0.45, -1.0, "handle");

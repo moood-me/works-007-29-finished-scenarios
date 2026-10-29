@@ -1,6 +1,8 @@
 // The front of the stone house: dry-laid limestone in rough courses, the open door (x −1.25…−0.35) and the one window
 // (x 1.25…1.95, 0.98…1.68 m up) cut through it — what is lit behind them is door_glow and window_glow; big lintel
 // stones over both, a wooden window frame, a darker footing
+// Not there in the epilogue's hut beyond the ridge (`hut`).
+if (e.state.hut) return;
 const HOLES = [[-1.25, -1.9, -0.35, 0], [1.25, -1.675, 1.95, -0.975]];
 const hits = (x0, y0, x1, y1) => HOLES.some(([a, b, c, d]) => x0 < c + 0.04 && x1 > a - 0.04 && y0 < d + 0.04 && y1 > b - 0.04);
 g.fillStyle = "#958470";

@@ -1,5 +1,6 @@
 // The shepherd's dog lying by the door, its head up at the strangers; it breathes and moves its head a little (its
-// animate). Its head is the point `head`
+// animate). Its head is the point `head`. While `dog`
+if (!e.state.dog) return;
 e.layer("body", { pivot: [0.05, 0] }, (g) => {
   g.fillStyle = "#5e4a3c";
   g.beginPath();

@@ -1,5 +1,6 @@
-// The flat stone by the path where it goes into the wood, and on it — while `bread` — a loaf in a knotted linen cloth,
-// another cloth under it, yesterday's, untouched
+// The flat stone by the path where it goes into the wood — the stone they sit on in the first chapter (its point
+// `seat`) — and on it, while `bread`, a loaf in a knotted linen cloth, another cloth under it, yesterday's, untouched
+// (its point `loaf`)
 g.fillStyle = "#8f897d";
 g.beginPath();
 g.moveTo(-0.42, 0);
@@ -50,3 +51,4 @@ if (e.state.bread) {
   g.fill();
 }
 e.at(0, -0.45, "loaf");
+e.at(0.05, -0.25, "seat");

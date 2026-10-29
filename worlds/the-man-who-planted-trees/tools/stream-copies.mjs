@@ -1,6 +1,7 @@
-// Lays out where the many alike things of scenes/stream stand — the young oaks in their rows up the slope, the far
+// Lays out where the many alike things of scenes/stream stand — the oaks in their rows up the slope, the far
 // stretches of the wood, the willows, white stones and new grass along the water, the dry tufts away from it, the
-// hives — and writes them as the copies of their elements in its scene.json. The stream's line and the land are the
+// hives, and at the slope's far edge right of the path the rows of dead maples and of Elzéard's beeches (2.6) — and writes
+// them as the copies of their elements in its scene.json. The stream's line and the land are the
 // scene's own (lib.js), read here as the scene reads them. Run: node tools/stream-copies.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
 
@@ -25,7 +26,7 @@ const PEOPLE = [[2.9, 15.6], [2.6, 5.8], [-1.0, 7.6]];
 const clear = (a, d, r) => PEOPLE.every(([pa, pd]) => Math.hypot(a - pa, d - pd) > r);
 const offStream = (a, d, gap) => Math.abs(a - lib.streamX(d)) > lib.streamW(d) / 2 + gap;
 
-const copies = { oak_a: [], oak_b: [], oak_c: [], wood_far: [], willow: [], stones: [], sedge: [], grass: [], hives: [] };
+const copies = { oak_a: [], oak_b: [], oak_c: [], wood_far: [], willow: [], stones: [], sedge: [], grass: [], hives: [], maple_sticks: [], beech_young: [] };
 // the young oaks near, in rows across the slope, a little out of line as anything planted by hand
 for (let k = 0, d0 = 18; d0 <= 56; k++, d0 += 4.2) {
   const reach = 1.25 * d0 + 6;
@@ -65,6 +66,17 @@ while (copies.grass.length < 24) {
 }
 // the hives in a row at the wood's edge
 for (const a of [1.2, 2.6, 4.0, 5.4, 6.8]) copies.hives.push({ across: a, distance: r2(18.3 + rnd() * 0.6), flip: rnd() < 0.5 });
+
+// the slope's far edge, on the valley floor right of the path before the hives: rows of the year's maples, dead, and
+// between them rows of the beeches planted after (every other place: they grow into a stand)
+for (let k = 0, d0 = 11.4; d0 <= 15.8; k++, d0 += 1.45) {
+  for (let a0 = 3.4 + (k % 2) * 0.5; a0 <= 8.8; a0 += 1.0) {
+    copies.maple_sticks.push({ across: r2(a0 + (rnd() - 0.5) * 0.2), distance: r2(d0 + (rnd() - 0.5) * 0.2), scale: r2(0.9 + rnd() * 0.25), flip: rnd() < 0.5 });
+  }
+  for (let a0 = 3.6 + (k % 2) * 1.0; a0 <= 8.8; a0 += 2.0) {
+    copies.beech_young.push({ across: r2(a0 + (rnd() - 0.5) * 0.3), distance: r2(d0 + 0.7 + (rnd() - 0.5) * 0.2), scale: r2(0.85 + rnd() * 0.3), flip: rnd() < 0.5, tint: pick(TINTS) });
+  }
+}
 
 const path = new URL('scene.json', folder), spec = JSON.parse(readFileSync(path, 'utf8'));
 for (const o of spec.objects) if (copies[o.id]) o.copies = copies[o.id];

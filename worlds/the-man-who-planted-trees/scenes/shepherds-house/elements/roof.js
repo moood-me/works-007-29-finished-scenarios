@@ -1,5 +1,7 @@
 // The roof's front slope from above (x along the ridge, y down the slope toward the eave): heavy grey-brown stone
 // slabs laid in overlapping rows, ragged at the eave
+// Not there in the epilogue's hut beyond the ridge (`hut`).
+if (e.state.hut) return;
 g.fillStyle = "#5f564c";
 g.fillRect(-3.3, -1.45, 6.6, 2.9);
 const SLAB = ["#7b7166", "#867b6e", "#6f665c", "#8f8476", "#776c60"];

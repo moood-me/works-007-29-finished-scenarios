@@ -1,4 +1,6 @@
 // A sheep, side-on: a cloud of off-white wool, a dark face and thin dark legs, its head down to the dry grass
+// In the pen while there are sheep (`sheep`: the prologue and the first chapter).
+if (!e.state.sheep) return;
 g.fillStyle = "#2f2925";
 for (const x of [-0.38, -0.22, 0.24, 0.38]) g.fillRect(x - 0.025, -0.3, 0.05, 0.3);
 g.fillStyle = "#e3dccf";
