@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Buried Giant","translation":"被埋葬的記憶","where":"worlds/the-buried-giant/world.json title"},
+  {"text":"A land under a pale mist that takes memory with it: an old couple walk across it to find their son, past a giant's cairn, a dragon's pit and a ferryman's shore. After Kazuo Ishiguro.","translation":"一片籠罩在蒼白霧氣下的土地，霧會帶走記憶：一對老夫妻穿越這片土地去找他們的兒子，經過巨人的石塚、母龍的巢穴和擺渡人的岸邊。改編自石黑一雄。","where":"worlds/the-buried-giant/world.json description"}
+]}

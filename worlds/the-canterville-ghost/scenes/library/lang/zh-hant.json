@@ -1,0 +1,10 @@
+{"strings": [
+  {"text":"When a golden girl can win","translation":"當金色的少女能夠","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"Prayer from out the lips of sin,","translation":"從罪惡的唇間贏得禱告，","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"When the barren almond bears,","translation":"當不結果的杏樹開花，","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"And a little child gives away its tears,","translation":"當小小的孩子獻出眼淚，","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"Then shall all the house be still","translation":"這整座宅邸就會安靜下來，","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"And peace come to Canterville.","translation":"安寧將降臨坎特維爾。","where":"worlds/the-canterville-ghost/scenes/library/elements/window.js"},
+  {"text":"The Library","translation":"圖書室","where":"worlds/the-canterville-ghost/scenes/library/scene.json title"},
+  {"text":"Canterville Chase, past midnight. The bloodstain by the fireplace is back again.","translation":"坎特維爾莊園，午夜過後。壁爐邊的血跡又回來了。","where":"worlds/the-canterville-ghost/scenes/library/scene.json caption"}
+]}

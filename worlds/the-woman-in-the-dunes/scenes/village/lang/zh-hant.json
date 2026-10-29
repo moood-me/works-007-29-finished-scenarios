@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Edge of the Village","translation":"村子的邊緣","where":"worlds/the-woman-in-the-dunes/scenes/village/scene.json title"},
+  {"text":"Over every pit a winch, a rope and a lantern.","translation":"每個沙坑上方都有一座絞盤、一條繩子和一盞燈。","where":"worlds/the-woman-in-the-dunes/scenes/village/scene.json caption"}
+]}

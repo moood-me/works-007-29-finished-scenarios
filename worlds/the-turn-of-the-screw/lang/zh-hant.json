@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Turn of the Screw","translation":"碧廬冤孽","where":"worlds/the-turn-of-the-screw/world.json title"},
+  {"text":"A country house, a governess and two children. Figures that may be there, or may not.","translation":"一棟鄉間宅邸、一位家庭女教師和兩個孩子。那些身影也許在那裡，也許不在。","where":"worlds/the-turn-of-the-screw/world.json description"}
+]}

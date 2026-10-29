@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Paradise","translation":"天堂","where":"worlds/the-glass-menagerie/scenes/room/elements/sign.js"},
+  {"text":"The Flat","translation":"公寓","where":"worlds/the-glass-menagerie/scenes/room/scene.json title"},
+  {"text":"An evening off the alley. The glass on the shelf catches the lamp.","translation":"小巷旁的一個傍晚。架上的玻璃映著燈光。","where":"worlds/the-glass-menagerie/scenes/room/scene.json caption"}
+]}

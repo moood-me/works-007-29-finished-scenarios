@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"A Doll's House","translation":"玩偶之家","where":"worlds/a-doll-s-house/world.json title"},
+  {"text":"A warm flat at Christmas. A wife keeps a secret debt; a letter waits in the locked box.","translation":"聖誕節裡溫暖的公寓。妻子守著一筆祕密的債務；上了鎖的信箱裡，一封信在等著。","where":"worlds/a-doll-s-house/world.json description"}
+]}

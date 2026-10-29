@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Leaf by Niggle","translation":"尼葛的葉子","where":"worlds/leaf-by-niggle/world.json title"},
+  {"text":"A painter's shed, one great unfinished canvas of a tree, and a neighbour who needs help.","translation":"畫家的棚屋、一幅畫著一棵樹的未完成巨大畫布，還有一個需要幫忙的鄰居。","where":"worlds/leaf-by-niggle/world.json description"}
+]}

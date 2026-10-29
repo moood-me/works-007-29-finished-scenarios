@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Old Man and the Sea","translation":"老人與海","where":"worlds/the-old-man-and-the-sea/world.json title"},
+  {"text":"A fishing village, a skiff far out on the Gulf, an old man and the great fish.","translation":"一座漁村、海灣遠處的一艘小船、一個老人和那條大魚。","where":"worlds/the-old-man-and-the-sea/world.json description"}
+]}
