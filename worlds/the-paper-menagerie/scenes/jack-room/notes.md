@@ -109,8 +109,10 @@ the door (`plate_door`), her letter close (the insert `letter`, `letter_close`; 
 Not right yet:
 - Laohu «under the covers» (box_all) is Laohu gone from sight under the quilt: the quilt is a plane, nothing shows under it.
 - The street's `mark_light` asked for in 1.6 is the night's own: at night Mark's window across the street is lit.
-- Nobody lies in bed (П.4, 1.6): Jack sits on its edge, as the moments have him — a lying-down motion and a quilt over
-  someone are not made.
+- П.4 and 1.6: Jack lies in bed in the pieces (the cast's `lie_bed`, `jack_on` on the mattress at seat height, his
+  head on the pillow; the bed's camera from over its foot shows his face); the moments `bedtime`, `night` still have him
+  sitting on its edge. No quilt goes over him. In `bedtime` Mom, on the bed's edge by him, turns to him and away from us:
+  against the lamp her face reads little.
 - The box carried to the hatch is the cast's part `shoebox` in his hands (box_attic).
 
 ## Contract for the check

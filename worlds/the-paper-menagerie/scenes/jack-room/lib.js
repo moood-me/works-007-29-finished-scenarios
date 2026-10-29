@@ -422,7 +422,7 @@ function film(scene) {
         put(s, { shelf: 'empty', box: 'shut' });
         await s.wait(1.5);
         jack.look('laohu');
-        glide(s, SH.quilt, 2);
+        glide(s, SH.bed, 2);
         s.set('laohu_asleep', true);
         s.tell('box_laohu:asleep');
         await s.wait(4);
@@ -437,7 +437,7 @@ function film(scene) {
         const jack = s.person('jack');
         put(s, { zoo: true, shelf: 'deer', goats_a: -1.5, goats_d: 3.1, goats_e: QUILT });
         jack.look('goats');
-        glide(s, SH.quilt, 2);
+        glide(s, SH.bed, 2);
         await s.path(['goats_a', 'goats_d'], [[-1.5, 3.1], [-1.55, 2.85], [-1.7, 2.65]], { over: 3 });
         s.tell('box_all:goats');
         jack.reach(null);
