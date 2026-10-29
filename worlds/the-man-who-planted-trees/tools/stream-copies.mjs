@@ -1,6 +1,6 @@
 // Lays out where the many alike things of scenes/stream stand — the oaks in their rows up the slope, the far
 // stretches of the wood, the willows, white stones and new grass along the water, the dry tufts away from it, the
-// hives, and at the slope's far edge on the left the rows of dead maples and of Elzéard's beeches (2.6) — and writes
+// hives, and at the slope's far edge right of the path the rows of dead maples and of Elzéard's beeches (2.6) — and writes
 // them as the copies of their elements in its scene.json. The stream's line and the land are the
 // scene's own (lib.js), read here as the scene reads them. Run: node tools/stream-copies.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -67,14 +67,14 @@ while (copies.grass.length < 24) {
 // the hives in a row at the wood's edge
 for (const a of [1.2, 2.6, 4.0, 5.4, 6.8]) copies.hives.push({ across: a, distance: r2(18.3 + rnd() * 0.6), flip: rnd() < 0.5 });
 
-// the slope's far edge on the left, before the oaks begin: rows of the year's maples, dead, and between them rows of
-// the beeches planted after (every other place: they grow into a stand)
-for (let k = 0, d0 = 13.4; d0 <= 19.6; k++, d0 += 2.05) {
-  for (let a0 = -5.8 - (k % 2) * 0.6; a0 >= -14.5; a0 -= 1.2) {
-    copies.maple_sticks.push({ across: r2(a0 + (rnd() - 0.5) * 0.25), distance: r2(d0 + (rnd() - 0.5) * 0.25), scale: r2(0.85 + rnd() * 0.3), flip: rnd() < 0.5 });
+// the slope's far edge, on the valley floor right of the path before the hives: rows of the year's maples, dead, and
+// between them rows of the beeches planted after (every other place: they grow into a stand)
+for (let k = 0, d0 = 11.4; d0 <= 15.8; k++, d0 += 1.45) {
+  for (let a0 = 3.4 + (k % 2) * 0.5; a0 <= 8.8; a0 += 1.0) {
+    copies.maple_sticks.push({ across: r2(a0 + (rnd() - 0.5) * 0.2), distance: r2(d0 + (rnd() - 0.5) * 0.2), scale: r2(0.9 + rnd() * 0.25), flip: rnd() < 0.5 });
   }
-  for (let a0 = -6.4 - (k % 2) * 1.2; a0 >= -14.5; a0 -= 2.4) {
-    copies.beech_young.push({ across: r2(a0 + (rnd() - 0.5) * 0.3), distance: r2(d0 + 1.0 + (rnd() - 0.5) * 0.3), scale: r2(0.85 + rnd() * 0.3), flip: rnd() < 0.5, tint: pick(TINTS) });
+  for (let a0 = 3.6 + (k % 2) * 1.0; a0 <= 8.8; a0 += 2.0) {
+    copies.beech_young.push({ across: r2(a0 + (rnd() - 0.5) * 0.3), distance: r2(d0 + 0.7 + (rnd() - 0.5) * 0.2), scale: r2(0.85 + rnd() * 0.3), flip: rnd() < 0.5, tint: pick(TINTS) });
   }
 }
 

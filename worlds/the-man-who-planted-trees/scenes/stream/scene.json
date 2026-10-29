@@ -3162,194 +3162,146 @@
     {
       "id": "maple_sticks",
       "name": "Dead maples at the slope's far edge",
-      "across": -8,
-      "distance": 15,
-      "height": 1.2,
+      "across": 6,
+      "distance": 13,
+      "height": 1.4,
       "box": [
         -0.25,
-        -1.2,
+        -1.42,
         0.25,
         0.03
       ],
       "shadow": true,
       "copies": [
         {
-          "across": -5.77,
-          "distance": 13.44,
+          "across": 3.42,
+          "distance": 11.43,
           "scale": 1.11,
           "flip": true
         },
         {
-          "across": -7.11,
-          "distance": 13.31,
-          "scale": 0.93,
-          "flip": false
-        },
-        {
-          "across": -8.31,
-          "distance": 13.33,
-          "scale": 1.04,
-          "flip": true
-        },
-        {
-          "across": -9.45,
-          "distance": 13.51,
-          "scale": 1.08,
-          "flip": true
-        },
-        {
-          "across": -10.61,
-          "distance": 13.41,
-          "scale": 1.13,
-          "flip": false
-        },
-        {
-          "across": -11.92,
-          "distance": 13.28,
-          "scale": 1,
-          "flip": false
-        },
-        {
-          "across": -12.92,
-          "distance": 13.51,
-          "scale": 0.91,
-          "flip": true
-        },
-        {
-          "across": -14.21,
-          "distance": 13.4,
-          "scale": 1.08,
-          "flip": false
-        },
-        {
-          "across": -6.51,
-          "distance": 15.33,
-          "scale": 0.85,
-          "flip": false
-        },
-        {
-          "across": -7.62,
-          "distance": 15.54,
-          "scale": 1.02,
-          "flip": false
-        },
-        {
-          "across": -8.76,
-          "distance": 15.49,
-          "scale": 1.13,
-          "flip": true
-        },
-        {
-          "across": -10.01,
-          "distance": 15.5,
-          "scale": 1.01,
-          "flip": true
-        },
-        {
-          "across": -11.19,
-          "distance": 15.47,
-          "scale": 0.89,
-          "flip": true
-        },
-        {
-          "across": -12.49,
-          "distance": 15.47,
-          "scale": 0.86,
-          "flip": false
-        },
-        {
-          "across": -13.7,
-          "distance": 15.46,
+          "across": 4.31,
+          "distance": 11.33,
           "scale": 0.97,
+          "flip": false
+        },
+        {
+          "across": 5.31,
+          "distance": 11.34,
+          "scale": 1.05,
           "flip": true
         },
         {
-          "across": -5.83,
-          "distance": 17.55,
+          "across": 6.36,
+          "distance": 11.48,
+          "scale": 1.09,
+          "flip": true
+        },
+        {
+          "across": 7.39,
+          "distance": 11.41,
+          "scale": 1.13,
+          "flip": false
+        },
+        {
+          "across": 8.31,
+          "distance": 11.3,
           "scale": 1.03,
           "flip": false
         },
         {
-          "across": -6.88,
-          "distance": 17.5,
-          "scale": 0.92,
-          "flip": false
-        },
-        {
-          "across": -8.16,
-          "distance": 17.4,
-          "scale": 0.95,
-          "flip": false
-        },
-        {
-          "across": -9.5,
-          "distance": 17.59,
-          "scale": 0.9,
-          "flip": false
-        },
-        {
-          "across": -10.56,
-          "distance": 17.54,
-          "scale": 0.96,
-          "flip": false
-        },
-        {
-          "across": -11.86,
-          "distance": 17.55,
-          "scale": 1.06,
+          "across": 4,
+          "distance": 12.81,
+          "scale": 0.99,
           "flip": true
         },
         {
-          "across": -12.92,
-          "distance": 17.54,
-          "scale": 1.04,
-          "flip": true
-        },
-        {
-          "across": -14.14,
-          "distance": 17.42,
-          "scale": 0.94,
+          "across": 4.83,
+          "distance": 12.77,
+          "scale": 1.05,
           "flip": false
         },
         {
-          "across": -6.42,
-          "distance": 19.56,
+          "across": 5.88,
+          "distance": 12.82,
           "scale": 0.97,
           "flip": true
         },
         {
-          "across": -7.48,
-          "distance": 19.65,
-          "scale": 1.01,
-          "flip": true
-        },
-        {
-          "across": -8.88,
-          "distance": 19.67,
+          "across": 6.96,
+          "distance": 12.76,
           "scale": 0.9,
-          "flip": false
-        },
-        {
-          "across": -10.07,
-          "distance": 19.58,
-          "scale": 1.07,
           "flip": true
         },
         {
-          "across": -11.13,
-          "distance": 19.6,
-          "scale": 1.13,
+          "across": 7.92,
+          "distance": 12.83,
+          "scale": 1.11,
           "flip": false
         },
         {
-          "across": -12.34,
-          "distance": 19.55,
-          "scale": 1.14,
+          "across": 3.31,
+          "distance": 14.35,
+          "scale": 0.92,
           "flip": false
         },
         {
-          "across": -13.51,
-          "distance": 19.59,
+          "across": 4.38,
+          "distance": 14.24,
+          "scale": 0.94,
+          "flip": true
+        },
+        {
+          "across": 5.32,
+          "distance": 14.2,
+          "scale": 0.91,
+          "flip": false
+        },
+        {
+          "across": 6.46,
+          "distance": 14.22,
+          "scale": 1.02,
+          "flip": false
+        },
+        {
+          "across": 7.45,
+          "distance": 14.25,
+          "scale": 0.97,
+          "flip": false
+        },
+        {
+          "across": 8.43,
+          "distance": 14.28,
+          "scale": 1.08,
+          "flip": false
+        },
+        {
+          "across": 3.88,
+          "distance": 15.76,
+          "scale": 0.97,
+          "flip": false
+        },
+        {
+          "across": 4.94,
+          "distance": 15.65,
+          "scale": 1.1,
+          "flip": false
+        },
+        {
+          "across": 5.93,
+          "distance": 15.73,
+          "scale": 1.09,
+          "flip": true
+        },
+        {
+          "across": 6.86,
+          "distance": 15.84,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": 7.94,
+          "distance": 15.79,
           "scale": 0.91,
           "flip": false
         }
@@ -3358,8 +3310,8 @@
     {
       "id": "beech_young",
       "name": "Elzéard's beeches at the slope's far edge",
-      "across": -8,
-      "distance": 16,
+      "across": 6,
+      "distance": 13,
       "height": 5.2,
       "box": [
         -2.4,
@@ -3370,102 +3322,88 @@
       "shadow": true,
       "copies": [
         {
-          "across": -6.38,
-          "distance": 14.42,
-          "scale": 0.88,
-          "flip": true,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": -8.83,
-          "distance": 14.36,
-          "scale": 1.14,
+          "across": 3.69,
+          "distance": 12.19,
+          "scale": 0.91,
           "flip": true,
           "tint": "#f2f4ea"
         },
         {
-          "across": -11.25,
-          "distance": 14.3,
-          "scale": 0.88,
+          "across": 5.6,
+          "distance": 12.15,
+          "scale": 1.02,
           "flip": false,
-          "tint": "#f6f1e4"
+          "tint": "#e8ecdf"
         },
         {
-          "across": -13.63,
-          "distance": 14.35,
-          "scale": 0.93,
+          "across": 7.48,
+          "distance": 12.08,
+          "scale": 1.08,
+          "flip": true,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 4.64,
+          "distance": 13.58,
+          "scale": 1.05,
+          "flip": false,
+          "tint": "#f2f4ea"
+        },
+        {
+          "across": 6.59,
+          "distance": 13.59,
+          "scale": 1.01,
+          "flip": true,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 8.63,
+          "distance": 13.48,
+          "scale": 1,
+          "flip": true,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 3.69,
+          "distance": 15.1,
+          "scale": 1,
           "flip": true,
           "tint": "#f6f1e4"
         },
         {
-          "across": -7.7,
-          "distance": 16.33,
-          "scale": 0.88,
+          "across": 5.65,
+          "distance": 14.92,
+          "scale": 0.95,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": 7.71,
+          "distance": 14.94,
+          "scale": 1.09,
+          "flip": false,
+          "tint": "#e8ecdf"
+        },
+        {
+          "across": 4.65,
+          "distance": 16.37,
+          "scale": 0.98,
           "flip": true,
           "tint": "#ffffff"
         },
         {
-          "across": -9.97,
-          "distance": 16.54,
-          "scale": 0.89,
-          "flip": true,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": -12.32,
-          "distance": 16.37,
+          "across": 6.65,
+          "distance": 16.38,
           "scale": 0.94,
           "flip": false,
-          "tint": "#e8ecdf"
+          "tint": "#f6f1e4"
         },
         {
-          "across": -6.5,
-          "distance": 18.39,
+          "across": 8.72,
+          "distance": 16.35,
           "scale": 1.06,
           "flip": false,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -8.72,
-          "distance": 18.55,
-          "scale": 0.88,
-          "flip": true,
-          "tint": "#ffffff"
-        },
-        {
-          "across": -11.33,
-          "distance": 18.55,
-          "scale": 0.9,
-          "flip": true,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": -13.51,
-          "distance": 18.62,
-          "scale": 0.85,
-          "flip": false,
-          "tint": "#e8ecdf"
-        },
-        {
-          "across": -7.5,
-          "distance": 20.54,
-          "scale": 0.92,
-          "flip": true,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": -9.88,
-          "distance": 20.62,
-          "scale": 1.08,
-          "flip": false,
-          "tint": "#f6f1e4"
-        },
-        {
-          "across": -12.54,
-          "distance": 20.43,
-          "scale": 0.86,
-          "flip": false,
-          "tint": "#f6f1e4"
+          "tint": "#f2f4ea"
         }
       ]
     },
