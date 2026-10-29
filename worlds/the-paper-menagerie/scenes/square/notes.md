@@ -59,3 +59,9 @@ guide calls, she glances at the bus and back up at Jack.
   depth all the same (the part's ball seems to keep a minimum thickness or round its edges). A flat sheet held in the
   hands wants a part drawn as a sheet (`F.cloth` is only for what is worn from the start) — stage 5, or a question for
   the engine.
+
+## Contract for the check
+
+```json
+{"beats": {"bench":{"after":[],"tells":["bench:ask","bench:warm","bench:wind"],"seconds":14}, "reading":{"after":["bench"],"tells":["reading:start"],"seconds":6}, "tear":{"after":["reading"],"tells":["tear:open"],"seconds":4}, "reading_end":{"after":["tear"],"tells":["reading_end:back","reading_end:guide","reading_end:gone"],"seconds":22}}}
+```

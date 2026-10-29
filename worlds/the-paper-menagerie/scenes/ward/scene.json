@@ -43,10 +43,51 @@
       ],
       "color": "#e9b4c0",
       "strength": 0.5
+    },
+    {
+      "id": "corridor_1",
+      "across": 4.35,
+      "distance": 1,
+      "elevation": 2.6,
+      "color": "#eef4ee",
+      "strength": 1.0,
+      "reach": 5,
+      "on": "corridor_lights"
+    },
+    {
+      "id": "corridor_2",
+      "across": 4.35,
+      "distance": 6,
+      "elevation": 2.6,
+      "color": "#eef4ee",
+      "strength": 1.0,
+      "reach": 5,
+      "on": "corridor_lights"
+    },
+    {
+      "id": "corridor_3",
+      "across": 4.35,
+      "distance": 11,
+      "elevation": 2.6,
+      "color": "#eef4ee",
+      "strength": 1.0,
+      "reach": 5,
+      "on": "corridor_lights"
+    },
+    {
+      "id": "corridor_4",
+      "across": 4.35,
+      "distance": 16,
+      "elevation": 2.6,
+      "color": "#eef4ee",
+      "strength": 1.0,
+      "reach": 5,
+      "on": "corridor_lights"
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "lamp": 1,
@@ -67,7 +108,23 @@
       3.6,
       0.58
     ],
-    "crane": true
+    "crane": true,
+    "mom_a": 0.38,
+    "mom_d": 3.6,
+    "jack_a": 2.1,
+    "jack_d": 3.3,
+    "dad_a": -1.85,
+    "dad_d": 3.2,
+    "nurse_a": 4.8,
+    "nurse_d": 14,
+    "nurse_here": false,
+    "view": "room",
+    "corridor_lights": 0,
+    "laohu_here": true,
+    "menu_house": false,
+    "menu": "none",
+    "suit_on_chair": false,
+    "phone_off": false
   },
   "states": {
     "lamp": {
@@ -85,6 +142,52 @@
     "crane": {
       "type": "boolean",
       "means": "the paper crane folded from the hospital menu on the sill ('Menagerie' 2): true there, false not"
+    },
+    "view": {
+      "values": [
+        "room",
+        "corridor"
+      ],
+      "means": "which way the eye looks: room - the ward (the scene's picture); corridor - out in the hospital corridor (the script sets camera_on to corridor_eye, the corridor's lamps on): the ward's door on the left, the payphone on the far wall, the doors to the lifts at the end"
+    },
+    "corridor_lights": {
+      "range": [
+        0,
+        1
+      ],
+      "means": "the corridor's fluorescent lamps (the script's: 1 with view corridor)"
+    },
+    "laohu_here": {
+      "type": "boolean",
+      "means": "Laohu on the bedside table: false - taken home ('Stayed', 2.4)"
+    },
+    "menu_house": {
+      "type": "boolean",
+      "means": "the paper house folded from the hospital menu on the bedside table ('Left', 2.4)"
+    },
+    "menu": {
+      "values": [
+        "none",
+        "flat",
+        "half"
+      ],
+      "means": "the hospital menu on the bed's sheet (2.3b): none; flat - lying there; half - folded in half"
+    },
+    "suit_on_chair": {
+      "type": "boolean",
+      "means": "Jack's suit in its bag hanging over the chair's back ('Stayed', 2.3-2.4)"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "phone_off": {
+      "type": "boolean",
+      "means": "the payphone's receiver off its hook (in Jack's hand: the cast's part receiver)"
     }
   },
   "objects": [
@@ -512,6 +615,150 @@
       ]
     },
     {
+      "id": "menu_house",
+      "name": "The paper house folded from the menu, on the bedside table",
+      "inside": true,
+      "shadow": true,
+      "across": -0.4,
+      "distance": 3.98,
+      "elevation": 0.72,
+      "height": 0.11,
+      "box": [
+        -0.1,
+        -0.11,
+        0.1,
+        0.01
+      ]
+    },
+    {
+      "id": "menu_sheet",
+      "name": "The hospital menu on the bed's sheet",
+      "plane": true,
+      "inside": true,
+      "across": 0.62,
+      "distance": 3.75,
+      "elevation": 0.59,
+      "width": 0.24,
+      "depth": 0.32
+    },
+    {
+      "id": "suit_chair",
+      "name": "Jack's suit in its bag over the chair's back",
+      "inside": true,
+      "shadow": true,
+      "across": -1.95,
+      "distance": 3.26,
+      "facing": 115,
+      "height": 1.0,
+      "box": [
+        -0.2,
+        -1.0,
+        0.2,
+        0.02
+      ]
+    },
+    {
+      "id": "corridor_eye",
+      "name": "Where the eye stands in the corridor (view: corridor)",
+      "unseen": true,
+      "across": 4.35,
+      "distance": -1.6,
+      "facing": 180
+    },
+    {
+      "id": "corridor_floor",
+      "name": "The corridor's polished floor",
+      "plane": true,
+      "inside": true,
+      "across": 4.35,
+      "distance": 7.5,
+      "width": 2.9,
+      "depth": 21.2,
+      "reflect": {
+        "strength": 0.18,
+        "fade": 3,
+        "rough": 0.3
+      }
+    },
+    {
+      "id": "corridor_ceiling",
+      "name": "The corridor's ceiling and its lamps",
+      "inside": true,
+      "across": 4.35,
+      "distance": 18,
+      "elevation": 2.7,
+      "facing": 180,
+      "tilt": -90,
+      "height": 21.2,
+      "box": [
+        -1.48,
+        -21.3,
+        1.48,
+        0.05
+      ]
+    },
+    {
+      "id": "corridor_left",
+      "name": "The corridor's wall on the ward's side: the ward's door, chairs",
+      "inside": true,
+      "across": 2.95,
+      "distance": 7.5,
+      "facing": 90,
+      "height": 2.7,
+      "box": [
+        -10.6,
+        -2.72,
+        10.6,
+        0.02
+      ]
+    },
+    {
+      "id": "corridor_right",
+      "name": "The corridor's far wall: other wards' doors, a window",
+      "inside": true,
+      "across": 5.8,
+      "distance": 7.5,
+      "facing": 270,
+      "height": 2.7,
+      "box": [
+        -10.6,
+        -2.72,
+        10.6,
+        0.02
+      ]
+    },
+    {
+      "id": "corridor_end",
+      "name": "The corridor's end: the doors to the lifts",
+      "inside": true,
+      "across": 4.35,
+      "distance": 18,
+      "facing": 180,
+      "height": 2.7,
+      "box": [
+        -1.46,
+        -2.72,
+        1.46,
+        0.02
+      ]
+    },
+    {
+      "id": "payphone",
+      "name": "The payphone on the corridor's wall",
+      "inside": true,
+      "across": 5.78,
+      "distance": 5.4,
+      "elevation": 1.05,
+      "facing": 270,
+      "height": 0.62,
+      "box": [
+        -0.26,
+        -0.63,
+        0.26,
+        0.02
+      ]
+    },
+    {
       "id": "mom",
       "name": "Mom",
       "inside": true,
@@ -522,7 +769,11 @@
         "does": "sitting_on_bed"
       },
       "across": 0.38,
-      "distance": 3.6
+      "distance": 3.6,
+      "place": {
+        "across": "mom_a",
+        "distance": "mom_d"
+      }
     },
     {
       "id": "jack",
@@ -535,7 +786,11 @@
         "does": "showing_suit"
       },
       "across": 2.1,
-      "distance": 3.3
+      "distance": 3.3,
+      "place": {
+        "across": "jack_a",
+        "distance": "jack_d"
+      }
     },
     {
       "id": "dad",
@@ -548,7 +803,27 @@
         "does": "reading_seated"
       },
       "across": -1.85,
-      "distance": 3.2
+      "distance": 3.2,
+      "place": {
+        "across": "dad_a",
+        "distance": "dad_d"
+      }
+    },
+    {
+      "id": "nurse",
+      "name": "The nurse",
+      "inside": true,
+      "person": {
+        "cast": "cast",
+        "who": "nurse",
+        "turn": 180
+      },
+      "across": 4.8,
+      "distance": 14,
+      "place": {
+        "across": "nurse_a",
+        "distance": "nurse_d"
+      }
     }
   ],
   "music": {

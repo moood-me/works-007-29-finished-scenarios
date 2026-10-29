@@ -45,3 +45,9 @@ What is not right yet:
 
 - `crane` (boolean, true by default): the menu crane on the sill is there only on «Зверинец» 2 — a game sets it false
   on 0–1.
+
+## Contract for the check
+
+```json
+{"beats": {"door":{"after":[],"tells":["door:dad","door:nurse","door:ticket","door:book","door:tiger"],"seconds":20}, "ward_in":{"after":[],"tells":["ward_in:greet"],"seconds":9}, "once":{"after":["ward_in"],"tells":["once:touch","once:suit"],"seconds":14}, "talk_grandma":{"after":["once"],"tells":["talk_grandma:say","talk_grandma:end"],"seconds":12}, "talk_forty":{"after":["once"],"tells":["talk_forty:say","talk_forty:end"],"seconds":10}, "talk_hand":{"after":["once"],"tells":["talk_hand:say","talk_hand:end"],"seconds":14}, "coat":{"after":["talk_grandma","talk_forty","talk_hand"],"tells":["coat:dad","coat:mom"],"seconds":9}, "stay":{"after":["coat"],"tells":["stay:say","stay:turn"],"seconds":14}, "go":{"after":["coat"],"tells":["go:hand","go:door"],"seconds":10}, "night":{"after":[],"tells":["night:bag","night:tiger","night:talk","night:last"],"seconds":26}, "phone":{"after":[],"tells":["phone:dad","phone:pocket"],"seconds":14}, "menu":{"after":[],"tells":["menu:door"],"seconds":8}, "friday":{"after":[],"tells":["friday:back","friday:house"],"seconds":12}, "silence":{"after":["friday"],"tells":["silence:dark"],"seconds":6}}}
+```
