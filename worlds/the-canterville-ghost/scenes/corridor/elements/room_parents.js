@@ -1,4 +1,4 @@
-// What is seen of Mr and Mrs Otis's bedroom through its door: its far wall (1.8 m wide, 6 m away, facing the
+// What is seen of Mr and Mrs Otis's bedroom through its door: its far wall (1.8 m wide, 5.5 m away, facing the
 // corridor) — flowered paper, the foot of the big bed with its curtains, a washstand with its jug.
 g.fillStyle = '#6a5a4a';
 g.fillRect(-0.9, -3.0, 1.8, 3.02);

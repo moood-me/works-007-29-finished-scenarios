@@ -66,22 +66,22 @@
         [
           [
             -2.0,
-            6.0,
+            5.6,
             0.9
           ],
           [
             -2.0,
-            7.2,
+            6.8,
             0.9
           ],
           [
             -2.0,
-            7.2,
+            6.8,
             3.0
           ],
           [
             -2.0,
-            6.0,
+            5.6,
             3.0
           ]
         ],
@@ -112,7 +112,7 @@
     {
       "id": "ghost",
       "across": 0.15,
-      "distance": 5.0,
+      "distance": 4.6,
       "elevation": 1.5,
       "place": {
         "across": "simon_a",
@@ -164,13 +164,13 @@
     "spook": "none",
     "armchair": false,
     "ghost_light": 1,
-    "ghost_d": 5.0,
+    "ghost_d": 4.6,
     "simon_a": 0.15,
-    "simon_d": 5.6,
+    "simon_d": 5.2,
     "simon_mood": "angry",
     "simon_look": "otis",
     "otis_a": -1.45,
-    "otis_d": 4.6,
+    "otis_d": 4.5,
     "otis_with": [
       "bottle",
       "candle"
@@ -179,7 +179,7 @@
     "otis_look": "simon",
     "otis_mood": "smile",
     "virginia_a": 1.8,
-    "virginia_d": 6.95,
+    "virginia_d": 6.35,
     "virginia_with": [
       "candle"
     ],
@@ -261,7 +261,7 @@
     },
     "armchair": {
       "type": "boolean",
-      "means": "the armchair by Virginia's door (Mr Otis sits in it on the last nights: otis_on [1.4, 6.05, 0.45])"
+      "means": "the armchair by Virginia's door (Mr Otis sits in it on the last nights: otis_on [1.4, 7.32, 0.45])"
     },
     "ghost_light": {
       "range": [
@@ -350,9 +350,9 @@
       "id": "floor",
       "name": "The floor",
       "plane": true,
-      "across": 0,
+      "across": 0.4,
       "distance": 7.4,
-      "width": 10,
+      "width": 6.8,
       "depth": 13.4
     },
     {
@@ -370,7 +370,7 @@
       "name": "The smashed bottle of oil",
       "plane": true,
       "across": 0.3,
-      "distance": 5.2,
+      "distance": 4.9,
       "elevation": 0.008,
       "width": 1.0,
       "depth": 0.8
@@ -464,7 +464,7 @@
         },
         {
           "across": -2.02,
-          "distance": 6.6,
+          "distance": 6.2,
           "facing": 90
         },
         {
@@ -478,7 +478,7 @@
       "id": "room_parents",
       "name": "The parents' bedroom, its far wall",
       "across": -2.9,
-      "distance": 6.0,
+      "distance": 5.5,
       "facing": 180,
       "height": 3.0,
       "box": [
@@ -492,7 +492,7 @@
       "id": "room_virginia",
       "name": "Virginia's room, its far wall",
       "across": 2.9,
-      "distance": 8.8,
+      "distance": 8.2,
       "facing": 180,
       "height": 3.0,
       "box": [
@@ -519,14 +519,14 @@
     {
       "id": "passage",
       "name": "The side passage round the corner",
-      "across": -3.6,
+      "across": -2.45,
       "distance": 10.2,
       "facing": 180,
       "height": 3.6,
       "box": [
-        -1.6,
+        -0.45,
         -3.62,
-        1.6,
+        0.45,
         0.02
       ]
     },
@@ -551,7 +551,7 @@
       "id": "door_virginia",
       "name": "Virginia's door",
       "across": 2.03,
-      "distance": 6.4,
+      "distance": 5.8,
       "facing": 270,
       "place": {
         "facing": "door_virginia"
@@ -585,7 +585,7 @@
       "id": "armour",
       "name": "The suit of armour on its stand",
       "across": 1.62,
-      "distance": 3.2,
+      "distance": 3.3,
       "height": 2.05,
       "box": [
         -0.45,
@@ -599,7 +599,7 @@
       "id": "table",
       "name": "The little table by the armour",
       "across": 1.6,
-      "distance": 4.0,
+      "distance": 4.25,
       "height": 0.8,
       "box": [
         -0.36,
@@ -613,7 +613,7 @@
       "id": "sconce",
       "name": "A candle sconce",
       "across": 1.94,
-      "distance": 5.85,
+      "distance": 7.35,
       "elevation": 1.6,
       "height": 0.42,
       "box": [
@@ -625,7 +625,7 @@
       "copies": [
         {
           "across": 1.94,
-          "distance": 5.85,
+          "distance": 7.35,
           "elevation": 1.6
         },
         {
@@ -640,7 +640,7 @@
         },
         {
           "across": -1.94,
-          "distance": 7.9,
+          "distance": 7.7,
           "elevation": 1.6
         },
         {
@@ -674,7 +674,7 @@
       "id": "armchair",
       "name": "The armchair by Virginia's door",
       "across": 1.4,
-      "distance": 6.35,
+      "distance": 7.6,
       "height": 1.22,
       "box": [
         -0.5,
@@ -687,7 +687,7 @@
       "id": "armchair_front",
       "name": "The armchair's arms",
       "across": 1.4,
-      "distance": 5.78,
+      "distance": 7.02,
       "height": 0.7,
       "box": [
         -0.52,
@@ -703,7 +703,7 @@
         "kind": "dust",
         "at": [
           -0.4,
-          6.0,
+          5.6,
           1.4
         ],
         "source": [
@@ -723,7 +723,7 @@
         "does": "stand"
       },
       "across": 0.15,
-      "distance": 5.6,
+      "distance": 5.2,
       "place": {
         "across": "simon_a",
         "distance": "simon_d"
@@ -735,11 +735,11 @@
       "person": {
         "cast": "cast",
         "who": "otis_gown",
-        "turn": 120,
+        "turn": 150,
         "does": "offer"
       },
       "across": -1.45,
-      "distance": 4.6,
+      "distance": 4.5,
       "place": {
         "across": "otis_a",
         "distance": "otis_d"
@@ -752,10 +752,10 @@
         "cast": "cast",
         "who": "virginia_night",
         "turn": 235,
-        "does": "clasped"
+        "does": "hold_candle"
       },
       "across": 1.8,
-      "distance": 6.95,
+      "distance": 6.35,
       "place": {
         "across": "virginia_a",
         "distance": "virginia_d"

@@ -1,4 +1,4 @@
-// What is seen of Virginia's room through its door: its far wall (1.8 m wide, 8.8 m away, facing the corridor) —
+// What is seen of Virginia's room through its door: its far wall (1.8 m wide, 8.2 m away, facing the corridor) —
 // pale striped paper, a small chest of drawers with her watercolours pinned above it, a chair with her shawl.
 g.fillStyle = '#8a8070';
 g.fillRect(-0.9, -3.0, 1.8, 3.02);

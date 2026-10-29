@@ -1,9 +1,9 @@
 // A suit of plate armour on its stand against the right wall, from before (2.05 m with its plinth): an old knight's
 // harness standing empty — the close helmet with its visor down, the breastplate, the pauldrons, the arms hanging, the
 // gauntlets resting on the pommel of a long sword set point down between the feet. Its point `helm`.
-const STEEL = '#9aa2a6';
-const DARK = '#5f676c';
-const LIGHT = '#c4cacd';
+const STEEL = '#aab2b6';
+const DARK = '#717a80';
+const LIGHT = '#d4d9dc';
 // the plinth
 g.fillStyle = '#3a2618';
 g.fillRect(-0.36, -0.14, 0.72, 0.14);
@@ -50,20 +50,20 @@ g.fillRect(-0.012, -1.54, 0.024, 0.4);
 for (const s of [-1, 1]) {
   g.fillStyle = STEEL;
   g.beginPath();
-  g.ellipse(s * 0.25, -1.5, 0.1, 0.075, 0, 0, Math.PI * 2);
+  g.ellipse(s * 0.22, -1.5, 0.075, 0.055, s * 0.3, 0, Math.PI * 2);
   g.fill();
   g.fillStyle = STEEL;
   g.beginPath();
-  g.moveTo(s * 0.27, -1.45);
-  g.lineTo(s * 0.32, -1.3);
-  g.lineTo(s * 0.12, -1.14);
-  g.lineTo(s * 0.06, -1.18);
-  g.lineTo(s * 0.22, -1.34);
+  g.moveTo(s * 0.25, -1.46);
+  g.lineTo(s * 0.28, -1.3);
+  g.lineTo(s * 0.1, -1.13);
+  g.lineTo(s * 0.05, -1.17);
+  g.lineTo(s * 0.19, -1.33);
   g.closePath();
   g.fill();
   g.fillStyle = DARK;
   g.beginPath();
-  g.arc(s * 0.3, -1.32, 0.04, 0, Math.PI * 2);
+  g.arc(s * 0.265, -1.32, 0.03, 0, Math.PI * 2);
   g.fill();
   g.beginPath();
   g.ellipse(s * 0.05, -1.14, 0.05, 0.035, 0, 0, Math.PI * 2);
