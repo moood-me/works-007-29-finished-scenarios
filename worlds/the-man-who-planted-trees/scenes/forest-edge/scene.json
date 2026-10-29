@@ -7,7 +7,8 @@
     "mode": "picture"
   },
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "light": {
     "ambient": 0.62,
@@ -139,7 +140,11 @@
     "axeman_here": false,
     "visitor_a_here": false,
     "visitor_b_here": false,
-    "boy_here": false
+    "boy_here": false,
+    "new_beech": "none",
+    "new_beech_a": 2.4,
+    "new_beech_d": 12,
+    "silent": false
   },
   "states": {
     "year": {
@@ -455,6 +460,40 @@
         30
       ],
       "means": "where the boy stands, metres ahead (the moment sets it)"
+    },
+    "new_beech": {
+      "values": [
+        "none",
+        "crooked",
+        "straight"
+      ],
+      "means": "the beech sapling the Traveller plants this year (МИ4) at new_beech_a/d: none; crooked — it stands askew; straight"
+    },
+    "new_beech_a": {
+      "range": [
+        -12,
+        8
+      ],
+      "means": "where this year's beech is planted, metres right (the piece `beech` sets it: the row's next place or his slope)"
+    },
+    "new_beech_d": {
+      "range": [
+        3,
+        30
+      ],
+      "means": "where this year's beech is planted, metres ahead"
+    },
+    "silent": {
+      "type": "boolean",
+      "means": "the game's: at Ш2 the Traveller said nothing (Jan grips his shoulder in the piece `unnamed`); false — he said «it grew by itself»"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md, Pieces)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [
@@ -6390,6 +6429,24 @@
         -0.25,
         -0.48,
         0.25,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "new_beech",
+      "name": "The beech he plants this year",
+      "across": 2.4,
+      "distance": 12,
+      "place": {
+        "across": "new_beech_a",
+        "distance": "new_beech_d"
+      },
+      "height": 0.8,
+      "box": [
+        -0.3,
+        -0.85,
+        0.3,
         0.03
       ],
       "shadow": true

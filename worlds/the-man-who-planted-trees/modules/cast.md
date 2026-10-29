@@ -61,7 +61,8 @@ The years after (the house, the forest's edge, the stream across the years):
 person's point `#rod`. `mug` — a tin mug upright in the right hand (`#mug`). `satchel` — the bag at the left hip
 (`#bag`). `flask` — the flask at the right hip (`#flask`). `pail` — a wooden pail hanging from the right hand by its
 bail (`#pail`). `notebook` — a forester's notebook in the left hand (`#notebook`). `spade` — a spade upright in the right hand, its blade
-on the ground (`#spade`). `axe` — an axe hanging from the right hand, the head by the knee (`#axe`). `basket` — a
+on the ground (`#spade`). `letter` — a sheet of letter paper in the left hand (`#letter`). `gourd` — a gourd of water in the right hand
+(`#gourd`). `axe` — an axe hanging from the right hand, the head by the knee (`#axe`). `basket` — a
 wicker basket hanging from the right hand (`#basket`). `beard` — a short beard in the
 hair's colour (worn, not held).
 
