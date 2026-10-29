@@ -1,0 +1,302 @@
+# Человек, который сажал деревья — игра в терминах кода
+
+Стадия 3 (`moood-me/moood:docs/writing/game-stages.md`): вся игра на трёх сценах мира, люди стоят; где по сценарию
+кусок сцены — плашка с «Дальше»; мини-игры и ведения — заглушки (кружок и карточка); места и годы, которых ещё нет, —
+в готовой сцене с подписью. Сценарий — `scenario.md`.
+
+- **Игра:** `games/the-man-who-planted-trees` (bespoke; английский — исходный язык кода и текстов, русский — перевод
+  в `bespoke/lang/ru/strings.json`, русские реплики и плашки — слово в слово из сценария). Мир —
+  `worlds/the-man-who-planted-trees` (`game.json` `world`).
+- **Каркас** — «Кентервильского привидения» стадии 3 (`r3/canterville-game`, `805e2d1`) с его поздними правками
+  (`r3/canterville`: финал уходит в чёрное с именем финала; строки карты — с тем, что вышло из выбора; метка выбора не
+  теряется за краем кадра): `bespoke/game.js` (главы, карта, переигровки, карта автора, сохранение), `story.js`
+  (`context`, `PLACES`, `SCALES`, `EFFECTS`, `ENDINGS`, `facts`, `linaAfter`), `ui.js`/`ui.css` (плашки, тосты,
+  шкалы, подпись места, карточка заглушки, карта автора), `map.js` (карта — ряд листков над домом пастуха в сумерках,
+  никого нет), `jump.js`, `chapters/`, `minigames/` (`stub.js`, `all.js`), `check/run.mjs`.
+
+## Места — одна карта, по годам
+
+`story.js PLACES`: место сценария в своём году → папка сцены мира, её ключи (`keys`) и, если сцена чужая или год не
+тот, `where` — подпись «На самом деле: …». Шаги называют только места, никогда папки. Годы — от начала игры: 0
+(пролог, гл. 1), 6 (гл. 2), 20 (гл. 3), 30 (эпилог).
+
+| Место | Шаги | Сейчас | На стадии 4–5 |
+| --- | --- | --- | --- |
+| `village0` М1 | П.1–П.2, 1.7 | `shepherds-house` + подпись (Путник 20, Лина 17) | деревня (`r3/trees-village`), год 0 |
+| `house0` М2 | П.3–П.5, 1.5, 1.6 | `shepherds-house` (`lamp`) | — (внутри дома — см. «Asks») |
+| `slope0` М3 | 1.1–1.4 | `shepherds-house` + подпись (его `rod` в земле — точка выбора 1.4) | склон год 0 (`r3/trees-years`) |
+| `village6` М1 | 2.1 | `forest-edge` + подпись (Ян и Путник там сорокалетние) | деревня, год 6 |
+| `stream6` М4 | 2.2–2.4 | `stream` (`mist`) | — |
+| `slope6` М3 | 2.5 | `stream` (дубы, ульи, Эльзеар 61) | склон год 6 |
+| `far6` М3 | 2.6 | `stream` + подпись (клёны, буки) | дальний край склона, год 6 |
+| `house6` М2 | 2.7 | `shepherds-house` + подпись (люди там двадцатилетние) | дом, год 6 |
+| `edge20` М3 | 3.1–3.3 | `forest-edge` (`smoke`, `bread`) | — |
+| `house20` М2 | 3.4, 3.5 (Имя) | `shepherds-house` + подпись | дом, год 20 |
+| `stumps20` М3 | 3.5 (Тишина) | `forest-edge` + подпись (Эльзеара в сцене нет — на плашке) | нижний край с пнями, год 20 |
+| `village30` М1 | Э.1, финал «Рассказ» | `forest-edge` + подпись (Лина 37, Путник 40 вместо 47 и 50) | деревня, год 30 |
+| `house30` М2 | Э.2 (Тишина) | `shepherds-house` + подпись | дом, год 30 |
+| `hut30` | Э.2 (Имя) | `shepherds-house` + подпись | хижина за хребтом (новое место) |
+| `edge30` М3 | финалы «Табличка», «Ученик» | `forest-edge` + подпись | опушка, год 30 (доска) |
+| `beeches30` М3 | финал «Два прута» | `forest-edge` + подпись | склон Путника за ручьём, год 30 |
+
+Правило выбора чужой сцены: в ней есть люди шага (их видно), и место по возможности своё (дом — дом, даже если годы
+людей не те; подпись говорит год). Когда сцена года придёт, её строка — `{ folder, keys }`, больше ничего.
+
+## Люди
+
+`bespoke/people.json`: `narrator` (Sadaltager — старый Путник), `traveller` (Achird), `elzeard` (Algenib), `lina`
+(Autonoe), `jan` (Alnilam), `father` (Fenrir — отец Лины), `chief` (Puck — Начальник), `ranger` (Orus — егерь),
+`axeman` (Rasalgethi — мужик с топором), `visitor` (Pulcherrima — приезжие). Голоса делает студия, когда страница
+говорит реплику (`speak {text, voice, how}`); все реплики (по 147 на язык) озвучены заранее `voice_line` по списку
+`moood-check --json`. У некоторых реплик свой `how`.
+
+`g.scene(place, {here, moods, keys})`: из людей игры в кадре те, кто есть в сцене (`elzeard`, `traveller`, `lina` —
+в `shepherds-house` и `stream`; `traveller`, `jan`, `lina` — в `forest-edge`); отец Лины, Начальник, егерь, мужик с
+топором, приезжие, мальчик, соседи — только голос и плашки. Эльзеара 75 и 85 лет нет ни в одной сцене: в гл. 3 и
+эпилоге он в доме пастуха (55 лет), а у пней (3.5, Тишина) — только на плашке.
+
+## Главы и шаги
+
+| Глава | Шаги | Выборы |
+| --- | --- | --- |
+| Пролог «Сухо» | пень; лампа | `drink`: drink / silent; `ask`: ask / silent |
+| I «Сто желудей» | прут; на камне; прут в земле; пуговица; у двери; спуск через деревню | `rod`: take / wait; `farewell`: back / hand; `tell`: oaks / sheep |
+| II «Вода» | опять у двери; ручей; ладони в воде; откуда вода; дубы; клёны; сто, опять | `lina` (полушарнир): told / rested / silent; ⚑ `stay`: stay / go |
+| III «Естественный лес» | опушка; делегация; вдоль ряда; сто, медленнее; потом | ⚑ `name`: name / grew / silent |
+| Эпилог «Липа» | липа; прут; финал | — |
+
+Пролог и глава I — одна карта (§11): после пролога игра идёт в главу I без карты (`onward` у главы), карта после
+главы I раскрывает строки обеих. Названия глав — `g.title` в начале главы («Человек, который сажал деревья», «Сто
+желудей», «Шесть лет спустя», «Четырнадцать лет спустя», «Десять лет спустя»).
+
+## Шкалы, метки, финал
+
+- `SCALES`: `path` «Его жизнь: Дорога — Склон», −3…5, старт 0; `word` «Лес: Тишина — Имя», −4…5, старт 0. Сдвиги —
+  `EFFECTS` (§8): 1.4 взять прут +1, 1.6 «вернусь» +1, Ш1 ±3; 1.7 «дубы» +1, 2.4 +1 / −1 / 0, Ш2 ±3. Знак шкалы после
+  шарнира — всегда его (проверка смотрит). Шкала видна с первого выбора, который её касается (1.4, 1.7), и до конца.
+- Метки — выборы (`drink`, `ask`, `rod`, `farewell`, `tell`, `lina`, `stay`, `name`), их тосты — строки карты §11
+  («что ты сделал — что из этого вышло»); на карте под каждой развилкой основной линии — эта строка, у Ш2 ещё строка
+  Лины (`linaAfter`). Обещания (§9) — метки: `back` (дано 1.6, сдержано 2.5), `year` (дано Ш1 «уйти», сдержано 3.1 —
+  тринадцать буков), `tell` (Лина, дано 2.5, сдержано 3.1 — хлеб на камне), `write` (Ян, 3.3). `after` — что Лина
+  сделала с именем; `saw` — Лина увидела сама (3.5, Тишина); `ending` — какой финал сыгран.
+- `facts`: `drank`, `asked`, `own`, `promised`, `heard`, `knows`, `lied`, `slope`, `named`, `grew`, `learned` (как
+  Лина знает к эпилогу: told / jan / saw), `ending` — Склон/Дорога × Имя/Тишина: «Ученик», «Два прута», «Табличка»,
+  «Рассказ».
+- Финал — последний шаг эпилога; после него последний кадр уходит в чёрное, по нему — название финала, карта выходит
+  из чёрного; на карте в эпилоге последняя строка — «Финал» с четырьмя финалами, сыгранный выделен.
+
+## Заглушки (`minigames/all.js`)
+
+Мини-игры §7: МИ1 `acorns`, МИ2 `hand_in`, МИ3 `stream`, МИ4 `beech`, МИ5 `linden`, МИ6 `hand`. Ведения (лёгкий
+жест без неудачи, §7): `trunks` (2.5), `count` (2.7, 3.4), `row` (3.3), `door` (3.5 Имя), `stumps` (3.5 Тишина). Каждая
+— кружок на человеке и карточка (жест, что делают руки, что чувствуется, след неудачи; у ведения — «ведение, без
+неудачи»). Неудачи на стадии 3 не играются (кружок — всегда «чисто»); их следы (§7) — стадия 5.
+
+## Проверка
+
+- `node games/the-man-who-planted-trees/bespoke/check/run.mjs` — все 576 путей («story» 192, «rods» 192,
+  «plaque» 96, «pupil» 96): места, сцены и их ключи, люди, точки выборов и заглушек, реплики (кто говорит), выборы — те,
+  что у главы; на каждом пути все восемь выборов, ровно один финал и тот, что по правилу §10; знак каждой шкалы — её
+  шарнира; обещания сдержаны там, где даны; Лина к эпилогу знает на каждом пути; `PLAYS` (восемь путей автора)
+  кончаются как подписаны.
+- `moood-check` (`moood-me/moood` `packages/check`) — «all right», русский весь; `check` студии.
+
+## Что меняет стадия 5
+
+Только заглушки: строки `PLACES` (на сцены и годы стадии 4), `here` — люди, которых теперь видно; заглушки `all.js`
+— на настоящие мини-игры (имена те же); плашки, где кусок сцены, — на куски (ниже). Тексты, выборы, шкалы, финалы —
+как есть.
+
+## Stage 5 — pieces
+
+What the game will ask of the scenes at stage 5 — written at stage 3 so that stage 4 builds toward it (the places in
+their years, the people, the keys); the pieces and their moments are agreed with the pieces' author before either side
+codes, and a change is written here first. Every plate of stage 3 that shows action becomes a piece or a narrator's
+line; the lines stay the game's (said at the pieces' moments).
+
+### How a piece works (as in «Летняя книга» and «Кентервильское привидение»)
+
+- The world gets the module `beats` (`works-006-four-scenarios-selected/worlds/the-summer-book/modules/beats.js`,
+  `beats.md`); a scene with pieces: its `FILM` in `lib.js`, `script.js` `scene.kit.beats.play(scene, scene.lib.FILM)`.
+  The key `beat` names a piece; it plays from its `from` (or on from the one before, if `after` it); the scene tells
+  `<piece>:<moment>` at its moments and `beat:<piece>` at its end, and ends in a living pose.
+- The game opens a scene on a piece (`g.scene(place, {beat, here, moods, keys})`), says the lines at the moments named,
+  then plays choices and mini-games in the pose the piece ends in. `here`, `moods` and the place's year keys are the
+  game's; everything else is the piece's `from`.
+- Shots: `wide` — the picture camera; `medium` / `close` — `camera_target` + `camera_shot`; faces must read. The
+  scenario's close-ups (§4): Elzéard on «Зря» (2.5), «Хорошо»/«Сам» (3.4), «Посажу» (3.4); Jan at Ш2; Lina on «Ты
+  знал» (3.3), on the path before the Chief (3.3, Silence), at the stumps (3.5), at the linden.
+- Each scene's notes.md gets a «Contract for the check» block (beats with `after`, `tells`, `seconds`; points; keys);
+  the game's `check/run.mjs` reads it.
+
+### People (element ids = the game's people.json keys)
+
+`elzeard`, `traveller`, `lina`, `jan` in every scene where the scenario has them, in their year's look (the cast's
+`elzeard_61`, `traveller_26`… and the older ages the cast still lacks: Elzéard 75 and 85, the Traveller 50, Lina 47,
+Jan 26 — `modules/cast.md`). New: `father` (М1, years 0: a charcoal burner, his cart), `chief`, `ranger` (М3 year 20;
+the ranger at М2 year 20 too), `axeman` (М3 year 20), `visitor` (two or three strangers: М2 year 20, М3 year 30),
+`boy` (М3 year 30), `neighbours` (two or three, М1 year 30); the dog, the sheep, the bees — elements, no people's
+motions.
+
+### Asks of the world (stage 4)
+
+1. **М1 the village** (`r3/trees-village`), years 0, 6, 30: the square with the stump (`square`: stump | mug — the mug
+   upside down on it | planting — a hole and a linden sapling | linden), the well (`well`: dry | fountain), charcoal
+   heaps and the father's cart (year 0), the empty house at the edge whose doorway they slept in (2.1, year 6), the
+   fresh mound (year 6), new roofs, smoke, children (year 30); the slope above it seen (bare | haze of leaves | forest,
+   its lower edge `stumps`: none | stumps | stumps with young oaks).
+2. **М2 the house** in years 0, 6, 20, 30: sheep (0) → hives (6, 20, 30); `bread` on the threshold (none | bread |
+   bread and socks); `door` (shut | open | propped with a stick). **Inside** — the table under the lamp (soup, a heap of
+   acorns, acorns in tens, the pail of water; the notebook and the city's letter in 2.7), the window with the slope (in
+   2.7 under the moon), Elzéard at the window shaving, sewing a button (1.5) — the house has no interior yet: a room of
+   its own (an insert or a second scene `house-inside`), else the table at the door outside.
+3. **М3 the slope / forest edge** in years 0 (bare earth, mist, the rod in the earth by a stone), 6 (oaks taller than
+   a man, hives at the wood's edge; the far edge: dry maple sticks and tiny beeches), 20 (`edge20` as now; the
+   Traveller's row of beeches at the edge — `beeches` 0…14 —, his own slope across the stream; empty hive stands;
+   `stumps` at the lower edge; the axeman's bundle), 30 (the board «Лес Эльзеара»; the Traveller's beeches taller than
+   a man; old stumps overgrown).
+4. **The hut beyond the ridge** (year 30, the Name): a hut, behind it young trees waist-high, ahead a bare slope with
+   a new edge of tiny seedlings — a new scene or a variant of М2's plateau.
+5. Parts (cast): `rod` (as now), `acorn` (in the fingers), `pail` (Elzéard's, of acorns), `notebook` (the Traveller's;
+   Jan's — exists), `letter` (Lina's, 2.4), `mug` (exists), `spade` (Э.1), `axe` and a bundle of wood (3.1), `basket`
+   (visitors), a sapling (beech 3.1, linden Э.1).
+
+### Motions (Kimodo; a loop unless «once»)
+
+| name | prompt | s |
+| --- | --- | --- |
+| `plant_rod` (once) | A person drives an iron rod into the ground with both hands, pulls it out, drops something into the hole and presses the earth with one foot | 5 |
+| `shake_flask` (once) | A person lifts a flask to their ear and shakes it, then lowers it, disappointed | 3 |
+| `pour` (once) | A person tips a mug in their right hand and pours water onto the ground in front of them | 3 |
+| `drink` (once) | A person drinks from a mug held in their right hand, head tipped back | 3 |
+| `offer` (once) | A person holds out something in their right hand to someone in front of them | 3 |
+| `sit_stone` | A person sits on a low stone, forearms on the knees, looking ahead | 6 |
+| `sit_table` | A seated person sits upright at a table with both forearms resting on it | 6 |
+| `count_table` | A seated person moves small things on the table in front of them with the right hand, one by one | 6 |
+| `shave` | A person stands at a window shaving slowly with a razor in the right hand | 6 |
+| `sew` | A seated person sews with a needle, the left hand holding the cloth on the knee | 6 |
+| `raise_hand` (once) | A person raises the right hand in farewell and holds it a moment | 3 |
+| `nod` (once) | A person nods slowly once | 2 |
+| `kneel_water` | A person kneels by a stream with one hand in the water | 6 |
+| `write_standing` | A standing person writes in a small notebook held in the left hand | 6 |
+| `touch_bark` | A person stands with the right palm laid on a tree trunk at shoulder height | 6 |
+| `laugh_short` (once) | A person laughs briefly, once, the shoulders shaking | 2 |
+| `embrace` (once) | Two men embrace briefly and step apart (fallback: a hand on the other's shoulder, `_reach`) | 3 |
+| `spade` (once) | A person drives a spade into the ground with one foot and leans on it | 4 |
+| `carry_pail_walk` | A person walks carrying a pail in the right hand | 2 |
+
+### Pieces
+
+Each: **id** · place · what happens · moments (where the game says its lines) · then (a choice or a mini-game in the
+pose it ends in).
+
+**Prologue**
+
+- `flask` · village0 · wind, dry grass; the Traveller comes up the road, `shake_flask` · `flask:shake` → narrator «Мне
+  было двадцать…»
+- `stump` · village0 · Lina by the stump with her mug; a shout behind a wall, a door slams; she raises the mug ·
+  `stump:shout` → father «Мой мешок!» · then the choice «Дай попить»
+- `drink` · village0 · she holds out the mug, he `drink`s; she sets the mug upside down on the stump (`square` mug) ·
+  `drink:look` → «Пей. Ей всё равно»
+- `pour` · village0 · she `pour`s on the stump, looks at his flask · `pour:end` → «Смешно, да?…», «Мать посадила…»
+- `point_up` · village0 · she points up the slope · `point_up:point` → «Наверху пастух…»
+- `climb` · house0 · dusk, the lamp; the Traveller comes up the path; Elzéard at the door; the dog lifts its head;
+  Elzéard `offer`s the gourd · `climb:gourd` → narrator «Он не спросил, кто я»
+- `table` · house inside · soup, the lamp; Elzéard pours the acorns on the table · then **МИ1**
+- `hundred` · house inside · after МИ1, `count_table`; the acorns into the pail · `hundred:end` → «Сто» · then the
+  choice «Ты здесь один?»
+- `out_to_dog` · house · he gets up, goes out to the dog (`elzeard_here` false at the end) · after «Был сын…»
+- `silence` · house inside · he pushes the pail over; both sit · `silence:sit` → narrator «Мы молчали до ночи»
+
+**Chapter I**
+
+- `rod_mist` · slope0 · morning mist; Elzéard with the rod and the pail, `plant_rod` ×3; the dull blow · `rod_mist:blow`
+  → narrator «Он сажал дубы» · then **МИ2**
+- `stone` · slope0 · both `sit_stone`; his lines and the Traveller's at `stone:sit`, «Тебе пятьдесят пять…» with the
+  Traveller counting on his fingers
+- `rod_left` · slope0 · Elzéard leaves the rod in the earth and walks off to the sheep · then the choice (on `rod`)
+- `took_rod` · slope0 · the Traveller `plant_rod`, clumsy; Elzéard comes back, looks at the hole, plants on ·
+  `took_rod:back`
+- `counting` · slope0 · Elzéard plants on; the Traveller counts · `counting:count` → «Сорок один…», «Не считай…»
+- `button` · house inside · evening; `shave` at the window, then `sew` · `button:sew` → narrator «Пуговицы…»
+- `dawn_door` · house0 · dawn; the Traveller on the threshold, Elzéard at the door · then the choice
+- `farewell_back` / `farewell_hand` · house0 · `nod`; (hand) `raise_hand`, Elzéard turns to the sheep
+- `coal_cart` · village0 · the father loads charcoal on the cart; Lina at the well · `coal_cart:lina` → «Внизу кричат…»
+  · then the choice «Что делает пастух?»
+- `oaks_laugh` · village0 · Lina laughs (`laugh_short`), the father does not turn; she looks up the slope · `oaks_laugh:father`
+  → «Дурак он»
+- `pour_again` · village0 · she pours the water on the stump
+
+**Chapter II**
+
+- `by_door` · village6 · dawn in the empty house; the Traveller asleep by the door, Jan in the corner tying his bag; on
+  the threshold Jan pats his pocket and goes down the road · moments for his lines
+- `haze` · village6 → stream6 · the empty village, the mound; the haze over the plateau · then `water`
+- `water` · stream6 · the sound of water; the Traveller comes to the stream; Lina by it (her greeting by the marks)
+- `palms` · stream6 · both `kneel_water` · then **МИ3**, then «Первый раз в жизни…»
+- `letter` · stream6 · Lina writes (her letter, `write_standing`), looks up the slope · then the choice «Откуда вода»;
+  `letter_pocket` (told: the letter into the pocket, they go up), `letter_write` (rested / silent)
+- `oaks` · slope6 · among the oaks; birds; then **ведение** `trunks`; Elzéard by the hives (Lina at the wood's edge when
+  she knows: `touch_bark`, then she goes down almost running; his «Зря» close)
+- `own_oak` · slope6 · Elzéard leads him to a crooked oak by the stone
+- `maples` · far6 · the dry sticks, the tiny beeches; Elzéard points
+- `hundred_night` · house inside, year 6 · night, the lamp, the acorns; the notebook and the letter on the table, the
+  moon on the empty slope across the stream in the window · **ведение** `count` → «Сто» · then ⚑ Ш1
+- `stay_laugh` / `go_write` · house inside · the acorns into the pail; (stay) the Traveller laughs at himself, shuts the
+  notebook; (go) opens it and writes by the lamp
+
+**Chapter III**
+
+- `edge` · edge20 · the tall forest; (Road) the Traveller plants his beech at the end of his row of thirteen; (Slope) he
+  crosses to his own slope; (Lina knows) bread on the stone, empty hive stands, Lina with her pail by the stream
+- `axe` · edge20 · (Lina does not know) the hives, fresh stumps; the axeman; Lina steps onto the path between him and
+  the forest; «Не ничей!» — the Traveller's loud line; the axeman goes off with his bundle · moments for each line
+- `beech` · edge20 / his slope · then **МИ4**
+- `delegation` · edge20 · up the path: the Chief, the ranger, Jan, led by Lina; the Chief laughs; Jan recognizes the
+  Traveller, `embrace` · moments for the lines
+- `the_row` · edge20 · **ведение** `row` along the row; Jan `touch_bark`; the notebook opened, a blank page · then ⚑ Ш2
+  (Jan close)
+- `named` · edge20 · Jan writes slowly; goes to the Chief and reads; (Lina) her line close, she turns and walks ahead
+- `unnamed` · edge20 · Jan writes and shows the page (grew) or grips his shoulder (silent); the Chief reads; Lina puts
+  down her pail and stands on the path before him (close); the Chief walks round her and goes down
+- `hundred_slow` · house inside, year 20 · (Lina knows) bread and socks on the threshold, he steps over; the lamp, the
+  acorns, slower · **ведение** `count` · his close-ups on «Хорошо» / «Сам» / «Посажу»
+- `ranger` · house20 · morning; the ranger at the door; Elzéard nods, the ranger goes; Elzéard `laugh_short`
+- `empty_house` · house20 · a month / a year on: a trodden path, strangers at the door, the house empty, no hives, the
+  door open · **ведение** `door`
+- `stumps` · stumps20 · the stumps; Jan counting them, his palm on a cut; he goes down; Elzéard comes down with the rod
+  among the stumps · **ведение** `stumps`; Lina at the stumps (bread on a stump / the pail into the hole) — close
+
+**Epilogue**
+
+- `alive` · village30 · the fountain, children, new roofs; (Silence) the stumps and young oaks above; Lina and the
+  neighbours at the hole on the square · then her lines, **МИ5** (Lina close at the linden)
+- `last_house` · house30 · (Silence) the hives, bread on the porch; Elzéard planting by the porch, slowly
+- `hut` · hut30 · (Name) the hut, the young trees behind, the seedlings ahead; Elzéard finishes the row, straightens up
+- `rod_held` · house30 / hut30 · he holds out the rod · then **МИ6**; narrator «Через год его не стало…»
+- `story` · village30 · the Traveller on the rim of the fountain, the rod beside him, the notebook (a close insert of
+  its pages: «Был»; the name written), the wind turning the pages back
+- `plaque` · edge30 · the board, visitors reading aloud; the Traveller `plant_rod` under the board; he goes
+- `two_rods` · beeches30 · his beeches; he plants with his own rod, Elzéard's rod standing in the earth beside him; the
+  pail with seeds wrapped in notebook pages (insert); below, the stumps and young oaks
+- `pupil` · edge30 · the visitors round him; «Это вы — Эльзеар?» — «Нет»; the boy with the rod, the Traveller sets his
+  hands; across the stream his beeches in uncut grass
+
+### Mini-games and guidings (each in the pose its piece ended in)
+
+| id | § | place, after | gesture | marks on | keys the game drives | s | a miss leaves |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `acorns` | МИ1 | house inside, `table` | tap (8–10 cracked ones) | an insert of the table: each acorn a point | `acorns` (heap → tens) | 10 | he finishes the sorting himself, takes one cracked acorn from “yours” |
+| `hand_in` | МИ2 | slope0, `rod_mist` | pull slowly, ×5 | `acorn` in the hand → the hole (`hole` point by the rod) | Elzéard's `plant_rod` in step | 10 | he takes the pail himself; the Traveller empty-handed |
+| `stream` | МИ3 | stream6, `palms` | hold | `traveller#hand_r` in the water | the water's sound (the game's) | 6 | he pulls the hand out; Lina: «Холодной боишься?» (a new line) |
+| `beech` | МИ4 | edge20 / his slope, `beech` | press and hold, then pull down | the rod's top `traveller#rod` | `beech` (crooked / straight) | 8 | crooked: Slope — left so; Road — straightened again |
+| `linden` | МИ5 | village30, `alive` | press and hold | the spade `traveller#spade` | `square` planting → linden | 6 | Lina presses the earth with her foot: «Ну» (a new line) |
+| `hand` | МИ6 | house30 / hut30, `rod_held` | hold, then let go | `elzeard#rod` | `elzeard_reach`, `traveller_reach` on the rod | 8 | let go at once: the rod wavers, «Держи»; held 15 s: he takes his hand away |
+| `trunks` | ведение | slope6, `oaks` | pull slowly | trunk to trunk (points on three oaks) | `traveller` walking | 40 | — |
+| `count` | ведение | house inside, `hundred_night`, `hundred_slow` | tap ×10 | an insert of the table: the last ten | `acorns` count | 8 | — |
+| `row` | ведение | edge20, `the_row` | pull slowly | along the row (points on its trunks) | `traveller`, `jan` walking | 10 | — |
+| `door` | ведение | house20, `empty_house` | pull slowly | `door#handle` | `door` open → shut → propped | 5 | — |
+| `stumps` | ведение | stumps20, `stumps` | press and hold | `traveller#rod` | `plant_rod` beside Elzéard's | 6 | — |
+
+The lines a miss adds (Lina's «Холодной боишься?», «Ну», Elzéard's «Держи») are written in the game at stage 5 and
+voiced then.
