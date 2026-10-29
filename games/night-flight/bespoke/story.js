@@ -91,11 +91,11 @@ export const FIELD = {
   lit: { floods: 1, hangar: 1, office: 1 },
 };
 // the plane before the hangar, standing (its engine still or running), or in the air over the field — coming down out of
-// the dark to it (the Chilean, 1.1) or gone up and away north (the European, Ш3)
+// the dark to it (the Chilean, 1.1); the pieces fly them
 export const PLANE = {
   stand: (plane, engine = 0) => ({ plane, plane_a: 4.2, plane_d: 13.6, plane_h: 0, plane_pitch: 0, engine, plane_lights: 0, chocks: 1 }),
-  coming: plane => ({ plane, plane_a: -90, plane_d: 320, plane_h: 35, plane_pitch: -4, engine: 1, plane_lights: 1, chocks: 0 }),
-  away: plane => ({ plane, plane_a: -40, plane_d: 140, plane_h: 25, plane_pitch: 6, engine: 1, plane_lights: 1, chocks: 0 }),
+  // (from the right: the plane is a side card, nose left — it comes in nose first moving left; the field's notes)
+  coming: plane => ({ plane, plane_a: 110, plane_d: 330, plane_h: 35, plane_pitch: -4, engine: 1, plane_lights: 1, chocks: 0 }),
 };
 export const SKY = {
   dusk: { storm: 0, rain: 0, above: 0, panel: 0, night: 0 },

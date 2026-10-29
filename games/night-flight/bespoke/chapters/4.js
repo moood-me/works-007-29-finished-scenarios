@@ -10,7 +10,7 @@
 // the bureau at three, at dawn (the telegraphist dozing on the bench, the European rolled back into the hangar, the
 // flags taken down) and the next evening (the Chilean landing, or the field idle with Pellerin by his plane). Stage 5:
 // the mini-games real — М8 up and down, М7 (missed: the pilot moves off by himself), М2 in the log (missed: a blot he
-// blots himself), М1 on the map; the office and the bureau on their pieces (the field's to come).
+// blots himself), М1 on the map; the field, the office and the bureau on their pieces.
 // Reads: choices.roblet, .robineau, .minute; scales.exceptions, .told. Leaves: choices.european, marks.european.
 import { ENDINGS, FIELD, FLAGS, OFFICE, PLANE, bureau, clock, facts, piece } from '../story.js';
 import { light_european, chocks, light_off, log, flag_red, flag_late, flag_down, flag_blue } from '../minigames/all.js';
@@ -39,56 +39,47 @@ export default {
       { id: 'silent', label: tr('You said nothing — “Since you say nothing — by the timetable”') }] },
   ],
   steps: [
-    // 4.1: the field; М8 the light; who is where
+    // 4.1: the field; М8 the light; who is where (`european`, М8, `twice` | `at_chocks` | `who_checked`,
+    // `robineau_out` (sent to work), `window`, `folder`, `ready`)
     async g => {
       const { roblet, robineau, bends } = facts(g.state);
-      const here = ['riviere', 'pilot', ...crew(roblet), ...(roblet === 'fire' ? [] : ['roblet']), ...(robineau === 'work' ? [] : ['robineau'])];
-      await g.scene('field', { here, moods: { riviere: 'tired', roblet: 'sad', robineau: 'sad', pilot: 'neutral' },
-        keys: { ...FIELD.dark, ...ready(roblet), riviere_look: 'hangar_front#switch', robineau_look: 'riviere', roblet_look: 'riviere', pilot_look: 'plane' } });
+      const here = ['riviere', 'pilot', 'robineau', ...crew(roblet), ...(roblet === 'fire' ? [] : ['roblet'])];
+      await piece(g, 'european', {}, () => g.scene('field', { beat: 'european', here, moods: { riviere: 'tired', roblet: 'sad', robineau: 'sad', pilot: 'neutral' },
+        keys: { ...FIELD.dark, ...ready(roblet), robineau, bends, roblet, riviere_look: 'hangar_front#switch', robineau_look: 'riviere', roblet_look: 'riviere', pilot_look: 'plane' } }));
       await g.plate(tr('Ten to three. The European mail by the hangar under the lamps, its engine warming up; the mechanics are loading the mail bags; the field behind it is dark. The pilot by the wing. Rivière goes out to the switch.'));
       await g.play(light_european);
-      g.set('riviere_look', null);
-      await g.plate(tr('The floodlights come on one after another; the field is light to its very edge.'));
-      if (roblet === 'keep') {
-        await g.plate(tr('Roblet closes the cowling and wipes his hands.'));
-        await g.say('roblet', 'Checked it twice');
-        await g.plate(tr('The pilot looks at Roblet, then at Rivière.'));
-      } else if (roblet === 'remove') {
-        await g.plate(tr('Roblet by the wheels with the chocks; he does not look at the engine.'));
-      } else {
-        await g.plate(tr('At the engine, a young mechanic.'));
-        g.set('pilot_look', 'mechanic');
-        await g.say('pilot', 'Who checked it?');
-        await g.say('mechanic', 'I did. Roblet’s gone');
-        await g.plate(tr('The pilot looks under the cowling himself. Under the lamp by the hangar — Roblet’s empty workbench.'));
+      if (roblet === 'keep') await piece(g, 'twice', { wipe: () => g.say('roblet', 'Checked it twice') });
+      else if (roblet === 'remove') await piece(g, 'at_chocks');
+      else {
+        await piece(g, 'who_checked', {
+          ask: async () => {
+            await g.say('pilot', 'Who checked it?');
+            await g.say('mechanic', 'I did. Roblet’s gone');
+          },
+        });
       }
       if (robineau === 'sit') await g.plate(tr('Robineau came out with Rivière and stands at his shoulder.'));
-      else if (robineau === 'work') {
-        g.here('robineau', true);
-        await g.plate(tr('Robineau comes out of the office after him, buttoned up, his folder and the finished report under his arm.'));
-      } else await g.plate(tr('Robineau is already here, by the hangar wall a step from the switch: no coat, the folder pressed to his chest; he has been standing in the wind a long time. Rivière has come to the switch beside him — and has not looked at him.'));
-      g.set('madame_window', 1);
-      g.set('pilot_look', 'riviere');
-      await g.plate(tr('Up above, in the lit window of the office, her silhouette.'));
-      await g.say('pilot', 'They said to hold it till he came in');
-      await g.plate(tr('A pause.'));
-      await g.say('pilot', 'The south is closed. By three the storm will be here');
-      g.set('robineau_look', 'office_windows');
-      await g.say('robineau', 'One more… this same night…', { how: 'looking up at the window; he does not finish' });
-      await g.plate(tr('He lowers his eyes to his folder: on top lies the board’s paper — “On suspending the night flights”. He closes the folder.'));
-      if (bends === 'none') await g.plate(tr('The pilot puts on his helmet and waits for the sign; he does not look at the window.'));
-      else if (bends === 'one') await g.say('pilot', 'Ready, sir');
-      else {
-        await g.plate(tr('By the mail bags the mechanics talk in low voices about what bent tonight. The pilot, not waiting, buckles his helmet and lays his hand on the side of the plane.'));
-        await g.say('pilot', 'Ready. Ready a long time');
-      }
+      else if (robineau === 'work') await piece(g, 'robineau_out');
+      else await g.plate(tr('Robineau is already here, by the hangar wall a step from the switch: no coat, the folder pressed to his chest; he has been standing in the wind a long time. Rivière has come to the switch beside him — and has not looked at him.'));
+      await piece(g, 'window', {
+        pilot: async () => {
+          await g.say('pilot', 'They said to hold it till he came in');
+          await g.wait(1200);
+          await g.say('pilot', 'The south is closed. By three the storm will be here');
+        },
+      });
+      await piece(g, 'folder', { look: () => g.say('robineau', 'One more… this same night…', { how: 'looking up at the window; he does not finish' }) });
+      if (bends === 'none') await piece(g, 'ready');
+      else if (bends === 'one') await piece(g, 'ready', { say: () => g.say('pilot', 'Ready, sir') });
+      else await piece(g, 'ready', { say: () => g.say('pilot', 'Ready. Ready a long time') });
     },
-    // 4.2: ⚑ the European mail — a timer of ten seconds: nothing chosen, he says nothing
+    // 4.2: ⚑ the European mail — a timer of ten seconds: nothing chosen, he says nothing (`runup`, then `hand_up`,
+    // М7, `takeoff` | `stand_down`, М8, `dark_field` | `waits`, `timetable`)
     async g => {
-      const { roblet, robineau, exceptions } = facts(g.state);
+      const { roblet, robineau, exceptions, bends } = facts(g.state);
       const here = ['riviere', 'pilot', ...crew(roblet), ...(roblet === 'fire' ? [] : ['roblet']), 'robineau'];
-      await g.scene('field', { here, moods: { riviere: 'tired', roblet: 'sad', robineau: 'sad', pilot: 'neutral' },
-        keys: { ...FIELD.lit, ...ready(roblet), madame_window: 1, robineau_look: 'riviere', roblet_look: 'riviere', pilot_look: 'riviere' } }, { cut: true });
+      await piece(g, 'runup', {}, () => g.scene('field', { beat: 'runup', here, moods: { riviere: 'tired', roblet: 'sad', robineau: 'sad', pilot: 'neutral' },
+        keys: { ...FIELD.lit, ...ready(roblet), madame_window: 1, robineau, bends, roblet, robineau_look: 'riviere', roblet_look: 'riviere', pilot_look: 'riviere' } }, { cut: true }));
       await g.plate(tr('The engine runs up; the pilot looks at Rivière. There are ten seconds to choose: nothing chosen — Rivière says nothing.'));
       const european = await g.choose('european', { 'riviere#chest': [
         { id: 'fly', label: tr('Raise his hand: fly') },
@@ -96,53 +87,47 @@ export default {
         { id: 'silent', label: tr('Say nothing') },
       ] }, { within: 10000, otherwise: 'silent' });
       if (european === 'fly') {
-        await g.plate(tr('Rivière raises his hand.'));
+        await piece(g, 'hand_up');
         const { long } = await g.play(chocks);
-        g.set('chocks', 0);
-        if (roblet === 'remove') await g.plate(tr('Roblet pulls away the chocks.'));
-        else await g.plate(tr('The mechanics pull away the chocks.'));
         if (long) await g.plate(tr('His hand still up, the pilot moves off by himself at the mechanic’s sign.'));
+        await piece(g, 'takeoff', {
+          gone: () => (robineau === 'work' ? g.say('robineau', 'Two fifty-two', { how: 'writing the time down' }) : null),
+        });
         g.here('pilot', false);
-        for (const [k, v] of Object.entries(PLANE.away('european'))) g.set(k, v);
-        g.set('riviere_look', 'plane');
-        await g.plate(tr('The plane runs across the light field and goes north; its lights melt away. Her silhouette in the window does not move.'));
-        if (robineau === 'sit') await g.plate(tr('Robineau, silent beside him, looks not at the sky but at the window.'));
-        else if (robineau === 'work') await g.say('robineau', 'Two fifty-two', { how: 'writing the time down' });
-        else await g.plate(tr('Robineau, beside him by the wall, watches the lights go. They do not turn to each other.'));
       } else if (european === 'ground') {
         await g.say('riviere', 'Stand down. Till dawn');
-        if (exceptions === 0) {
-          await g.say('pilot', 'Stand down? You?');
-          g.mood('robineau', 'surprised');
-          await g.plate(tr('The mechanics freeze: this has never happened.'));
-        } else {
-          await g.plate(tr('The pilot slowly takes off his helmet.'));
-          await g.say('pilot', 'Till dawn, sir');
-          await g.plate(tr('He looks at the plane, not at Rivière.'));
-        }
-        await g.say('robineau', 'To the board… shall I write?');
-        await g.say('riviere', 'I will myself');
+        await piece(g, 'stand_down', {
+          pilot: async () => {
+            if (exceptions === 0) {
+              await g.say('pilot', 'Stand down? You?');
+              g.mood('robineau', 'surprised');
+            } else await g.say('pilot', 'Till dawn, sir');
+          },
+          robineau: async () => {
+            await g.say('robineau', 'To the board… shall I write?');
+            await g.say('riviere', 'I will myself');
+          },
+        });
         await g.play(light_off);
-        g.set('engine', 0);
-        await g.plate(tr('The floodlights he lit ten minutes ago go out one after another. The pilot stays by the wing, his hand on the side of the plane they did not let go.'));
-        if (roblet === 'keep') {
-          await g.say('roblet', 'Because of me?');
-          await g.say('riviere', 'No');
-        }
-        await g.plate(tr('Rivière goes toward the office, toward her window.'));
+        await piece(g, 'dark_field', {
+          still: async () => {
+            if (roblet !== 'keep') return;
+            await g.say('roblet', 'Because of me?');
+            await g.say('riviere', 'No');
+          },
+        });
       } else {
-        await g.plate(tr('Rivière does not move. The pilot waits, looks at him, at the window, at him again; Rivière does not look away and does not raise his hand.'));
-        await g.say('pilot', 'He won’t come now');
-        await g.plate(tr('A pause.'));
-        await g.say('pilot', 'Since you say nothing — by the timetable');
+        await piece(g, 'waits', {
+          say: async () => {
+            await g.say('pilot', 'He won’t come now');
+            await g.wait(1200);
+            await g.say('pilot', 'Since you say nothing — by the timetable');
+          },
+        });
+        await piece(g, 'timetable', {
+          gone: () => (robineau === 'sit' ? g.say('robineau', 'Gone', { how: 'quietly, beside him' }) : null),
+        });
         g.here('pilot', false);
-        g.set('chocks', 0);
-        for (const [k, v] of Object.entries(PLANE.away('european'))) g.set(k, v);
-        g.set('riviere_look', 'plane');
-        await g.plate(tr('He goes behind the wing; a mechanic, looking now at the wing, now at the director, pulls away the chocks; the engine roars, the plane runs across the light field and goes. Rivière’s hand rises when the lights are already in the sky. He stands till the drone dies away.'));
-        if (robineau === 'sit') await g.say('robineau', 'Gone', { how: 'quietly, beside him' });
-        else if (robineau === 'work') await g.plate(tr('Robineau, in the office doorway, writes down the time.'));
-        else await g.plate(tr('Robineau, beside him by the wall, looks up too. They do not turn to each other.'));
       }
       g.apply('european');
     },
