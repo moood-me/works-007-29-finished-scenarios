@@ -92,10 +92,21 @@
       "reach": 5,
       "on": "fire",
       "flicker": 0.45
+    },
+    {
+      "id": "sword",
+      "at": "mark#knight",
+      "color": "#a8dcff",
+      "strength": 0.7,
+      "reach": 1.2,
+      "on": "knight_lit",
+      "glow": 0.12
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats",
+    "paper"
   ],
   "state": {
     "mom_wear": {
@@ -133,7 +144,362 @@
     "bus_a": 40,
     "mark_grown_here": false,
     "boy_a_here": false,
-    "boy_b_here": false
+    "boy_b_here": false,
+    "way": "english",
+    "zoo": 0,
+    "father": "all",
+    "ending": "tiger",
+    "laohu": "none",
+    "laohu_a": -1.0,
+    "laohu_d": 7.3,
+    "laohu_e": 0.6,
+    "laohu_dir": 1,
+    "laohu_held": "none",
+    "laohu_breath": 1,
+    "laohu_shake": 0,
+    "laohu_purr": 0,
+    "laohu_rise": 1,
+    "laohu_ear": false,
+    "laohu_seam": false,
+    "knight_at": "hands",
+    "knight_lit": 0,
+    "knight_a": -0.55,
+    "knight_d": 5.85,
+    "scraps_left": 5,
+    "plate_step": false,
+    "ingot_named": false,
+    "window_animals": false,
+    "menagerie_sleep": 0,
+    "tremble": 0,
+    "fold": 0,
+    "letter_close": 0,
+    "hanzi_close": 0,
+    "hanzi": 0,
+    "hanzi_crooked": false,
+    "tear": "taped",
+    "stripes": 0,
+    "step_sheet": false,
+    "last_box": true
+  },
+  "states": {
+    "dusk": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the spring dusk: 0 the morning (1.2-1.3), 1 the pink and blue dusk (1.4; a year on, 3.4-3.6) - the sky and the light"
+    },
+    "porch_lamp": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the lamp over the front door: 0 off, 1 lit"
+    },
+    "house_lights": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the house's lamps: 0 off, 1 the kitchen window lit warm and the lamp in Jack's room on"
+    },
+    "fire": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the paper burning in Mom's bucket under the apple tree (1.4, the ending 'Smoke'): 0 none, 1 burning - flames, embers, smoke, its light"
+    },
+    "scraps": {
+      "type": "boolean",
+      "means": "the torn pieces of Laohu lying on the grass round Jack (1.2-1.3); false once he has picked them up"
+    },
+    "sold": {
+      "type": "boolean",
+      "means": "a year on, the house sold (3.4-3.6, the endings): no curtains, nothing on the sills, Jack's room bare, the bucket rusty, the last box on the porch, the 'Sold' sign on the lawn; no torn pieces"
+    },
+    "shoebox": {
+      "values": [
+        0,
+        1,
+        2
+      ],
+      "means": "the shoebox of animals on the top step (3.4-3.6): 0 none; 1 the attic's animals, dusty - goats, deer, buffalo ('Menagerie' 0-1); 2 full, the lid will not go on - cranes, frogs, the shark besides ('Menagerie' 2)"
+    },
+    "menu_house": {
+      "type": "boolean",
+      "means": "the paper house from the hospital menu on top of the shoebox ('Left' - he took the train)"
+    },
+    "year": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "a year on (the game's; chapter 3): 1 - the scene's script dresses Jack grown (jack_grown, no suit bag) and Dad grey (dad_grey, no book), Mom not here; 0 - as they are"
+    },
+    "view": {
+      "values": [
+        "house",
+        "street"
+      ],
+      "means": "which way the eye looks: house - the yard and the house (the scene's picture); street - turned round from the yard toward the street (the script sets camera_on to street_eye): the front fence and its open gate, the sidewalk with the school bus stop, the road, Mark's house across it and his car at the curb"
+    },
+    "bus_a": {
+      "range": [
+        -40,
+        40
+      ],
+      "smooth": true,
+      "means": "where the school bus is along the street (metres across; it comes from +40, the left as seen from the street eye): about -0.6 its door at the stop; 40 or -40 out of sight"
+    },
+    "way": {
+      "values": [
+        "english",
+        "chinese",
+        "run"
+      ],
+      "means": "the game's: how Jack answered in the yard (1.3) — the variant the pieces fire, dad_home, stop, mark play"
+    },
+    "zoo": {
+      "values": [
+        0,
+        1,
+        2
+      ],
+      "means": "the game's «Зверинец»: 0 all in the attic, 1 Laohu kept, 2 the whole house — the variant of the piece stop"
+    },
+    "father": {
+      "values": [
+        "all",
+        "apple",
+        "later"
+      ],
+      "means": "the game's: what Jack told Dad (3.4) — the variant of dad_end"
+    },
+    "ending": {
+      "values": [
+        "tiger",
+        "letter",
+        "smoke"
+      ],
+      "means": "the game's finale — the variant of dad_end"
+    },
+    "laohu": {
+      "values": [
+        "none",
+        "alive",
+        "taped"
+      ],
+      "means": "Laohu in the yard: none — not here; alive — whole (chapter 1's morning); taped — the clear strip across his flank"
+    },
+    "laohu_a": {
+      "range": [
+        -6,
+        6
+      ],
+      "smooth": true,
+      "means": "where Laohu is, metres right of the middle"
+    },
+    "laohu_d": {
+      "range": [
+        -4,
+        10
+      ],
+      "smooth": true,
+      "means": "where Laohu is, metres away (behind the viewer below 0: the gate −1.6)"
+    },
+    "laohu_e": {
+      "range": [
+        0,
+        2
+      ],
+      "smooth": true,
+      "means": "how high Laohu is (the ground 0, the porch 0.6, the steps 0.2, 0.4)"
+    },
+    "laohu_dir": {
+      "values": [
+        1,
+        -1
+      ],
+      "means": "which way Laohu faces: 1 his head to the left, −1 to the right (he turns at once, as paper does)"
+    },
+    "laohu_held": {
+      "values": [
+        "none",
+        "hands",
+        "arm",
+        "mark"
+      ],
+      "means": "Laohu held: in Jack's hands, in the crook of Jack's arm, in Mark's hands; none"
+    },
+    "laohu_breath": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 still paper; 1 alive, breathing"
+    },
+    "laohu_shake": {
+      "range": [
+        0,
+        1
+      ],
+      "means": "Laohu shaking himself, growling"
+    },
+    "laohu_purr": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Laohu purring: breathing deep and quick, a shiver"
+    },
+    "laohu_rise": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Laohu standing up from flat paper (the tiger folded back from her sheet): 0 flat, 1 on his feet"
+    },
+    "laohu_ear": {
+      "type": "boolean",
+      "means": "the game's «Ухо»: Laohu has lost an ear"
+    },
+    "laohu_seam": {
+      "type": "boolean",
+      "means": "the game's «Шов»: he leans to one side, limps, falls"
+    },
+    "knight_at": {
+      "values": [
+        "hands",
+        "puddle",
+        "grass"
+      ],
+      "means": "Mark's knight: in his hands (his look's part), in the puddle, on the grass (where knight_a, knight_d put it)"
+    },
+    "knight_lit": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the knight's sword shining (1.2, before the puddle)"
+    },
+    "knight_a": {
+      "range": [
+        -6,
+        6
+      ],
+      "means": "where the knight lies, across"
+    },
+    "knight_d": {
+      "range": [
+        0,
+        10
+      ],
+      "means": "where the knight lies, away"
+    },
+    "scraps_left": {
+      "range": [
+        0,
+        5
+      ],
+      "means": "of the five pieces the mini-game «Клочки» catches (scraps#s1…s5), how many are still on the grass"
+    },
+    "plate_step": {
+      "type": "boolean",
+      "means": "the plate of buns left on the bottom step (1.3)"
+    },
+    "ingot_named": {
+      "type": "boolean",
+      "means": "Jack's ingot with his name on it in the fire (1.4, while `fire`)"
+    },
+    "window_animals": {
+      "type": "boolean",
+      "means": "the goats walking on Jack's window sill and the buffalo in its pot (1.7, «Зверинец» 2)"
+    },
+    "menagerie_sleep": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the animals in the shoebox lying down one by one, paper again (3.6): 0 all awake … 1 all asleep"
+    },
+    "tremble": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "her sheet trembling along the tiger's folds (in Jack's hands, `jack#letter`; in the close insert): 0 still … 1 alive (the mini-game «Разгладить» takes it to 0)"
+    },
+    "fold": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the sheet in Jack's hands folding back into the tiger, flap by flap (the mini-game «Сложить»)"
+    },
+    "letter_close": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "her letter close (an insert)"
+    },
+    "hanzi_close": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the bottom of her sheet close (an insert): her 爱 and the room under it for his (the mini-game «Иероглиф»)"
+    },
+    "hanzi": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "his 爱 drawn under hers, stroke by stroke"
+    },
+    "hanzi_crooked": {
+      "type": "boolean",
+      "means": "his 爱 came out crooked (and so it stays)"
+    },
+    "tear": {
+      "values": [
+        "taped",
+        "open",
+        "curled"
+      ],
+      "means": "the overlapped tear on her sheet as the square left it: taped under its clear strip, open, or its edge curled"
+    },
+    "stripes": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "something striped going up in the smoke over the bucket («Дым»): 0 none … 1 gone"
+    },
+    "step_sheet": {
+      "type": "boolean",
+      "means": "her sheet laid flat on the top step («Письмо»)"
+    },
+    "last_box": {
+      "type": "boolean",
+      "means": "the last moving box still on the porch (a year on), till Dad carries it away"
+    }
   },
   "objects": [
     {
@@ -266,7 +632,8 @@
       "distance": 7.75,
       "elevation": 0.6,
       "width": 3.0,
-      "depth": 1.5
+      "depth": 1.5,
+      "walk": true
     },
     {
       "id": "last_box",
@@ -298,6 +665,19 @@
         1.55,
         0.03
       ]
+    },
+    {
+      "id": "steps_walk",
+      "name": "Where feet go up and down the porch steps",
+      "plane": true,
+      "unseen": true,
+      "walk": true,
+      "across": -1.0,
+      "distance": 6.72,
+      "elevation": 0.3,
+      "width": 1.2,
+      "depth": 0.82,
+      "tilt": 47
     },
     {
       "id": "treads",
@@ -466,6 +846,83 @@
       }
     },
     {
+      "id": "knight",
+      "name": "Mark's knight on the ground",
+      "shadow": true,
+      "across": -0.55,
+      "distance": 5.85,
+      "height": 0.2,
+      "box": [
+        -0.25,
+        -0.12,
+        0.1,
+        0.02
+      ],
+      "place": {
+        "across": "knight_a",
+        "distance": "knight_d"
+      }
+    },
+    {
+      "id": "plate",
+      "name": "The plate of buns on the bottom step",
+      "across": -0.5,
+      "distance": 6.62,
+      "elevation": 0.2,
+      "height": 0.08,
+      "box": [
+        -0.15,
+        -0.09,
+        0.15,
+        0.01
+      ]
+    },
+    {
+      "id": "step_sheet",
+      "name": "Her sheet laid flat on the step",
+      "plane": true,
+      "across": -0.55,
+      "distance": 6.86,
+      "elevation": 0.405,
+      "width": 0.28,
+      "depth": 0.28
+    },
+    {
+      "id": "window_animals",
+      "name": "The paper goats and the buffalo on Jack's sill",
+      "inside": true,
+      "across": -4.4,
+      "distance": 8.47,
+      "elevation": 1.6,
+      "height": 0.25,
+      "box": [
+        -0.55,
+        -0.26,
+        0.5,
+        0.01
+      ]
+    },
+    {
+      "id": "laohu",
+      "name": "Laohu, the paper tiger",
+      "shadow": true,
+      "across": -1.0,
+      "distance": 7.3,
+      "elevation": 0.6,
+      "height": 0.32,
+      "box": [
+        -0.3,
+        -0.4,
+        0.3,
+        0.02
+      ],
+      "place": {
+        "across": "laohu_a",
+        "distance": "laohu_d",
+        "elevation": "laohu_e"
+      }
+    },
+    {
       "id": "scraps",
       "name": "Torn pieces of Laohu on the grass",
       "plane": true,
@@ -488,6 +945,34 @@
         -4.8,
         2.4,
         0.05
+      ]
+    },
+    {
+      "id": "ingot",
+      "name": "Jack's ingot in the fire",
+      "across": 3.8,
+      "distance": 5.36,
+      "elevation": 0.42,
+      "height": 0.07,
+      "box": [
+        -0.07,
+        -0.07,
+        0.07,
+        0.01
+      ]
+    },
+    {
+      "id": "stripes",
+      "name": "Something striped in the smoke",
+      "across": 3.8,
+      "distance": 5.4,
+      "elevation": 1.0,
+      "height": 1.0,
+      "box": [
+        -0.8,
+        -3.6,
+        0.9,
+        0.1
       ]
     },
     {
@@ -712,6 +1197,26 @@
       ]
     },
     {
+      "id": "folds",
+      "name": "The sheet in Jack's hands folding, trembling",
+      "across": 0,
+      "distance": 4.3,
+      "height": 2.0,
+      "box": [
+        -1.0,
+        -2.2,
+        1.0,
+        0.1
+      ],
+      "place": {
+        "across": "jack_a",
+        "distance": "jack_d"
+      },
+      "inFront": [
+        "jack"
+      ]
+    },
+    {
       "id": "mom",
       "name": "Mom",
       "person": {
@@ -819,6 +1324,16 @@
         "across": "boy_b_a",
         "distance": "boy_b_d"
       }
+    },
+    {
+      "id": "letter",
+      "name": "Her letter, close",
+      "insert": "letter_close"
+    },
+    {
+      "id": "hanzi",
+      "name": "The bottom of her sheet, close: her sign and his",
+      "insert": "hanzi_close"
     }
   ],
   "music": {
@@ -892,81 +1407,5 @@
     "density": 0.2,
     "brightness": 0.5,
     "scale": "G_MAJOR_E_MINOR"
-  },
-  "states": {
-    "dusk": {
-      "range": [
-        0,
-        1
-      ],
-      "smooth": true,
-      "means": "the spring dusk: 0 the morning (1.2-1.3), 1 the pink and blue dusk (1.4; a year on, 3.4-3.6) - the sky and the light"
-    },
-    "porch_lamp": {
-      "range": [
-        0,
-        1
-      ],
-      "smooth": true,
-      "means": "the lamp over the front door: 0 off, 1 lit"
-    },
-    "house_lights": {
-      "range": [
-        0,
-        1
-      ],
-      "smooth": true,
-      "means": "the house's lamps: 0 off, 1 the kitchen window lit warm and the lamp in Jack's room on"
-    },
-    "fire": {
-      "range": [
-        0,
-        1
-      ],
-      "smooth": true,
-      "means": "the paper burning in Mom's bucket under the apple tree (1.4, the ending 'Smoke'): 0 none, 1 burning - flames, embers, smoke, its light"
-    },
-    "scraps": {
-      "type": "boolean",
-      "means": "the torn pieces of Laohu lying on the grass round Jack (1.2-1.3); false once he has picked them up"
-    },
-    "sold": {
-      "type": "boolean",
-      "means": "a year on, the house sold (3.4-3.6, the endings): no curtains, nothing on the sills, Jack's room bare, the bucket rusty, the last box on the porch, the 'Sold' sign on the lawn; no torn pieces"
-    },
-    "shoebox": {
-      "values": [
-        0,
-        1,
-        2
-      ],
-      "means": "the shoebox of animals on the top step (3.4-3.6): 0 none; 1 the attic's animals, dusty - goats, deer, buffalo ('Menagerie' 0-1); 2 full, the lid will not go on - cranes, frogs, the shark besides ('Menagerie' 2)"
-    },
-    "menu_house": {
-      "type": "boolean",
-      "means": "the paper house from the hospital menu on top of the shoebox ('Left' - he took the train)"
-    },
-    "year": {
-      "values": [
-        0,
-        1
-      ],
-      "means": "a year on (the game's; chapter 3): 1 - the scene's script dresses Jack grown (jack_grown, no suit bag) and Dad grey (dad_grey, no book), Mom not here; 0 - as they are"
-    },
-    "view": {
-      "values": [
-        "house",
-        "street"
-      ],
-      "means": "which way the eye looks: house - the yard and the house (the scene's picture); street - turned round from the yard toward the street (the script sets camera_on to street_eye): the front fence and its open gate, the sidewalk with the school bus stop, the road, Mark's house across it and his car at the curb"
-    },
-    "bus_a": {
-      "range": [
-        -40,
-        40
-      ],
-      "smooth": true,
-      "means": "where the school bus is along the street (metres across; it comes from +40, the left as seen from the street eye): about -0.6 its door at the stop; 40 or -40 out of sight"
-    }
   }
 }

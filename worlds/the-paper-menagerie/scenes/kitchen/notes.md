@@ -43,3 +43,45 @@ The evening above stays the scene's own state; chapter 3 is keys over it:
   → the house wakes (Dad alone with a frog on his palm, looking up at the cranes).
 - 3.2's «Dad in the doorway» is in Jack's room (С3) in the scenario; here the kitchen shows the same awakening for a game
   that wants to see it downstairs.
+
+## Stage 5: the pieces
+
+The module `beats` (lib.js `film`; script.js plays it, after dressing the people by `year` and `young` — lib.js
+`dress`). A piece's start (`from`) is every value but the game's: `<id>_here`, `<id>_mood`, and the keys the game
+names — `laohu_ear`, `laohu_seam` (the marks), `suit_bag` («Остался», 3.1), `menagerie` («Зверинец» 2: `sill`). Mom's
+not in chapter 3: the game does not bring her (the script does not hide her). Dad leaves in `asked` (the piece walks
+him out of the door and takes him off, `dad_here` false).
+
+New in the room for them: chairs at the table's ends (`chairs`, two copies from the side) and Mom's behind it
+(`chair_back`) — the seats at Jack (−1.0, 2.2, facing right), Dad (0.72, 2.2, facing left), Mom (−0.1, 2.9); the robot
+(`robot`), the deer on the counter (`deer`, modules/paper), Jack's yellow square (`ingot`, the mini-game «Сгиб»), the
+table's keys (`wrapping`, `ingots`, `scraps`, `tape`), and Laohu — the world module `paper` (the same Laohu in the
+kitchen, the room and the yard): where `laohu_a/d/e` put him, in someone's hands (`laohu_held`), turning at once
+(`laohu_dir`), breathing by `laohu_breath`, shaking (`laohu_shake`), torn and taped (`laohu`, `tape_laid`). He walks
+in hops (held, a quick snap to the next spot): paper, a little angular.
+
+| piece | after | what |
+| --- | --- | --- |
+| robot | — | (prologue; `young`) Jack, five, crying over the broken robot, Dad squatting by him; Mom picks up the red sheet and folds without looking — the camera on her hands |
+| palms | robot | she comes round the table and puts the tiger into his palms (`laohu` paper, `laohu_breath` 0); then М1 on `jack#hands` |
+| menagerie | palms | Laohu jumps onto the paper; his name; Dad gets up; Jack reaches for a fold, she takes his fingers; the song — he walks the table hop by hop; the goats, the deer, the buffalo, the shark (cuts); Dad asleep in his chair, Laohu growls |
+| ingots | — | (1.1, morning) Mom and Jack at the table folding; her words; the camera down onto his square for М2 (`ingot#start` → `#end`, `ingot_fold`) |
+| ingot_name | ingots | he writes his name on it (`ingot_named`); she laughs; Laohu bats at it; Mark calls from the street |
+| tape | — | (1.5) the scraps on the oilcloth; she lays them out by the old lines (`laohu` torn); Jack sits and holds the halves; then М4 on `laohu` (`tape_laid`) |
+| breathe | tape | she breathes on him; he stands whole (`laohu` taped) and limps along the table |
+| palm | breathe | her words; she writes 爱 on his palm; her face |
+| question | palm | Dad in the doorway taking off his jacket; then the choice |
+| asked | question | her answer, looking at Dad; his line; he goes out (the hammer is the game's sound); Jack's question, her «later» |
+| silent | question | he strokes Laohu, she hums over her folding; Dad comes and sits at the table; Laohu limps to him |
+| boxes | — | (3.1, a year on, packed, by day) Dad taping the box; with `suit_bag` he takes the suit off its hook and gives it to Jack; the camera to the sill (with `menagerie` sill, the cranes and frogs) |
+| her_hand | — | (3.2) Jack walks through the kitchen with the sheet; Dad looks up from the box |
+
+Not right yet:
+- Dad's «armchair» of П.3 is his chair at the table's end (the kitchen has no armchair).
+- The game's sounds (the hammer from the porch, the tape) are the game's; the pieces leave time for them.
+
+## Contract for the check
+
+```json
+{"beats": {"robot":{"after":[],"tells":["robot:dad","robot:fold"],"seconds":10}, "palms":{"after":["robot"],"tells":["palms:give"],"seconds":8}, "menagerie":{"after":["palms"],"tells":["menagerie:name","menagerie:dad","menagerie:fold","menagerie:song","menagerie:snore"],"seconds":33}, "ingots":{"after":[],"tells":["ingots:say"],"seconds":11}, "ingot_name":{"after":["ingots"],"tells":["ingot_name:write","ingot_name:call"],"seconds":12}, "tape":{"after":[],"tells":["tape:now"],"seconds":9}, "breathe":{"after":["tape"],"tells":["breathe:up"],"seconds":8}, "palm":{"after":["breathe"],"tells":["palm:say","palm:sign"],"seconds":14}, "question":{"after":["palm"],"tells":["question:door"],"seconds":5}, "asked":{"after":["question"],"tells":["asked:look","asked:dad","asked:hammer"],"seconds":18}, "silent":{"after":["question"],"tells":["silent:dad"],"seconds":14}, "boxes":{"after":[],"tells":["boxes:dad","boxes:suit","boxes:sill"],"seconds":22}, "her_hand":{"after":[],"tells":["her_hand:dad"],"seconds":9}}}
+```

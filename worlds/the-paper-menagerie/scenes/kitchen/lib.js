@@ -84,7 +84,7 @@ function film(scene) {
     deer: CAM([0.45, 3.4, 1.25], [0.6, 4.2, 1.02]),
     buffalo: CAM([0.15, 3.45, 1.25], [0.12, 4.28, 1.12]),
     shark: CAM([-0.3, 3.45, 1.45], [-0.3, 4.18, 0.9]),
-    box: CAM([-0.6, 1.2, 1.55], [0.0, 2.6, 1.15]),
+    box: CAM([-0.1, 1.2, 1.55], [-0.5, 2.6, 1.15]),
   };
   const cast = scene.kit?.cast?.characters ?? {};
   // a person's whole start: where, facing, doing; nothing in the hands, no look, no reach, on their feet
@@ -418,7 +418,7 @@ function film(scene) {
     boxes: {
       tells: ['boxes:dad', 'boxes:suit', 'boxes:sill'], seconds: 22,
       from: () => merge(HOME, { year: 1, young: false }, dress(cast, 1, false), { packed: true, day: 1, lamp: 0, tape: true, laohu: 'none' }, SH.box,
-        who('dad', [0.05, 2.8, 180], 'tape_box', { look: 'table_box#box' }), who('jack', [-1.15, 2.45, 100], 'stand', { look: 'dad' }), who('mom', HALL)),
+        who('dad', [-0.45, 2.8, 180], 'tape_box', { look: 'table_box#box' }), who('jack', [-1.3, 2.45, 90], 'stand', { look: 'dad' }), who('mom', HALL)),
       run: async s => {
         const dad = s.person('dad'), jack = s.person('jack');
         await s.wait(2);
@@ -434,7 +434,7 @@ function film(scene) {
           s.set('suit_bag', false);
           dad.with(['suit_bag']);
           dad.reach(null);
-          await dad.walk([[-0.6, 2.45]]);
+          await dad.walk([[-0.95, 2.45]]);
           await dad.turn(270);
           dad.look('jack');
           s.tell('boxes:suit');
@@ -460,10 +460,10 @@ function film(scene) {
     her_hand: {
       tells: ['her_hand:dad'], seconds: 9,
       from: () => merge(HOME, { year: 1, young: false }, dress(cast, 1, false), { packed: true, day: 1, lamp: 0, tape: true, laohu: 'none' }, SH.wide,
-        who('dad', [0.05, 2.8, 180], 'tape_box', { look: 'table_box#box' }), who('jack', [-2.3, 3.0, 90], 'stand', { look: 'jack#letter', with: ['letter'] }), who('mom', HALL)),
+        who('dad', [-0.45, 2.8, 180], 'tape_box', { look: 'table_box#box' }), who('jack', [-2.3, 3.0, 90], 'stand', { look: 'jack#letter', with: ['letter'] }), who('mom', HALL)),
       run: async s => {
         const dad = s.person('dad'), jack = s.person('jack');
-        await jack.walk([[-0.9, 2.95]]);
+        await jack.walk([[-1.2, 2.95]]);
         dad.do('stand');
         dad.look('jack#letter');
         await jack.turn(140);

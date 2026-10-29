@@ -78,3 +78,63 @@ Not right yet:
 - Jack in his window shows only his head over the sill (a boy of ten on the room's floor; the sill is 1 m over it):
   it reads close, barely from where we stand.
 - The animals in the shoebox are a painting — still; their slowing down and falling asleep (3.6) is stage 5's.
+
+## Stage 5: the pieces
+
+The module `beats` (lib.js `film`; script.js plays it, after its own `year` and `view`). A piece's start (`from`) is
+every value but the game's: `<id>_here`, `<id>_mood`, and the keys the game names — `way` (the yard's choice: english,
+chinese, run), `zoo` («Зверинец» 0–2), `father` (all, apple, later), `ending` (tiger, letter, smoke), `laohu_ear`,
+`laohu_seam`, `shoebox`, `menu_house`, `tear` (as the square left it), `hanzi_crooked`. Pieces seen toward the street
+start with `view` street and `camera_on` street_eye (their cameras in its frame: lib.js `CAMS`). Who is not in a piece
+waits behind the house's left corner (or the boys and grown Mark at their own places), unseen whether the game brings
+them or not; a piece takes someone off (`<id>_here` false) when they go into the house or a car.
+
+New for them: walk planes on the porch and its steps (`porch` walks; `steps_walk`, unseen, tilted); Laohu (the world
+module `paper`: the same as the kitchen's and the room's — in hops, turning at once, in Jack's hands or the crook of his
+arm or Mark's hands: `laohu_held`; standing up out of the folded sheet: `laohu_rise`); Mark's knight out of his hands
+(`knight`, `knight_at`) and its shining sword (the light `sword`, `knight_lit`); the scraps' five points
+(`scraps#s1`…`s5`, `scraps_left` — the mini-game «Клочки»); the plate on the step (`plate_step`); his ingot in the fire
+(`ingot`, `ingot_named`); the goats in Jack's window (`window_animals`); the shoebox's animals lying down one by one
+(`menagerie_sleep`); over the sheet in Jack's hands (`folds`, carried to `jack#letter`) — the creases trembling
+(`tremble`, «Разгладить») and the flaps folding back (`fold`, «Сложить»); her letter close (the insert `letter`,
+`letter_close`); the bottom of her sheet close with her 爱 and his (the insert `hanzi`, `hanzi_close`, points
+`hanzi#start`, `#end`: `hanzi`, `hanzi_crooked` — «Иероглиф»); the sheet laid on the step (`step_sheet`); something
+striped in the smoke (`stripes`); the apple's `trunk` point; `last_box`.
+
+| piece | after | what |
+| --- | --- | --- |
+| knight | — | (1.2) Mark shows the knight, its sword lit; Laohu comes down the steps and knocks it into the puddle; Mark fishes it out, tears Laohu twice, throws the pieces; the wind; Jack crouches among them; then М3 |
+| plate | — | (1.3) Mom down the steps with the plate, by Jack, her hand out; close on her face; then the choice |
+| yard_english | plate | she freezes; the plate on the step, her palm open; he puts the pieces in it; he and Mark go out through the gate; she sits alone on the step |
+| yard_chinese | plate | he gives her the pieces; Mark mocks and goes; she and Jack on the step, a bun |
+| yard_run | plate | Jack runs into the house; Mark goes; she sets the plate on the step |
+| fire | — | (1.4, dusk) Mom at the bucket; by `way`: Jack passing / beside her / in his window; close on his ingot in the fire |
+| dad_home | fire | Dad comes from the gate, his hand on her back; to Jack (english, chinese) |
+| stop | — | (1.7, toward the street) the stop; Jack out through the gate; by `way`; Laohu after him with `zoo` 1–2; the bus |
+| mark | — | (3.4, toward the street) grown Mark at his car; by `way` he crosses and pats Jack / looks past and gets in / nods |
+| step | — | (3.4) Dad on the top step, the shoebox; Jack with the sheet: «What does she write?»; then the choice |
+| father_all | step | his «scar…»; he goes to the apple tree, his palm on the bark |
+| father_apple | step | he smiles, looking up at the tree |
+| father_later | step | he nods, carries the last box into the house |
+| sign | — | (3.5) Jack sits on the lower step to write; the hanzi insert opens; then М8 |
+| sunset | sign | the animals lie down one by one; the sheet trembling (close); the rusty bucket; then the choice |
+| tiger | sunset | Jack folds the sheet; then «Сложить» on `jack#letter` |
+| tiger_up | tiger | Laohu stands on the step, shakes himself, purrs; Jack carries him in the crook of his arm |
+| letter_end | sunset | the porch lamp; then «Разгладить» on `jack#letter` |
+| letter_flat | letter_end | he lays the sheet on the step; close: her 爱 and his |
+| smoke | sunset | Jack at her bucket, the fire lit, the sheet held out; then «Огонь» on `jack#letter` |
+| smoke_up | smoke | the sheet burns; the smoke up through the tree, something striped in it |
+| dad_end | — | the finales' last shot by `father` × `ending` (scenario §9); Jack's last lines over it |
+
+Not right yet:
+- «Потом» × «Дым»: the scenario's Dad opening the kitchen window cannot be staged (the house's front is one painted
+  card, no one stands inside the kitchen's window); he stands at the door instead.
+- Jack seen in his window (1.4 «Убежал») shows his head over the sill; the piece frames the window close.
+- The sheet's folding back («Сложить») is shown as flaps coming over the sheet in his hands (`folds`), then Laohu stands
+  up on the step: a part of the cast cannot show a state of its own.
+
+## Contract for the check
+
+```json
+{"beats": {"knight":{"after":[],"tells":["knight:show","knight:tear","knight:wind"],"seconds":22}, "plate":{"after":[],"tells":["plate:hand","plate:face"],"seconds":12}, "yard_english":{"after":["plate"],"tells":["yard_english:freeze","yard_english:go"],"seconds":15}, "yard_chinese":{"after":["plate"],"tells":["yard_chinese:give","yard_chinese:go"],"seconds":14}, "yard_run":{"after":["plate"],"tells":["yard_run:door","yard_run:plate"],"seconds":12}, "fire":{"after":[],"tells":["fire:pass","fire:speak","fire:window","fire:ingot"],"seconds":14}, "dad_home":{"after":["fire"],"tells":["dad_home:back","dad_home:talk"],"seconds":14}, "stop":{"after":[],"tells":["stop:mark","stop:laohu","stop:window","stop:bus"],"seconds":22}, "mark":{"after":[],"tells":["mark:say"],"seconds":12}, "step":{"after":[],"tells":["step:ask"],"seconds":6}, "father_all":{"after":["step"],"tells":["father_all:scar","father_all:tree"],"seconds":14}, "father_apple":{"after":["step"],"tells":["father_apple:smile"],"seconds":9}, "father_later":{"after":["step"],"tells":["father_later:nod"],"seconds":10}, "sign":{"after":[],"tells":["sign:pen"],"seconds":6}, "sunset":{"after":["sign"],"tells":["sunset:goat","sunset:fold"],"seconds":16}, "tiger":{"after":["sunset"],"tells":["tiger:fold"],"seconds":5}, "tiger_up":{"after":["tiger"],"tells":["tiger_up:up","tiger_up:hum"],"seconds":15}, "letter_end":{"after":["sunset"],"tells":["letter_end:lamp"],"seconds":5}, "letter_flat":{"after":["letter_end"],"tells":["letter_flat:flat"],"seconds":10}, "smoke":{"after":["sunset"],"tells":["smoke:hold"],"seconds":8}, "smoke_up":{"after":["smoke"],"tells":["smoke_up:say","smoke_up:stripes"],"seconds":13}, "dad_end":{"after":[],"tells":["dad_end:say","dad_end:last"],"seconds":14}}}
+```
