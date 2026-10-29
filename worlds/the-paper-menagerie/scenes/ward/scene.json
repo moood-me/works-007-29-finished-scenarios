@@ -86,7 +86,8 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "lamp": 1,
@@ -122,7 +123,8 @@
     "laohu_here": true,
     "menu_house": false,
     "menu": "none",
-    "suit_on_chair": false
+    "suit_on_chair": false,
+    "phone_off": false
   },
   "states": {
     "lamp": {
@@ -174,6 +176,18 @@
     "suit_on_chair": {
       "type": "boolean",
       "means": "Jack's suit in its bag hanging over the chair's back ('Stayed', 2.3-2.4)"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "phone_off": {
+      "type": "boolean",
+      "means": "the payphone's receiver off its hook (in Jack's hand: the cast's part receiver)"
     }
   },
   "objects": [

@@ -8,3 +8,5 @@ function look() {
 }
 if (scene.state.view === 'corridor') look();
 scene.on('change', 'view', () => look());
+// its pieces (the game sets `beat`: modules/beats, lib.film)
+scene.kit.beats.play(scene, scene.lib.film(scene));
