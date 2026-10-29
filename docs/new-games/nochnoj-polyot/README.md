@@ -12,7 +12,12 @@
 - Стадия 4, все сцены — сделана 2026-10-29 (ветка `r3/night-flight-s4`): новая сцена `office` (С1 кабинет Ривьера),
   в сценах все люди сценария и ключи (флажки, часы, самолёты, места людей); игра играется на своих сценах. Что и как —
   `game.md` («Стадия 4», «Итог стадии 4»); история — `docs/history/2026-10-29-nochnoj-polyot-stage4.md`.
-- Стадия 5 (вся игра) — не начата.
+- Стадия 5 (вся игра) — идёт. Контракт кусков — `game.md` «Stage 5 — pieces» (ветка `r3/night-flight-s5`). Сторона
+  мира сделана 2026-10-29 (ветка `r3/night-flight-pieces`): модуль `beats`, все 94 куска четырёх сцен (кабина 9, бюро
+  45, поле 32, кабинет 8), просьбы мира (флажки и ящик карты, лента, рычаг и прожекторы по одному, вставки `paper`,
+  `folder`, `log_page`, `roll`/`climb`/`water`/`house`, части каста), блоки «Contract for the check» в `notes.md`
+  сцен; движения Kimodo вливаются из `r3/night-flight-motions` по мере готовности. История —
+  `docs/history/2026-10-29-nochnoj-polyot-pieces.md`.
 
 Адрес игры в студии: `moood-me/works-007-29-finished-scenarios@r3/night-flight-game:games/night-flight`
 (страница игры — `http://localhost:8080/games/<адрес>`, «Play it»).

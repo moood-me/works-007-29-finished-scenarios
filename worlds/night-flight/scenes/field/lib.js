@@ -46,10 +46,10 @@ function film(scene) {
     fine: CAM([0.9, 3.0, 1.7], [1.15, 5.5, 1.55]),
     robineau_I: CAM([1.3, 3.6, 1.7], [1.7, 5.4, 1.5]),
     roblet_hands: CAM([-0.6, 2.4, 1.2], [-0.75, 3.35, 1.0]),
-    box: CAM([-0.5, 2.0, 1.6], [-1.1, 4.1, 1.2]),
+    box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
     two_hands: CAM([-0.3, 2.3, 1.3], [-0.5, 3.6, 1.05]),
-    roblet_riv: CAM([-0.1, 1.7, 1.65], [-0.5, 4.0, 1.5]),
+    roblet_riv: CAM([1.6, 2.2, 1.65], [-0.5, 4.1, 1.5]), // from the right: Roblet turned to Rivière in profile, Rivière's face,
     // chapter IV: Rivière at R4 left of the nose and the pilot by the fuselage at PILOT, level with each other (each looking
     // at the other in profile): each shot from the front on the side he looks to
     riviere: CAM([-1.0, 11.4, 1.75], [-2.6, 13.0, 1.65]),
