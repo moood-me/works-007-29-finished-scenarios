@@ -1,24 +1,56 @@
 # The Stream — notes
 
-The world's second look scene (stage 2 of the game stages): the second chapter, six years on — the morning the
-Traveller comes back up from the war and finds water running in the dry bed below Elzéard's slope (2.2–2.5). The
-viewer stands on the valley floor below the slope, the stream coming in from the lower left and curving up into the
-young oaks; Lina (23) with her pail at the water's edge, the Traveller (26) in his greatcoat before her, Elzéard (61)
-farther up by his hives at the wood's edge, the rod in his hand.
+The scenario's М4, the stream's bed below Elzéard's slope, across the years (stage 4 of the game stages: people stand,
+no motions, no camera, no mini-games). Its stage-2 look was the second chapter's morning (2.2–2.5); the same place now
+shows the dry bed of the first chapter and the meadow of the third, and — on the left, at the slope's far edge — the
+dead maples and the new beeches of 2.6 (the scenario puts them on М3, the slope; this view of the slope from below is
+where they read near and clear).
 
-- Camera `picture`, horizon 0.55; the frame is as tall as its distance (a 53° lens), so a person 7 m off is a fifth of
-  it. Lina 7.6 m (a step off the water), the Traveller 5.8 m, Elzéard 15.6 m; the stream's line ends at him.
-- The land is one draped plane (`land`) over `relief.js`; the stream's line, the slope and the channel are in
-  `lib.js` (`streamX`, `streamW`, `slope`, `channel`, `ground`) — shared by the relief, `land`, `water` and
-  `tools/stream-copies.mjs`. The water is a mirroring plane at `WATER` (−0.32 m) in the channel, painted only where
-  the stream is; past ~33 m the bed rises out of it up the slope and `land` paints the stream on among the oaks.
-- The wood: `oak_a`, `oak_b`, `oak_c` (young oaks, their crowns a layer in the wind — `lib.oak`) in rows from the
-  wood's edge (19.5 m before the hives) to 56 m; `wood_far` — stretches of ten, unmoving — from 60 m to 260 m, where
-  the ridge is. Kept few (about 600 standing things): each is weighed for every view and again for the water's
-  mirror — the scene thread's cost is theirs. All of it, the willows, stones, grass and the hives, are copies laid out by `node tools/stream-copies.mjs`
-  (it rewrites their `copies` in scene.json; it keeps them clear of the stream and of where the people stand).
-- Light: early morning, the sun low on the left, a little behind the viewer (`sun`, from [255, 12]): faces turned to
-  the viewer lit from the side, long shadows to the right; the haze greys the wood up the slope. `mist`: two drifting bands low over the valley and the foot
-  of the slope, as thick as the state's `mist` (0…1).
-- People: the cast's `elzeard_61`, `traveller_26`, `lina_23` (`modules/cast`), standing; Lina and the Traveller look at
-  each other, Elzéard at the Traveller; Lina smiles.
+- Camera `picture`, horizon 0.55; the frame is as tall as its distance (a 53° lens). The viewer on the valley floor
+  below the slope, the stream coming in from the lower left and curving up into the wood.
+- The land is one draped plane (`land`) over `relief.js`; the stream's line, the slope and the channel are in `lib.js`
+  (`streamX`, `streamW`, `slope`, `channel`, `ground`), with the trees (`oak` — young, `grownOak`, `oakOf`, `beech`).
+  The water is a mirroring plane at `WATER` (−0.32 m), painted only where the stream is. All the copies are laid out by
+  `node tools/stream-copies.mjs`.
+- Light: early morning, the sun low on the left behind the viewer (`sun`); `mist` two drifting bands low over the
+  valley (0…1).
+
+## The years (`year`: 0, 6, 20) and `stream`
+
+- 0 — the prologue and the first chapter: the slope bare (no oaks), the bed dry and white with stones (`stream`
+  false: `water`, `sedge`, the green banks gone), no willows, dry tufts.
+- 6 — the stage-2 look: the young oaks (3–4 m), the first willows, the water running for the first time, the mist; the
+  far edge's rows of dead maple sticks (`maple_sticks`) and tiny beeches (`beech_young`).
+- 20 — the third chapter: the valley floor a meadow with flowers, the wood grown (11–12 m oaks), the willows big, the
+  far edge's beeches 5 m (the maples gone).
+
+## The moments (key `moment`; script.js)
+
+Laid out at once when `moment` changes, and as the scene opens only if `moment` differs from `staged`. **A game sets
+`moment` first, then any detail.** The default state is `water` laid out.
+
+| moment | scenario | the place | who (standing) |
+|---|---|---|---|
+| `dry` | prologue / first chapter (the way up, the empty flask) | year 0 | the Traveller (20) by the dry bed |
+| `water` | 2.2–2.4 | year 6, mist, the hives | Lina (23) at the water, the Traveller (26), Elzéard (61) far up by the hives (the game may set `elzeard_here` false) |
+| `far_edge` | 2.6 | year 6, a little mist | Elzéard (61) and the Traveller (26) before the dead maples on the left |
+| `meadow` | the third chapter | year 20 | Lina (37) at the water, the Traveller (40) |
+| `delegation` | 3.2 | year 20 | Lina (37) leading; Jan (40), the chief, the ranger on the path |
+
+`hives` (boolean): the hives at the wood's edge (the second chapter; in the third while Lina does not know — the game).
+
+## Points the game presses
+
+`hives:0…4`, `oak_a|b|c:k#bark`, `beech_young:k`, `maple_sticks:k`, the people's own points (`lina#pail` — МИ3, the
+hands in the water: the water's edge before Lina, `stones:k`).
+
+## People (cast: modules/cast)
+
+`elzeard` (`elzeard_61`), `traveller` (`traveller_26`; `traveller`, `traveller_40` by `_wear`), `lina` (`lina_23`;
+`lina_37`), `jan` (`jan_40`), `chief`, `ranger`.
+
+## Not right yet
+
+- 3.2's delegation walks up the path away from the viewer (the village is behind); standing, they are turned to Lina
+  ahead of them so the faces read in profile — the walk is stage 5's.
+- The grown wood (year 20) is many big crowns over the slope; measured once (notes of the render in the history note).
