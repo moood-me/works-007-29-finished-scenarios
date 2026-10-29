@@ -74,6 +74,25 @@ the parts `shawl` (Mrs Otis's cream shawl round her shoulders), `casket` (the li
 `clasped`; point `casket`), `lantern` (a hand lantern hanging from the right hand; point `lantern`). Used from the
 corridor's: `candle_l`, `hold_candle`.
 
+## Pieces (stage 5)
+
+`lib.js` `film(scene)`, played by `script.js` (modules/beats). A piece lays out its own start (the light, the clock, the
+panel, the doors, the carriage, the people) and never sets `moment` — the moments' staging is the showcase's and the
+stage-4 picture's; the game's `here`, moods and variants (`shares`, `trap`, `wake`, `plays`, declared as states) are
+never set by a piece. Shots are cameras of their own (the eye and what it looks at), as in the library.
+
+| piece | what it shows |
+| --- | --- |
+| `calling` | supper-time, night: Mrs Otis in her shawl on the stair's foot steps calling up to the landing; the twins run up and down the stair past her (`run`) |
+| `midnight` | the family waiting (Mrs Otis in the armchair, Mr Otis with his candle); the twelve strokes (`midnight:stroke` — the game's sound), the clock stops, silence; the panel opens and Virginia steps out on the landing with the casket (she is out of sight till then: the piece takes her away and brings her back as the game has her); `shares` — Washington runs up and takes her hands; else Mr Otis climbs to her and Washington stops two steps below (`trap` warn, defend) or comes in last at the front door with his lantern (watch); she comes down, Mrs Otis gets up and takes her face in her hands |
+| `wedding` | years later, by the open door, the carriage waiting: Mr Otis takes the Duchess's hand and lets it go first; the Duke in the doorway |
+| `coat` | the morning of leaving: Mr Otis buttons his coat (`button_coat`), Virginia by him |
+| `porch` | they go out to the carriage: `shares` — she between the twins; else last, his hand given her (`wake`), turning on the porch to look up at the house — her face to us; `porch:chain` (only when `plays`) — the chain heard |
+
+Not right yet: the strokes and the chain are the game's sound; «she sits between the twins» in the carriage is seen as
+going out with them (the carriage's inside is not shown); the façade with the Tapestry Chamber's windows is not
+painted: she looks up at the house over the viewer.
+
 ## Showcase
 
 The five moments one after another, five seconds each (midnight, calling, waiting with the lantern by the pond,
@@ -89,3 +108,9 @@ departure, wedding).
   threshold. «She turns at the bottom of the porch steps to look up at the Tapestry Room's windows» and the chains
   heard from them want the house's front seen from outside — not painted here (no façade); stage 5 or a place of its own.
 - Mr Otis «buttoning his coat»: he wears his frock coat (the cast has no greatcoat); stage 5's motion.
+
+## Contract for the check
+
+```json
+{"beats": {"calling":{"after":[],"tells":["calling:call"],"seconds":9}, "midnight":{"after":[],"tells":["midnight:stroke","midnight:panel","midnight:hold"],"seconds":30}, "wedding":{"after":[],"tells":["wedding:hand","wedding:let"],"seconds":10}, "coat":{"after":[],"tells":["coat:end"],"seconds":6}, "porch":{"after":[],"tells":["porch:board","porch:chain","porch:look"],"seconds":15}}}
+```

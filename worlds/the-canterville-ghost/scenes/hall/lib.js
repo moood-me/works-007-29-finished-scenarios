@@ -141,4 +141,235 @@ function door(g, x0, x1, ring) {
   g.fill();
 }
 
-return { oak, portrait, sconce, door, nosing, STAIR, OAK, OAK_DARK, OAK_LIGHT };
+// The hall's pieces (stage 5; modules/beats; the contract: game.md «Stage 5 — pieces»): `film(scene)` — each piece
+// `{after, tells, seconds, from, run}`. `from` sets everything a piece begins at — the hall's light, the clock, the
+// panel, the doors, the carriage, the people's places and hands — but the game's (`<id>_here`, `<id>_mood`, the variants
+// a row names: `shares`, `trap`, `wake`, `plays`); it never sets `moment` (that is the hall's own staging of its moments:
+// a piece lays out its own). Shots are cameras of their own (eye, what it looks at), as in the library.
+function FILM(scene) {
+  const DEG = 180 / Math.PI, EYE = 1.7;
+  const CAMK = ['camera_x', 'camera_z', 'camera_h', 'camera_yaw', 'camera_pitch'];
+  const CAM0 = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
+    camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
+  const CAM = ([ex, ez, eh], [tx, tz, th]) => ({ ...CAM0, camera_x: ex, camera_z: ez, camera_h: eh - EYE,
+    camera_yaw: Math.atan2(tx - ex, tz - ez) * DEG, camera_pitch: Math.atan2(th - eh, Math.hypot(tx - ex, tz - ez)) * DEG });
+  const glide = (s, c, over) => s.all(...CAMK.map(k => s.move(k, c[k], { over, ease: 'inOut' })));
+  const SH = {
+    landing: CAM([0.4, 3.4, 2.6], [-3.4, 7.5, 3.3]),
+    foot: CAM([-0.6, 3.0, 1.6], [-0.75, 5.9, 1.3]),
+    door: CAM([3.3, 4.4, 1.6], [1.85, 6.6, 1.4]),
+    coat: CAM([0.9, 3.6, 1.6], [1.3, 6.1, 1.4]),
+    porch: CAM([2.0, 3.2, 1.7], [3.2, 9.0, 1.4]),
+  };
+  const V = scene.kit?.cast?.characters ?? {};
+  const who = (id, [a, d, turn], does = 'stand', more = {}) => {
+    const o = { [`${id}_a`]: a, [`${id}_d`]: d, [`${id}_turn`]: turn, [`${id}_do`]: does, [`${id}_look`]: null, [`${id}_reach`]: null,
+      [`${id}_on`]: null, [`${id}_with`]: [], [`${id}_wear`]: null, [`${id}_gait`]: null };
+    for (const [k, v] of Object.entries(more)) o[`${id}_${k}`] = v;
+    return o;
+  };
+  const merge = (...xs) => Object.assign({}, ...xs);
+  // whoever has no part in a piece stands aside by the right wall's far end (seen, if the game names them, as one more
+  // of the family)
+  const ASIDE = { virginia: [4.4, 6.6, 220], otis: [4.8, 6.2, 220], mrs_otis: [4.6, 5.6, 220], washington: [5.0, 5.2, 220], twin_star: [4.3, 5.0, 220],
+    twin_stripes: [4.0, 5.4, 220], cecil: [4.9, 6.9, 220], mrs_umney: [-1.0, 5.6, 160] };
+  const aside = (...ids) => merge(...ids.map(id => who(id, ASIDE[id])));
+  const NIGHT = { day: 0, candles: 1, clock_going: true, panel: 180, door_l: 180, door_r: 180, carriage: false, pond_lantern: 0, otis_candle: 0, lantern_held: 0 };
+  const MORNING = { day: 1, candles: 0, hour: 9, clock_going: true, panel: 180, door_l: 250, door_r: 110, carriage: true, pond_lantern: 0, otis_candle: 0,
+    lantern_held: 0 };
+  const ARM = [0.7, 5.9, 180];
+
+  return {
+    // 4.2: supper-time, Virginia missing — Mrs Otis on the stair calling up it, the twins running up and down
+    calling: {
+      after: [], tells: ['calling:call'], seconds: 9,
+      from: () => merge(NIGHT, CAM0, { hour: 19.5 }, who('mrs_otis', [0.35, 7.2, 260], 'stand', { with: ['shawl'], look: [-3.4, 7.4, 3.6] }),
+        who('twin_star', [-1.6, 7.2, 90], 'stand', { gait: 'run' }), who('twin_stripes', [2.2, 6.0, 300], 'stand', { gait: 'run' }),
+        aside('virginia', 'otis', 'washington', 'cecil', 'mrs_umney')),
+      run: async s => {
+        await s.wait(0.8);
+        s.tell('calling:call');
+        const down = s.sequence(async q => {
+          const t = q.person('twin_star');
+          await t.walk([[0.9, 7.2], [2.0, 6.3]]);
+          await t.walk([[1.0, 6.9], [-1.4, 7.2]]);
+        });
+        const up = s.sequence(async q => {
+          const t = q.person('twin_stripes');
+          await q.wait(0.6);
+          await t.walk([[1.1, 7.0], [-1.9, 7.2]]);
+          await t.walk([[0.9, 7.2], [2.4, 6.2]]);
+        });
+        await s.all(down, up);
+        s.person('twin_star').turn(200);
+        s.person('twin_stripes').turn(200);
+        s.person('twin_star').look('mrs_otis');
+        s.person('twin_stripes').look('mrs_otis');
+        await s.wait(0.8);
+      },
+    },
+    // 4.6: midnight — the twelve strokes, the silence; the panel opens, Virginia on the landing with the casket; the
+    // family to her as the variants say; Mrs Otis takes her face in her hands
+    midnight: {
+      after: [], tells: ['midnight:stroke', 'midnight:panel', 'midnight:hold'], seconds: 30,
+      from: () => {
+        const watch = scene.get('trap') === 'watch';
+        return merge(NIGHT, CAM0, { hour: 23.99 },
+          who('virginia', [-3.75, 7.75, 160], 'clasped', { with: ['casket'], wear: V.virginia_habit ?? null }),
+          who('otis', [1.6, 5.2, 160], 'hold_candle', { with: ['candle_l'] }),
+          who('mrs_otis', ARM, 'brood', { on: [ARM[0], ARM[1], 0.45], with: ['shawl'] }),
+          watch ? who('washington', [2.9, 9.6, 180], 'stand', { with: ['lantern'] }) : who('washington', [2.3, 5.8, 200]),
+          who('twin_star', [2.6, 6.1, 210]), who('twin_stripes', [3.1, 6.5, 215]), who('cecil', [3.5, 7.2, 220]), aside('mrs_umney'),
+          { otis_candle: 1, lantern_held: watch ? 1 : 0 });
+      },
+      run: async s => {
+        const shares = !!s.get('shares'), trap = s.get('trap');
+        const v = s.person('virginia'), o = s.person('otis'), w = s.person('washington'), m = s.person('mrs_otis');
+        const here = !!s.get('virginia_here');
+        v.here(false);
+        await s.wait(1);
+        s.set('hour', 0);
+        s.tell('midnight:stroke');
+        for (const id of ['otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'cecil']) s.person(id).look('clock#face');
+        await s.wait(6);
+        s.set('clock_going', false);
+        await s.wait(2);
+        glide(s, SH.landing, 2);
+        await s.move('panel', 250, { over: 1.5 });
+        if (here) v.here(true);
+        for (const id of ['otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'cecil']) s.person(id).look('virginia');
+        s.tell('midnight:panel');
+        await v.walk([[-3.2, 7.2]]);
+        await v.turn(150);
+        v.look('otis');
+        if (shares) {
+          // Washington runs up first and takes her hands
+          w.gait('run');
+          await w.walk([[1.2, 7.2], [-2.0, 7.2]]);
+          w.gait(null);
+          await w.turn(270);
+          w.reach({ r: 'virginia#hand_l', l: 'virginia#hand_r' });
+          v.look('washington');
+        } else {
+          // she waits; Mr Otis climbs to her; Washington two steps below (warn, defend) or last in at the door with
+          // his lantern from the pond (watch)
+          const climb = o.walk([[1.2, 7.2], [-2.2, 7.2]]);
+          if (trap === 'watch') {
+            s.set('door_l', 250);
+            s.set('door_r', 110);
+            await climb;
+            await w.walk([[2.9, 8.3], [1.6, 6.6]]);
+            await w.turn(240);
+          } else {
+            await s.all(climb, w.walk([[1.2, 7.2], [-0.9, 7.2]]));
+            await w.turn(250);
+          }
+          await o.turn(270);
+          o.look('virginia');
+        }
+        await s.wait(1);
+        // she comes down to her mother; Mrs Otis gets up and takes her face in her hands
+        w.reach(null);
+        glide(s, SH.foot, 3);
+        m.on(null);
+        const up = m.go('stand_up', { from: [ARM[0], ARM[1]], turn: 200 });
+        await v.walk([[1.1, 7.2], [0.7, 6.0], [-0.3, 5.9]]);
+        await up;
+        await v.turn(260);
+        await m.walk([[-0.2, 5.5], [-0.9, 5.9]]);
+        await m.turn(100);
+        m.look('virginia');
+        v.look('mrs_otis');
+        m.reach({ r: 'virginia#head', l: 'virginia#head' });
+        s.tell('midnight:hold');
+        await s.wait(2);
+      },
+    },
+    // «Свеча у стены», years later: by the open door, the carriage waiting — he takes her hand and lets it go first
+    wedding: {
+      after: [], tells: ['wedding:hand', 'wedding:let'], seconds: 10,
+      from: () => merge(MORNING, SH.door, { hour: 11 }, who('virginia', [2.3, 6.9, 215], 'stand', { wear: V.virginia_duchess ?? null, look: 'otis' }),
+        who('otis', [1.4, 6.35, 45], 'stand', { look: 'virginia' }), who('cecil', [3.05, 8.1, 200], 'stand', { wear: V.cecil_duke ?? null, look: 'virginia' }),
+        aside('mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'mrs_umney')),
+      run: async s => {
+        const o = s.person('otis'), v = s.person('virginia');
+        await s.wait(1.5);
+        o.reach({ r: 'virginia#hand_l' });
+        v.reach({ l: 'otis#hand_r' });
+        s.tell('wedding:hand');
+        await s.wait(4);
+        o.reach(null);
+        s.tell('wedding:let');
+        await s.wait(1);
+        v.reach(null);
+        await s.wait(2.5);
+      },
+    },
+    // the morning of leaving: Mr Otis buttons his coat, Virginia by him
+    coat: {
+      after: [], tells: ['coat:end'], seconds: 6,
+      from: () => merge(MORNING, SH.coat, who('otis', [1.7, 6.3, 205], 'button_coat', { look: null }), who('virginia', [0.8, 5.8, 160], 'stand', { look: 'otis', wear: V.virginia ?? null }),
+        who('mrs_otis', [2.55, 7.0, 190]), who('washington', [3.55, 6.75, 205]), who('twin_star', [2.65, 7.85, 200]), who('twin_stripes', [3.2, 7.75, 170]),
+        who('mrs_umney', [-1.0, 5.6, 160], 'clasped', { look: 'virginia' }), aside('cecil')),
+      run: async s => {
+        await s.wait(4);
+        s.person('otis').do('stand');
+        s.person('otis').look('virginia');
+        await s.wait(1.5);
+        s.tell('coat:end');
+      },
+    },
+    // the porch: they go out to the carriage — she between the twins (shares), or last, turning on the porch to look up
+    // at the house (her face to us); his hand given her (wake); the chain heard from the windows (plays)
+    porch: {
+      after: [], tells: ['porch:board', 'porch:chain', 'porch:look'], seconds: 15,
+      from: () => merge(MORNING, SH.porch, who('otis', [1.7, 6.3, 160]), who('virginia', [0.8, 5.8, 160], 'stand', { look: 'otis', wear: V.virginia ?? null }),
+        who('mrs_otis', [2.55, 7.0, 190]), who('washington', [3.55, 6.75, 205]), who('twin_star', [2.65, 7.85, 200]), who('twin_stripes', [3.2, 7.75, 170]),
+        who('mrs_umney', [-1.0, 5.6, 160], 'clasped', { look: 'virginia' }), aside('cecil')),
+      run: async s => {
+        const shares = !!s.get('shares'), wake = !!s.get('wake'), plays = !!s.get('plays');
+        const go = (id, pts, wait = 0) => s.sequence(async q => {
+          await q.wait(wait);
+          await q.person(id).walk(pts);
+          q.person(id).here(false);
+        });
+        const OUT = [3.2, 9.5];
+        const first = s.all(go('mrs_otis', [[2.8, 8.2], OUT]), go('washington', [[3.2, 8.2], OUT], 0.4));
+        const v = s.person('virginia'), o = s.person('otis');
+        if (shares) {
+          await first;
+          s.tell('porch:board');
+          v.look(null);
+          await s.all(go('twin_star', [[2.6, 8.2], OUT], 0.2), go('twin_stripes', [[3.3, 8.2], OUT], 0.2), go('virginia', [[2.3, 7.0], [2.95, 8.2], OUT]),
+            go('otis', [[2.6, 7.3], [2.9, 8.3], OUT], 1.2));
+          if (plays) s.tell('porch:chain');
+          s.tell('porch:look');
+          await s.wait(1);
+          return;
+        }
+        await s.all(first, go('twin_star', [[2.6, 8.2], OUT], 0.8), go('twin_stripes', [[3.3, 8.2], OUT], 1.2));
+        s.tell('porch:board');
+        if (wake) {
+          o.reach({ r: 'virginia#hand_l' });
+          v.reach({ l: 'otis#hand_r' });
+        }
+        await s.all(v.walk([[2.0, 7.0], [3.0, 8.2], [3.3, 9.0]]), s.sequence(async q => {
+          await q.wait(0.3);
+          await q.person('otis').walk([[2.4, 7.1], [3.2, 8.3], [3.3, 9.6]]);
+        }));
+        o.reach(null);
+        v.reach(null);
+        await v.turn(180);
+        if (plays) {
+          s.tell('porch:chain');
+          await s.wait(1);
+        }
+        v.look([2.9, 7.0, 6.5]);
+        s.tell('porch:look');
+        await s.wait(2.5);
+      },
+    },
+  };
+}
+
+return { oak, portrait, sconce, door, nosing, STAIR, OAK, OAK_DARK, OAK_LIGHT, film: FILM };
