@@ -119,8 +119,8 @@
         "distance": "ghost_d"
       },
       "color": "#bdf0df",
-      "strength": 2.0,
-      "reach": 3.6,
+      "strength": 1.8,
+      "reach": 2.6,
       "on": "ghost_light"
     },
     {
@@ -160,7 +160,7 @@
     "door_parents": 12,
     "door_virginia": 300,
     "door_twins": 276,
-    "bottle": "held",
+    "bottle": "none",
     "spook": "none",
     "armchair": false,
     "ghost_light": 1,
@@ -244,11 +244,11 @@
     },
     "bottle": {
       "values": [
-        "held",
+        "none",
         "table",
         "smashed"
       ],
-      "means": "the bottle of oil: held (in Mr Otis's hand, otis_with has it), on the little table by the armour, smashed on the floor"
+      "means": "the bottle of oil in the place: none (in Mr Otis's hand while otis_with has it, or gone), on the little table by the armour, smashed on the floor"
     },
     "spook": {
       "values": [
@@ -512,6 +512,20 @@
         -0.9,
         -3.02,
         0.9,
+        0.02
+      ]
+    },
+    {
+      "id": "wing",
+      "name": "The wall of the parents' wing, outside the middle window",
+      "across": -2.55,
+      "distance": 5.5,
+      "facing": 180,
+      "height": 3.9,
+      "box": [
+        -0.55,
+        -3.92,
+        0.55,
         0.02
       ]
     },

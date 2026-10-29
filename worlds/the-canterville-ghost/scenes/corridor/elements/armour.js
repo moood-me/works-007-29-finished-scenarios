@@ -1,9 +1,9 @@
 // A suit of plate armour on its stand against the right wall, from before (2.05 m with its plinth): an old knight's
 // harness standing empty — the close helmet with its visor down, the breastplate, the pauldrons, the arms hanging, the
 // gauntlets resting on the pommel of a long sword set point down between the feet. Its point `helm`.
-const STEEL = '#aab2b6';
-const DARK = '#717a80';
-const LIGHT = '#d4d9dc';
+const STEEL = '#848c92';
+const DARK = '#575f65';
+const LIGHT = '#aab2b6';
 // the plinth
 g.fillStyle = '#3a2618';
 g.fillRect(-0.36, -0.14, 0.72, 0.14);
