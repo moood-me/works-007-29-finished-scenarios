@@ -36,7 +36,8 @@ The room: across −2.65…2.75, 0…6 deep, the ceiling 2.8 (`floor`, `ceiling`
   its pendulum a layer swung by `clock.animate.js`; point `clock#face`); the icon across the back-right corner with its
   towel and lampada (`icon`, point `icon#flame`).
 - Left wall: the doorway to the stairs, 3.6…4.5 m in (cut in `wall_left`; point `wall_left#door`), its door
-  (`door`, hinged at the doorway's back side, opening into the room: state `door`; point `door#latch`). Through it, when
+  (`door`, hinged at the doorway's back side, opening into the room: state `door` — shut, ajar, open —, swung over a
+  second by `script.js`; point `door#latch`). Through it, when
   open: the landing outside (`landing`, boards), the flight going down toward the back of the house along the stair's
   far wall (`steps`, `stair_wall` with its rail and a little window — `stair_glass`, its daylight `stair_day`;
   `stair_ceiling`) — «пролёт в несколько ступеней», where people go out. Seen from the viewer only as a narrow wedge
@@ -64,7 +65,7 @@ point between the one they look at and the viewer (a look straight across the ro
   3.88, 1.0]}`); `landing`: out on the landing, seen through the door; `table`: by the table at the back.
 - `dreamer` — `door` (default): come in from the door, his hat low in his hand (`_with ["hat_low"]`); `table`: by the
   table at the back, where the letter is laid and the hat left; `beside`: a step from Nastenka's bench, to take her
-  hand; `stool`: on the low bench, reading to Grandmother («Булавка»: `_with ["book"]`, `pin: "dreamer"`); `landing`:
+  hand; `stool`: on the low bench, reading to Grandmother («Булавка»: `_with ["book"]`, `pin: "him"`); `landing`:
   out on the landing.
 - `lodger` — new here (`lodger_here` false by default). `chair`: standing at the armchair's right, the two men at the
   room's two sides and Nastenka between, his hat at his chest (`_wear {"hat": "none"}`, `_with ["hat_hand"]` — the
@@ -73,22 +74,33 @@ point between the one they look at and the viewer (a look straight across the ro
 - `fyokla` — new in the cast, Grandmother's deaf servant (`fyokla_here` false by default). `stove`: by the stove at the
   back; `table`: by the table.
 - `pin` — Grandmother's pin: a thin bright steel line with an ink edge from Grandmother's lap to the one pinned to her
-  (state `pin`: `nastya`, `dreamer`, `none`), laid each frame by `pin.animate.js` along the way from `babushka#hips` to
-  `<who>#hips` (a little below) and drawn over its middle only; its head and a glint glow. Its card stands at 3.2 m, in
+  (state `pin`: `pinned`, `taut` — to Nastenka; `him` — to the Dreamer; `off`), laid each frame by `pin.animate.js`
+  along the way from `babushka#hips` to `<who>#hips` (a little below) and drawn over its middle only; its head and a
+  glint glow; its point — the element's own, `pin` — the line's middle (М9's mark).
+- `hat` — the Dreamer's top hat lying on the table by the wall (state `hat_table`; point `hat#hat`). Its card stands at 3.2 m, in
   front of both laps (the `stand` spot keeps Nastenka behind it).
 
 ## The memory
 
-`memory` 1 — the room a year ago, as Nastenka tells it (2.4): a cool, pale early-morning light (a look: the lampada
-nearly out, the day's sun off; `morning_sun` low through the left window, long across the floor). The scenario's frame:
-`babushka_here` false, `dreamer_here` false, `pin` none, `door` open, `lodger_here` true at `stair` with the books,
+`time` memory — the room a year ago, as Nastenka tells it (2.4): a cool, pale early-morning light (`script.js` sets
+the look `memory`: the lampada nearly out, the day's sun off; `morning_sun` low through the left window, long across
+the floor). The scenario's frame: `babushka_here` false, `dreamer_here` false, `pin` off, `door` open, `lodger_here` true at `stair` with the books,
 `nastya_spot` `door` with the bundle.
 
 ## State
 
-`lampada` 0…1 — the icon lamp's light and glow; `door` 5…90 (smooth) — 90 shut, 5 wide open; `pin` — nastya, dreamer,
-none; `memory` 0/1; `babushka_spot`, `nastya_spot`, `dreamer_spot`, `lodger_spot`, `fyokla_spot` (above). The
-people's keys are the engine's.
+`lampada` 0…1 — the icon lamp's light and glow; `time` — sunday / memory; `door` — shut / ajar / open; `pin` —
+pinned / taut / off / him; `hat_table` — his hat on the table; `babushka_spot`, `nastya_spot`, `dreamer_spot`, `lodger_spot`, `fyokla_spot` (above). The
+people's keys are the engine's. `door_turn` (90 / 75 / 5) and `memory` (the look, 0…1) are the scene's own, moved by
+`script.js` from `door` and `time`.
+
+## Done, and what is left
+
+Stage 4 is done (2026-10-29): the door and the stair beyond it, the spots, the Lodger and Fyokla, the pin to whoever is
+pinned, the hat on the table, the memory's morning light. The game stopped at this half-stage (Pavel): no pieces yet.
+Left for stage 5: the pieces `memory`, `after_mass`, `knock`, `stairs_out`, `stand_pin`, `table`, `turn`, `talk`,
+`refuse`, `unpin_go`, `pinned`, `rustle` with their motions (`knock`, `unpin`, `search_hands`, `hat_on`…), М6 and М9,
+the camera — `docs/new-games/belye-nochi/game.md`, «Stage 5 — pieces».
 
 ## What moves
 

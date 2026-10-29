@@ -138,8 +138,11 @@
   ],
   "state": {
     "lampada": 1,
-    "door": 90,
-    "pin": "nastya",
+    "time": "sunday",
+    "door": "shut",
+    "pin": "pinned",
+    "hat_table": false,
+    "door_turn": 90,
     "memory": 0,
     "babushka_spot": "chair",
     "nastya_spot": "stool",
@@ -192,28 +195,49 @@
       "smooth": true,
       "means": "the lampada before the icon: 0 out, 1 burning (its light and its glow)"
     },
+    "time": {
+      "values": [
+        "sunday",
+        "memory"
+      ],
+      "means": "sunday — the day of the game, after mass; memory — the room as Nastenka remembers it a year ago (her story, the bundle): a cool, pale early-morning light, the low sun through the left window lying long across the floor, the lampada nearly out (script.js sets the look `memory`)"
+    },
     "door": {
+      "values": [
+        "shut",
+        "ajar",
+        "open"
+      ],
+      "means": "the door to the stairs (opening into the room): shut; ajar — a hand's breadth (he went out onto the stairs); open — wide, the landing and the flight going down seen through it; set, it swings over a second (script.js turns door_turn)"
+    },
+    "pin": {
+      "values": [
+        "pinned",
+        "taut",
+        "off",
+        "him"
+      ],
+      "means": "Grandmother's pin, a thin shining line from her lap: pinned — to Nastenka's dress (on the bench); taut — the same, Nastenka stood up and the pin drawn tight (it stretches as she goes); off — unpinned, no pin; him — to the Dreamer's coat («Булавка»); its point — the element's own, `pin`: the line's middle"
+    },
+    "hat_table": {
+      "type": "boolean",
+      "means": "the Dreamer's top hat lying on the table by the wall (he put it there and went out)"
+    },
+    "door_turn": {
       "range": [
         5,
         90
       ],
       "smooth": true,
-      "means": "the door to the stairs (hinged at the back of the doorway, opening into the room): 90 shut, 5 wide open — the landing and the flight going down seen through it; a piece turns it with scene.turn"
-    },
-    "pin": {
-      "values": [
-        "nastya",
-        "dreamer",
-        "none"
-      ],
-      "means": "Grandmother's pin: nastya — Nastenka's dress pinned to Grandmother's (a thin shining line between them, stretching if she stands); dreamer — the Dreamer's coat pinned to Grandmother's («Булавка»); none — unpinned, no pin"
+      "means": "the door's turn about its hinges (the scene's own, moved by script.js from `door`): 90 shut, 75 ajar, 5 open"
     },
     "memory": {
-      "values": [
+      "range": [
         0,
         1
       ],
-      "means": "1 — the room as Nastenka remembers it, a year ago (her story's memory, the bundle): a cool, pale early-morning light, the low sun through the left window lying long across the floor, the lampada nearly out; 0 — the day of the game (Sunday after mass)"
+      "smooth": true,
+      "means": "the memory's light, 0…1 (the scene's own, set by script.js from `time`)"
     },
     "babushka_spot": {
       "values": [
@@ -317,7 +341,7 @@
       "distance": 4.5,
       "facing": 90,
       "place": {
-        "facing": "door"
+        "facing": "door_turn"
       },
       "height": 2.0,
       "box": [
@@ -566,6 +590,21 @@
         -0.16,
         0.45,
         0.01
+      ],
+      "inside": true
+    },
+    {
+      "id": "hat",
+      "name": "His hat on the table",
+      "across": 1.0,
+      "distance": 5.62,
+      "elevation": 0.74,
+      "height": 0.2,
+      "box": [
+        -0.2,
+        -0.22,
+        0.2,
+        0.1
       ],
       "inside": true
     },

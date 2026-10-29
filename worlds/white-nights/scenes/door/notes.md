@@ -25,8 +25,8 @@ a little dust in the air.
   way.
 - Ahead: the stairwell's back wall with the tall stair window (`wall_back`, `window_glass`).
 - Right: the wall with the door (`wall_right`, the doorway cut at 3.2…4.15 m in, 2.15 m high; point
-  `wall_right#doorway`). The door (`door`) is hinged at the doorway's near side and opens into the flat (state `door`;
-  point `door#handle`). The bell pull just beyond the doorway (`bell`, its brass handle at 1.17 m: point `bell#handle`).
+  `wall_right#doorway`). The door (`door`) is hinged at the doorway's near side and opens into the flat (state `door`,
+  turned by `script.js`; point `door#handle`). The bell pull just beyond the doorway (`bell`, its brass handle at 1.17 m: point `bell#handle`).
 - Through the doorway: the flat's hall (`hall` — its far wall: ochre paper, an inner doorway, a peg rail with a cloak
   and a bonnet; `hall_floor`, `hall_ceiling`).
 
@@ -40,20 +40,26 @@ a little dust in the air.
   hand held out for the letter (`glasha_reach.r` a point before him), a smile. `glasha_here` false while the door is
   shut.
 
-The moment of the silence (⏸, before he pulls): `door` 270, `glasha_here` false, his hand on the cord. The moment she
-opens: `door` 350, `glasha_here` true (the scene's own state is this one, with his hand still on the cord — let it
+The moment of the silence (⏸, before he pulls): `door` shut, `glasha_here` false, his hand on the cord. The moment she
+opens: `door` open, `glasha_here` true (the scene's own state is this one, with his hand still on the cord — let it
 go with `dreamer_reach: {"l": null, …}` as the piece needs).
 
 ## State
 
-`door` 270…355 (smooth) — the door: 270 shut, 350 wide open into the flat. The people's keys are the engine's
+`door` — shut / open (the game's; it swings over a second: `script.js` moves `door_turn`, 270 shut … 350 open, the
+scene's own). The people's keys are the engine's
 (`<id>_here`, `_look`, `_reach`, `_with`, `_mood`).
 
 ## What moves
 
 Dust in the window's light, the two breathing. Nothing is painted again while the scene plays.
 
-## Not here yet (stage 5)
+## Done, and what is left
 
-His hand pulling the cord, the bell, Glasha opening, taking the letter into her apron or watching him go, the door
-closing, him going down the stair — motions, camera, pieces.
+Stage 4 is done (2026-10-29): the place, the door that swings, Glasha, the Dreamer with the letter (or the stained
+one), the points the game marks on. The game stopped at this half-stage (Pavel, 2026-10-29): no pieces yet. Left for
+stage 5:
+
+his hand pulling the cord, the bell, Glasha opening, taking the letter into her apron or watching him go, the door
+closing, him going down the stair — the pieces `bell`, `apron`, `wrong_door` of the game's contract
+(`docs/new-games/belye-nochi/game.md`, «Stage 5 — pieces»), their motions, the camera, the «Contract for the check».

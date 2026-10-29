@@ -1,5 +1,5 @@
-// The tea on the table (x −0.4…0.4, y −0.22 … 0): two cups on their saucers — his at the left end, hers at the
-// right —, a little brown teapot between, a sugar bowl; points `his`, `hers` (the cups' tops)
+// The tea on the table (x −0.4…0.4, y −0.22 … 0): the cups on their saucers (state `cups`: his at the left end from
+// 1, hers at the right with 2), a little brown teapot between; points `his`, `hers` (where the cups' tops are)
 const INK = e.lib.INK;
 function cup(x) {
   g.fillStyle = '#f4f1ea';
@@ -24,8 +24,9 @@ function cup(x) {
   g.arc(x + 0.048, -0.045, 0.014, -1.4, 1.4);
   g.stroke();
 }
-cup(-0.27);
-cup(0.27);
+const n = e.state.cups ?? 2;
+if (n >= 1) cup(-0.27);
+if (n >= 2) cup(0.27);
 g.fillStyle = '#7a4a32';
 g.beginPath();
 g.ellipse(0, -0.07, 0.07, 0.065, 0, 0, Math.PI * 2);

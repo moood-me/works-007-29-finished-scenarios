@@ -14,3 +14,11 @@ for (const id of Object.keys(SPOTS)) {
   place(id, scene.state[`${id}_spot`]);
   scene.on('change', `${id}_spot`, (v) => place(id, v));
 }
+
+// The door: `door` (shut, ajar, open) swings it about its hinges over a second (door_turn: 90, 75, 5).
+const TURN = { shut: 90, ajar: 75, open: 5 };
+scene.set('door_turn', TURN[scene.state.door] ?? 90);
+scene.on('change', 'door', (v) => scene.move('door_turn', TURN[v] ?? 90, { over: 1.1, ease: 'inOut' }));
+// The time: the memory's light (the look `memory`, the low morning sun) for time `memory`, at once (a cut of the game).
+scene.set('memory', scene.state.time === 'memory' ? 1 : 0);
+scene.on('change', 'time', (v) => scene.set('memory', v === 'memory' ? 1 : 0));
