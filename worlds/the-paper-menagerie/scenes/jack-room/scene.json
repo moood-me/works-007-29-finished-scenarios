@@ -95,7 +95,9 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats",
+    "paper"
   ],
   "state": {
     "moment": "night",
@@ -149,7 +151,14 @@
     "dad_here": false,
     "dad_a": 1.05,
     "dad_d": 3.3,
-    "young": false
+    "young": false,
+    "plate_door": false,
+    "laohu_dir": 1,
+    "laohu_purr": 0,
+    "laohu_unfold": 0,
+    "laohu_shake": 0,
+    "letter_close": 0,
+    "tremble": 0
   },
   "states": {
     "moment": {
@@ -161,7 +170,7 @@
         "call",
         "packed"
       ],
-      "means": "which of the scenario's moments the room shows (notes.md has the table) — set at once, it sets the room's light, what stands where and who is here, by `menagerie` too: bedtime — the prologue's night (П.4), Mom sitting by Jack on his bed, Laohu by him; night — 1.6, Jack on his bed over the empty shoe box, the animals on the shelf, Laohu taped on the pillow; hatch — 1.6, the box shut on the stool under the open attic hatch in the hall, Jack under it; ran — 1.4 after running away, dusk: Jack at the window, the scraps on the sill, Dad at the shut door with the buns; call — 1.5 after running away, evening: Mom at the open door, Jack by the window with the scraps; packed — chapter 3 (3.2), the house sold: the room emptied, day, Jack grown"
+      "means": "which of the scenario's moments the room shows (notes.md has the table) — set at once, it sets the room's light, what stands where and who is here, by `menagerie` too: bedtime — the prologue's night (П.4), Mom sitting by Jack on his bed, Laohu by him; night — 1.6, Jack on his bed over the empty shoe box, the animals on the shelf, Laohu taped on the pillow; hatch — 1.6, the box shut on the stool under the open attic hatch in the hall, Jack under it; ran — 1.4 after running away, dusk: Jack at the window, the scraps on the sill, Dad at the shut door with the buns; call — 1.5 after running away, evening: Mom at the open door, Jack by the window with the scraps; packed — chapter 3 (3.2), the house sold: the room emptied, day, Jack grown (pieces begin from these too: lib.moment)"
     },
     "menagerie": {
       "values": [
@@ -279,21 +288,24 @@
         -2.8,
         2.4
       ],
-      "means": "where the two goats are when out (`zoo`), metres right of the middle (the sill −0.55; the quilt −2.45)"
+      "means": "where the two goats are when out (`zoo`), metres right of the middle (the sill −0.55; the quilt −2.45)",
+      "smooth": true
     },
     "goats_d": {
       "range": [
         2.5,
         4.2
       ],
-      "means": "where the goats are, metres away (the sill 4.12; the quilt 2.85)"
+      "means": "where the goats are, metres away (the sill 4.12; the quilt 2.85)",
+      "smooth": true
     },
     "goats_e": {
       "range": [
         0,
         1.5
       ],
-      "means": "how high the goats are (the sill 0.88; the quilt 0.49)"
+      "means": "how high the goats are (the sill 0.88; the quilt 0.49)",
+      "smooth": true
     },
     "laohu_out": {
       "type": "boolean",
@@ -304,21 +316,24 @@
         -2.8,
         2.4
       ],
-      "means": "where Laohu stands, metres right of the middle (the pillow −2.4; the shelf −1.6)"
+      "means": "where Laohu stands, metres right of the middle (the pillow −2.4; the shelf −1.6)",
+      "smooth": true
     },
     "laohu_d": {
       "range": [
         2.5,
         4.2
       ],
-      "means": "where Laohu stands, metres away (the pillow 3.88; the shelf 4.12)"
+      "means": "where Laohu stands, metres away (the pillow 3.88; the shelf 4.12)",
+      "smooth": true
     },
     "laohu_e": {
       "range": [
         0,
         1.5
       ],
-      "means": "how high Laohu stands (the floor 0; the quilt 0.49; the pillow 0.59; the shelf 1.285)"
+      "means": "how high Laohu stands (the floor 0; the quilt 0.49; the pillow 0.59; the shelf 1.285)",
+      "smooth": true
     },
     "laohu_tape": {
       "type": "boolean",
@@ -392,7 +407,57 @@
     },
     "young": {
       "type": "boolean",
-      "means": "the prologue (the game's): Jack at five - the moment's Jack dressed as the cast's jack_five (not in 'packed')"
+      "means": "the prologue: Jack is five (the script dresses him so)"
+    },
+    "plate_door": {
+      "type": "boolean",
+      "means": "the plate of buns Dad set down outside Jack's shut door (1.4, «Убежал»)"
+    },
+    "laohu_dir": {
+      "values": [
+        1,
+        -1
+      ],
+      "means": "which way Laohu faces: 1 his head to the left, −1 to the right (he turns at once, as paper does)"
+    },
+    "laohu_purr": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Laohu stroked, purring: his breath deep and quick, a shiver along him (the mini-game «Погладить»)"
+    },
+    "laohu_unfold": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Laohu unfolding by himself (3.2): the crooked fold at the tail first (to 0.25), then the others one by one, into the flat sheet"
+    },
+    "laohu_shake": {
+      "range": [
+        0,
+        1
+      ],
+      "means": "Laohu shaking himself, stretching"
+    },
+    "letter_close": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "her letter close (an insert): the back of the wrapping, her columns, the old tape, the tear and its strip, her 爱"
+    },
+    "tremble": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the sheet trembling along the tiger's folds: 0 still, 1 warm and alive"
     }
   },
   "objects": [
@@ -1059,6 +1124,20 @@
       }
     },
     {
+      "id": "plate",
+      "name": "The plate of buns by Jack's door",
+      "inside": true,
+      "across": 0.95,
+      "distance": 3.55,
+      "height": 0.08,
+      "box": [
+        -0.15,
+        -0.09,
+        0.15,
+        0.01
+      ]
+    },
+    {
       "id": "motes",
       "name": "Dust in the sunlight",
       "inside": true,
@@ -1144,6 +1223,11 @@
       "inFront": [
         "dad"
       ]
+    },
+    {
+      "id": "letter",
+      "name": "Her letter, close",
+      "insert": "letter_close"
     }
   ],
   "music": {

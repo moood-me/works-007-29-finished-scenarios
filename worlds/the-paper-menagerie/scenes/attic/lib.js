@@ -24,4 +24,40 @@ function dust(g, x, y, w, h, a) {
   g.fillRect(x, y, w, h);
   g.restore();
 }
-return { boards, dust };
+
+// The attic's piece (stage 5; modules/beats; the contract: game.md «Stage 5 — pieces», notes.md «Pieces»): 3.2,
+// «Зверинец» 0 — the shoe box starts in the dusty light; Jack, grown, in the open hatch, reaches it and takes it down.
+function film(scene) {
+  const DEG = 180 / Math.PI, EYE = 1.7;
+  const CAM0 = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
+    camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
+  const CAM = ([ex, ez, eh], [tx, tz, th]) => ({ ...CAM0, camera_x: ex, camera_z: ez, camera_h: eh - EYE,
+    camera_yaw: Math.atan2(tx - ex, tz - ez) * DEG, camera_pitch: Math.atan2(th - eh, Math.hypot(tx - ex, tz - ez)) * DEG });
+  const CAMK = ['camera_x', 'camera_z', 'camera_h', 'camera_yaw', 'camera_pitch'];
+  const glide = (s, c, over) => s.all(...CAMK.map(k => s.move(k, c[k], { over, ease: 'inOut' })));
+  const SH = { box: CAM([0.35, 2.1, 0.9], [0.5, 3.6, 0.45]), hatch: CAM([0.1, 2.0, 1.15], [0.85, 3.5, 0.75]) };
+  const cast = scene.kit?.cast?.characters ?? {};
+  return {
+    wake_attic: {
+      tells: ['wake_attic:box'], seconds: 8,
+      from: () => ({ ...SH.box, box: 'shut', stir: true, hatch: 1, hatch_light: 1, jack_a: 1.0, jack_d: 3.45, jack_turn: 240, jack_do: 'stand',
+        jack_look: 'shoebox#box', jack_reach: null, jack_with: [], jack_wear: cast.jack_grown ? { ...cast.jack_grown, parts: [] } : null }),
+      run: async s => {
+        const jack = s.person('jack');
+        await s.wait(2.5);
+        s.tell('wake_attic:box');
+        glide(s, SH.hatch, 1.5);
+        jack.reach({ r: 'shoebox#box', l: 'shoebox#box' });
+        await s.wait(1.5);
+        s.set('stir', false);
+        s.set('box', 'gone');
+        jack.reach(null);
+        jack.with(['shoebox']);
+        jack.look('jack#shoebox');
+        await s.wait(2.5);
+      },
+    },
+  };
+}
+
+return { boards, dust, film };
