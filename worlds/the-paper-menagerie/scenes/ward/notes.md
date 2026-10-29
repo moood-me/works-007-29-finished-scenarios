@@ -74,7 +74,7 @@ the corridor names `view: 'corridor'` and `camera_on: 'corridor_eye'` in its sta
 | `lamp` | as before: 1 the evening, 0.6 darkening, 0.3 the night |
 
 People have `place` keys now (`<id>_a`, `<id>_d`); `nurse` (the cast's) is in the corridor (here false unless the game
-says). Mom in bed: `mom_on: [0.72, 3.98, 0.5]`, `mom_do: "lie_bed"`, `mom_turn: 90` — on her back, her head on the
+says). Mom in bed: `mom_on: [0.55, 3.98, 0.54]`, `mom_do: "lie_bed"`, `mom_turn: 90` — on her back, her head on the
 pillow, her right hand on the near side (M5's `mom#hand_r`). Sitting down and getting up: `sit_down`, `rise`.
 **Cameras**: the ward's own (lib.js `SH`: an eye and the point it looks at — Mom from her right or left, the two on the
 bed's edge, the bedside table, Mom in bed from above, the chair, the window; in the corridor from `corridor_eye`): the
@@ -111,8 +111,9 @@ table's top where the tiger stood («Остался»).
 - Dad has no coat to put on in `coat`: his look has no coat, he only gets up and goes.
 - In `talk_hand` Jack lays the bag down where no element shows it (his look loses the part as he sits).
 - `doze_chair` is Dad asleep leaning back with his arms crossed, not with his head dropped forward (two takes).
-- Mom in bed is held over it by `_on` (`[0.72, 3.98, 0.5]`), not laid on a `walk` plane: on such a plane a lying motion
-  floats about its height above it (the history note: an engine gap with its repro).
+- (Not an engine gap.) `lie_bed` lies on a bed of its own, ~0.47 m up, touching no floor, so on a `walk` plane its
+  height is added to the plane's. Mom in bed is `_on` `[x, distance, e]` — the documented way: `e` is the hip seat
+  height (hips ≈ e + 0.14·h/1.76), 0.54 lays her on the mattress. Never `lie_bed` and a `walk` plane together.
 
 ## Contract for the check
 
