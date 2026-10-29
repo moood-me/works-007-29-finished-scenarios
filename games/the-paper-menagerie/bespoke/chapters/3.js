@@ -109,6 +109,8 @@ export default {
         start: async () => {
           await read(g, who, 'p0');
           await read(g, who, 'p1');
+          // (the reading not one held shot: the back of her sheet, close, beside the woman while the voice goes on)
+          g.set('letter_close', 1, 1.2);
           await read(g, on, f.asked ? 'p2asked' : 'p2silent');
           await read(g, on, 'p3');
           if (f.talk === 'grandma') {
@@ -118,6 +120,7 @@ export default {
             g.kept(tr('“I’ll finish later” — she finished it here.'));
           }
           await read(g, on, 'p4');
+          g.set('letter_close', 0, 1);
           await read(g, on, 'p5');
           await read(g, on, 'p6');
         },
