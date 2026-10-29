@@ -489,9 +489,10 @@ function film(scene) {
       run: async s => {
         const v = s.person('virginia');
         s.camera({ target: 'virginia', shot: 'full' });
+        // (no `stamp`: Kimodo could not make it — she draws herself up, her face as the game gives it)
         s.tell('stamp:stamp');
-        await v.do('stamp', { loop: false });
         v.do('upright');
+        await s.wait(2);
       },
     },
     // 3.6 after М5 (`vision` back to 0): the hunters stir, the wall parts; he stands and holds out his hand to her
@@ -653,17 +654,19 @@ function film(scene) {
         await o.turn(345);
         o.look('wall_r');
         s.tell('knock_evening:knock');
-        await o.do('knock_wall', { loop: false });
+        // (no `knock_wall`: Kimodo could not make it — his right forearm held out to the tapestry a moment)
+        o.do('offer');
+        await s.wait(1.5);
         o.do('hold_candle');
         await s.wait(1);
       },
     },
-    // 4С.5: night, empty; Mr Otis in his dressing gown with a candle knocks, sets the candle on the floor, sits facing
+    // 4С.5: night, empty; Mr Otis (in his coat, as in the corridor that night) with a candle knocks, sets the candle on the floor, sits facing
     // the wall; it parts and Virginia in her nightgown steps out with the casket
     wait_wall: {
       tells: ['wait_wall:knock', 'wait_wall:sat', 'wait_wall:out'],
       seconds: 18,
-      from: () => ({ ...NIGHT, ...people(scene), door: 150, otis_with: ['candle_l'], otis_candle: 1, otis_do: 'hold_candle', otis_wear: W('otis_gown'),
+      from: () => ({ ...NIGHT, ...people(scene), door: 150, otis_with: ['candle_l'], otis_candle: 1, otis_do: 'hold_candle',
         virginia_a: -1.4, virginia_d: 6.3, virginia_turn: 180, virginia_do: 'stand', virginia_look: 'otis', virginia_with: ['casket'],
         virginia_wear: W('virginia_night'), ...shot('otis', 'full') }),
       run: async s => {
@@ -673,7 +676,8 @@ function film(scene) {
         await o.turn(345);
         o.look('wall_r');
         s.tell('wait_wall:knock');
-        await o.do('knock_wall', { loop: false });
+        o.do('offer');
+        await s.wait(1.5);
         o.with([]);
         s.set('otis_candle', 0);
         s.set('candle_floor', true);

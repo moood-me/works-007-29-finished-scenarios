@@ -72,8 +72,11 @@ Pieces (seconds without lines). Shots: the room is small and the operator comes 
 | dark | — | the two in the dark way, shapes passing | dark |
 | lantern | — | Washington with his lantern: pounds and sits (shares) / goes (watch) / sits | evening |
 | knock_evening | — | Mr Otis with a candle knocks on the tapestry | evening |
-| wait_wall | — | Mr Otis in his gown knocks, sets the candle down, sits; the wall parts, she steps out with the casket | night |
+| wait_wall | — | Mr Otis (in his coat: the same night he sits in the corridor) knocks, sets the candle down, sits; the wall parts, she steps out with the casket | night |
 | candle_last | — | Mr Otis comes in with a candle and sits on the floor before the tapestry; the camera pushes in | night |
+
+Motions Kimodo could not make (the lead's word): `stamp` — Virginia draws herself up (`upright`) instead;
+`knock_wall` — Mr Otis holds his right forearm out to the tapestry a moment (`offer`), then back to his candle.
 
 ## What is not right yet
 
