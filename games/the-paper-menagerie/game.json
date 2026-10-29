@@ -1,0 +1,14 @@
+{
+  "type": "bespoke",
+  "title": "The Paper Menagerie",
+  "description": "A suburban house with a porch and an apple tree; a mother who came from far away, folds animals out of wrapping paper and breathes them alive; a boy who wants to be like everyone else. You are Jack — at five, at ten, at twenty-one and twenty-two. In which language will you answer her in the yard, in front of the boy next door? Will you stay with her on her good day? And when, the first spring without her, the paper tiger unfolds into her letter — what will you do with her last word?",
+  "line": "A paper tiger, a mother who says “later” — and a son who has to choose what to answer her, and in which language.",
+  "source": "after the story by Ken Liu",
+  "genres": {
+    "drama": 80,
+    "relationships": 60,
+    "immersion": 40
+  },
+  "world": "../../worlds/the-paper-menagerie",
+  "languages": ["en", "ru"]
+}

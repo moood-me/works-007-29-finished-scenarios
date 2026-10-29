@@ -4,6 +4,8 @@ g.fillStyle = '#9a7552';
 g.fillRect(-0.55, -0.04, 1.1, 0.04);
 g.fillRect(-0.45, 0.0, 0.03, 0.12);
 g.fillRect(0.42, 0.0, 0.03, 0.12);
+// (packed, `packed`: the board bare)
+if (e.state.packed) return;
 // two tea tins, red and green, with gold lids
 for (const [x, c] of [
   [-0.42, '#a8423a'],

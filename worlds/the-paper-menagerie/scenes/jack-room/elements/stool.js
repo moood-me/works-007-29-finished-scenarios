@@ -1,0 +1,20 @@
+// Dad's wooden step stool under the hatch: a worn top, splayed legs, a rung.
+g.fillStyle = '#9b7653';
+g.fillRect(-0.19, -0.45, 0.38, 0.05);
+g.fillStyle = '#b48e66';
+g.fillRect(-0.19, -0.46, 0.38, 0.012);
+g.fillStyle = '#87664a';
+g.beginPath();
+g.moveTo(-0.16, -0.4);
+g.lineTo(-0.12, -0.4);
+g.lineTo(-0.15, 0);
+g.lineTo(-0.2, 0);
+g.closePath();
+g.moveTo(0.16, -0.4);
+g.lineTo(0.12, -0.4);
+g.lineTo(0.15, 0);
+g.lineTo(0.2, 0);
+g.closePath();
+g.fill();
+g.fillRect(-0.16, -0.2, 0.32, 0.03);
+e.at(0, -0.46, 'top');

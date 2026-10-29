@@ -1,33 +1,4 @@
-// An evening in the kitchen: the three of them as they are (Mom folding at the table, her eyes on Jack; Jack leaning
-// at the table over Laohu; Dad in from the hall, hands in his pockets, watching her); then Jack looks up at his
-// mother, and she at the tiger; then back. Nobody moves but a look; the paper animals breathe and stir.
-return [
-  {
-    name: 'evening',
-    run: async s => {
-      s.set('lamp', 1);
-      s.person('mom').look('jack');
-      s.person('jack').look('laohu');
-      s.person('dad').look('mom');
-      await s.wait(8);
-    },
-  },
-  {
-    name: 'he looks up',
-    run: async s => {
-      s.person('jack').look('mom');
-      await s.wait(1.2);
-      s.person('mom').look('laohu');
-      await s.wait(6);
-    },
-  },
-  {
-    name: 'back',
-    run: async s => {
-      s.person('mom').look('jack');
-      await s.wait(0.8);
-      s.person('jack').look('laohu');
-      await s.wait(6);
-    },
-  },
-];
+// The kitchen's pieces one after another, as a game plays them (lib.film; its lines are the game's): the prologue —
+// the broken robot, the tiger put into Jack's palms, the menagerie waking; chapter 1 — the ingots, the tape, her sign on
+// his palm, Dad in the door; a year on — the boxes, and Jack with her sheet.
+return scene.kit.beats.showcase(scene, scene.lib.film(scene), ['robot', 'palms', 'menagerie', 'ingots', 'ingot_name', 'tape', 'breathe', 'palm', 'question', 'silent', 'boxes', 'her_hand']);
