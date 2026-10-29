@@ -158,7 +158,7 @@ function tiles(g, x0, x1, top, seed) {
   g.strokeStyle = 'rgba(120,112,100,0.55)';
   g.lineWidth = 0.004;
   for (let y = -0.2; y > -top + 0.25; y -= T) {
-    for (let x = x0; x < x1 - 0.01; x += T) {
+    for (let x = x0 + ((w + 1e-6) % T) / 2; x + T <= x1 + 1e-6; x += T) {
       const k = hash(Math.round((x - x0) * 50 + y * 31), seed);
       g.fillStyle = `rgb(${226 - 12 * k},${220 - 12 * k},${206 - 10 * k})`;
       g.fillRect(x + 0.004, y - T + 0.004, T - 0.008, T - 0.008);
@@ -209,12 +209,13 @@ function film(scene) {
     up: CAM([-0.2, 2.2, 1.5], [0.4, 3.85, 1.1]),
     give: CAM([0.15, 1.55, 1.45], [0.15, 3.3, 1.15]),
     read: CAM([0.2, 2.25, 1.35], [0.55, 3.45, 1.05]),
-    corner: CAM([0.1, 2.3, 1.6], [1.3, 4.25, 1.55]),
-    last: CAM([-0.45, 1.55, 1.5], [1.1, 4.2, 1.45]),
+    corner: CAM([1.35, 2.1, 1.6], [1.3, 4.2, 1.55]),
+    last: CAM([1.0, 1.35, 1.5], [1.0, 3.7, 1.35]),
     stove: CAM([0.3, 0.25, 1.55], [-0.1, 2.4, 1.15]),
     window: CAM([0.45, 2.35, 1.6], [-1.5, 3.65, 1.3]),
     yard: CAM([-1.05, 3.4, 1.75], [-6.0, 4.6, -4.5]),
-    sill: CAM([-0.15, 2.7, 1.5], [-1.45, 3.75, 0.95]),
+    sill: CAM([-0.45, 2.85, 1.45], [-1.45, 3.72, 0.95]),
+    stand: CAM([0.25, 1.85, 1.55], [0.38, 3.86, 1.35]),
   };
   const merge = (...xs) => Object.assign({}, ...xs);
   // a person's whole starting state: where, facing, doing; nothing in the hands, no look, no reach, not seated
@@ -237,8 +238,9 @@ function film(scene) {
     yard_man_here: false, yard_woman_here: false };
   const seated = (more = {}) => sat('dreamer', SEAT, 'seated', SEAT_H, more);
   const hidden = () => who('matryona', [...HIDE, 270], 'stand', { gait: 'old_walk' });
-  // her hands round the brush's pole before her, holding it upright as she goes
-  const HOLD = { r: { on: 'matryona', at: [0, -0.32, 1.2] }, l: { on: 'matryona', at: [0, -0.3, 0.85] } };
+  // her hands round the brush's pole before her, holding it upright as she goes (her right hand at her chest, her left at
+  // her hips: the pole up through them)
+  const HOLD = { r: 'matryona#chest', l: 'matryona#hips' };
   const robe = () => (scene.get('coat_drying') ? V.dreamer_robe ?? null : null);
 
   // she comes in by the door (it swings wider as she passes) and on along `way`
@@ -320,7 +322,7 @@ function film(scene) {
         d.with(['letter']);
         await take;
         d.look(null);
-        glide(s, SH.read, 2);
+        glide(s, SH.stand, 2);
         await d.turn(180);
         const hide = d.do('put_pocket');
         await s.wait(2.2);
