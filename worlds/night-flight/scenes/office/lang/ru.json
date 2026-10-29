@@ -1,4 +1,6 @@
 {"strings": [
   {"text":"Rivière’s Office","translation":"Кабинет Ривьера","where":"worlds/night-flight/scenes/office/scene.json title"},
-  {"text":"Three o’clock. The first rain on the glass.","translation":"Три часа. Первый дождь по стеклу.","where":"worlds/night-flight/scenes/office/scene.json caption"}
+  {"text":"Three o’clock. The first rain on the glass.","translation":"Три часа. Первый дождь по стеклу.","where":"worlds/night-flight/scenes/office/scene.json caption"},
+  {"text":"Fabien, radio operator. Over the sea, a hundred and fifty east of Trelew. 2:45.","translation":"Фабьен, радист. Над морем, сто пятьдесят восточнее Трелью. 2:45.","where":"worlds/night-flight/scenes/office/elements/log_page.js"},
+  {"text":"Fabien, radio operator. Position unknown.","translation":"Фабьен, радист. Место неизвестно.","where":"worlds/night-flight/scenes/office/elements/log_page.js"}
 ]}

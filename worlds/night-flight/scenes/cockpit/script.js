@@ -1,3 +1,5 @@
+// The cockpit's pieces: the game sets `beat` (modules/beats; lib.film; notes.md «Pieces»).
+scene.kit.beats.play(scene, scene.lib.film(scene));
 // The lightning while the storm is on: now and then a flash — at once bright, a moment held, dying over a third of a
 // second; sometimes a second one close after it.
 scene.every(0.7, () => {

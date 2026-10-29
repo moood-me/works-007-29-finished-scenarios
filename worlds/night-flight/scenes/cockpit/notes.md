@@ -52,3 +52,42 @@ the front cockpit, his radio operator behind. Its three skies are the scenario's
   `#note` — for the motion); the plane laid on a wing (the miss of М5) — a `tilt` on the anchor `plane` would tip the
   seated people with it, untried.
 - Seen on the GPU (a sheet: the night over Trelew; the storm with the gap open).
+
+## Stage 5: the pieces
+
+The module `beats` (lib.js `film`; script.js plays it; the game sets `beat`). The shots are cameras of their own (the
+eye and the point it looks at) in the open air on the plane's right side — the two (`two`), Fabien medium and close,
+the two looking up at the gap; the wide shot is the scene's picture camera. Notes go from hand to hand by the cast's
+`note` (`<id>_with`): the giver's motion (`pass_back` / `pass_forward`), the taker's hand reaching for the giver's,
+the note passing between them.
+
+- **Keys (the asks).** `roll` (−70…70, smooth: the anchor `plane` tilted by its `place.tilt`, the seated people with
+  it — the plane laid on a wing about its length); `water` (0…1: the sea far below through a rent in the cloud, a layer
+  of the storm's sky shown in the lightning); `climb` (0…1: the storm's cloud masses sink past — layers moved down —
+  and the gap overhead opens wider, its light growing); `house` (0…1: the lone house's window lit at dusk).
+
+| piece | after | what |
+| --- | --- | --- |
+| dusk | — | dusk over the steppe; the house's window lights below; a slow push in to Fabien |
+| note_back | dusk | Fabien writes on his knee, passes the note back; the operator reads it and taps it out |
+| trelew | — | the night over Trelew: a note forward, Fabien's answer back; close on him looking down at the lights |
+| storm | — | thrown about (`roll` a little); a note forward, his one-handed answer back; ends at the stick (М5) |
+| gap | — | the gap opens overhead; the operator's note forward |
+| key_held | gap | the operator holds his key down; Fabien looks at the fuel gauge |
+| lamp_note | gap | Fabien holds the note to the lamp, looks at the light, writes «To her», passes it back; the tap |
+| laugh_note | gap | he looks long at the signature, writes, passes it back; the tap; the gap closes |
+| above | — | over the clouds in the moon: his face close; «Beautiful» forward; his last back; the tap |
+
+## Stage 5: what is not right yet
+
+- The nose is not raised in the climb (`climb` moves the sky, not the plane): a card assembly has no pitch in its
+  own plane (`place` turns an anchor by `facing` and `tilt`; `rotation` is a plane's). The sky sinking past reads as
+  the climb.
+- `roll` tilts the anchor about its length as seen from the side: the fuselage card leans toward or away from the
+  viewer (foreshortened), not banked across the frame.
+
+## Contract for the check
+
+```json
+{"beats": {"dusk":{"after":[],"tells":["dusk:window"],"seconds":8}, "note_back":{"after":["dusk"],"tells":["note_back:read","note_back:tap"],"seconds":8}, "trelew":{"after":[],"tells":["trelew:note","trelew:answer","trelew:under"],"seconds":14}, "storm":{"after":[],"tells":["storm:note","storm:answer"],"seconds":12}, "gap":{"after":[],"tells":["gap:note"],"seconds":8}, "key_held":{"after":["gap"],"tells":["key_held:end"],"seconds":6}, "lamp_note":{"after":["gap"],"tells":["lamp_note:write","lamp_note:tap"],"seconds":14}, "laugh_note":{"after":["gap"],"tells":["laugh_note:write","laugh_note:closed"],"seconds":12}, "above":{"after":[],"tells":["above:face","above:note","above:last"],"seconds":18}}}
+```

@@ -121,7 +121,7 @@ if (above) {
       }
     });
   // the gap overhead: a ragged opening in the cloud, its edges lit, the stars in it (shown by animate as `gap` opens)
-  e.layer('gap', { box: [A * 0.3, -0.1, A * 0.9, 0.42] }, c => {
+  e.layer('gap', { box: [A * 0.3, -0.1, A * 0.9, 0.42], pivot: [A * 0.6, 0.16] }, c => {
     const gx = A * 0.6, gy = 0.16;
     glow(c, gx, gy, 0.26, 0.17, '#6a6c90', 0.9);
     glow(c, gx, gy, 0.21, 0.13, '#141a38', 1);
@@ -136,6 +136,27 @@ if (above) {
       c.fill();
     }
     c.globalAlpha = 1;
+  });
+  // (stage 5) the sea glimpsed far below through a rent in the cloud as the plane is laid on a wing (`water`, shown by
+  // animate in the lightning): black water, white streaks of foam driven by the wind
+  e.layer('water', { box: [X0, 0.62, X0 + W, Y1] }, c => {
+    const sea = c.createLinearGradient(0, 0.62, 0, Y1);
+    sea.addColorStop(0, 'rgba(20,26,34,0)');
+    sea.addColorStop(0.2, '#1a232c');
+    sea.addColorStop(1, '#0c1116');
+    c.fillStyle = sea;
+    c.fillRect(X0, 0.62, W, Y1 - 0.62);
+    c.strokeStyle = 'rgba(214,224,236,0.55)';
+    for (let i = 0; i < 90; i++) {
+      const y = 0.7 + (Y1 - 0.7) * e.rnd() ** 0.8;
+      const x = X0 + W * e.rnd();
+      const len = 0.01 + 0.05 * e.rnd() * (y - 0.6);
+      c.lineWidth = 0.0015 + 0.003 * (y - 0.6);
+      c.beginPath();
+      c.moveTo(x, y);
+      c.lineTo(x + len, y - len * 0.08);
+      c.stroke();
+    }
   });
   mass('far_cloud', 40, 0.12, 0.02, '#3a3456');
   mass('near_cloud', 24, 0.2, 0.07, '#1c1826');

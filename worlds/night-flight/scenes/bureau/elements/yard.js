@@ -93,7 +93,21 @@ if (out === 'european' || out === 'landing') {
 } else if (out === 'rolled') {
   // backed into the gate, tail first: the tail already inside, the nose still out under the lintel's edge
   plane(1.2, 0, '#9a3a32');
-  figure(-3.8, 1.65, 0.25);
+  // (stage 5) `roblet` keep: the near one at the wing is Roblet — his faded blue jacket, his grey head; else an
+  // ordinary mechanic and, by the gate, his workbench bare
+  if (e.state.roblet === 'keep') {
+    figure(-3.8, 1.6, 0.25, '#4c6f93');
+    g.fillStyle = '#b9b4ab';
+    g.beginPath();
+    g.arc(-3.8 + 1.48 * Math.sin(0.25), -1.48 * Math.cos(0.25), 0.15, 0, Math.PI * 2);
+    g.fill();
+  } else {
+    figure(-3.8, 1.65, 0.25);
+    g.fillStyle = '#4a3a2c';
+    g.fillRect(6.4, -0.9, 1.8, 0.12);
+    g.fillRect(6.5, -0.8, 0.1, 0.8);
+    g.fillRect(8.0, -0.8, 0.1, 0.8);
+  }
   figure(-2.4, 1.7, 0.25);
   figure(-5.8, 1.6, 0.2);
 } else if (out === 'idle') {
