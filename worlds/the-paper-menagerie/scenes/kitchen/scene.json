@@ -272,6 +272,14 @@
     "laohu_seam": {
       "type": "boolean",
       "means": "the game's «Шов»: the crooked seam — he leans over to one side and limps"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [

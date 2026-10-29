@@ -173,11 +173,9 @@ const steps = (v, n) => Math.min(n, Math.floor(v * n + 1e-6)) / n;
 // others one by one: the tiger flattens into the sheet), fold 0..1 (the other way: only the sheet's folds closing —
 // the tiger is painted when it is done), rise 0..1 (from lying flat to standing), show (false: nothing)}.
 function move(e, o) {
+  // (not shown: his painting has painted nothing, so there are no layers to move)
+  if (!o.show) return;
   const anim = e.anim, tiger = e.layer('tiger'), tail = e.layer('tail'), seam = e.layer('seam'), sheet = e.layer('sheet');
-  if (!o.show) {
-    tiger.alpha = tail.alpha = seam.alpha = sheet.alpha = 0;
-    return;
-  }
   const dir = o.dir < 0 ? -1 : 1;
   let x = 0, y = 0;
   if (o.held) {

@@ -42,7 +42,13 @@ if (!st.packed) {
   if (st.zoo) {
     // cranes perched on the curtains: white, yellow and newsprint
     const spots = [[-0.62, -0.95], [-0.55, -0.6], [-0.64, -0.3], [0.6, -1.0], [0.56, -0.7], [0.63, -0.42], [0.55, -0.18]];
-    spots.forEach(([x, y], i) => e.lib.crane(g, x, y, ['#f4f1e8', '#efd77a', '#ddd8cc'][i % 3], i % 3 === 1 ? '#d8bd5a' : '#cfc9bc'));
+    spots.forEach(([x, y], i) => {
+      g.save();
+      g.translate(x, y);
+      g.scale(1.6, 1.6);
+      e.lib.crane(g, 0, 0, ['#f4f1e8', '#efd77a', '#ddd8cc'][i % 3], i % 3 === 1 ? '#d8bd5a' : '#cfc9bc');
+      g.restore();
+    });
     e.at(0.58, -0.7, 'cranes');
   }
   if (st.shelf !== 'empty' && st.shelf !== 'bare') {
