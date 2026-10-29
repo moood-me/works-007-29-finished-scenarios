@@ -352,6 +352,7 @@ function granite(g, len, top, { block = 2.2, courses = [], wet = 0, colour = '#a
 // A street lamp by the parapet, burning though there is no need: a cast-iron post painted dark green on a pedestal,
 // a lamplighter's crossbar under the lantern, the lantern a four-sided glass box wider at the top under a pointed
 // cap; x across it, y up negative from its foot (metres). Its flame (the point #flame) a glow and a light of the engine's
+// (the scene's lights `lamp` and `bank_lamps` put them out by the key `lamp`)
 function lamp(g, e) {
   const post = '#47524f';
   g.fillStyle = post;
@@ -374,7 +375,9 @@ function lamp(g, e) {
   g.lineTo(0.19, -3.42);
   g.lineTo(-0.19, -3.42);
   g.closePath();
-  g.fillStyle = '#ffdc96';
+  // (its glass warm while it burns, a cool pale grey when it is out — the key `lamp`)
+  const on = Math.max(0, Math.min(1, e.state.lamp ?? 1)), mixc = (a, b) => Math.round(a + (b - a) * on);
+  g.fillStyle = `rgb(${mixc(206, 255)},${mixc(212, 220)},${mixc(218, 150)})`;
   g.fill();
   g.strokeStyle = post;
   g.lineWidth = 0.025;

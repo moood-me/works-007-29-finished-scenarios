@@ -1,7 +1,7 @@
 # cast — the people of «White Nights» as the engine's people
 
 A module for scenes with people (elements with `person`: `{"cast": "cast", "who": …}` — the engine's people.md). In
-the scene's `modules`. 7 looks, 10 parts, 2 motions of its own (below) besides the engine's `stand` and `walk`. The parts'
+the scene's `modules`. 12 looks, 12 parts, 2 motions of its own (below) besides the engine's `stand` and `walk`. The parts'
 lengths are a man's metres times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
@@ -29,6 +29,11 @@ expressions, by name). Hems are even (no ragged edge).
   with a linen apron over it (`aproned`), her keys on a ring at the right hip, bare-headed, light brown hair in bands.
 - `fyokla` — Fyokla, Grandmother's deaf old servant: thin and bent, a faded grey-blue dress to the floor, a dark
   moss-green shawl, a white kerchief over grey hair.
+- `gentleman` — the gentleman in a tailcoat on the first night, a little drunk: a black tailcoat, a top hat, a flushed face.
+- `dvornik` — the yard-keeper of the prologue: a red shirt, a long white apron, a peaked cap; his broom (`broom`).
+- `nanny` — a nurse-maid at the morning's end: a blue-grey dress, a cream shawl, a white kerchief.
+- `child` — her child, five or so, in a white frock, eating a bagel (`bagel`).
+- `passerby` — a man in the returned city: a brown long coat, a top hat.
 - `matryona` — Matryona, the Dreamer's servant, past sixty: short and broad, a brown homespun dress to the floor, a
   faded brick-red shawl over the shoulders, a washed linen kerchief (`kerchief`) tied under the chin over grey hair.
 
@@ -58,6 +63,11 @@ without the mantle.
   `<id>#books`. The hands as for the bundle.
 
 The hat's colour is the look's `colors.hat`.
+
+- `letter_stained` — the same letter after the puddle (the mark «Пятно»): a brown water stain over a corner; point
+  `<id>#letter`.
+- `broom` — the yard-keeper's birch broom upright in both hands, its twigs on the ground before his feet.
+- `bagel` — a bagel in the right hand.
 
 ## Hair
 

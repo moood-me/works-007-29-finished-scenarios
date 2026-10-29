@@ -12,6 +12,8 @@ const WHITE = [0.95, 0.92, 0.88, 1], IRIS = [0.24, 0.17, 0.14, 1], LID = [0.22, 
 const GLINT = [1, 0.98, 0.95, 2];
 // a stick's: its wood (a dark knotty hazel) and its worn knob
 const WOOD = [0.33, 0.24, 0.17, 1], KNOB = [0.42, 0.31, 0.22, 1];
+// a broom's twigs (dry birch), a bagel's crust, a puddle's brown stain on paper
+const TWIGS = [0.48, 0.38, 0.27, 1], CRUST = [0.72, 0.5, 0.28, 1], STAIN = [0.6, 0.5, 0.36, 1];
 // the expressions a face takes (<id>_mood), as the engine's simple face has them: the brows' inner and outer ends
 // raised, how open the eyes are, how wide the mouth, its corners up, how open
 const MOODS = {
@@ -164,6 +166,27 @@ return {
     fyokla: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'shawled', hair: 'short', hat: 'kerchief',
       body: { height: 0.86, thick: 0.86, shoulders: 0.86, head: 1.03 },
       colors: { skin: '#e3c3a8', hair: '#a29a90', top: '#58644a', garment: '#6f7a86', hat: '#efebe1', accent: '#efebe1', shoes: '#2a2522' } },
+    // the embankment's passers (scenes/embankment): the gentleman in a tailcoat, a little drunk, his top hat pushed
+    // back, his face flushed (the first night)
+    gentleman: { kind: 'shapes', style: 'litho', who: 'man', garment: 'frockcoat', hair: 'neat', hat: 'tophat',
+      body: { height: 1.0, thick: 1.0, shoulders: 0.98 },
+      colors: { skin: '#e8b49c', hair: '#6a5240', top: '#efe9de', garment: '#2f2d35', bottom: '#57535d', shoes: '#1e1c1f', hat: '#26252b' } },
+    // the yard-keeper with his broom (the prologue): a red shirt, a long white apron, a peaked cap, a short beard's
+    // colour in his hair
+    dvornik: { kind: 'shapes', style: 'litho', who: 'man', garment: 'apron', hair: 'short', hat: 'cap',
+      body: { height: 0.97, thick: 1.08, shoulders: 1.02 },
+      colors: { skin: '#dcae8e', hair: '#7a6450', top: '#b0503e', garment: '#ece6d6', bottom: '#4c4642', shoes: '#2a2522', hat: '#3c3a3a' } },
+    // a nurse-maid with the child she walks (the morning's end): a blue-grey dress, a cream shawl, a white kerchief
+    nanny: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'shawled', hair: 'short', hat: 'kerchief',
+      body: { height: 0.94, thick: 1.0, shoulders: 0.92, head: 1.02 },
+      colors: { skin: '#ecc8ac', hair: '#6d5546', top: '#e2d3b2', garment: '#7d8ea6', hat: '#f4efe4', accent: '#c58f7a', shoes: '#3a302c' } },
+    // her child, five or so, in a white frock, eating a bagel (the part bagel)
+    child: { kind: 'shapes', style: 'litho', who: 'child', garment: 'frock', hair: 'short', hat: 'none',
+      colors: { skin: '#f1d4bf', hair: '#a8805a', top: '#f2ece4', garment: '#efe6ea', shoes: '#5a4a44' } },
+    // a man going about his business in the returned city (the morning): a brown long coat, a top hat
+    passerby: { kind: 'shapes', style: 'litho', who: 'man', garment: 'longcoat', hair: 'neat', hat: 'tophat',
+      body: { height: 1.02, thick: 0.96, shoulders: 1.0 },
+      colors: { skin: '#dfb898', hair: '#4a3a2e', top: '#ece6dc', garment: '#6e5c4a', bottom: '#5a5450', shoes: '#231f1d', hat: '#2e2a28' } },
   },
   shapes: {
     // the world's style: the slender figure of `shadow` (a small head, a long neck, hands with fingers, pointed shoes)
@@ -347,6 +370,37 @@ return {
         const cols = [BOARDS, [0.3, 0.33, 0.42, 1], [0.45, 0.2, 0.18, 1]];
         cols.forEach((col, i) => F.ball(add(at, [0, (0.02 + i * 0.05) * m, 0]), axes, [(0.13 - i * 0.01) * m, 0.024 * m, 0.1 * m], col, 4, 3));
         F.point('books', at);
+      } },
+      // the same letter after the puddle (the mark «Пятно»): a brown water stain spread over a corner of it
+      letter_stained: { name: 'stained letter', draw: F => {
+        const { add, sub, mul, cross, unit } = V(), m = F.fit.h, hand = F.P('RightHand');
+        const fore = unit(sub(hand, F.P('RightForeArm'))), face = unit(cross(fore, [0, 1, 0])), up = cross(face, fore);
+        const c = add(add(hand, mul(fore, 0.08 * m)), mul(up, 0.03 * m)), axes = [fore, up, face];
+        F.ball(c, axes, [0.1 * m, 0.07 * m, 0.004 * m], PAPER, 10, 6);
+        for (const s of [-1, 1]) {
+          F.ball(add(c, mul(face, s * 0.005 * m)), axes, [0.013 * m, 0.013 * m, 0.004 * m], SEAL, 8);
+          F.ball(add(add(add(c, mul(fore, 0.045 * m)), mul(up, -0.025 * m)), mul(face, s * 0.0045 * m)), axes, [0.042 * m, 0.032 * m, 0.003 * m], STAIN, 8);
+        }
+        F.point('letter', c);
+      } },
+      // the yard-keeper's birch broom held upright in both hands, its bundle of twigs on the ground before his feet
+      broom: { name: 'broom', draw: F => {
+        const { add, sub, mul, unit, mix } = V(), m = F.fit.h, hands = mix(F.P('LeftHand'), F.P('RightHand'), 0.5);
+        const f = F.fwd('Hips'), ahead = unit([f[0], 0, f[2]]), floor = Math.min(F.P('RightFoot')[1], F.P('LeftFoot')[1]) - 0.075 * m;
+        const foot = [hands[0] + ahead[0] * 0.25 * m, floor, hands[2] + ahead[2] * 0.25 * m], along = unit(sub(hands, foot)), side = F.side('Hips');
+        const top = add(hands, mul(along, 0.25 * m)), bundle = add(foot, mul(along, 0.32 * m));
+        F.bar(top, bundle, 0.016 * m, 0.016 * m, [[0, WOOD]], 8, side);
+        F.bar(bundle, add(foot, mul(along, 0.02 * m)), 0.035 * m, 0.11 * m, [[0, TWIGS]], 10, side);
+      } },
+      // a bagel in the right hand, a ring of baked dough
+      bagel: { name: 'bagel', draw: F => {
+        const { add, mul, unit, cross, sub } = V(), m = F.fit.h, hand = F.P('RightHand');
+        const fore = unit(sub(hand, F.P('RightForeArm'))), face = unit(cross(fore, [0, 1, 0])), up = cross(face, fore), axes = [fore, up, face];
+        const c = add(hand, mul(fore, 0.05 * m));
+        for (let i = 0; i < 8; i++) {
+          const a = (i / 8) * Math.PI * 2;
+          F.ball(add(c, add(mul(fore, Math.cos(a) * 0.045 * m), mul(up, Math.sin(a) * 0.045 * m))), axes, [0.02 * m, 0.02 * m, 0.018 * m], CRUST, 8);
+        }
       } },
     },
   },
