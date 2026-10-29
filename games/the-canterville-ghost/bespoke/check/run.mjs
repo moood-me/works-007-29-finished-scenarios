@@ -49,7 +49,11 @@ for (const folder of readdirSync(join(world, 'scenes'))) {
   if (!existsSync(file)) continue;
   const spec = JSON.parse(readFileSync(file, 'utf8'));
   const code = id => { const f = join(world, 'scenes', folder, 'elements', `${id}.js`); return existsSync(f) ? readFileSync(f, 'utf8') : ''; };
-  SCENES.set(folder, { spec, objects: new Map((spec.objects ?? []).map(o => [o.id, o])), states: spec.states ?? {}, code });
+  // its pieces, as its notes.md's «Contract for the check» says them (none yet: what the game asks of them waits)
+  const notes = join(world, 'scenes', folder, 'notes.md');
+  const block = existsSync(notes) && /## Contract for the check\s*```json\s*([^]*?)```/.exec(readFileSync(notes, 'utf8'))?.[1];
+  const contract = block ? JSON.parse(block) : null;
+  SCENES.set(folder, { spec, objects: new Map((spec.objects ?? []).map(o => [o.id, o])), states: spec.states ?? {}, code, beats: contract?.beats ?? null });
 }
 const b = {
   specOf: async folder => {
@@ -96,7 +100,24 @@ async function step(c, s, state, where, result = null) {
   const g = context(b, view, hub, structuredClone(state), j);
   let folder = null, present = new Set();
   const made = [], titles = [];
-  const { scene, say: speak, choose, play, title, here, set } = g;
+  const { scene, say: speak, choose, play, title, here, set, beat, told } = g;
+  // a piece of the shown scene, and a moment of it: in its contract — or waited for while the scene has none
+  const piece = name => {
+    const beats = SCENES.get(folder)?.beats;
+    if (!beats) pending(`the piece “${name}” — the scene “${folder}” has no contract of its pieces yet`);
+    else if (!beats[name]) miss(`${where}: the piece “${name}” — not in the contract of the scene “${folder}”`);
+  };
+  g.beat = (name, o) => { piece(name); return beat(name, o); };
+  g.told = (text, ms) => {
+    const [name, moment] = text.split(':');
+    if (name === 'beat') piece(moment);
+    else {
+      piece(name);
+      const beats = SCENES.get(folder)?.beats;
+      if (beats?.[name] && !beats[name].tells?.includes(text)) miss(`${where}: “${text}” — the piece does not tell it`);
+    }
+    return told(text, ms);
+  };
   // a key of the shown scene's own: in its states, its value allowed — or a person's of the scene (`<id>_with`…)
   const PERSON = /^(.+)_(do|turn|look|reach|with|wear|gait|steps|on|here|still|mood)$/;
   const key = (k, v) => {
@@ -109,6 +130,7 @@ async function step(c, s, state, where, result = null) {
       miss(`${where}: the key “${k}” of the scene “${folder}” cannot be ${JSON.stringify(v)}`);
   };
   g.scene = (place, o = {}, x) => {
+    if (o.beat) queueMicrotask(() => piece(o.beat));
     const at = PLACES[place];
     if (!at) miss(`${where}: no place “${place}”`);
     else if (!SCENES.has(at.folder)) miss(`${where}: the place “${place}” — the world has no scene “${at.folder}”`);
