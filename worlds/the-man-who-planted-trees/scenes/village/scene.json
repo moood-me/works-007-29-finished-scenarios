@@ -4281,9 +4281,9 @@
       "facing": 270,
       "height": 4.137,
       "box": [
-        -2.3,
-        -4.187,
-        2.3,
+        -2.75,
+        -4.337,
+        2.75,
         0.05
       ],
       "shadow": true
@@ -4367,9 +4367,9 @@
       "facing": 90,
       "height": 4.037,
       "box": [
-        -2.3,
-        -4.087,
-        2.3,
+        -2.75,
+        -4.237,
+        2.75,
         0.05
       ],
       "shadow": true
@@ -4844,9 +4844,9 @@
       "distance": 11.8,
       "height": 2.1,
       "box": [
-        -0.95,
-        -2.12,
-        0.95,
+        -1,
+        -2.15,
+        1.05,
         0.15
       ],
       "shadow": true
@@ -5165,10 +5165,10 @@
       "person": {
         "cast": "cast",
         "who": "lina",
-        "turn": 125
+        "turn": 112
       },
-      "across": -0.75,
-      "distance": 7.7,
+      "across": -0.8,
+      "distance": 7.6,
       "place": {
         "across": "lina_a",
         "distance": "lina_d"
@@ -5181,10 +5181,10 @@
       "person": {
         "cast": "cast",
         "who": "traveller",
-        "turn": 245
+        "turn": 250
       },
-      "across": 1.7,
-      "distance": 6.4,
+      "across": 1.8,
+      "distance": 7.5,
       "place": {
         "across": "traveller_a",
         "distance": "traveller_d"
