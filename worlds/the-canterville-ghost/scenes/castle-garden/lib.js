@@ -215,7 +215,7 @@ function film(scene) {
       seconds: 8,
       from: () => ({ ...MORNING, autumn: 1, virginia_on: [3.35, 6.35, 0.45], virginia_a: 3.35, virginia_d: 6.35, virginia_turn: 200, virginia_do: 'brood',
         virginia_with: [], virginia_look: 'easel#board', virginia_wear: null, cecil_a: 2.2, cecil_d: 5.2, cecil_turn: 160, cecil_do: 'sit_ground',
-        cecil_look: 'easel#board', cecil_wear: null, ...shot('virginia', 'full', 0.6) }),
+        cecil_look: 'easel#board', cecil_wear: null, ...CAM }),
       run: async s => {
         await s.wait(2);
         s.person('cecil').look('virginia');
@@ -248,11 +248,16 @@ function film(scene) {
         await s.wait(1);
         await v.walk([[0.9, 7.9], [-0.7, 7.75]]);
         await v.turn(195);
-        s.camera({ target: 'virginia', shot: 'full', frame: 0.5 });
+        s.camera({ target: null });
+        s.move('camera_x', -1.4, { over: 3 });
+        s.move('camera_z', 3.2, { over: 3 });
+        s.move('camera_h', 0.8, { over: 3 });
+        s.move('camera_pitch', -7, { over: 3 });
         await v.do('lay_down', { loop: false });
         v.with([]);
         s.set('cross', true);
         v.do('clasped');
+        await v.turn(195);
         s.tell('funeral:cross');
         await s.wait(1);
         await s.move('clouds', 0, { over: 4 });
@@ -260,21 +265,25 @@ function film(scene) {
         await s.wait(1);
       },
     },
-    // years later: Virginia, the Duchess, and Cecil walk slowly to the yew and stop by the mound
+    // years later: Virginia, the Duchess, and Cecil, come in at the wicket, walk slowly to the yew and stop beyond the
+    // mound, facing the viewer, looking down at it (looking at it from its near side, their heads turned away)
     years: {
       tells: ['years:stop'],
       seconds: 10,
-      from: () => ({ ...MORNING, autumn: 1, almond: 'blossom', easel: false, grave: 'mound', cross: true, virginia_on: null, virginia_a: 2.1,
-        virginia_d: 4.6, virginia_turn: 0, virginia_do: 'stand', virginia_with: [], virginia_look: null, virginia_reach: null,
-        virginia_wear: W('virginia_duchess'), cecil_a: 2.6, cecil_d: 4.4, cecil_turn: 0, cecil_do: 'stand', cecil_look: null, cecil_wear: W('cecil_duke'),
-        ...shot('virginia', 'full', 0.45) }),
+      from: () => ({ ...MORNING, autumn: 1, almond: 'blossom', easel: false, grave: 'mound', cross: true, virginia_on: null, virginia_a: 1.6,
+        virginia_d: 6.2, virginia_turn: 300, virginia_do: 'stand', virginia_with: [], virginia_look: null, virginia_reach: null,
+        virginia_wear: W('virginia_duchess'), cecil_a: 2.05, cecil_d: 6.0, cecil_turn: 300, cecil_do: 'stand', cecil_look: null, cecil_wear: W('cecil_duke'),
+        ...CAM }),
       run: async s => {
         const v = s.person('virginia');
         const c = s.person('cecil');
-        await s.all(v.walk([[1.75, 6.0], [-2.6, 8.4]]), c.walk([[2.05, 6.0], [-2.1, 8.0]]));
-        await s.all(v.turn(220), c.turn(200));
-        v.look('grave');
-        c.look('virginia');
+        s.move('camera_z', 4.2, { over: 8 });
+        s.move('camera_x', -2.2, { over: 8 });
+        s.move('camera_h', 0.4, { over: 8 });
+        await s.all(v.walk([[-2.4, 9.3], [-4.0, 9.95]]), c.walk([[-1.9, 9.4], [-4.6, 10.05]]));
+        await s.all(v.turn(175), c.turn(170));
+        v.look([-4.3, 8.8, 0]);
+        c.look([-4.3, 8.8, 0]);
         s.tell('years:stop');
         await s.wait(1.5);
       },

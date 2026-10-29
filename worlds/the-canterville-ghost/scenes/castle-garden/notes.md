@@ -104,6 +104,11 @@ The module `beats` (lib.js `film`; script.js plays it). What the scene got for t
   its lid seen almost edge on from the garden.
 - The coaches are seen from behind only (they go away from the viewer); their horses are legs and tails under them.
 - Virginia painting is a standing pose (`offer` with a brush), no brush stroke.
+- The funeral is seen from the garden over the railing (the camera raised and pushed in to it): the operator framing her
+  went round into the churchyard, behind the mourners. Laying the cross (`lay_down`) she turns her back to the viewer
+  while it plays — the motion as Kimodo made it turns her about; she faces the viewer again as it ends.
+- Looks at something behind a person turn the head away (years: looking at the mound from its near side showed the
+  backs of their heads): they stand beyond the mound, facing the viewer, and look down at it.
 
 
 ## Measured (measure_scene, 0b640c4 — before the merge; the default 1.5 state)
