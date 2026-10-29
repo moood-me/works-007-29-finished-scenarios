@@ -82,7 +82,7 @@ const VIEW = ([ex, ez, eh], [tx, tz, th]) => ({
 const SH = {
   wide: VIEW([0, 0, 1.7], [0, 10, 1.7]),
   // her face from her left (she looks up at Jack standing there)
-  her_r: VIEW([0.2, 2.45, 1.3], [-1.3, 4.12, 1.0]),
+  her_r: VIEW([-0.45, 2.5, 1.3], [-1.2, 4.12, 1.0]),
   // her reading, from before her
   her: VIEW([-1.0, 2.55, 1.3], [-1.3, 4.12, 0.98]),
   // her on the right of the frame, the close-up of the sheet opening on its left
