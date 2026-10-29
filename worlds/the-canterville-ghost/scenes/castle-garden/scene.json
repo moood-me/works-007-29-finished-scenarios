@@ -115,16 +115,16 @@
     "umney_d": 4.25,
     "cecil_a": 2.2,
     "cecil_d": 5.2,
-    "otis_a": -1.3,
-    "otis_d": 8.1,
-    "mrs_otis_a": -2.1,
+    "otis_a": -1.25,
+    "otis_d": 8.15,
+    "mrs_otis_a": -1.95,
     "mrs_otis_d": 8.2,
-    "washington_a": -3.4,
-    "washington_d": 7.7,
-    "twin_a_a": -0.6,
-    "twin_a_d": 8.25,
-    "twin_b_a": -2.75,
-    "twin_b_d": 8.45,
+    "washington_a": -3.0,
+    "washington_d": 7.5,
+    "twin_a_a": -0.35,
+    "twin_a_d": 8.0,
+    "twin_b_a": -2.55,
+    "twin_b_d": 8.1,
     "virginia_with": [
       "brush"
     ],
@@ -817,8 +817,8 @@
     {
       "id": "torchpole",
       "name": "Funeral torches on poles",
-      "across": -2.95,
-      "distance": 6.65,
+      "across": -3.7,
+      "distance": 6.6,
       "height": 2.4,
       "box": [
         -0.15,
@@ -828,12 +828,12 @@
       ],
       "copies": [
         {
-          "across": -2.95,
-          "distance": 6.65
+          "across": -3.7,
+          "distance": 6.6
         },
         {
-          "across": 0.6,
-          "distance": 7.75
+          "across": 1.3,
+          "distance": 7.6
         }
       ]
     },
@@ -1047,7 +1047,7 @@
     {
       "id": "robin",
       "name": "A robin on the gate post",
-      "across": -0.37,
+      "across": 1.28,
       "distance": 5.56,
       "elevation": 0.51,
       "height": 0.3,
@@ -1174,8 +1174,8 @@
         "turn": 175,
         "does": "upright"
       },
-      "across": -1.3,
-      "distance": 8.1,
+      "across": -1.25,
+      "distance": 8.15,
       "place": {
         "across": "otis_a",
         "distance": "otis_d"
@@ -1190,7 +1190,7 @@
         "turn": 185,
         "does": "clasped"
       },
-      "across": -2.1,
+      "across": -1.95,
       "distance": 8.2,
       "place": {
         "across": "mrs_otis_a",
@@ -1206,8 +1206,8 @@
         "turn": 140,
         "does": "offer"
       },
-      "across": -3.4,
-      "distance": 7.7,
+      "across": -3.0,
+      "distance": 7.5,
       "place": {
         "across": "washington_a",
         "distance": "washington_d"
@@ -1222,8 +1222,8 @@
         "turn": 200,
         "does": "stand"
       },
-      "across": -0.6,
-      "distance": 8.25,
+      "across": -0.35,
+      "distance": 8.0,
       "place": {
         "across": "twin_a_a",
         "distance": "twin_a_d"
@@ -1238,8 +1238,8 @@
         "turn": 165,
         "does": "stand"
       },
-      "across": -2.75,
-      "distance": 8.45,
+      "across": -2.55,
+      "distance": 8.1,
       "place": {
         "across": "twin_b_a",
         "distance": "twin_b_d"
