@@ -1,6 +1,7 @@
 // The floodlights over the field: three steel lattice masts, 13 m, each with a frame of four big lamps at its top
-// turned toward the hangar. The lamps' faces are the layer `lit` (shown by `floods` in animate); each head's light is
-// `f0`…`f2` (the scene's lights flood_0…2).
+// turned toward the hangar. Each mast's lamp faces are a layer of its own, `lit0`…`lit2` (shown by the keys
+// flood_0…flood_2 in animate: the masts come on one by one as `floods` rises — script.js); each head's light is
+// `f0`…`f2` (the scene's lights flood_0…2, on those keys).
 const MASTS = [-78, -30, -16];
 for (const x of MASTS) {
   // the lattice: two legs tapering up, cross-braced
@@ -37,8 +38,8 @@ for (const x of MASTS) {
     }
   }
 }
-e.layer('lit', {}, c => {
-  for (const x of MASTS) {
+MASTS.forEach((x, i) => e.layer(`lit${i}`, { box: [x - 1.3, -14.1, x + 1.3, -12.5] }, c => {
+  {
     c.fillStyle = '#f4f7ff';
     for (const dx of [-0.75, -0.25, 0.25, 0.75]) {
       for (const dy of [-13.55, -13.0]) {
@@ -48,5 +49,5 @@ e.layer('lit', {}, c => {
       }
     }
   }
-});
+}));
 MASTS.forEach((x, i) => e.light(x, -13.3, 1.1, '#eef2ff', 1, `f${i}`));

@@ -25,7 +25,35 @@
       0.3,
       0.6
     ],
-    "brightness": 0.92
+    "brightness": 0.92,
+    "looks": {
+      "dusk": {
+        "ambient": 0.48,
+        "ambientColor": "#a090b0",
+        "inside": 0.4,
+        "tint": "#d8a080",
+        "tintStrength": 0.06,
+        "haze": 0.1,
+        "hazeColor": "#5a4a6a",
+        "lights": {
+          "moon": 0
+        }
+      },
+      "dawn": {
+        "ambient": 0.6,
+        "ambientColor": "#a9b2c4",
+        "inside": 0.5,
+        "tint": "#b8c0cc",
+        "tintStrength": 0.06,
+        "saturation": 0.82,
+        "haze": 0.12,
+        "hazeColor": "#8a94a8",
+        "lights": {
+          "moon": 0,
+          "yard_lamp": 0.4
+        }
+      }
+    }
   },
   "lights": [
     {
@@ -73,7 +101,7 @@
     },
     {
       "id": "office_glass",
-      "of": "back_wall#office",
+      "of": "office_door#office",
       "color": "#ffd6a0",
       "strength": 0.5,
       "reach": 3,
@@ -95,7 +123,8 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "lamps": 1,
@@ -116,7 +145,44 @@
         5.95,
         0.83
       ]
-    }
+    },
+    "blue": "trelew",
+    "west": "field",
+    "north": "field",
+    "red": "field",
+    "outside": "european",
+    "dusk": 0,
+    "dawn": 0,
+    "riviere_spot": "map",
+    "robineau_spot": "desk",
+    "pilot_spot": "standing",
+    "telegraphist_spot": "table",
+    "riviere_a": -0.35,
+    "riviere_d": 5.85,
+    "robineau_a": 2.75,
+    "robineau_d": 4.05,
+    "pilot_a": 1.0,
+    "pilot_d": 5.0,
+    "telegraphist_a": 2.15,
+    "telegraphist_d": 6.3,
+    "robineau_look": "madame",
+    "robineau_mood": "sad",
+    "asuncion_here": false,
+    "asuncion_look": "riviere",
+    "asuncion_mood": "tired",
+    "madame_spot": "door",
+    "madame_a": -2.3,
+    "madame_d": 4.55,
+    "asuncion_a": 0.6,
+    "asuncion_d": 5.2,
+    "flag_hand": "none",
+    "flag_to": "san_julian",
+    "flag_u": 0,
+    "flag_slip": 0,
+    "drawer": 0,
+    "tape_pull": 0,
+    "tape_mark": "words",
+    "office_door": 180
   },
   "states": {
     "lamps": {
@@ -146,6 +212,277 @@
         1440
       ],
       "means": "the clock over the map: minutes after midnight (105 — a quarter to two; 1325 — five past ten)"
+    },
+    "blue": {
+      "values": [
+        "south",
+        "san_julian",
+        "trelew",
+        "sea",
+        "off"
+      ],
+      "means": "the Patagonian mail's blue flag on the map: south — at Río Gallegos, where it sets out; san_julian — at San Julián; trelew — at Trelew; sea — out in the sea a hundred and fifty kilometres east of Trelew, at the bearing; off — taken down"
+    },
+    "west": {
+      "values": [
+        "air",
+        "field",
+        "off"
+      ],
+      "means": "the Chilean mail's yellow flag: air — over the Andes on the west line; field — at the field; off — taken down"
+    },
+    "north": {
+      "values": [
+        "air",
+        "field",
+        "off"
+      ],
+      "means": "the Asunción mail's green flag: air — up the river on the north line; field — at the field; off — taken down"
+    },
+    "red": {
+      "values": [
+        "field",
+        "north",
+        "off"
+      ],
+      "means": "the European mail's red flag: field — at the field, waiting; north — led on north, gone; off — taken down"
+    },
+    "outside": {
+      "values": [
+        "european",
+        "empty",
+        "rolled",
+        "landing",
+        "idle"
+      ],
+      "means": "what the window shows at the hangar across the field: european — the night: the European mail in the lit gate being made ready; empty — it has gone, the gate lit and empty; rolled — at dawn, stood down: the mechanics rolling it back into the hangar; landing — the next evening: the floodlights lit, the Chilean mail coming down over the field, the next European in the gate; idle — the next evening with the night mail suspended: the floodlights dark, the gate half shut, Pellerin smoking by his plane"
+    },
+    "dusk": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the hour's light, set by the scene's script from `time` (18:30–20:30): 1 — dusk, the afterglow in the window, no storm; the light's look `dusk`"
+    },
+    "dawn": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the hour's light, set by the scene's script from `time` (5:30–8:00): 1 — dawn, a grey overcast lifting, cold light in the window; the light's look `dawn`"
+    },
+    "riviere_spot": {
+      "values": [
+        "map",
+        "desk",
+        "bench",
+        "inker",
+        "flags"
+      ],
+      "means": "where Rivière is (script.js lays it out from lib.SPOTS): map — standing before the map; desk — standing by Robineau's desk, at the telephone; bench — sitting on the bench by the telegraph; inker — standing at the telegraph table's left end, the inker before him (the tape in his hands: riviere_with tape); flags — close before the map's left half, turned to it, his right hand free to lead a flag"
+    },
+    "robineau_spot": {
+      "values": [
+        "desk",
+        "writing",
+        "bench"
+      ],
+      "means": "where Robineau is (script.js lays it out): desk — standing behind his desk, his folder in his hands; writing — sitting at his desk over his report; bench — sitting on the bench by the telegraph, beside Rivière"
+    },
+    "pilot_spot": {
+      "values": [
+        "standing",
+        "bench"
+      ],
+      "means": "where the European mail's pilot is (script.js lays it out): standing — got up by the bench, his helmet in his hand; bench — sitting on the bench under the window, his helmet on his knees, waiting"
+    },
+    "telegraphist_spot": {
+      "values": [
+        "table",
+        "bench"
+      ],
+      "means": "where the telegraphist is (script.js lays it out): table — at the telegraph table, leaning over the key; bench — sitting on the bench under the window (dozing, with telegraphist_mood eyes_closed)"
+    },
+    "riviere_a": {
+      "range": [
+        -5,
+        3
+      ],
+      "means": "where Rivière stands or sits, metres right of the middle (riviere_spot sets it; a piece walks it — beyond −3 outside the field door)"
+    },
+    "riviere_d": {
+      "range": [
+        1.6,
+        9
+      ],
+      "means": "where Rivière stands or sits, metres away (riviere_spot sets it; a piece walks it — beyond 7.4 in the office, behind its door)"
+    },
+    "robineau_a": {
+      "range": [
+        -5,
+        3
+      ],
+      "means": "where Robineau stands or sits, metres right of the middle (robineau_spot sets it; a piece walks it — beyond −3 outside the field door)"
+    },
+    "robineau_d": {
+      "range": [
+        1.6,
+        9
+      ],
+      "means": "where Robineau stands or sits, metres away (robineau_spot sets it; a piece walks it — beyond 7.4 in the office, behind its door)"
+    },
+    "pilot_a": {
+      "range": [
+        -5,
+        3
+      ],
+      "means": "where the European pilot stands or sits, metres right of the middle (pilot_spot sets it; a piece walks it — beyond −3 outside the field door)"
+    },
+    "pilot_d": {
+      "range": [
+        1.6,
+        9
+      ],
+      "means": "where the European pilot stands or sits, metres away (pilot_spot sets it; a piece walks it — beyond 7.4 in the office, behind its door)"
+    },
+    "telegraphist_a": {
+      "range": [
+        -5,
+        3
+      ],
+      "means": "where the telegraphist stands or sits, metres right of the middle (telegraphist_spot sets it; a piece walks it — beyond −3 outside the field door)"
+    },
+    "telegraphist_d": {
+      "range": [
+        1.6,
+        9
+      ],
+      "means": "where the telegraphist stands or sits, metres away (telegraphist_spot sets it; a piece walks it — beyond 7.4 in the office, behind its door)"
+    },
+    "madame_spot": {
+      "values": [
+        "door",
+        "inker"
+      ],
+      "means": "where Madame Fabien is (script.js lays it out): door — by the door onto the field, her coat held round her; inker — behind the telegraphist's chair, reading over his shoulder"
+    },
+    "madame_a": {
+      "range": [
+        -5,
+        3
+      ],
+      "means": "where Madame Fabien stands, metres right of the middle (madame_spot sets it; a piece walks it)"
+    },
+    "madame_d": {
+      "range": [
+        1.6,
+        9
+      ],
+      "means": "where Madame Fabien stands, metres away"
+    },
+    "asuncion_a": {
+      "range": [
+        -5,
+        3
+      ],
+      "means": "where the Asunción pilot stands, metres right of the middle (a piece walks it; beyond −3 — outside the field door)"
+    },
+    "asuncion_d": {
+      "range": [
+        1.6,
+        9
+      ],
+      "means": "where the Asunción pilot stands, metres away"
+    },
+    "flag_hand": {
+      "values": [
+        "none",
+        "blue",
+        "north",
+        "red"
+      ],
+      "means": "the flag in Rivière's hand, being led over the map (М1): none — none; blue, north, red — that flag, lifted from where its own key puts it (his right hand on it: script.js)"
+    },
+    "flag_to": {
+      "values": [
+        "san_julian",
+        "sea",
+        "field",
+        "north",
+        "off"
+      ],
+      "means": "where the led flag is going: one of that flag's places (blue — san_julian, sea; north — field; red — north, off: down into the drawer under the map)"
+    },
+    "flag_u": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "how far along its way the led flag is: 0 where it stood … 1 there (the game then sets the flag's own key to flag_to and flag_hand none)"
+    },
+    "flag_slip": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the led flag sliding off its line, askew (a miss of М1): 0 upright on its pin … 1 slid down, leaning"
+    },
+    "drawer": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the drawer of the small table under the map: 0 shut, 1 pulled open (the dawn's red flag goes into it)"
+    },
+    "tape_pull": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the tape drawn out of the inker hand over hand (М9): 0 none … 1 a long strip out, its words come"
+    },
+    "tape_mark": {
+      "values": [
+        "words",
+        "line",
+        "cut"
+      ],
+      "means": "what the drawn tape shows: words — groups of dots and dashes; line — one long line, no words; cut — words breaking off into nothing"
+    },
+    "office_door": {
+      "range": [
+        98,
+        180
+      ],
+      "smooth": true,
+      "means": "the leaf of Rivière's office door, degrees: 180 shut … 98 open into the office"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "roblet": {
+      "values": [
+        "fire",
+        "keep",
+        "remove"
+      ],
+      "means": "the game's: what Rivière did with Roblet (Ш1) — the piece `dawn` reads it: keep — he pushes the European's wing in the window; else his workbench is empty"
+    },
+    "robineau": {
+      "values": [
+        "work",
+        "sit",
+        "silent"
+      ],
+      "means": "the game's: what Rivière said to Robineau (3.7) — the piece `flags_down` reads it: sit — he takes the flags down with Rivière; work — at his desk, his eyes down; silent — not there"
     }
   },
   "objects": [
@@ -171,8 +508,8 @@
       "facing": 192,
       "height": 12,
       "box": [
-        -26,
-        -12.5,
+        -36,
+        -17.5,
         26,
         0.2
       ]
@@ -309,8 +646,69 @@
         -1.35,
         -2.75,
         1.35,
-        -0.8
+        -0.35
       ]
+    },
+    {
+      "id": "map_drawer",
+      "name": "A small table under the map, its drawer",
+      "inside": true,
+      "across": -1.3,
+      "distance": 7.12,
+      "facing": 180,
+      "height": 0.75,
+      "box": [
+        -0.4,
+        -0.8,
+        0.4,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "office_room",
+      "name": "Rivière's office seen through its door: the lamp-lit wall inside",
+      "inside": true,
+      "across": -2.27,
+      "distance": 8.6,
+      "facing": 180,
+      "height": 2.4,
+      "box": [
+        -0.9,
+        -2.4,
+        0.9,
+        0.05
+      ]
+    },
+    {
+      "id": "office_floor",
+      "name": "The office's floor just through its door",
+      "plane": true,
+      "inside": true,
+      "across": -2.27,
+      "distance": 8.0,
+      "elevation": 0.01,
+      "width": 1.8,
+      "depth": 1.2,
+      "walk": true
+    },
+    {
+      "id": "office_door",
+      "name": "The door of Rivière's office: its leaf, the frosted glass in it",
+      "inside": true,
+      "across": -2.72,
+      "distance": 7.38,
+      "facing": 180,
+      "height": 2.25,
+      "box": [
+        -0.02,
+        -2.22,
+        0.92,
+        0.05
+      ],
+      "place": {
+        "facing": "office_door"
+      }
     },
     {
       "id": "clock",
@@ -381,7 +779,7 @@
       "facing": 180,
       "height": 0.5,
       "box": [
-        -0.4,
+        -1.0,
         -0.45,
         0.34,
         0.03
@@ -480,6 +878,21 @@
       ]
     },
     {
+      "id": "rob_chair",
+      "name": "Robineau's chair behind his desk",
+      "inside": true,
+      "across": 2.35,
+      "distance": 4.25,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -0.3,
+        -1.02,
+        0.3,
+        0.05
+      ]
+    },
+    {
       "id": "ceiling_lamp",
       "name": "The lamp hanging over the room",
       "inside": true,
@@ -522,7 +935,11 @@
       },
       "across": -2.3,
       "distance": 4.55,
-      "inside": true
+      "inside": true,
+      "place": {
+        "across": "madame_a",
+        "distance": "madame_d"
+      }
     },
     {
       "id": "riviere",
@@ -539,7 +956,11 @@
       },
       "across": -0.35,
       "distance": 5.85,
-      "inside": true
+      "inside": true,
+      "place": {
+        "across": "riviere_a",
+        "distance": "riviere_d"
+      }
     },
     {
       "id": "pilot",
@@ -552,7 +973,11 @@
       },
       "across": 1.0,
       "distance": 5.0,
-      "inside": true
+      "inside": true,
+      "place": {
+        "across": "pilot_a",
+        "distance": "pilot_d"
+      }
     },
     {
       "id": "telegraphist",
@@ -565,7 +990,45 @@
       },
       "across": 2.15,
       "distance": 6.3,
+      "inside": true,
+      "place": {
+        "across": "telegraphist_a",
+        "distance": "telegraphist_d"
+      }
+    },
+    {
+      "id": "robineau",
+      "name": "Robineau",
+      "person": {
+        "cast": "cast",
+        "who": "robineau",
+        "turn": 200,
+        "does": "hold_waist"
+      },
+      "across": 2.75,
+      "distance": 4.05,
+      "place": {
+        "across": "robineau_a",
+        "distance": "robineau_d"
+      },
       "inside": true
+    },
+    {
+      "id": "asuncion",
+      "name": "The Asunción mail's pilot",
+      "person": {
+        "cast": "cast",
+        "who": "asuncion",
+        "turn": 240,
+        "does": "stand_easy"
+      },
+      "across": 0.6,
+      "distance": 5.2,
+      "inside": true,
+      "place": {
+        "across": "asuncion_a",
+        "distance": "asuncion_d"
+      }
     }
   ],
   "music": {

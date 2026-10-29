@@ -7,15 +7,21 @@
 // — the storm (storm 1): black-violet cloud all round and below, its masses lit from within by lightning (`flash`,
 //   set by the scene's script);
 // — over the clouds (above 1): the night clear and full of stars, the sea of cloud below white in the moon, which is
-//   behind the viewer; with storm 1 too, the lightning still flickers deep in it.
+//   behind the viewer; with storm 1 too, the lightning still flickers deep in it;
+// — the night over the steppe (night 1, no storm): eleven o'clock, a deep blue sky full of stars, the steppe black
+//   below with its pale dry riverbeds, the lights of Trelew ahead and below on the left coming nearer, far behind on
+//   the right the silent lightning of the storm in the south;
+// — in the storm, a gap in the clouds overhead (`gap` 0…1, the layer `gap` shown by animate): ragged edges lit grey,
+//   the stars in it.
 const A = e.aspect;
 const H = 0.5;
-const X0 = -0.3;
-const W = A + 0.6;
+const X0 = -1.3; // (stage 5) painted wider: the pieces' cameras turn a little right and left
+const W = A + 2.6;
 const Y0 = -0.35;
 const Y1 = 1.25;
 const storm = e.state.storm > 0.5;
 const above = e.state.above > 0.5;
+const night = !storm && !above && e.state.night > 0.5;
 // a soft round glow, stretched (sx, sy: its half-widths), falling off smoothly — no edge to its disc
 function glow(c, x, y, sx, sy, color, alpha) {
   c.save();
@@ -114,6 +120,44 @@ if (above) {
         wrap(X0 + W * e.rnd(), x => glow(c, x, y, s * 1.8, s, color, 0.75));
       }
     });
+  // the gap overhead: a ragged opening in the cloud, its edges lit, the stars in it (shown by animate as `gap` opens)
+  e.layer('gap', { box: [A * 0.3, -0.1, A * 0.9, 0.42], pivot: [A * 0.6, 0.16] }, c => {
+    const gx = A * 0.6, gy = 0.16;
+    glow(c, gx, gy, 0.26, 0.17, '#6a6c90', 0.9);
+    glow(c, gx, gy, 0.21, 0.13, '#141a38', 1);
+    glow(c, gx + 0.02, gy + 0.01, 0.16, 0.1, '#0c1230', 1);
+    for (let i = 0; i < 40; i++) {
+      const a = e.rnd() * Math.PI * 2, r = e.rnd() ** 0.5;
+      const b = e.rnd();
+      c.globalAlpha = 0.5 + 0.5 * b;
+      c.fillStyle = '#f0f2ff';
+      c.beginPath();
+      c.arc(gx + Math.cos(a) * r * 0.15, gy + Math.sin(a) * r * 0.09, 0.0012 + 0.0016 * b, 0, Math.PI * 2);
+      c.fill();
+    }
+    c.globalAlpha = 1;
+  });
+  // (stage 5) the sea glimpsed far below through a rent in the cloud as the plane is laid on a wing (`water`, shown by
+  // animate in the lightning): black water, white streaks of foam driven by the wind
+  e.layer('water', { box: [X0, 0.62, X0 + W, Y1] }, c => {
+    const sea = c.createLinearGradient(0, 0.62, 0, Y1);
+    sea.addColorStop(0, 'rgba(20,26,34,0)');
+    sea.addColorStop(0.2, '#1a232c');
+    sea.addColorStop(1, '#0c1116');
+    c.fillStyle = sea;
+    c.fillRect(X0, 0.62, W, Y1 - 0.62);
+    c.strokeStyle = 'rgba(214,224,236,0.55)';
+    for (let i = 0; i < 90; i++) {
+      const y = 0.7 + (Y1 - 0.7) * e.rnd() ** 0.8;
+      const x = X0 + W * e.rnd();
+      const len = 0.01 + 0.05 * e.rnd() * (y - 0.6);
+      c.lineWidth = 0.0015 + 0.003 * (y - 0.6);
+      c.beginPath();
+      c.moveTo(x, y);
+      c.lineTo(x + len, y - len * 0.08);
+      c.stroke();
+    }
+  });
   mass('far_cloud', 40, 0.12, 0.02, '#3a3456');
   mass('near_cloud', 24, 0.2, 0.07, '#1c1826');
   // the light of the lightning inside the cloud — three places, flashed together
@@ -122,6 +166,64 @@ if (above) {
     glow(c, A * 0.12, 0.32, 0.12, 0.1, '#f0eaff', 0.5);
     glow(c, A * 0.85, 0.62, 0.5, 0.3, '#b8b0e8', 0.45);
     glow(c, A * 0.5, 0.05, 0.6, 0.2, '#a49cd8', 0.35);
+  });
+} else if (night) {
+  // eleven o'clock over the steppe: the sky deep blue and full of stars, the land black below
+  e.layer('night', {}, c => {
+    const sky = c.createLinearGradient(0, Y0, 0, H);
+    sky.addColorStop(0, '#0a0f26');
+    sky.addColorStop(0.55, '#16224a');
+    sky.addColorStop(0.9, '#2a3a6c');
+    sky.addColorStop(1, '#3a4a78');
+    c.fillStyle = sky;
+    c.fillRect(X0, Y0, W, H - Y0 + 0.01);
+    stars(c, 420, 0.02);
+    const land = c.createLinearGradient(0, H, 0, Y1);
+    land.addColorStop(0, '#2c3044');
+    land.addColorStop(0.1, '#1c1e28');
+    land.addColorStop(1, '#0f1014');
+    c.fillStyle = land;
+    c.fillRect(X0, H, W, Y1 - H);
+  });
+  const ground = (name, y0, y1, speed, n, scale, river) =>
+    e.layer(name, { box: [X0, y0, X0 + W, y1], drift: [speed, 0] }, c => {
+      for (let i = 0; i < n; i++) {
+        const u = e.rnd();
+        const y = y0 + (y1 - y0) * u;
+        const s = scale * (0.3 + u);
+        wrap(X0 + W * e.rnd(), x => glow(c, x, y, s * 3, s * 0.35, e.rnd() > 0.5 ? '#2a2c34' : '#16171c', 0.4));
+      }
+      if (river) {
+        c.strokeStyle = 'rgba(150,160,200,0.18)';
+        c.lineWidth = 0.0018;
+        for (const d of [0, W]) {
+          c.beginPath();
+          for (let k = 0; k <= 90; k++) {
+            const t = k / 90;
+            const x = X0 + W * t - d;
+            const y = y0 + (y1 - y0) * (0.55 + 0.25 * Math.sin(t * Math.PI * 14 + 1.3) * Math.sin(t * Math.PI * 4) + 0.15 * Math.sin(t * Math.PI * 2));
+            if (k) c.lineTo(x, y);
+            else c.moveTo(x, y);
+          }
+          c.stroke();
+        }
+      }
+    });
+  ground('far_steppe', H + 0.004, H + 0.08, 0.002, 90, 0.012, true);
+  ground('near_steppe', H + 0.08, Y1, 0.012, 70, 0.05, false);
+  // Trelew: a little town's lights below and ahead on the left — a grid of warm points, a glow over it — drifting back
+  e.layer('town', { blend: 'add', box: [X0, H, X0 + W, H + 0.16], drift: [0.004, 0] }, c => {
+    const tx = A * 0.22, ty = H + 0.06;
+    glow(c, tx, ty, 0.12, 0.025, '#d8a060', 0.35);
+    for (let i = 0; i < 70; i++) {
+      const u = e.rnd(), v = e.rnd();
+      glow(c, tx + (u - 0.5) * 0.2, ty + (v - 0.5) * 0.04, 0.0028, 0.0018, e.rnd() > 0.8 ? '#fff0c8' : '#ffc878', 0.95);
+    }
+  });
+  // far behind on the right, low — the south — silent lightning in the storm's bank
+  e.layer('flash', { blend: 'add', box: [A * 0.7, H - 0.08, A + 0.3, H + 0.02] }, c => {
+    glow(c, A * 0.98, H - 0.012, 0.16, 0.035, '#c9b8e0', 0.5);
+    glow(c, A * 0.98, H - 0.015, 0.05, 0.018, '#f0e6ff', 0.4);
   });
 } else {
   // dusk: the sky over the steppe a few minutes after the sun has gone down on the left
