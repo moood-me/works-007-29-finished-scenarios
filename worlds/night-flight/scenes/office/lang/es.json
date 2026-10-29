@@ -1,6 +1,6 @@
 {"strings": [
-  {"text":"Fabien, radio operator. Over the sea, a hundred and fifty east of Trelew. 2:45.","translation":"","where":"worlds/night-flight/scenes/office/elements/log_page.js"},
-  {"text":"Fabien, radio operator. Position unknown.","translation":"","where":"worlds/night-flight/scenes/office/elements/log_page.js"},
-  {"text":"Rivière’s Office","translation":"","where":"worlds/night-flight/scenes/office/scene.json title"},
-  {"text":"Three o’clock. The first rain on the glass.","translation":"","where":"worlds/night-flight/scenes/office/scene.json caption"}
+  {"text":"Fabien, radio operator. Over the sea, a hundred and fifty east of Trelew. 2:45.","translation":"Fabien, radiotelegrafista. Sobre el mar, ciento cincuenta al este de Trelew. 2:45.","where":"worlds/night-flight/scenes/office/elements/log_page.js"},
+  {"text":"Fabien, radio operator. Position unknown.","translation":"Fabien, radiotelegrafista. Posición desconocida.","where":"worlds/night-flight/scenes/office/elements/log_page.js"},
+  {"text":"Rivière’s Office","translation":"El despacho de Rivière","where":"worlds/night-flight/scenes/office/scene.json title"},
+  {"text":"Three o’clock. The first rain on the glass.","translation":"Las tres. La primera lluvia en el cristal.","where":"worlds/night-flight/scenes/office/scene.json caption"}
 ]}

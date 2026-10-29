@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Hall","translation":"","where":"worlds/the-canterville-ghost/scenes/hall/scene.json title"},
-  {"text":"The great hall of Canterville Chase: the oak stair and its landing, the old clock, the armchair at the stair's foot, the front door onto the porch.","translation":"","where":"worlds/the-canterville-ghost/scenes/hall/scene.json caption"}
+  {"text":"The Hall","translation":"El vestíbulo","where":"worlds/the-canterville-ghost/scenes/hall/scene.json title"},
+  {"text":"The great hall of Canterville Chase: the oak stair and its landing, the old clock, the armchair at the stair's foot, the front door onto the porch.","translation":"El gran vestíbulo de Canterville Chase: la escalera de roble con su rellano, el viejo reloj, el sillón al pie de la escalera, la puerta principal que da al porche.","where":"worlds/the-canterville-ghost/scenes/hall/scene.json caption"}
 ]}
