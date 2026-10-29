@@ -76,9 +76,15 @@ point it looks at), from where the faces look.
   Robineau, Pellerin, the pilot and the three mechanics. Roblet's `SPOTS` moved to `lib.js` (script.js reads them; a piece's `from` sets a spot's place values, never `roblet_spot`).
 - **Where.** Rivière at the switch stands at −1.2, 19.93 facing the wall (turn 16), his right hand to the switch.
   Chapter I: after the landing Pellerin stands before the plane at −0.6, 8.6 with the mechanics round him, Rivière in
-  the shadow at −3.6, 9.8. Chapter IV: Rivière at −3.0, 11.6 looking right at the pilot, who stands by the
-  fuselage at 2.0, 13.15 looking left at him; Robineau at Rivière's shoulder (−3.9, 10.9) or by the hangar's wall
-  (−4.8, 16.0) as the game's `robineau` says.
+  the shadow at −3.6, 9.8. Chapter IV: Rivière left of the plane's nose at −2.6, 13.0 and the pilot by the fuselage at
+  2.0, 13.15 — level with each other, so each looks at the other in profile, and each one's shot is taken from the
+  front on the side he looks to; Robineau at Rivière's shoulder (−3.4, 12.4) or by the hangar's wall (−4.8, 16.0) as
+  the game's `robineau` says.
+- **The sky painted wide** (`sky`, box [−2.2, −0.6, 6, 1.25]): the pieces' cameras turn up to some 60° aside; the
+  picture's sky stopped at about 65° and showed black past it.
+- **Faces follow the look.** A face goes where its `_look` is: one who looks at someone farther from the lens shows the
+  back of his head whatever his turn (seen on the GPU: Rivière looking at the pilot by the plane). The places above
+  are laid out for it.
 
 | piece | after | what |
 | --- | --- | --- |
@@ -106,6 +112,12 @@ point it looks at), from where the faces look.
 | waits / timetable | runup / waits | the pilot looks at Rivière, the window, him / a mechanic pulls the chocks, the plane goes, Rivière's hand up as its lights are in the sky |
 
 ### What is not right yet
+
+- Two people talking stand level, in profile to each other: a shot of one is 3/4 at best; Robineau looking up at
+  the window (`folder`) is seen over his shoulder (the window is ahead of the lens).
+- Seen on the GPU (two sheets, 07:12 and 07:18): the switch and its lever (down, up), the floodlights one by one
+  (`floods` 0.5: the first mast alone), the inserts `paper` (the order, the signature, the blot) and `folder`, the
+  cowling open, the landing's approach, the people's places; not yet the sky painted wide and chapter IV's new places.
 
 - The motions of the contract (`helmet_off`, `show_hands`, `laugh`, `engine_work`, `pull_chocks`, …) are named but
   were not in the cast when this was written (the motions author's branch); until they land the people do nothing new.

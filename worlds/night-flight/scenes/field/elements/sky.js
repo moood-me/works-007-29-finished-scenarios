@@ -3,8 +3,10 @@
 // layer, flashed by animate); to the right the faint glow of the town. Screen heights; the horizon at 0.55.
 const A = e.aspect;
 const H = 0.55;
-const X0 = -0.3;
-const W = A + 0.6;
+// (stage 5) painted far to either side of the stage (the pieces' own cameras turn up to some 60° aside): its box
+// [-2.2, -0.6, 6, 1.25] in scene.json
+const X0 = -2.2;
+const W = 8.2;
 const Y0 = -0.35;
 // a soft round glow, stretched (sx, sy: its half-widths), falling off smoothly — no edge to its disc
 function glow(c, x, y, sx, sy, color, alpha) {
@@ -28,13 +30,13 @@ e.layer('night', {}, c => {
   sky.addColorStop(0.8, '#34497a');
   sky.addColorStop(1, '#4f6593');
   c.fillStyle = sky;
-  c.fillRect(X0, Y0, W, H - Y0);
+  c.fillRect(X0, Y0 - 0.25, W, H - Y0 + 0.25);
   c.fillStyle = '#1b2236';
   c.fillRect(X0, H, W, 1.25 - H);
   // the town's glow low on the right
   glow(c, A * 0.95, H, 0.7, 0.09, '#8a86a0', 0.55);
   // the stars, thinning toward the horizon
-  for (let i = 0; i < 260; i++) {
+  for (let i = 0; i < 900; i++) {
     const y = Y0 + (H - 0.06 - Y0) * e.rnd() ** 1.4;
     const x = X0 + W * e.rnd();
     const b = e.rnd();

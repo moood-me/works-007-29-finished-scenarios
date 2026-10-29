@@ -530,7 +530,13 @@
     {
       "id": "sky",
       "name": "Sky",
-      "sky": true
+      "sky": true,
+      "box": [
+        -2.2,
+        -0.6,
+        6,
+        1.25
+      ]
     },
     {
       "id": "field",
