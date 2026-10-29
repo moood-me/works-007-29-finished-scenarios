@@ -17,7 +17,8 @@
 - **Пробел движка (для «three»).** С одним якорем появилось предупреждение «The top of the fuselage…: the ground ends
   4 m away…» — ложное: `engines/3/play/camera.js` `lookOver` считает землёй плоскость с малой собственной `elevation`
   (`el.spot.elevation` — от якоря, −0,1), не глядя, что она стоит `on` якоре на 1,6 м в воздухе. Адрес:
-  `moood-me/works-007-29-finished-scenarios@r3/engine-night-flight:worlds/night-flight`, сцена `cockpit`.
+  `moood-me/works-007-29-finished-scenarios@r3/engine-night-flight:worlds/night-flight`, сцена `cockpit`. Исправлено в `engine3-test-all` `84c64ed` (`lookOver` судит по месту плоскости в мире):
+  render 2732 — тот же лист, предупреждений нет.
 - **Остальные сцены** (листы на новом движке): бюро 2729 (конец `minute`, `shoulders`), поле 2730 (`landing`,
   `takeoff`), кабинет 2731 (шоукейс) — без ошибок, без видимых поломок. Сравнить с прежними картинками было не с чем
   (старые файлы уже не хранятся, у `check` нет снятых картинок). Проверка студии 2702 (check, assemble, boot, draw) —
