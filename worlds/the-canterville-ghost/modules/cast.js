@@ -166,6 +166,26 @@ function bottle(F) {
   F.bar(at(0.05), at(0.1), 0.012 * k, 0.012 * k, [[0, GLASS]], 8, s);
   F.bar(at(0.1), at(0.125), 0.014 * k, 0.014 * k, [[0, CORK]], 8, s);
 }
+// a candle in a little brass candlestick, held in the right hand and standing upright whatever the hand does; its
+// flame glows (the point `flame`: a scene's light "at" "<id>#flame" — the candle lights nothing by itself)
+const BRASS = [0.66, 0.5, 0.24, 1];
+const WAX = [0.93, 0.9, 0.82, 1];
+const FLAME = [1, 0.84, 0.5, 2];
+const UPRIGHT = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+function candle(F) {
+  const { add, mul } = V();
+  const k = F.k;
+  const h = F.fit.h;
+  const c = add(F.P('RightHand'), add(mul(F.up('RightHand'), 0.06 * h), mul(F.fwd('RightHand'), 0.02 * k)));
+  const s = F.side('RightHand');
+  const at = y => add(c, [0, y * h, 0]);
+  F.bar(at(-0.02), at(-0.005), 0.055 * k, 0.055 * k, [[0, BRASS]], 14, s);
+  F.bar(at(-0.005), at(0.03), 0.014 * k, 0.014 * k, [[0, BRASS]], 8, s);
+  F.bar(at(0.03), at(0.17), 0.013 * k, 0.013 * k, [[0, WAX]], 8, s);
+  const flame = at(0.2);
+  F.ball(flame, UPRIGHT, [0.009 * k, 0.024 * h, 0.009 * k], FLAME, 8);
+  F.point('flame', flame);
+}
 return {
   ...data,
   characters: {
@@ -205,6 +225,32 @@ return {
       body: { height: 1.02, shoulders: 1.04, thick: 1.04 },
       colors: { skin: '#ebc7a7', hair: '#857560', top: '#8a8a88', garment: '#2e333d', bottom: '#2b2c31', shoes: '#191818' },
     },
+    // Mrs Lucretia R. Otis: a handsome, healthy middle-aged woman, her dark hair up in a knot, a gown of deep plum
+    // to the floor
+    mrs_otis: {
+      kind: 'shapes', style: 'canterville', who: 'woman', garment: 'gown', hair: 'bun', face: 'storybook',
+      body: { height: 0.95, thick: 1.0 },
+      colors: { skin: '#efcfb2', hair: '#5a3a26', top: '#5e3446', garment: '#5e3446', bottom: '#5e3446', shoes: '#2a1e1c' },
+    },
+    // Washington Otis, the eldest son: a fair-haired, rather good-looking young man in a dark blue-grey frock coat
+    // over a light waistcoat
+    washington: {
+      kind: 'shapes', style: 'canterville', who: 'man', garment: 'coat', hair: 'short', face: 'storybook',
+      body: { height: 1.0, thick: 0.92 },
+      colors: { skin: '#efcbab', hair: '#c9a866', top: '#b8b0a0', garment: '#3a4252', bottom: '#2c3038', shoes: '#1c1a1a' },
+    },
+    // the twins, ten years old, "the Stars and Stripes": two boys alike as two peas — the same short jackets and
+    // knickerbockers of navy cloth, white shirts and stockings, the same sandy hair
+    twin_star: {
+      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
+      body: { height: 0.78 },
+      colors: { skin: '#f0cfb0', hair: '#b88a4e', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
+    },
+    twin_stripes: {
+      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
+      body: { height: 0.78 },
+      colors: { skin: '#f0cfb0', hair: '#b88a4e', top: '#e8e2d4', garment: '#2f3f5e', bottom: '#2f3f5e', shoes: '#2a201a', socks: '#e8e2d4' },
+    },
   },
   shapes: {
     // the world's style: the storybook's round soft figures (soft), their heads a little smaller, with a face of the
@@ -223,6 +269,8 @@ return {
       habit: { name: 'riding habit', hang: [{ to: 2.0, from: 'waist', flare: 0.36, off: 0.96 }], sleeves: 'garment', bodice: true },
       // an old doublet to the hips, its trunk hose puffed out round the tops of the thighs, in tatters
       doublet: { name: 'doublet', hang: [{ to: 0.36, from: 'shoulders', flare: 0.35, ragged: true }], sleeves: 'garment' },
+      // a lady's gown: a full skirt from the waist to the floor, long sleeves, the bodice in its colour
+      gown: { name: 'gown', hang: [{ to: 2.05, from: 'waist', flare: 0.45, off: 0.96 }], sleeves: 'garment', bodice: true },
     },
     parts: {
       ruff: { name: 'ruff', draw: ruff },
@@ -231,6 +279,7 @@ return {
       fetters: { name: 'leg irons', draw: fetters },
       cloak: { name: 'cloak', draw: cloak },
       bottle: { name: 'a bottle of oil', draw: bottle },
+      candle: { name: 'a candle', draw: candle },
       // a white stock at the throat, in the look's accent colour
       stock: {
         name: 'stock',
