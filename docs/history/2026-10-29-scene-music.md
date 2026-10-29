@@ -28,3 +28,6 @@
 
 `node moood-languages/packages/check/cli.js .` — all right (в том числе музыка по LIMITS: bpm 60–200, density и
 brightness 0–1, тональность из списка Lyria, не больше 20 описаний).
+
+**Потом:** подвал Омеласа (`the-ones-who-walk-away-from-omelas/scenes/cellar`) — снова без музыки: так написано в
+сценарии («В подвале никакой музыки»), Павел: «убрать музыку из подвала».
