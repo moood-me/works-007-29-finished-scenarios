@@ -50,7 +50,7 @@
         28
       ],
       "color": "#b8ccf2",
-      "strength": 2.6,
+      "strength": 1.6,
       "through": [
         "window"
       ]
@@ -186,7 +186,7 @@
     "virginia_here": true,
     "virginia_a": -3.0,
     "virginia_d": 7.2,
-    "virginia_turn": 165,
+    "virginia_turn": 150,
     "virginia_do": "clasped",
     "virginia_look": "otis",
     "virginia_mood": "tired",
@@ -196,7 +196,7 @@
     "otis_here": true,
     "otis_a": -1.85,
     "otis_d": 7.2,
-    "otis_turn": 235,
+    "otis_turn": 205,
     "otis_do": "hold_candle",
     "otis_look": "virginia",
     "otis_mood": "surprised",
@@ -204,9 +204,9 @@
       "candle_l"
     ],
     "mrs_otis_here": true,
-    "mrs_otis_a": 1.35,
-    "mrs_otis_d": 5.9,
-    "mrs_otis_turn": 215,
+    "mrs_otis_a": 1.2,
+    "mrs_otis_d": 6.95,
+    "mrs_otis_turn": 220,
     "mrs_otis_do": "clasped",
     "mrs_otis_look": "virginia",
     "mrs_otis_mood": "afraid",
@@ -214,30 +214,30 @@
       "shawl"
     ],
     "washington_here": true,
-    "washington_a": -1.1,
+    "washington_a": -0.95,
     "washington_d": 7.2,
-    "washington_turn": 225,
+    "washington_turn": 210,
     "washington_do": "stand",
     "washington_look": "virginia",
     "washington_mood": "surprised",
     "twin_star_here": true,
-    "twin_star_a": 0.45,
-    "twin_star_d": 5.0,
-    "twin_star_turn": 205,
+    "twin_star_a": 1.95,
+    "twin_star_d": 6.45,
+    "twin_star_turn": 225,
     "twin_star_do": "stand",
     "twin_star_look": "virginia",
     "twin_star_mood": "surprised",
     "twin_stripes_here": true,
-    "twin_stripes_a": -0.25,
-    "twin_stripes_d": 5.2,
-    "twin_stripes_turn": 195,
+    "twin_stripes_a": 2.55,
+    "twin_stripes_d": 6.95,
+    "twin_stripes_turn": 230,
     "twin_stripes_do": "stand",
     "twin_stripes_look": "virginia",
     "twin_stripes_mood": "surprised",
     "cecil_here": true,
-    "cecil_a": 2.75,
-    "cecil_d": 6.7,
-    "cecil_turn": 220,
+    "cecil_a": 3.25,
+    "cecil_d": 7.45,
+    "cecil_turn": 225,
     "cecil_do": "stand",
     "cecil_look": "virginia",
     "cecil_mood": "surprised",
@@ -472,9 +472,9 @@
       "elevation": -0.5,
       "height": 18,
       "box": [
-        -60,
+        -68,
         -18,
-        60,
+        68,
         0.5
       ]
     },
@@ -658,14 +658,14 @@
       "id": "passage",
       "name": "The dark way behind the panel",
       "across": -3.95,
-      "distance": 8.35,
+      "distance": 8.25,
       "elevation": 2.1,
       "facing": 180,
       "height": 1.95,
       "box": [
-        -0.5,
+        -0.8,
         -1.97,
-        0.5,
+        0.8,
         0.02
       ],
       "inside": true
@@ -950,8 +950,8 @@
     {
       "id": "chandelier",
       "name": "The iron candle-ring",
-      "across": -0.6,
-      "distance": 5.0,
+      "across": 0.9,
+      "distance": 4.6,
       "elevation": 3.3,
       "height": 2.3,
       "box": [
@@ -968,7 +968,7 @@
       "person": {
         "cast": "cast",
         "who": "virginia_habit",
-        "turn": 165,
+        "turn": 150,
         "does": "clasped"
       },
       "across": -3.0,
@@ -985,7 +985,7 @@
       "person": {
         "cast": "cast",
         "who": "otis",
-        "turn": 235,
+        "turn": 205,
         "does": "hold_candle"
       },
       "across": -1.85,
@@ -1002,11 +1002,11 @@
       "person": {
         "cast": "cast",
         "who": "mrs_otis",
-        "turn": 215,
+        "turn": 220,
         "does": "clasped"
       },
-      "across": 1.35,
-      "distance": 5.9,
+      "across": 1.2,
+      "distance": 6.95,
       "place": {
         "across": "mrs_otis_a",
         "distance": "mrs_otis_d"
@@ -1019,10 +1019,10 @@
       "person": {
         "cast": "cast",
         "who": "washington",
-        "turn": 225,
+        "turn": 210,
         "does": "stand"
       },
-      "across": -1.1,
+      "across": -0.95,
       "distance": 7.2,
       "place": {
         "across": "washington_a",
@@ -1036,11 +1036,11 @@
       "person": {
         "cast": "cast",
         "who": "twin_star",
-        "turn": 205,
+        "turn": 225,
         "does": "stand"
       },
-      "across": 0.45,
-      "distance": 5.0,
+      "across": 1.95,
+      "distance": 6.45,
       "place": {
         "across": "twin_star_a",
         "distance": "twin_star_d"
@@ -1053,11 +1053,11 @@
       "person": {
         "cast": "cast",
         "who": "twin_stripes",
-        "turn": 195,
+        "turn": 230,
         "does": "stand"
       },
-      "across": -0.25,
-      "distance": 5.2,
+      "across": 2.55,
+      "distance": 6.95,
       "place": {
         "across": "twin_stripes_a",
         "distance": "twin_stripes_d"
@@ -1070,11 +1070,11 @@
       "person": {
         "cast": "cast",
         "who": "cecil",
-        "turn": 220,
+        "turn": 225,
         "does": "stand"
       },
-      "across": 2.75,
-      "distance": 6.7,
+      "across": 3.25,
+      "distance": 7.45,
       "place": {
         "across": "cecil_a",
         "distance": "cecil_d"
