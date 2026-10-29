@@ -12,6 +12,10 @@
 //     there — those of them the scene has (`<id>_here`, the engine's key; whom it has not are not seen: voices only) —,
 //     their faces as `moods` say ({id: mood}); `keys` — values of the scene's own keys (its scene.json's states) or a
 //     person's (`<id>_with`). Always opened anew; `cut` — in one cut, else through black
+//   g.beat(name, {wait}) — a piece of the shown scene (its key `beat`; world module `beats`); → once it has ended (the
+//     scene tells `beat:<name>`), or at once with wait: false; g.scene(place, {beat}) opens the scene on it.
+//     g.told(text, ms) — till the scene tells `text` (→ true) or ms pass (→ false). piece(g, name, {moment: fn}) — the
+//     piece with the lines said at its moments
 //   g.here(id, on) — someone of the shown scene comes or goes (in one cut); g.mood(id, mood) — their face (both: only
 //     the game's people the scene has; others are let be)
 //   g.set(key, value, seconds) — one of the shown scene's own keys (or a person's): at once, or moved over seconds;
@@ -202,6 +206,19 @@ export function facts(state) {
   return f;
 }
 
+// piece(g, name, {moment: fn}, open) — the piece `name` of the shown scene (its key `beat`; the scene tells
+// `<name>:<moment>` at its moments and `beat:<name>` as it ends), each moment's fn (the lines said there) run as it is
+// told, in order; open — the scene opened on it (g.scene with `beat`), its moments listened for first; → once the piece
+// has ended and its moments' lines are said
+export async function piece(g, name, at = {}, open = null) {
+  const moments = Object.entries(at).map(([m, fn]) => [g.told(`${name}:${m}`, BEAT), fn]);
+  if (open) await open();
+  const ended = g.beat(name);
+  for (const [heard, fn] of moments) if (await heard) await fn();
+  await ended;
+}
+
+const BEAT = 180000; // a piece longer than this has not ended: the scene lacks it
 const SKIPPABLE = 20000; // ms in a minigame of a step not seen yet before the ⏭ may skip it
 
 export function context(b, view, hub, state, j = null, { forward = null } = {}) {
@@ -220,6 +237,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   }));
   const put = (key, value, seconds) => (unseen() ? j.did([key, value]) : b.set(key, value, seconds));
   let people = new Set(), present = new Set(); // the shown scene's people; those of them there now
+  let opening = null; // the piece the scene was opened with, till g.beat takes it up: {name, ended}
   let playing = null; // the minigame played now: {signal, end, skippable}
   // the page's ⏭ as the step stands now: none while a choice or a plate waits or the step is still unseen; in a
   // minigame — its skip, where it may be skipped; else, where the step is seen, on to the next interaction
@@ -246,7 +264,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   let seeing = null;
   const seen = () => (seeing ??= (async () => {
     const { shown, then } = j;
-    j.seen();
+    for (const h of j.seen()) hub.told(h.text, h.ms).then(h.ok);
     view.gauge(state);
     if (shown) {
       await alive(b.show(shown.folder, { state: shown.state, captions: false, then }));
@@ -265,7 +283,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   const g = {
     state,
     signal: left.signal,
-    async scene(place, { here = [], moods = {}, keys = {} } = {}, { cut = false } = {}) {
+    async scene(place, { beat = null, here = [], moods = {}, keys = {} } = {}, { cut = false } = {}) {
       if (gone()) return never;
       const at = PLACES[place];
       if (!at) throw new Error(`no place “${place}”`);
@@ -278,10 +296,16 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       for (const id of people) st[`${id}_here`] = present.has(id);
       for (const [id, mood] of Object.entries(moods)) if (people.has(id)) st[`${id}_mood`] = mood;
       Object.assign(st, keys);
-      if (unseen()) { j.scene(folder, st, where); return; }
+      if (beat) st.beat = beat;
+      if (unseen()) {
+        opening = beat ? { name: beat, ended: g.told(`beat:${beat}`, BEAT) } : null;
+        j.scene(folder, st, where);
+        return;
+      }
       showing = true;
       try {
         if (fast) await alive(land());
+        opening = beat ? { name: beat, ended: g.told(`beat:${beat}`, BEAT) } : null;
         hub.withdraw();
         view.where(null);
         await alive(b.show(folder, { state: st, captions: false, fade: !cut }));
@@ -291,6 +315,22 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
     set(key, value, seconds) {
       if (gone()) return;
       put(key, value, seconds);
+    },
+    async beat(name, { wait = true } = {}) {
+      if (gone()) return never;
+      // (the piece the scene was opened with: playing already)
+      const opened = opening?.name === name ? opening : null;
+      opening = null;
+      if (!opened && fast) await alive(land());
+      const ended = opened ? opened.ended : wait ? g.told(`beat:${name}`, BEAT) : null;
+      if (!opened) {
+        put('beat', null); // (the same piece again is a change too)
+        put('beat', name);
+      }
+      if (wait && !(await ended)) b.trouble(`the piece “${name}” did not end`);
+    },
+    told(text, ms = 60000) {
+      return gone() ? never : unseen() ? j.heard(text, ms) : alive(hub.told(text, ms));
     },
     get: key => (unseen() ? j.values[key] : b.get(key)),
     // a mistake made in the mini-game (beside its mg.error): from the first one on the page's ⏭ may skip it
@@ -432,6 +472,15 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
 const SHOW = 8; // s: nothing pressed so long — the ghost shows how
 
 export function listen(b) {
+  const waiting = new Set(); // what the scene is waited to tell: {text, ok, timer}
+  const told = (text, ms) => new Promise(ok => {
+    const w = { text, ok };
+    w.timer = setTimeout(() => { if (waiting.delete(w)) ok(false); }, ms);
+    waiting.add(w);
+  });
+  b.on('tell', text => {
+    for (const w of waiting) if (w.text === text) { waiting.delete(w); clearTimeout(w.timer); w.ok(true); }
+  });
   let offered = null; // the plain choice going on: the language's mini-game
   // a chance: one mark, a touch is the action (a mini-game's press, no petals), its arc of time running down; not
   // touched in time — `otherwise`
@@ -484,5 +533,6 @@ export function listen(b) {
       });
     },
     withdraw() { offered?.leave(); offered = null; },
+    told,
   };
 }
