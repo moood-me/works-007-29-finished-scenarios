@@ -499,6 +499,14 @@
     "last_box": {
       "type": "boolean",
       "means": "the last moving box still on the porch (a year on), till Dad carries it away"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [

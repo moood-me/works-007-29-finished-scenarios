@@ -7,14 +7,14 @@
     "mode": "picture"
   },
   "light": {
-    "ambient": 0.62,
-    "ambientColor": "#bba890",
+    "ambient": 0.85,
+    "ambientColor": "#efe2cf",
     "inside": 0.5,
-    "bounce": 0.6,
-    "haze": 0.12,
-    "hazeColor": "#cdb898",
-    "hazeGlow": 0.25,
-    "shafts": 1.8,
+    "bounce": 0.7,
+    "haze": 0.1,
+    "hazeColor": "#d9c6a8",
+    "hazeGlow": 0.3,
+    "shafts": 2.2,
     "tint": "#ffe6c4",
     "tintStrength": 0.05,
     "saturation": 0.92,
@@ -32,12 +32,12 @@
         "window"
       ],
       "color": "#fff1d2",
-      "strength": 3.2
+      "strength": 3.6
     },
     {
       "id": "daylight",
       "of": "window",
-      "daylight": 0.7
+      "daylight": 1.0
     },
     {
       "id": "below",
@@ -104,6 +104,14 @@
         6.4
       ],
       "means": "where Jack stands, metres away (in the hatch: 3.45)"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [
@@ -162,9 +170,9 @@
       "facing": 90,
       "height": 3.35,
       "box": [
-        -2.62,
+        -4.62,
         -3.37,
-        2.62,
+        4.62,
         0.02
       ],
       "tilt": -51,
@@ -194,9 +202,9 @@
       "facing": 90,
       "height": 0.45,
       "box": [
-        -2.62,
+        -4.62,
         -0.47,
-        2.62,
+        4.62,
         0.02
       ],
       "copies": [
@@ -400,9 +408,9 @@
       "facing": 180,
       "height": 1.6,
       "box": [
-        -0.72,
+        -0.75,
         -1.62,
-        0.85,
+        0.95,
         0.01
       ],
       "shadow": true
@@ -458,7 +466,7 @@
       "person": {
         "cast": "cast",
         "who": "jack_grown",
-        "turn": 240
+        "turn": 210
       },
       "across": 1.0,
       "distance": 3.45,
