@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Buried Giant","translation":"Пахаваны велікан","where":"worlds/the-buried-giant/world.json title"},
+  {"text":"A land under a pale mist that takes memory with it: an old couple walk across it to find their son, past a giant's cairn, a dragon's pit and a ferryman's shore. After Kazuo Ishiguro.","translation":"Зямля пад бледным туманам, які нясе з сабой памяць: двое старых ідуць праз яе да сына — міма кургана велікана, логава драконіхі, да берага лодачніка. Паводле Кадзуа Ісігура.","where":"worlds/the-buried-giant/world.json description"}
+]}

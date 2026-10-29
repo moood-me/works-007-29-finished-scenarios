@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"A Doll's House","translation":"Лялечны дом","where":"worlds/a-doll-s-house/world.json title"},
+  {"text":"A warm flat at Christmas. A wife keeps a secret debt; a letter waits in the locked box.","translation":"Цёплая кватэра на Каляды. Жонка захоўвае тайны доўг; у замкнёнай скрыні чакае ліст.","where":"worlds/a-doll-s-house/world.json description"}
+]}

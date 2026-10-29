@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Ali","translation":"Алі","where":"worlds/the-guest/scenes/room/elements/plaque.js"},
+  {"text":"Daru's Room","translation":"Пакой Дарю","where":"worlds/the-guest/scenes/room/scene.json title"},
+  {"text":"The gendarme has gone. His revolver on the table, his rope on the nail.","translation":"Жандар пайшоў. Яго рэвальвер на стале, яго вяроўка на цвіку.","where":"worlds/the-guest/scenes/room/scene.json caption"}
+]}

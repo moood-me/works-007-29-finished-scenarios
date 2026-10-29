@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"No talk of politics here","translation":"Тут пра палітыку не гавораць","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/elements/back_wall.js"},
+  {"text":"The Tailors' Shop","translation":"Кравецкая майстэрня","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/scene.json title"},
+  {"text":"Friday, after the launch. Under the cover is Agustín's machine; nobody sits at it.","translation":"Пятніца, пасля катэра. Пад чахлом машынка Агусціна; за яе ніхто не сядае.","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/scene.json caption"}
+]}

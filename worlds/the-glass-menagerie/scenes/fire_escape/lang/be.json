@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Paradise","translation":"Парадыз","where":"worlds/the-glass-menagerie/scenes/fire_escape/elements/sign.js"},
+  {"text":"The Fire Escape","translation":"Пажарная лесвіца","where":"worlds/the-glass-menagerie/scenes/fire_escape/scene.json title"},
+  {"text":"Friday, seven o'clock. Two men smoke on the landing; in the window a yellow dress.","translation":"Пятніца, сем вечара. Двое кураць на пляцоўцы; у акне — жоўтая сукенка.","where":"worlds/the-glass-menagerie/scenes/fire_escape/scene.json caption"}
+]}
