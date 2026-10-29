@@ -83,8 +83,8 @@ if (t >= 1) {
   }
 }
 // the bare slope's stones and dry scrub (before the forest), or the leaves on its floor
-for (let i = 0; i < 260; i++) {
-  const d = 30 + Math.pow(R(), 1.2) * 400, a = -1.2 * d - 20 + R() * (woodRight(d) + 1.2 * d + 20), r = 0.2 + R() * (0.3 + d * 0.006);
+for (let i = 0; i < (t === 0 ? 520 : 260); i++) {
+  const d = 30 + Math.pow(R(), 1.2) * 400, a = -1.2 * d - 20 + R() * (woodRight(d) + 1.2 * d + 20), r = (0.2 + R() * (0.3 + d * 0.006)) * (t === 0 ? 2.2 : 1);
   g.fillStyle = t === 0 ? pick(["#bdb2a0", "#8f8676", "#7d6d4c"]) : t === 1 ? pick(["#7a7c5c", "#9c9878"]) : pick(["#6b6448", "#525338"]);
   g.beginPath();
   g.ellipse(a, Y(d), r * 1.5, r, R() * 3, 0, Math.PI * 2);
@@ -146,8 +146,8 @@ g.fillStyle = ["#bda986", "#b8a684", "#b5a582", "#b3a47f"][t];
 g.beginPath();
 g.ellipse(0.3, Y(13), 13.5, 9, 0, 0, Math.PI * 2);
 g.fill();
-for (let i = 0; i < 90; i++) {
-  const ang = R() * Math.PI * 2, rr = 0.75 + R() * 0.3, a = 0.3 + Math.cos(ang) * 13.5 * rr, d = 13 + Math.sin(ang) * 9 * rr, r = 0.4 + R() * 0.8;
+for (let i = 0; i < 160; i++) {
+  const ang = R() * Math.PI * 2, rr = 0.75 + R() * 0.3, a = 0.3 + Math.cos(ang) * 13.5 * rr, d = 13 + Math.sin(ang) * 9 * rr, r = 0.2 + R() * 0.35;
   g.fillStyle = t < 2 ? pick(["rgba(176, 156, 112, 0.6)", "rgba(150, 132, 96, 0.5)"]) : pick(["rgba(120, 142, 76, 0.65)", "rgba(150, 160, 96, 0.55)"]);
   g.beginPath();
   g.ellipse(a, Y(d), r * 1.4, r, R() * 3, 0, Math.PI * 2);
