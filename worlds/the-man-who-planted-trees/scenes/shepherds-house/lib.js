@@ -30,10 +30,11 @@ function FILM(scene) {
     laugh: CAM([0.7, 5.7, 1.65], [1.6, 7.0, 1.65]),
     visitors: CAM([2.0, 4.8, 1.6], [2.2, 7.0, 1.5]),
     at_door: CAM([1.2, 4.8, 1.6], [2.0, 7.2, 1.3]),
-    porch: CAM([0.0, 4.2, 1.6], [1.0, 6.4, 1.4]),
+    // (the last meeting: over the Traveller's shoulder, the old man's face toward the eye)
+    porch: CAM([-1.5, 4.0, 1.6], [0.9, 6.8, 1.5]),
     hut: CAM([-0.6, 2.6, 1.6], [0.0, 4.8, 1.3]),
-    rod_house: CAM([0.2, 4.6, 1.5], [0.25, 6.6, 1.1]),
-    rod_hut: CAM([0.4, 2.6, 1.5], [1.0, 4.7, 1.1]),
+    rod_house: CAM([-0.6, 5.2, 1.6], [0.9, 6.8, 1.45]),
+    rod_hut: CAM([2.2, 3.4, 1.6], [0.6, 4.9, 1.45]),
   };
   const DOOR = [2.3, 7.4];
 
