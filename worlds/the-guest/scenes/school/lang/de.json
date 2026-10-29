@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The School","translation":"Die Schule","where":"worlds/the-guest/scenes/school/scene.json title"},
+  {"text":"Three hours up from El Ameur, on foot, through the snow.","translation":"Drei Stunden hinauf von El Ameur, zu Fuß, durch den Schnee.","where":"worlds/the-guest/scenes/school/scene.json caption"}
+]}

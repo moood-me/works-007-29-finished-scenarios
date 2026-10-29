@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Lantern Room","translation":"Der Laternenraum","where":"worlds/the-fog-horn/scenes/lantern/scene.json title"},
+  {"text":"The fog. The voice calls, every fifteen seconds.","translation":"Der Nebel. Die Stimme ruft, alle fünfzehn Sekunden.","where":"worlds/the-fog-horn/scenes/lantern/scene.json caption"}
+]}

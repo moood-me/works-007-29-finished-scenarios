@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Fog Horn","translation":"Das Nebelhorn","where":"worlds/the-fog-horn/world.json title"},
+  {"text":"After Ray Bradbury. A lighthouse on a rock in grey water, a keeper who waits for November, his young assistant, and a window on the far shore that lights at ten.","translation":"Nach Ray Bradbury. Ein Leuchtturm auf einem Felsen im grauen Wasser, ein Wärter, der auf den November wartet, sein junger Gehilfe und ein Fenster am fernen Ufer, das um zehn aufleuchtet.","where":"worlds/the-fog-horn/world.json description"}
+]}

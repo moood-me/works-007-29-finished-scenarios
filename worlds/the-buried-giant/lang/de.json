@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Buried Giant","translation":"Der begrabene Riese","where":"worlds/the-buried-giant/world.json title"},
+  {"text":"A land under a pale mist that takes memory with it: an old couple walk across it to find their son, past a giant's cairn, a dragon's pit and a ferryman's shore. After Kazuo Ishiguro.","translation":"Ein Land unter einem blassen Nebel, der die Erinnerung mit sich nimmt: Ein altes Paar wandert hindurch, um seinen Sohn zu finden, vorbei am Steinhügel eines Riesen, an der Grube einer Drachin und an der Küste eines Fährmanns. Nach Kazuo Ishiguro.","where":"worlds/the-buried-giant/world.json description"}
+]}
