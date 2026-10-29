@@ -44,4 +44,5 @@
 
 ## Проверка
 
-`check/run.mjs` — 432 пути, nothing to fix. Рендеры: `dark` (лист из трёх моментов), холл `midnight` (четыре).
+`check/run.mjs` — 432 пути, nothing to fix. Рендеры: `dark` (лист из трёх моментов), холл `midnight` (четыре). `check`
+студии (fast) папки игры на `ff0a6fe` — ok, без замечаний, игра грузится (en, ru).
