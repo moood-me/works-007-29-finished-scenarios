@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Ocean at the End of the Lane","translation":"오솔길 끝 바다","where":"worlds/the-ocean-at-the-end-of-the-lane/world.json title"},
+  {"text":"A farmhouse at the end of a lane, a duck pond that is an ocean, and a boy of seven.","translation":"오솔길 끝의 농가, 실은 바다인 오리 연못, 그리고 일곱 살 소년.","where":"worlds/the-ocean-at-the-end-of-the-lane/world.json description"}
+]}

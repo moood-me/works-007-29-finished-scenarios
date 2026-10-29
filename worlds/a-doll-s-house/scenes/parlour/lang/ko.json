@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Helmers' Parlour","translation":"헬메르 댁 거실","where":"worlds/a-doll-s-house/scenes/parlour/scene.json title"},
+  {"text":"Christmas Eve. The tree is trimmed; a letter box with a little glass window waits in the hall.","translation":"크리스마스이브. 트리는 다 꾸며졌고, 현관에는 작은 유리창이 달린 우편함이 기다린다.","where":"worlds/a-doll-s-house/scenes/parlour/scene.json caption"}
+]}

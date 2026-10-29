@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Pit","translation":"구덩이","where":"worlds/the-woman-in-the-dunes/scenes/pit/scene.json title"},
+  {"text":"At the bottom of the pit the sea is only heard.","translation":"구덩이 바닥에서는 바다가 소리로만 들린다.","where":"worlds/the-woman-in-the-dunes/scenes/pit/scene.json caption"}
+]}

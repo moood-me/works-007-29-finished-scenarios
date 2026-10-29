@@ -1,0 +1,7 @@
+{"strings": [
+  {"text":"The Gulf","translation":"멕시코 만류","where":"worlds/the-old-man-and-the-sea/scenes/gulf/scene.json title"},
+  {"text":"He was an old man who fished alone in a skiff in the Gulf Stream.","translation":"그는 멕시코 만류에서 조각배를 타고 홀로 고기잡이를 하는 노인이었다.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/scene.json caption"},
+  {"text":"Fish, I love you and respect you very much. But I will kill you dead before this day ends.","who":"santiago","translation":"고기야, 나는 너를 무척 사랑하고 존경한다. 하지만 오늘이 가기 전에 너를 죽이고 말겠다.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"},
+  {"text":"I wish I had the boy.","who":"santiago","translation":"그 아이가 있으면 좋을 텐데.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"},
+  {"text":"He is two feet longer than the skiff.","who":"santiago","translation":"이놈은 배보다 두 자는 더 길구나.","where":"worlds/the-old-man-and-the-sea/scenes/gulf/showcase.js"}
+]}

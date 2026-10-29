@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Pier","translation":"부두","where":"worlds/orpheus-and-eurydice/scenes/pier/scene.json title"},
+  {"text":"The night of their wedding. He sings; she floats lanterns.","translation":"두 사람의 혼례 밤. 그는 노래하고, 그녀는 물 위에 등불을 띄운다.","where":"worlds/orpheus-and-eurydice/scenes/pier/scene.json caption"}
+]}

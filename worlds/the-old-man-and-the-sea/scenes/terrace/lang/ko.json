@@ -1,0 +1,6 @@
+{"strings": [
+  {"text":"The Terrace","translation":"테라스","where":"worlds/the-old-man-and-the-sea/scenes/terrace/scene.json title"},
+  {"text":"Many of the fishermen made fun of the old man, and he was not angry.","translation":"어부들 가운데 많은 이가 노인을 놀렸지만, 노인은 화내지 않았다.","where":"worlds/the-old-man-and-the-sea/scenes/terrace/scene.json caption"},
+  {"text":"I could go with you again. We've made money.","who":"manolin","translation":"할아버지랑 다시 같이 나갈 수 있어요. 우리 돈도 벌었잖아요.","where":"worlds/the-old-man-and-the-sea/scenes/terrace/showcase.js"},
+  {"text":"No. You're with a lucky boat. Stay with them.","who":"santiago","translation":"아니다. 넌 운 좋은 배를 타고 있잖니. 그 사람들하고 있거라.","where":"worlds/the-old-man-and-the-sea/scenes/terrace/showcase.js"}
+]}

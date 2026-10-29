@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Shed","translation":"헛간","where":"worlds/leaf-by-niggle/scenes/shed/scene.json title"},
+  {"text":"A tall shed on the old potato bed. One leaf is finished.","translation":"옛 감자밭 자리에 세운 높은 헛간. 이파리 하나는 완성되었다.","where":"worlds/leaf-by-niggle/scenes/shed/scene.json caption"}
+]}

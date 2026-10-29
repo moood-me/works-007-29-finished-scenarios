@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Ward","translation":"병실","where":"worlds/the-paper-menagerie/scenes/ward/scene.json title"},
+  {"text":"An autumn evening on the third floor. A good day: she ate half a bowl of soup.","translation":"3층의 가을 저녁. 좋은 날이다. 엄마는 수프를 반 그릇 먹었다.","where":"worlds/the-paper-menagerie/scenes/ward/scene.json caption"}
+]}

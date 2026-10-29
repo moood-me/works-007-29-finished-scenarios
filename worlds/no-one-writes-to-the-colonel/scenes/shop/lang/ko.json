@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"No talk of politics here","translation":"정치 이야기 금지","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/elements/back_wall.js"},
+  {"text":"The Tailors' Shop","translation":"양복점","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/scene.json title"},
+  {"text":"Friday, after the launch. Under the cover is Agustín's machine; nobody sits at it.","translation":"금요일, 연락선이 들어온 뒤. 덮개 아래에는 아구스틴의 재봉틀이 있고, 아무도 그 앞에 앉지 않는다.","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/scene.json caption"}
+]}

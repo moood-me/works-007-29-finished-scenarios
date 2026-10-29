@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Giant's Cairn","translation":"거인의 돌무덤","where":"worlds/the-buried-giant/scenes/cairn/scene.json title"},
+  {"text":"A stone on the cairn, so that the giant sleeps.","translation":"돌무덤에 돌 하나를 얹는다. 거인이 잠들어 있도록.","where":"worlds/the-buried-giant/scenes/cairn/scene.json caption"}
+]}

@@ -6,5 +6,5 @@
     "west": 30
   },
   "main": "pool",
-  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant"]
+  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant", "ko"]
 }

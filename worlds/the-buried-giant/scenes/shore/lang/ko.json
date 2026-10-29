@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Shore","translation":"물가","where":"worlds/the-buried-giant/scenes/shore/scene.json title"},
+  {"text":"He asks each of them alone.","translation":"그는 한 사람씩 따로 묻는다.","where":"worlds/the-buried-giant/scenes/shore/scene.json caption"}
+]}

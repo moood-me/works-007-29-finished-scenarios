@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Turn of the Screw","translation":"나사의 회전","where":"worlds/the-turn-of-the-screw/world.json title"},
+  {"text":"A country house, a governess and two children. Figures that may be there, or may not.","translation":"시골 저택, 가정교사, 그리고 두 아이. 거기 있는지도, 없는지도 모를 형체들.","where":"worlds/the-turn-of-the-screw/world.json description"}
+]}

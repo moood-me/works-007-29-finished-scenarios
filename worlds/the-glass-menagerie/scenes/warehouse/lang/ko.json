@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"NO SMOKING","translation":"금연","where":"worlds/the-glass-menagerie/scenes/warehouse/elements/back_wall.js"},
+  {"text":"The Warehouse","translation":"창고","where":"worlds/the-glass-menagerie/scenes/warehouse/scene.json title"},
+  {"text":"A week later, in the shoe warehouse. Tom writes on a shoebox lid; Jim has a foot up on a carton.","translation":"일주일 뒤, 신발 창고. 톰은 신발 상자 뚜껑에 무언가를 쓰고, 짐은 상자 위에 한쪽 발을 올려놓고 있다.","where":"worlds/the-glass-menagerie/scenes/warehouse/scene.json caption"}
+]}
