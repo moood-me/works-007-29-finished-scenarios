@@ -87,11 +87,17 @@ g.stroke();
 g.fillStyle = '#5b5f5c';
 g.fillRect(-9.15, -2.05, 0.5, 0.6);
 g.fillStyle = '#2e3032';
-g.fillRect(-8.94, -1.95, 0.08, 0.4);
-g.fillStyle = '#8c2f2a';
-g.beginPath();
-g.arc(-8.9, -1.95, 0.06, 0, Math.PI * 2);
-g.fill();
+g.fillRect(-8.96, -1.8, 0.12, 0.1);
+// (stage 5) the lever: its handle from the axle in the box's middle out to the red knob — a layer turned by animate
+// as `lever` says (0 down … 1 up)
+e.layer('lever', { pivot: [-8.9, -1.75], box: [-9.4, -2.25, -8.4, -1.25] }, c => {
+  c.fillStyle = '#2e3032';
+  c.fillRect(-8.93, -2.13, 0.06, 0.38);
+  c.fillStyle = '#8c2f2a';
+  c.beginPath();
+  c.arc(-8.9, -2.15, 0.06, 0, Math.PI * 2);
+  c.fill();
+});
 e.at(-8.9, -1.75, 'switch');
 // the work lamp above it: a small shade on a short arm
 g.fillStyle = '#3f5a4c';

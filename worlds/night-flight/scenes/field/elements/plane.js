@@ -7,7 +7,8 @@
 // nose up +: the layers `body`, `blades`, `disc` turned by animate); the propeller a blur while `engine` runs (the
 // layer `disc`, the still blades `blades`), the exhaust glowing; its landing lamp (`lamp`, by `plane_lights`); the
 // chocks at its wheel while `chocks` is 1 and it stands on the ground.
-// Metres from its anchor (the middle of its length on the ground), y up negative. Points: `cockpit`, `wheel`, `nose`.
+// Metres from its anchor (the middle of its length on the ground), y up negative. Points: `cockpit`, `wheel`, `nose`, `cowling`.
+// (Stage 5) `cowling` 1: the engine's cowling open, its panel swung up.
 const which = e.state.plane;
 if (which !== 'none') {
 const BAND = which === 'european' ? '#7a2a26' : '#2f4769';
@@ -61,6 +62,38 @@ for (const x of [-5.2, -4.85, -4.5]) {
 }
 c.fillStyle = '#4b4c4e';
 for (const x of [-5.05, -4.75, -4.45]) c.fillRect(x, -1.32, 0.12, 0.22);
+// (stage 5) the cowling open (`cowling` 1): its side panel swung up over the engine on its hinge, the engine's
+// cylinders and pipes bare and dark under it
+if (e.state.cowling) {
+  c.fillStyle = '#2c2e30';
+  c.beginPath();
+  c.moveTo(-4.35, -2.34);
+  c.lineTo(-5.45, -2.24);
+  c.quadraticCurveTo(-5.7, -1.9, -5.45, -1.5);
+  c.lineTo(-4.35, -1.42);
+  c.closePath();
+  c.fill();
+  c.fillStyle = '#5a5d60';
+  for (const x of [-5.25, -4.95, -4.65]) {
+    c.fillRect(x, -2.18, 0.2, 0.62);
+    c.fillStyle = '#6c7074';
+  }
+  c.strokeStyle = '#8a6a3a';
+  c.lineWidth = 0.035;
+  c.beginPath();
+  c.moveTo(-5.3, -1.6);
+  c.bezierCurveTo(-4.9, -1.5, -4.6, -1.62, -4.4, -1.5);
+  c.stroke();
+  // the panel swung up, seen edge-on above the engine
+  c.fillStyle = '#8c9194';
+  c.beginPath();
+  c.moveTo(-5.45, -2.32);
+  c.lineTo(-4.35, -2.42);
+  c.lineTo(-4.25, -3.15);
+  c.lineTo(-5.3, -3.0);
+  c.closePath();
+  c.fill();
+}
 // fabric ribs showing through the dope
 c.strokeStyle = 'rgba(160,160,150,0.7)';
 c.lineWidth = 0.025;
@@ -226,4 +259,5 @@ for (const s of [-1, 1]) {
 e.at(-0.9, -2.6, 'cockpit');
 e.at(-3.15, -0.5, 'wheel');
 e.at(-5.9, -1.85, 'nose');
+e.at(-4.9, -1.85, 'cowling');
 }

@@ -16,7 +16,7 @@ const SPOTS = {
     map: { at: [-0.35, 5.85], turn: 235, does: 'hands_behind' },
     desk: { at: [1.1, 3.95], turn: 160, does: 'hands_behind' },
     bench: { at: [0.45, BENCH], turn: 180, does: 'fly_seated', on: [0.45, BENCH, 0.47] },
-    inker: { at: [1.45, 5.35], turn: 75, does: 'stand' },
+    inker: { at: [1.45, 5.35], turn: 120, does: 'stand' },
     flags: { at: [-1.0, 6.72], turn: 35, does: 'stand' },
   },
   robineau: {
@@ -78,16 +78,16 @@ function film(scene) {
   const glide = (s, c, over) => s.all(...CAMK.map(k => s.move(k, c[k], { over, ease: 'inOut' })));
   const SH = {
     wide: CAM0,
-    inker: CAM([1.5, 4.5, 1.35], [2.4, 5.8, 0.95]), // the inker and its tape, close
-    tel: CAM([1.65, 4.75, 1.5], [2.15, 6.3, 1.25]), // the telegraphist's face over the table
-    tel_med: CAM([1.0, 4.1, 1.6], [1.9, 6.1, 1.15]), // the telegraphist and the inker, Rivière at it
+    inker: CAM([2.05, 4.55, 1.3], [2.35, 5.8, 0.95]), // the inker and its tape, close
+    tel: CAM([1.55, 4.35, 1.35], [2.15, 6.3, 1.2]), // the telegraphist's face over the table
+    tel_med: CAM([0.45, 3.85, 1.6], [1.8, 6.0, 1.15]), // the telegraphist and the inker, Rivière at it
     key: CAM([1.65, 5.0, 1.3], [1.95, 5.95, 0.85]), // his hand over the key
     clock: CAM([-0.3, 5.5, 2.15], [-0.5, 7.35, 2.95]), // the clock's face
     map: CAM([-1.4, 4.3, 1.65], [-0.35, 5.85, 1.6]), // Rivière at the map, his face
     riv: CAM([-1.05, 4.85, 1.65], [-0.35, 5.85, 1.62]), // the same, close
     flags: CAM([0.35, 5.25, 1.7], [-0.75, 7.2, 1.45]), // Rivière close before the map's south, leading a flag
     flag_close: CAM([-0.45, 6.1, 1.6], [-0.65, 7.35, 1.6]), // the flags at the field, close
-    face_flags: CAM([-0.35, 5.45, 1.65], [-1.0, 6.72, 1.6]), // Rivière at the map turned to the room, close
+    face_flags: CAM([0.0, 5.1, 1.65], [-1.0, 6.72, 1.6]), // Rivière at the map turned to the room, close
     two_map: CAM([0.05, 3.85, 1.65], [0.05, 5.75, 1.55]), // two by the map
     her: CAM([-1.05, 3.3, 1.6], [-2.3, 4.55, 1.55]), // her by the field door
     her_close: CAM([-1.55, 3.75, 1.57], [-2.3, 4.55, 1.53]),
@@ -96,6 +96,7 @@ function film(scene) {
     desk_close: CAM([0.85, 3.0, 1.65], [1.1, 3.95, 1.63]),
     rob: CAM([2.15, 2.6, 1.6], [2.65, 4.05, 1.5]), // Robineau at his desk
     rob_close: CAM([2.35, 3.0, 1.55], [2.7, 4.05, 1.52]),
+    rob_phone: CAM([1.25, 2.7, 1.6], [1.6, 3.85, 1.55]), // Robineau at the telephone, beside Rivière,
     phone_two: CAM([1.2, 2.45, 1.65], [1.45, 4.0, 1.5]), // Rivière and Robineau at the telephone
     write: CAM([1.75, 2.7, 1.55], [2.2, 4.15, 1.3]), // Robineau writing, Rivière's hand over his shoulder
     bench: CAM([0.7, 4.5, 1.4], [0.65, 6.82, 1.15]), // the bench
@@ -178,7 +179,7 @@ function film(scene) {
   const tapeRead = s => {
     const r = s.person('riviere');
     r.do('stand');
-    r.look('riviere#tape');
+    r.look('riviere#hands');
   };
   // the evening's room (the epilogue's pieces after `next_evening`: the window and the flags are the game's)
   const EVE = { lamps: 1, office: 1, tape: 0, flag_hand: 'none', flag_to: 'san_julian', flag_u: 0, flag_slip: 0, drawer: 0, tape_pull: 0, office_door: 180 };
@@ -219,8 +220,8 @@ function film(scene) {
       run: async s => {
         const r = s.person('riviere');
         glide(s, SH.face_flags, 1.2);
-        await r.turn(170);
         r.look(null);
+        await r.turn(170);
         s.tell('ache:say');
         await s.wait(0.8);
         await r.do('side_ache');
@@ -239,7 +240,7 @@ function film(scene) {
         const r = s.person('riviere'), b = s.person('robineau');
         await b.walk([[1.6, 4.6], [0.5, 5.7]]);
         glide(s, SH.two_map, 2);
-        await s.all(b.turn(235), r.turn(125));
+        await s.all(b.turn(210), r.turn(150));
         s.tell('papers:near');
         await s.wait(1.5);
       },
@@ -250,7 +251,7 @@ function film(scene) {
       tells: ['out:door'],
       seconds: 6,
       from: () => ({ ...NIGHT, time: clock(22, 8), ...FLAGS.julian,
-        ...ALL({ ...at('riviere', [-0.35, 5.85, 125, 'hands_behind'], 'robineau'), ...at('robineau', [0.5, 5.7, 235, 'hold_waist'], 'riviere') }), ...SH.two_map }),
+        ...ALL({ ...at('riviere', [-0.35, 5.85, 150, 'hands_behind'], 'robineau'), ...at('robineau', [0.5, 5.7, 210, 'hold_waist'], 'riviere') }), ...SH.two_map }),
       run: async s => {
         const r = s.person('riviere'), b = s.person('robineau');
         glide(s, SH.wide, 2);
@@ -441,8 +442,9 @@ function film(scene) {
       run: async s => {
         const r = s.person('riviere'), b = s.person('robineau');
         glide(s, SH.phone_two, 1.5);
-        await b.walk([[1.75, 4.1]]);
-        await b.turn(250);
+        await b.walk([[1.6, 3.85]]);
+        await b.turn(235);
+        await r.turn(125);
         r.look('robineau');
         await r.do('hand_receiver');
         s.set('robineau_wear', { parts: ['moustache'] });
@@ -451,7 +453,7 @@ function film(scene) {
         r.do('hands_behind');
         b.do('phone_listen');
         b.look(null);
-        await glide(s, SH.rob_close, 1.2);
+        await glide(s, SH.rob_phone, 1.2);
         s.tell('phone_robineau:talk');
         await s.wait(3);
         b.reach({ l: 'rob_phone#phone' });
@@ -540,7 +542,7 @@ function film(scene) {
         for (const id of ['madame', 'pilot', 'telegraphist', 'robineau']) s.person(id).look('tel_inker');
         glide(s, SH.tel_med, 2.5);
         await r.walk([[0.6, 5.3], SPOTS.riviere.inker.at]);
-        await r.turn(75);
+        await r.turn(120);
         r.look('tel_inker#ink');
         r.with(['tape']);
         r.do('pull_tape');
@@ -554,8 +556,8 @@ function film(scene) {
       tells: ['comodoro:read', 'comodoro:eyes'],
       seconds: 8,
       from: () => ({ ...NIGHT, time: clock(2, 15), tape: 1, tape_pull: 1, tape_mark: 'words', ...FLAGS.night,
-        ...ALL({ ...at('riviere', 'inker', 'riviere#tape', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'riviere#tape'),
-          ...at('madame', 'door', 'tel_inker'), ...at('telegraphist', 'table', 'riviere#tape'), ...at('robineau', 'desk', 'tel_inker') }),
+        ...ALL({ ...at('riviere', 'inker', 'riviere#hands', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'riviere#hands'),
+          ...at('madame', 'door', 'tel_inker'), ...at('telegraphist', 'table', 'riviere#hands'), ...at('robineau', 'desk', 'tel_inker') }),
         ...SH.tel }),
       run: async s => {
         const t = s.person('telegraphist');
@@ -673,8 +675,8 @@ function film(scene) {
         await s.move('tape_pull', 0.85, { over: 3.5, ease: 'inOut' });
         s.set('tape', 0);
         r.do('stand');
-        r.look('riviere#tape');
-        s.person('telegraphist').look('riviere#tape');
+        r.look('riviere#hands');
+        s.person('telegraphist').look('riviere#hands');
         s.tell('last_tape:read');
         await s.wait(1.5);
         await glide(s, SH.her_close, 1.5);
@@ -687,7 +689,7 @@ function film(scene) {
       tells: ['tape_torn:held'],
       seconds: 6,
       from: () => ({ ...NIGHT, time: clock(2, 26), tape_pull: 0.85, ...FLAGS.night,
-        ...ALL({ ...at('riviere', 'inker', 'riviere#tape', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'riviere'),
+        ...ALL({ ...at('riviere', 'inker', 'riviere#hands', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'riviere'),
           ...at('madame', 'door', 'riviere'), ...at('telegraphist', 'table', 'riviere') }), ...SH.her_close }),
       run: async s => {
         const r = s.person('riviere'), m = s.person('madame');
@@ -698,14 +700,14 @@ function film(scene) {
         await r.turn(265);
         r.look('madame#hand_r');
         r.reach({ r: 'madame#hand_r' });
-        m.look('riviere#tape');
+        m.look('riviere#hands');
         await s.wait(0.8);
         r.with([]);
         r.reach(null);
         r.do('hands_behind');
         m.with(['tape']);
         m.do('hold_tape');
-        m.look('madame#tape');
+        m.look('madame#hands');
         await glide(s, SH.her_close, 1.2);
         s.tell('tape_torn:held');
         await s.wait(0.5);
@@ -717,14 +719,14 @@ function film(scene) {
       tells: ['over_shoulder:end'],
       seconds: 6,
       from: () => ({ ...NIGHT, time: clock(2, 26), tape_pull: 0.85, ...FLAGS.night,
-        ...ALL({ ...at('riviere', 'inker', 'riviere#tape', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'tel_inker'),
-          ...at('madame', 'door', 'tel_inker'), ...at('telegraphist', 'table', 'riviere#tape') }), ...SH.her_close }),
+        ...ALL({ ...at('riviere', 'inker', 'riviere#hands', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'tel_inker'),
+          ...at('madame', 'door', 'tel_inker'), ...at('telegraphist', 'table', 'riviere#hands') }), ...SH.her_close }),
       run: async s => {
         const m = s.person('madame');
         glide(s, SH.wide, 1.5);
         await m.walk([[-0.6, 5.05], [0.9, 6.5], SPOTS.madame.inker.at]);
         await m.turn(150);
-        m.look('riviere#tape');
+        m.look('riviere#hands');
         placeAt(s, 'madame', 'inker');
         await glide(s, SH.her_inker, 1.5);
         s.tell('over_shoulder:end');
@@ -736,7 +738,7 @@ function film(scene) {
       tells: ['scraps:read', 'scraps:stop'],
       seconds: 6,
       from: () => ({ ...NIGHT, time: clock(2, 26), tape_pull: 0.85, ...FLAGS.night,
-        ...ALL({ ...at('riviere', 'inker', 'riviere#tape', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'tel_inker'),
+        ...ALL({ ...at('riviere', 'inker', 'riviere#hands', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'tel_inker'),
           ...at('madame', 'door', 'tel_inker'), ...at('telegraphist', 'table', 'tel_inker#ink') }), ...SH.her_close }),
       run: async s => {
         const t = s.person('telegraphist');
@@ -962,6 +964,7 @@ function film(scene) {
         r.do('hands_behind');
         await glide(s, SH.flag_close, 1.5);
         await s.wait(1.5);
+        r.look(null);
         await r.turn(150);
         await glide(s, SH.face_flags, 1.5);
         s.tell('silence_map:look');
