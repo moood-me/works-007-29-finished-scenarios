@@ -478,6 +478,9 @@ function film(scene) {
   const AT_PIT = { ...CAM0, camera_x: 0.4, camera_z: 4.2 };
   // the fountain's rim, the Traveller sitting on it, from a few steps before it (the operator came in to his knees)
   const AT_RIM = { ...CAM0, camera_x: -2.3, camera_z: 8.2 };
+  // the children (when the game has them here) playing by the well, out of the way of the rim
+  const KIDS = merge(who("child_a", [3.0, 13.4, 250], "stand", { look: "child_b" }),
+    who("child_b", [2.1, 13.6, 100], "stand", { look: "child_a" }));
 
   return {
     // П.1: the plateau's wind; the Traveller shakes his flask at his ear — empty — and comes on into the square, where
@@ -809,7 +812,7 @@ function film(scene) {
         await s.wait(1.2);
         l.reach(null);
         l.look("stump#crown");
-        s.camera({ target: "lina", shot: "close" });
+        s.cut({ ...CAM0, camera_target: "lina", camera_shot: "close" });
         s.tell("planted:look");
         await s.wait(4);
       },
@@ -819,7 +822,7 @@ function film(scene) {
     // on a blank page he writes the name (`notebook_name`)
     story: {
       after: [], tells: ["story:sit", "story:name"], seconds: 22,
-      from: () => merge(CAM0, SQUARE0, { stump: "planted" },
+      from: () => merge(CAM0, SQUARE0, { stump: "planted" }, KIDS,
         who("traveller", [2.2, 9.6, 300], "stand", { with: ["rod"], look: "fountain" })),
       run: async (s) => {
         const t = s.person("traveller");
@@ -852,7 +855,7 @@ function film(scene) {
     story_wind: {
       after: ["story"], tells: ["story_wind:was"], seconds: 10,
       from: () => merge(AT_RIM, SQUARE0, { stump: "planted", rod: true, notebook_open: 1, notebook_page: "blank",
-        notebook_name: 1 }, who("traveller", [SEAT[0], SEAT[1], 180], loop("sit_stone"), { on: SEAT, with: ["notebook"], look: "traveller#notebook" })),
+        notebook_name: 1 }, KIDS, who("traveller", [SEAT[0], SEAT[1], 180], loop("sit_stone"), { on: SEAT, with: ["notebook"], look: "traveller#notebook" })),
       run: async (s) => {
         await s.move("notebook_turn", 1, { over: 2.5 });
         s.set("notebook_page", "was");
