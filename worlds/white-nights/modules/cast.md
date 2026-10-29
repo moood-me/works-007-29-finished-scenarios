@@ -72,3 +72,45 @@ sits on a seat by `<id>_on: [across, distance, top]` (the hips over it), `<id>_d
 - `seated` — sits still on a chair, the hands resting on the thighs, breathing slowly (the head free for `_look`).
 - `read` — sits holding a book open in both hands at the chest, reading, now and then turning a page (with the part
   `book`).
+
+## Stage 5's motions (taken from motions made before, each looked at)
+
+Motions already made by Kimodo for other worlds of this studio, looked at here (`look_at_motion`, front and side,
+eight moments) and put in with `put_motion` (branch `r3/nights-motions`). Done once unless «loop».
+
+- `sit_down` (once) — stands, bends, sits down onto a chair-height seat (the bench, the stool, the armchair:
+  `go('sit_down', {to: SEAT, turn})`, then `seated` looped).
+- `stand_up` (once) — seated on a chair, leans forward, stands up straight.
+- `laugh` (loop) — stands laughing, the head thrown back, then doubling forward, back up.
+- `cry` (loop) — stands, the head bowed deep, the shoulders rounded, the arms hanging; the shaking slight.
+- `hat_on` (once) — the right hand raised with the hat, set onto the head, then both hands at the chin.
+- `hat_off` (once) — the right hand up to the head, lifts the hat off, brings it forward and down.
+- `palm_out` (loop) — the right arm held out forward, the hand turned palm up, waiting (Glasha's palm).
+- `put_down` (once) — the right hand goes forward at chest height and down to waist height in front (a letter, a hat
+  on the table), then back to the side.
+- `bow_deep` (once) — a deep old-fashioned bow: a step back, bent far forward with the arm across, up again. Theatrical;
+  for a polite small bow none is made yet (below).
+- `handshake` (once) — the right arm goes forward low, a small shake, back (the other's hand: the scene's `_reach`).
+- `run` (loop, a gait) — a steady run.
+- `drop_pieces` (once) — the hands at the chest, then bends a little and lets things go low before him, stands.
+- `tear_letter` (once) — the hands working together at the chest, drawn a little apart at the end. The nearest: no
+  clear tear (the data has no paper tearing).
+- `hold_out` (once, held) — the right arm goes out straight forward at shoulder height and stays (giving a letter).
+- `doze` (loop) — sits leaning far back, the arms crossed on the chest, the head back: asleep in an armchair.
+- `sew` (loop) — seated, hunched, the hands working in the lap (sewing, pinning).
+- `hang_up` (once) — the right hand reaches up forward to head height and back (a coat on a hook by the stove).
+- `hand_heart` (once) — the right palm to the forehead, then laid on the chest over the heart.
+
+Looked at and not taken: the bench and stool sitting-down and getting-up motions made elsewhere (they sit down onto
+the ground), a wave (wild flailing), a knock (the hand held up, no knocking), a look back (unclear), covering the face
+seated (it kneels), putting a letter in the inside pocket (the hands only fold at the chest), a tear with the hands
+open at the shoulders.
+
+## Not made (the game stopped at a half-stage)
+
+The stage-5 contract (`docs/new-games/belye-nochi/game.md`, «Motions») asks for these; none is in the cast yet:
+`cry_railing`, `bow_house`, `laugh_broom`, `walk_cane`, `walk_raised`, `stagger`, `arm_in_arm`, `pace`, `sit_edge`,
+`sit_tucked`, `gesture_talk`, `pin_sleeve`, `head_shoulder`, `embrace_shoulders`, `give_letter` (until then:
+`hold_out`), `hug_kiss`, `pull_free`, `palm_cheek`, `bell_pull`, `knock`, `unpin`, `search_hands`, `sweep_high`,
+`open_window`, `lean_window`; a better `tear_letter` (torn over the water and let fall). Prompts were asked of Kimodo
+(the history note has them) but the motion GPU did not wake.
