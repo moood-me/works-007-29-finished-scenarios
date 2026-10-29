@@ -15,7 +15,7 @@ export default {
   steps: [
     // П.1–П.2: the flask; the dead village; the stump; ⚑ a drink
     async g => {
-      await g.scene('village0', { here: ['traveller', 'lina'], moods: { traveller: 'tired', lina: 'neutral' }, keys: { home_door: 95 } });
+      await g.scene('village0', { here: ['traveller', 'lina'], moods: { traveller: 'tired', lina: 'neutral' }, keys: { home_door: 120 } });
       g.title(tr('The Man Who Planted Trees'));
       await g.plate(tr('A high plateau, wind, dry grass. The Traveller shakes his flask — empty.'));
       await g.say('narrator', 'I was twenty. I was going where nobody goes — so as to have something to tell. For three days I had not seen water');
@@ -33,6 +33,7 @@ export default {
         await g.plate(tr('Lina looks at the stump, then at him.'));
         await g.say('lina', 'Drink. She won’t mind');
         g.set('mug', true);
+      g.set('lina_wear', { parts: [] });
       await g.plate(tr('He drinks. The stump stays dry. Lina sets the mug on it upside down.'));
       } else {
         g.set('wet', true);

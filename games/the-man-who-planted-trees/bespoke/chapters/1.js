@@ -86,7 +86,7 @@ export default {
     },
     // 1.7: down through the village; the war; ⚑ what does the shepherd do
     async g => {
-      await g.scene('village0', { here: ['traveller', 'lina', 'father'], moods: { traveller: 'neutral', lina: 'neutral', father: 'tired' }, keys: { cart: true, smoke_home: 1 } });
+      await g.scene('village0', { here: ['traveller', 'lina', 'father'], moods: { traveller: 'neutral', lina: 'neutral', father: 'tired' }, keys: { cart: true, smoke_home: 1, lina_a: 3.6, lina_d: 11.2 } });
       await g.plate(tr('Down through the village. Lina’s father is loading charcoal onto a cart. Lina at the well.'));
       await g.say('lina', 'Down below they’re shouting — war. All the young ones. You’re young');
       await g.wait(1200);

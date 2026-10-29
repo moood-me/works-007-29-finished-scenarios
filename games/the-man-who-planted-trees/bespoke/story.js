@@ -69,7 +69,7 @@ export const PLACES = {
   house20: { folder: 'shepherds-house', where: tr('In truth: fourteen years later — hives by the house; Elzéard is seventy-five, the Traveller forty.') }, // М2
   stumps20: { folder: 'forest-edge', keys: { smoke: 1, bread: false }, where: tr('In truth: the lower edge of the forest above the village — stumps, fresh or a year old; the wood has been carted away.') }, // М3
   // the epilogue — ten years more
-  village30: { folder: 'village', keys: { time: 'epilogue', coal: 0, fountain: 1, dawn: 0, smoke_home: 1, smoke_b1: 1, smoke_l2: 1, smoke_r1: 1 }, where: tr('In truth: Lina is forty-seven here, the Traveller fifty.') }, // М1
+  village30: { folder: 'village', keys: { time: 'epilogue', coal: 0, fountain: 1, dawn: 0, smoke_home: 1, smoke_edge: 1, smoke_b1: 1, smoke_b2: 1, smoke_l2: 1, smoke_r1: 1 }, where: tr('In truth: Lina is forty-seven here, the Traveller fifty.') }, // М1
   house30: { folder: 'shepherds-house', where: tr('In truth: ten years on — the same house, the hives; on the porch, bread nobody has touched. Elzéard is eighty-five.') }, // М2
   hut30: { folder: 'shepherds-house', keys: { lamp: 0 }, where: tr('In truth: a hut beyond the ridge, three hours’ walk away: behind it a slope of young trees waist-high — his ten years; ahead, on the bare ground, a new edge of tiny seedlings. Elzéard is eighty-five.') }, // М2 beyond the ridge
   edge30: { folder: 'forest-edge', keys: { smoke: 1, bread: false }, where: tr('In truth: the forest edge, ten years on — the forest under guard.') }, // М3
