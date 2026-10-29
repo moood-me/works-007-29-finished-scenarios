@@ -59,20 +59,34 @@ function film(scene) {
     mom_reach: null, mom_wear: null, mom_with: null,
     dad_on: CHAIR, dad_a: CHAIR[0], dad_d: CHAIR[1], dad_turn: 115, dad_do: 'reading_seated', dad_look: 'dad#book',
     dad_reach: null, dad_wear: null, dad_with: null,
-    jack_on: null, jack_a: 1.45, jack_d: 3.15, jack_turn: 250, jack_do: 'showing_suit', jack_look: 'mom', jack_reach: null,
+    jack_on: null, jack_a: 1.2, jack_d: 2.9, jack_turn: 245, jack_do: 'showing_suit', jack_look: 'mom', jack_reach: null,
     jack_wear: null, jack_with: null,
     nurse_a: 4.95, nurse_d: 15, nurse_turn: 180, nurse_do: 'stand', nurse_look: null, nurse_reach: null,
     phone_off: false,
   };
   // the evening (2.2): the lamp lit, the three of them as the ward's picture has them
   const EVENING = { ...CAM, ...ROOM, ...PEOPLE, lamp: 1 };
-  // the night: the lamp low, Mom asleep in bed (on her back, her head on the pillow, her right hand on the near side)
-  const IN_BED = { mom_on: 'bed_top#lie', mom_a: 0.72, mom_d: 3.85, mom_turn: 90, mom_do: 'lie_bed', mom_look: null };
-  const sitBy = (p, look) => {
-    p.on(BY_HER);
-    p.turn(200);
-    p.do('sitting_on_bed');
+  // the night: the lamp low, Mom asleep in bed (on her back on the sheet — the unseen plane bed_lie, the bed's far part, is a floor to lie on —, her
+  // head on the pillow, her right hand on the near side)
+  const IN_BED = { mom_on: null, mom_a: 0.72, mom_d: 3.98, mom_turn: 90, mom_do: 'lie_bed', mom_look: null };
+  // sitting down (the motion sit_down, ending over the seat), then held on it, a seated loop
+  const sit = async (p, seat, turn, loop = 'sitting_on_bed') => {
+    await p.go('sit_down', { to: [seat[0], seat[1]], turn });
+    p.on(seat);
+    p.do(loop);
+  };
+  const sitBy = async (p, look) => {
     p.look(look);
+    await sit(p, BY_HER, 200);
+  };
+  // a shot: the operator on `target` (null: the ward's own picture or the corridor's eye), the eye moved `x` metres aside
+  // — to her right when she looks at someone on her right, so her face, not the back of her head, is toward us — and `z`
+  // ahead (the corridor's wide shots come nearer), `h` up (over her lying in bed, looking down at her face)
+  const shot = (s, target, size = 'full', x = 0, z = 0, h = 0) => {
+    s.camera({ target, shot: size });
+    s.move('camera_x', x, { over: 1.5 });
+    s.move('camera_z', z, { over: 1.5 });
+    s.move('camera_h', h, { over: 1.5 });
   };
   const up = p => {
     p.on(null);
@@ -103,13 +117,13 @@ function film(scene) {
         nurse.here(false);
         s.person('jack').look('dad');
         s.person('dad').look('jack');
-        s.camera({ target: 'jack', shot: 'medium' });
+        shot(s, 'jack', 'medium', 0);
         s.tell('door:ticket');
         await s.wait(3);
-        s.camera({ target: 'dad', shot: 'medium' });
+        shot(s, 'dad', 'medium', 0);
         s.tell('door:book');
         await s.wait(3);
-        s.camera({ target: null });
+        shot(s, null, 'full', 0, 1.2);
         s.person('jack').look('corridor_left#door');
         s.person('dad').look('corridor_left#door');
         s.tell('door:tiger');
@@ -135,21 +149,18 @@ function film(scene) {
             await dad.walk([[0.4, 2.7], [-0.55, 3.35]]);
             await dad.turn(0);
             dad.with([]);
-            await dad.walk([[-1.5, 3.0]]);
-            dad.on(CHAIR);
-            dad.turn(115);
             dad.wear(null);
-            dad.do('reading_seated');
+            await sit(dad, CHAIR, 115, 'reading_seated');
             dad.look('dad#book');
           })(),
           (async () => {
             await s.wait(0.8);
-            await jack.walk([[1.45, 3.15]]);
+            await jack.walk([[1.2, 2.9]]);
             await jack.turn(250);
             jack.look('mom');
           })(),
         );
-        s.camera({ target: 'mom', shot: 'medium' });
+        shot(s, 'mom', 'medium', 0.7);
         s.tell('ward_in:greet');
         await s.wait(2);
       },
@@ -168,7 +179,7 @@ function film(scene) {
         await jack.turn(330);
         jack.look('laohu');
         jack.reach({ l: 'laohu' });
-        s.camera({ target: 'laohu', shot: 'close' });
+        shot(s, 'laohu', 'close', 0);
         mom.look('laohu');
         await s.wait(1.2);
         s.tell('once:touch');
@@ -176,10 +187,10 @@ function film(scene) {
         await s.wait(2.2);
         jack.reach(null);
         mom.reach(null);
-        await jack.walk([[0.95, 3.12]]);
-        await jack.turn(245);
+        await jack.walk([[1.0, 2.9]]);
+        await jack.turn(240);
         jack.look('mom');
-        s.camera({ target: 'mom', shot: 'close' });
+        shot(s, 'mom', 'close', 0.7);
         mom.look('jack#bag');
         s.tell('once:suit');
         await s.wait(1.5);
@@ -193,18 +204,18 @@ function film(scene) {
       after: ['once'],
       tells: ['talk_grandma:say', 'talk_grandma:end'],
       seconds: 12,
-      from: () => ({ ...EVENING, jack_a: 0.95, jack_d: 3.12, jack_turn: 245, camera_target: 'mom', camera_shot: 'close' }),
+      from: () => ({ ...EVENING, jack_a: 1.0, jack_d: 2.9, jack_turn: 240, camera_target: 'mom', camera_shot: 'close' }),
       run: async s => {
         const mom = s.person('mom');
         mom.reach(null);
-        s.camera({ target: 'mom', shot: 'close' });
+        shot(s, 'mom', 'close', -0.6);
         mom.look('laohu');
         s.tell('talk_grandma:say');
         await s.wait(4);
         mom.mood('sad');
         await s.wait(2);
         s.person('dad').look('mom');
-        s.camera({ target: null });
+        shot(s, null, 'full', 0);
         await s.wait(2.5);
         mom.look('jack');
         s.tell('talk_grandma:end');
@@ -216,11 +227,11 @@ function film(scene) {
       after: ['once'],
       tells: ['talk_forty:say', 'talk_forty:end'],
       seconds: 10,
-      from: () => ({ ...EVENING, jack_a: 0.95, jack_d: 3.12, jack_turn: 245, camera_target: 'mom', camera_shot: 'close' }),
+      from: () => ({ ...EVENING, jack_a: 1.0, jack_d: 2.9, jack_turn: 240, camera_target: 'mom', camera_shot: 'close' }),
       run: async s => {
         const mom = s.person('mom');
         mom.reach(null);
-        s.camera({ target: 'mom', shot: 'close' });
+        shot(s, 'mom', 'close', 0.7);
         mom.look('jack');
         s.tell('talk_forty:say');
         await s.wait(3);
@@ -238,18 +249,17 @@ function film(scene) {
       after: ['once'],
       tells: ['talk_hand:say', 'talk_hand:end'],
       seconds: 14,
-      from: () => ({ ...EVENING, jack_a: 0.95, jack_d: 3.12, jack_turn: 245, camera_target: 'mom', camera_shot: 'medium' }),
+      from: () => ({ ...EVENING, jack_a: 1.0, jack_d: 2.9, jack_turn: 240, camera_target: 'mom', camera_shot: 'medium' }),
       run: async s => {
         const mom = s.person('mom'),
           jack = s.person('jack');
         mom.reach(null);
         jack.wear(JACK_NOBAG);
-        await jack.walk([[BY_HER[0], 3.3]]);
-        sitBy(jack, 'mom');
+        await sitBy(jack, 'mom');
         jack.do('hold_hand_bed');
         jack.reach({ r: 'mom#hand_l', l: 'mom#hand_l' });
         mom.look('jack');
-        s.camera({ target: 'mom', shot: 'medium' });
+        shot(s, 'mom', 'medium', 0.8);
         s.tell('talk_hand:say');
         await s.wait(3);
         mom.look('laohu');
@@ -269,10 +279,10 @@ function film(scene) {
       after: ['talk_grandma', 'talk_forty', 'talk_hand'],
       tells: ['coat:dad', 'coat:mom'],
       seconds: 9,
-      from: () => ({ ...EVENING, lamp: 0.6, jack_a: 0.95, jack_d: 3.12, jack_turn: 245 }),
+      from: () => ({ ...EVENING, lamp: 0.6, jack_a: 1.0, jack_d: 2.9, jack_turn: 240 }),
       run: async s => {
         const dad = s.person('dad');
-        s.camera({ target: null });
+        shot(s, null, 'full', 0);
         s.move('lamp', 0.6, { over: 3 });
         dad.wear(DAD_PLAIN);
         up(dad);
@@ -293,7 +303,7 @@ function film(scene) {
       tells: ['stay:say', 'stay:turn'],
       seconds: 14,
       from: () => ({
-        ...EVENING, lamp: 0.6, jack_a: 0.95, jack_d: 3.12, jack_turn: 245,
+        ...EVENING, lamp: 0.6, jack_a: 1.0, jack_d: 2.9, jack_turn: 240,
         dad_on: null, dad_a: DOOR_IN[0], dad_d: DOOR_IN[1], dad_turn: 285, dad_do: 'stand', dad_wear: DAD_PLAIN, dad_look: 'jack',
       }),
       run: async s => {
@@ -309,8 +319,7 @@ function film(scene) {
         s.set('suit_on_chair', true);
         jack.wear(JACK_NOBAG);
         jack.do('stand');
-        await jack.walk([[BY_HER[0], 3.3]]);
-        sitBy(jack, 'mom');
+        await sitBy(jack, 'mom');
         jack.do('hold_hand_bed');
         jack.reach({ r: 'mom#hand_l', l: 'mom#hand_l' });
         dad.look('jack');
@@ -319,7 +328,7 @@ function film(scene) {
         await s.wait(1);
         await dad.walk([[2.8, 1.5]]);
         dad.here(false);
-        s.camera({ target: 'mom', shot: 'close' });
+        shot(s, 'mom', 'close', 0);
         jack.reach(null);
         jack.do('sitting_on_bed');
         await s.wait(0.8);
@@ -335,7 +344,7 @@ function film(scene) {
       tells: ['go:hand', 'go:door'],
       seconds: 10,
       from: () => ({
-        ...EVENING, lamp: 0.6, jack_a: 0.95, jack_d: 3.12, jack_turn: 245,
+        ...EVENING, lamp: 0.6, jack_a: 1.0, jack_d: 2.9, jack_turn: 240,
         dad_on: null, dad_a: DOOR_IN[0], dad_d: DOOR_IN[1], dad_turn: 285, dad_do: 'stand', dad_wear: DAD_PLAIN, dad_look: 'jack',
       }),
       run: async s => {
@@ -346,14 +355,14 @@ function film(scene) {
         await jack.turn(230);
         jack.reach({ l: 'mom#hand_l' });
         mom.reach({ l: 'jack#hand_l' });
-        s.camera({ target: 'mom', shot: 'medium' });
+        shot(s, 'mom', 'medium', 0.6);
         s.tell('go:hand');
         await s.wait(2.5);
         jack.reach(null);
         mom.reach(null);
         s.person('dad').walk([[2.8, 1.5]]);
         await jack.walk([[2.05, 2.15]]);
-        s.camera({ target: null });
+        shot(s, null, 'full', 0);
         await jack.turn(260);
         jack.look('mom');
         mom.look('window#pane');
@@ -370,7 +379,7 @@ function film(scene) {
         ...CAM, ...ROOM, ...PEOPLE, ...IN_BED, lamp: 0.3,
         jack_on: CHAIR, jack_a: CHAIR[0], jack_d: CHAIR[1], jack_turn: 105, jack_do: 'sitting_on_bed', jack_wear: JACK_NOBAG,
         jack_look: 'mom',
-        camera_target: 'mom', camera_shot: 'medium',
+        camera_target: 'mom', camera_shot: 'medium', camera_h: 0.9,
       }),
       run: async s => {
         const mom = s.person('mom'),
@@ -385,16 +394,13 @@ function film(scene) {
         jack.reach({ r: 'suit_chair#bag' });
         await s.wait(1.5);
         jack.reach(null);
-        await jack.walk([[-1.7, 3.05]]);
-        jack.on(CHAIR);
-        jack.turn(105);
-        jack.do('sitting_on_bed');
+        await sit(jack, CHAIR, 105);
         jack.look('mom');
-        s.camera({ target: 'laohu', shot: 'close' });
+        shot(s, 'laohu', 'close', 0);
         mom.look('laohu');
         s.tell('night:tiger');
         await s.wait(3);
-        s.camera({ target: 'mom', shot: 'close' });
+        shot(s, 'mom', 'medium', -0.3, 0, 0.9);
         mom.look('jack');
         s.tell('night:talk');
         await s.wait(6);
@@ -422,16 +428,16 @@ function film(scene) {
         const dad = s.person('dad'),
           jack = s.person('jack');
         await s.wait(2);
-        s.camera({ target: null });
-        await dad.walk([[4.5, 7.4]]);
-        await dad.turn(150);
+        shot(s, null, 'full', 0, 2.6);
+        await dad.walk([[4.4, 7.2], [4.55, 4.35]]);
+        await dad.turn(20);
         jack.look('dad');
         s.tell('phone:dad');
         await s.wait(2.5);
         s.set('phone_off', false);
         jack.with([]);
         jack.do('stand');
-        s.camera({ target: 'jack', shot: 'medium' });
+        shot(s, 'jack', 'medium', 0);
         s.tell('phone:pocket');
         await s.wait(2.5);
       },
@@ -479,17 +485,16 @@ function film(scene) {
         if (went) {
           await jack.walk([[1.3, 3.0]]);
           jack.wear(JACK_NOBAG);
-          await jack.walk([[BY_HER[0], 3.3]]);
-          sitBy(jack, 'mom');
+          await sitBy(jack, 'mom');
         }
         s.tell('friday:back');
         await s.wait(2.5);
-        s.camera({ target: went ? 'menu_house' : 'nightstand_top', shot: 'close' });
+        shot(s, went ? 'menu_house' : 'nightstand_top', 'close', 0);
         jack.look(went ? 'menu_house' : 'nightstand_top');
         s.tell('friday:house');
         await s.wait(3);
         jack.look('mom');
-        s.camera({ target: 'mom', shot: 'medium' });
+        shot(s, 'mom', 'medium', 0.4, 0, 0.9);
         await s.wait(2);
       },
     },
@@ -499,7 +504,7 @@ function film(scene) {
       tells: ['silence:dark'],
       seconds: 6,
       run: async s => {
-        s.camera({ target: null });
+        shot(s, null, 'full', 0);
         await s.move('lamp', 0.15, { over: 4 });
         s.tell('silence:dark');
         await s.wait(2);

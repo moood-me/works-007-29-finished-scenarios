@@ -79,6 +79,22 @@ Not right yet:
   it reads close, barely from where we stand.
 - The animals in the shoebox are a painting — still; their slowing down and falling asleep (3.6) is stage 5's.
 
+## Stage 5: the street behind the yard (`view`)
+
+Made on the world's ask (game.md, «Asks of the world» 4; `r3/menagerie-pieces-b`). `view` `street` — the script sets
+`camera_on` to `street_eye` (unseen, in the yard at distance 1.2, facing the street), so the camera looks back the way
+the viewer came: the white `front_fence` along the yard's front (distance −1.6) with its gate open (world across
+−0.9…0.4, point `front_fence#gate`); `street` — a plane: our sidewalk, the road with its yellow middle line, the far
+sidewalk, the lawns across with Mark's path and the driveways; the `stop` on our sidewalk at across −3.6 (the yellow
+sign with a bus on it, no words, a concrete block; point `stop#sign`); `houses_across` at distance −20 — Mark's white
+house with blue shutters and a red door (points `houses_across#mark_door`, `#mark_window`) between the neighbours';
+`car` — Mark's green hatchback at the far curb (point `car#door`); `bus` — the yellow school bus on our lane, moved
+along the street by `bus_a` (40 out of sight on the left as seen from the yard; about −0.6 its door at the stop;
+point `bus#door`); `street_trees` (maples, copies), `far_street`. People for it: `mark_grown` (at his car), `boy_a`,
+`boy_b` (at the stop), all with `place` keys and not here by default. Cards facing the yard (facing 0) paint their x
+to the right of one looking from `street_eye` (world across −x). The sky behind is the yard's own, carried round (its
+gradient, no clouds).
+
 ## Stage 5: the pieces
 
 The module `beats` (lib.js `film`; script.js plays it, after its own `year` and `view`). A piece's start (`from`) is

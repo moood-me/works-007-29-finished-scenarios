@@ -83,6 +83,13 @@ const SQUARE = {
   tourist_cap_look: 'bus#door', tourist_hat_look: 'guide', tourist_coat_look: 'bus#door',
 };
 function film(scene) {
+  // a shot: the operator on `target` (null: the square's own picture), the eye `x` metres aside (toward whom she looks,
+  // so her face is to us) and `h` up (a seated woman framed from a little above, not from her lap)
+  const shot = (s, target, size = 'full', x = 0, h = 0, frame = null) => {
+    s.camera({ target, shot: size, frame });
+    s.move('camera_x', x, { over: 1.5 });
+    s.move('camera_h', h, { over: 1.5 });
+  };
   return {
     // 3.3: Jack comes up to the bench with the letter; she looks at her watch; he asks; she takes the sheet — it is
     // warm —; it trembles on her knees and she presses it down. Wide, then close on her face
@@ -104,7 +111,7 @@ function film(scene) {
         await jack.turn(255);
         jack.look('translator');
         her.look('jack');
-        s.camera({ target: 'translator', shot: 'medium' });
+        shot(s, 'translator', 'medium', 0.6, 0.3);
         s.tell('bench:ask');
         await s.wait(3);
         jack.with([]);
@@ -115,7 +122,7 @@ function film(scene) {
         await s.wait(0.6);
         her.mood('surprised');
         her.look('jack');
-        s.camera({ target: 'translator', shot: 'close' });
+        shot(s, 'translator', 'medium', 0.6, 0.3);
         s.tell('bench:warm');
         await s.wait(2.5);
         her.look('translator#letter');
@@ -135,11 +142,11 @@ function film(scene) {
       seconds: 6,
       from: () => ({
         ...SQUARE, translator_do: 'reading_seated', translator_with: ['letter'], translator_look: 'translator#letter',
-        jack_with: [], jack_look: 'translator#letter', camera_target: 'translator', camera_shot: 'close',
+        jack_with: [], jack_look: 'translator#letter', camera_target: 'translator', camera_shot: 'medium', camera_x: 0.3, camera_h: 0.3,
       }),
       run: async s => {
         const her = s.person('translator');
-        s.camera({ target: 'translator', shot: 'close' });
+        shot(s, 'translator', 'medium', 0.3, 0.3);
         her.do('reading_seated');
         her.look('translator#letter');
         s.tell('reading:start');
@@ -165,7 +172,7 @@ function film(scene) {
         her.mood('thinking');
         her.look('translator#letter');
         her.do('peel');
-        s.camera({ target: 'translator', shot: 'medium', frame: [0.78, 0.45] });
+        shot(s, 'translator', 'medium', 0, 0.3, [0.78, 0.45]);
         await s.wait(1.2);
         await s.move('letter_close', 1, { over: 0.8 });
         s.tell('tear:open');
@@ -179,7 +186,7 @@ function film(scene) {
       seconds: 22,
       from: () => ({
         ...SQUARE, translator_do: 'reading_seated', translator_with: ['letter'], translator_look: 'translator#letter',
-        jack_with: [], jack_look: 'translator#letter', camera_target: 'translator', camera_shot: 'medium',
+        jack_with: [], jack_look: 'translator#letter', camera_target: 'translator', camera_shot: 'medium', camera_h: 0.3,
       }),
       run: async s => {
         const her = s.person('translator'),
@@ -194,10 +201,10 @@ function film(scene) {
         jack.look('jack#letter');
         her.look('jack');
         her.do('sitting_on_bed');
-        s.camera({ target: 'jack', shot: 'medium' });
+        shot(s, 'jack', 'full', 0, 0);
         s.tell('reading_end:back');
         await s.wait(3);
-        s.camera({ target: null });
+        shot(s, null);
         await guide.do('beckon', { loop: false });
         guide.do('showing_suit');
         her.look('guide');

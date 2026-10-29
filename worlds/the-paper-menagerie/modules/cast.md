@@ -28,6 +28,13 @@ the room.
   pennant her `accent`).
 - `tourist_cap`, `tourist_hat`, `tourist_coat` — three of the group: an older man in a khaki jacket and a cap, a woman
   in a pink jacket and a sun hat, a man in a navy windbreaker.
+- `jack_five` — Jack at five (the prologue): a small round-headed boy, a mustard sweater, navy corduroys (the kitchen's
+  and Jack's room's key `young` dresses `jack` so).
+- `nurse` — the nurse on the ward's corridor (2.1): pale teal scrubs, a white cardigan, dark hair in a bun.
+- `mark_grown` — Mark at twenty-two (3.4): broad, the same sandy-red hair, a red jacket over a white T-shirt, jeans;
+  his sports bag (part `duffel`) by `_with`.
+- `boy_a`, `boy_b` — Mark's friends at the bus stop (1.7), ten: a tall blond one in a striped blue sweatshirt with a
+  navy backpack, a stocky dark-curled one in a mustard windbreaker with a red backpack (part `backpack`).
 
 ## Hats
 
@@ -48,6 +55,12 @@ the room.
   `letter`.
 - `flag` — a tour guide's little flag held up in the right hand, its pennant the look's `accent`; the point `flag`.
 - `frog` — a paper frog of green wrapping paper sitting on the open right hand; the point `frog`.
+- `backpack` — a school backpack on the back, its flap a shade darker, two straps (the look's `accent`); the point
+  `backpack`.
+- `duffel` — a sports bag carried by its handles in the right hand, hanging at the side (the look's `accent`); the point
+  `bag`.
+- `oranges` — a string bag of six oranges hanging from the left hand; the point `oranges`.
+- `receiver` — a telephone's black receiver held to the ear in the right hand; the point `receiver`.
 
 ## Motions (Kimodo)
 
@@ -60,3 +73,13 @@ shoulder height (a loop); `holding_toy` — stands still, sullen, a small thing 
 loop); `crouch_scraps` — squats low, the hands between the knees holding something small (a loop); `offer_hand` —
 stands stooping a little, the right hand held out before her, the left forearm level at the waist as if carrying a
 plate (a loop).
+Stage 5 (`r3/menagerie-pieces-b`, the ward's and the square's pieces; each looked at with `look_at_motion` before it
+was put): `hold_hand_bed` — sits leaning forward, both hands together before the knees, still (a loop; the hands are
+set on the other's hand by `_reach`); `phone_call` — stands, the right hand at the ear holding a receiver, the head
+bowed (a loop; with the part `receiver`); `doze_chair` — sits leaning back, the arms crossed, the head back, asleep (a
+loop; the second take — the first and the asked-for head dropped forward did not come: the arms crossed and the head
+upright; this one reads as asleep with `eyes_closed`); `lie_bed` — lies on the back, still, the arms at the sides (a
+loop; its feet the way the person's turn faces; with `<id>_on` a point of a bed, e.g. the ward's `bed_top#lie`);
+`peel` — sits picking at something held before the chest with both hands, then the hands down to the lap (a loop);
+`check_watch` — sits, lifts the left wrist and looks at it, then the hands back to the lap (once, 3 s); `beckon` —
+stands, the right arm thrown forward and up toward someone, then down (once, 3 s: a guide calling her group).
