@@ -29,7 +29,7 @@ g.lineTo(-5.42, -1.75);
 g.closePath();
 g.fill();
 // the windows, pillar by pillar
-for (let x = -4.25; x < 5.7; x += 1.42) {
+for (let x = -4.25; x < 4.5; x += 1.42) {
   g.fillStyle = TINT;
   g.fillRect(x, -3.25, 1.3, 1.35);
   g.fillStyle = 'rgba(214,226,240,0.28)';

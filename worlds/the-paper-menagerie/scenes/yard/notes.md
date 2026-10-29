@@ -75,4 +75,6 @@ Not right yet:
   approved where it is; the ending «Дым» (its mini-game over the fire) should frame it with the camera (stage 5).
 - 3.4's grown Mark and his car across the street are behind the viewer (the yard looks at the house); the gate and the
   car at it too. A game shows them by the camera turned, or does without.
+- Jack in his window shows only his head over the sill (a boy of ten on the room's floor; the sill is 1 m over it):
+  it reads close, barely from where we stand.
 - The animals in the shoebox are a painting — still; their slowing down and falling asleep (3.6) is stage 5's.

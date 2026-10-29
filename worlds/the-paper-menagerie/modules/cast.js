@@ -16,11 +16,9 @@ const STAR = [0.93, 0.78, 0.35, 1];
 const SILVER = [0.74, 0.76, 0.8, 1];
 const VISOR = [0.25, 0.26, 0.3, 1];
 const BLADE = [0.55, 0.58, 0.62, 1];
-// (the letter: the wrapping's red outside and its cream back, the old yellow tape, her ink; the flag's pole; the frog's
-// green paper, light and dark)
-const LETTER = [[0.86, 0.27, 0.22, 1], [0.95, 0.91, 0.82, 1]];
+// (the letter: the wrapping's red, the old yellow tape; the flag's pole; the frog's green paper, light and dark)
+const LETTER = [[0.86, 0.27, 0.22, 1]];
 const TAPE = [0.93, 0.83, 0.5, 1];
-const INK = [0.2, 0.18, 0.2, 1];
 const POLE = [0.82, 0.82, 0.8, 1];
 const FROG = [[0.48, 0.7, 0.42, 1], [0.38, 0.58, 0.34, 1]];
 return {
@@ -368,8 +366,8 @@ return {
       },
       // — the square and the last dusk (chapter 3) —
       // the letter: Laohu unfolded — a square of red wrapping paper with gold stars, held open in both hands before
-      // the chest; its outside (red, the stars, the old yellow tape across it) away from the reader, its back (cream,
-      // the columns of her writing) toward them; the point `letter`
+      // the chest, its outside (red, the stars, the old yellow tape across it) away from the reader — her writing on
+      // its back is a close-up's (an insert), not drawn on the part; the point `letter`
       letter: {
         name: 'the letter',
         draw: F => {
@@ -383,13 +381,10 @@ return {
           const up = unit(cross(face, across)),
             c = add(mix(l, r, 0.5), mul(up, 0.06 * h)),
             ax = [across, up, face];
-          F.ball(add(c, mul(face, 0.004 * h)), ax, [0.17 * h, 0.16 * h, 0.002 * h], LETTER[0], 4, 8);
-          F.ball(add(c, mul(face, -0.004 * h)), ax, [0.165 * h, 0.155 * h, 0.002 * h], LETTER[1], 4, 8);
-          for (const [x, y] of [[-0.1, 0.09], [0.06, 0.11], [-0.03, -0.02], [0.11, -0.06], [-0.12, -0.1], [0.04, -0.12]])
-            F.ball(add(c, add(mul(across, x * h), add(mul(up, y * h), mul(face, 0.0075 * h)))), ax, [0.011 * h, 0.011 * h, 0.001 * h], STAR, 5);
-          F.ball(add(c, add(mul(up, 0.03 * h), mul(face, 0.007 * h))), ax, [0.172 * h, 0.018 * h, 0.001 * h], TAPE, 4, 8);
-          for (let i = 0; i < 6; i++)
-            F.ball(add(c, add(mul(across, (-0.12 + i * 0.048) * h), mul(face, -0.0075 * h))), ax, [0.006 * h, 0.12 * h, 0.001 * h], INK, 4, 6);
+          F.ball(c, ax, [0.17 * h, 0.16 * h, 0.001 * h], LETTER[0], 4, 8);
+          for (const [x, y] of [[-0.1, 0.09], [0.07, -0.08], [0.11, 0.1]])
+            F.ball(add(c, add(mul(across, x * h), add(mul(up, y * h), mul(face, 0.002 * h)))), ax, [0.008 * h, 0.008 * h, 0.0005 * h], STAR, 5);
+          F.ball(add(c, add(mul(up, 0.03 * h), mul(face, 0.002 * h))), ax, [0.17 * h, 0.016 * h, 0.0005 * h], TAPE, 4, 8);
           F.point('letter', c);
         },
       },
