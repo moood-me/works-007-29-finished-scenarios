@@ -59,3 +59,11 @@ shows his cheek). Cecil is not here: the scenario does not put him in this room.
   hands.
 - The almond is seen only through a sliver of the window from the viewer's place (the window is in a side wall, so
   that the moon can fall on the ring in the far wall); the twins' «Миндаль!» wants a camera at the window (stage 5).
+
+## Measured
+
+`measure_scene` (stand run 22, commit 261ac9b, desktop / laptop / phone at 1080p): frames at 60 (p95 16.8 ms against
+16.7 on desktop and laptop — the display's own period), worker JS 2 ms, GPU about 3.6 ms, no soft run, 290 / 239 / 105
+pages a view; it fails «allocated a frame» (about 31 KB a frame, all of it the engine's modules — the six people) and,
+on laptop and phone, the GC pause (2.9 ms against 2) that comes of it. The candle part's own arrays (1.4 KB a frame)
+are kept since (`F.keep`, 2257ecf).
