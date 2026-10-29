@@ -75,7 +75,9 @@
     "cast"
   ],
   "state": {
-    "steam_his": 0,
+    "cups": 2,
+    "cold": false,
+    "steam_his": 1,
     "steam_hers": 1,
     "dreamer_spot": "table",
     "nastya_spot": "table",
@@ -117,13 +119,25 @@
     }
   },
   "states": {
+    "cups": {
+      "values": [
+        0,
+        1,
+        2
+      ],
+      "means": "the cups on the little table: 0 none; 1 his only (at the left end — she is bringing hers); 2 both, his and hers"
+    },
+    "cold": {
+      "type": "boolean",
+      "means": "one cup gone cold: hers (at the right end, left when she went to the window) steams no more; false — both hot"
+    },
     "steam_his": {
       "range": [
         0,
         1
       ],
       "smooth": true,
-      "means": "steam over his cup (left): 1 hot, 0 gone cold"
+      "means": "the steam over his cup (the scene's own, from cups — script.js)"
     },
     "steam_hers": {
       "range": [
@@ -131,7 +145,7 @@
         1
       ],
       "smooth": true,
-      "means": "steam over her cup (right): 1 hot, 0 gone cold"
+      "means": "the steam over her cup (the scene's own, from cups and cold — script.js)"
     },
     "dreamer_spot": {
       "values": [

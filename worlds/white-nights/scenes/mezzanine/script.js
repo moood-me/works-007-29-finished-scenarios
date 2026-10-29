@@ -14,3 +14,16 @@ for (const id of Object.keys(SPOTS)) {
   place(id, scene.state[`${id}_spot`]);
   scene.on('change', `${id}_spot`, (v) => place(id, v));
 }
+
+// The tea: the steam over each cup from `cups` and `cold` — a cup not there steams not; hers, gone cold, fades over
+// some seconds.
+function steam(fade) {
+  const n = scene.state.cups ?? 2;
+  scene.set('steam_his', n >= 1 ? 1 : 0);
+  const hers = n >= 2 && !scene.state.cold ? 1 : 0;
+  if (fade) scene.move('steam_hers', hers, { over: 6, ease: 'out' });
+  else scene.set('steam_hers', hers);
+}
+steam(false);
+scene.on('change', 'cups', () => steam(false));
+scene.on('change', 'cold', () => steam(true));

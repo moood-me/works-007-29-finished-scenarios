@@ -39,7 +39,8 @@
     "cast"
   ],
   "state": {
-    "door": 350,
+    "door": "open",
+    "door_turn": 350,
     "dreamer_with": [
       "letter"
     ],
@@ -74,12 +75,19 @@
   },
   "states": {
     "door": {
+      "values": [
+        "shut",
+        "open"
+      ],
+      "means": "the acquaintances' door: shut, or open into the flat (Glasha in it — her `glasha_here` is the game's); set, it swings over a second (script.js turns door_turn)"
+    },
+    "door_turn": {
       "range": [
         270,
         355
       ],
       "smooth": true,
-      "means": "the acquaintances' door (hinged at its near side, opening into the flat): 270 shut, 350 wide open (Glasha in it); a piece turns it with scene.turn"
+      "means": "the door's turn about its hinges (the scene's own, moved by script.js from `door`): 270 shut, 350 open"
     }
   },
   "objects": [
@@ -251,7 +259,7 @@
       "distance": 3.2,
       "facing": 270,
       "place": {
-        "facing": "door"
+        "facing": "door_turn"
       },
       "height": 2.15,
       "box": [

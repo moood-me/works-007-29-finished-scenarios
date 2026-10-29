@@ -28,8 +28,9 @@ the room's front (where the hatch's light and the stair are), so faces turned to
   the light water, a lamp burning on the near bank.
 - The hatch of the stair from Grandmother's room in the floor, front right (painted in `floor`; point `floor#hatch`).
 - The little table (`table`, `table_top`, a white cloth) at across −0.58, 2.6…3.1; on it the tea (`cups`: his cup at the
-  left end, hers at the right, the teapot between — points `cups#his`, `cups#hers`), the steam over each (`steam_a`,
-  `steam_b`, by `steam_his`, `steam_hers`). Two bentwood chairs at its ends (`chair`, two copies), the bed along the
+  left end, hers at the right, the teapot between — points `cups#his`, `cups#hers`; how many by `cups`), the steam over
+  each (`steam_a`, `steam_b`, by `steam_his`, `steam_hers` — the scene's own, set by `script.js` from `cups` and
+  `cold`). Two bentwood chairs at its ends (`chair`, two copies), the bed along the
   right knee wall under its patchwork (`bed`, `bed_top`).
 
 ## The people (the world's `cast`; their spots — `lib.SPOTS`, laid out by `script.js`)
@@ -45,12 +46,19 @@ cups are only for the table).
 
 ## State
 
-`steam_his`, `steam_hers` 0…1 (smooth) — the steam over each cup («две чашки, одна остывшая»: one of them 0);
-`dreamer_spot` (table, stand), `nastya_spot` (table, window, hatch).
+`cups` 0 / 1 / 2 — the cups on the table (1: his only, she is bringing hers; 2: both); `cold` — her cup gone cold
+(its steam fades over some seconds: «две чашки, одна остывшая»); `dreamer_spot` (table, stand), `nastya_spot` (table,
+window, hatch). `steam_his`, `steam_hers` are the scene's own.
 
 ## What moves
 
 The steam, the two breathing. Nothing is painted again while the scene plays.
+
+## Done, and what is left
+
+Stage 4 is done (2026-10-29). The game stopped at this half-stage (Pavel): no pieces yet. Left for stage 5: the pieces
+`mezzanine`, `window_ten` (`lean_window` at the little window), М8 «Оклик» on `nastya#head`, the bell's ten strokes
+(a sound), the camera and the last shot — `docs/new-games/belye-nochi/game.md`, «Stage 5 — pieces».
 
 ## Known
 
