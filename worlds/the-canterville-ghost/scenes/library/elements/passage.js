@@ -1,13 +1,13 @@
 // The passage beyond the library's doors, its far wall seen through them: plaster over a low oak dado, a candle in a
 // sconce lighting it, an ancestor's dim portrait.
 g.fillStyle = '#9c8f7c';
-g.fillRect(-1.6, -3.02, 3.2, 3.04);
+g.fillRect(-2.0, -3.02, 4.0, 3.04);
 g.fillStyle = e.lib.OAK;
-g.fillRect(-1.6, -1.0, 3.2, 1.0);
+g.fillRect(-2.0, -1.0, 4.0, 1.0);
 g.fillStyle = e.lib.OAK_LIGHT;
-g.fillRect(-1.6, -1.04, 3.2, 0.05);
+g.fillRect(-2.0, -1.04, 4.0, 0.05);
 g.fillStyle = e.lib.OAK_DARK;
-g.fillRect(-1.6, -0.12, 3.2, 0.12);
+g.fillRect(-2.0, -0.12, 4.0, 0.12);
 // the portrait
 g.fillStyle = '#5a4424';
 g.fillRect(-0.95, -2.35, 0.62, 0.8);

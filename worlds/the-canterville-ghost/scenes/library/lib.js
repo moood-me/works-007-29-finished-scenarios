@@ -128,13 +128,14 @@ function FILM(scene) {
   const merge = (...xs) => Object.assign({}, ...xs);
 
   // where they wait unseen: in the passage beyond the doors (hidden by the wall from the room's picture)
-  const OUT = { virginia: [-5.2, 6.9, 90], simon: [-5.4, 7.7, 90], otis: [-5.0, 7.3, 90], mrs_otis: [-5.4, 7.0, 90], washington: [-5.0, 7.9, 90],
-    twin_star: [-5.5, 7.5, 90], twin_stripes: [-5.3, 8.0, 90], mrs_umney: [-5.6, 6.8, 90], cecil: [-5.6, 8.1, 90] };
+  // (along the passage toward the viewer, short of the doorway: no shot of the room sees them there)
+  const OUT = { virginia: [-5.0, 6.1, 45], simon: [-5.6, 5.8, 45], otis: [-4.7, 6.2, 45], mrs_otis: [-5.3, 6.3, 45], washington: [-4.9, 5.7, 45],
+    twin_star: [-5.5, 6.2, 45], twin_stripes: [-5.2, 5.6, 45], mrs_umney: [-5.7, 6.4, 45], cecil: [-4.8, 5.4, 45] };
   const DOOR_IN = [-3.3, 7.4], DOOR_OUT = [-4.8, 7.4];
   const out = (...ids) => merge(...ids.map(id => who(id, OUT[id])));
   // the breakfast table's seats: the far side's four facing the room, Mr Otis at its left end, Virginia at its right
   const SEAT = { twin_star: [-2.65, 9.15, 180], twin_stripes: [-2.15, 9.15, 180], washington: [-1.65, 9.15, 180], mrs_otis: [-1.15, 9.15, 180],
-    otis: [-3.3, 8.3, 90], virginia: [-0.7, 8.3, 270] };
+    otis: [-3.3, 8.3, 90], virginia: [-0.7, 8.3, 245] };
   const TABLE = ['otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'virginia'];
   const breakfast = (but = []) => merge(...TABLE.filter(id => !but.includes(id)).map(id => sat(id, SEAT[id], id === 'otis' ? 'read_paper' : 'sit_table',
     0.46, id === 'otis' ? { with: ['newspaper'] } : {})));
@@ -167,7 +168,7 @@ function FILM(scene) {
         const come = (id, wait) => s.sequence(async q => {
           await q.wait(wait);
           const [a, d, turn] = EVE[id];
-          await q.person(id).walk([DOOR_IN, [a, d]]);
+          await q.person(id).walk([DOOR_OUT, DOOR_IN, [a, d]]);
           await q.person(id).turn(turn);
           q.person(id).look('mrs_umney');
         });
@@ -357,7 +358,7 @@ function FILM(scene) {
 
     // ---- chapter II: the green stain at breakfast; the clean floor; the peas; Cecil; the sleepless night and the drawing
     breakfast_green: {
-      after: [], tells: ['breakfast_green:laugh', 'breakfast_green:out'], seconds: 12,
+      after: [], tells: ['breakfast_green:laugh', 'breakfast_green:out'], seconds: 15,
       from: () => merge(MORNING, CAM0, { stain: 'emerald' }, breakfast(), out('mrs_umney', 'cecil', 'simon')),
       run: async s => {
         const up = id => s.sequence(async q => {
@@ -374,7 +375,7 @@ function FILM(scene) {
         await s.wait(2.5);
         const v = s.person('virginia');
         glide(s, SH.green, 1.2);
-        await s.wait(1.6);
+        await s.wait(2.6);
         v.on(null);
         await v.go('stand_up', { from: [SEAT.virginia[0], SEAT.virginia[1]], turn: 200 });
         aim(s, null, 'full', 1.5);
@@ -416,7 +417,7 @@ function FILM(scene) {
         who('cecil', OUT.cecil), out('mrs_umney', 'simon')),
       run: async s => {
         const c = s.person('cecil'), v = s.person('virginia');
-        await c.walk([DOOR_IN, [-0.55, 7.2], [-0.45, 8.1]]);
+        await c.walk([DOOR_OUT, DOOR_IN, [-0.55, 7.2], [-0.45, 8.1]]);
         await c.turn(90);
         c.look('virginia');
         v.turn(270);
@@ -474,7 +475,7 @@ function FILM(scene) {
         const w = s.person('washington');
         w.with(['candle_l']);
         s.set('washington_candle', 1);
-        await w.walk([[-3.6, 7.4]]);
+        await w.walk([DOOR_OUT, [-3.6, 7.4]]);
         await w.turn(120);
         w.do('hold_candle');
         w.look('otis');
@@ -486,7 +487,7 @@ function FILM(scene) {
       },
     },
     drawing: {
-      after: ['wash_door'], tells: ['drawing:look', 'drawing:mother'], seconds: 15,
+      after: ['wash_door'], tells: ['drawing:look', 'drawing:mother'], seconds: 19,
       from: () => merge(NIGHT, CAM0, { drawing: 'none', washington_candle: 1 }, sat('otis', DESK, 'sit_table', 0.46),
         sat('virginia', SILL, 'sit_sill', 0.5, { wear: V.virginia_night ?? null, with: ['sketchbook'] }), who('washington', [-3.6, 7.4, 120], 'hold_candle', { with: ['candle_l'] }),
         who('mrs_otis', OUT.mrs_otis), out('twin_star', 'twin_stripes', 'mrs_umney', 'cecil', 'simon')),
@@ -516,7 +517,7 @@ function FILM(scene) {
         s.set('drawing', 'inkstand');
         o.look('desk#drawing');
         const m = s.person('mrs_otis');
-        await m.walk([[-3.7, 7.0]]);
+        await m.walk([DOOR_OUT, [-3.7, 7.1]]);
         await m.turn(130);
         m.look('otis');
         o.look('mrs_otis');
@@ -585,7 +586,7 @@ function FILM(scene) {
     brown: {
       after: [], tells: ['brown:rubbed', 'brown:rug'], seconds: 14,
       from: () => merge(MORNING, CAM0, { stain: 'brown', rug: false }, who('washington', [2.95, 6.3, 180], 'kneel_rub', { look: 'stain' }),
-        who('mrs_otis', [1.4, 5.4, 140], 'stand', { look: 'washington' }), who('virginia', [DOOR_IN[0] - 0.2, DOOR_IN[1], 120], 'stand', { look: 'stain' }),
+        who('mrs_otis', [1.9, 7.6, 200], 'stand', { look: 'washington' }), who('virginia', [DOOR_IN[0] - 0.2, DOOR_IN[1], 120], 'stand', { look: 'stain' }),
         out('otis', 'twin_star', 'twin_stripes', 'mrs_umney', 'cecil', 'simon'), SH.wash),
       run: async s => {
         const w = s.person('washington');
@@ -606,7 +607,7 @@ function FILM(scene) {
       },
     },
     breakfast_funeral: {
-      after: [], tells: ['breakfast_funeral:say', 'breakfast_funeral:end'], seconds: 10,
+      after: [], tells: ['breakfast_funeral:say', 'breakfast_funeral:end'], seconds: 12,
       from: () => merge(MORNING, SH.table, { stain: 'brown', rug: true }, breakfast(), out('mrs_umney', 'cecil', 'simon')),
       run: async s => {
         s.person('otis').do('sit_table');

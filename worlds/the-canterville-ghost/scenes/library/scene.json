@@ -426,10 +426,10 @@
       "name": "The passage's floor beyond the doors",
       "plane": true,
       "across": -4.95,
-      "distance": 7.4,
+      "distance": 7.0,
       "elevation": 0,
       "width": 1.9,
-      "depth": 2.8
+      "depth": 3.6
     },
     {
       "id": "rug",
@@ -799,13 +799,13 @@
       "id": "passage",
       "name": "The passage beyond the doors: its far wall",
       "across": -5.9,
-      "distance": 7.4,
+      "distance": 7.0,
       "facing": 90,
       "height": 3.0,
       "box": [
-        -1.6,
+        -2.0,
         -3.02,
-        1.6,
+        2.0,
         0.02
       ]
     },
