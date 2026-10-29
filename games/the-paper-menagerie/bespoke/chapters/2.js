@@ -23,7 +23,7 @@ export default {
     ] },
     { id: 'train', title: tr('The train'), weight: '⚑', options: [
       { id: 'stay', label: tr('Stay'), came: tr('You stayed, though she said “Go” — she turned away; the job went to someone else.') },
-      { id: 'go', label: tr('Go'), came: tr('You went — when you came back she no longer spoke; on the nightstand stood a paper house.') },
+      { id: 'go', label: tr.c('the choice: take the train', 'Go'), came: tr('You went — when you came back she no longer spoke; on the nightstand stood a paper house.') },
     ] },
   ],
   steps: [
@@ -141,7 +141,7 @@ export default {
       await g.plate(tr('The ticket for tonight; the interview, two days; it has been moved once already. Her thinness — and “stay a while longer”.'));
       const train = await g.choose('train', { 'jack#chest': [
         { id: 'stay', label: tr('Stay') },
-        { id: 'go', label: tr('Go') },
+        { id: 'go', label: tr.c('the choice: take the train', 'Go') },
       ] });
       if (train === 'stay') {
         await g.say('jack_grown', 'I’ll stay, Dad', { how: 'quietly, decided' });

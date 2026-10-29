@@ -97,7 +97,7 @@ export const BODY = { jack_grown: 'jack' };
 // The scales (scenario §8): each set by one choice, once, and never moved after — the state of the house the player
 // sees the whole way: its name, its three values (the one it has bold), and the one line that says what it means.
 export const SCALES = {
-  language: { name: tr('The language at home'), values: [tr('English'), tr('two languages'), tr('Mom’s')],
+  language: { name: tr('The language at home'), values: [tr('English'), tr('two languages'), tr.c('the language at home: hers', 'Mom’s')],
     rule: tr('The language at home: English — two languages (she speaks Chinese, he answers in English) — Mom’s. How her voice will sound to the end: whether grown-up Jack still understands her.') },
   menagerie: { name: tr('The menagerie'), values: [tr('in the attic'), tr('Laohu'), tr('the whole house')],
     rule: tr('The menagerie: in the attic — Laohu — the whole house. Where her animals live from now on, and who sees them.') },
