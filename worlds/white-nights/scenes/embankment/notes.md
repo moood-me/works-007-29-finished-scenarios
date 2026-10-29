@@ -185,3 +185,15 @@ pieces are written.
 - People far up the street (the awning at 12 m, the bench at 9–11 m) are small in the picture camera: the close faces
   are stage 5's cameras.
 
+
+## For stage 5: answers from moood's engine author (2026-10-29)
+
+- **Rain under the awning.** Rain lands on the land only; nothing under a cover stays dry, and covers are not planned.
+  The right way: split the rain into three elements with the same kind, amount, count and colour, whose `area`s leave
+  out the awning (≈ across 4.5…6.1, distance 10.45…13.55): `[-60, 4.75, -60, 340]`, `[4.25, 60, -60, 10.7]`,
+  `[4.25, 60, 13.3, 340]`. The 0.5 m overlaps match the 0.5 m edge fade, so there is no seam; 3 × 14000 stays under the
+  65536 cap (lower the count if heavy).
+- **Arm in arm.** Give both the same speed in the same step: `s.person('nastya').walk(pts, {speed: 1.42})`,
+  `s.person('dreamer').walk(pts2, {speed: 1.42})`. Up to 25 % off a gait's pace passes without a warning; moving the
+  place keys with `scene.path`/`move` eases in and out and so warns «moved slower than its gait» — use `.walk` with a
+  speed instead.
