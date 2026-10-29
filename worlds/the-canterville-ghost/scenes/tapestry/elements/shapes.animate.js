@@ -1,0 +1,22 @@
+// the shapes drift and beat slowly, never in step, as much there as `shapes` says
+const k = e.state.shapes ?? 0;
+const t = e.t;
+const w1 = e.layer('w1');
+w1.alpha = k * (0.6 + 0.4 * Math.sin(t * 0.7));
+w1.x = 0.5 * Math.sin(t * 0.31);
+w1.y = 0.15 * Math.sin(t * 0.53);
+w1.scaleY = 0.7 + 0.3 * Math.sin(t * 2.1);
+const w2 = e.layer('w2');
+w2.alpha = k * (0.5 + 0.5 * Math.sin(t * 0.5 + 2));
+w2.x = -0.6 * Math.sin(t * 0.27 + 1);
+w2.y = 0.2 * Math.sin(t * 0.41 + 2);
+w2.scaleY = 0.7 + 0.3 * Math.sin(t * 2.6 + 1);
+const s1 = e.layer('s1');
+s1.alpha = k * (0.55 + 0.45 * Math.sin(t * 0.46));
+s1.x = 0.4 * Math.sin(t * 0.23);
+const s2 = e.layer('s2');
+s2.alpha = k * (0.55 + 0.45 * Math.sin(t * 0.38 + 2.2));
+s2.x = 0.4 * Math.sin(t * 0.19 + 2.2);
+const s3 = e.layer('s3');
+s3.alpha = k * (0.55 + 0.45 * Math.sin(t * 0.58 + 4.1));
+s3.x = 0.4 * Math.sin(t * 0.29 + 4.1);

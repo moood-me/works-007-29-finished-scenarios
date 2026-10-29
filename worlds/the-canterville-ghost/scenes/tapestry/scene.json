@@ -22,7 +22,61 @@
       1,
       0,
       0.4
-    ]
+    ],
+    "looks": {
+      "evening": {
+        "ambient": 0.46,
+        "ambientColor": "#8a7486",
+        "tint": "#ff9a70",
+        "tintStrength": 0.1,
+        "shafts": 1.4,
+        "hazeColor": "#9a7068",
+        "lights": {
+          "sun": 0.35,
+          "daylight": 0.5
+        }
+      },
+      "night": {
+        "ambient": 0.42,
+        "ambientColor": "#5a6a98",
+        "tint": "#c9d2ea",
+        "tintStrength": 0.05,
+        "haze": 0.08,
+        "hazeColor": "#2a3042",
+        "hazeGlow": 0.5,
+        "shafts": 1.4,
+        "lights": {
+          "sun": 0,
+          "daylight": 0
+        }
+      },
+      "vision": {
+        "ambient": 0.34,
+        "ambientColor": "#6070a0",
+        "tint": "#a0b0e0",
+        "tintStrength": 0.12,
+        "saturation": 0.7,
+        "lights": {
+          "sun": 0.25,
+          "daylight": 0.4
+        }
+      },
+      "dark": {
+        "ambient": 0.03,
+        "ambientColor": "#202030",
+        "bounce": 0.2,
+        "haze": 0.05,
+        "hazeColor": "#05050a",
+        "hazeGlow": 0.9,
+        "shafts": 0,
+        "vignette": 0.7,
+        "lights": {
+          "sun": 0,
+          "daylight": 0,
+          "moon": 0
+        }
+      }
+    }
   },
   "lights": [
     {
@@ -71,14 +125,95 @@
       "id": "ghost",
       "across": 1.3,
       "distance": 4.8,
-      "elevation": 1.0,
+      "elevation": 1.2,
       "color": "#bdf0df",
       "strength": 0.8,
-      "reach": 2.2
+      "reach": 2.2,
+      "place": {
+        "across": "ghost_a",
+        "distance": "ghost_d"
+      },
+      "on": "ghost_light"
+    },
+    {
+      "id": "moon",
+      "from": [
+        20,
+        30
+      ],
+      "color": "#a9bde6",
+      "strength": 2.2,
+      "on": "night",
+      "through": [
+        [
+          [
+            0.65,
+            5.9,
+            0.55
+          ],
+          [
+            2.55,
+            5.9,
+            0.55
+          ],
+          [
+            2.55,
+            5.9,
+            2.66
+          ],
+          [
+            0.65,
+            5.9,
+            2.66
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "ghost_dark",
+      "across": 1.3,
+      "distance": 4.8,
+      "elevation": 1.5,
+      "place": {
+        "across": "ghost_a",
+        "distance": "ghost_d"
+      },
+      "color": "#d6f4ea",
+      "strength": 1.0,
+      "reach": 2.6,
+      "on": "dark"
+    },
+    {
+      "id": "virginia_candle",
+      "at": "virginia#flame",
+      "color": "#ffcf8a",
+      "strength": 1.5,
+      "reach": 3.2,
+      "on": "virginia_candle",
+      "flicker": 0.25
+    },
+    {
+      "id": "otis_candle",
+      "at": "otis#flame",
+      "color": "#ffcf8a",
+      "strength": 1.5,
+      "reach": 3.2,
+      "on": "otis_candle",
+      "flicker": 0.25
+    },
+    {
+      "id": "lantern_held",
+      "at": "washington#lantern",
+      "color": "#ffc874",
+      "strength": 1.6,
+      "reach": 3.6,
+      "on": "lantern_held",
+      "flicker": 0.15
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "simon_on": [
@@ -93,7 +228,37 @@
       0.2
     ],
     "virginia_look": "simon",
-    "virginia_mood": "sad"
+    "virginia_mood": "sad",
+    "evening": 0,
+    "night": 0,
+    "vision": 0,
+    "dark": 0,
+    "wall": 0,
+    "stir": 0,
+    "shapes": 0,
+    "stub": "none",
+    "turnip": false,
+    "lantern": false,
+    "candle_floor": false,
+    "door": 120,
+    "wall_lf": 180,
+    "wall_rf": 180,
+    "ghost_light": 1,
+    "ghost_a": 1.3,
+    "ghost_d": 4.8,
+    "simon_a": 1.35,
+    "simon_d": 5.52,
+    "virginia_a": -1.7,
+    "virginia_d": 4.8,
+    "otis_here": false,
+    "otis_a": -3.7,
+    "otis_d": 4.7,
+    "otis_candle": 0,
+    "washington_here": false,
+    "washington_a": -3.7,
+    "washington_d": 4.7,
+    "lantern_held": 0,
+    "virginia_candle": 0
   },
   "objects": [
     {
@@ -245,6 +410,36 @@
       }
     },
     {
+      "id": "vision",
+      "name": "The garden under the moon in the window (the vision)",
+      "glows": true,
+      "across": 1.6,
+      "distance": 6.6,
+      "facing": 180,
+      "height": 3.4,
+      "box": [
+        -2.2,
+        -3.4,
+        2.2,
+        0.3
+      ]
+    },
+    {
+      "id": "night_view",
+      "name": "The avenue at night in the window",
+      "glows": true,
+      "across": 1.6,
+      "distance": 6.75,
+      "facing": 180,
+      "height": 3.4,
+      "box": [
+        -2.4,
+        -3.4,
+        2.4,
+        0.3
+      ]
+    },
+    {
       "id": "floor",
       "name": "The floor",
       "plane": true,
@@ -334,6 +529,86 @@
       ]
     },
     {
+      "id": "passage",
+      "name": "The dark way behind the wall: its far end, steps going down",
+      "across": -1.4,
+      "distance": 8.45,
+      "facing": 180,
+      "height": 2.95,
+      "box": [
+        -0.62,
+        -2.95,
+        0.85,
+        0.08
+      ]
+    },
+    {
+      "id": "passage_side",
+      "name": "The sides of the dark way behind the wall",
+      "across": -2.0,
+      "distance": 6.95,
+      "facing": 90,
+      "height": 2.95,
+      "box": [
+        -1.55,
+        -2.95,
+        1.9,
+        0.08
+      ],
+      "copies": [
+        {
+          "across": -2.0,
+          "distance": 6.95,
+          "facing": 90
+        },
+        {
+          "across": -0.8,
+          "distance": 6.95,
+          "facing": 270
+        }
+      ]
+    },
+    {
+      "id": "passage_floor",
+      "name": "The floor of the dark way",
+      "plane": true,
+      "across": -1.4,
+      "distance": 6.95,
+      "elevation": 0.001,
+      "width": 1.2,
+      "depth": 3.0
+    },
+    {
+      "id": "passage_top",
+      "name": "The low stone roof of the dark way",
+      "across": -1.4,
+      "distance": 8.45,
+      "elevation": 2.95,
+      "facing": 180,
+      "tilt": -90,
+      "height": 3.0,
+      "box": [
+        -0.62,
+        -3.0,
+        0.62,
+        0.02
+      ]
+    },
+    {
+      "id": "shapes",
+      "name": "Shadows and wings in the dark",
+      "glows": true,
+      "across": -1.4,
+      "distance": 7.6,
+      "height": 2.8,
+      "box": [
+        -1.8,
+        -3.0,
+        1.8,
+        0.2
+      ]
+    },
+    {
       "id": "back_wall",
       "name": "The far wall: a tapestry and the deep window",
       "across": 0,
@@ -397,7 +672,10 @@
         -2.14,
         0.02,
         0.02
-      ]
+      ],
+      "place": {
+        "facing": "door"
+      }
     },
     {
       "id": "right_wall",
@@ -448,6 +726,94 @@
       }
     },
     {
+      "id": "wall_l",
+      "name": "The left leaf of the wall behind the tapestry",
+      "across": -2.0,
+      "distance": 5.39,
+      "facing": 180,
+      "place": {
+        "facing": "wall_lf"
+      },
+      "height": 2.92,
+      "box": [
+        0,
+        -2.92,
+        0.6,
+        0.02
+      ]
+    },
+    {
+      "id": "wall_r",
+      "name": "The right leaf of the wall behind the tapestry",
+      "across": -0.8,
+      "distance": 5.39,
+      "facing": 180,
+      "place": {
+        "facing": "wall_rf"
+      },
+      "height": 2.92,
+      "box": [
+        -0.6,
+        -2.92,
+        0,
+        0.02
+      ]
+    },
+    {
+      "id": "stub",
+      "name": "Virginia's candle-end on the window seat",
+      "across": 1.05,
+      "distance": 5.8,
+      "elevation": 0.48,
+      "height": 0.1,
+      "box": [
+        -0.04,
+        -0.1,
+        0.04,
+        0.01
+      ]
+    },
+    {
+      "id": "turnip",
+      "name": "The twins' turnip head and its placard by the seat",
+      "across": 0.3,
+      "distance": 5.0,
+      "height": 0.4,
+      "box": [
+        -0.45,
+        -1.3,
+        1.5,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "floor_lantern",
+      "name": "Washington's lantern on the floor",
+      "across": -0.75,
+      "distance": 5.05,
+      "height": 0.36,
+      "box": [
+        -0.1,
+        -0.38,
+        0.1,
+        0.02
+      ]
+    },
+    {
+      "id": "candle_floor",
+      "name": "A candle on the floor before the tapestry",
+      "across": -0.85,
+      "distance": 4.95,
+      "height": 0.3,
+      "box": [
+        -0.07,
+        -0.3,
+        0.07,
+        0.02
+      ]
+    },
+    {
       "id": "simon",
       "name": "Sir Simon",
       "person": {
@@ -457,7 +823,11 @@
         "does": "brood"
       },
       "across": 1.35,
-      "distance": 5.52
+      "distance": 5.52,
+      "place": {
+        "across": "simon_a",
+        "distance": "simon_d"
+      }
     },
     {
       "id": "virginia",
@@ -469,7 +839,43 @@
         "does": "upright"
       },
       "across": -1.7,
-      "distance": 4.8
+      "distance": 4.8,
+      "place": {
+        "across": "virginia_a",
+        "distance": "virginia_d"
+      }
+    },
+    {
+      "id": "otis",
+      "name": "Mr Otis",
+      "person": {
+        "cast": "cast",
+        "who": "otis",
+        "turn": 90,
+        "does": "stand"
+      },
+      "across": -3.7,
+      "distance": 4.7,
+      "place": {
+        "across": "otis_a",
+        "distance": "otis_d"
+      }
+    },
+    {
+      "id": "washington",
+      "name": "Washington",
+      "person": {
+        "cast": "cast",
+        "who": "washington",
+        "turn": 90,
+        "does": "stand"
+      },
+      "across": -3.7,
+      "distance": 4.7,
+      "place": {
+        "across": "washington_a",
+        "distance": "washington_d"
+      }
     }
   ],
   "music": {
@@ -543,5 +949,199 @@
     "density": 0.25,
     "brightness": 0.45,
     "scale": "D_MAJOR_B_MINOR"
+  },
+  "states": {
+    "evening": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the evening: the light low and rose, dusk in the window"
+    },
+    "night": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the night: the moon through the window, the sky dark, the room cool and dim"
+    },
+    "vision": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "М5 «the nightingale»: the room dims, the window shows a little garden under the moon (long grass, a yew) instead of the avenue"
+    },
+    "dark": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the room gone to darkness but his own light (the dark behind the wall: with wall 1, the camera in the opening)"
+    },
+    "wall": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the wall behind the tapestry (far wall, x −2.0…−0.8): 0 shut, 1 parted — its two leaves swung back into a narrow dark way of stone"
+    },
+    "stir": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the hunters of the tapestry stirring: the tapestry on the wall that parts sways on its rod"
+    },
+    "shapes": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "shadows and wings passing in the dark behind the wall"
+    },
+    "stub": {
+      "values": [
+        "none",
+        "sill",
+        "hand"
+      ],
+      "means": "Virginia's candle-end: none, on the window seat by the glass (stub#stub), in Sir Simon's right hand (the cast's `stub`, by the script)"
+    },
+    "turnip": {
+      "type": "boolean",
+      "means": "the twins' hollow turnip head with its placard on the floor by the window seat (turnip#turnip, turnip#placard)"
+    },
+    "lantern": {
+      "type": "boolean",
+      "means": "Washington's lantern set down on the floor under the tapestry, lit (floor_lantern#lantern)"
+    },
+    "candle_floor": {
+      "type": "boolean",
+      "means": "a lit candle in its stick on the floor before the tapestry (candle_floor#flame)"
+    },
+    "door": {
+      "range": [
+        90,
+        170
+      ],
+      "smooth": true,
+      "means": "the door to the corridor (left wall), degrees it faces: 90 shut, 120 ajar (the look), 160 wide open out into the corridor"
+    },
+    "wall_lf": {
+      "type": "number",
+      "means": "the scene's own: the left leaf's facing (180 shut … 95 open), set by its script from `wall`"
+    },
+    "wall_rf": {
+      "type": "number",
+      "means": "the scene's own: the right leaf's facing (180 shut … 265 open), set by its script from `wall`"
+    },
+    "ghost_light": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Sir Simon's own pale light: set by the script — 1 while he is here, 0 when not"
+    },
+    "ghost_a": {
+      "type": "number",
+      "means": "the scene's own: where his light stands across (just before him), set by the script"
+    },
+    "ghost_d": {
+      "type": "number",
+      "means": "the scene's own: where his light stands along, set by the script"
+    },
+    "simon_a": {
+      "type": "number",
+      "means": "Sir Simon's place across (metres right of the middle)"
+    },
+    "simon_d": {
+      "type": "number",
+      "means": "Sir Simon's place away (metres)"
+    },
+    "virginia_a": {
+      "type": "number",
+      "means": "Virginia's place across (metres right of the middle)"
+    },
+    "virginia_d": {
+      "type": "number",
+      "means": "Virginia's place away (metres)"
+    },
+    "otis_a": {
+      "type": "number",
+      "means": "Mr Otis's place across (metres right of the middle)"
+    },
+    "otis_d": {
+      "type": "number",
+      "means": "Mr Otis's place away (metres)"
+    },
+    "washington_a": {
+      "type": "number",
+      "means": "Washington's place across (metres right of the middle)"
+    },
+    "washington_d": {
+      "type": "number",
+      "means": "Washington's place away (metres)"
+    },
+    "virginia_candle": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light of the candle in Virginia's hand (candle_l): 0 none, 1 burning"
+    },
+    "otis_candle": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light of the candle in Mr Otis's hand (candle_l): 0 none, 1 burning"
+    },
+    "lantern_held": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light of the lantern in Washington's hand: set by the script from washington_with"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "plays": {
+      "type": "boolean",
+      "means": "the game's: Sir Simon still plays (hand_down: he bows; else he sits back, tired)"
+    },
+    "shares": {
+      "type": "boolean",
+      "means": "the game's: Virginia shares with her own (lantern: Washington pounds on the wall and stays)"
+    },
+    "trap": {
+      "values": [
+        "warn",
+        "watch",
+        "defend"
+      ],
+      "means": "the game's: what Virginia did about the twins' trap (lantern: watch — Washington looks round and goes)"
+    },
+    "candle_out": {
+      "type": "boolean",
+      "means": "the game's: М4 put her candle out (candle_room: she comes in with the dead candle-end, no flame)"
+    }
   }
 }

@@ -65,7 +65,8 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "moment": "family",
@@ -89,7 +90,19 @@
     "twin_star_look": "window#window",
     "twin_star_mood": "surprised",
     "twin_stripes_look": "window#window",
-    "twin_stripes_mood": "surprised"
+    "twin_stripes_mood": "surprised",
+    "casket_open": 0,
+    "stub": false,
+    "virginia_a": 1.0,
+    "virginia_d": 4.45,
+    "mrs_otis_a": -1.75,
+    "mrs_otis_d": 3.8,
+    "washington_a": -2.75,
+    "washington_d": 4.75,
+    "twin_star_a": 2.35,
+    "twin_star_d": 4.25,
+    "twin_stripes_a": 2.7,
+    "twin_stripes_d": 5.48
   },
   "states": {
     "moment": {
@@ -109,7 +122,7 @@
     },
     "otis_a": {
       "range": [
-        -3,
+        -6,
         3
       ],
       "means": "where Mr Otis stands, metres right of the middle (the moment sets it)"
@@ -117,9 +130,99 @@
     "otis_d": {
       "range": [
         1,
-        6
+        7
       ],
       "means": "where Mr Otis stands, metres away (the moment sets it)"
+    },
+    "casket_open": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the casket open in her hands, close (the insert `casket`): 0 closed, 1 open"
+    },
+    "stub": {
+      "type": "boolean",
+      "means": "the game's: her candle-end lies on the jewels in the casket (the insert `casket`)"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "virginia_a": {
+      "range": [
+        -6,
+        3
+      ],
+      "means": "where Virginia stands, metres right of the middle (the landing beyond the panel: about −4)"
+    },
+    "virginia_d": {
+      "range": [
+        1,
+        7
+      ],
+      "means": "where Virginia stands, metres away"
+    },
+    "mrs_otis_a": {
+      "range": [
+        -6,
+        3
+      ],
+      "means": "where Mrs Otis stands, metres right of the middle (the landing beyond the panel: about −4)"
+    },
+    "mrs_otis_d": {
+      "range": [
+        1,
+        7
+      ],
+      "means": "where Mrs Otis stands, metres away"
+    },
+    "washington_a": {
+      "range": [
+        -6,
+        3
+      ],
+      "means": "where Washington stands, metres right of the middle (the landing beyond the panel: about −4)"
+    },
+    "washington_d": {
+      "range": [
+        1,
+        7
+      ],
+      "means": "where Washington stands, metres away"
+    },
+    "twin_star_a": {
+      "range": [
+        -6,
+        3
+      ],
+      "means": "where Twin Star stands, metres right of the middle (the landing beyond the panel: about −4)"
+    },
+    "twin_star_d": {
+      "range": [
+        1,
+        7
+      ],
+      "means": "where Twin Star stands, metres away"
+    },
+    "twin_stripes_a": {
+      "range": [
+        -6,
+        3
+      ],
+      "means": "where Twin Stripes stands, metres right of the middle (the landing beyond the panel: about −4)"
+    },
+    "twin_stripes_d": {
+      "range": [
+        1,
+        7
+      ],
+      "means": "where Twin Stripes stands, metres away"
     }
   },
   "objects": [
@@ -384,7 +487,11 @@
         "does": "pray"
       },
       "across": 1.0,
-      "distance": 4.45
+      "distance": 4.45,
+      "place": {
+        "across": "virginia_a",
+        "distance": "virginia_d"
+      }
     },
     {
       "id": "otis",
@@ -412,7 +519,11 @@
         "does": "clasped"
       },
       "across": -1.75,
-      "distance": 3.8
+      "distance": 3.8,
+      "place": {
+        "across": "mrs_otis_a",
+        "distance": "mrs_otis_d"
+      }
     },
     {
       "id": "washington",
@@ -424,7 +535,11 @@
         "does": "offer"
       },
       "across": -2.75,
-      "distance": 4.75
+      "distance": 4.75,
+      "place": {
+        "across": "washington_a",
+        "distance": "washington_d"
+      }
     },
     {
       "id": "twin_star",
@@ -436,7 +551,11 @@
         "does": "stand"
       },
       "across": 2.35,
-      "distance": 4.25
+      "distance": 4.25,
+      "place": {
+        "across": "twin_star_a",
+        "distance": "twin_star_d"
+      }
     },
     {
       "id": "twin_stripes",
@@ -448,7 +567,16 @@
         "does": "stand"
       },
       "across": 2.7,
-      "distance": 5.48
+      "distance": 5.48,
+      "place": {
+        "across": "twin_stripes_a",
+        "distance": "twin_stripes_d"
+      }
+    },
+    {
+      "id": "casket",
+      "name": "The casket open in her hands, close",
+      "insert": "casket_open"
     }
   ],
   "music": {

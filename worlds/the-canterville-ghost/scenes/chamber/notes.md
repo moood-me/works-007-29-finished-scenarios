@@ -53,12 +53,26 @@ Mr Otis walks by his place keys `otis_a`, `otis_d` (the moment sets them; a game
 face is turned between the viewer and what it looks at, so it reads (only `twin_star`, looking out of the window,
 shows his cheek). Cecil is not here: the scenario does not put him in this room.
 
+## Stage 5: the pieces
+
+The module `beats` (lib.js `film`; script.js plays it after setting the moment). The people walk by their place keys
+(`<id>_a`, `<id>_d`: all of them now); the insert `casket` (`casket_open`) is the casket open in her hands, close — old
+jewels on faded velvet, and with the game's `stub` her candle-end on top of them.
+
+| piece | after | what |
+| --- | --- | --- |
+| chamber_family | — | (`moment` family) the family come in from the landing through the panel, one after another, with candles; Virginia, the casket in her hand, kneels by the bones; the camera goes to the little window and looks out at the almond in blossom |
+| chamber_father | — | (`moment` father) she comes down out of the passage's mouth and kneels; he stays in the mouth with his candle; the camera to the window: the almond |
+| casket | chamber_family, chamber_father | the casket opens in her hands, close (`stub`: her candle-end on the jewels) |
+
 ## What is not right yet
 
 - Virginia's face, kneeling with her hands at her chin and looking at the skull, is seen in profile, half behind her
   hands.
 - The almond is seen only through a sliver of the window from the viewer's place (the window is in a side wall, so
-  that the moon can fall on the ring in the far wall); the twins' «Миндаль!» wants a camera at the window (stage 5).
+  that the moon can fall on the ring in the far wall); the pieces take the camera into the window's opening, looking out
+  and down: the tree whole in blossom, the bars and the wall round them half faded before the eye (as near cards fade)
+  — from further back the deep reveal shows only sky.
 
 ## Measured
 
@@ -67,3 +81,9 @@ shows his cheek). Cecil is not here: the scenario does not put him in this room.
 pages a view; it fails «allocated a frame» (about 31 KB a frame, all of it the engine's modules — the six people) and,
 on laptop and phone, the GC pause (2.9 ms against 2) that comes of it. The candle part's own arrays (1.4 KB a frame)
 are kept since (`F.keep`, 2257ecf).
+
+## Contract for the check
+
+```json
+{"beats": {"chamber_family":{"after":[],"tells":["chamber_family:kneel","chamber_family:almond"],"seconds":16}, "chamber_father":{"after":[],"tells":["chamber_father:almond"],"seconds":14}, "casket":{"after":["chamber_family","chamber_father"],"tells":["casket:open"],"seconds":5}}}
+```

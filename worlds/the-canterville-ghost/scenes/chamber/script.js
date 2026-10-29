@@ -22,3 +22,5 @@ function stage(moment) {
 }
 stage(scene.state.moment);
 scene.on('change', 'moment', v => stage(v));
+// the pieces (the game sets `beat`: modules/beats, lib.film)
+scene.kit.beats.play(scene, scene.lib.film(scene));
