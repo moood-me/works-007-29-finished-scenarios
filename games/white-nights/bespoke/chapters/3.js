@@ -22,7 +22,7 @@ export default {
     // 3.0: she comes; “four days”
     async g => {
       const f = facts(g.state);
-      await g.scene('night', { here: ['dreamer'], keys: { moment: 'third_night' } });
+      await g.scene('night', { here: ['dreamer'], moods: { dreamer: 'neutral', nastya: 'smile' }, keys: f.letter === null ? { dreamer_with: ['letter'] } : {} });
       g.title(tr('The Third Night'));
       g.here('nastya', true);
       await g.plate(tr('She comes round the corner.'));
@@ -42,7 +42,7 @@ export default {
     async g => {
       const f = facts(g.state);
       const kept = f.door === 'keep';
-      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'third_night' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'smile' }, keys: kept ? { dreamer_with: ['letter'] } : {} }, { cut: true });
       if (f.story === 'plain') await g.say('nastya', 'Well, my copyist — did you take it?');
       else if (f.story === 'type') await g.say('nastya', 'Well, my type — did you take it?');
       else {
@@ -79,7 +79,8 @@ export default {
           await g.plate(tr('She is just as happy — and he does not look her in the eyes.'));
         } else {
           await g.say('dreamer', 'No. Here it is');
-          g.set('nastya_with', [f.stain ? 'letter_stained' : 'letter']);
+          g.set('dreamer_with', []);
+          g.set('nastya_with', ['letter']);
           g.mood('nastya', 'surprised');
           await g.plate(tr('The letter is in her hands again. Her face, close up.'));
           await g.say('nastya', 'Why?');
@@ -91,7 +92,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.letter !== 'C') return;
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'afraid', nastya: 'surprised' }, keys: { moment: 'third_night', nastya_with: [f.stain ? 'letter_stained' : 'letter'] } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'afraid', nastya: 'surprised' }, keys: { nastya_with: ['letter'] } }, { cut: true });
       const why = await g.choose('why', { 'dreamer#chest': [
         { id: 'love', label: f.said ? tr('“You know why”') : tr('“Because I love you”') },
         { id: 'couldnt', label: tr('“I couldn’t”') },
@@ -121,7 +122,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.letter === 'C') return;
-      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'third_night' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'laugh' } }, { cut: true });
       await g.plate(tr('They wait for ten. She is gay and talkative — and suddenly:'));
       if (!f.said) {
         await g.say('nastya', 'I guessed, you know, that you love me. Yesterday already. You aren’t angry? I like you all the more for it…', { how: 'gaily and almost cruelly, with no thought behind it; on “all the more” she breaks off' });
@@ -169,11 +170,9 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.letter === 'C') {
-        await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'third_tear', scraps: false } }, { cut: true });
-        g.set('bell', 10, 10);
+        await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'sad', nastya: 'angry' }, keys: { nastya_with: ['letter'] } }, { cut: true });
         await g.plate(tr('She stands at the railing holding the letter over the water. The bell strikes ten. On the tenth stroke she tears the letter to shreds and lets them fall into the water.'));
         g.set('nastya_with', []);
-        g.set('scraps', true);
         await g.say('nastya', 'If he wanted to, he would have come himself', { how: 'dry, her hands shaking; on “himself” anger at both of them' });
         await g.plate(tr('She does not take his arm. Going, over her shoulder:'));
         if (g.state.choices.why === 'love') await g.say('nastya', 'Why did you have to tell me that now?');
@@ -183,8 +182,7 @@ export default {
         await g.plate(tr('⏸ He is alone at the railing; scraps of paper float on the water.'));
         return;
       }
-      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'third_ten' } }, { cut: true });
-      g.set('bell', 10, 10);
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'sad', nastya: 'neutral' } }, { cut: true });
       await g.plate(tr('⏸ Ten. The bell strikes ten times. She stands at the railing facing the corner, her back to him; he behind her. Nothing to do: the strokes, the water, a cab that does not turn in. The camera on his face.'));
       if (f.letter === 'U') await g.plate(tr('He looks at the granite; his hand lies on his pocket by itself; the rustle of paper only he hears.'));
       else if (f.glasha) await g.plate(tr('She knows “tomorrow” and stands facing the corner all the same; he watches her wait.'));
@@ -196,7 +194,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.letter === 'C') return;
-      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'third_bench' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'sad', nastya: 'sad' } }, { cut: true });
       await g.plate(tr('She sits down on the bench and is silent.'));
       if (f.glasha) await g.say('nastya', 'Tomorrow. You said so — tomorrow', { how: 'to herself, not to him' });
       const after = await g.choose('after', { 'dreamer#chest': [

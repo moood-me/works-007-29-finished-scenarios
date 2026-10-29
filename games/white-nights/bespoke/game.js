@@ -6,9 +6,9 @@
 // prologue, four nights, a day, a Sunday (on the branches C and U), a finale in six (docs/new-games/belye-nochi/
 // scenario.md), each a row of steps on the world's scenes; the choices and what is remembered carry from chapter to
 // chapter; the letter's branch (A, C, U, U4) and the marks Said, Confessed decide the finale (story.js facts).
-// Stage 3 (moood-me/moood docs/writing/game-stages.md): the play whole on the world's three scenes, people standing;
-// what the scenes' pieces would show — plates with “Next”; the mini-games — stubs (minigames/stub.js); places not
-// drawn yet — the people in a scene of the world and a label saying where it really is (story.js PLACES).
+// Stage 5 (moood-me/moood docs/writing/game-stages.md), under way: the mini-games real (minigames/); what the scenes'
+// pieces will show — plates with “Next”, till the pieces come; places not drawn yet — the people in a scene of the
+// world and a label saying where it really is (story.js PLACES).
 //   The map of the play (moood docs/games/games.md §2), at stage 3 a row of leaves over the embankment at night, no one
 // there (map.js) — the world has no map's scene yet. What can be done on it is its own drawing — pressed, the
 // language's mark opens there, born open (story.js hub.ask): the main run's pointer — “Start”, “Continue” (from the

@@ -16,35 +16,31 @@ export default {
   steps: [
     // Д1: the morning; Matryona
     async g => {
-      await g.scene('room', { here: ['dreamer', 'matryona'], moods: { dreamer: 'thinking', matryona: 'neutral' } });
+      await g.scene('room', { here: ['dreamer', 'matryona'], moods: { dreamer: 'thinking', matryona: 'neutral' }, keys: { matryona_with: [], matryona_reach: null } });
       g.title(tr('The Day'));
       await g.plate(tr('Morning, his room. On the table lies the letter, as if alive. Matryona brings the tea.'));
       await g.say('matryona', 'From the young lady, is it?', { how: 'indifferently; but the eyes are sharp' });
       await g.say('dreamer', 'Matryona, the cobweb, if you would…');
       await g.say('matryona', 'I’ll take it down, sir, I will');
-      g.set('letter_table', false);
+      g.set('dreamer_with', ['letter']);
       await g.plate(tr('He hides the letter in his inside pocket, by his heart.'));
     },
     // Д2: the embankment by day; the wind (М3)
     async g => {
-      await g.scene('day', { here: ['dreamer'] });
+      await g.scene('day', { here: ['dreamer'], moods: { dreamer: 'thinking' }, keys: { dreamer_with: ['letter'] } });
       await g.plate(tr('By day. At every house he checks the number against the address in her hand. A wind off the canal.'));
-      g.set('wind', 1, 2);
       const r = await g.play(letter);
       if (r.stain) {
         g.mood('dreamer', 'afraid');
         await g.plate(tr('The envelope falls into a puddle; he snatches it out — a brown stain on the paper.'));
-        g.set('dreamer_with', ['letter_stained']);
         g.mark('stain', true, tr('A stain on her envelope.'));
       }
     },
     // Д3: the door; ⏸; Glasha; ⚑ (Ш2) give it or carry it away
     async g => {
       const f = facts(g.state);
-      await g.scene('door', { here: ['dreamer'], moods: { dreamer: 'afraid' }, keys: { door: 'shut', dreamer_with: [f.stain ? 'letter_stained' : 'letter'] } });
+      await g.scene('door', { here: ['dreamer'], moods: { dreamer: 'afraid' }, keys: { dreamer_with: ['letter'] } });
       await g.plate(tr('⏸ He stands before the door, his hand on the bell-pull, the letter in the other — twelve seconds. Steps lower down the stairs, a cough behind the wall. He pulls the cord. Glasha opens.'));
-      g.set('door', 'open');
-      g.here('glasha', true);
       await g.say('glasha', 'Is it for Grandmother’s lodger, then? He comes to us every day — is there anything for him. He’s been today already — so tomorrow, it seems, he’ll get it. And where he lives, he won’t say', { how: 'briskly, in passing' });
       if (f.stain) {
         await g.say('glasha', 'Look at that, gone and smeared it');
@@ -60,8 +56,6 @@ export default {
         g.set('dreamer_with', []);
         await g.plate(tr('Glasha stuffs the letter into her apron.'));
         await g.say('glasha', 'I’ll pass it on');
-        g.set('door', 'shut');
-        g.here('glasha', false);
         await g.plate(tr('The door closes.'));
         await g.think('dreamer', 'There, that’s all. That’s good');
       } else {

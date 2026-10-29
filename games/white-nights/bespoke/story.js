@@ -1,11 +1,10 @@
 // What a chapter's steps play with: context(b, view, hub, state, j, {forward}) → g. Its state is a working copy — kept
 // only once the step is done (game.js). A step left behind (the player went to the map: ☰) does nothing more and never
 // ends: whatever it still calls returns a promise that never settles.
-// Stage 3 of the game (moood-me/moood docs/writing/game-stages.md): the whole play on the world's scenes as they are —
-// people stand, the scenes only say who is there, their faces and what they hold (and their own keys: the lamp, the
-// candle, the rain on the panes, the lampada). What the scenario's pieces would show is a plate with “Next” (g.plate,
-// g.sheet); a mini-game is its stub — a mark to press and a card saying what it will be (minigames/stub.js); a place
-// the world has not got yet — the people in one of its scenes and a label saying where it really is (PLACES).
+// Stage 5 of the game (moood-me/moood docs/writing/game-stages.md), under way: the mini-games real (minigames/); what
+// the scenes' pieces will show is a plate with “Next” (g.plate, g.sheet) till a chapter's scenes have their pieces (the
+// contract: game.md «Stage 5 — pieces»); a place the world has not got yet — the people in one of its scenes and a
+// label saying where it really is (PLACES).
 //   g.state — what the play carries: {shown, marks, choices} (game.js); what follows from it: facts(g.state)
 //   g.signal — aborts when the step is left
 //   g.scene(place, {here, moods, keys}, {cut}) — that place of the game (PLACES: the world's scene it is played on,
@@ -36,9 +35,10 @@
 //   g.play(minigame, opts) — a mini-game (a module of minigames/: {title, about, skipped, missed, run(g, b, opts,
 //     signal)}); the signal aborts when it is skipped (the page's ⏭, where it may be skipped) or the step is left; → its
 //     result
+//   g.gesture(choice, minigame) — a choice made by a gesture (М5, М8): the minigame's {choice}, kept in
+//     state.choices[choice]; → the option's id
 //   g.minigame({phrase}) — inside a minigame's run: the language's mini-game begun; g.failed() — a mistake in it (from
-//     then on the page's ⏭ may skip it); g.card(title, gesture, text) — a stub's card beside it (→ a function that
-//     takes it away; gone with the step)
+//     then on the page's ⏭ may skip it)
 //   g.apply(choice) — what the option chosen does, by EFFECTS: each mark, the player told what came of it
 //   g.mark(key, value, text) — remembered (state.marks[key]); text — what the player is told; null — told nothing
 //   g.title(text) — words over the scene, as a title between times; → once they have gone
@@ -51,30 +51,29 @@
 // (a dry run: game.js, check/run.mjs): then nothing of it is said, shown or heard, a plate goes by at once, and a
 // minigame gives its `skipped` (or what the dry run asks: j.result — check/run.mjs plays the misses too).
 
-// The game's places (scenario §4) and the world's scene each is played on — the one map of them: its folder and the
-// keys that make it that place at that time (stage 4, `r3/nights-scenes`: every place on its own scene). The embankment
-// lays itself out by its `moment` (a scenario step: the light, the rain, who stands where, holding what — its notes.md),
-// which the steps give; Grandmother's room by its people's spots (`<id>_spot`), the pin, the door, the hat on the table
-// and its `time` (sunday, memory); the mezzanine by its spots and its cups; the room by its `moment` (tea, letter, corner, monday, window) and keys (the letter on the table, the
-// cobweb, the window). `where` — a label high on the left, where a scene is not yet quite what the scenario has. The
-// steps name places, never folders. (The embankment at night with no one there is also the map's background: game.js.)
+// The game's places (scenario §4) and the world's scene each is played on — the one map of them: its folder, the keys
+// that make it that place at that time, and — where a ready scene only stands in for a place the world has not got
+// yet (the acquaintances' door, the mezzanine, the memory of a year ago) or not at that time (the embankment by day,
+// in the rain) — `where`, a label high on the left saying where and when it really is. When its own scene comes
+// (stage 4: `r3/nights-scenes`), its line here becomes `{ folder, keys }` — nothing else changes: the steps name
+// places, never folders. (The embankment at night with no one there is also the map's background: game.js.)
 export const PLACES = {
   // 1. the canal embankment by the lamp
-  evening: { folder: 'embankment', keys: { moment: 'prologue' } }, // the prologue: the evening, the lamp not lit yet
-  night: { folder: 'embankment', keys: {} }, // the four nights: the step's `moment`
-  rain: { folder: 'embankment', keys: {} }, // Н4 in the rain: the step's `moment`
-  day: { folder: 'embankment', keys: { moment: 'day' } }, // Д2
-  town: { folder: 'embankment', keys: { moment: 'morning' } }, // «Утро»
+  evening: { folder: 'embankment', keys: { lamp: 0 } }, // the prologue: the evening, the lamp not lit yet
+  night: { folder: 'embankment', keys: { lamp: 1 } }, // the four nights
+  rain: { folder: 'embankment', keys: { lamp: 1 }, where: tr('In truth: the same embankment in the rain.') }, // Н4
+  day: { folder: 'embankment', keys: { lamp: 0 }, where: tr('In truth: the embankment by day — the house numbers, a wind off the canal.') }, // Д2
+  town: { folder: 'embankment', keys: { lamp: 0 }, where: tr('In truth: the embankment by day; the town is back from the dachas — people walking; at her place by the railing, a nanny with a child.') }, // «Утро»
   // 2. the Dreamer's room
-  room: { folder: 'room', keys: { moment: 'tea', candle: 0, rain: 0, sun: 1, tea: true, letter_table: true, cobweb: 1, window: 0 } }, // Д1
-  morning: { folder: 'room', keys: { moment: 'letter', candle: 1, rain: 1, sun: 0, tea: false, letter_table: false, cobweb: 1, window: 0 } }, // «Минута», «Лестница», «Окно»
-  sunny: { folder: 'room', keys: { moment: 'letter', candle: 0, rain: 0, sun: 1, tea: false, letter_table: false, cobweb: 1, window: 0 } }, // «Утро»
-  // 3. Grandmother's house, and the mezzanine upstairs
-  grandmother: { folder: 'grandmother', keys: { lampada: 1, time: 'sunday', hat_table: false } }, // Вс, «Булавка»
-  memory: { folder: 'grandmother', keys: { time: 'memory', pin: 'off', door: 'open', nastya_spot: 'door', nastya_with: ['bundle'], nastya_reach: { r: [-1.95, 3.74, 1.0], l: [-1.85, 3.88, 1.0] }, lodger_spot: 'stair', lodger_with: ['books'] } }, // 2.4
-  mezzanine: { folder: 'mezzanine', keys: { cold: false } }, // «Мезонин»
+  room: { folder: 'room', keys: { candle: 0, rain: 0 } }, // Д1: the morning, no rain
+  morning: { folder: 'room', keys: { candle: 1, rain: 1 } }, // «Минута», «Лестница», «Окно»: the rainy morning
+  sunny: { folder: 'room', keys: { candle: 0, rain: 0 } }, // «Утро»: the morning without rain
+  // 3. Grandmother's house
+  grandmother: { folder: 'grandmother', keys: { lampada: 1 } }, // Вс: after mass
+  memory: { folder: 'grandmother', keys: { lampada: 0 }, where: tr('In truth: a year ago, in the morning light: the Lodger at the stair to the mezzanine, his books; Nastenka at the door with her bundle.') }, // 2.4
+  mezzanine: { folder: 'grandmother', keys: { lampada: 1 }, where: tr('In truth: the mezzanine upstairs, in the evening — a sloping ceiling, a little table with two cups, a small window onto the canal.') }, // «Мезонин»
   // 4. the acquaintances' door
-  door: { folder: 'door', keys: { door: 'shut' } }, // Д3
+  door: { folder: 'grandmother', keys: { lampada: 0 }, where: tr('In truth: the acquaintances’ door — a narrow landing, a door with a bell.') }, // Д3
 };
 // The embankment at night with no one there: the map's background (game.js)
 export const MAP = { folder: 'embankment', state: { nastya_here: false, dreamer_here: false, lamp: 1 } };
@@ -459,6 +458,16 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         ahead();
       }
     },
+    // a choice made by a gesture (М5, М8): the minigame comes back with {choice}, kept as the chapter's choice; unseen —
+    // as the play or the plan has it, else as the minigame skipped
+    async gesture(choice, minigame, opts) {
+      if (gone()) return never;
+      const planned = unseen() ? state.choices[choice] ?? j.plan[choice] : null;
+      const r = await g.play(minigame, opts);
+      const id = (unseen() && planned) || r.choice;
+      state.choices[choice] = id;
+      return id;
+    },
     minigame(o = {}) {
       if (!playing) throw new Error('g.minigame: only inside a minigame (g.play)');
       const mg = b.minigame.start({ ...o, signal: playing.signal });
@@ -478,12 +487,6 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       if (unseen()) return;
       if (text) view.toast(text, 'mark');
       view.gauge(state);
-    },
-    card(title, gesture, text) {
-      if (gone() || unseen()) return () => {};
-      const off = view.card(title, gesture, text);
-      left.signal.addEventListener('abort', off);
-      return off;
     },
     async title(text) {
       if (gone()) return never;

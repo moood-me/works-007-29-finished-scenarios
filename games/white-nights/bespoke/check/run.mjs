@@ -107,7 +107,7 @@ async function step(c, s, state, where, result = null, plan = {}) {
   const g = context(b, view, hub, structuredClone(state), j);
   let folder = null, present = new Set();
   const made = [], titles = [];
-  const { scene, say: speak, think: muse, choose, play, title, here, set, beat, told } = g;
+  const { scene, say: speak, think: muse, choose, gesture, play, title, here, set, beat, told } = g;
   // a piece of the shown scene, and a moment of it: in its contract — or waited for while the scene has none
   const piece = name => {
     const beats = SCENES.get(folder)?.beats;
@@ -187,6 +187,12 @@ ${text}`, { who, text });
     for (const k of m.keys ?? []) moves(folder, k, `${where} · ${m.title}`, pending);
     return play(m, o);
   };
+  g.gesture = (choice, m, o) => {
+    const def = CHAPTERS[c].choices.find(x => x.id === choice);
+    if (!def) miss(`${where}: the choice “${choice}” is not in the chapter's choices`);
+    made.push({ id: choice, offered: def?.options.map(x => x.id) ?? [] });
+    return gesture(choice, m, o);
+  };
   g.title = text => { titles.push(text); return title(text); };
   let broke = null;
   await Promise.race([CHAPTERS[c].steps[s](g).catch(e => { broke = e; }), j.idle]);
@@ -250,7 +256,7 @@ for (const p of PLAYS) {
   for (const [c, s] of STEPS) missed = (await step(c, s, missed, `${p.label} (missed)`, m => m.missed, p.choices)).state;
 }
 // every mini-game has the trace of a miss
-for (const [name, m] of Object.entries(await load('minigames/all.js'))) if (name !== 'CARDS' && !m.missed) miss(`minigames: “${name}” has no “missed”`);
+for (const [name, m] of Object.entries(await load('minigames/all.js'))) if (!m.missed) miss(`minigames: “${name}” has no “missed”`);
 
 const out = [];
 out.push(`paths: ${paths}`);

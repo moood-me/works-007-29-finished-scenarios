@@ -16,7 +16,7 @@ export default {
   steps: [
     // 1.1: past nine; she cries at the railing; ⚑ go up or pass
     async g => {
-      await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'first_night' } });
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'sad' }, keys: { dreamer_with: ['cane'], dreamer_reach: null } });
       g.title(tr('The First Night'));
       await g.plate(tr('Past nine. At the railing under the lamp a girl is crying without a sound — only her shoulders show it. Between them, the whole width of the street.'));
       const approach = await g.choose('approach', { 'dreamer#chest': [
@@ -31,7 +31,7 @@ export default {
     },
     // 1.2: the gentleman in the tailcoat; ⚑ the stick or the arm (М1)
     async g => {
-      await g.scene('night', { here: ['dreamer', 'nastya', 'gentleman'], keys: { moment: 'first_gentleman' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'afraid', nastya: 'afraid' }, keys: { dreamer_with: ['cane'], dreamer_reach: null } }, { cut: true });
       await g.plate(tr('A gentleman in a tailcoat comes out of a side street, tipsy; he follows her and quickens his step. She is almost running.'));
       const defend = await g.choose('defend', { 'dreamer#chest': [
         { id: 'stick', label: tr('Go at him with the stick') },
@@ -60,7 +60,7 @@ export default {
     // 1.3: along the water; “I have never talked to a woman”; ⏸
     async g => {
       const f = facts(g.state);
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { nastya: 'sad' }, keys: { moment: 'first_walk' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'sad' }, keys: f.stick ? { dreamer_with: ['cane'], dreamer_reach: null } : {} }, { cut: true });
       await g.plate(tr('They walk along the water.'));
       await g.say('nastya', 'You are trembling');
       g.mood('dreamer', 'sad');
@@ -86,7 +86,7 @@ export default {
     // 1.4: her corner; “don't fall in love with me”; ⚑ the promise
     async g => {
       const f = facts(g.state);
-      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { nastya: 'thinking' }, keys: { moment: 'first_corner' } }, { cut: true });
+      await g.scene('night', { here: ['dreamer', 'nastya'], moods: { dreamer: 'neutral', nastya: 'thinking' }, keys: f.stick ? { dreamer_with: ['cane'], dreamer_reach: null } : {} }, { cut: true });
       await g.plate(tr('Her corner. She lets go of his arm.'));
       await g.say('nastya', 'Come tomorrow. Here, at ten. Only on one condition — don’t fall in love with me. That is not allowed, I assure you', { how: 'seriously, like the rule of a game; under it the fear that it will end badly again' });
       const promise = await g.choose('promise', { 'dreamer#chest': [
