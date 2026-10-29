@@ -2,9 +2,9 @@
 // the churchyard, three crooked limbs, and above them a wide net of bare dry twigs, a broken stub here and there; the
 // twigs a layer stirring very slightly in the wind. When it blossoms (key `almond`: "blossom") its twigs are thick
 // with white and pink flowers. Its points: `almond#trunk`, `almond#crown`.
-const BARK = '#6a5e54';
-const BARK_DARK = '#4a4038';
-const BARK_LIGHT = '#857a6e';
+const BARK = '#54483f';
+const BARK_DARK = '#3a312b';
+const BARK_LIGHT = '#6e6258';
 const blossom = e.state.almond === 'blossom';
 // the tree's shape, worked out once: segments [x0, y0, x1, y1, width, depth, bend] and the twigs' tips
 const segs = [];
@@ -24,7 +24,7 @@ const grow = (x, y, ang, len, w, depth) => {
     grow(x1, y1, a * 0.9 + (i - (n - 1) / 2) * spread + (e.rnd() - 0.5) * 0.4, len * (0.68 + e.rnd() * 0.14), w * 0.6, depth + 1);
   }
 };
-for (const [ang, len] of [[-0.75, 1.25], [-0.1, 1.15], [0.6, 1.2]]) grow(-0.18, -1.55, ang, len, 0.2, 1);
+for (const [ang, len] of [[-0.8, 1.1], [-0.12, 1.0], [0.62, 1.05]]) grow(-0.18, -1.55, ang, len, 0.17, 1);
 const stroke = (c, s, color, k = 1) => {
   c.strokeStyle = color;
   c.lineWidth = s[4] * k;
@@ -61,7 +61,7 @@ for (const s of segs) if (s[5] <= 2) stroke(g, s, BARK);
 for (const s of segs) if (s[5] <= 2) stroke(g, s, BARK_LIGHT, 0.25);
 e.layer('twigs', { pivot: [-0.18, -1.55], wind: { strength: 0.03, gust: 0.4 } }, c => {
   c.lineCap = 'round';
-  for (const s of segs) if (s[5] > 2) stroke(c, s, s[5] > 4 ? '#7a6e62' : BARK);
+  for (const s of segs) if (s[5] > 2) stroke(c, s, s[5] > 4 ? '#62564c' : BARK);
   // broken stubs
   c.strokeStyle = BARK_DARK;
   c.lineWidth = 0.04;

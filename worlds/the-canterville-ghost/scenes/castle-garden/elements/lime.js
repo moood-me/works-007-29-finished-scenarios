@@ -18,7 +18,7 @@ for (const [x, y] of [[-2.4, -6.8], [2.2, -7.2], [-0.5, -8.8], [0.9, -5.6]]) {
   g.stroke();
 }
 e.layer('crown', { pivot: [0, -3.6], wind: 0.12 }, c => {
-  const tones = fall ? ['#c8962c', '#d9a838', '#b07a24', '#e2bc52', '#9a7a2c'] : ['#4e7a3a', '#5e8a42', '#3e6a32', '#6e9a4c', '#46723a'];
+  const tones = fall ? ['#c8962c', '#d9a838', '#b07a24', '#e2bc52', '#9a7a2c'] : ['#3e6432', '#4a7038', '#34582c', '#56783e', '#3a5e30'];
   const n = fall ? 70 : 110;
   for (let i = 0; i < n; i++) {
     const a = e.rnd() * Math.PI * 2;

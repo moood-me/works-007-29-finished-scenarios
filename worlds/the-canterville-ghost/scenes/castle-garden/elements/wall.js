@@ -1,4 +1,4 @@
-// The park wall at the far end of the garden and the churchyard (56 m off, 2 m high, 120 m long): old grey stone in
+// The park wall at the far end of the garden and the churchyard (56 m off, 2 m high, 320 m long): old grey stone in
 // courses, its coping uneven, ivy hanging over it in dark clumps; open where the avenue goes out at the gates (x 3.6
 // to 7.6).
 const fall = (e.state.autumn ?? 0) > 0.5;
@@ -31,5 +31,5 @@ const run = (a, b) => {
     }
   }
 };
-run(-60, 3.6);
-run(7.6, 60);
+run(-160, 3.6);
+run(7.6, 160);
