@@ -9,6 +9,8 @@ const TAG = [0.93, 0.9, 0.8, 1];
 // (a string bag's net, its oranges)
 const NET = [0.85, 0.8, 0.62, 1];
 const ORANGE = [0.95, 0.55, 0.16, 1];
+// (a telephone's handset)
+const HANDSET = [0.13, 0.13, 0.14, 1];
 const PAGES = [0.95, 0.92, 0.84, 1];
 // (the plate and the buns on it; Laohu's paper — red, its darker folds, the gold stars; the knight's plastic: silver,
 // dark grey, the dead sword's grey)
@@ -549,6 +551,23 @@ return {
           for (const [x, y, z] of [[-0.035, 0, 0.02], [0.035, 0, -0.01], [0, 0, -0.04], [-0.02, -0.06, 0], [0.025, -0.06, 0.02], [0, 0.055, 0]])
             F.ball(add(at, add(mul(across, x * h), add(mul(up, y * h), mul(fwd, z * h)))), ax, [0.038 * h, 0.036 * h, 0.038 * h], ORANGE, 8);
           F.point('oranges', at);
+        },
+      },
+      // a telephone's black receiver held to the ear in the right hand: a bar from the ear down past the mouth, a
+      // round cup at each end; the point `receiver`
+      receiver: {
+        name: 'a telephone receiver',
+        draw: F => {
+          const hand = F.P('RightHand'),
+            h = F.fit.h,
+            up = F.up('RightHand'),
+            side = F.side('RightHand'),
+            fwd = F.fwd('RightHand');
+          const a = add(hand, mul(up, 0.09 * h)),
+            b = add(hand, mul(up, -0.08 * h));
+          F.bar(a, b, 0.018 * h, 0.018 * h, [[0, HANDSET]], 6, side, 0.7);
+          for (const c of [a, b]) F.ball(c, [side, up, fwd], [0.03 * h, 0.022 * h, 0.03 * h], HANDSET, 8);
+          F.point('receiver', hand);
         },
       },
       // a paper frog sitting on the open right hand: green wrapping paper, folded squat; the point `frog`
