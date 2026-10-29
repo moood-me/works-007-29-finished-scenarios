@@ -20,7 +20,11 @@
     "saturation": 0.95,
     "vignette": 0.38,
     "grain": 0.08,
-    "wind": [-1, 0.4, 0.9],
+    "wind": [
+      -1,
+      0.4,
+      0.9
+    ],
     "brightness": 0.95,
     "looks": {
       "rain": {
@@ -97,7 +101,8 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "lamp": 1,
@@ -118,136 +123,695 @@
     "madame_mood": "sad",
     "robineau_here": false,
     "robineau_look": "riviere",
-    "robineau_mood": "sad"
+    "robineau_mood": "sad",
+    "robineau_a": -2.25,
+    "robineau_d": 4.15,
+    "log_open": 0,
+    "ink": 0,
+    "blot": 0,
+    "log_line": "bearing",
+    "leave_turn": "none",
+    "leave_look": "none"
   },
   "states": {
     "lamp": {
-      "values": [0, 1],
+      "values": [
+        0,
+        1
+      ],
       "means": "the office's lamps — the desk lamp with its white glass shade, and the lamp by the door behind the viewer: 0 out, 1 lit"
     },
     "floods": {
-      "range": [0, 1],
+      "range": [
+        0,
+        1
+      ],
       "smooth": true,
       "means": "the field's floodlights below the window, on their two masts, and the lamps along the field's edge: 0 out (the field dark but for the hangar's gate), 1 on (white light over the wet field, coming up through the window)"
     },
     "rain": {
-      "range": [0, 1],
+      "range": [
+        0,
+        1
+      ],
       "smooth": true,
       "means": "the storm's rain: 0 none … 1 hard — drops running down the window, rain falling over the field, the air outside thick with it"
     },
     "plane": {
-      "values": ["gone", "standing"],
+      "values": [
+        "gone",
+        "standing"
+      ],
       "means": "the European mail's plane below, before the hangar's gate: gone — flown north (the apron empty); standing — stood down, its engine still, its pilot by the wing"
     },
     "yard_roblet": {
-      "values": ["none", "hangar", "chocks"],
+      "values": [
+        "none",
+        "hangar",
+        "chocks"
+      ],
       "means": "Roblet, small below in the window: none — not there (only his workbench under its lamp, empty); hangar — standing by the hangar's gate in the rain; chocks — stooping in the gate's light, gathering up the chocks"
     },
     "yard_robineau": {
-      "values": [0, 1],
+      "values": [
+        0,
+        1
+      ],
       "means": "Robineau, small below in the window: 1 — standing by the hangar's wall in the rain, without his coat, his folder to his chest; 0 — not there"
     },
     "riviere_spot": {
-      "values": ["room", "window", "desk"],
+      "values": [
+        "room",
+        "window",
+        "desk"
+      ],
       "means": "where Rivière is (script.js lays it out): room — just in from the door, standing in the middle of the room, turned toward the window and the door; window — standing by the window's right side, turned to the room; desk — sitting at his desk under the lamp, leaning over the log"
     },
     "madame_spot": {
-      "values": ["window", "door", "chair"],
+      "values": [
+        "window",
+        "door",
+        "chair"
+      ],
       "means": "where Madame Fabien is (script.js lays it out): window — standing at the window's left side, her coat held round her, turned to the room; door — standing by the door, buttoned up, ready to go; chair — sitting on the visitor's chair by the door, for the first time tonight"
     },
     "riviere_a": {
-      "range": [-2.5, 2.5],
-      "means": "where Rivière stands, metres right of the middle (riviere_spot sets it)"
+      "range": [
+        -4,
+        2.5
+      ],
+      "means": "where Rivière stands, metres right of the middle (riviere_spot sets it) — a piece walks it; beyond −2.5 on the landing outside the door"
     },
     "riviere_d": {
-      "range": [1.5, 5.3],
+      "range": [
+        1.5,
+        8
+      ],
       "means": "where Rivière stands, metres away (riviere_spot sets it)"
     },
     "madame_a": {
-      "range": [-2.5, 2.5],
-      "means": "where Madame Fabien stands, metres right of the middle (madame_spot sets it)"
+      "range": [
+        -4,
+        2.5
+      ],
+      "means": "where Madame Fabien stands, metres right of the middle (madame_spot sets it) — a piece walks it; beyond −2.5 on the landing outside the door"
     },
     "madame_d": {
-      "range": [1.5, 5.3],
+      "range": [
+        1.5,
+        8
+      ],
       "means": "where Madame Fabien stands, metres away (madame_spot sets it)"
+    },
+    "robineau_a": {
+      "range": [
+        -4,
+        2.5
+      ],
+      "means": "where Robineau stands, metres right of the middle (−2.25: in the doorway; beyond −2.5 on the landing, unseen)"
+    },
+    "robineau_d": {
+      "range": [
+        1.5,
+        8
+      ],
+      "means": "where Robineau stands, metres away (4.15: in the doorway)"
+    },
+    "log_open": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the insert of the log's page close: 0 closed … 1 open over the frame"
+    },
+    "ink": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the line written in the log (М2): 0 nothing … 1 written to its end (from log_page#from to log_page#to)"
+    },
+    "blot": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "a blot of ink on the line where the pen was (a miss of М2): 0 none, 1 there"
+    },
+    "log_line": {
+      "values": [
+        "bearing",
+        "unknown"
+      ],
+      "means": "which words Rivière writes: bearing — «Fabien, radio operator. Over the sea, a hundred and fifty east of Trelew. 2:45.»; unknown — «Fabien, radio operator. Position unknown.»"
+    },
+    "leave_turn": {
+      "values": [
+        "nod",
+        "none",
+        "look",
+        "wait",
+        "past"
+      ],
+      "means": "the game's: at the door, what she does toward him (piece `leaves`): nod — turns and nods; none — does not turn; look — looks at him once more; wait — looks and waits, as if an answer might come; past — goes by him without turning"
+    },
+    "leave_look": {
+      "values": [
+        "none",
+        "sky",
+        "field"
+      ],
+      "means": "the game's: at the door, where she looks toward the window (piece `leaves`): none — never; sky — up, where the lights went; field — down, at the dark field"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [
-    { "id": "sky", "name": "The storm over the field", "sky": true },
-    { "id": "field", "name": "The field below, wet", "plane": true, "across": 0, "distance": 600, "elevation": -4.5, "width": 4000, "depth": 1200 },
-    { "id": "edge_lamps", "name": "The lamps along the field's edge", "across": -40, "distance": 118, "elevation": -4.5, "height": 0.6,
-      "box": [-0.12, -0.65, 0.12, 0.03],
+    {
+      "id": "sky",
+      "name": "The storm over the field",
+      "sky": true
+    },
+    {
+      "id": "field",
+      "name": "The field below, wet",
+      "plane": true,
+      "across": 0,
+      "distance": 600,
+      "elevation": -4.5,
+      "width": 4000,
+      "depth": 1200
+    },
+    {
+      "id": "edge_lamps",
+      "name": "The lamps along the field's edge",
+      "across": -40,
+      "distance": 118,
+      "elevation": -4.5,
+      "height": 0.6,
+      "box": [
+        -0.12,
+        -0.65,
+        0.12,
+        0.03
+      ],
       "copies": [
-        { "across": -40, "distance": 118 }, { "across": -28, "distance": 118 }, { "across": -16, "distance": 118 }, { "across": -4, "distance": 118 },
-        { "across": 8, "distance": 118 }, { "across": 20, "distance": 118 }, { "across": 32, "distance": 118 }, { "across": 44, "distance": 118 },
-        { "across": -34, "distance": 150 }, { "across": -14, "distance": 150 }, { "across": 6, "distance": 150 }, { "across": 26, "distance": 150 }
-      ] },
-    { "id": "floods", "name": "The floodlight masts", "across": 4, "distance": 100, "elevation": -4.5, "height": 14, "box": [-26, -14.5, 26, 0.1] },
-    { "id": "hangar", "name": "The hangar across the apron, its gate lit; the workbench under its lamp", "across": 9, "distance": 70, "elevation": -4.5, "facing": 188, "height": 10, "box": [-11, -10.2, 15, 0.1] },
-    { "id": "plane_out", "name": "The European mail's plane below, stood down", "across": 4.5, "distance": 58, "elevation": -4.5, "facing": 186, "height": 4.2, "box": [-6.6, -4.4, 6.2, 0.1] },
-    { "id": "rain_out", "name": "Rain over the field", "particles": { "kind": "rain", "amount": "rain", "count": 2500, "reach": 60, "area": [-25, 45, 6, 120] } },
-    { "id": "floor", "name": "The office's floor", "plane": true, "inside": true, "across": 0, "distance": 3.35, "elevation": 0.01, "width": 5, "depth": 4.1, "walk": true },
-    { "id": "back_wall", "name": "The back wall and the big window onto the field", "inside": true, "across": 0, "distance": 5.4, "facing": 180, "height": 3.1, "box": [-2.5, -3.15, 2.5, 0.05] },
-    { "id": "left_wall", "name": "The left wall: the door onto the landing, the coat hooks", "inside": true, "across": -2.5, "distance": 3.35, "facing": 90, "height": 3.1, "box": [-2.05, -3.15, 2.05, 0.05] },
-    { "id": "right_wall", "name": "The right wall: the cabinet of the line's logs", "inside": true, "across": 2.5, "distance": 3.35, "facing": 270, "height": 3.1, "box": [-2.05, -3.15, 2.05, 0.05] },
-    { "id": "ceiling", "name": "The ceiling", "inside": true, "across": 0, "distance": 5.4, "elevation": 3.1, "facing": 180, "tilt": -90, "height": 4.1, "box": [-2.5, -4.15, 2.5, 0.05] },
-    { "id": "landing", "name": "The landing outside the door, its bulb", "inside": true, "across": -3.6, "distance": 4.2, "facing": 90, "height": 2.9, "box": [-1.0, -2.95, 3.6, 0.05] },
-    { "id": "landing_floor", "name": "The landing's floor", "plane": true, "inside": true, "across": -3.05, "distance": 5.5, "elevation": 0.01, "width": 1.1, "depth": 4.2 },
-    { "id": "pane", "name": "The window's glass", "across": 0.4, "distance": 5.42, "facing": 180, "height": 2.6, "box": [-1.4, -2.6, 1.4, -0.85], "glass": { "strength": 0.25 } },
-    { "id": "window_frame", "name": "The window's frame and sill", "inside": true, "across": 0.4, "distance": 5.37, "facing": 180, "height": 2.75, "box": [-1.6, -2.75, 1.6, -0.75] },
-    { "id": "pane_rain", "name": "Rain running down the glass", "on": "pane", "distance": -0.04, "elevation": 1.72, "particles": { "kind": "drops", "amount": "rain", "source": [2.6, 0, 1.6], "flat": true, "rate": 4 } },
-    { "id": "desk", "name": "Rivière's desk, its front", "inside": true, "across": 1.3, "distance": 2.7, "facing": 180, "height": 0.82, "box": [-0.8, -0.84, 0.8, 0.05], "shadow": true },
-    { "id": "desk_top", "name": "The desk's top: the log open on it", "plane": true, "inside": true, "across": 1.3, "distance": 3.05, "elevation": 0.78, "width": 1.6, "depth": 0.7, "shadow": true },
-    { "id": "desk_chair", "name": "Rivière's chair behind the desk", "inside": true, "across": 1.3, "distance": 3.86, "facing": 180, "height": 1.0, "box": [-0.3, -1.02, 0.3, 0.05] },
-    { "id": "desk_lamp", "name": "The desk lamp", "inside": true, "across": 1.88, "distance": 3.2, "elevation": 0.78, "facing": 180, "height": 0.55, "box": [-0.2, -0.56, 0.2, 0.02] },
-    { "id": "phone", "name": "The telephone on the desk", "inside": true, "across": 0.72, "distance": 3.18, "elevation": 0.78, "facing": 180, "height": 0.4, "box": [-0.1, -0.4, 0.3, 0.05] },
-    { "id": "visitor_chair", "name": "The visitor's chair", "inside": true, "across": -1.49, "distance": 2.91, "facing": 120, "height": 0.95, "box": [-0.3, -0.97, 0.3, 0.05], "shadow": true },
+        {
+          "across": -40,
+          "distance": 118
+        },
+        {
+          "across": -28,
+          "distance": 118
+        },
+        {
+          "across": -16,
+          "distance": 118
+        },
+        {
+          "across": -4,
+          "distance": 118
+        },
+        {
+          "across": 8,
+          "distance": 118
+        },
+        {
+          "across": 20,
+          "distance": 118
+        },
+        {
+          "across": 32,
+          "distance": 118
+        },
+        {
+          "across": 44,
+          "distance": 118
+        },
+        {
+          "across": -34,
+          "distance": 150
+        },
+        {
+          "across": -14,
+          "distance": 150
+        },
+        {
+          "across": 6,
+          "distance": 150
+        },
+        {
+          "across": 26,
+          "distance": 150
+        }
+      ]
+    },
+    {
+      "id": "floods",
+      "name": "The floodlight masts",
+      "across": 4,
+      "distance": 100,
+      "elevation": -4.5,
+      "height": 14,
+      "box": [
+        -26,
+        -14.5,
+        26,
+        0.1
+      ]
+    },
+    {
+      "id": "hangar",
+      "name": "The hangar across the apron, its gate lit; the workbench under its lamp",
+      "across": 9,
+      "distance": 70,
+      "elevation": -4.5,
+      "facing": 188,
+      "height": 10,
+      "box": [
+        -11,
+        -10.2,
+        15,
+        0.1
+      ]
+    },
+    {
+      "id": "plane_out",
+      "name": "The European mail's plane below, stood down",
+      "across": 4.5,
+      "distance": 58,
+      "elevation": -4.5,
+      "facing": 186,
+      "height": 4.2,
+      "box": [
+        -6.6,
+        -4.4,
+        6.2,
+        0.1
+      ]
+    },
+    {
+      "id": "rain_out",
+      "name": "Rain over the field",
+      "particles": {
+        "kind": "rain",
+        "amount": "rain",
+        "count": 2500,
+        "reach": 60,
+        "area": [
+          -25,
+          45,
+          6,
+          120
+        ]
+      }
+    },
+    {
+      "id": "floor",
+      "name": "The office's floor",
+      "plane": true,
+      "inside": true,
+      "across": 0,
+      "distance": 3.35,
+      "elevation": 0.01,
+      "width": 5,
+      "depth": 4.1,
+      "walk": true
+    },
+    {
+      "id": "back_wall",
+      "name": "The back wall and the big window onto the field",
+      "inside": true,
+      "across": 0,
+      "distance": 5.4,
+      "facing": 180,
+      "height": 3.1,
+      "box": [
+        -2.5,
+        -3.15,
+        2.5,
+        0.05
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall: the door onto the landing, the coat hooks",
+      "inside": true,
+      "across": -2.5,
+      "distance": 3.35,
+      "facing": 90,
+      "height": 3.1,
+      "box": [
+        -2.05,
+        -3.15,
+        2.05,
+        0.05
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall: the cabinet of the line's logs",
+      "inside": true,
+      "across": 2.5,
+      "distance": 3.35,
+      "facing": 270,
+      "height": 3.1,
+      "box": [
+        -2.05,
+        -3.15,
+        2.05,
+        0.05
+      ]
+    },
+    {
+      "id": "ceiling",
+      "name": "The ceiling",
+      "inside": true,
+      "across": 0,
+      "distance": 5.4,
+      "elevation": 3.1,
+      "facing": 180,
+      "tilt": -90,
+      "height": 4.1,
+      "box": [
+        -2.5,
+        -4.15,
+        2.5,
+        0.05
+      ]
+    },
+    {
+      "id": "landing",
+      "name": "The landing outside the door, its bulb",
+      "inside": true,
+      "across": -3.6,
+      "distance": 4.2,
+      "facing": 90,
+      "height": 2.9,
+      "box": [
+        -1.0,
+        -2.95,
+        3.6,
+        0.05
+      ]
+    },
+    {
+      "id": "landing_floor",
+      "name": "The landing's floor",
+      "plane": true,
+      "inside": true,
+      "across": -3.05,
+      "distance": 5.5,
+      "elevation": 0.01,
+      "width": 1.1,
+      "depth": 4.2
+    },
+    {
+      "id": "pane",
+      "name": "The window's glass",
+      "across": 0.4,
+      "distance": 5.42,
+      "facing": 180,
+      "height": 2.6,
+      "box": [
+        -1.4,
+        -2.6,
+        1.4,
+        -0.85
+      ],
+      "glass": {
+        "strength": 0.25
+      }
+    },
+    {
+      "id": "window_frame",
+      "name": "The window's frame and sill",
+      "inside": true,
+      "across": 0.4,
+      "distance": 5.37,
+      "facing": 180,
+      "height": 2.75,
+      "box": [
+        -1.6,
+        -2.75,
+        1.6,
+        -0.75
+      ]
+    },
+    {
+      "id": "pane_rain",
+      "name": "Rain running down the glass",
+      "on": "pane",
+      "distance": -0.04,
+      "elevation": 1.72,
+      "particles": {
+        "kind": "drops",
+        "amount": "rain",
+        "source": [
+          2.6,
+          0,
+          1.6
+        ],
+        "flat": true,
+        "rate": 4
+      }
+    },
+    {
+      "id": "desk",
+      "name": "Rivière's desk, its front",
+      "inside": true,
+      "across": 1.3,
+      "distance": 2.7,
+      "facing": 180,
+      "height": 0.82,
+      "box": [
+        -0.8,
+        -0.84,
+        0.8,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "desk_top",
+      "name": "The desk's top: the log open on it",
+      "plane": true,
+      "inside": true,
+      "across": 1.3,
+      "distance": 3.05,
+      "elevation": 0.78,
+      "width": 1.6,
+      "depth": 0.7,
+      "shadow": true
+    },
+    {
+      "id": "desk_chair",
+      "name": "Rivière's chair behind the desk",
+      "inside": true,
+      "across": 1.3,
+      "distance": 3.86,
+      "facing": 180,
+      "height": 1.0,
+      "box": [
+        -0.3,
+        -1.02,
+        0.3,
+        0.05
+      ]
+    },
+    {
+      "id": "desk_lamp",
+      "name": "The desk lamp",
+      "inside": true,
+      "across": 1.88,
+      "distance": 3.2,
+      "elevation": 0.78,
+      "facing": 180,
+      "height": 0.55,
+      "box": [
+        -0.2,
+        -0.56,
+        0.2,
+        0.02
+      ]
+    },
+    {
+      "id": "phone",
+      "name": "The telephone on the desk",
+      "inside": true,
+      "across": 0.72,
+      "distance": 3.18,
+      "elevation": 0.78,
+      "facing": 180,
+      "height": 0.4,
+      "box": [
+        -0.1,
+        -0.4,
+        0.3,
+        0.05
+      ]
+    },
+    {
+      "id": "visitor_chair",
+      "name": "The visitor's chair",
+      "inside": true,
+      "across": -1.49,
+      "distance": 2.91,
+      "facing": 120,
+      "height": 0.95,
+      "box": [
+        -0.3,
+        -0.97,
+        0.3,
+        0.05
+      ],
+      "shadow": true
+    },
     {
       "id": "riviere",
       "name": "Rivière",
-      "person": { "cast": "cast", "who": "riviere", "look": { "hat": "none", "garment": "jacket" }, "turn": 235, "does": "hands_behind" },
+      "person": {
+        "cast": "cast",
+        "who": "riviere",
+        "look": {
+          "hat": "none",
+          "garment": "jacket"
+        },
+        "turn": 235,
+        "does": "hands_behind"
+      },
       "across": 0.75,
       "distance": 4.4,
-      "place": { "across": "riviere_a", "distance": "riviere_d" },
+      "place": {
+        "across": "riviere_a",
+        "distance": "riviere_d"
+      },
       "inside": true
     },
     {
       "id": "madame",
       "name": "Madame Fabien",
-      "person": { "cast": "cast", "who": "madame", "turn": 135, "does": "coat_clutch" },
+      "person": {
+        "cast": "cast",
+        "who": "madame",
+        "turn": 135,
+        "does": "coat_clutch"
+      },
       "across": -0.75,
       "distance": 4.75,
-      "place": { "across": "madame_a", "distance": "madame_d" },
+      "place": {
+        "across": "madame_a",
+        "distance": "madame_d"
+      },
       "inside": true
     },
     {
       "id": "robineau",
       "name": "Robineau",
-      "person": { "cast": "cast", "who": "robineau", "turn": 130, "does": "hold_waist" },
+      "person": {
+        "cast": "cast",
+        "who": "robineau",
+        "turn": 130,
+        "does": "hold_waist"
+      },
       "across": -2.25,
       "distance": 4.15,
-      "inside": true
+      "inside": true,
+      "place": {
+        "across": "robineau_a",
+        "distance": "robineau_d"
+      }
+    },
+    {
+      "id": "log_page",
+      "name": "The log's page close: the line Rivière writes",
+      "insert": "log_open",
+      "iris": [
+        0.89,
+        0.5,
+        0.75,
+        0.42
+      ]
     }
   ],
   "music": {
     "prompts": [
-      { "text": "slow solo piano, sparse chords, nocturnal, restrained and dignified, French impressionist colour", "weight": 0.9 },
-      { "text": "distant morse telegraph clicks over a low string drone, tense and patient, night office", "weight": 0 },
-      { "text": "low strings sustained, slow, grave and tender, a long night of waiting", "weight": 0.9 },
-      { "text": "rain on a window, soft brushed percussion, a lamp-lit room at three in the morning", "weight": 0.6 },
-      { "text": "warm accordion, slow, nostalgic, 1930s France", "weight": 0 },
-      { "text": "ambient engine hum, low propeller drone, airy pad, vast night sky", "weight": 0 },
-      { "text": "string quartet adagio, grave, restrained, noble sadness", "weight": 0.5 },
-      { "text": "celesta and harp, stars over clouds, weightless and cold", "weight": 0 },
-      { "text": "deep timpani rolls and low brass, a storm gathering far off", "weight": 0 },
-      { "text": "solo cello, long bowed notes, bitter and beautiful", "weight": 0.7 },
-      { "text": "minimalist piano ostinato, clockwork pulse, waiting for news", "weight": 0 },
-      { "text": "clarinet and bassoon, quiet and dry, an office at midnight", "weight": 0.2 },
-      { "text": "wordless choir very soft, high and far, moonlit sea of clouds", "weight": 0 },
-      { "text": "slow waltz on a small orchestra, faded, a lamp in a window", "weight": 0 },
-      { "text": "bowed vibraphone and reverb, cold blue air, stillness", "weight": 0.3 },
-      { "text": "orchestral swell, heroic yet sorrowful, dawn after a lost night", "weight": 0 },
-      { "text": "low horn chorale, slow, mourning without tears", "weight": 0.3 }
+      {
+        "text": "slow solo piano, sparse chords, nocturnal, restrained and dignified, French impressionist colour",
+        "weight": 0.9
+      },
+      {
+        "text": "distant morse telegraph clicks over a low string drone, tense and patient, night office",
+        "weight": 0
+      },
+      {
+        "text": "low strings sustained, slow, grave and tender, a long night of waiting",
+        "weight": 0.9
+      },
+      {
+        "text": "rain on a window, soft brushed percussion, a lamp-lit room at three in the morning",
+        "weight": 0.6
+      },
+      {
+        "text": "warm accordion, slow, nostalgic, 1930s France",
+        "weight": 0
+      },
+      {
+        "text": "ambient engine hum, low propeller drone, airy pad, vast night sky",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, grave, restrained, noble sadness",
+        "weight": 0.5
+      },
+      {
+        "text": "celesta and harp, stars over clouds, weightless and cold",
+        "weight": 0
+      },
+      {
+        "text": "deep timpani rolls and low brass, a storm gathering far off",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, long bowed notes, bitter and beautiful",
+        "weight": 0.7
+      },
+      {
+        "text": "minimalist piano ostinato, clockwork pulse, waiting for news",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and bassoon, quiet and dry, an office at midnight",
+        "weight": 0.2
+      },
+      {
+        "text": "wordless choir very soft, high and far, moonlit sea of clouds",
+        "weight": 0
+      },
+      {
+        "text": "slow waltz on a small orchestra, faded, a lamp in a window",
+        "weight": 0
+      },
+      {
+        "text": "bowed vibraphone and reverb, cold blue air, stillness",
+        "weight": 0.3
+      },
+      {
+        "text": "orchestral swell, heroic yet sorrowful, dawn after a lost night",
+        "weight": 0
+      },
+      {
+        "text": "low horn chorale, slow, mourning without tears",
+        "weight": 0.3
+      }
     ],
     "bpm": 60,
     "density": 0.2,

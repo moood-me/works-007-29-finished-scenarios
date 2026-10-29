@@ -44,3 +44,9 @@ follows (2.0–2.6 ms against 2), and on desktop frames p95 16.8 against 16.7 (t
   opened to the viewer so the profiles read.
 - Rivière at the desk leans low over it (Kimodo's `desk_lean`); writing in the log is a motion for stage 5.
 - The people below the window are painted figures, small (70 m off): they read as who is there, not as faces.
+
+## Contract for the check
+
+```json
+{"beats": {"office":{"after":[],"tells":["office:in"],"seconds":8}, "rises":{"after":["office"],"tells":["rises:up"],"seconds":5}, "gloves_on":{"after":["office","rises"],"tells":["gloves_on:end"],"seconds":4}, "tape_glove":{"after":["office","rises"],"tells":["tape_glove:end"],"seconds":4}, "leaves":{"after":["office","rises","gloves_on","tape_glove"],"tells":["leaves:door","leaves:look","leaves:gone"],"seconds":10}, "log":{"after":[],"tells":["log:open"],"seconds":5}, "log_done":{"after":[],"tells":["log_done:window"],"seconds":8}, "doorway":{"after":["log_done"],"tells":["doorway:in"],"seconds":4}}}
+```

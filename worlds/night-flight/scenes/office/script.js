@@ -5,18 +5,7 @@
 //            window — by the window's right side, turned to the room; desk — sitting at his desk, over the log
 //   madame:  window — at the window's left side, her coat held round her, turned to the room; door — by the door,
 //            buttoned up, ready to go; chair — on the visitor's chair, for the first time tonight
-const SPOTS = {
-  riviere: {
-    room: { at: [0.75, 4.4], turn: 235, does: 'hands_behind' },
-    window: { at: [1.75, 4.85], turn: 225, does: 'hands_behind' },
-    desk: { at: [1.3, 3.62], turn: 180, does: 'desk_lean', on: [1.3, 3.62, 0.54] },
-  },
-  madame: {
-    window: { at: [-0.75, 4.75], turn: 135, does: 'coat_clutch' },
-    door: { at: [-1.9, 4.2], turn: 120, does: 'stand' },
-    chair: { at: [-1.3, 2.8], turn: 120, does: 'fly_seated', on: [-1.3, 2.8, 0.46] },
-  },
-};
+const { SPOTS } = scene.lib;
 function place(id, spot) {
   const p = SPOTS[id][spot] ?? Object.values(SPOTS[id])[0];
   scene.set(`${id}_a`, p.at[0]);
@@ -29,3 +18,6 @@ for (const id of Object.keys(SPOTS)) {
   place(id, scene.state[`${id}_spot`]);
   scene.on('change', `${id}_spot`, v => place(id, v));
 }
+// The office's pieces: the game sets `beat` (modules/beats; lib.film; notes.md «Pieces») — played after the people are
+// laid out by their spots, so a piece's start is not laid over.
+scene.kit.beats.play(scene, scene.lib.film(scene));
