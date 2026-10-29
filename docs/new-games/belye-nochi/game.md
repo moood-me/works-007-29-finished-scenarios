@@ -37,10 +37,10 @@
 | `room` М2 | Д1 | `room`: чай, письмо на столе (`letter_table` → false, когда прячет) |
 | `morning` М2 | «Минута», «Лестница», «Окно» | `room`, дождь, свеча; `brings` letter / none / hat; `cobweb` → 0 («сними»); «Окно» — `coat_drying` (У4), `window` → 1, `wet` 1, люди во дворе |
 | `sunny` М2 | «Утро» | `room` без дождя, солнце |
-| `grandmother` М3 | воскресенье, «Булавка» | `grandmother`: споты людей (`<id>_spot`), `pin` nastya → none / dreamer, `door` 90 → 5, Фёкла у печки, жилец door → chair → landing |
-| `memory` М3 | 2.4 | `grandmother` `memory` 1: Настенька у двери с узелком, жилец у лесенки с книгами |
-| `mezzanine` | «Мезонин» | `mezzanine`: споты (hatch → table → window), пар над чашками |
-| `door` М4 | Д3 | `door` 270 → 350, Глаша появляется, когда открывает; письмо (или с пятном) в руке |
+| `grandmother` М3 | воскресенье, «Булавка» | `grandmother` `time` sunday: споты людей (`<id>_spot`), `pin` pinned → taut → off / him, `door` shut → open, `hat_table`, Фёкла у печки, жилец door → chair → landing |
+| `memory` М3 | 2.4 | `grandmother` `time` memory: Настенька у двери с узелком, жилец у лесенки с книгами |
+| `mezzanine` | «Мезонин» | `mezzanine`: споты (hatch → table → window), `cups` 1 → 2, `cold` в последнем кадре |
+| `door` М4 | Д3 | `door` shut → open, Глаша появляется, когда открывает; письмо (или с пятном) в руке |
 
 ## Главы и шаги
 

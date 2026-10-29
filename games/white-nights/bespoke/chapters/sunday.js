@@ -21,7 +21,7 @@ export default {
     // Вс1: after mass; “and is he young?”; ⏸ she reads aloud
     async g => {
       const f = facts(g.state);
-      await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'fyokla'], moods: { babushka: 'neutral', nastya: 'neutral', dreamer: 'afraid' }, keys: { pin: 'nastya', door: 90 } });
+      await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'fyokla'], moods: { babushka: 'neutral', nastya: 'neutral', dreamer: 'afraid' }, keys: { pin: 'pinned', door: 'shut' } });
       g.title(tr('Sunday'));
       await g.plate(tr('After mass. Grandmother in her armchair, Nastenka on the low bench beside her; between them the pin glints. The Dreamer by the door, his hat in his hands.'));
       await g.say('babushka', 'And is he young? The last one was young — and look what came of it', { how: 'the blind woman looks straight at him' });
@@ -51,9 +51,9 @@ export default {
     },
     // Вс2: a knock; the Lodger
     async g => {
-      await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'fyokla'], moods: { babushka: 'neutral', nastya: 'surprised', dreamer: 'afraid' }, keys: { pin: 'nastya', door: 90 } }, { cut: true });
+      await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'fyokla'], moods: { babushka: 'neutral', nastya: 'surprised', dreamer: 'afraid' }, keys: { pin: 'pinned', door: 'shut' } }, { cut: true });
       await g.plate(tr('A knock. The Dreamer is nearest the door; he opens it.'));
-      g.set('door', 5, 1);
+      g.set('door', 'open');
       await g.say('dreamer', 'That must be for me… that is, for you');
       g.set('lodger_spot', 'door');
       g.here('lodger', true);
@@ -65,7 +65,7 @@ export default {
     // C: ⚑ his hand, the stairs or the door (М6); U: “Did you get my letter?” — ⚑ (✦) the letter on the table
     async g => {
       const f = facts(g.state);
-      await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'fyokla', 'lodger'], moods: { babushka: 'neutral', nastya: 'neutral', dreamer: 'sad' }, keys: { pin: 'nastya', door: 5, lodger_spot: 'chair' } }, { cut: true });
+      await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'fyokla', 'lodger'], moods: { babushka: 'neutral', nastya: 'neutral', dreamer: 'sad' }, keys: { pin: 'pinned', door: 'open', lodger_spot: 'chair' } }, { cut: true });
       if (f.letter === 'C') {
         const sunday = await g.choose('sunday', { 'dreamer#chest': [
           { id: 'hand', label: tr('Take her hand') },
@@ -82,6 +82,7 @@ export default {
         } else if (sunday === 'out') {
           g.set('dreamer_spot', 'table');
           g.set('dreamer_with', []);
+          g.set('hat_table', true);
           await g.plate(tr('He puts his hat on the table by the wall and goes out onto the stairs; the door stays ajar.'));
           g.set('dreamer_spot', 'landing');
         } else await g.plate(tr('His hat in his hands; not a step.'));
@@ -90,6 +91,7 @@ export default {
       }
       g.mood('nastya', 'afraid');
       g.set('nastya_spot', 'stand');
+      g.set('pin', 'taut');
       await g.plate(tr('Nastenka stands up; the pin pulls taut.'));
       await g.say('nastya', 'Did you… get my letter?', { how: 'to the Lodger, hardly breathing' });
       const table = await g.choose('table', { 'dreamer#chest': [
@@ -106,7 +108,7 @@ export default {
         if (f.story === 'venice') await g.say('nastya', 'And Venice too?', { how: 'in a whisper' });
         await g.plate(tr('The Lodger takes the letter, looks at her handwriting and, without opening it, puts it in his inside pocket.'));
         await g.say('lodger', 'Madam, allow Nastasya Ivanovna two words with me. On the stairs');
-        g.set('pin', 'none');
+        g.set('pin', 'off');
         await g.plate(tr('Nastenka unpins the pin.'));
         await g.say('babushka', 'Nastenka, are you here?', { how: 'her hands searching' });
         g.set('nastya_spot', 'landing');
@@ -123,7 +125,7 @@ export default {
       const f = facts(g.state);
       if (f.letter !== 'C') return;
       const out = f.sunday === 'out';
-      await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'fyokla', 'lodger'], moods: { babushka: 'neutral', nastya: 'neutral', dreamer: 'sad' }, keys: { pin: 'nastya', door: 5, lodger_spot: 'chair', ...(out ? { dreamer_spot: 'landing', dreamer_with: [] } : f.sunday === 'hand' ? { dreamer_spot: 'beside' } : {}) } }, { cut: true });
+      await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'fyokla', 'lodger'], moods: { babushka: 'neutral', nastya: 'neutral', dreamer: 'sad' }, keys: { pin: 'pinned', door: 'open', lodger_spot: 'chair', ...(out ? { dreamer_spot: 'landing', dreamer_with: [], hat_table: true } : f.sunday === 'hand' ? { dreamer_spot: 'beside' } : {}) } }, { cut: true });
       await g.say('nastya', 'You have been six days in town', { how: 'to the Lodger, evenly, holding her head high' });
       await g.say('lodger', 'The post was confirmed on Saturday. The salary, eight hundred. I have the honour to ask…', { how: 'to Grandmother, as if there had been no question; as if from a paper; not looking at Nastenka' });
       await g.say('lodger', 'Glasha said a letter was brought for me. And carried back', { how: 'to her, for the first time, more quietly' });
@@ -154,8 +156,9 @@ export default {
         return;
       }
       g.set('nastya_spot', 'stand');
+      g.set('pin', 'taut');
       await g.plate(tr('She stands up; the pin pulls taut and rings. She unpins it herself — for the first time, with her own hand.'));
-      g.set('pin', 'none');
+      g.set('pin', 'off');
       await g.say('babushka', 'Nastenka, are you here? …Are you here?', { how: 'quickly, so as not to let her answer' });
       await g.plate(tr('Grandmother’s hands search the air and find the empty, still warm bench. Nastenka lays Grandmother’s hand on the armrest and does not answer.'));
       if (f.sunday === 'hand') {

@@ -54,8 +54,8 @@
 // The game's places (scenario §4) and the world's scene each is played on — the one map of them: its folder and the
 // keys that make it that place at that time (stage 4, `r3/nights-scenes`: every place on its own scene). The embankment
 // lays itself out by its `moment` (a scenario step: the light, the rain, who stands where, holding what — its notes.md),
-// which the steps give; Grandmother's room by its people's spots (`<id>_spot`), the pin, the door and the memory; the
-// mezzanine by its spots and the steam; the room by its keys (what Matryona brings, the letter on the table, the
+// which the steps give; Grandmother's room by its people's spots (`<id>_spot`), the pin, the door, the hat on the table
+// and its `time` (sunday, memory); the mezzanine by its spots and its cups; the room by its keys (what Matryona brings, the letter on the table, the
 // cobweb, the window). `where` — a label high on the left, where a scene is not yet quite what the scenario has. The
 // steps name places, never folders. (The embankment at night with no one there is also the map's background: game.js.)
 export const PLACES = {
@@ -70,11 +70,11 @@ export const PLACES = {
   morning: { folder: 'room', keys: { candle: 1, rain: 1, sun: 0, tea: false, letter_table: false, cobweb: 1, window: 0 } }, // «Минута», «Лестница», «Окно»
   sunny: { folder: 'room', keys: { candle: 0, rain: 0, sun: 1, tea: false, letter_table: false, cobweb: 1, window: 0 } }, // «Утро»
   // 3. Grandmother's house, and the mezzanine upstairs
-  grandmother: { folder: 'grandmother', keys: { lampada: 1, memory: 0 } }, // Вс, «Булавка»
-  memory: { folder: 'grandmother', keys: { memory: 1, pin: 'none', door: 5, nastya_spot: 'door', nastya_with: ['bundle'], nastya_reach: { r: [-1.95, 3.74, 1.0], l: [-1.85, 3.88, 1.0] }, lodger_spot: 'stair', lodger_with: ['books'] } }, // 2.4
-  mezzanine: { folder: 'mezzanine', keys: {} }, // «Мезонин»
+  grandmother: { folder: 'grandmother', keys: { lampada: 1, time: 'sunday', hat_table: false } }, // Вс, «Булавка»
+  memory: { folder: 'grandmother', keys: { time: 'memory', pin: 'off', door: 'open', nastya_spot: 'door', nastya_with: ['bundle'], nastya_reach: { r: [-1.95, 3.74, 1.0], l: [-1.85, 3.88, 1.0] }, lodger_spot: 'stair', lodger_with: ['books'] } }, // 2.4
+  mezzanine: { folder: 'mezzanine', keys: { cold: false } }, // «Мезонин»
   // 4. the acquaintances' door
-  door: { folder: 'door', keys: { door: 270 } }, // Д3
+  door: { folder: 'door', keys: { door: 'shut' } }, // Д3
 };
 // The embankment at night with no one there: the map's background (game.js)
 export const MAP = { folder: 'embankment', state: { nastya_here: false, dreamer_here: false, lamp: 1 } };

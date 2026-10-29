@@ -65,12 +65,11 @@ export default {
         return;
       }
       if (f.ending === 'mezzanine') {
-        await g.scene('mezzanine', { here: ['dreamer'], moods: { dreamer: 'smile', nastya: 'smile' }, keys: { dreamer_spot: 'table', nastya_spot: 'hatch', steam_his: 0, steam_hers: 0 } });
+        await g.scene('mezzanine', { here: ['dreamer'], moods: { dreamer: 'smile', nastya: 'smile' }, keys: { dreamer_spot: 'table', nastya_spot: 'hatch', cups: 1 } });
         await g.plate(tr('Evening, the mezzanine. He has moved in. On the little table, two cups.'));
         await g.say('babushka', 'Nastenka, are you here?', { at: 'narrator', how: 'from downstairs' });
         g.here('nastya', true);
-        g.set('steam_his', 1);
-        g.set('steam_hers', 1);
+        g.set('cups', 2);
         await g.plate(tr('She comes up with the tea, laughing, and calls him:'));
         g.set('nastya_spot', 'table');
         if (f.story === 'plain') await g.say('nastya', 'My copyist');
@@ -105,15 +104,15 @@ export default {
         return;
       }
       if (f.ending === 'pin') {
-        await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'lodger'], moods: { babushka: 'afraid', nastya: 'sad', dreamer: 'sad' }, keys: { pin: 'nastya', door: 5, nastya_spot: 'stand', lodger_spot: 'chair' } });
+        await g.scene('grandmother', { here: ['babushka', 'nastya', 'dreamer', 'lodger'], moods: { babushka: 'afraid', nastya: 'sad', dreamer: 'sad' }, keys: { pin: 'taut', door: 'open', nastya_spot: 'stand', lodger_spot: 'chair' } });
         await g.plate(tr('Not a word. With her own hand she unpins Grandmother’s pin.'));
-        g.set('pin', 'none');
+        g.set('pin', 'off');
         await g.say('babushka', 'Nastenka? Are you here? Who is here?', { how: 'her hands rising, searching' });
         g.here('nastya', false);
         g.here('lodger', false);
         await g.plate(tr('Nastenka goes with the Lodger. Grandmother’s hands find the skirt of his coat, and she pins it to her dress.'));
         g.set('dreamer_spot', 'stool');
-        g.set('pin', 'dreamer');
+        g.set('pin', 'him');
         await g.say('babushka', 'Sit with me, sir. Read to me');
         const r = await g.play(pinned);
         if (r.again) {
@@ -157,10 +156,10 @@ export default {
         else await g.plate(tr('He looks at the water.'));
         await g.plate(tr('At her place by the railing, someone’s nanny with a child; the child eats a bagel and drops crumbs into the canal. He stands a step away from them — farther than he need. The last shot: the nanny, the bagel, the railing, he to one side.'));
       } else if (f.ending === 'mezzanine') {
-        await g.scene('mezzanine', { here: ['dreamer', 'nastya'], moods: { dreamer: 'sad', nastya: 'neutral' }, keys: { dreamer_spot: 'table', nastya_spot: 'table', steam_his: 0, steam_hers: 1 } }, { cut: true });
+        await g.scene('mezzanine', { here: ['dreamer', 'nastya'], moods: { dreamer: 'sad', nastya: 'neutral' }, keys: { dreamer_spot: 'table', nastya_spot: 'table', cups: 2, cold: true } }, { cut: true });
         await g.plate(tr('She chose, and it hurts; he knows that at ten she will stand at the window. The last shot: two cups, one gone cold.'));
       } else if (f.ending === 'pin') {
-        await g.scene('grandmother', { here: ['babushka', 'dreamer'], moods: { babushka: 'smile', dreamer: 'sad' }, keys: { pin: 'dreamer', door: 5, dreamer_spot: 'stool', dreamer_with: ['book'] } }, { cut: true });
+        await g.scene('grandmother', { here: ['babushka', 'dreamer'], moods: { babushka: 'smile', dreamer: 'sad' }, keys: { pin: 'him', door: 'open', dreamer_spot: 'stool', dreamer_with: ['book'] } }, { cut: true });
         await g.plate(tr('He reads to her the Lodger’s book from the mezzanine.'));
         await g.say('babushka', 'And what’s that rustling in there?', { how: 'patting his pocket' });
         await g.plate(tr('He takes out the letter and hides it again. The last shot: the bright line of the pin between her dress and his coat.'));

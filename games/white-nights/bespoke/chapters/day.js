@@ -40,9 +40,9 @@ export default {
     // Д3: the door; ⏸; Glasha; ⚑ (Ш2) give it or carry it away
     async g => {
       const f = facts(g.state);
-      await g.scene('door', { here: ['dreamer'], moods: { dreamer: 'afraid' }, keys: { door: 270, dreamer_with: [f.stain ? 'letter_stained' : 'letter'] } });
+      await g.scene('door', { here: ['dreamer'], moods: { dreamer: 'afraid' }, keys: { door: 'shut', dreamer_with: [f.stain ? 'letter_stained' : 'letter'] } });
       await g.plate(tr('⏸ He stands before the door, his hand on the bell-pull, the letter in the other — twelve seconds. Steps lower down the stairs, a cough behind the wall. He pulls the cord. Glasha opens.'));
-      g.set('door', 350, 1);
+      g.set('door', 'open');
       g.here('glasha', true);
       await g.say('glasha', 'Is it for Grandmother’s lodger, then? He comes to us every day — is there anything for him. He’s been today already — so tomorrow, it seems, he’ll get it. And where he lives, he won’t say', { how: 'briskly, in passing' });
       if (f.stain) {
@@ -59,7 +59,7 @@ export default {
         g.set('dreamer_with', []);
         await g.plate(tr('Glasha stuffs the letter into her apron.'));
         await g.say('glasha', 'I’ll pass it on');
-        g.set('door', 270, 1);
+        g.set('door', 'shut');
         g.here('glasha', false);
         await g.plate(tr('The door closes.'));
         await g.think('dreamer', 'There, that’s all. That’s good');
