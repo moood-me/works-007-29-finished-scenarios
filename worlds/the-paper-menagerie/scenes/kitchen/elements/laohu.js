@@ -4,6 +4,8 @@
 // creases; the stars printed across folds as wrapping paper's are. Two layers: `tiger`
 // (all of it but the tail — animate swells it with breath) and `tail` (pivoting at its root, ticking from pose to
 // pose). Its head is its point.
+// (Not there while the kitchen is packed, `packed`.)
+if (e.state.packed) return;
 const S = 1.4,
   L = '#e8503f',
   M = '#d23a2e',

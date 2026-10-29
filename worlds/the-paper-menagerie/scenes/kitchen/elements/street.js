@@ -1,5 +1,6 @@
 // Across the street (26 m off): Mark's house — a white clapboard house with a grey roof, a porch, a lit window — its
-// neighbours' roofs to either side, a dark tree, and at the kerb the school bus stop's sign on its post.
+// neighbours' roofs to either side, a dark tree, and at the kerb the school bus stop's sign on its post. By `day` its
+// windows are dark.
 const house = (x, w, h, wall, roof, lit) => {
   g.fillStyle = wall;
   g.fillRect(x - w / 2, -h, w, h);
@@ -15,7 +16,7 @@ const house = (x, w, h, wall, roof, lit) => {
   for (const [wx, on] of lit) {
     g.fillStyle = '#4e4a54';
     g.fillRect(x + wx - 0.45, -h + 0.7, 0.9, 1.1);
-    if (on) {
+    if (on && !e.state.day) {
       g.fillStyle = '#ffd890';
       g.fillRect(x + wx - 0.38, -h + 0.77, 0.76, 0.96);
       e.light(x + wx, -h + 1.25, 0.6, '#ffcf88', 0.6, `window${Math.round(wx * 10)}`);

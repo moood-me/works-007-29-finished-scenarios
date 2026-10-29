@@ -1,6 +1,7 @@
 // What Mark threw down, on the grass round Jack, from above (metres, its middle at distance 5.0, y toward the viewer):
 // torn pieces of Laohu — red wrapping paper with gold stars, its folds still creased into them, a leg here, a strip of
-// flank with its stripes there; just paper now. Two of them, lighter, lift and settle at an edge in the breeze (layers).
+// flank with its stripes there; just paper now. There while `scraps` (and not a year on, `sold`). Two of them, lighter, lift and settle at an edge in the breeze (layers).
+if (!e.state.scraps || e.state.sold) return;
 const L = '#e8503f',
   D = '#b02a20',
   GOLD = '#ecc65a',

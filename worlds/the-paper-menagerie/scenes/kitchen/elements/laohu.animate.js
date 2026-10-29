@@ -1,4 +1,5 @@
 // Laohu breathes — the flanks swell a little, slowly, unevenly — and its tail ticks from pose to pose as paper moves.
+if (e.state.packed) return;
 const breath = Math.sin(e.t * 1.5 + 0.6 * e.anim.noise(e.t * 0.2, 2));
 const tiger = e.layer('tiger');
 tiger.scaleY = 1 + 0.03 * breath;

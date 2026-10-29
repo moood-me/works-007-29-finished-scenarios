@@ -22,6 +22,12 @@ the room.
   sneakers; his plastic knight in his hands (part `knight`, its shield his `accent`).
 - `dad_grey` — Dad at fifty-six: grey hair, a brown cardigan, brown trousers; his phrasebook in his hands (part
   `phrasebook`, its cover his `accent`).
+- `translator` — the woman on the square (chapter 3), fifty-five, from a tour group: short permed hair going grey, a
+  camel trench coat, a red scarf (her `accent`).
+- `guide` — the tour group's guide: young, a ponytail, the company's teal jacket and cap; her flag (part `flag`, its
+  pennant her `accent`).
+- `tourist_cap`, `tourist_hat`, `tourist_coat` — three of the group: an older man in a khaki jacket and a cap, a woman
+  in a pink jacket and a sun hat, a man in a navy windbreaker.
 
 ## Hats
 
@@ -37,6 +43,10 @@ the room.
 - `knight` — a little silver plastic knight held to the chest in both hands, a blue shield (the look's `accent`), its
   light-up sword gone grey; the point `knight`.
 - `phrasebook` — a small book held open in both hands before the chest; the point `book` (cover: the look's `accent`).
+- `letter` — Laohu unfolded: a square of red wrapping paper with gold stars, the old yellow tape across it, held open
+  in both hands before the chest — its writing (cream, columns of ink) toward the reader; the point `letter`.
+- `flag` — a tour guide's little flag held up in the right hand, its pennant the look's `accent`; the point `flag`.
+- `frog` — a paper frog of green wrapping paper sitting on the open right hand; the point `frog`.
 
 ## Motions (Kimodo)
 

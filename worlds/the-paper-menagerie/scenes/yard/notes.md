@@ -41,3 +41,38 @@ What is not right yet:
 - Mark's hair, like Jack's, reads as a cap at this distance (the style's `short` hair).
 - The porch has no roof over it, only its beam: a plane seen from below shows its back, so the shallow roof is not
   drawn and casts no shade on the door.
+
+## Stage 4: the dusk, the fire, a year on (keys)
+
+The scenario's other moments in the yard, as keys over the morning (which stays the scene's own state as it was):
+
+| key | what it shows |
+|---|---|
+| `dusk` 0…1 | the spring dusk (1.4; a year on, 3.4–3.6, the endings): the sky's layer `dusk` over the morning (animate), the light's look `dusk` (pink and lavender, readable — ambient 0.6), the sun out, the `afterglow` low behind the viewer on the left |
+| `porch_lamp` 0…1 | the lamp over the front door (`house#lamp`'s glow; the light `porch_lamp`) |
+| `house_lights` 0…1 | the kitchen window lit warm (the house's layer `kitchen_lit`, the light `kitchen`) and the lamp in Jack's room (`room`) |
+| `fire` 0…1 | the paper burning in Mom's bucket (1.4, the ending «Дым»): `flames`, `embers`, `smoke` at `apple#fire`, the light `fire` |
+| `scraps` | the torn pieces on the grass (1.2–1.3); false once he has them |
+| `sold` | a year on, the house sold: no curtains, nothing on the sills, Jack's room bare, the bucket rusty, the last box on the porch (`last_box`), the «Sold» sign on the lawn (`sign`); no torn pieces |
+| `shoebox` 0/1/2 | the shoebox of animals on the top step (3.4–3.6): 1 — the attic's, dusty (goats, deer, buffalo); 2 — full, the lid off (cranes, frogs, the shark too) |
+| `menu_house` | the paper house from the hospital menu on top of the shoebox («Уехал») |
+
+- **Jack's window is open now**: the house paints its glass out (`destination-out`) and his room stands behind it
+  (`jack_room`, a card 0.6 m behind the wall; `room_floor` an unseen `walk` plane at 0.6 m). Someone stood there
+  (`jack_a: -4.4, jack_d: 8.85`) is seen in the window from the chest up — 1.4 «Убежал»: Jack in his window, Mom
+  looking up at it (`house#jack_window`).
+- **People**: every person has `place` keys now (`<id>_a`, `<id>_d`), and `dad` is here (`dad_here` false by default).
+  A year on: `jack_wear` the cast's `jack_grown` without the suit bag, `dad_wear` `dad_grey` without the book; the
+  letter in Jack's hands is the cast's part `letter` (`jack_with: ["letter"]`, point `jack#letter`). Dad sits on the
+  top step with `dad_on: [-1.25, 6.86, 0.42]` and `sitting_on_bed`.
+- **The showcase** goes on after the morning: the dusk with Mom at the fire and Jack beside her → Jack in his window
+  → Dad comes, his hand on her back → a year on, Dad on the step by the shoebox, Jack with the letter → «Дым»: Jack at
+  the fire, Dad's hand on his back.
+
+Not right yet:
+- The bucket (and so the fire) stands at across 3.8, 5.4 m — at the 4:3 safe frame's right edge (x ≈ 0.70 of the
+  frame's height off the middle; the safe frame ends at 0.67): wide screens see it, a 4:3 screen cuts it. The tree was
+  approved where it is; the ending «Дым» (its mini-game over the fire) should frame it with the camera (stage 5).
+- 3.4's grown Mark and his car across the street are behind the viewer (the yard looks at the house); the gate and the
+  car at it too. A game shows them by the camera turned, or does without.
+- The animals in the shoebox are a painting — still; their slowing down and falling asleep (3.6) is stage 5's.

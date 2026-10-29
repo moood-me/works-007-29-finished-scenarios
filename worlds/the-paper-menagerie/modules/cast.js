@@ -16,6 +16,13 @@ const STAR = [0.93, 0.78, 0.35, 1];
 const SILVER = [0.74, 0.76, 0.8, 1];
 const VISOR = [0.25, 0.26, 0.3, 1];
 const BLADE = [0.55, 0.58, 0.62, 1];
+// (the letter: the wrapping's red outside and its cream back, the old yellow tape, her ink; the flag's pole; the frog's
+// green paper, light and dark)
+const LETTER = [[0.86, 0.27, 0.22, 1], [0.95, 0.91, 0.82, 1]];
+const TAPE = [0.93, 0.83, 0.5, 1];
+const INK = [0.2, 0.18, 0.2, 1];
+const POLE = [0.82, 0.82, 0.8, 1];
+const FROG = [[0.48, 0.7, 0.42, 1], [0.38, 0.58, 0.34, 1]];
 return {
   ...data,
   characters: {
@@ -135,6 +142,84 @@ return {
         shoes: '#ebe9e2',
         accent: '#2f5fa8',
       },
+    },
+    // — the square (chapter 3) —
+    // the translator: a woman of fifty-five from a tour group, a northerner — short permed hair, black going grey, a
+    // camel trench coat, a red scarf (her `accent`), dark trousers; the letter in her hands is given by `_with`
+    translator: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'woman',
+      garment: 'coat',
+      hair: 'bob',
+      scarf: true,
+      face: 'simple',
+      body: { height: 0.89, thick: 0.96, shoulders: 0.9, hips: 1.06 },
+      colors: {
+        skin: '#e9c3a0',
+        hair: '#4a4344',
+        top: '#ddd6c8',
+        bottom: '#3a3640',
+        garment: '#bf9a6a',
+        shoes: '#3a2e2a',
+        accent: '#c0443a',
+      },
+    },
+    // the group's guide: young, a ponytail, the tour company's teal jacket and cap; her little flag held up is part
+    // `flag` (its pennant her `accent`), given by `_with`
+    guide: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'woman',
+      garment: 'jacket',
+      hair: 'ponytail',
+      hat: 'cap',
+      face: 'simple',
+      body: { height: 0.9, thick: 0.82, shoulders: 0.86 },
+      colors: {
+        skin: '#ecc7a2',
+        hair: '#1d1a1c',
+        top: '#f1eee6',
+        bottom: '#2f3442',
+        garment: '#2f8f8a',
+        shoes: '#e8e6df',
+        hat: '#2f8f8a',
+        accent: '#f0c23e',
+      },
+    },
+    // three of the group: an older man in a khaki jacket and a cap; a woman in a pink jacket and a sun hat; a man of
+    // forty in a navy windbreaker
+    tourist_cap: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'man',
+      garment: 'jacket',
+      hair: 'short',
+      hat: 'cap',
+      face: 'simple',
+      body: { height: 0.95, thick: 1.0, shoulders: 1.0 },
+      colors: { skin: '#e2b994', hair: '#a9a39a', top: '#e6e2d6', bottom: '#4d4a44', garment: '#a69a72', shoes: '#3a3330', hat: '#4f5a46' },
+    },
+    tourist_hat: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'woman',
+      garment: 'jacket',
+      hair: 'bob',
+      hat: 'hat',
+      face: 'simple',
+      body: { height: 0.88, thick: 0.92, shoulders: 0.88, hips: 1.04 },
+      colors: { skin: '#edc8a6', hair: '#231e20', top: '#f2ece2', bottom: '#5a5560', garment: '#d98a9a', shoes: '#efece6', hat: '#efe2c4' },
+    },
+    tourist_coat: {
+      kind: 'shapes',
+      style: 'paper',
+      who: 'man',
+      garment: 'jacket',
+      hair: 'short',
+      face: 'simple',
+      body: { height: 0.98, thick: 0.94, shoulders: 1.02 },
+      colors: { skin: '#e6bf9c', hair: '#1c1a1d', top: '#d5dbe2', bottom: '#33363e', garment: '#34456b', shoes: '#26232a' },
     },
   },
   shapes: {
@@ -279,6 +364,64 @@ return {
           F.bar(hilt, add(hilt, mul(up, 0.15 * h)), 0.007 * h, 0.004 * h, [[0, BLADE]], 6, fwd, 0.4);
           F.bar(add(hilt, mul(across, -0.02 * h)), add(hilt, mul(across, 0.02 * h)), 0.005 * h, 0.005 * h, [[0, VISOR]], 4, fwd, 1);
           F.point('knight', head);
+        },
+      },
+      // — the square and the last dusk (chapter 3) —
+      // the letter: Laohu unfolded — a square of red wrapping paper with gold stars, held open in both hands before
+      // the chest; its outside (red, the stars, the old yellow tape across it) away from the reader, its back (cream,
+      // the columns of her writing) toward them; the point `letter`
+      letter: {
+        name: 'the letter',
+        draw: F => {
+          const l = F.P('LeftHand'),
+            r = F.P('RightHand'),
+            h = F.fit.h,
+            across = unit(sub(r, l)),
+            fwdH = F.fwd('Hips');
+          let face = unit(cross(across, [0, 1, 0]));
+          if (face[0] * fwdH[0] + face[1] * fwdH[1] + face[2] * fwdH[2] < 0) face = mul(face, -1);
+          const up = unit(cross(face, across)),
+            c = add(mix(l, r, 0.5), mul(up, 0.06 * h)),
+            ax = [across, up, face];
+          F.ball(add(c, mul(face, 0.004 * h)), ax, [0.17 * h, 0.16 * h, 0.002 * h], LETTER[0], 4, 8);
+          F.ball(add(c, mul(face, -0.004 * h)), ax, [0.165 * h, 0.155 * h, 0.002 * h], LETTER[1], 4, 8);
+          for (const [x, y] of [[-0.1, 0.09], [0.06, 0.11], [-0.03, -0.02], [0.11, -0.06], [-0.12, -0.1], [0.04, -0.12]])
+            F.ball(add(c, add(mul(across, x * h), add(mul(up, y * h), mul(face, 0.0075 * h)))), ax, [0.011 * h, 0.011 * h, 0.001 * h], STAR, 5);
+          F.ball(add(c, add(mul(up, 0.03 * h), mul(face, 0.007 * h))), ax, [0.172 * h, 0.018 * h, 0.001 * h], TAPE, 4, 8);
+          for (let i = 0; i < 6; i++)
+            F.ball(add(c, add(mul(across, (-0.12 + i * 0.048) * h), mul(face, -0.0075 * h))), ax, [0.006 * h, 0.12 * h, 0.001 * h], INK, 4, 6);
+          F.point('letter', c);
+        },
+      },
+      // the guide's little flag: a short pole held up in the right hand, a pennant at its top (the look's accent);
+      // the point `flag`
+      flag: {
+        name: 'a tour flag',
+        draw: F => {
+          const hand = F.P('RightHand'),
+            h = F.fit.h,
+            up = [0, 1, 0],
+            fwd = unit([F.fwd('Hips')[0], 0, F.fwd('Hips')[2]]),
+            across = cross(up, fwd);
+          const top = add(hand, mul(up, 0.62 * h));
+          F.bar(add(hand, mul(up, -0.06 * h)), top, 0.007 * h, 0.006 * h, [[0, POLE]], 6, fwd, 1);
+          F.ball(add(top, add(mul(up, -0.07 * h), mul(across, 0.11 * h))), [across, up, fwd], [0.11 * h, 0.065 * h, 0.004 * h], F.colors.accent, 3, 6);
+          F.point('flag', top);
+        },
+      },
+      // a paper frog sitting on the open right hand: green wrapping paper, folded squat; the point `frog`
+      frog: {
+        name: 'a paper frog',
+        draw: F => {
+          const hand = F.P('RightHand'),
+            h = F.fit.h,
+            up = [0, 1, 0],
+            fwd = unit([F.fwd('Hips')[0], 0, F.fwd('Hips')[2]]),
+            across = cross(up, fwd);
+          const at = add(hand, mul(up, 0.035 * h));
+          F.ball(at, [across, up, fwd], [0.04 * h, 0.025 * h, 0.045 * h], FROG[0], 4, 6);
+          F.ball(add(at, add(mul(up, 0.022 * h), mul(fwd, 0.02 * h))), [across, up, fwd], [0.025 * h, 0.016 * h, 0.022 * h], FROG[1], 4, 6);
+          F.point('frog', at);
         },
       },
       // a square of paper held up between the hands, its face to whoever she faces, being folded: its colour the

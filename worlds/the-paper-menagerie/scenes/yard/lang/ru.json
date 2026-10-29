@@ -1,4 +1,5 @@
 {"strings": [
   {"text":"The Yard","translation":"Двор","where":"worlds/the-paper-menagerie/scenes/yard/scene.json title"},
-  {"text":"A Sunday morning in spring. A plate of buns, and red paper on the grass.","translation":"Воскресное утро, весна. Тарелка пирожков и красная бумага на траве.","where":"worlds/the-paper-menagerie/scenes/yard/scene.json caption"}
+  {"text":"A Sunday morning in spring. A plate of buns, and red paper on the grass.","translation":"Воскресное утро, весна. Тарелка пирожков и красная бумага на траве.","where":"worlds/the-paper-menagerie/scenes/yard/scene.json caption"},
+  {"text":"Sold","translation":"Продано","where":"worlds/the-paper-menagerie/scenes/yard/elements/sign.js"}
 ]}

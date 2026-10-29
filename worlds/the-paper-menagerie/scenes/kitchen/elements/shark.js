@@ -1,5 +1,7 @@
 // The paper shark in the sink: of its folded grey-blue body only the fin and a sliver of the back show above the
 // water, with a fold down the fin; the layer `fin` is moved along the basin by animate.
+// (In the sink while the kitchen is not packed, and when the whole house wakes: `menagerie` "awake".)
+if (e.state.packed && e.state.menagerie !== 'awake') return;
 e.layer('fin', { box: [-0.24, -0.1, 0.24, 0.02] }, l => {
   l.fillStyle = '#8fa3b8';
   l.beginPath();
