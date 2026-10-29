@@ -34,7 +34,9 @@ people, no camera moves.
 - **Keys.** `lamp`, `floods`, `rain`, `plane` (gone / standing), `yard_roblet` (none / hangar / chocks),
   `yard_robineau` (0 / 1), `riviere_spot`, `madame_spot` (and the places they set, `riviere_a/_d`, `madame_a/_d`).
 
-Measured: see the history note (docs/history/2026-10-29-nochnoj-polyot-stage4.md).
+Measured (`measure_scene`, measuring 957, 1080p): no soft run on any profile, GPU about 3 ms (T4); fails "allocated a
+frame" (~40 KB — the engine's people and modules: the scene's own animates make nothing) and the GC pause that
+follows (2.0–2.6 ms against 2), and on desktop frames p95 16.8 against 16.7 (the 60 Hz pacing).
 
 ## What is not right yet
 
