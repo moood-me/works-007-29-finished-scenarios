@@ -1,0 +1,32 @@
+// Jack's wind-up robot from Christmas on the oilcloth, broken (`robot`): a tin box of a body, red and silver, a
+// square head with two round eyes and an aerial, the key in its back; one leg snapped off, lying beside it.
+if (!e.state.robot || e.state.packed) return;
+const tin = '#b9bec6', red = '#c4473c', dark = '#6d727a';
+g.fillStyle = dark;
+g.fillRect(-0.035, -0.04, 0.018, 0.04);
+g.save();
+g.translate(0.07, -0.006);
+g.rotate(1.3);
+g.fillRect(-0.009, -0.02, 0.018, 0.04);
+g.restore();
+g.fillStyle = red;
+g.fillRect(-0.05, -0.12, 0.1, 0.08);
+g.fillStyle = tin;
+g.fillRect(-0.04, -0.11, 0.08, 0.02);
+g.fillRect(-0.035, -0.18, 0.07, 0.055);
+g.fillStyle = '#2b2b2e';
+g.beginPath();
+g.arc(-0.015, -0.155, 0.008, 0, Math.PI * 2);
+g.arc(0.015, -0.155, 0.008, 0, Math.PI * 2);
+g.fill();
+g.strokeStyle = dark;
+g.lineWidth = 0.004;
+g.beginPath();
+g.moveTo(0, -0.18);
+g.lineTo(0.005, -0.21);
+g.moveTo(0.05, -0.09);
+g.lineTo(0.075, -0.09);
+g.stroke();
+g.fillStyle = '#d4b04a';
+g.fillRect(0.075, -0.1, 0.01, 0.02);
+e.at(0, -0.1, 'robot');
