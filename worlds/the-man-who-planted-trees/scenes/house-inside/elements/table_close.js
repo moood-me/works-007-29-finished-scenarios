@@ -54,23 +54,23 @@ for (let k = 0; k < 10; k++) {
   const [dx, y] = I.loose(k);
   e.layer(`loose_${k}`, {}, (g) => e.lib.acorn(g, M + dx, y, r, 0.4 + 0.5 * k, false));
 }
-// the notebook and the letter at the left edge
+// the notebook and the letter at the left, within the safe frame
 e.layer('notebook_open', {}, (g) => {
   g.fillStyle = '#3a3028';
-  g.fillRect(L + 0.02, 0.62, 0.36, 0.3);
+  g.fillRect(M - 0.66, 0.74, 0.3, 0.24);
   g.fillStyle = '#e8e0cc';
-  g.fillRect(L + 0.035, 0.635, 0.16, 0.27);
-  g.fillRect(L + 0.205, 0.635, 0.16, 0.27);
+  g.fillRect(M - 0.648, 0.752, 0.132, 0.216);
+  g.fillRect(M - 0.504, 0.752, 0.132, 0.216);
   g.fillStyle = 'rgba(60, 50, 40, 0.5)';
-  for (let i = 0; i < 10; i++) g.fillRect(L + 0.05, 0.66 + i * 0.024, 0.12 - (i % 3) * 0.02, 0.005);
+  for (let i = 0; i < 8; i++) g.fillRect(M - 0.636, 0.775 + i * 0.024, 0.1 - (i % 3) * 0.02, 0.005);
 });
 e.layer('notebook_shut', {}, (g) => {
   g.fillStyle = '#3a3028';
-  g.fillRect(L + 0.05, 0.64, 0.18, 0.26);
+  g.fillRect(M - 0.64, 0.74, 0.15, 0.22);
 });
 e.layer('letter', {}, (g) => {
   g.save();
-  g.translate(L + 0.3, 0.2);
+  g.translate(M - 0.52, 0.16);
   g.rotate(0.15);
   g.fillStyle = '#efe9da';
   g.fillRect(-0.13, -0.09, 0.26, 0.18);

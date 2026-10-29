@@ -93,7 +93,7 @@ const INSERT = {
     [0.07, 0.53], [-0.02, 0.68]],
   aside: [0.5, 0.7],                             // the cracked ones' little pile, dx, y
   tens: (k) => [-0.62 + k * 0.137, 0.36],        // heap k of the count (0…9), dx, y
-  loose: (k) => [-0.45 + k * 0.1, 0.7],          // the last ten in a loose line, dx, y
+  loose: (k) => [-0.3 + k * 0.085, 0.7],          // the last ten in a loose line, dx, y
 };
 
 // The pieces. Places, seats, the camera.
@@ -113,8 +113,20 @@ function standing(id, at, turn, does, look, w) {
 }
 // the table's things as a piece begins
 const CLEAR = { acorns: 'none', tens: 0, counted: 0, cracked_out: 0, close: 0, pail_push: 0, sack: false };
-// both at the table, framed together (the unseen point between them)
-const TWO = { camera_target: 'table_mid', camera_shot: 'full' };
+// both at the table, framed together: the camera come in low before the table's left half, the two faces in it (the
+// operator, framing `table_mid`, came in over the Traveller's shoulder — so this shot is the scene's own camera moved)
+const TWO = { camera_target: null, camera_x: -0.5, camera_z: 1.7, camera_h: -0.35, camera_pitch: -4 };
+// the camera to the two-shot, over two seconds
+const two = s => {
+  s.set('camera_target', null);
+  for (const [k, v] of Object.entries(TWO)) if (k !== 'camera_target') s.move(k, v, { over: 2, ease: 'inOut' });
+};
+// the operator framing one of them (`shot`), the scene's own camera's moves undone
+const frame = (s, id, shot) => {
+  s.set('camera_shot', shot);
+  s.set('camera_target', id);
+  for (const k of ['camera_x', 'camera_z', 'camera_h', 'camera_pitch']) s.move(k, 0, { over: 1.5, ease: 'inOut' });
+};
 
 function film(scene) {
   // he sits down on his stool behind the table, facing the room, and takes up a seated loop
@@ -157,7 +169,7 @@ function film(scene) {
         await sitDown(s, 'sit_table');
         e.look('table_things#heap');
         t.look('table_things#heap');
-        s.set('camera_target', 'table_mid');
+        two(s);
         await s.wait(1.5);
       },
     },
@@ -170,7 +182,7 @@ function film(scene) {
         ...seated('elzeard', SEAT_E, 180, 'sit_table', 'table_things#heap'), ...seated('traveller', SEAT_T, 115, 'sit_table', 'table_things#heap') }),
       run: async s => {
         const e = s.person('elzeard');
-        s.set('camera_target', 'table_mid');
+        two(s);
         s.set('acorns', 'counting');
         e.look('table_things#heap');
         e.do('count_table', { loop: true });
@@ -193,7 +205,7 @@ function film(scene) {
         ...seated('traveller', SEAT_T, 115, 'sit_table', 'elzeard') }),
       run: async s => {
         const e = s.person('elzeard'), t = s.person('traveller');
-        s.set('camera_target', null);
+        for (const k of ['camera_x', 'camera_z', 'camera_h', 'camera_pitch']) s.move(k, 0, { over: 2, ease: 'inOut' });
         e.on(null);
         await e.do('rise');
         await e.walk([[-0.6, 4.4], [-2.1, 3.3], [-2.75, 2.65]]);
@@ -241,8 +253,7 @@ function film(scene) {
         await sitDown(s, 'sew');
         e.with(['cloth']);
         e.look('elzeard#cloth');
-        s.set('camera_shot', 'medium');
-        s.set('camera_target', 'elzeard');
+        frame(s, 'elzeard', 'medium');
         s.tell('button:sew');
         await s.wait(4);
       },
@@ -257,8 +268,7 @@ function film(scene) {
       run: async s => {
         await s.wait(2.5);
         s.set('acorns', 'counting');
-        s.set('camera_glide', 3);
-        s.set('camera_target', 'table_mid');
+        two(s);
         s.person('traveller').look('table_things#heap');
         await s.move('tens', 9, { over: 6, ease: 'linear' });
         s.tell('hundred_night:count');
@@ -304,8 +314,7 @@ function film(scene) {
         await s.wait(2);
         t.look('table_things#notebook');
         t.do('write_table', { loop: true });
-        s.set('camera_shot', 'medium');
-        s.set('camera_target', 'traveller');
+        frame(s, 'traveller', 'medium');
         s.tell('go_write:write');
         await s.wait(4);
       },
@@ -331,7 +340,7 @@ function film(scene) {
         await sitDown(s, 'sit_table');
         e.look('table_things#heap');
         t.look('elzeard');
-        s.set('camera_target', 'table_mid');
+        two(s);
         s.tell('hundred_slow:sat');
         await s.wait(2);
       },
@@ -382,8 +391,7 @@ function film(scene) {
       run: async s => {
         const e = s.person('elzeard');
         e.do('sit_table', { loop: true });
-        s.set('camera_shot', 'close');
-        s.set('camera_target', 'elzeard');
+        frame(s, 'elzeard', 'close');
         await s.wait(3);
         e.look(null);
         s.tell('slow_name:good');
@@ -406,23 +414,20 @@ function film(scene) {
         const e = s.person('elzeard');
         e.do('sit_table', { loop: true });
         e.look('traveller');
-        s.set('camera_shot', 'close');
-        s.set('camera_target', 'elzeard');
+        frame(s, 'elzeard', 'close');
         await s.wait(2);
         s.tell('slow_silence:sam');
         await s.wait(1.5);
         await e.do('laugh_seated');
         e.do('sit_table', { loop: true });
         s.tell('slow_silence:laugh');
-        s.set('camera_shot', 'full');
-        s.set('camera_target', 'table_mid');
+        two(s);
         await s.wait(2.5);
         s.tell('slow_silence:told');
         await s.wait(2);
         await intoPail(s);
         e.look(null);
-        s.set('camera_shot', 'close');
-        s.set('camera_target', 'elzeard');
+        frame(s, 'elzeard', 'close');
         await s.wait(2);
         s.tell('slow_silence:plant');
         await s.wait(2);
