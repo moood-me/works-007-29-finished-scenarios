@@ -1,0 +1,14 @@
+{
+  "type": "bespoke",
+  "title": "White Nights",
+  "description": "Petersburg in the white nights: a canal, a lamp burning though it is light, and a girl crying at the railing. You are the Dreamer — twenty-six, eight years in the city without a single acquaintance. Four nights and a morning: her heart belongs to another, who promised to come back in a year. In your hands are her letter, your word and her hand. Carry the letter or keep it, tell her you love her or keep silent, hold her hand or let it go — she will go her way all the same; what is left to you is yours.",
+  "line": "Four white nights, a letter in your pocket — and a love that has no place: say it, give it away, or hold it?",
+  "source": "after the story by Fyodor Dostoevsky",
+  "genres": {
+    "romance": 60,
+    "drama": 50,
+    "relationships": 50
+  },
+  "world": "../../worlds/white-nights",
+  "languages": ["en", "ru"]
+}
