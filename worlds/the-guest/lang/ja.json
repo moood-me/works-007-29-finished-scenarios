@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Guest","translation":"客","where":"worlds/the-guest/world.json title"},
+  {"text":"A schoolhouse alone on a high plateau. A teacher is handed a prisoner he is to deliver.","translation":"高原にぽつんと建つ学校。教師は、護送すべき囚人を引き渡される。","where":"worlds/the-guest/world.json description"}
+]}

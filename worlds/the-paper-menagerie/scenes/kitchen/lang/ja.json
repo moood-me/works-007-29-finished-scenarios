@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Kitchen","translation":"台所","where":"worlds/the-paper-menagerie/scenes/kitchen/scene.json title"},
+  {"text":"An evening in spring. Wrapping paper on the oilcloth, and the goats on the sill are awake.","translation":"春の夕べ。オイルクロスの上に包装紙、窓辺の山羊たちは目を覚ましている。","where":"worlds/the-paper-menagerie/scenes/kitchen/scene.json caption"}
+]}

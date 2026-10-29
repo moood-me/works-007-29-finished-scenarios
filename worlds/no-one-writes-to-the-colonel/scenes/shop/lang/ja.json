@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"No talk of politics here","translation":"政治の話はお断り","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/elements/back_wall.js"},
+  {"text":"The Tailors' Shop","translation":"仕立屋","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/scene.json title"},
+  {"text":"Friday, after the launch. Under the cover is Agustín's machine; nobody sits at it.","translation":"金曜日、ランチが着いたあと。覆いの下にはアグスティンのミシン。誰もそこには座らない。","where":"worlds/no-one-writes-to-the-colonel/scenes/shop/scene.json caption"}
+]}

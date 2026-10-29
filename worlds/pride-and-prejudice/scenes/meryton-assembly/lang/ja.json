@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Meryton, the Assembly Room","translation":"メリトン、舞踏会場","where":"worlds/pride-and-prejudice/scenes/meryton-assembly/scene.json title"},
+  {"text":"The candles lit before dark, and the second dance begun.","translation":"暗くなる前にろうそくが灯され、二曲目のダンスが始まった。","where":"worlds/pride-and-prejudice/scenes/meryton-assembly/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Ferry at Z.","translation":"Z町の渡し場","where":"worlds/asya/scenes/shore/scene.json title"},
+  {"text":"A summer night on the Rhine.","translation":"ラインの夏の夜。","where":"worlds/asya/scenes/shore/scene.json caption"}
+]}

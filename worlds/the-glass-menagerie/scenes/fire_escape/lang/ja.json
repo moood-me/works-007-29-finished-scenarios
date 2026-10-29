@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Paradise","translation":"パラダイス","where":"worlds/the-glass-menagerie/scenes/fire_escape/elements/sign.js"},
+  {"text":"The Fire Escape","translation":"非常階段","where":"worlds/the-glass-menagerie/scenes/fire_escape/scene.json title"},
+  {"text":"Friday, seven o'clock. Two men smoke on the landing; in the window a yellow dress.","translation":"金曜日、七時。踊り場で男がふたり煙草を吸っている。窓の中に黄色いドレス。","where":"worlds/the-glass-menagerie/scenes/fire_escape/scene.json caption"}
+]}

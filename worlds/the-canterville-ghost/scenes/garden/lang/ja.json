@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Garden of Death","translation":"死の庭","where":"worlds/the-canterville-ghost/scenes/garden/scene.json title"},
+  {"text":"Far beyond the pine woods there is a little garden. The grass grows long and deep there.","translation":"松林のはるか向こうに、小さな庭がある。そこでは草が長く深く茂っている。","where":"worlds/the-canterville-ghost/scenes/garden/scene.json caption"}
+]}

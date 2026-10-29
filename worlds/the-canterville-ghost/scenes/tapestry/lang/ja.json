@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Tapestry Chamber","translation":"タペストリーの間","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json title"},
+  {"text":"Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.","translation":"秋、午後遅く。タペストリーの間の扉が少し開いている。","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json caption"}
+]}
