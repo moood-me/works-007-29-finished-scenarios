@@ -92,6 +92,37 @@ function mane(swell, nape) {
     F.tube([h.on([-0.44, 0.6, 0.66], o * 1.01), h.on([0.02, 0.74, 0.67], o * 1.03), h.on([0.42, 0.62, 0.66], o * 1.01)], K.wave, K.colors, 8, h.axes[1], 0.5);
   };
 }
+// a folded letter held out in the right hand, upright between the fingers: its long side along the forearm, beyond
+// the hand, its face turned to the side the arm passes (so held out across the body it shows its face, not its edge),
+// a red wax seal on it — `stained`: a brown blot dried on its face; its point `letter`
+const BLOT = [0.52, 0.4, 0.27, 1];
+function heldLetter(F, stained) {
+  const { add, sub, mul, cross, unit } = V(), m = F.fit.h, hand = F.P('RightHand');
+  const fore = unit(sub(hand, F.P('RightForeArm'))), face = unit(cross(fore, [0, 1, 0])), up = cross(face, fore);
+  const c = add(add(hand, mul(fore, 0.08 * m)), mul(up, 0.03 * m)), axes = [fore, up, face];
+  F.ball(c, axes, [0.1 * m, 0.07 * m, 0.004 * m], PAPER, 10, 6);
+  for (const s of [-1, 1]) F.ball(add(c, mul(face, s * 0.005 * m)), axes, [0.013 * m, 0.013 * m, 0.004 * m], SEAL, 8);
+  if (stained) for (const s of [-1, 1]) F.ball(add(add(c, mul(fore, 0.045 * m)), add(mul(up, -0.02 * m), mul(face, s * 0.006 * m))), axes, [0.035 * m, 0.026 * m, 0.003 * m], BLOT, 10);
+  F.point('letter', c);
+}
+// a bundle's kerchief (a washed blue cotton) and its knot a shade deeper
+const CLOTH = [0.55, 0.62, 0.72, 1], CLOTH_KNOT = [0.45, 0.52, 0.63, 1];
+// a maid's apron (unbleached linen) and her keys (old iron) on a ring at the belt
+const LINEN = [0.93, 0.91, 0.85, 1], IRON = [0.3, 0.28, 0.27, 1];
+// a working girl's dress to the ankles with an apron over it from the waist to below the knee (two rows of cloth held
+// at the waist, the rest hanging and swinging as she goes), a ring of keys at her right hip
+function apron(F) {
+  const { add, mul } = V(), m = F.fit.h, secs = F.trunk(1.16), waist = secs[2], hips = secs[0];
+  const front = (s, x, out = 1) => add(add(s[0], mul(s[2], s[4] * out)), mul(s[1], x * s[3]));
+  const xs = [-0.75, -0.4, 0, 0.4, 0.75], dn = [0, -1, 0], fw = waist[2];
+  const rows = [xs.map(x => front(waist, x * 0.9, 1.02)), xs.map(x => front(hips, x * 0.95, 1.06))];
+  for (let k = 1; k <= 4; k++) rows.push(xs.map(x => add(add(front(hips, x * (0.97 + k * 0.03), 1.06), mul(dn, k * 0.1 * m)), mul(fw, k * 0.016 * m))));
+  F.cloth(rows, LINEN, 2);
+  const ring = add(front(waist, 0.95, 1.0), mul(dn, 0.05 * m));
+  const axes = [waist[1], [0, 1, 0], fw];
+  F.ball(ring, axes, [0.025 * m, 0.025 * m, 0.006 * m], IRON, 8);
+  for (const [dx, dy] of [[-0.012, -0.05], [0.006, -0.058], [0.018, -0.045]]) F.bar(ring, add(ring, add(mul(waist[1], dx * m), [0, dy * m, 0])), 0.005 * m, 0.004 * m, [[0, IRON]], 6, waist[1]);
+}
 return {
   ...data,
   characters: {
@@ -122,6 +153,17 @@ return {
     matryona: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'shawled', hair: 'short', hat: 'kerchief',
       body: { height: 0.9, thick: 1.06, shoulders: 0.94, head: 1.03 },
       colors: { skin: '#e0bea0', hair: '#8f877c', top: '#a3593f', garment: '#5f5247', hat: '#ddd4bf', accent: '#cfc4ab', shoes: '#2a2522' } },
+    // Glasha, the maid of the acquaintances' flat, about twenty: quick and plump-cheeked, a madder-red cotton dress, a
+    // linen apron over it, her keys at the hip, sleeves pushed up; bare-headed, her light brown hair parted and knotted
+    // at the nape
+    glasha: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'aproned', hair: 'bands', hat: 'none',
+      body: { height: 0.92, thick: 0.92, shoulders: 0.9, head: 1.03 },
+      colors: { skin: '#f0cdb0', hair: '#7a5236', top: '#b4574a', garment: '#b4574a', hat: '#e9e2d0', accent: '#b4574a', shoes: '#3a2f2a' } },
+    // Fyokla, Grandmother's deaf old servant: thin and bent, a faded grey-blue dress to the floor, a dark moss-green
+    // shawl, a white kerchief tied under the chin over grey hair
+    fyokla: { kind: 'shapes', style: 'litho', who: 'woman', garment: 'shawled', hair: 'short', hat: 'kerchief',
+      body: { height: 0.86, thick: 0.86, shoulders: 0.86, head: 1.03 },
+      colors: { skin: '#e3c3a8', hair: '#a29a90', top: '#58644a', garment: '#6f7a86', hat: '#efebe1', accent: '#efebe1', shoes: '#2a2522' } },
   },
   shapes: {
     // the world's style: the slender figure of `shadow` (a small head, a long neck, hands with fingers, pointed shoes)
@@ -190,6 +232,8 @@ return {
       // the same dress at home, without the mantle
       frock: { name: 'dress', hang: [{ to: 1.85, from: 'waist', flare: 0.38, off: 0.94, folds: false }], sleeves: 'garment', bare: true, bodice: true },
       // an old woman's dress to the floor, fuller, a shawl over the shoulders down to the hips (the top's colour)
+      // a working girl's dress to the ankles with a linen apron over it and her keys at the hip (apron)
+      aproned: { name: 'dress with an apron', hang: [{ to: 1.85, from: 'waist', flare: 0.42, off: 0.94 }], sleeves: 'garment', bare: true, bodice: true, draw: apron },
       shawled: { name: 'dress with a shawl', hang: [{ to: 2.0, from: 'waist', flare: 0.5, off: 0.96 },
         { to: 0.01, from: 'shoulders', flare: 0.34, color: 'top', folds: false }], sleeves: 'garment', bare: true, bodice: true },
     },
@@ -283,13 +327,26 @@ return {
       // a folded letter held out in the right hand, upright between the fingers: its long side along the forearm, beyond
       // the hand, its face turned to the side the arm passes (so held out across the body it shows its face, not its
       // edge), a red wax seal on it; its point `letter`
-      letter: { name: 'letter', draw: F => {
-        const { add, sub, mul, cross, unit } = V(), m = F.fit.h, hand = F.P('RightHand');
-        const fore = unit(sub(hand, F.P('RightForeArm'))), face = unit(cross(fore, [0, 1, 0])), up = cross(face, fore);
-        const c = add(add(hand, mul(fore, 0.08 * m)), mul(up, 0.03 * m)), axes = [fore, up, face];
-        F.ball(c, axes, [0.1 * m, 0.07 * m, 0.004 * m], PAPER, 10, 6);
-        for (const s of [-1, 1]) F.ball(add(c, mul(face, s * 0.005 * m)), axes, [0.013 * m, 0.013 * m, 0.004 * m], SEAL, 8);
-        F.point('letter', c);
+      letter: { name: 'letter', draw: F => heldLetter(F, false) },
+      // the same letter after the puddle (Пятно): a brown blot dried on its face
+      letter_stained: { name: 'stained letter', draw: F => heldLetter(F, true) },
+      // a bundle of her things tied in a kerchief, held before her in both hands (the night she came to him): a soft
+      // lump of washed blue cloth, its knot on top between the hands
+      bundle: { name: 'bundle', draw: F => {
+        const { add, mul, mix } = V(), m = F.fit.h, c = mix(F.P('LeftHand'), F.P('RightHand'), 0.5), f = F.fwd('Chest');
+        const axes = [F.side('Chest'), [0, 1, 0], f], at = add(add(c, mul(f, 0.07 * m)), [0, -0.07 * m, 0]);
+        F.ball(at, axes, [0.16 * m, 0.12 * m, 0.11 * m], CLOTH, 14);
+        F.ball(add(at, [0, 0.12 * m, 0]), axes, [0.05 * m, 0.04 * m, 0.04 * m], CLOTH_KNOT, 10);
+        for (const s of [-1, 1]) F.ball(add(at, add(mul(axes[0], s * 0.045 * m), [0, 0.15 * m, 0])), axes, [0.035 * m, 0.022 * m, 0.02 * m], CLOTH_KNOT, 8);
+        F.point('bundle', at);
+      } },
+      // a stack of three books carried in both hands before the waist (the Lodger's, going up to the mezzanine)
+      books: { name: 'books', draw: F => {
+        const { add, mul, mix } = V(), m = F.fit.h, c = mix(F.P('LeftHand'), F.P('RightHand'), 0.5), f = F.fwd('Chest');
+        const axes = [F.side('Chest'), [0, 1, 0], f], at = add(c, mul(f, 0.08 * m));
+        const cols = [BOARDS, [0.3, 0.33, 0.42, 1], [0.45, 0.2, 0.18, 1]];
+        cols.forEach((col, i) => F.ball(add(at, [0, (0.02 + i * 0.05) * m, 0]), axes, [(0.13 - i * 0.01) * m, 0.024 * m, 0.1 * m], col, 4, 3));
+        F.point('books', at);
       } },
     },
   },

@@ -1,0 +1,409 @@
+{
+  "engine": 3,
+  "title": "The Acquaintances' Door",
+  "horizon": 0.4,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.86,
+    "ambientColor": "#e6e4de",
+    "inside": 0.55,
+    "bounce": 0.6,
+    "haze": 0.05,
+    "hazeColor": "#e8e4dc",
+    "hazeGlow": 0.3,
+    "shafts": 0.3,
+    "brightness": 1.12,
+    "saturation": 0.95,
+    "tint": "#efe4d2",
+    "tintStrength": 0.05,
+    "vignette": 0.3,
+    "grain": 0.16
+  },
+  "lights": [
+    {
+      "id": "front_window",
+      "of": "front_glass",
+      "daylight": 1.4,
+      "reach": 8
+    },
+    {
+      "id": "stair_window",
+      "of": "window_glass",
+      "daylight": 1.0,
+      "reach": 7
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "door": 350,
+    "dreamer_with": [
+      "letter"
+    ],
+    "dreamer_reach": {
+      "l": "bell#handle",
+      "r": [
+        0.92,
+        3.55,
+        1.12
+      ]
+    },
+    "dreamer_look": [
+      0.9,
+      2.2,
+      1.6
+    ],
+    "dreamer_mood": "thinking",
+    "glasha_here": true,
+    "glasha_look": [
+      0.9,
+      2.4,
+      1.6
+    ],
+    "glasha_mood": "smile",
+    "glasha_reach": {
+      "r": [
+        1.15,
+        3.6,
+        1.0
+      ]
+    }
+  },
+  "states": {
+    "door": {
+      "range": [
+        270,
+        355
+      ],
+      "smooth": true,
+      "means": "the acquaintances' door (hinged at its near side, opening into the flat): 270 shut, 350 wide open (Glasha in it); a piece turns it with scene.turn"
+    }
+  },
+  "objects": [
+    {
+      "id": "floor",
+      "name": "Landing",
+      "plane": true,
+      "across": 0.2,
+      "distance": 2.5,
+      "width": 2.4,
+      "depth": 7,
+      "walk": true,
+      "inside": true
+    },
+    {
+      "id": "ceiling",
+      "name": "Ceiling",
+      "plane": true,
+      "across": -0.5,
+      "distance": 2.5,
+      "elevation": 3.3,
+      "width": 3.8,
+      "depth": 7,
+      "inside": true
+    },
+    {
+      "id": "wall_back",
+      "name": "Stairwell's back wall",
+      "across": -0.5,
+      "distance": 6,
+      "elevation": -2.4,
+      "facing": 180,
+      "height": 5.7,
+      "box": [
+        -1.9,
+        -5.7,
+        1.9,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "window_glass",
+      "name": "Stair window's day",
+      "across": -1.4,
+      "distance": 6.05,
+      "elevation": 0.9,
+      "facing": 180,
+      "height": 1.8,
+      "box": [
+        -0.36,
+        -1.8,
+        0.36,
+        0
+      ],
+      "glows": true
+    },
+    {
+      "id": "wall_left",
+      "name": "Stairwell's side wall",
+      "across": -2.4,
+      "distance": 3,
+      "elevation": -2.4,
+      "facing": 90,
+      "height": 5.7,
+      "box": [
+        -4,
+        -5.7,
+        3,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "flight",
+      "name": "Flight going down",
+      "plane": true,
+      "across": -1.7,
+      "distance": 4,
+      "elevation": -1.2,
+      "width": 1.3,
+      "depth": 4.6,
+      "tilt": 29,
+      "inside": true
+    },
+    {
+      "id": "well_floor",
+      "name": "Landing below",
+      "plane": true,
+      "across": -1.7,
+      "distance": 1,
+      "elevation": -2.4,
+      "width": 1.4,
+      "depth": 2,
+      "inside": true
+    },
+    {
+      "id": "rail",
+      "name": "Landing's railing",
+      "across": -1.0,
+      "distance": 0.5,
+      "facing": 90,
+      "height": 1.0,
+      "box": [
+        -0.05,
+        -1.02,
+        5.55,
+        0.03
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "wall_right",
+      "name": "Wall with the door",
+      "across": 1.4,
+      "distance": 3.5,
+      "facing": 270,
+      "height": 3.3,
+      "box": [
+        -2.6,
+        -3.3,
+        3.6,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "hall_floor",
+      "name": "The flat's hall floor",
+      "plane": true,
+      "across": 3.0,
+      "distance": 4.175,
+      "width": 3.16,
+      "depth": 1.95,
+      "inside": true,
+      "walk": true
+    },
+    {
+      "id": "hall",
+      "name": "The flat's hall",
+      "across": 2.95,
+      "distance": 5.0,
+      "facing": 180,
+      "height": 3.0,
+      "box": [
+        -1.55,
+        -3,
+        1.55,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "hall_ceiling",
+      "name": "The hall's ceiling",
+      "plane": true,
+      "across": 2.95,
+      "distance": 4.1,
+      "elevation": 3.0,
+      "width": 3.1,
+      "depth": 1.8,
+      "inside": true
+    },
+    {
+      "id": "door",
+      "name": "The acquaintances' door",
+      "across": 1.42,
+      "distance": 3.2,
+      "facing": 270,
+      "place": {
+        "facing": "door"
+      },
+      "height": 2.15,
+      "box": [
+        -0.97,
+        -2.17,
+        0.02,
+        0.01
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "bell",
+      "name": "Bell pull",
+      "across": 1.37,
+      "distance": 4.3,
+      "facing": 270,
+      "height": 2.6,
+      "box": [
+        -0.1,
+        -2.62,
+        0.1,
+        0
+      ],
+      "inside": true
+    },
+    {
+      "id": "front_glass",
+      "name": "Window behind the viewer",
+      "across": -0.4,
+      "distance": -0.4,
+      "facing": 0,
+      "height": 2.4,
+      "box": [
+        -0.6,
+        -2.4,
+        0.6,
+        -0.8
+      ],
+      "glows": true
+    },
+    {
+      "id": "dreamer",
+      "name": "The Dreamer",
+      "person": {
+        "cast": "cast",
+        "who": "dreamer",
+        "turn": 120
+      },
+      "across": 0.85,
+      "distance": 3.95,
+      "inside": true
+    },
+    {
+      "id": "glasha",
+      "name": "Glasha",
+      "person": {
+        "cast": "cast",
+        "who": "glasha",
+        "turn": 245
+      },
+      "across": 1.5,
+      "distance": 3.9,
+      "inside": true
+    },
+    {
+      "id": "dust",
+      "name": "Dust in the stair's light",
+      "across": -0.6,
+      "distance": 4,
+      "elevation": 1.0,
+      "inside": true,
+      "particles": {
+        "kind": "dust",
+        "source": [
+          2.4,
+          3,
+          2.2
+        ]
+      }
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "a solo piano nocturne in the manner of Field and early Chopin, slow, tender, rubato, soft pedal",
+        "weight": 0
+      },
+      {
+        "text": "a string quartet playing a quiet romance, long held notes, muted violins, 1840s salon music",
+        "weight": 0
+      },
+      {
+        "text": "a lone cello singing a slow melancholy melody over soft pizzicato",
+        "weight": 0.5
+      },
+      {
+        "text": "a music box melody slowly unwinding, delicate and a little sad",
+        "weight": 0.3
+      },
+      {
+        "text": "a Russian romance on a seven-string guitar, gentle fingerpicking, wistful",
+        "weight": 0
+      },
+      {
+        "text": "an ambient drone of pale strings, like light on water at night",
+        "weight": 0
+      },
+      {
+        "text": "a harp playing slow broken chords, shimmering, calm",
+        "weight": 0
+      },
+      {
+        "text": "a clarinet melody over a soft string bed, a quiet reverie",
+        "weight": 0
+      },
+      {
+        "text": "a distant church bell striking, with a sustained organ pedal note",
+        "weight": 0
+      },
+      {
+        "text": "a waltz played very slowly on an old upright piano, dreamy and nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "a chamber trio of piano, violin and cello, Tchaikovsky-like lyricism, hushed",
+        "weight": 0
+      },
+      {
+        "text": "a flute and harp duet, airy and transparent, a summer night",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano with long silences, a few notes at a time, intimate",
+        "weight": 0.8
+      },
+      {
+        "text": "a romantic violin solo, singing and yearning, with a soft piano accompaniment",
+        "weight": 0
+      },
+      {
+        "text": "a balalaika tremolo playing a quiet folk tune far away",
+        "weight": 0
+      },
+      {
+        "text": "soft choir humming without words, slow, luminous",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.25,
+    "brightness": 0.45,
+    "scale": "D_FLAT_MAJOR_B_FLAT_MINOR"
+  }
+}
