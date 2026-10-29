@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Secret Chamber","translation":"Тайная каморка","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json title"},
+  {"text":"Behind the panel on the landing: a low stone room, an iron ring in the wall, the moon at a little barred window.","translation":"За панелью на площадке лестницы — низкая каменная каморка, железное кольцо в стене, луна в зарешеченном окошке.","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json caption"}
+]}
