@@ -166,6 +166,80 @@ function bottle(F) {
   F.bar(at(0.05), at(0.1), 0.012 * k, 0.012 * k, [[0, GLASS]], 8, s);
   F.bar(at(0.1), at(0.125), 0.014 * k, 0.014 * k, [[0, CORK]], 8, s);
 }
+// (the garden by the castle: what its people carry — a torch, a candle, a brush, the cross of almond blossom)
+const WOOD = [0.34, 0.24, 0.16, 1];
+const PITCH = [0.16, 0.12, 0.1, 1];
+const FLAME = [1, 0.62, 0.22, 2];
+const WAX = [0.95, 0.92, 0.84, 1];
+const BRASS = [0.7, 0.56, 0.3, 1];
+const BLOSSOM = [0.97, 0.95, 0.93, 1];
+const PINK = [0.95, 0.8, 0.84, 1];
+const TWIG = [0.3, 0.22, 0.18, 1];
+// the world's own axes: what is held upright whatever the hand does (a torch, a candle)
+const UPRIGHT = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+// a torch held upright in the right hand: a stave, a head of pitch-soaked tow, its flame glowing (the point `torch`:
+// a scene's fire and light there)
+function torch(F) {
+  const { add } = V();
+  const h = F.fit.h;
+  const k = F.k;
+  const hand = F.P('RightHand');
+  const top = add(hand, [0, 0.42 * h, 0]);
+  F.bar(add(hand, [0, -0.26 * h, 0]), top, 0.02 * k, 0.026 * k, [[0, WOOD]], 8, F.side('RightHand'));
+  const head = add(top, [0, 0.05 * h, 0]);
+  F.ball(head, UPRIGHT, [0.045 * k, 0.07 * h, 0.045 * k], PITCH, 10);
+  const flame = add(head, [0, 0.11 * h, 0]);
+  F.ball(flame, UPRIGHT, [0.05 * k, 0.1 * h, 0.05 * k], FLAME, 10);
+  F.point('torch', flame);
+}
+// a candle in a brass dish held upright in the right hand, its flame glowing (the point `candle`)
+function candle(F) {
+  const { add } = V();
+  const h = F.fit.h;
+  const k = F.k;
+  const dish = add(F.P('RightHand'), [0, 0.04 * h, 0]);
+  F.ball(dish, UPRIGHT, [0.06 * k, 0.012 * h, 0.06 * k], BRASS, 12);
+  const wick = add(dish, [0, 0.15 * h, 0]);
+  F.bar(dish, wick, 0.014 * k, 0.014 * k, [[0, WAX]], 8, [1, 0, 0]);
+  const flame = add(wick, [0, 0.025 * h, 0]);
+  F.ball(flame, UPRIGHT, [0.012 * k, 0.026 * h, 0.012 * k], FLAME, 8);
+  F.point('candle', flame);
+}
+// a long paint brush in the right hand, pointing out before her and a little up
+function brush(F) {
+  const { add, mul, unit } = V();
+  const hand = F.P('RightHand');
+  const dir = unit(add(F.fwd('Chest'), [0, 0.6, 0]));
+  F.bar(add(hand, mul(dir, -0.06 * F.fit.h)), add(hand, mul(dir, 0.2 * F.fit.h)), 0.007 * F.k, 0.004 * F.k, [[0, WOOD]], 6, F.side('Chest'));
+  F.ball(add(hand, mul(dir, 0.215 * F.fit.h)), [F.side('Chest'), dir, F.fwd('Chest')], [0.008 * F.k, 0.018 * F.fit.h, 0.008 * F.k], PITCH, 6);
+}
+// a cross of white and pink almond blossom held upright between both hands before the chest: two twigs, the flowers
+// bunched along them
+const CROSS = [[0, -0.3], [0, -0.24], [0, -0.18], [0, -0.12], [0, -0.06], [0, 0], [0, 0.06], [0, 0.12], [0, 0.18], [0, 0.23],
+  [-0.15, 0.08], [-0.1, 0.08], [-0.05, 0.08], [0.05, 0.08], [0.1, 0.08], [0.15, 0.08]];
+function almondCross(F) {
+  const { add, mul, mix } = V();
+  const h = F.fit.h;
+  const k = F.k;
+  const s = F.side('Chest');
+  const f = F.fwd('Chest');
+  const c = add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), mul(f, 0.05 * k));
+  const at = (x, y) => add(c, add(mul(s, x * h), [0, y * h, 0]));
+  F.bar(at(0, -0.32), at(0, 0.25), 0.008 * k, 0.008 * k, [[0, TWIG]], 6, s);
+  F.bar(at(-0.17, 0.08), at(0.17, 0.08), 0.008 * k, 0.008 * k, [[0, TWIG]], 6, f);
+  for (let i = 0; i < CROSS.length; i++) {
+    const r = (i % 3 === 1 ? 0.03 : 0.036) * k;
+    F.ball(add(at(CROSS[i][0], CROSS[i][1]), mul(f, 0.012 * k)), [s, [0, 1, 0], f], [r, r, r * 0.8], i % 3 === 1 ? PINK : BLOSSOM, 8);
+  }
+}
+// a housekeeper's white cap: a soft crown set back on the head, a frilled band over the brow
+const BONNET = F => ({ radii: F.head.egg.map(v => v * F.head.r * F.head.out * 1.1) });
+function bonnet(F) {
+  const { add, mul } = V();
+  const { at: head, axes: [hs, hu, hf], r: rh, sides, square } = F.head;
+  F.cap(head, [hs, hu, hf], F.keep(BONNET).radii, [0, 0.8, -0.6], 0.25, F.colors.hat, sides, square);
+  F.ball(add(head, add(mul(hu, rh * 0.62), mul(hf, rh * 0.28))), [hs, hu, hf], [rh * 1.02, rh * 0.14, rh * 0.86], F.colors.hat, sides);
+}
 return {
   ...data,
   characters: {
@@ -205,6 +279,50 @@ return {
       body: { height: 1.02, shoulders: 1.04, thick: 1.04 },
       colors: { skin: '#ebc7a7', hair: '#857560', top: '#8a8a88', garment: '#2e333d', bottom: '#2b2c31', shoes: '#191818' },
     },
+    // Mrs Umney, the housekeeper: an old woman, stout, in black silk to the floor, a white cap over grey hair
+    mrs_umney: {
+      kind: 'shapes', style: 'canterville', who: 'woman', garment: 'frock', hair: 'bun', hat: 'bonnet', face: 'storybook',
+      body: { height: 0.9, shoulders: 0.92, hips: 1.08, thick: 1.04 },
+      colors: { skin: '#ecc8ac', hair: '#c9c3ba', top: '#2a262e', garment: '#2a262e', bottom: '#2a262e', shoes: '#1c1a1e', hat: '#f4f1ea' },
+    },
+    // Cecil, the young Duke of Cheshire, fifteen: slim, fair-brown hair, a dark blue riding coat, buff breeches, boots
+    cecil: {
+      kind: 'shapes', style: 'canterville', who: 'teen', garment: 'jacket', hair: 'short', face: 'storybook',
+      body: { height: 0.93, shoulders: 0.94, thick: 0.84 },
+      colors: { skin: '#f0cdb0', hair: '#a07a4a', top: '#ece6da', garment: '#2f3c5e', bottom: '#d6c49c', shoes: '#2a201a' },
+    },
+    // Mrs Otis: a handsome, healthy, practical woman, dark hair in a bun, a dress of dark plum
+    mrs_otis: {
+      kind: 'shapes', style: 'canterville', who: 'woman', garment: 'frock', hair: 'bun', face: 'storybook',
+      body: { height: 0.95, shoulders: 0.92, thick: 0.96 },
+      colors: { skin: '#efcbac', hair: '#5e4030', top: '#4a2f44', garment: '#4a2f44', bottom: '#4a2f44', shoes: '#1e1a1c' },
+    },
+    // Washington Otis, the eldest son: tall, fair, good-looking, a black frock coat over a light waistcoat
+    washington: {
+      kind: 'shapes', style: 'canterville', who: 'man', garment: 'coat', hair: 'short', face: 'storybook',
+      body: { height: 1.0, shoulders: 1.0, thick: 0.92 },
+      colors: { skin: '#f0cfb2', hair: '#d0ae6c', top: '#cfc8b8', garment: '#262a33', bottom: '#3a3c42', shoes: '#191818' },
+    },
+    // the twins, "the Stars and Stripes", about ten: two boys of one look — short navy jackets, grey knickerbockers,
+    // white stockings, sandy hair
+    twin: {
+      kind: 'shapes', style: 'canterville', who: 'child', garment: 'jacket', hair: 'short', face: 'storybook', socks: true,
+      body: { height: 0.74 },
+      colors: { skin: '#f2d0b2', hair: '#c49a5a', top: '#e8e2d6', garment: '#283456', bottom: '#7a7a80', shoes: '#241e1a', socks: '#ece8e0' },
+    },
+    // Virginia years later, the young Duchess of Cheshire (a look of hers for <id>_wear): grown, her hair up, a deep
+    // blue dress with a pale lilac sash
+    virginia_duchess: {
+      kind: 'shapes', style: 'canterville', who: 'woman', garment: 'frock', hair: 'bun', face: 'storybook', parts: ['sash'],
+      body: { height: 0.94, head: 1.0, shoulders: 0.86, hips: 0.98, thick: 0.84 },
+      colors: { skin: '#f0d0b4', hair: '#b98a46', top: '#34416e', garment: '#34416e', bottom: '#34416e', shoes: '#2a2224', accent: '#d8cce4' },
+    },
+    // Cecil years later, the Duke (a look of his for <id>_wear): grown, a dark blue frock coat
+    cecil_duke: {
+      kind: 'shapes', style: 'canterville', who: 'man', garment: 'coat', hair: 'short', face: 'storybook',
+      body: { height: 1.0, shoulders: 1.0, thick: 0.9 },
+      colors: { skin: '#f0cdb0', hair: '#a07a4a', top: '#d6d0c2', garment: '#2a3452', bottom: '#2c2e36', shoes: '#191818' },
+    },
   },
   shapes: {
     // the world's style: the storybook's round soft figures (soft), their heads a little smaller, with a face of the
@@ -216,6 +334,7 @@ return {
       ghost: { name: 'ghost', draw: F => face(F, true) },
     },
     hair: { ghost: { name: 'ghost', draw: ghostHair } },
+    hats: { bonnet: { name: 'white cap', draw: bonnet } },
     garments: {
       // a girl's frock: a full skirt from the waist to the ankles, long sleeves, the bodice in its colour
       frock: { name: 'frock', hang: [{ to: 2.0, from: 'waist', flare: 0.4, off: 0.96 }], sleeves: 'garment', bare: true, bodice: true },
@@ -249,6 +368,10 @@ return {
           F.ball(c, [F.side('Hips'), F.up('Hips'), F.fwd('Hips')], [0.18 * F.k, 0.035 * F.fit.h, 0.14 * F.k], F.colors.accent, 16);
         },
       },
+      torch: { name: 'torch', draw: torch },
+      candle: { name: 'candle', draw: candle },
+      brush: { name: 'paint brush', draw: brush },
+      almond_cross: { name: 'cross of almond blossom', draw: almondCross },
     },
   },
 };

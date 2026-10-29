@@ -1,0 +1,1339 @@
+{
+  "engine": 3,
+  "title": "The Garden by the Castle",
+  "caption": "Morning in the garden at Canterville. By the churchyard railing stands the old almond tree; it has not blossomed in living memory.",
+  "horizon": 0.45,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.6,
+    "ambientColor": "#c8c0b2",
+    "bounce": 0.55,
+    "haze": 0.1,
+    "hazeColor": "#c9d6e2",
+    "hazeGlow": 0.4,
+    "shafts": 0.5,
+    "tint": "#fff0d8",
+    "tintStrength": 0.05,
+    "vignette": 0.4,
+    "grain": 0.05,
+    "wind": [
+      1,
+      0,
+      0.4
+    ],
+    "looks": {
+      "night": {
+        "ambient": 0.42,
+        "ambientColor": "#5a6a98",
+        "bounce": 0.45,
+        "haze": 0.18,
+        "hazeColor": "#28344e",
+        "hazeGlow": 0.7,
+        "shafts": 1.0,
+        "tint": "#a8bce8",
+        "tintStrength": 0.06,
+        "saturation": 0.85,
+        "vignette": 0.5,
+        "lights": {
+          "sun": 0
+        }
+      },
+      "clouds": {
+        "lights": {
+          "moon": 0.25
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "sun",
+      "from": [
+        150,
+        22
+      ],
+      "color": "#ffe2b4",
+      "strength": 2.4
+    },
+    {
+      "id": "moon",
+      "from": "sky#disc",
+      "color": "#c4d4ff",
+      "strength": 1.5,
+      "on": "night"
+    },
+    {
+      "id": "torches",
+      "of": "torchpole#flame",
+      "color": "#ffa050",
+      "strength": 1.8,
+      "reach": 7,
+      "on": "torches",
+      "flicker": 0.4
+    },
+    {
+      "id": "torch_held",
+      "at": "washington#torch",
+      "color": "#ffa050",
+      "strength": 1.4,
+      "reach": 6,
+      "on": "torch_held",
+      "flicker": 0.4
+    },
+    {
+      "id": "candle",
+      "at": "otis#candle",
+      "color": "#ffd08a",
+      "strength": 1.0,
+      "reach": 3,
+      "on": "candle",
+      "flicker": 0.2
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "night": 0,
+    "clouds": 0,
+    "autumn": 0,
+    "almond": "dry",
+    "easel": true,
+    "funeral": false,
+    "cross": false,
+    "grave": "none",
+    "torches": 0,
+    "torch_held": 0,
+    "candle": 0,
+    "coaches": false,
+    "coach_d": 9,
+    "virginia_a": 3.0,
+    "virginia_d": 6.0,
+    "umney_a": -0.9,
+    "umney_d": 4.25,
+    "cecil_a": 2.35,
+    "cecil_d": 5.05,
+    "otis_a": -1.3,
+    "otis_d": 9.3,
+    "mrs_otis_a": -2.1,
+    "mrs_otis_d": 9.4,
+    "washington_a": -3.4,
+    "washington_d": 8.9,
+    "twin_a_a": -0.6,
+    "twin_a_d": 9.45,
+    "twin_b_a": -2.75,
+    "twin_b_d": 9.65,
+    "virginia_with": [
+      "brush"
+    ],
+    "virginia_look": "almond#crown",
+    "virginia_mood": "neutral",
+    "umney_look": "almond#crown",
+    "umney_mood": "neutral",
+    "cecil_here": false,
+    "cecil_look": "easel#board",
+    "otis_here": false,
+    "otis_look": "coffin#lid",
+    "otis_mood": "sad",
+    "mrs_otis_here": false,
+    "mrs_otis_look": "coffin#lid",
+    "mrs_otis_mood": "sad",
+    "washington_here": false,
+    "washington_with": [
+      "torch"
+    ],
+    "washington_look": "coffin#lid",
+    "washington_mood": "sad",
+    "twin_a_here": false,
+    "twin_a_look": "coffin#lid",
+    "twin_a_mood": "sad",
+    "twin_b_here": false,
+    "twin_b_look": "coffin#lid",
+    "twin_b_mood": "sad"
+  },
+  "states": {
+    "night": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 a clear morning (the sun low behind the viewer on the right), 1 a moonlit night (the night sky, the moon, its light)"
+    },
+    "clouds": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "at night: 0 the moon clear, 1 behind dark clouds (its light dimmed); the clouds slide off it as it falls"
+    },
+    "autumn": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "0 summer (chapters 1–2: the limes and the woods green, daisies in the lawn), 1 autumn (chapter 3 on, the funeral, the departure: yellow limes, leaves falling)"
+    },
+    "almond": {
+      "values": [
+        "dry",
+        "blossom"
+      ],
+      "means": "the old almond tree: dry and bare, or in white and pink blossom (after the prophecy is fulfilled)"
+    },
+    "easel": {
+      "type": "boolean",
+      "means": "Virginia's easel (her box of colours on it) and her camp stool on the lawn"
+    },
+    "funeral": {
+      "type": "boolean",
+      "means": "the funeral: the coffin on its trestles under the purple pall, black plumes, two torches on poles by it"
+    },
+    "cross": {
+      "type": "boolean",
+      "means": "the cross of almond blossom laid on the coffin (or, the grave filled, on the mound)"
+    },
+    "grave": {
+      "values": [
+        "none",
+        "open",
+        "mound"
+      ],
+      "means": "the grave under the yew: none, dug (the pit, its spoil heap, a spade), or filled (a fresh mound)"
+    },
+    "torches": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the two torches on poles by the coffin: 0 out, 1 burning (their fire and light)"
+    },
+    "torch_held": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the torch in Washington's hand (washington_with: [\"torch\"]): 0 out, 1 burning"
+    },
+    "candle": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the candle in Mr Otis's hand (otis_with: [\"candle\"]): 0 out, 1 lit"
+    },
+    "coaches": {
+      "type": "boolean",
+      "means": "the two travelling coaches on the avenue (the morning of departure), seen from behind"
+    },
+    "coach_d": {
+      "range": [
+        5,
+        70
+      ],
+      "smooth": true,
+      "means": "how far along the avenue the first coach is, metres from the viewer (the gates at 56; the second 11 m behind it)"
+    },
+    "virginia_a": {
+      "range": [
+        -16,
+        16
+      ],
+      "smooth": true,
+      "means": "where Virginia stands, metres right of the viewer's line"
+    },
+    "virginia_d": {
+      "range": [
+        3,
+        40
+      ],
+      "smooth": true,
+      "means": "where Virginia stands, metres ahead of the viewer"
+    },
+    "umney_a": {
+      "range": [
+        -16,
+        16
+      ],
+      "smooth": true,
+      "means": "where Mrs Umney stands, metres right of the viewer's line"
+    },
+    "umney_d": {
+      "range": [
+        3,
+        40
+      ],
+      "smooth": true,
+      "means": "where Mrs Umney stands, metres ahead of the viewer"
+    },
+    "cecil_a": {
+      "range": [
+        -16,
+        16
+      ],
+      "smooth": true,
+      "means": "where Cecil stands, metres right of the viewer's line"
+    },
+    "cecil_d": {
+      "range": [
+        3,
+        40
+      ],
+      "smooth": true,
+      "means": "where Cecil stands, metres ahead of the viewer"
+    },
+    "otis_a": {
+      "range": [
+        -16,
+        16
+      ],
+      "smooth": true,
+      "means": "where Mr Otis stands, metres right of the viewer's line"
+    },
+    "otis_d": {
+      "range": [
+        3,
+        40
+      ],
+      "smooth": true,
+      "means": "where Mr Otis stands, metres ahead of the viewer"
+    },
+    "mrs_otis_a": {
+      "range": [
+        -16,
+        16
+      ],
+      "smooth": true,
+      "means": "where Mrs Otis stands, metres right of the viewer's line"
+    },
+    "mrs_otis_d": {
+      "range": [
+        3,
+        40
+      ],
+      "smooth": true,
+      "means": "where Mrs Otis stands, metres ahead of the viewer"
+    },
+    "washington_a": {
+      "range": [
+        -16,
+        16
+      ],
+      "smooth": true,
+      "means": "where Washington stands, metres right of the viewer's line"
+    },
+    "washington_d": {
+      "range": [
+        3,
+        40
+      ],
+      "smooth": true,
+      "means": "where Washington stands, metres ahead of the viewer"
+    },
+    "twin_a_a": {
+      "range": [
+        -16,
+        16
+      ],
+      "smooth": true,
+      "means": "where A twin stands, metres right of the viewer's line"
+    },
+    "twin_a_d": {
+      "range": [
+        3,
+        40
+      ],
+      "smooth": true,
+      "means": "where A twin stands, metres ahead of the viewer"
+    },
+    "twin_b_a": {
+      "range": [
+        -16,
+        16
+      ],
+      "smooth": true,
+      "means": "where The other twin stands, metres right of the viewer's line"
+    },
+    "twin_b_d": {
+      "range": [
+        3,
+        40
+      ],
+      "smooth": true,
+      "means": "where The other twin stands, metres ahead of the viewer"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The sky: morning, or night with the moon",
+      "sky": true
+    },
+    {
+      "id": "woods",
+      "name": "The park's woods far off",
+      "across": 0,
+      "distance": 90,
+      "height": 16,
+      "box": [
+        -150,
+        -16,
+        150,
+        0.5
+      ]
+    },
+    {
+      "id": "church",
+      "name": "The little church beyond the churchyard",
+      "across": -13,
+      "distance": 34,
+      "facing": 180,
+      "height": 15,
+      "box": [
+        -9.2,
+        -14.6,
+        6.6,
+        0.2
+      ]
+    },
+    {
+      "id": "wall",
+      "name": "The park wall",
+      "across": 0,
+      "distance": 56,
+      "facing": 180,
+      "height": 2.2,
+      "box": [
+        -60,
+        -2.4,
+        60,
+        0.1
+      ]
+    },
+    {
+      "id": "gates",
+      "name": "The park gates",
+      "across": 5.6,
+      "distance": 55.9,
+      "facing": 180,
+      "height": 3.6,
+      "box": [
+        -2.8,
+        -3.6,
+        2.8,
+        0.1
+      ]
+    },
+    {
+      "id": "lawn",
+      "name": "The lawn",
+      "plane": true,
+      "across": 0,
+      "distance": 49,
+      "width": 160,
+      "depth": 102
+    },
+    {
+      "id": "churchyard",
+      "name": "The churchyard's grass",
+      "plane": true,
+      "across": -18.9,
+      "distance": 31.3,
+      "elevation": 0.004,
+      "width": 42.6,
+      "depth": 49.4
+    },
+    {
+      "id": "avenue",
+      "name": "The avenue to the gates",
+      "plane": true,
+      "across": 5.6,
+      "distance": 30,
+      "elevation": 0.008,
+      "width": 3.6,
+      "depth": 64
+    },
+    {
+      "id": "path",
+      "name": "The garden path",
+      "plane": true,
+      "across": -5,
+      "distance": 4.25,
+      "elevation": 0.006,
+      "width": 18,
+      "depth": 1
+    },
+    {
+      "id": "lime",
+      "name": "The limes of the avenue",
+      "across": 8.2,
+      "distance": 8,
+      "height": 10,
+      "box": [
+        -3.8,
+        -9.4,
+        3.8,
+        0.1
+      ],
+      "shadow": true,
+      "copies": [
+        {
+          "across": 8.2,
+          "distance": 8,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": 8.7,
+          "distance": 13,
+          "scale": 0.92,
+          "flip": true
+        },
+        {
+          "across": 8.2,
+          "distance": 18,
+          "scale": 1.08,
+          "flip": false
+        },
+        {
+          "across": 8.7,
+          "distance": 23,
+          "scale": 0.96,
+          "flip": true
+        },
+        {
+          "across": 8.2,
+          "distance": 28,
+          "scale": 1.04,
+          "flip": false
+        },
+        {
+          "across": 8.7,
+          "distance": 33,
+          "scale": 1.0,
+          "flip": true
+        },
+        {
+          "across": 8.2,
+          "distance": 38,
+          "scale": 0.92,
+          "flip": false
+        },
+        {
+          "across": 8.7,
+          "distance": 43,
+          "scale": 1.08,
+          "flip": true
+        },
+        {
+          "across": 8.2,
+          "distance": 48,
+          "scale": 0.96,
+          "flip": false
+        },
+        {
+          "across": 8.7,
+          "distance": 53,
+          "scale": 1.04,
+          "flip": true
+        },
+        {
+          "across": 3.0,
+          "distance": 12,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": 3.3,
+          "distance": 17,
+          "scale": 1.05,
+          "flip": false
+        },
+        {
+          "across": 3.0,
+          "distance": 22,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 3.3,
+          "distance": 27,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": 3.0,
+          "distance": 32,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": 3.3,
+          "distance": 37,
+          "scale": 1.05,
+          "flip": false
+        },
+        {
+          "across": 3.0,
+          "distance": 42,
+          "scale": 0.9,
+          "flip": true
+        },
+        {
+          "across": 3.3,
+          "distance": 47,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": 3.0,
+          "distance": 52,
+          "scale": 0.95,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "church_stone",
+      "name": "Old headstones",
+      "across": -6.2,
+      "distance": 8.4,
+      "height": 1,
+      "box": [
+        -0.45,
+        -1.0,
+        0.45,
+        0.1
+      ],
+      "copies": [
+        {
+          "across": -6.2,
+          "distance": 8.4,
+          "facing": 170,
+          "scale": 1.0,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -7.8,
+          "distance": 10.6,
+          "facing": 186,
+          "scale": 0.85,
+          "flip": false,
+          "tint": "#e8e6dc"
+        },
+        {
+          "across": -10.5,
+          "distance": 9.2,
+          "facing": 181,
+          "scale": 1.15,
+          "flip": false,
+          "tint": "#f4f0e4"
+        },
+        {
+          "across": -12.6,
+          "distance": 12.4,
+          "facing": 176,
+          "scale": 0.92,
+          "flip": true,
+          "tint": "#dcdad0"
+        },
+        {
+          "across": -8.6,
+          "distance": 15.2,
+          "facing": 171,
+          "scale": 1.08,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -5.6,
+          "distance": 16.4,
+          "facing": 187,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#e8e6dc"
+        },
+        {
+          "across": -1.6,
+          "distance": 14.6,
+          "facing": 182,
+          "scale": 0.85,
+          "flip": true,
+          "tint": "#f4f0e4"
+        },
+        {
+          "across": 0.8,
+          "distance": 13.4,
+          "facing": 177,
+          "scale": 1.15,
+          "flip": false,
+          "tint": "#dcdad0"
+        },
+        {
+          "across": -11.2,
+          "distance": 19.5,
+          "facing": 172,
+          "scale": 0.92,
+          "flip": false,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -3.4,
+          "distance": 20.8,
+          "facing": 188,
+          "scale": 1.08,
+          "flip": true,
+          "tint": "#e8e6dc"
+        },
+        {
+          "across": 1.2,
+          "distance": 18.6,
+          "facing": 183,
+          "scale": 1.0,
+          "flip": false,
+          "tint": "#f4f0e4"
+        },
+        {
+          "across": -7.0,
+          "distance": 23.5,
+          "facing": 178,
+          "scale": 0.85,
+          "flip": false,
+          "tint": "#dcdad0"
+        },
+        {
+          "across": -14.8,
+          "distance": 16.8,
+          "facing": 173,
+          "scale": 1.15,
+          "flip": true,
+          "tint": "#ffffff"
+        },
+        {
+          "across": -0.6,
+          "distance": 25.5,
+          "facing": 189,
+          "scale": 0.92,
+          "flip": false,
+          "tint": "#e8e6dc"
+        },
+        {
+          "across": -9.6,
+          "distance": 27.8,
+          "facing": 184,
+          "scale": 1.08,
+          "flip": false,
+          "tint": "#f4f0e4"
+        }
+      ]
+    },
+    {
+      "id": "church_cross",
+      "name": "Old stone crosses",
+      "across": -9.0,
+      "distance": 12.8,
+      "height": 1.35,
+      "box": [
+        -0.35,
+        -1.35,
+        0.35,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -9.0,
+          "distance": 12.8,
+          "facing": 173,
+          "scale": 1.0
+        },
+        {
+          "across": -6.4,
+          "distance": 19.6,
+          "facing": 187,
+          "scale": 0.9
+        },
+        {
+          "across": -0.9,
+          "distance": 16.8,
+          "facing": 186,
+          "scale": 1.1
+        },
+        {
+          "across": -12.2,
+          "distance": 23.0,
+          "facing": 185,
+          "scale": 1.0
+        },
+        {
+          "across": -2.6,
+          "distance": 28.4,
+          "facing": 184,
+          "scale": 0.9
+        }
+      ]
+    },
+    {
+      "id": "yew",
+      "name": "The old yew of the churchyard",
+      "across": -3.8,
+      "distance": 12.8,
+      "height": 7,
+      "box": [
+        -7,
+        -7,
+        7,
+        0.2
+      ],
+      "shadow": true
+    },
+    {
+      "id": "grave",
+      "name": "The grave under the yew",
+      "plane": true,
+      "across": -4.3,
+      "distance": 9.9,
+      "elevation": 0.012,
+      "width": 2.4,
+      "depth": 1.4
+    },
+    {
+      "id": "heap",
+      "name": "The earth beyond the grave",
+      "across": -4.3,
+      "distance": 10.65,
+      "facing": 180,
+      "height": 1.4,
+      "box": [
+        -1.4,
+        -1.4,
+        1.4,
+        0.1
+      ]
+    },
+    {
+      "id": "coffin",
+      "name": "The coffin on its trestles",
+      "across": -1.6,
+      "distance": 8.2,
+      "facing": 180,
+      "height": 1.8,
+      "box": [
+        -1.3,
+        -1.8,
+        1.3,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "torchpole",
+      "name": "Funeral torches on poles",
+      "across": -2.95,
+      "distance": 7.85,
+      "height": 2.4,
+      "box": [
+        -0.15,
+        -2.4,
+        0.15,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -2.95,
+          "distance": 7.85
+        },
+        {
+          "across": 0.6,
+          "distance": 8.95
+        }
+      ]
+    },
+    {
+      "id": "fire_a",
+      "particles": {
+        "kind": "fire",
+        "at": "torchpole:0#flame",
+        "amount": "torches",
+        "size": [
+          0.22,
+          0.05
+        ]
+      }
+    },
+    {
+      "id": "fire_b",
+      "particles": {
+        "kind": "fire",
+        "at": "torchpole:1#flame",
+        "amount": "torches",
+        "size": [
+          0.22,
+          0.05
+        ]
+      }
+    },
+    {
+      "id": "fire_held",
+      "particles": {
+        "kind": "fire",
+        "at": "washington#torch",
+        "amount": "torch_held",
+        "size": [
+          0.16,
+          0.04
+        ]
+      }
+    },
+    {
+      "id": "railing",
+      "name": "The churchyard railing",
+      "across": -6.8,
+      "distance": 6.6,
+      "facing": 180,
+      "height": 1.8,
+      "box": [
+        -9.3,
+        -1.8,
+        9.3,
+        0.1
+      ]
+    },
+    {
+      "id": "railing_side",
+      "name": "The churchyard railing along the limes",
+      "across": 2.4,
+      "distance": 18.3,
+      "facing": 270,
+      "height": 1.3,
+      "box": [
+        -11.8,
+        -1.3,
+        11.8,
+        0.1
+      ]
+    },
+    {
+      "id": "almond",
+      "name": "The old almond tree",
+      "across": 0.6,
+      "distance": 5.2,
+      "height": 5.6,
+      "box": [
+        -3.8,
+        -5.9,
+        3.8,
+        0.15
+      ],
+      "shadow": true
+    },
+    {
+      "id": "tuft",
+      "name": "Long grass left uncut",
+      "across": -8.0,
+      "distance": 6.45,
+      "height": 0.7,
+      "box": [
+        -0.4,
+        -0.75,
+        0.4,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": -8.0,
+          "distance": 6.45,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": -6.3,
+          "distance": 6.4,
+          "scale": 0.85,
+          "flip": true
+        },
+        {
+          "across": -4.9,
+          "distance": 6.48,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": -3.1,
+          "distance": 6.42,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": -1.9,
+          "distance": 6.45,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": -1.0,
+          "distance": 6.4,
+          "scale": 0.85,
+          "flip": true
+        },
+        {
+          "across": 1.3,
+          "distance": 6.45,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": 2.15,
+          "distance": 6.4,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": 0.1,
+          "distance": 5.05,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": 1.05,
+          "distance": 5.0,
+          "scale": 0.85,
+          "flip": true
+        },
+        {
+          "across": 0.35,
+          "distance": 5.45,
+          "scale": 1.2,
+          "flip": false
+        },
+        {
+          "across": 2.2,
+          "distance": 8.0,
+          "scale": 0.95,
+          "flip": true
+        },
+        {
+          "across": 2.2,
+          "distance": 10.5,
+          "scale": 1.0,
+          "flip": false
+        },
+        {
+          "across": 2.25,
+          "distance": 13.0,
+          "scale": 0.85,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "easel",
+      "name": "Virginia's easel",
+      "across": 2.5,
+      "distance": 5.66,
+      "facing": 235,
+      "height": 1.7,
+      "box": [
+        -0.35,
+        -1.7,
+        0.35,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "stool",
+      "name": "Virginia's camp stool",
+      "across": 3.35,
+      "distance": 6.35,
+      "facing": 200,
+      "height": 0.5,
+      "box": [
+        -0.25,
+        -0.5,
+        0.25,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "robin",
+      "name": "A robin on the gate post",
+      "across": -0.37,
+      "distance": 6.56,
+      "elevation": 0.51,
+      "height": 0.3,
+      "box": [
+        -0.15,
+        -1.42,
+        0.12,
+        -1.18
+      ]
+    },
+    {
+      "id": "leaves",
+      "name": "Lime leaves falling in autumn",
+      "particles": {
+        "kind": "leaves",
+        "at": [
+          5.6,
+          24,
+          6
+        ],
+        "source": [
+          12,
+          30,
+          4
+        ],
+        "amount": "autumn",
+        "rate": 10,
+        "colors": [
+          "#d8a838",
+          "#c8862c",
+          "#e2bc52",
+          "#a86a24"
+        ]
+      }
+    },
+    {
+      "id": "coach",
+      "name": "The first coach",
+      "across": 5.6,
+      "distance": 9,
+      "facing": 180,
+      "place": {
+        "distance": "coach_d"
+      },
+      "height": 3.1,
+      "box": [
+        -1.1,
+        -3.1,
+        1.1,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "coach2",
+      "name": "The second coach",
+      "on": "coach",
+      "across": 0,
+      "distance": 11,
+      "facing": 180,
+      "height": 3.1,
+      "box": [
+        -1.1,
+        -3.1,
+        1.1,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "virginia",
+      "name": "Virginia",
+      "person": {
+        "cast": "cast",
+        "who": "virginia",
+        "turn": 235,
+        "does": "offer"
+      },
+      "across": 3.0,
+      "distance": 6.0,
+      "place": {
+        "across": "virginia_a",
+        "distance": "virginia_d"
+      }
+    },
+    {
+      "id": "umney",
+      "name": "Mrs Umney",
+      "person": {
+        "cast": "cast",
+        "who": "mrs_umney",
+        "turn": 115,
+        "does": "stand"
+      },
+      "across": -0.9,
+      "distance": 4.25,
+      "place": {
+        "across": "umney_a",
+        "distance": "umney_d"
+      }
+    },
+    {
+      "id": "cecil",
+      "name": "Cecil",
+      "person": {
+        "cast": "cast",
+        "who": "cecil",
+        "turn": 160,
+        "does": "sit_ground"
+      },
+      "across": 2.35,
+      "distance": 5.05,
+      "place": {
+        "across": "cecil_a",
+        "distance": "cecil_d"
+      }
+    },
+    {
+      "id": "otis",
+      "name": "Mr Otis",
+      "person": {
+        "cast": "cast",
+        "who": "otis",
+        "turn": 175,
+        "does": "upright"
+      },
+      "across": -1.3,
+      "distance": 9.3,
+      "place": {
+        "across": "otis_a",
+        "distance": "otis_d"
+      }
+    },
+    {
+      "id": "mrs_otis",
+      "name": "Mrs Otis",
+      "person": {
+        "cast": "cast",
+        "who": "mrs_otis",
+        "turn": 185,
+        "does": "clasped"
+      },
+      "across": -2.1,
+      "distance": 9.4,
+      "place": {
+        "across": "mrs_otis_a",
+        "distance": "mrs_otis_d"
+      }
+    },
+    {
+      "id": "washington",
+      "name": "Washington",
+      "person": {
+        "cast": "cast",
+        "who": "washington",
+        "turn": 140,
+        "does": "offer"
+      },
+      "across": -3.4,
+      "distance": 8.9,
+      "place": {
+        "across": "washington_a",
+        "distance": "washington_d"
+      }
+    },
+    {
+      "id": "twin_a",
+      "name": "A twin",
+      "person": {
+        "cast": "cast",
+        "who": "twin",
+        "turn": 200,
+        "does": "stand"
+      },
+      "across": -0.6,
+      "distance": 9.45,
+      "place": {
+        "across": "twin_a_a",
+        "distance": "twin_a_d"
+      }
+    },
+    {
+      "id": "twin_b",
+      "name": "The other twin",
+      "person": {
+        "cast": "cast",
+        "who": "twin",
+        "turn": 165,
+        "does": "stand"
+      },
+      "across": -2.75,
+      "distance": 9.65,
+      "place": {
+        "across": "twin_b_a",
+        "distance": "twin_b_d"
+      }
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "chamber gothic comedy, pizzicato strings tiptoeing, a harpsichord, sly and dry, Victorian manor at night",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, slow and tender, a lament for someone three hundred years tired",
+        "weight": 0
+      },
+      {
+        "text": "music box waltz, slightly out of tune, old English country house, moonlight",
+        "weight": 0.4
+      },
+      {
+        "text": "distant church organ, low and soft, through thick stone walls",
+        "weight": 0
+      },
+      {
+        "text": "bassoon and clarinet, comic and pompous, a theatrical villain's entrance",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, a girl's quiet pity, glassy and clear",
+        "weight": 0.8
+      },
+      {
+        "text": "low string drone with clanking metallic percussion, chains in a corridor",
+        "weight": 0
+      },
+      {
+        "text": "Elizabethan lute galliard, faded, as if remembered",
+        "weight": 0.3
+      },
+      {
+        "text": "ragtime piano, American, cheerful, very far away in another wing",
+        "weight": 0
+      },
+      {
+        "text": "thunderstorm rumble under a slow minor piano",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, Victorian, restrained melancholy",
+        "weight": 0.6
+      },
+      {
+        "text": "boys' choir, a single held note, a garden under the moon",
+        "weight": 0
+      },
+      {
+        "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom",
+        "weight": 0.9
+      },
+      {
+        "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense",
+        "weight": 0
+      },
+      {
+        "text": "mock-heroic brass fanfare, muted, slightly ridiculous",
+        "weight": 0
+      },
+      {
+        "text": "slow harpsichord pavane, dignified and dusty",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.25,
+    "brightness": 0.5,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}
