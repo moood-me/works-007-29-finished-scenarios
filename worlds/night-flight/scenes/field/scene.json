@@ -41,7 +41,7 @@
       "color": "#e8eeff",
       "strength": 2.8,
       "reach": 130,
-      "on": "floods"
+      "on": "flood_0"
     },
     {
       "id": "flood_1",
@@ -49,7 +49,7 @@
       "color": "#e8eeff",
       "strength": 2.8,
       "reach": 130,
-      "on": "floods"
+      "on": "flood_1"
     },
     {
       "id": "flood_2",
@@ -57,7 +57,7 @@
       "color": "#e8eeff",
       "strength": 2.8,
       "reach": 130,
-      "on": "floods"
+      "on": "flood_2"
     },
     {
       "id": "gate_lamp",
@@ -125,7 +125,8 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "floods": 1,
@@ -164,7 +165,30 @@
     "mechanic_c_look": "roblet",
     "mechanic_b_with": [
       "sack"
-    ]
+    ],
+    "riviere_a": 0.7,
+    "riviere_d": 4.25,
+    "robineau_a": 2.1,
+    "robineau_d": 3.85,
+    "pellerin_a": 2.0,
+    "pellerin_d": 3.3,
+    "pilot_a": -1.9,
+    "pilot_d": 3.9,
+    "mechanic_a": -1.3,
+    "mechanic_d": 12.0,
+    "mechanic_b_a": 0.6,
+    "mechanic_b_d": 11.4,
+    "mechanic_c_a": 6.4,
+    "mechanic_c_d": 11.8,
+    "lever": 1,
+    "flood_0": 1,
+    "flood_1": 1,
+    "flood_2": 1,
+    "cowling": 0,
+    "paper_open": 0,
+    "ink": 0,
+    "blot": 0,
+    "folder_open": 0
   },
   "states": {
     "floods": {
@@ -173,7 +197,7 @@
         1
       ],
       "smooth": true,
-      "means": "the field's floodlights on their three masts: 0 out (the field dark, only the hangar's lamps), 1 on (white light over the field); the edge lamps along the field with them"
+      "means": "the field's floodlights on their three masts: 0 out … 1 on — the game's key; the masts come on one by one as it passes ⅓, ⅔, 1 (each at once; going down they go out the same way — script.js sets flood_0…flood_2); the edge lamps with the first"
     },
     "hangar": {
       "values": [
@@ -303,13 +327,216 @@
         20
       ],
       "means": "where Roblet stands, metres away (roblet_spot sets it)"
+    },
+    "riviere_a": {
+      "range": [
+        -12,
+        15
+      ],
+      "means": "where Rivière stands, metres right of the middle (the pieces move it)"
+    },
+    "riviere_d": {
+      "range": [
+        1,
+        40
+      ],
+      "means": "where Rivière stands, metres away (the pieces move it)"
+    },
+    "robineau_a": {
+      "range": [
+        -12,
+        15
+      ],
+      "means": "where Robineau stands, metres right of the middle (the pieces move it)"
+    },
+    "robineau_d": {
+      "range": [
+        1,
+        40
+      ],
+      "means": "where Robineau stands, metres away (the pieces move it)"
+    },
+    "pellerin_a": {
+      "range": [
+        -12,
+        15
+      ],
+      "means": "where Pellerin stands, metres right of the middle (the pieces move it)"
+    },
+    "pellerin_d": {
+      "range": [
+        1,
+        40
+      ],
+      "means": "where Pellerin stands, metres away (the pieces move it)"
+    },
+    "pilot_a": {
+      "range": [
+        -12,
+        15
+      ],
+      "means": "where the European pilot stands, metres right of the middle (the pieces move it)"
+    },
+    "pilot_d": {
+      "range": [
+        1,
+        40
+      ],
+      "means": "where the European pilot stands, metres away (the pieces move it)"
+    },
+    "mechanic_a": {
+      "range": [
+        -12,
+        15
+      ],
+      "means": "where the young mechanic stands, metres right of the middle (the pieces move it)"
+    },
+    "mechanic_d": {
+      "range": [
+        1,
+        40
+      ],
+      "means": "where the young mechanic stands, metres away (the pieces move it)"
+    },
+    "mechanic_b_a": {
+      "range": [
+        -12,
+        15
+      ],
+      "means": "where the mechanic with the bag stands, metres right of the middle (the pieces move it)"
+    },
+    "mechanic_b_d": {
+      "range": [
+        1,
+        40
+      ],
+      "means": "where the mechanic with the bag stands, metres away (the pieces move it)"
+    },
+    "mechanic_c_a": {
+      "range": [
+        -12,
+        15
+      ],
+      "means": "where the third mechanic stands, metres right of the middle (the pieces move it)"
+    },
+    "mechanic_c_d": {
+      "range": [
+        1,
+        40
+      ],
+      "means": "where the third mechanic stands, metres away (the pieces move it)"
+    },
+    "flood_0": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "set by the scene's script from `floods`: the floodlight mast 1 lit (floods ≥ ⅓) or out"
+    },
+    "flood_1": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "set by the scene's script from `floods`: the floodlight mast 2 lit (floods ≥ ⅔) or out"
+    },
+    "flood_2": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "set by the scene's script from `floods`: the floodlight mast 3 lit (floods ≥ 1) or out"
+    },
+    "lever": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the field's switch on the hangar wall (`hangar_front#switch`): its lever 0 down … 1 up (М8 drives it with `floods`)"
+    },
+    "cowling": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the plane's engine cowling: 0 shut, 1 open — its panel swung up, the engine bare"
+    },
+    "paper_open": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "М2 «Перо» (`pen`): the order on the box close, the pen in Rivière's hand (the insert `paper`): 0 closed … 1 open"
+    },
+    "ink": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "М2: how much of the signature is written, from `paper#from` to `paper#to` (the insert `paper`)"
+    },
+    "blot": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "М2: a blot on the signature (the pen pressed too fast)"
+    },
+    "folder_open": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the board's paper «On suspending the night flights» close in Robineau's open folder (the insert `folder`): 0 closed … 1 open"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "bends": {
+      "values": [
+        "none",
+        "one",
+        "bends"
+      ],
+      "means": "the game's: how many times tonight the rule has bent (pieces `ready`, `stand_down`): none, one, bends (two or three)"
+    },
+    "robineau": {
+      "values": [
+        "work",
+        "sit",
+        "silent"
+      ],
+      "means": "the game's: Robineau as 3.7 left him (pieces `european`, `takeoff`, `timetable`): work — sent to his report (comes out from the office), sit — beside Rivière, silent — out alone by the hangar's wall"
+    },
+    "roblet": {
+      "values": [
+        "fire",
+        "keep",
+        "remove"
+      ],
+      "means": "the game's: what Ш1 did with Roblet (piece `takeoff`: who pulls the chocks; `dark_field`: his question)"
     }
   },
   "objects": [
     {
       "id": "sky",
       "name": "Sky",
-      "sky": true
+      "sky": true,
+      "box": [
+        -2.2,
+        -0.6,
+        6,
+        1.25
+      ]
     },
     {
       "id": "field",
@@ -709,7 +936,11 @@
         "does": "hands_behind"
       },
       "across": 0.7,
-      "distance": 4.25
+      "distance": 4.25,
+      "place": {
+        "across": "riviere_a",
+        "distance": "riviere_d"
+      }
     },
     {
       "id": "robineau",
@@ -721,7 +952,11 @@
         "does": "hold_waist"
       },
       "across": 2.1,
-      "distance": 3.85
+      "distance": 3.85,
+      "place": {
+        "across": "robineau_a",
+        "distance": "robineau_d"
+      }
     },
     {
       "id": "roblet",
@@ -749,7 +984,11 @@
         "does": "stand_easy"
       },
       "across": 2.0,
-      "distance": 3.3
+      "distance": 3.3,
+      "place": {
+        "across": "pellerin_a",
+        "distance": "pellerin_d"
+      }
     },
     {
       "id": "pilot",
@@ -761,7 +1000,11 @@
         "does": "stand_easy"
       },
       "across": -1.9,
-      "distance": 3.9
+      "distance": 3.9,
+      "place": {
+        "across": "pilot_a",
+        "distance": "pilot_d"
+      }
     },
     {
       "id": "mechanic",
@@ -773,7 +1016,11 @@
         "does": "stand_easy"
       },
       "across": -1.3,
-      "distance": 12.0
+      "distance": 12.0,
+      "place": {
+        "across": "mechanic_a",
+        "distance": "mechanic_d"
+      }
     },
     {
       "id": "mechanic_b",
@@ -785,7 +1032,11 @@
         "does": "hold_waist"
       },
       "across": 0.6,
-      "distance": 11.4
+      "distance": 11.4,
+      "place": {
+        "across": "mechanic_b_a",
+        "distance": "mechanic_b_d"
+      }
     },
     {
       "id": "mechanic_c",
@@ -797,7 +1048,33 @@
         "does": "stand_easy"
       },
       "across": 6.4,
-      "distance": 11.8
+      "distance": 11.8,
+      "place": {
+        "across": "mechanic_c_a",
+        "distance": "mechanic_c_d"
+      }
+    },
+    {
+      "id": "paper",
+      "name": "The order on the lid of Roblet's box, close: the pen in Rivière's hand (М2)",
+      "insert": "paper_open",
+      "iris": [
+        0.889,
+        0.5,
+        0.62,
+        0.48
+      ]
+    },
+    {
+      "id": "folder",
+      "name": "The board's paper close in Robineau's open folder",
+      "insert": "folder_open",
+      "iris": [
+        0.889,
+        0.5,
+        0.82,
+        0.5
+      ]
     }
   ],
   "music": {
