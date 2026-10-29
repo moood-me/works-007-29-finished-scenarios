@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Giant's Cairn","translation":"Le cairn du géant","where":"worlds/the-buried-giant/scenes/cairn/scene.json title"},
+  {"text":"A stone on the cairn, so that the giant sleeps.","translation":"Une pierre sur le cairn, pour que le géant dorme.","where":"worlds/the-buried-giant/scenes/cairn/scene.json caption"}
+]}

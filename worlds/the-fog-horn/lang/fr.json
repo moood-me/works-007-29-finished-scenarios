@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Fog Horn","translation":"La Corne de brume","where":"worlds/the-fog-horn/world.json title"},
+  {"text":"After Ray Bradbury. A lighthouse on a rock in grey water, a keeper who waits for November, his young assistant, and a window on the far shore that lights at ten.","translation":"D’après Ray Bradbury. Un phare sur un rocher dans l’eau grise, un gardien qui attend novembre, son jeune aide, et sur la rive lointaine une fenêtre qui s’allume à dix heures.","where":"worlds/the-fog-horn/world.json description"}
+]}

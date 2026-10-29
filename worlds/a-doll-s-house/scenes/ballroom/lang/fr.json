@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Stenborgs' Ballroom","translation":"La salle de bal des Stenborg","where":"worlds/a-doll-s-house/scenes/ballroom/scene.json title"},
+  {"text":"Upstairs, the night of the fancy-dress ball. Nora is to dance the tarantella.","translation":"À l’étage au-dessus, la nuit du bal costumé. Nora doit danser la tarentelle.","where":"worlds/a-doll-s-house/scenes/ballroom/scene.json caption"}
+]}

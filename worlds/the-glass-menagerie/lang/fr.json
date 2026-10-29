@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Glass Menagerie","translation":"La Ménagerie de verre","where":"worlds/the-glass-menagerie/world.json title"},
+  {"text":"A small flat off an alley. A mother, a son who wants out, a daughter and her glass animals; a gentleman caller is coming.","translation":"Un petit appartement donnant sur une ruelle. Une mère, un fils qui veut partir, une fille et ses animaux de verre ; un galant doit venir.","where":"worlds/the-glass-menagerie/world.json description"}
+]}

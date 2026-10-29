@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Canterville Ghost","translation":"Le Fantôme de Canterville","where":"worlds/the-canterville-ghost/world.json title"},
+  {"text":"An old English manor, an American family, and a very tired ghost.","translation":"Un vieux manoir anglais, une famille américaine et un fantôme très fatigué.","where":"worlds/the-canterville-ghost/world.json description"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Shop Window","translation":"La vitrine","where":"worlds/klara-and-the-sun/scenes/shop/scene.json title"},
+  {"text":"Morning. The Sun lies in squares on the floor of the shop window.","translation":"Le matin. Le Soleil se pose en carrés sur le sol de la vitrine.","where":"worlds/klara-and-the-sun/scenes/shop/scene.json caption"}
+]}

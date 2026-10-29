@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The House Below","translation":"La maison d’en bas","where":"worlds/orpheus-and-eurydice/scenes/house/scene.json title"},
+  {"text":"A stone hall under the earth. Hades by his fire, Persephone by her tree.","translation":"Une salle de pierre sous la terre. Hadès près de son feu, Perséphone près de son arbre.","where":"worlds/orpheus-and-eurydice/scenes/house/scene.json caption"}
+]}
