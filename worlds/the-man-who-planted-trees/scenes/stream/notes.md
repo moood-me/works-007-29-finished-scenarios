@@ -2,7 +2,7 @@
 
 The scenario's М4, the stream's bed below Elzéard's slope, across the years (stage 4 of the game stages: people stand,
 no motions, no camera, no mini-games). Its stage-2 look was the second chapter's morning (2.2–2.5); the same place now
-shows the dry bed of the first chapter and the meadow of the third, and — on the left, at the slope's far edge — the
+shows the dry bed of the first chapter and the meadow of the third, and — at the slope's far edge, right of the path before the hives — the
 dead maples and the new beeches of 2.6 (the scenario puts them on М3, the slope; this view of the slope from below is
 where they read near and clear).
 
@@ -20,7 +20,7 @@ where they read near and clear).
 - 0 — the prologue and the first chapter: the slope bare (no oaks), the bed dry and white with stones (`stream`
   false: `water`, `sedge`, the green banks gone), no willows, dry tufts.
 - 6 — the stage-2 look: the young oaks (3–4 m), the first willows, the water running for the first time, the mist; the
-  far edge's rows of dead maple sticks (`maple_sticks`) and tiny beeches (`beech_young`).
+  far edge's rows (right of the path) of dead maple sticks (`maple_sticks`) and tiny beeches (`beech_young`).
 - 20 — the third chapter: the valley floor a meadow with flowers, the wood grown (11–12 m oaks), the willows big, the
   far edge's beeches 5 m (the maples gone).
 
@@ -33,7 +33,7 @@ Laid out at once when `moment` changes, and as the scene opens only if `moment` 
 |---|---|---|---|
 | `dry` | prologue / first chapter (the way up, the empty flask) | year 0 | the Traveller (20) by the dry bed |
 | `water` | 2.2–2.4 | year 6, mist, the hives | Lina (23) at the water, the Traveller (26), Elzéard (61) far up by the hives (the game may set `elzeard_here` false) |
-| `far_edge` | 2.6 | year 6, a little mist | Elzéard (61) and the Traveller (26) before the dead maples on the left |
+| `far_edge` | 2.6 | year 6, a little mist | Elzéard (61) and the Traveller (26) before the dead maples, right of the path |
 | `meadow` | the third chapter | year 20 | Lina (37) at the water, the Traveller (40) |
 | `delegation` | 3.2 | year 20 | Lina (37) leading; Jan (40), the chief, the ranger on the path |
 
