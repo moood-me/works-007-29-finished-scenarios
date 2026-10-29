@@ -35,7 +35,7 @@
     {
       "id": "moon",
       "from": [
-        292,
+        260,
         26
       ],
       "color": "#a9bde6",
@@ -66,22 +66,22 @@
         [
           [
             -2.0,
-            5.6,
+            3.6,
             0.9
           ],
           [
             -2.0,
-            6.8,
+            4.8,
             0.9
           ],
           [
             -2.0,
-            6.8,
+            4.8,
             3.0
           ],
           [
             -2.0,
-            5.6,
+            3.6,
             3.0
           ]
         ],
@@ -111,8 +111,8 @@
     },
     {
       "id": "ghost",
-      "across": 0.15,
-      "distance": 4.6,
+      "across": 0.2,
+      "distance": 4.0,
       "elevation": 1.5,
       "place": {
         "across": "simon_a",
@@ -164,13 +164,12 @@
     "spook": "none",
     "armchair": false,
     "ghost_light": 1,
-    "ghost_d": 4.6,
-    "simon_a": 0.15,
-    "simon_d": 5.2,
+    "ghost_d": 4.0,
+    "simon_a": 0.2,
+    "simon_d": 4.6,
     "simon_mood": "angry",
-    "simon_look": "otis",
-    "otis_a": -1.45,
-    "otis_d": 4.5,
+    "otis_a": -1.6,
+    "otis_d": 6.1,
     "otis_with": [
       "bottle",
       "candle"
@@ -369,8 +368,8 @@
       "id": "oil",
       "name": "The smashed bottle of oil",
       "plane": true,
-      "across": 0.3,
-      "distance": 4.9,
+      "across": 0.4,
+      "distance": 4.3,
       "elevation": 0.008,
       "width": 1.0,
       "depth": 0.8
@@ -464,7 +463,7 @@
         },
         {
           "across": -2.02,
-          "distance": 6.2,
+          "distance": 4.2,
           "facing": 90
         },
         {
@@ -477,14 +476,14 @@
     {
       "id": "room_parents",
       "name": "The parents' bedroom, its far wall",
-      "across": -2.9,
-      "distance": 5.5,
+      "across": -2.4,
+      "distance": 7.2,
       "facing": 180,
       "height": 3.0,
       "box": [
-        -0.9,
+        -0.4,
         -3.02,
-        0.9,
+        0.4,
         0.02
       ]
     },
@@ -534,7 +533,7 @@
       "id": "door_parents",
       "name": "The parents' door",
       "across": -2.03,
-      "distance": 4.0,
+      "distance": 5.6,
       "facing": 90,
       "place": {
         "facing": "door_parents"
@@ -635,7 +634,7 @@
         },
         {
           "across": -1.94,
-          "distance": 3.4,
+          "distance": 5.2,
           "elevation": 1.6
         },
         {
@@ -703,7 +702,7 @@
         "kind": "dust",
         "at": [
           -0.4,
-          5.6,
+          4.6,
           1.4
         ],
         "source": [
@@ -719,11 +718,11 @@
       "person": {
         "cast": "cast",
         "who": "simon",
-        "turn": 215,
+        "turn": 195,
         "does": "stand"
       },
-      "across": 0.15,
-      "distance": 5.2,
+      "across": 0.2,
+      "distance": 4.6,
       "place": {
         "across": "simon_a",
         "distance": "simon_d"
@@ -735,11 +734,11 @@
       "person": {
         "cast": "cast",
         "who": "otis_gown",
-        "turn": 150,
+        "turn": 135,
         "does": "offer"
       },
-      "across": -1.45,
-      "distance": 4.5,
+      "across": -1.6,
+      "distance": 6.1,
       "place": {
         "across": "otis_a",
         "distance": "otis_d"
@@ -751,7 +750,7 @@
       "person": {
         "cast": "cast",
         "who": "virginia_night",
-        "turn": 235,
+        "turn": 225,
         "does": "hold_candle"
       },
       "across": 1.8,
