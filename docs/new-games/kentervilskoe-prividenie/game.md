@@ -439,7 +439,7 @@ moment named) · tells.
 | `candle` | М4 | corridor, `candle_walk` | balance (lead) | — (anywhere) | `virginia_d`, `virginia_candle` | 8 | out: `candle_room` dark, the whisper from the dark |
 | `portrait` | М10 | library, `sleepless` | trace | `sketchbook#start` → `sketchbook#end` (an insert `sketchbook`) | `sketchbook_open`, `portrait` 0..1, `askew` | 8 | askew: Mr Otis «My nose is longer, I believe» and a laugh |
 | `nightingale` | М5 | tapestry, his «Far away…» | touch nothing | — | `vision` 0..1 | 10 | touched: «You are not listening» and a shorter line |
-| `hand` | М6 | tapestry, `dark` | hold | `virginia#hand_r` (their joined hands) | `shapes` (grow when let go), `virginia_reach` | 12 | let go: her hand gropes (`virginia_reach` null), his finds it |
+| `hand` | М6 | tapestry, `dark` | hold | `virginia#hand_l` (their joined hands: her left in his right) | `shapes` (grow when let go), `virginia_reach` | 12 | let go: her hand gropes (`virginia_reach` null), his finds it |
 | `release` | М7 | garden, `tears` | hold, then let go | `simon#hand_r` | `simon_reach` | 5 | held too long: his hand slips out by itself |
 | `word` | М9 | corridor, `word` | hold | `otis#hand_r` | `virginia_reach` → `otis#hand_r` | 5 | let go first: he holds a moment longer |
 | `tiptoe` | М8 | corridor, `farewell_go` | balance (lead) | — | `virginia_a`, `virginia_d` along x ≈ 0.6 past the chair | 8 | a creak: Mr Otis mutters «Ginny?..», sleeps on |

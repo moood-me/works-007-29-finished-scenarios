@@ -25,7 +25,7 @@
 // choices } —, steps: {chapter: [the main run as each of its steps began, and as it ended]}, seen: {chapter: how many
 // of its steps the player has ever played through} — never lessened. The page's ⏭ (bespoke.forward, story.js) is the
 // player's only where they have been. Where the play is and how it ended — bespoke.at, bespoke.ended.
-import { ENDINGS, SCALES, PLACES, context, facts, listen } from './story.js';
+import { EFFECTS, ENDINGS, SCALES, PLACES, context, facts, listen } from './story.js';
 import { ui } from './ui.js';
 import { trees } from './map.js';
 import { jump as unseen } from './jump.js';
@@ -38,6 +38,7 @@ import epilogue from './chapters/epilogue.js';
 
 export const CHAPTERS = [prologue, one, two, three, four, epilogue];
 const END = CHAPTERS.length; // the play played through: no chapter of the main run
+const EPILOGUE = CHAPTERS.length - 1;
 // a replay's end asks on its knot once the map has stood a moment
 const SETTLE = 600;
 // every step of the play in order, and where each chapter's first one is among them
@@ -98,6 +99,7 @@ export default async function (b) {
   }) : null;
   const away = () => new Promise(ok => b.menu(() => ok('away')));
   const ended = () => b.ended({ ending: facts(kept).ending });
+  let closed = false; // (the play just played through: the map comes out of the black)
 
   for (let after = {}; ;) {
     const to = await map(after);
@@ -109,13 +111,26 @@ export default async function (b) {
     if ((await play()) === 'away') continue;
     if (replay) {
       replay.done = true;
+      if (replay.run.chapter === EPILOGUE) await closing(replay.run);
       after = { reveal: replay.run.chapter };
       continue;
     }
     const done = kept.chapter;
     await onward();
-    if (kept.chapter === END) ended();
+    if (kept.chapter === END) {
+      ended();
+      await closing(kept);
+    }
     after = { reveal: done };
+  }
+
+  // the play played through (the main run, or a replay of the epilogue: its run): the last shot goes to black, the
+  // ending's name over it; the map comes out of the black
+  async function closing(r) {
+    b.menu(null);
+    await b.fade(1, 2);
+    await view.title(ENDINGS.find(e => e.id === facts(r).ending).label);
+    closed = true;
   }
 
   // the run being played (the replay, else the main run), step by step to its chapter's end → 'done'; or till ☰ →
@@ -176,6 +191,7 @@ export default async function (b) {
     view.quiet();
     view.gauge(null);
     await b.show(PLACES.library.folder, { state: { virginia_here: false, simon_here: false, otis_here: false }, captions: false });
+    if (closed) { closed = false; b.fade(0, 1.5); }
     const drawn = trees(b, sky(), { grow: reveal, author: !!author });
     const notice = replay?.done && anew() ? view.hint(tr('If you keep it, the chapters after this one will have to be played again.')) : () => {};
     let asked = null; // (an option that would leave the replay: asked again)
@@ -246,18 +262,17 @@ export default async function (b) {
       const reached = i <= kept.chapter;
       const tried = re?.chapter === i;
       const kind = i === (re ? re.chapter : kept.chapter) ? 'here' : i < kept.chapter ? 'played' : i === kept.chapter ? 'next' : 'future';
-      const all = rows(c, reached ? kept.choices : {}, tried ? re.choices : {});
-      return { number: c.number, title: c.titleOf ? c.titleOf(re ?? kept) : c.title, kind, rows: i < kept.chapter && !tried ? all : all.filter(r => r.options.some(o => o.state !== 'unseen')),
+      // (a fork the chapter's form never reached — 4С's chair on the way of «The Garden of Death» — is no row of it)
+      const shown = rows(c, reached ? kept.choices : {}, tried ? re.choices : {}).filter(r => r.options.some(o => o.state !== 'unseen'));
+      return { number: c.number, title: c.titleOf ? c.titleOf(re ?? kept) : c.title, kind, rows: i === EPILOGUE ? shown.concat(finale()) : shown,
         go: i === kept.chapter ? (kept.step || kept.chapter ? tr('continue\nthe game') : tr('start\nthe game')) : null, replay: tried && !replay.done, badge: tried };
-    }).concat(finale());
+    });
   }
-  // after the epilogue: how the play ended — its endings, the one it came to chosen
+  // the epilogue's last row, once the play is played through: how it ended — its endings, the one it came to chosen
   function finale() {
-    const title = tr('Finale');
-    if (kept.chapter < END) return { number: title, title, kind: 'future', rows: [], go: null };
+    if (kept.chapter < END) return [];
     const f = facts(kept);
-    return { number: '', title, kind: 'end', rows: [{ title: tr('how it ended'), weight: '⚑',
-      options: ENDINGS.map(e => ({ label: e.label, state: e.id === f.ending ? 'chosen' : 'open' })) }], go: null };
+    return [{ title: tr('Finale'), weight: '⚑', options: ENDINGS.map(e => ({ label: e.label, state: e.id === f.ending ? 'chosen' : 'open' })) }];
   }
 }
 
@@ -278,11 +293,12 @@ function load(saved) {
 // a run's own fields, apart from what the play keeps of its chapters (a minigame gone to by the author's map: `play`)
 const run = p => structuredClone({ chapter: p.chapter, step: p.step, scales: p.scales, shown: p.shown, marks: p.marks, choices: p.choices });
 const pick = (o, keep) => Object.fromEntries(Object.entries(o).filter(([j]) => keep(Number(j))));
-// a chapter's choices as rows: the main run's chosen, a replay's tried (both — the same), could have been, never reached
+// a chapter's choices as rows: the main run's chosen, a replay's tried (both — the same), could have been, never
+// reached; and what came of the main run's choice (scenario §11: the mark it left, as the player was told it)
 function rows(ch, mainChoices, triedChoices) {
   return ch.choices.map(c => {
     const m = mainChoices[c.id], t = triedChoices[c.id];
-    return { title: c.title, weight: c.weight, options: c.options.map(o => ({ label: o.label,
+    return { title: c.title, weight: c.weight, came: (m && EFFECTS[c.id]?.[m]?.marks?.[0]?.[2]) || null, options: c.options.map(o => ({ label: o.label,
       state: m === o.id && t === o.id ? 'both' : m === o.id ? 'chosen' : t === o.id ? 'tried' : m || t ? 'open' : 'unseen' })) };
   });
 }
