@@ -73,7 +73,7 @@ point it looks at), from where the faces look.
   under a strip of paper that draws back, the pen's nib going along —, `blot`); the insert `folder` (`folder_open`;
   the board's letter «On suspending the night flights», typed, stamped URGENT); `cowling` (the European's cowling
   open, its panel up, the engine bare; point `plane#cowling`); place keys (`<id>_a`, `<id>_d`) for Rivière,
-  Robineau, Pellerin, the pilot and the three mechanics. Roblet's `SPOTS` moved to `lib.js` (script.js reads them).
+  Robineau, Pellerin, the pilot and the three mechanics. Roblet's `SPOTS` moved to `lib.js` (script.js reads them; a piece's `from` sets a spot's place values, never `roblet_spot`).
 - **Where.** Rivière at the switch stands at −1.2, 19.93 facing the wall (turn 16), his right hand to the switch.
   Chapter I: after the landing Pellerin stands before the plane at −0.6, 8.6 with the mechanics round him, Rivière in
   the shadow at −3.6, 9.8. Chapter IV: Rivière at −3.0, 11.6 looking right at the pilot, who stands by the

@@ -7,7 +7,8 @@
 // −1.05, 20.46 (one stands at it at SWITCH, facing the wall); Roblet's box at −1.3, 3.75; the workbench at 12.6, 11.8;
 // the office's lit window upstairs (her silhouette, `office_windows#madame`) at about −31.4, 67, 6 m up. The shots are
 // cameras of their own (the eye and what it looks at) — faces toward the lens.
-// Roblet's places by `roblet_spot` (script.js lays him out; a piece's `from` sets the spot and the same values):
+// Roblet's places by `roblet_spot` (script.js lays him out when the key changes; a piece's `from` sets the same values,
+// never the spot itself):
 const SPOTS = {
   front: { at: [-0.75, 3.45], turn: 165, does: 'hold_low' },
   engine: { at: [-1.3, 12.0], turn: 150, does: 'stand_easy' },
@@ -68,7 +69,9 @@ function film(scene) {
     for (const [k, v] of Object.entries(more)) o[`${id}_${k}`] = v;
     return o;
   };
-  const R = (spot, more = {}) => ({ roblet_spot: spot, ...P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPOTS[spot].does, more) });
+  // Roblet at a spot's place (the values only: a `from` never sets `roblet_spot` — a stale spot in the cut's values would
+// move him after it)
+const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPOTS[spot].does, more);
   const DARK = { floods: 0, flood_0: 0, flood_1: 0, flood_2: 0, lever: 0, hangar: 1, office: 1 };
   const LIT = { floods: 1, flood_0: 1, flood_1: 1, flood_2: 1, lever: 1, hangar: 1, office: 1 };
   const STAND = (plane, engine = 0) => ({ plane, plane_a: 4.2, plane_d: 13.6, plane_h: 0, plane_pitch: 0, engine, plane_lights: 0, chocks: 1 });
@@ -107,10 +110,6 @@ function film(scene) {
     ...P('mechanic', [-0.6, 12.4], 10, 'engine_work', { look: 'plane#cowling' }),
     ...P('mechanic_b', [0.9, 12.5], 160, 'load_sack'),
     ...P('mechanic_c', [3.6, 12.9], 220, 'load_sack'),
-  };
-  const roblet4 = () => {
-    const spot = scene.get('roblet_spot') ?? 'engine';
-    return spot;
   };
   const robineauAt = () => (scene.get('robineau') === 'silent' ? WALL : BESIDE);
 

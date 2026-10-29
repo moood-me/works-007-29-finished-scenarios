@@ -1,5 +1,5 @@
-// Roblet where his spot key puts him (roblet_spot; the places are lib.js's SPOTS, so a piece's `from` sets the spot
-// and the same values): his place, his turn, what he does — laid out at once as the scene opens and whenever it
+// Roblet where his spot key puts him (roblet_spot; the places are lib.js's SPOTS — a piece's `from` sets the same values,
+// never the spot): his place, his turn, what he does — laid out at once as the scene opens and whenever it
 // changes. Who is here, where he looks and his face are the game's, never set here.
 //   front — before the gate, his cap in his hands, his packed box at his feet; engine — at the plane's engine, the
 //   cowling; chocks — by the plane's wheel, at the chocks
