@@ -1,9 +1,12 @@
 // The map of the three lines on the wall: a varnished frame, the yellowed paper, the southern half of the continent
 // in ochre against a grey-blue sea, the Andes a brown band down the west; from the field — the city on the estuary,
 // never named — the three lines in red ink: south down the coast to Patagonia, west over the mountains to Chile,
-// north up the river to Paraguay; at each stop a small black dot. The flags on their pins: at the field the west's
-// (yellow), the north's (green) and the European mail's (red); the Patagonian's blue alone far down the south line
-// (its own layer, `blue`). Points: `field`, `blue`. All of it hung 0.2 m lower than drawn (under the clock).
+// north up the river to Paraguay; at each stop a small black dot. The flags on their pins, each where its key puts
+// it: the Patagonian's blue (`blue` — at Río Gallegos in the south, at San Julián, at Trelew, out in the sea east of
+// Trelew, or taken down; its own layer, `blue`), the Chilean's yellow (`west` — over the Andes, at the field, or taken down), the
+// Asunción's green (`north` — up the river, at the field, or taken down), the European's red (`red` — at the field, gone north, or
+// taken down). Points: `field` (the field's dot), `blue`, `west`, `north`, `red` (each flag where it stands). All of
+// it hung 0.2 m lower than drawn (under the clock).
 g.translate(0, 0.2);
 const X = lon => -1.2 + (lon + 80) * 0.0533;
 const Y = lat => -2.82 + (-14 - lat) * 0.0402;
@@ -92,15 +95,32 @@ const flag = (c, x, y, color) => {
 };
 const fx = X(field[0]);
 const fy = Y(field[1]);
-flag(g, fx - 0.03, fy, '#c9a83a');
-flag(g, fx + 0.01, fy + 0.01, '#5d7d3a');
-flag(g, fx + 0.05, fy - 0.005, '#b02a24');
+const S = e.state;
+// where each flag stands by its key ([lon, lat]; at the field each has its own place about the dot); null — taken down
+const AT = {
+  blue: { south: [-69.2, -51.6], san_julian: [-67.7, -49.3], trelew: [-65.3, -43.25], sea: [-63.4, -43.6], off: null },
+  west: { air: [-69.6, -33.1], field: 'field', off: null },
+  north: { air: [-59.2, -29.2], field: 'field', off: null },
+  red: { field: 'field', north: [-55.4, -31.6], off: null },
+};
+const NEAR = { west: [-0.03, 0], north: [0.01, 0.01], red: [0.05, -0.005] };
+const where = (name, key) => {
+  const p = AT[name][key] ?? null;
+  if (p === 'field') return [fx + NEAR[name][0], fy + NEAR[name][1]];
+  return p && [X(p[0]), Y(p[1])];
+};
+const COLORS = { west: '#c9a83a', north: '#5d7d3a', red: '#b02a24' };
+for (const name of ['west', 'north', 'red']) {
+  const p = where(name, S[name]);
+  if (p) flag(g, p[0], p[1], COLORS[name]);
+  // (a point as painted: the 0.2 m the map hangs lower added; a flag's point its cloth)
+  e.at(...(p ? [p[0], p[1] + 0.11] : [fx, fy + 0.2]), name);
+}
 e.at(fx, fy + 0.2, 'field');
-const bx = X(-65.3);
-const by = Y(-43.25);
+const b = where('blue', S.blue);
 e.layer('blue', {}, c => {
   c.translate(0, 0.2);
-  flag(c, bx, by, '#2f56a6');
+  if (b) flag(c, b[0], b[1], '#2f56a6');
 });
-e.at(bx, by + 0.11, 'blue');
+e.at(...(b ? [b[0], b[1] + 0.11] : [fx, fy + 0.2]), 'blue');
 e.at(0, -1.75);

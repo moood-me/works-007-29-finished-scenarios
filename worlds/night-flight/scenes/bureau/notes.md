@@ -33,6 +33,33 @@ bent over his table, the inker running. People only stand (their loops); no came
 - **Keys.** `lamps` (the three lamps), `office` (the office door's glass), `tape` (the inker running), `time` (the
   clock, minutes after midnight: 105 now; the scenario's 22:05, 23:20, 00:30, 01:35, 02:10, 02:45 are all one key).
 
+## Stage 4: everyone, the hours, the flags
+
+Made for stage 4 of the game (all its places): the people the scenario puts in the bureau, where they sit, the
+map's flags and the window's hours as keys. Still no motions of people.
+
+- **People** (cast `modules/cast`), laid out by `script.js` from their spot keys (their place, turn, loop, seat):
+  Rivière (`riviere_spot`: `map` — before the map; `desk` — by Robineau's desk, at the telephone; `bench` — sitting
+  on the bench by the telegraph), **Robineau** (`robineau_spot`: `desk` — standing behind his desk with his folder;
+  `writing` — sitting at it over his report, `desk_lean`, the folder put down; `bench` — sitting on the bench beside
+  Rivière), the European pilot (`pilot_spot`: `standing`; `bench` — sitting, his helmet on his knees), the
+  telegraphist (`telegraphist_spot`: `table`; `bench` — sitting on the bench, dozing with `telegraphist_mood`
+  `eyes_closed`), **the Asunción mail's pilot** (`asuncion`, one place, before the bench, turned toward the map),
+  Madame Fabien by the door. Seated: the cast's `fly_seated` on the bench's seat (`<id>_on`, 0.47 m), `desk_lean` at
+  a desk. Robineau's desk now shows its front (`rob_desk`) and his chair behind it (`rob_chair`): he sits facing us.
+- **The map's flags** (`map`): `blue` (south — Río Gallegos, san_julian, trelew, sea — the bearing, off), `west`
+  (air — over the Andes, field, off), `north` (air — up the river, field, off), `red` (field, north, off). Points
+  `map#blue`, `map#west`, `map#north`, `map#red` (each flag where it stands), `map#field`.
+- **The hours** (`script.js` from `time`): `dusk` (18:30–20:30 — the prologue's evening and the next evening) and
+  `dawn` (5:30–8:00) — the light's looks and the sky's painting (afterglow; a grey overcast lifting; the storm bank
+  only at night).
+- **Outside the window** (`outside`, the `yard`): `european` (the night: the European in the lit gate), `empty`
+  (gone), `rolled` (dawn: being rolled back into the hangar), `landing` (the next evening: the floodlight lit, the
+  Chilean mail coming down), `idle` (the next evening with the night mail suspended: floodlights dark, the gate half
+  shut, Pellerin smoking by his plane).
+- Seen on the GPU (a sheet of four moments: the pilot on the bench; Rivière and Robineau on the bench; dawn with the
+  telegraphist dozing and Robineau writing; the next dusk with the Asunción pilot).
+
 ## What is not right yet
 
 - **Faces are small.** The room is shown whole from its open side, and the people stand 4.5…6.3 m off: they read as
@@ -40,6 +67,7 @@ bent over his table, the inker running. People only stand (their loops); no came
   room or a cut to a shot — not this stage's.
 - **Sitting.** Every Kimodo take of someone seated at a desk (tapping a key, writing, typing) leaned back as in an
   armchair; only “leans forward with their elbows on the table” sat at the table. His right hand is put on the key by
-  `telegraphist_reach`; it does not tap.
+  `telegraphist_reach`; it does not tap. Dozing on the bench is sitting upright with the eyes shut (a head fallen
+  forward is a motion for stage 5); Robineau writing leans low over his desk.
 - **The pilot's jacket** in the flat style flares at the thighs like a short skirt when his hip is shifted.
 - The map's flags are small at this distance: they read only as specks of colour by the field.
