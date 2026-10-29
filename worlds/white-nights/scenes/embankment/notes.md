@@ -65,7 +65,7 @@ the middle, near and large. What matters stays within the 4:3 frame (x 0.125…0
 - The corner they wait for is near on the right, behind the viewer's shoulder: Nastenka faces toward it, past the
   viewer.
 
-## The people (the world's `cast`: modules/cast.md)
+## The world's picture (`first_meet`)
 
 Two, gathered near, a little larger than life on the screen (about 0.45 of its height), a moment of the first night
 when she has stopped crying and he has dared to speak: standing quietly (the engine's `stand`: breathing), each in a
@@ -82,12 +82,81 @@ feet. Their faces three-quarters to us, each looking toward the other's side of 
 
 The Lodger is not on the embankment in this look (he comes there only at the end); he is the cast's `lodger`.
 
+## The nights' light (stage 4)
+
+Each night has its own light, all of them light (never dark — faces read in every one): looks over the white night's
+pearl, each a key 0…1 (smooth) the light's `looks` and a layer of the sky (`sky.js`, shown by `sky.animate.js`):
+`dusk` — the prologue's evening, golden-peach low down; `lilac` — the second night, cooler; `rose` — the third, its
+afterglow warmer; `overcast` — the fourth, pearl-grey cloud over all the sky, a little haze, the afterglow hidden;
+`day` — Friday's errand and the morning's end: a pale blue sky, the sun (`sun`, on by `day`) on the houses. Pearl (the
+first night) is all of them 0. `rain` 0…1 — the rain round the eye (particles `rain`) and the canal roughened (its
+ripple, the key `ripple`, follows the rain in script.js). `lamp` puts out every lamp — the near one (light `lamp`), the
+banks' (`bank_lamps`, the copies' flames) — and their glass goes a cool pale grey (lib.lamp reads it; `redraw` 0.25).
+
+Other keys: `cart` — a dray loaded with furniture in the far bank's street (`cart`: the city going to the dachas, coming
+back); `scraps` — the torn letter's bits afloat before the parapet (`scraps`, a plane on the water, its layer drifting
+down the canal); `pin` 0…1 — the glint of Grandmother's pin at the Dreamer's left wrist (a light at `dreamer#hand_l`,
+the second night on the bench).
+
+## The people
+
+The world's `cast` (modules/cast.md). Each stands by its place keys `<id>_a`, `<id>_d`; casts the lamp's shadow.
+`nastya` (Nastenka), `dreamer`, `lodger`; the embankment's own passers (new in the cast): `gentleman` (the tipsy
+gentleman in a tailcoat, 1.2), `dvornik` (the yard-keeper with his broom, the prologue; part `broom`), `nanny` and
+`child` (the morning's end; the child's part `bagel`), `passerby` (the morning). New parts: `broom`, `bagel`,
+`letter_stained` (the letter with the puddle's brown stain — the mark «Пятно»). All but Nastenka and the Dreamer are
+`_here` false by default.
+
+## Moments (key `moment`; script.js `MOMENTS`)
+
+The scenario's steps on the embankment as pictures of people standing (stage 4): the script lays a moment out at once
+when `moment` changes, and as the scene opens only if `moment` differs from `staged` — so a restored scene keeps what a
+game changed after it. **A game sets `moment` first, then any detail** (`<id>_here`, a mood). Each sets the light keys,
+`rain`, `lamp`, `cart`, `pin`, `scraps` and every person (here or not, place, turn, doing, look, mood, what they hold,
+reach, seat). The scene's default state is `first_meet` laid out — keep the two together.
+
+| moment | the scenario | who and where |
+| --- | --- | --- |
+| `first_meet` | the world's picture: the first night, she has stopped crying | as stage 2 |
+| `prologue` | the evening, «Тебя выкрасили» | dusk, the lamp unlit, the dray; the Dreamer with his stick before the yellow house, the yard-keeper with his broom by its porch |
+| `first_night` | 1.1 | she weeps at the parapet under the lamp, her back half to us; he across the roadway |
+| `first_gentleman` | 1.2 | she hurries off along the parapet, the gentleman after her, the Dreamer behind |
+| `first_walk` | 1.3 | arm in arm toward the viewer (her right hand on his left elbow) |
+| `first_corner` | 1.4 | her corner, near on the right: she has let go of his arm |
+| `second_wait` | 2.1 (lilac) | he at the parapet, looking toward the corner |
+| `second_bench` | 2.2–2.4 | both on the bench (`seated`), the pin's glint |
+| `second_letter` | 2.6 | she holds the letter out to him |
+| `second_alone` | 2.6 ⏸ | he alone at the parapet with the letter |
+| `day` | Д2 | day, he along the houses with the letter, looking up at the numbers |
+| `third_night` | 3.0–3.2 (rose) | arm in arm, she laughing |
+| `third_ten` | 3.3 ⏸ | she at the parapet facing the corner (toward us), he behind her |
+| `third_bench` | 3.4 | she on the bench, silent; he stands by |
+| `third_tear` | 3.4-С | she tears the letter over the water, its scraps afloat |
+| `fourth_night` | 4.1 (grey) | she weeps at the parapet, he beside her |
+| `fourth_rain` | 4.3 | the rain; arm in arm along the water |
+| `fourth_awning` | 4.3-С | under the yellow house's awning in the rain, she looking at the corner |
+| `fourth_lodger` | 4.4 | the Lodger under the lamp, his hat in his hand, her letter in the other; the two arm in arm |
+| `fourth_alone` | 4.4 ⏸ | he alone at the parapet in the rain |
+| `morning` | «Утро» | day, the dray back; a nurse-maid and her child with a bagel at her place at the parapet, a passer-by, the yard-keeper; the Dreamer a step aside |
+
+## Showcase
+
+The moments one after another, four seconds each (showcase.js).
+
 ## State
 
-`lamp` 0…1 — the lamps' light (the near one's `on` and glow). The people's keys are the engine's (`<id>_reach`,
-`_look`, `_with`, `_mood`).
+`lamp` 0…1 — the lamps' light. `moment`, `staged`, the looks, `rain`, `ripple`, `cart`, `pin`, `scraps` (above). The
+people's keys are the engine's (`<id>_here`, `_a`, `_d`, `_turn`, `_do`, `_reach`, `_look`, `_with`, `_mood`, …).
 
 ## What moves
 
 The clouds drift (a sky layer), the ripple runs down the canal (a layer of the water), the mist drifts across, the
-lamp's flame flickers a little, the people breathe. Nothing is painted again while the scene plays.
+lamp's flame flickers a little, the rain falls, the scraps drift, the people breathe. A night's sky is a layer shown by
+its key. Nothing is painted again while the scene plays (the lamps' glass only when `lamp` crosses a quarter).
+
+## What is not right yet
+
+- The rain falls through the awning (weather fills the air round the eye; its `area` is a box, not «not under this»):
+  under the awning it rains past the two as everywhere — seen as the rain beyond the awning's edge.
+- People far up the street (the awning at 12 m, the bench at 9–11 m) are small in the picture camera: the close faces
+  are stage 5's cameras.
