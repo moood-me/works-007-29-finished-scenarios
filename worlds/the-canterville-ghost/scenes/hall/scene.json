@@ -1,0 +1,1174 @@
+{
+  "engine": 3,
+  "title": "The Hall",
+  "caption": "The great hall of Canterville Chase: the oak stair and its landing, the old clock, the armchair at the stair's foot, the front door onto the porch.",
+  "horizon": 0.4,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.5,
+    "ambientColor": "#7c88b2",
+    "bounce": 0.6,
+    "haze": 0.08,
+    "hazeColor": "#262c40",
+    "hazeGlow": 0.6,
+    "shafts": 1.2,
+    "tint": "#c9d2ea",
+    "tintStrength": 0.04,
+    "vignette": 0.4,
+    "grain": 0.06,
+    "wind": [
+      1,
+      0,
+      0.3
+    ],
+    "looks": {
+      "day": {
+        "ambient": 1.0,
+        "ambientColor": "#f2ead8",
+        "inside": 0.6,
+        "bounce": 0.5,
+        "haze": 0.04,
+        "hazeColor": "#d8dce0",
+        "hazeGlow": 0.2,
+        "shafts": 0.7,
+        "tint": "#fff0d8",
+        "tintStrength": 0.04,
+        "vignette": 0.3,
+        "lights": {
+          "moon": 0
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "moon",
+      "from": [
+        35,
+        28
+      ],
+      "color": "#b8ccf2",
+      "strength": 1.6,
+      "through": [
+        "window"
+      ]
+    },
+    {
+      "id": "sun",
+      "from": [
+        30,
+        30
+      ],
+      "color": "#fff0d0",
+      "strength": 1.5,
+      "on": "day",
+      "through": [
+        "window",
+        [
+          [
+            2.1,
+            8.0,
+            0
+          ],
+          [
+            3.7,
+            8.0,
+            0
+          ],
+          [
+            3.7,
+            8.0,
+            2.9
+          ],
+          [
+            2.1,
+            8.0,
+            2.9
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "daylight",
+      "daylight": 1,
+      "across": 2.9,
+      "distance": 7.4,
+      "elevation": 2.0,
+      "reach": 10,
+      "on": "day"
+    },
+    {
+      "id": "chandelier",
+      "of": "chandelier#ring",
+      "color": "#ffc47e",
+      "strength": 1.7,
+      "reach": 10,
+      "on": "candles",
+      "flicker": 0.15
+    },
+    {
+      "id": "sconce_l",
+      "of": "back_wall#sconce_l",
+      "color": "#ffc47e",
+      "strength": 0.9,
+      "reach": 4.5,
+      "on": "candles",
+      "flicker": 0.2
+    },
+    {
+      "id": "sconce_r",
+      "of": "back_wall#sconce_r",
+      "color": "#ffc47e",
+      "strength": 0.9,
+      "reach": 4.5,
+      "on": "candles",
+      "flicker": 0.2
+    },
+    {
+      "id": "sconce_landing",
+      "of": "back_wall#sconce_landing",
+      "color": "#ffc47e",
+      "strength": 1.0,
+      "reach": 4.5,
+      "on": "candles",
+      "flicker": 0.2
+    },
+    {
+      "id": "otis_candle",
+      "at": "otis#flame",
+      "color": "#ffc47e",
+      "strength": 1.2,
+      "reach": 4,
+      "on": "otis_candle",
+      "flicker": 0.25
+    },
+    {
+      "id": "lantern_held",
+      "at": "washington#lantern",
+      "color": "#ffc070",
+      "strength": 1.2,
+      "reach": 4,
+      "on": "lantern_held",
+      "flicker": 0.15
+    },
+    {
+      "id": "pond_lantern",
+      "across": 17,
+      "distance": 29,
+      "elevation": -0.3,
+      "color": "#ffc070",
+      "strength": 0.8,
+      "reach": 3,
+      "glow": 0.5,
+      "on": "pond_lantern",
+      "flicker": 0.2
+    }
+  ],
+  "modules": [
+    "cast"
+  ],
+  "state": {
+    "moment": "midnight",
+    "staged": "midnight",
+    "day": 0,
+    "candles": 1,
+    "hour": 0,
+    "clock_going": false,
+    "panel": 250,
+    "door_l": 180,
+    "door_r": 180,
+    "carriage": false,
+    "pond_lantern": 0,
+    "otis_candle": 1,
+    "lantern_held": 0,
+    "virginia_here": true,
+    "virginia_a": -3.0,
+    "virginia_d": 7.2,
+    "virginia_turn": 150,
+    "virginia_do": "clasped",
+    "virginia_look": "otis",
+    "virginia_mood": "tired",
+    "virginia_with": [
+      "casket"
+    ],
+    "otis_here": true,
+    "otis_a": -1.85,
+    "otis_d": 7.2,
+    "otis_turn": 205,
+    "otis_do": "hold_candle",
+    "otis_look": "virginia",
+    "otis_mood": "surprised",
+    "otis_with": [
+      "candle_l"
+    ],
+    "mrs_otis_here": true,
+    "mrs_otis_a": 1.2,
+    "mrs_otis_d": 6.95,
+    "mrs_otis_turn": 220,
+    "mrs_otis_do": "clasped",
+    "mrs_otis_look": "virginia",
+    "mrs_otis_mood": "afraid",
+    "mrs_otis_with": [
+      "shawl"
+    ],
+    "washington_here": true,
+    "washington_a": -0.95,
+    "washington_d": 7.2,
+    "washington_turn": 210,
+    "washington_do": "stand",
+    "washington_look": "virginia",
+    "washington_mood": "surprised",
+    "twin_star_here": true,
+    "twin_star_a": 1.95,
+    "twin_star_d": 6.45,
+    "twin_star_turn": 225,
+    "twin_star_do": "stand",
+    "twin_star_look": "virginia",
+    "twin_star_mood": "surprised",
+    "twin_stripes_here": true,
+    "twin_stripes_a": 2.55,
+    "twin_stripes_d": 6.95,
+    "twin_stripes_turn": 230,
+    "twin_stripes_do": "stand",
+    "twin_stripes_look": "virginia",
+    "twin_stripes_mood": "surprised",
+    "cecil_here": true,
+    "cecil_a": 3.25,
+    "cecil_d": 7.45,
+    "cecil_turn": 225,
+    "cecil_do": "stand",
+    "cecil_look": "virginia",
+    "cecil_mood": "surprised",
+    "umney_here": false,
+    "umney_a": -1.0,
+    "umney_d": 5.6
+  },
+  "states": {
+    "moment": {
+      "values": [
+        "calling",
+        "waiting",
+        "midnight",
+        "departure",
+        "wedding"
+      ],
+      "means": "which moment of the scenario the hall shows (script.js lays it out): calling and waiting — 4.2, the evening Virginia is missing; midnight — 4.6, she comes out of the panel on the landing; departure — the morning of leaving (final Spot); wedding — years later (final Candle by the Wall)"
+    },
+    "staged": {
+      "values": [
+        "calling",
+        "waiting",
+        "midnight",
+        "departure",
+        "wedding"
+      ],
+      "means": "the moment the script last laid out (the script's own: it lays a moment out again only when this differs)"
+    },
+    "day": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 night (the candles light the hall, the moon at the window), 1 day (the sun through the open door and the window)"
+    },
+    "candles": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the hall's candles — the iron ring and the sconces: 0 out, 1 lit"
+    },
+    "hour": {
+      "range": [
+        0,
+        24
+      ],
+      "smooth": true,
+      "means": "the time the clock shows (its hands)"
+    },
+    "clock_going": {
+      "type": "boolean",
+      "means": "the clock's pendulum swinging; false — stopped (at midnight, with the last stroke, the house goes still)"
+    },
+    "panel": {
+      "range": [
+        180,
+        255
+      ],
+      "smooth": true,
+      "means": "the hidden panel on the landing: 180 shut (the wall), 255 standing open onto the dark way to the secret chamber"
+    },
+    "door_l": {
+      "range": [
+        180,
+        265
+      ],
+      "smooth": true,
+      "means": "the front door's left leaf: 180 shut, 265 open into the hall"
+    },
+    "door_r": {
+      "range": [
+        95,
+        180
+      ],
+      "smooth": true,
+      "means": "the front door's right leaf: 180 shut, 95 open into the hall"
+    },
+    "carriage": {
+      "type": "boolean",
+      "means": "the travelling carriage brought round to the porch (seen through the open door)"
+    },
+    "pond_lantern": {
+      "range": [
+        0,
+        1
+      ],
+      "means": "Washington's lantern standing by the pond, seen far off through the window: 0 not there, 1 there and lit"
+    },
+    "otis_candle": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light of the candle in Mr Otis's hand (with candle or candle_l) at his #flame"
+    },
+    "lantern_held": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light of the lantern in Washington's hand (with the cast's lantern) at his #lantern"
+    },
+    "virginia_a": {
+      "range": [
+        -5.5,
+        5.5
+      ],
+      "means": "where Virginia stands, metres right of the middle (the moment sets it)"
+    },
+    "virginia_d": {
+      "range": [
+        3,
+        9
+      ],
+      "means": "where Virginia stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+    },
+    "otis_a": {
+      "range": [
+        -5.5,
+        5.5
+      ],
+      "means": "where Mr Otis stands, metres right of the middle (the moment sets it)"
+    },
+    "otis_d": {
+      "range": [
+        3,
+        9
+      ],
+      "means": "where Mr Otis stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+    },
+    "mrs_otis_a": {
+      "range": [
+        -5.5,
+        5.5
+      ],
+      "means": "where Mrs Otis stands, metres right of the middle (the moment sets it)"
+    },
+    "mrs_otis_d": {
+      "range": [
+        3,
+        9
+      ],
+      "means": "where Mrs Otis stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+    },
+    "washington_a": {
+      "range": [
+        -5.5,
+        5.5
+      ],
+      "means": "where Washington stands, metres right of the middle (the moment sets it)"
+    },
+    "washington_d": {
+      "range": [
+        3,
+        9
+      ],
+      "means": "where Washington stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+    },
+    "twin_star_a": {
+      "range": [
+        -5.5,
+        5.5
+      ],
+      "means": "where the twin Star stands, metres right of the middle (the moment sets it)"
+    },
+    "twin_star_d": {
+      "range": [
+        3,
+        9
+      ],
+      "means": "where the twin Star stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+    },
+    "twin_stripes_a": {
+      "range": [
+        -5.5,
+        5.5
+      ],
+      "means": "where the twin Stripes stands, metres right of the middle (the moment sets it)"
+    },
+    "twin_stripes_d": {
+      "range": [
+        3,
+        9
+      ],
+      "means": "where the twin Stripes stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+    },
+    "cecil_a": {
+      "range": [
+        -5.5,
+        5.5
+      ],
+      "means": "where Cecil stands, metres right of the middle (the moment sets it)"
+    },
+    "cecil_d": {
+      "range": [
+        3,
+        9
+      ],
+      "means": "where Cecil stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+    },
+    "umney_a": {
+      "range": [
+        -5.5,
+        5.5
+      ],
+      "means": "where Mrs Umney stands, metres right of the middle (the moment sets it)"
+    },
+    "umney_d": {
+      "range": [
+        3,
+        9
+      ],
+      "means": "where Mrs Umney stands, metres away (the moment sets it; the stair and the landing lie at 6.4…8, their floors raise whoever stands there)"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The sky outside",
+      "sky": true
+    },
+    {
+      "id": "park",
+      "name": "The park beyond the pond",
+      "across": 10,
+      "distance": 70,
+      "elevation": -0.5,
+      "height": 18,
+      "box": [
+        -68,
+        -18,
+        68,
+        0.5
+      ]
+    },
+    {
+      "id": "grounds",
+      "name": "The gravel sweep, the lawn and the pond outside",
+      "plane": true,
+      "across": 10,
+      "distance": 40,
+      "elevation": -0.5,
+      "width": 70,
+      "depth": 64
+    },
+    {
+      "id": "lantern",
+      "name": "Washington's lantern by the pond",
+      "glows": true,
+      "across": 17,
+      "distance": 29,
+      "elevation": -0.5,
+      "height": 0.4,
+      "box": [
+        -0.15,
+        -0.42,
+        0.15,
+        0.02
+      ]
+    },
+    {
+      "id": "carriage",
+      "name": "The travelling carriage at the porch",
+      "across": 4.0,
+      "distance": 11.6,
+      "elevation": -0.5,
+      "facing": 180,
+      "height": 3.1,
+      "box": [
+        -2.2,
+        -3.1,
+        4.9,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "porch",
+      "name": "The porch",
+      "plane": true,
+      "across": 2.9,
+      "distance": 8.8,
+      "elevation": 0.0,
+      "width": 2.6,
+      "depth": 1.6
+    },
+    {
+      "id": "floor",
+      "name": "The flagstone floor and the rug",
+      "plane": true,
+      "across": 0,
+      "distance": 4.0,
+      "width": 11.24,
+      "depth": 8.0,
+      "inside": true
+    },
+    {
+      "id": "ceiling",
+      "name": "The beamed ceiling",
+      "across": 0,
+      "distance": 8.0,
+      "elevation": 5.6,
+      "facing": 180,
+      "tilt": -90,
+      "height": 8.0,
+      "box": [
+        -5.62,
+        -8.02,
+        5.62,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "back_wall",
+      "name": "The far wall: the landing with its hidden panel, the front door, the window onto the pond",
+      "across": 0,
+      "distance": 8.0,
+      "facing": 180,
+      "height": 5.6,
+      "box": [
+        -5.62,
+        -5.62,
+        5.62,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall",
+      "across": -5.6,
+      "distance": 4.0,
+      "facing": 90,
+      "height": 5.6,
+      "box": [
+        -4.02,
+        -5.62,
+        4.02,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall",
+      "across": 5.6,
+      "distance": 4.0,
+      "facing": 270,
+      "height": 5.6,
+      "box": [
+        -4.02,
+        -5.62,
+        4.02,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "window",
+      "name": "The window onto the pond",
+      "across": 4.55,
+      "distance": 7.98,
+      "facing": 180,
+      "height": 3.5,
+      "box": [
+        -0.45,
+        -3.5,
+        0.45,
+        -0.75
+      ],
+      "inside": true
+    },
+    {
+      "id": "door_l",
+      "name": "The front door's left leaf",
+      "across": 2.1,
+      "distance": 7.96,
+      "facing": 180,
+      "place": {
+        "facing": "door_l"
+      },
+      "height": 2.9,
+      "box": [
+        0,
+        -2.92,
+        0.8,
+        0.02
+      ],
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "door_r",
+      "name": "The front door's right leaf",
+      "across": 3.7,
+      "distance": 7.96,
+      "facing": 180,
+      "place": {
+        "facing": "door_r"
+      },
+      "height": 2.9,
+      "box": [
+        -0.8,
+        -2.92,
+        0,
+        0.02
+      ],
+      "shadow": true,
+      "inside": true
+    },
+    {
+      "id": "passage",
+      "name": "The dark way behind the panel",
+      "across": -3.95,
+      "distance": 8.25,
+      "elevation": 2.1,
+      "facing": 180,
+      "height": 1.95,
+      "box": [
+        -0.8,
+        -1.97,
+        0.8,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "panel",
+      "name": "The hidden panel on the landing",
+      "across": -4.35,
+      "distance": 7.97,
+      "elevation": 2.1,
+      "facing": 180,
+      "place": {
+        "facing": "panel"
+      },
+      "height": 1.87,
+      "box": [
+        0,
+        -1.88,
+        0.8,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "landing",
+      "name": "The landing floor",
+      "plane": true,
+      "unseen": true,
+      "walk": true,
+      "across": -3.87,
+      "distance": 7.2,
+      "elevation": 2.1,
+      "width": 3.46,
+      "depth": 1.6,
+      "inside": true
+    },
+    {
+      "id": "landing_under",
+      "name": "The landing's underside",
+      "across": -3.87,
+      "distance": 8.0,
+      "elevation": 1.88,
+      "facing": 180,
+      "tilt": -90,
+      "height": 1.6,
+      "box": [
+        -1.75,
+        -1.62,
+        1.75,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "stair",
+      "name": "The stair underfoot",
+      "plane": true,
+      "unseen": true,
+      "walk": true,
+      "across": -0.58,
+      "distance": 7.2,
+      "elevation": 1.05,
+      "width": 1.6,
+      "depth": 3.672,
+      "rotation": 90,
+      "tilt": 31.83,
+      "inside": true
+    },
+    {
+      "id": "treads",
+      "name": "The stair's treads",
+      "plane": true,
+      "across": 0.85,
+      "distance": 7.2,
+      "elevation": 0.1615,
+      "width": 0.26,
+      "depth": 1.6,
+      "inside": true,
+      "copies": [
+        {
+          "across": 0.85,
+          "distance": 7.2,
+          "elevation": 0.1615
+        },
+        {
+          "across": 0.59,
+          "distance": 7.2,
+          "elevation": 0.323
+        },
+        {
+          "across": 0.33,
+          "distance": 7.2,
+          "elevation": 0.4845
+        },
+        {
+          "across": 0.07,
+          "distance": 7.2,
+          "elevation": 0.646
+        },
+        {
+          "across": -0.19,
+          "distance": 7.2,
+          "elevation": 0.8075
+        },
+        {
+          "across": -0.45,
+          "distance": 7.2,
+          "elevation": 0.969
+        },
+        {
+          "across": -0.71,
+          "distance": 7.2,
+          "elevation": 1.1305
+        },
+        {
+          "across": -0.97,
+          "distance": 7.2,
+          "elevation": 1.292
+        },
+        {
+          "across": -1.23,
+          "distance": 7.2,
+          "elevation": 1.4535
+        },
+        {
+          "across": -1.49,
+          "distance": 7.2,
+          "elevation": 1.615
+        },
+        {
+          "across": -1.75,
+          "distance": 7.2,
+          "elevation": 1.7765
+        },
+        {
+          "across": -2.01,
+          "distance": 7.2,
+          "elevation": 1.938
+        }
+      ]
+    },
+    {
+      "id": "risers",
+      "name": "The stair's risers",
+      "across": 0.98,
+      "distance": 7.2,
+      "facing": 90,
+      "height": 0.1615,
+      "box": [
+        -0.8,
+        -0.17,
+        0.8,
+        0.01
+      ],
+      "inside": true,
+      "copies": [
+        {
+          "across": 0.98,
+          "distance": 7.2,
+          "elevation": 0.0,
+          "facing": 90
+        },
+        {
+          "across": 0.72,
+          "distance": 7.2,
+          "elevation": 0.1615,
+          "facing": 90
+        },
+        {
+          "across": 0.46,
+          "distance": 7.2,
+          "elevation": 0.323,
+          "facing": 90
+        },
+        {
+          "across": 0.2,
+          "distance": 7.2,
+          "elevation": 0.4845,
+          "facing": 90
+        },
+        {
+          "across": -0.06,
+          "distance": 7.2,
+          "elevation": 0.646,
+          "facing": 90
+        },
+        {
+          "across": -0.32,
+          "distance": 7.2,
+          "elevation": 0.8075,
+          "facing": 90
+        },
+        {
+          "across": -0.58,
+          "distance": 7.2,
+          "elevation": 0.969,
+          "facing": 90
+        },
+        {
+          "across": -0.84,
+          "distance": 7.2,
+          "elevation": 1.1305,
+          "facing": 90
+        },
+        {
+          "across": -1.1,
+          "distance": 7.2,
+          "elevation": 1.292,
+          "facing": 90
+        },
+        {
+          "across": -1.36,
+          "distance": 7.2,
+          "elevation": 1.4535,
+          "facing": 90
+        },
+        {
+          "across": -1.62,
+          "distance": 7.2,
+          "elevation": 1.615,
+          "facing": 90
+        },
+        {
+          "across": -1.88,
+          "distance": 7.2,
+          "elevation": 1.7765,
+          "facing": 90
+        },
+        {
+          "across": -2.14,
+          "distance": 7.2,
+          "elevation": 1.938,
+          "facing": 90
+        }
+      ]
+    },
+    {
+      "id": "stair_rail",
+      "name": "The stair and landing balustrade",
+      "across": 0,
+      "distance": 6.4,
+      "facing": 180,
+      "height": 3.35,
+      "box": [
+        -5.7,
+        -3.3,
+        1.2,
+        0.02
+      ],
+      "inside": true
+    },
+    {
+      "id": "clock",
+      "name": "The old longcase clock",
+      "across": 1.55,
+      "distance": 7.8,
+      "height": 2.35,
+      "box": [
+        -0.34,
+        -2.42,
+        0.34,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "armchair",
+      "name": "The armchair at the stair's foot",
+      "across": 0.7,
+      "distance": 6.05,
+      "height": 1.25,
+      "box": [
+        -0.45,
+        -1.38,
+        0.45,
+        0.02
+      ],
+      "inside": true,
+      "shadow": true
+    },
+    {
+      "id": "chandelier",
+      "name": "The iron candle-ring",
+      "across": 0.9,
+      "distance": 4.6,
+      "elevation": 3.3,
+      "height": 2.3,
+      "box": [
+        -0.75,
+        -2.32,
+        0.75,
+        0.3
+      ],
+      "inside": true
+    },
+    {
+      "id": "virginia",
+      "name": "Virginia",
+      "person": {
+        "cast": "cast",
+        "who": "virginia_habit",
+        "turn": 150,
+        "does": "clasped"
+      },
+      "across": -3.0,
+      "distance": 7.2,
+      "place": {
+        "across": "virginia_a",
+        "distance": "virginia_d"
+      },
+      "inside": true
+    },
+    {
+      "id": "otis",
+      "name": "Mr Otis",
+      "person": {
+        "cast": "cast",
+        "who": "otis",
+        "turn": 205,
+        "does": "hold_candle"
+      },
+      "across": -1.85,
+      "distance": 7.2,
+      "place": {
+        "across": "otis_a",
+        "distance": "otis_d"
+      },
+      "inside": true
+    },
+    {
+      "id": "mrs_otis",
+      "name": "Mrs Otis",
+      "person": {
+        "cast": "cast",
+        "who": "mrs_otis",
+        "turn": 220,
+        "does": "clasped"
+      },
+      "across": 1.2,
+      "distance": 6.95,
+      "place": {
+        "across": "mrs_otis_a",
+        "distance": "mrs_otis_d"
+      },
+      "inside": true
+    },
+    {
+      "id": "washington",
+      "name": "Washington",
+      "person": {
+        "cast": "cast",
+        "who": "washington",
+        "turn": 210,
+        "does": "stand"
+      },
+      "across": -0.95,
+      "distance": 7.2,
+      "place": {
+        "across": "washington_a",
+        "distance": "washington_d"
+      },
+      "inside": true
+    },
+    {
+      "id": "twin_star",
+      "name": "Twin (Star)",
+      "person": {
+        "cast": "cast",
+        "who": "twin_star",
+        "turn": 225,
+        "does": "stand"
+      },
+      "across": 1.95,
+      "distance": 6.45,
+      "place": {
+        "across": "twin_star_a",
+        "distance": "twin_star_d"
+      },
+      "inside": true
+    },
+    {
+      "id": "twin_stripes",
+      "name": "Twin (Stripes)",
+      "person": {
+        "cast": "cast",
+        "who": "twin_stripes",
+        "turn": 230,
+        "does": "stand"
+      },
+      "across": 2.55,
+      "distance": 6.95,
+      "place": {
+        "across": "twin_stripes_a",
+        "distance": "twin_stripes_d"
+      },
+      "inside": true
+    },
+    {
+      "id": "cecil",
+      "name": "Cecil",
+      "person": {
+        "cast": "cast",
+        "who": "cecil",
+        "turn": 225,
+        "does": "stand"
+      },
+      "across": 3.25,
+      "distance": 7.45,
+      "place": {
+        "across": "cecil_a",
+        "distance": "cecil_d"
+      },
+      "inside": true
+    },
+    {
+      "id": "umney",
+      "name": "Mrs Umney",
+      "person": {
+        "cast": "cast",
+        "who": "mrs_umney",
+        "turn": 160,
+        "does": "clasped"
+      },
+      "across": -1.0,
+      "distance": 5.6,
+      "place": {
+        "across": "umney_a",
+        "distance": "umney_d"
+      },
+      "inside": true
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "chamber gothic comedy, pizzicato strings tiptoeing, a harpsichord, sly and dry, Victorian manor at night",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, slow and tender, a lament for someone three hundred years tired",
+        "weight": 0.3
+      },
+      {
+        "text": "music box waltz, slightly out of tune, old English country house, moonlight",
+        "weight": 0.3
+      },
+      {
+        "text": "distant church organ, low and soft, through thick stone walls",
+        "weight": 0
+      },
+      {
+        "text": "bassoon and clarinet, comic and pompous, a theatrical villain's entrance",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, a girl's quiet pity, glassy and clear",
+        "weight": 0
+      },
+      {
+        "text": "low string drone with clanking metallic percussion, chains in a corridor",
+        "weight": 0
+      },
+      {
+        "text": "Elizabethan lute galliard, faded, as if remembered",
+        "weight": 0
+      },
+      {
+        "text": "ragtime piano, American, cheerful, very far away in another wing",
+        "weight": 0
+      },
+      {
+        "text": "thunderstorm rumble under a slow minor piano",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, Victorian, restrained melancholy",
+        "weight": 0.6
+      },
+      {
+        "text": "boys' choir, a single held note, a garden under the moon",
+        "weight": 0
+      },
+      {
+        "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom",
+        "weight": 0
+      },
+      {
+        "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense",
+        "weight": 1.0
+      },
+      {
+        "text": "mock-heroic brass fanfare, muted, slightly ridiculous",
+        "weight": 0
+      },
+      {
+        "text": "slow harpsichord pavane, dignified and dusty",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.4,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}

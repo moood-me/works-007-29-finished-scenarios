@@ -55,6 +55,11 @@ there); `brush` — a paint
 brush in the right hand; `almond_cross` — a cross of white and pink almond blossom held upright between the hands
 before the chest (with `clasped`). The hat `bonnet` — Mrs Umney's white cap.
 
+`shawl` — a cream cashmere shawl round the shoulders, its point down the back and its ends down the front (Mrs Otis's,
+by `_with`, the night Virginia is missing); `casket` — the little old casket bound in brass held in both hands before
+the chest (with `clasped`; its point `casket`); `lantern` — a hand lantern hanging from the right hand by its ring, its
+glass glowing (its point `lantern`: a scene's light there) — the hall's.
+
 ## Motions (Kimodo)
 
 The engine's `stand` and `walk`, and: `clasped` — stands, both hands clasped at the chest, a loop; `loom` — stands
