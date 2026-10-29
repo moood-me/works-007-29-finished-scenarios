@@ -1,0 +1,30 @@
+// The glass of tea Matryona has brought, on the table by his letter: the tea in a glass in a brass holder with its
+// handle, on a saucer. Drawn while `tea`; its point `tea`
+e.at(0, -0.06, 'tea');
+if (!e.state.tea) return;
+const INK = e.lib.INK;
+g.fillStyle = '#ece6d8';
+g.beginPath();
+g.ellipse(0, -0.006, 0.065, 0.008, 0, 0, Math.PI * 2);
+g.fill();
+g.strokeStyle = INK;
+g.lineWidth = 0.003;
+g.stroke();
+g.fillStyle = '#8c4e22';
+g.beginPath();
+g.moveTo(-0.03, -0.1);
+g.lineTo(0.03, -0.1);
+g.lineTo(0.027, -0.012);
+g.lineTo(-0.027, -0.012);
+g.closePath();
+g.fill();
+g.stroke();
+g.fillStyle = 'rgba(230,236,232,0.55)';
+g.fillRect(-0.03, -0.105, 0.06, 0.012);
+e.lib.box(g, -0.032, -0.06, 0.064, 0.048, '#b38d47', 0.003);
+g.beginPath();
+g.moveTo(0.032, -0.055);
+g.quadraticCurveTo(0.06, -0.045, 0.032, -0.02);
+g.strokeStyle = '#b38d47';
+g.lineWidth = 0.007;
+g.stroke();
