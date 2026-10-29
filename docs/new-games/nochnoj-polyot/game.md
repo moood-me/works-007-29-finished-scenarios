@@ -158,8 +158,9 @@ window/door/chair). Взгляды людей — `<id>_look` в ключах ш
 на листе главы IV; под выбором — что из него вышло). Шаги кабины, бюро и кабинета — на кусках (`piece(g, name,
 {moment: fn}, open)`: сцена открывается на куске, реплики — на его моментах; плашки, которые кусок показывает, ушли,
 паузы — `g.wait`); ключи игры, которые куски читают: `riviere_spot` flags (флажок асунсьонской), `robineau` и `roblet`
-в бюро главы IV, `tape_mark`, `leave_turn`/`leave_look`, `madame_spot` и ключи `OFFICE`. Шаги поля — на плашках, пока
-нет его кусков.
+в бюро главы IV, `tape_mark`, `leave_turn`/`leave_look`, `madame_spot` и ключи `OFFICE`. Поле — тоже на кусках
+(`2ef22b9`): игра ставит `robineau`, `roblet`, `bends` с 4.1, `roblet_spot` и `workbench` в начале шага, чилийская
+заходит справа (`PLANE.coming` — как у поля).
 
 ## Stage 5 — pieces
 
