@@ -72,7 +72,7 @@ function film(scene) {
     wide: CAM0,
     room: CAM([0.1, 0.6, 1.6], [-0.2, 2.6, 1.15]),
     folding: CAM([-0.05, 1.55, 1.35], [-0.1, 2.75, 1.1]),
-    palms: CAM([-0.45, 0.95, 1.05], [-1.1, 1.8, 0.8]),
+    palms: CAM([-0.45, 0.55, 1.3], [-1.2, 1.8, 0.98]),
     table: CAM([-0.2, 0.8, 1.45], [-0.35, 2.4, 1.05]),
     jack: CAM([-0.3, 1.45, 1.15], [-1.0, 2.2, 1.0]),
     mom: CAM([-0.45, 1.75, 1.2], [-0.1, 2.9, 1.12]),
@@ -198,7 +198,13 @@ function film(scene) {
         await hop(s, [-0.55, 2.0, 0.76], { over: 0.45, lift: 0.12, rest: 0.4 });
         s.set('laohu_dir', 1);
         jack.do('stand');
-        jack.turn(110);
+        await s.all((async () => {
+          await mom.walk([[-1.3, 2.75], [-0.9, 2.65]]);
+          await mom.turn(200);
+        })(), (async () => {
+          await jack.walk([[-0.95, 2.05]]);
+          await jack.turn(110);
+        })());
         for (const p of [jack, mom, dad]) p.look('laohu');
         glide(s, SH.table, 1.5);
         s.tell('menagerie:name');
