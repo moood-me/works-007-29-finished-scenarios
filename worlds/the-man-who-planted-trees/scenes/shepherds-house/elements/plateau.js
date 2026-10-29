@@ -1,6 +1,6 @@
 // The plateau, from above (x across, y toward the viewer; its centre 1500 m ahead, so a point `d` metres ahead is at
 // y = 1500 − d): dry olive-ochre ground, broad pale and dark sweeps far off, scrub and bare dust near, small stones, and
-// the trodden path from the viewer to the shepherd's door
+// the trodden path from the viewer to the shepherd's door (wide and bare while `trodden`)
 const Y = (d) => 1500 - d, R = () => e.rnd();
 g.fillStyle = "#9b8963";
 g.fillRect(-3000, -1500, 6000, 3000);
@@ -50,6 +50,18 @@ const path = (w, colour) => {
 };
 path(1.5, "rgba(184, 164, 124, 0.5)");
 path(0.85, "#bba783");
+// trodden wide and bare by the people who come to look (`trodden`: 3.5 on the Name), the scrub broken along it
+if (e.state.trodden) {
+  path(3.2, "rgba(196, 178, 140, 0.55)");
+  path(2.0, "#c3b08c");
+  for (let i = 0; i < 90; i++) {
+    const t = R(), x = -0.9 + t * 3.3 + (R() - 0.5) * 1.6, d = -1 + t * 9.1;
+    g.fillStyle = "rgba(150, 132, 100, 0.5)";
+    g.beginPath();
+    g.ellipse(x, Y(d), 0.06, 0.12, R() * 0.6 - 0.3, 0, Math.PI * 2);
+    g.fill();
+  }
+}
 // and on past the pen, toward the slope and the village below
 g.strokeStyle = "rgba(184, 164, 124, 0.55)";
 g.lineWidth = 0.7;
