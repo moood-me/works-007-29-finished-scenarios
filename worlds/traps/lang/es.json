@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Traps","translation":"La avería","where":"worlds/traps/world.json title"},
+  {"text":"A broken-down car, a villa for the night, and four old men who play at a trial after dinner.","translation":"Un coche averiado, una villa para pasar la noche y cuatro ancianos que, después de cenar, juegan a celebrar un juicio.","where":"worlds/traps/world.json description"}
+]}

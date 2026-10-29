@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"Ali","translation":"Alí","where":"worlds/the-guest/scenes/room/elements/plaque.js"},
+  {"text":"Daru's Room","translation":"El cuarto de Daru","where":"worlds/the-guest/scenes/room/scene.json title"},
+  {"text":"The gendarme has gone. His revolver on the table, his rope on the nail.","translation":"El gendarme se ha ido. Su revólver sobre la mesa, su cuerda en el clavo.","where":"worlds/the-guest/scenes/room/scene.json caption"}
+]}

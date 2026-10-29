@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Yard","translation":"El patio","where":"worlds/leaf-by-niggle/scenes/yard/scene.json title"},
+  {"text":"After the storm the Inspector of Houses came round.","translation":"Después de la tormenta vino el Inspector de Casas.","where":"worlds/leaf-by-niggle/scenes/yard/scene.json caption"}
+]}

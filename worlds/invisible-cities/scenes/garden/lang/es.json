@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Khan’s Garden","translation":"El jardín del Kan","where":"worlds/invisible-cities/scenes/garden/scene.json title"},
+  {"text":"The last night. The ship sails at dawn.","translation":"La última noche. El barco zarpa al alba.","where":"worlds/invisible-cities/scenes/garden/scene.json caption"}
+]}

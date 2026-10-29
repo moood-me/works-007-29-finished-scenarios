@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Shore","translation":"La orilla","where":"worlds/the-buried-giant/scenes/shore/scene.json title"},
+  {"text":"He asks each of them alone.","translation":"Les pregunta a cada uno por separado.","where":"worlds/the-buried-giant/scenes/shore/scene.json caption"}
+]}

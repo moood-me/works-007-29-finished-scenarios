@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Pit","translation":"El hoyo","where":"worlds/the-woman-in-the-dunes/scenes/pit/scene.json title"},
+  {"text":"At the bottom of the pit the sea is only heard.","translation":"En el fondo del hoyo, el mar solo se oye.","where":"worlds/the-woman-in-the-dunes/scenes/pit/scene.json caption"}
+]}

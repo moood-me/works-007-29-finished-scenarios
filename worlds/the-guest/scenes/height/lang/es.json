@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Height","translation":"La altura","where":"worlds/the-guest/scenes/height/scene.json title"},
+  {"text":"East, the roofs of Tingit. South, the stones, and no road.","translation":"Al este, los tejados de Tinguit. Al sur, las piedras, y ningún camino.","where":"worlds/the-guest/scenes/height/scene.json caption"}
+]}

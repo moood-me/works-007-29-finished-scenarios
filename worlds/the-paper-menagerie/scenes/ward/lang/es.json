@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Ward","translation":"La habitación del hospital","where":"worlds/the-paper-menagerie/scenes/ward/scene.json title"},
+  {"text":"An autumn evening on the third floor. A good day: she ate half a bowl of soup.","translation":"Una tarde de otoño en la tercera planta. Un buen día: se ha tomado medio plato de sopa.","where":"worlds/the-paper-menagerie/scenes/ward/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Laboratory","translation":"El laboratorio","where":"worlds/flowers-for-algernon/scenes/lab/scene.json title"},
+  {"text":"An April morning. Algernon is in the maze, and Charlie is next.","translation":"Una mañana de abril. Algernon está en el laberinto, y Charlie es el siguiente.","where":"worlds/flowers-for-algernon/scenes/lab/scene.json caption"}
+]}
