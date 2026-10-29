@@ -84,6 +84,7 @@ function film(scene) {
     deer: CAM([0.45, 3.4, 1.25], [0.6, 4.2, 1.02]),
     buffalo: CAM([0.15, 3.45, 1.25], [0.12, 4.28, 1.12]),
     shark: CAM([-0.3, 3.45, 1.45], [-0.3, 4.18, 0.9]),
+    sill: CAM([-0.15, 3.3, 1.35], [0.0, 4.3, 1.08]),
     box: CAM([-0.1, 1.2, 1.55], [-0.5, 2.6, 1.15]),
   };
   const cast = scene.kit?.cast?.characters ?? {};
@@ -446,8 +447,8 @@ function film(scene) {
           s.set('suit_bag', false);
           dad.with(['suit_bag']);
           dad.reach(null);
-          await dad.walk([[-0.95, 2.45]]);
-          await dad.turn(270);
+          await dad.walk([[-0.85, 2.75]]);
+          await dad.turn(240);
           dad.look('jack');
           s.tell('boxes:suit');
           await s.wait(3);
@@ -461,7 +462,7 @@ function film(scene) {
           s.tell('boxes:suit');
           await s.wait(3);
         }
-        glide(s, SH.goats, 2.5);
+        glide(s, SH.sill, 2.5);
         jack.look('cranes#cranes');
         dad.look('cranes#cranes');
         s.tell('boxes:sill');
