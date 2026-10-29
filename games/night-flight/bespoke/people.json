@@ -1,0 +1,62 @@
+{
+  "narrator": {
+    "voice": "Iapetus",
+    "how": "a storyteller in the tone of Saint-Exupéry: quiet, clear and unhurried, grave and lyrical at once; speaks seldom, and when he does, of the sky, the lights below and what men pay — with a restrained, luminous sadness",
+    "short": "narrator"
+  },
+  "riviere": {
+    "voice": "Alnilam",
+    "how": "the director of the night mail, past fifty: low, dry, even and short; speaks in orders, never explains, never raises his voice; when something touches him he grows colder and shorter, and the pause before a word is longer",
+    "short": "Rivière"
+  },
+  "fabien": {
+    "voice": "Umbriel",
+    "how": "a pilot of thirty, married six weeks: calm, precise, a little warm, no bravado; few words, as written on a note in the air",
+    "short": "Fabien"
+  },
+  "madame": {
+    "voice": "Achernar",
+    "how": "a young wife of twenty-two: soft, quiet and polite, apologising for being in the way; holds herself together, never cries out, never accuses; asks about him, not about herself",
+    "short": "Madame Fabien"
+  },
+  "robineau": {
+    "voice": "Enceladus",
+    "how": "the inspector: a lonely, fussy, timid man who loves his reports; hesitant, starts sentences and does not finish them, clears his throat; afraid of the director and fond of him",
+    "short": "Robineau"
+  },
+  "pellerin": {
+    "voice": "Fenrir",
+    "how": "a mail pilot just down after crossing the Andes in a storm: offhand and laughing, plays it down for the mechanics; under the joke, a tremor he hides",
+    "short": "Pellerin"
+  },
+  "roblet": {
+    "voice": "Algenib",
+    "how": "an old mechanic, twenty years on the engines: hoarse, slow and simple, ashamed; asks once and falls silent",
+    "short": "Roblet"
+  },
+  "radioman": {
+    "voice": "Achird",
+    "how": "Fabien's young radio operator: a few words read from a note, clipped, over the engine's roar",
+    "short": "the radio operator"
+  },
+  "telegraphist": {
+    "voice": "Schedar",
+    "how": "the telegraphist: an even, flat voice reading the reports off the tape, as he has read every report for twenty years; never a private word",
+    "short": "the telegraphist"
+  },
+  "pilot": {
+    "voice": "Orus",
+    "how": "the European mail's pilot: young, firm and spare with words; asks for nothing; standing on the ground by a ready plane is the worst thing for him",
+    "short": "the European pilot"
+  },
+  "asuncion": {
+    "voice": "Rasalgethi",
+    "how": "the Asunción mail's pilot, just down on time: plain, a little tired, an ordinary working man's voice",
+    "short": "the Asunción pilot"
+  },
+  "mechanic": {
+    "voice": "Puck",
+    "how": "a young mechanic of the field: quick, plain, a little unsure before the director",
+    "short": "a mechanic"
+  }
+}
