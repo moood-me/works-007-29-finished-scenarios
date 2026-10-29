@@ -34,6 +34,10 @@ lengths are a man's metres times `F.fit.h`.
 - `virginia_duchess` — Virginia years later, the young Duchess (a look of hers for `<id>_wear`): grown, her hair up, a
   deep blue dress, a pale lilac sash.
 - `cecil_duke` — Cecil years later, the Duke (a look of his for `<id>_wear`): grown, a dark blue frock coat.
+- `virginia_night` — Virginia at night (another look of hers): a long white nightgown loose from the shoulders to the
+  floor (the garment `nightgown`), no sash, her hair loose.
+- `otis_gown` — Mr Otis woken in the night (another look of his): a quilted dressing gown of dark wine red to the calves
+  (the garment `dressing_gown`) over his nightshirt, slippers.
 
 ## Parts
 
@@ -42,7 +46,9 @@ chain on the floor between), `cloak` (a flat swinging tube down the back: the en
 only before a garment) — Sir Simon's; `sash`, `stock` — Virginia's; `bottle` — the bottle of oil for the chains in the right hand
 (Mr Otis's, by `otis_with`). `candle` — a candle in a brass candlestick in the right hand, upright
 whatever the hand does, its flame glowing; its point `flame` is where a scene puts its light (`"at": "otis#flame"`;
-whoever carries one, by `<id>_with: ["candle"]`).
+whoever carries one, by `<id>_with: ["candle"]`). `candle_l` — the same candle in the left hand (point `flame`
+too): for one whose right hand is busy (Mr Otis holding out the bottle) and for `hold_candle`. `book` — a book lying
+shut on the lap of one who sits (point `<id>#book`), by `<id>_with`.
 
 `torch` — a torch held upright in the right hand, its flame glowing (its point `<id>#torch`: a scene's fire and light
 there); `brush` — a paint
@@ -56,4 +62,6 @@ with both arms raised over the head (the ghost's frightening), a loop; `offer` �
 before the chest (holding something out), a loop; `upright` — stands upright, both hands clasped behind the back, a
 loop; `brood` — sits (on a seat: `<id>_on`), the right hand to the brow, the left on the knee, tired, a loop; `sit_ground` —
 sits on the ground, the knees up, the arms loose on them, looking ahead, a loop; `pray` — kneels upright, the hands
-together at the chin, a loop.
+together at the chin, a loop; `doze` — sits (on a seat: `<id>_on`), leaning back asleep, the arms folded, the
+head tipped back, a loop (with `<id>_mood` `eyes_closed`); `hold_candle` — stands holding a candle up before the chest in
+the left hand (with `candle_l`), the right hand hanging, a loop.

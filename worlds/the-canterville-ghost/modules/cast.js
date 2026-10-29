@@ -274,6 +274,35 @@ function bonnet(F) {
   F.cap(head, [hs, hu, hf], F.keep(BONNET).radii, [0, 0.8, -0.6], 0.25, F.colors.hat, sides, square);
   F.ball(add(head, add(mul(hu, rh * 0.62), mul(hf, rh * 0.28))), [hs, hu, hf], [rh * 1.02, rh * 0.14, rh * 0.86], F.colors.hat, sides);
 }
+// the same candle carried in the left hand (`candle_l`) — for one whose right hand is busy (Mr Otis holding out the
+// bottle) or who holds it up before the chest (`hold_candle`); its point is `flame` too
+function candleLeft(F) {
+  const { add, mul } = V();
+  const k = F.k;
+  const h = F.fit.h;
+  const c = add(F.P('LeftHand'), add(mul(F.up('LeftHand'), 0.06 * h), mul(F.fwd('LeftHand'), 0.02 * k)));
+  const s = F.side('LeftHand');
+  const K = F.keep(CANDLE);
+  const at = i => add(c, K.up[i]);
+  F.bar(at(0), at(1), 0.055 * k, 0.055 * k, K.brass, 14, s);
+  F.bar(at(1), at(2), 0.014 * k, 0.014 * k, K.brass, 8, s);
+  F.bar(at(2), at(3), 0.013 * k, 0.013 * k, K.wax, 8, s);
+  const flame = at(4);
+  F.ball(flame, UPRIGHT, K.flame, FLAME, 8);
+  F.point('flame', flame);
+}
+// a book lying shut on the lap of one who sits: on the thighs, near the knees (its point `book`)
+const BOOK = [0.3, 0.16, 0.12, 1];
+const BOOK_SIZE = F => ({ radii: [0.1 * F.k, 0.022 * F.fit.h, 0.075 * F.k], axes: [null, [0, 1, 0], null] });
+function book(F) {
+  const { add, mix } = V();
+  const K = F.keep(BOOK_SIZE);
+  const c = add(mix(mix(F.P('LeftLeg'), F.P('LeftShin'), 0.7), mix(F.P('RightLeg'), F.P('RightShin'), 0.7), 0.5), [0, 0.06 * F.fit.h, 0]);
+  K.axes[0] = F.side('Hips');
+  K.axes[2] = F.fwd('Hips');
+  F.ball(c, K.axes, K.radii, BOOK, 8, 4);
+  F.point('book', c);
+}
 return {
   ...data,
   characters: {
@@ -364,6 +393,20 @@ return {
       body: { height: 1.0, shoulders: 1.0, thick: 0.9 },
       colors: { skin: '#f0cdb0', hair: '#a07a4a', top: '#d6d0c2', garment: '#2a3452', bottom: '#2c2e36', shoes: '#191818' },
     },
+    // Virginia at night (the same girl, a look of hers): a long white nightgown falling loose from the shoulders to
+    // the floor, long sleeves, no sash, her hair loose
+    virginia_night: {
+      kind: 'shapes', style: 'canterville', who: 'woman', garment: 'nightgown', hair: 'long', face: 'storybook',
+      body: { height: 0.9, head: 1.04, shoulders: 0.84, hips: 0.96, thick: 0.8 },
+      colors: { skin: '#f0d0b4', hair: '#b98a46', top: '#f4f1ea', garment: '#f4f1ea', bottom: '#f4f1ea', shoes: '#c9b8a4' },
+    },
+    // Mr Otis woken in the night (the same man, a look of his): a quilted dressing gown of dark wine red to the
+    // calves over his nightshirt, slippers
+    otis_gown: {
+      kind: 'shapes', style: 'canterville', who: 'man', garment: 'dressing_gown', hair: 'short', face: 'storybook',
+      body: { height: 1.02, shoulders: 1.04, thick: 1.04 },
+      colors: { skin: '#ebc7a7', hair: '#857560', top: '#e8e2d6', garment: '#6e2a30', bottom: '#e8e2d6', shoes: '#5a3a28' },
+    },
   },
   shapes: {
     // the world's style: the storybook's round soft figures (soft), their heads a little smaller, with a face of the
@@ -385,6 +428,10 @@ return {
       doublet: { name: 'doublet', hang: [{ to: 0.36, from: 'shoulders', flare: 0.35, ragged: true }], sleeves: 'garment' },
       // a lady's gown: a full skirt from the waist to the floor, long sleeves, the bodice in its colour
       gown: { name: 'gown', hang: [{ to: 2.05, from: 'waist', flare: 0.45, off: 0.96 }], sleeves: 'garment', bodice: true },
+      // a nightgown: loose from the shoulders to the floor, no waist, long sleeves
+      nightgown: { name: 'nightgown', hang: [{ to: 2.05, from: 'shoulders', flare: 0.32, off: 0.96 }], sleeves: 'garment' },
+      // a man's dressing gown: from the shoulders to the calves, its sleeves in the same quilted cloth
+      dressing_gown: { name: 'dressing gown', hang: [{ to: 1.6, from: 'shoulders', flare: 0.22 }], sleeves: 'garment' },
     },
     parts: {
       ruff: { name: 'ruff', draw: ruff },
@@ -394,6 +441,8 @@ return {
       cloak: { name: 'cloak', draw: cloak },
       bottle: { name: 'a bottle of oil', draw: bottle },
       candle: { name: 'a candle', draw: candle },
+      candle_l: { name: 'a candle in the left hand', draw: candleLeft },
+      book: { name: 'a book on the lap', draw: book },
       // a white stock at the throat, in the look's accent colour
       stock: {
         name: 'stock',
