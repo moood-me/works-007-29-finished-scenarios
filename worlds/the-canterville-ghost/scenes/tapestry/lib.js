@@ -248,6 +248,8 @@ const TAPESTRY = [-1.4, 4.75];
 // the camera: the scene's own (wide), or framing someone
 const CAM = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
   camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
+// (a small room: the operator comes near — `full` frames a person whole, `medium` from the waist; nearer it goes
+// into them)
 const shot = (target, size, frame = null) => ({ ...CAM, camera_target: target, camera_shot: size, camera_frame: frame });
 // the room at rest by day: every key a piece may move, as it is when nothing has happened
 const ROOM = { evening: 0, night: 0, vision: 0, dark: 0, wall: 0, stir: 0, shapes: 0, stub: 'none', turnip: false, lantern: false,
@@ -288,7 +290,7 @@ function film(scene) {
     insulted: {
       tells: ['insulted:ear', 'insulted:seat'],
       seconds: 14,
-      from: () => ({ ...NIGHT, ...people(scene), simon_do: 'rub_sleeve', simon_look: 'simon#hand_r', ...shot('simon', 'medium') }),
+      from: () => ({ ...NIGHT, ...people(scene), simon_do: 'rub_sleeve', simon_look: 'simon#hand_r', ...shot('simon', 'full') }),
       run: async s => {
         const p = s.person('simon');
         await s.wait(2.5);
@@ -302,7 +304,7 @@ function film(scene) {
         await s.wait(3);
         p.do('stand');
         await sit(p);
-        s.camera({ target: 'simon', shot: 'medium' });
+        s.camera({ target: 'simon', shot: 'full' });
         p.look([0.2, 3.9, 0.2]);
         s.tell('insulted:seat');
       },
@@ -312,7 +314,7 @@ function film(scene) {
       tells: ['rehearse:loom', 'rehearse:bow'],
       seconds: 12,
       from: () => ({ ...EVENING, ...people(scene), simon_on: null, simon_a: MIRROR[0], simon_d: MIRROR[1], simon_turn: 125, simon_do: 'stand',
-        simon_look: 'mirror', ...shot('simon', 'medium', 0.4) }),
+        simon_look: 'mirror', ...shot('simon', 'full', 0.4) }),
       run: async s => {
         const p = s.person('simon');
         await s.wait(1);
@@ -333,7 +335,7 @@ function film(scene) {
       tells: ['candle_room:whisper', 'candle_room:sill'],
       seconds: 12,
       from: () => ({ ...NIGHT, ...people(scene), door: 150, virginia_a: OUT[0], virginia_d: OUT[1], virginia_turn: 90, virginia_do: 'stand',
-        virginia_look: null, virginia_wear: W('virginia_night'), ...shot('virginia', 'medium') }),
+        virginia_look: null, virginia_wear: W('virginia_night'), ...shot('virginia', 'full') }),
       run: async s => {
         const v = s.person('virginia');
         const out = !!scene.get('candle_out');
@@ -364,7 +366,7 @@ function film(scene) {
     stub_sleeve: {
       tells: ['stub_sleeve:turn', 'stub_sleeve:hidden'],
       seconds: 10,
-      from: () => ({ ...ROOM, ...people(scene), stub: 'hand', simon_do: 'rub_sleeve', simon_look: 'simon#hand_r', ...shot('simon', 'close') }),
+      from: () => ({ ...ROOM, ...people(scene), stub: 'hand', simon_do: 'rub_sleeve', simon_look: 'simon#hand_r', ...shot('simon', 'medium') }),
       run: async s => {
         await s.wait(1);
         s.tell('stub_sleeve:turn');
@@ -381,7 +383,7 @@ function film(scene) {
     turnip_shake: {
       tells: ['turnip_shake:shake'],
       seconds: 8,
-      from: () => ({ ...ROOM, ...people(scene), turnip: true, simon_look: 'turnip#turnip', ...shot('simon', 'medium', 0.6) }),
+      from: () => ({ ...ROOM, ...people(scene), turnip: true, simon_look: 'turnip#turnip', ...shot('simon', 'full', 0.6) }),
       run: async s => {
         const p = s.person('simon');
         await s.wait(1.5);
@@ -416,10 +418,10 @@ function film(scene) {
       after: ['leaves'],
       tells: ['reuben:up', 'reuben:down'],
       seconds: 10,
-      from: () => ({ ...ROOM, ...people(scene), ...shot('simon', 'medium') }),
+      from: () => ({ ...ROOM, ...people(scene), ...shot('simon', 'full') }),
       run: async s => {
         const p = s.person('simon');
-        s.camera({ target: 'simon', shot: 'medium' });
+        s.camera({ target: 'simon', shot: 'full' });
         p.look('virginia');
         await rise(p);
         p.do('loom');
@@ -463,7 +465,7 @@ function film(scene) {
         await v.walk([[0.6, 4.95]]);
         await v.turn(75);
         v.do('offer');
-        s.camera({ target: 'virginia#hand_r', shot: 'close' });
+        s.camera({ target: 'virginia#hand_r', shot: 'medium' });
         await s.wait(1.5);
         p.reach({ r: 'virginia#parcel' });
         p.look('virginia#parcel');
@@ -483,10 +485,10 @@ function film(scene) {
       tells: ['stamp:stamp'],
       seconds: 3,
       from: () => ({ ...ROOM, ...people(scene), virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, simon_look: 'virginia',
-        ...shot('virginia', 'medium') }),
+        ...shot('virginia', 'full') }),
       run: async s => {
         const v = s.person('virginia');
-        s.camera({ target: 'virginia', shot: 'medium' });
+        s.camera({ target: 'virginia', shot: 'full' });
         s.tell('stamp:stamp');
         await v.do('stamp', { loop: false });
         v.do('upright');
@@ -524,11 +526,11 @@ function film(scene) {
       tells: ['into_wall:hand', 'into_wall:shut'],
       seconds: 12,
       from: () => ({ ...ROOM, ...people(scene), wall: 1, stir: 1, simon_on: null, simon_a: 1.3, simon_d: 4.95, simon_turn: 250, simon_do: 'offer',
-        simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, ...shot('virginia', 'medium') }),
+        simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, ...shot('virginia', 'full') }),
       run: async s => {
         const p = s.person('simon');
         const v = s.person('virginia');
-        s.camera({ target: 'virginia', shot: 'medium' });
+        s.camera({ target: 'virginia', shot: 'full' });
         await v.walk([[0.75, 4.75]]);
         v.reach({ l: 'simon#hand_r' });
         p.reach({ r: 'virginia#hand_l' });
@@ -556,11 +558,11 @@ function film(scene) {
       tells: ['hand_down:bow', 'hand_down:whisper', 'hand_down:gone'],
       seconds: 14,
       from: () => ({ ...ROOM, ...people(scene), wall: 1, stir: 1, simon_on: null, simon_a: 1.3, simon_d: 4.95, simon_turn: 250, simon_do: 'offer',
-        simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, ...shot('simon', 'medium') }),
+        simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, ...shot('simon', 'full') }),
       run: async s => {
         const p = s.person('simon');
         const v = s.person('virginia');
-        s.camera({ target: 'simon', shot: 'medium' });
+        s.camera({ target: 'simon', shot: 'full' });
         p.do('stand');
         await s.wait(1);
         s.tell('hand_down:bow');
@@ -571,7 +573,7 @@ function film(scene) {
         s.tell('hand_down:whisper');
         s.move('wall', 0, { over: 6 });
         s.move('stir', 0, { over: 6 });
-        s.camera({ target: 'virginia', shot: 'medium' });
+        s.camera({ target: 'virginia', shot: 'full' });
         await v.walk([[-1.2, 4.6], IN]);
         v.gait('run');
         await v.walk([OUT]);
@@ -602,7 +604,7 @@ function film(scene) {
     lantern: {
       tells: ['lantern:pound', 'lantern:end'],
       seconds: 12,
-      from: () => ({ ...EVENING, ...people(scene), door: 90, washington_with: ['lantern'], ...shot('washington', 'medium') }),
+      from: () => ({ ...EVENING, ...people(scene), door: 90, washington_with: ['lantern'], ...shot('washington', 'full') }),
       run: async s => {
         const w = s.person('washington');
         const shares = !!scene.get('shares');
@@ -643,7 +645,7 @@ function film(scene) {
     knock_evening: {
       tells: ['knock_evening:knock'],
       seconds: 8,
-      from: () => ({ ...EVENING, ...people(scene), door: 90, otis_with: ['candle_l'], otis_candle: 1, otis_do: 'hold_candle', ...shot('otis', 'medium') }),
+      from: () => ({ ...EVENING, ...people(scene), door: 90, otis_with: ['candle_l'], otis_candle: 1, otis_do: 'hold_candle', ...shot('otis', 'full') }),
       run: async s => {
         const o = s.person('otis');
         await s.move('door', 155, { over: 1.2 });
@@ -663,7 +665,7 @@ function film(scene) {
       seconds: 18,
       from: () => ({ ...NIGHT, ...people(scene), door: 150, otis_with: ['candle_l'], otis_candle: 1, otis_do: 'hold_candle', otis_wear: W('otis_gown'),
         virginia_a: -1.4, virginia_d: 6.3, virginia_turn: 180, virginia_do: 'stand', virginia_look: 'otis', virginia_with: ['casket'],
-        virginia_wear: W('virginia_night'), ...shot('otis', 'medium') }),
+        virginia_wear: W('virginia_night'), ...shot('otis', 'full') }),
       run: async s => {
         const o = s.person('otis');
         const v = s.person('virginia');
@@ -683,7 +685,7 @@ function film(scene) {
         await s.wait(2.5);
         v.here(true);
         await s.move('wall', 1, { over: 3.5 });
-        s.camera({ target: 'virginia', shot: 'medium' });
+        s.camera({ target: 'virginia', shot: 'full' });
         await v.walk([[-1.4, 5.0]]);
         await v.turn(140);
         v.do('clasped');

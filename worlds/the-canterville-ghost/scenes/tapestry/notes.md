@@ -51,7 +51,8 @@ from the piece before, if it is `after` it) and tells its moments. What the scen
 - **«The dark behind the wall»** (the game's place `dark`) is the piece `dark`: the room with `wall` 1, `dark` 1,
   `shapes` 1, the two standing hand in hand in the dark way, the camera through the opening.
 
-Pieces (seconds without lines; shots):
+Pieces (seconds without lines). Shots: the room is small and the operator comes near — a contract's «medium» is
+`full` here, its «close» `medium` (nearer it went into a seated figure).
 
 | piece | after | what | start |
 | --- | --- | --- | --- |
