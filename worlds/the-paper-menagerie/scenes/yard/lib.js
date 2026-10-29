@@ -271,7 +271,7 @@ function film(scene) {
       tells: ['fire:pass', 'fire:speak', 'fire:window', 'fire:ingot'], seconds: 14,
       from: () => {
         const w = scene.get('way');
-        const jack = w === 'chinese' ? who('jack', [3.25, 5.15, 60], 'drop_in_fire', { look: 'apple#fire' })
+        const jack = w === 'chinese' ? who('jack', [3.35, 5.75, 165], 'drop_in_fire', { look: 'apple#fire' })
           : w === 'run' ? who('jack', [-4.4, 8.85, 180], 'stand', { look: 'mom' })
           : who('jack', [0.3, 0.2, 0], 'stand');
         return merge(DUSK({ ingot_named: true }), SH.fire, who('mom', [4.2, 5.75, 210], 'drop_in_fire', { look: 'apple#fire' }), jack, away('mark', 'dad', 'mark_grown', 'boy_a', 'boy_b'));
@@ -315,7 +315,7 @@ function film(scene) {
       after: ['fire'], tells: ['dad_home:back', 'dad_home:talk'], seconds: 14,
       from: () => {
         const w = scene.get('way');
-        const jack = w === 'chinese' ? who('jack', [3.25, 5.15, 60], 'drop_in_fire', { look: 'apple#fire' })
+        const jack = w === 'chinese' ? who('jack', [3.35, 5.75, 165], 'drop_in_fire', { look: 'apple#fire' })
           : w === 'run' ? who('jack', [-4.4, 8.85, 180], 'stand', { look: 'mom' })
           : who('jack', [-0.4, 6.2, 110], 'stand', { look: 'apple#fire' });
         return merge(DUSK({ ingot_named: true }), SH.fire, who('mom', [4.2, 5.75, 210], 'drop_in_fire', { look: 'apple#fire' }), jack,
