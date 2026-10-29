@@ -37,3 +37,4 @@
 
 `check/run.mjs` — 1458 путей, nothing to fix, nothing waited for. `moood-check` — all right (600 текстов). Рендеры:
 бюро (конец `minute`, конец `shoulders`, render 1262), кабина (конец `storm` и набор высоты, два вида, render 1263).
+`check` студии (fast) папки игры на `99b4976` — ok, без замечаний, игра грузится (en, ru).
