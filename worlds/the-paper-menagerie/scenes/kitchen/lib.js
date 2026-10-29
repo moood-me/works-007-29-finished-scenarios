@@ -72,8 +72,8 @@ function film(scene) {
     wide: CAM0,
     room: CAM([0.1, 0.6, 1.6], [-0.2, 2.6, 1.15]),
     folding: CAM([-0.05, 1.55, 1.35], [-0.1, 2.75, 1.1]),
-    palms: CAM([-0.45, 1.3, 1.05], [-0.95, 2.15, 0.8]),
-    table: CAM([-0.25, 0.95, 1.45], [-0.35, 2.35, 0.9]),
+    palms: CAM([-0.3, 1.5, 1.0], [-0.95, 2.15, 0.78]),
+    table: CAM([-0.2, 0.8, 1.45], [-0.35, 2.4, 1.05]),
     jack: CAM([-0.3, 1.45, 1.15], [-1.0, 2.2, 1.0]),
     mom: CAM([-0.45, 1.75, 1.2], [-0.1, 2.9, 1.12]),
     tiger: CAM([-0.35, 1.45, 1.05], [-0.45, 2.15, 0.88]),
@@ -140,7 +140,7 @@ function film(scene) {
     robot: {
       tells: ['robot:dad', 'robot:fold'], seconds: 10,
       from: () => merge(PROLOGUE({ laohu: 'none', mom_wear: MOM_RED }), SH.wide,
-        who('jack', [-1.0, 2.1, 100], 'cry_child', { look: 'robot' }), who('dad', [-1.35, 1.85, 70], 'squat_comfort', { look: 'jack' }),
+        who('jack', [-1.0, 2.1, 100], 'cry_child', { look: 'robot' }), who('dad', [-1.45, 2.4, 120], 'squat_comfort', { look: 'jack' }),
         who('mom', [-0.1, 2.75, 180], 'stand', { look: 'jack' })),
       run: async s => {
         await s.wait(1.5);
@@ -156,7 +156,7 @@ function film(scene) {
     palms: {
       after: ['robot'], tells: ['palms:give'], seconds: 8,
       from: () => merge(PROLOGUE({ laohu: 'none', mom_wear: MOM_RED }), SH.folding,
-        who('jack', [-1.0, 2.1, 100], 'cry_child', { look: 'robot' }), who('dad', [-1.35, 1.85, 70], 'squat_comfort', { look: 'jack' }),
+        who('jack', [-1.0, 2.1, 100], 'cry_child', { look: 'robot' }), who('dad', [-1.45, 2.4, 120], 'squat_comfort', { look: 'jack' }),
         who('mom', [-0.1, 2.75, 180], 'folding', { look: 'jack' })),
       run: async s => {
         const mom = s.person('mom'), jack = s.person('jack');
@@ -183,7 +183,7 @@ function film(scene) {
     menagerie: {
       after: ['palms'], tells: ['menagerie:name', 'menagerie:dad', 'menagerie:fold', 'menagerie:song', 'menagerie:snore'], seconds: 33,
       from: () => merge(PROLOGUE({ mom_wear: { parts: [] }, laohu: 'alive', laohu_breath: 1, laohu_held: 'jack', laohu_a: -0.95, laohu_d: 2.2, laohu_e: 0.55 }), SH.palms,
-        who('jack', [-1.0, 2.1, 100], 'hold_palms', { look: 'jack#hands' }), who('dad', [-1.35, 1.85, 70], 'squat_comfort', { look: 'jack#hands' }),
+        who('jack', [-1.0, 2.1, 100], 'hold_palms', { look: 'jack#hands' }), who('dad', [-1.45, 2.4, 120], 'squat_comfort', { look: 'jack#hands' }),
         who('mom', [-0.85, 2.55, 215], 'stand', { look: 'jack#hands' })),
       run: async s => {
         const mom = s.person('mom'), jack = s.person('jack'), dad = s.person('dad');
