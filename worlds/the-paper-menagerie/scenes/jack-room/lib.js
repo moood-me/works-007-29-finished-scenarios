@@ -272,8 +272,8 @@ function film(scene) {
   const glide = (s, c, over) => s.all(...CAMK.map(k => s.move(k, c[k], { over, ease: 'inOut' })));
   const SH = {
     wide: CAM0,
-    bed: CAM([-0.75, 2.75, 1.6], [-1.75, 3.75, 0.7]),
-    jack_bed: CAM([-0.7, 2.65, 1.65], [-1.8, 3.7, 0.65]),
+    bed: CAM([-1.55, 2.2, 1.85], [-1.75, 3.75, 0.65]),
+    jack_bed: CAM([-1.5, 2.25, 1.85], [-1.75, 3.7, 0.6]),
     door: CAM([0.5, 2.1, 1.5], [1.95, 3.35, 1.4]),
     hatch: CAM([2.1, 2.0, 1.2], [1.9, 3.3, 1.8]),
     floor: CAM([0.6, 1.9, 1.2], [-0.3, 3.2, 0.6]),
@@ -326,7 +326,7 @@ function film(scene) {
     bedtime: {
       tells: ['bedtime:ask', 'bedtime:blanket'], seconds: 14,
       from: () => at('bedtime', null, { young: true, jack_wear: cast.jack_five ?? null, ...lying(true), jack_look: 'mom', laohu_tape: false,
-        mom_a: -1.5, mom_d: 3.55, mom_on: [-1.5, 3.55, BED], mom_turn: 230, mom_do: 'sitting_on_bed', mom_look: 'jack', ...SH.bed }),
+        mom_a: -1.42, mom_d: 3.6, mom_on: [-1.42, 3.6, BED], mom_turn: 235, mom_do: 'sitting_on_bed', mom_look: 'jack', ...SH.bed }),
       run: async s => {
         const mom = s.person('mom'), jack = s.person('jack');
         await s.wait(1);
