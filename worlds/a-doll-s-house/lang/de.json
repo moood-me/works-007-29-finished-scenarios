@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"A Doll's House","translation":"Nora oder Ein Puppenheim","where":"worlds/a-doll-s-house/world.json title"},
+  {"text":"A warm flat at Christmas. A wife keeps a secret debt; a letter waits in the locked box.","translation":"Eine warme Wohnung zu Weihnachten. Eine Ehefrau verbirgt eine heimliche Schuld; im verschlossenen Briefkasten wartet ein Brief.","where":"worlds/a-doll-s-house/world.json description"}
+]}

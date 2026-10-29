@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Tree","translation":"Der Baum","where":"worlds/leaf-by-niggle/scenes/tree/scene.json title"},
+  {"text":"Before him stood the Tree, his Tree, finished.","translation":"Vor ihm stand der Baum, sein Baum, fertig.","where":"worlds/leaf-by-niggle/scenes/tree/scene.json caption"}
+]}
