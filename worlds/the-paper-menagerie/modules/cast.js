@@ -6,6 +6,9 @@ const { add, sub, mul, mix, unit, cross } = MooodShapes.V;
 const KERCHIEF = F => F.head.egg.map(e => e * F.head.r * F.head.out * 1.1);
 const ZIP = [0.62, 0.63, 0.66, 1];
 const TAG = [0.93, 0.9, 0.8, 1];
+// (a string bag's net, its oranges)
+const NET = [0.85, 0.8, 0.62, 1];
+const ORANGE = [0.95, 0.55, 0.16, 1];
 const PAGES = [0.95, 0.92, 0.84, 1];
 // (the plate and the buns on it; Laohu's paper — red, its darker folds, the gold stars; the knight's plastic: silver,
 // dark grey, the dead sword's grey)
@@ -533,6 +536,24 @@ return {
           F.ball(at, ax, [0.26 * h, 0.11 * h, 0.11 * h], F.colors.accent, 10);
           for (const s of [-1, 1]) F.ball(add(at, mul(fwd, s * 0.2 * h)), ax, [0.015 * h, 0.104 * h, 0.104 * h], TAG, 10);
           F.point('bag', at);
+        },
+      },
+      // a string bag of oranges carried in the left hand, hanging at the side: six oranges in a loose net, its two
+      // handles in the fist; the point `oranges`
+      oranges: {
+        name: 'a bag of oranges',
+        draw: F => {
+          const hand = F.P('LeftHand'),
+            h = F.fit.h,
+            fwd = unit([F.fwd('Hips')[0], 0, F.fwd('Hips')[2]]),
+            across = cross([0, 1, 0], fwd),
+            up = [0, 1, 0],
+            ax = [across, up, fwd];
+          const at = add(hand, mul(up, -0.13 * h));
+          F.bar(hand, add(at, mul(up, 0.05 * h)), 0.005 * h, 0.005 * h, [[0, NET]], 4, fwd, 0.4);
+          for (const [x, y, z] of [[-0.035, 0, 0.02], [0.035, 0, -0.01], [0, 0, -0.04], [-0.02, -0.06, 0], [0.025, -0.06, 0.02], [0, 0.055, 0]])
+            F.ball(add(at, add(mul(across, x * h), add(mul(up, y * h), mul(fwd, z * h)))), ax, [0.038 * h, 0.036 * h, 0.038 * h], ORANGE, 8);
+          F.point('oranges', at);
         },
       },
       // a paper frog sitting on the open right hand: green wrapping paper, folded squat; the point `frog`
