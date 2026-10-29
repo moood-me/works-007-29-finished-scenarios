@@ -195,6 +195,10 @@ const CRACK_LOOK = [2.0, 6.85, 1.5];
 const AT_CRACK = CAM([0.55, 5.5], [1.5, 7.3]);
 // the two at her door (4С.2), from down the corridor's middle: both in profile, face to face
 const AT_DOOR = CAM([0.5, 3.9], [1.35, 6.5]);
+// he at her door before her, Mr Otis asleep in the chair behind (4С.3)
+const AT_FAREWELL = CAM([0.1, 3.4], [1.2, 6.7]);
+// the camera moved to a camera of the piece's own, over seconds (from the scene's, or from another of its own)
+const glide = (s, cam, over = 2) => s.all(...['camera_x', 'camera_z', 'camera_h', 'camera_yaw', 'camera_pitch'].map(k => s.move(k, cam[k], { over })));
 // seen from her doorway, over her shoulder, down the corridor
 const FROM_DOOR = { camera_target: null, camera_x: 1.75, camera_z: 4.6, camera_yaw: -6, camera_h: 0 };
 
@@ -497,7 +501,10 @@ function film(scene) {
       run: async s => {
         const star = s.person('twin_star'), stripes = s.person('twin_stripes');
         s.tell('gallop:run');
-        await s.all(stripes.walk([[0.4, 12.6]], { gait: 'run' }), s.sequence(async q => { await q.wait(0.3); await q.person('twin_star').walk([[-0.4, 12.9]], { gait: 'run' }); }));
+        const first = stripes.walk([[0.4, 12.6]], { gait: 'run' });
+        await s.wait(0.3);
+        await star.walk([[-0.4, 12.9]], { gait: 'run' });
+        await first;
         await s.all(star.turn(160), stripes.turn(200));
         star.do('laugh_bend');
         stripes.do('laugh_bend');
@@ -560,7 +567,7 @@ function film(scene) {
         s.tell('farewell:door');
         await him.turn(85);
         him.look('virginia');
-        s.camera({ target: 'simon', shot: 'medium' });
+        await glide(s, AT_FAREWELL, 1.5);
         await him.go('bow_deep', { to: [0.75, 6.35], turn: 85 });
         s.tell('farewell:bow');
         await s.wait(0.6);

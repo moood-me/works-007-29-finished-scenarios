@@ -2,7 +2,7 @@
 
 Stage 4 of the game (all the places): С2 «Коридор» of the scenario (§4; chapters 1.1–1.2, 2.4–2.5, 4С.2–4С.4, the
 final «Миндаль»'s first night) — the long upper corridor at night, its doors and its people standing. People stand,
-sit and breathe; no motion of people, no camera moves, no mini-games. The same look as the library, the tapestry
+sit and breathe; no motion of people, no camera moves, no mini-games. Stage 5 gives it its pieces (below: «Pieces»). The same look as the library, the tapestry
 chamber and the garden: flat painted oak and plaster, storybook figures, warm candles against cold moonlight.
 
 ## Where things are
