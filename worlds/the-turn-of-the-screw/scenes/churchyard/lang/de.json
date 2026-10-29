@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Churchyard","translation":"Der Kirchhof","where":"worlds/the-turn-of-the-screw/scenes/churchyard/scene.json title"},
+  {"text":"Late October, a Sunday. The bell is ringing for church.","translation":"Ende Oktober, ein Sonntag. Die Glocke läutet zur Kirche.","where":"worlds/the-turn-of-the-screw/scenes/churchyard/scene.json caption"}
+]}

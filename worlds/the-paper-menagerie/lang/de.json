@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Paper Menagerie","translation":"Die Papiermenagerie","where":"worlds/the-paper-menagerie/world.json title"},
+  {"text":"A kitchen table, wrapping paper, and a mother whose folded animals breathe.","translation":"Ein Küchentisch, Geschenkpapier und eine Mutter, deren gefaltete Tiere atmen.","where":"worlds/the-paper-menagerie/world.json description"}
+]}
