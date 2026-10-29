@@ -3,5 +3,5 @@
 // his head, its crown swaying, in the epilogue (lib.js: beech). Its trunk's point `bark`
 if (e.state.beeches !== "slope" || e.state.year < 20) return;
 const grown = e.state.year >= 30;
-e.lib.beech(g, e, { h: grown ? 7 : 2.9, w: grown ? 2.3 : 1.05, wind: grown ? 0.12 : 0.22 });
+e.lib.beech(g, e, { h: grown ? 6 : 2.9, w: grown ? 1.9 : 1.05, wind: grown ? 0.12 : 0.22 });
 e.at(0, -1.1, "bark");
