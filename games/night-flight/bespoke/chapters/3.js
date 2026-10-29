@@ -99,23 +99,22 @@ export default {
     // 3.4: the stars; the note that came; М6 up (`gap`, then `key_held` | `lamp_note` | `laugh_note`; `above`)
     async g => {
       const { minute } = facts(g.state);
-      const NOTE = { how: 'a note written in the air, read short over the engine' };
       await piece(g, 'gap', {
-        note: () => (minute === 'bearing' ? g.say('radioman', 'Comodoro: hold the key. Bearing', NOTE)
-          : minute === 'hers' ? g.say('radioman', 'From your wife: not gone to bed. Waiting', NOTE)
-            : g.say('radioman', 'Rivière: the whole line is listening to you. Your wife is here', NOTE)),
+        note: () => (minute === 'bearing' ? g.say('radioman', 'Comodoro: hold the key. Bearing', { how: 'a note written in the air, read short over the engine' })
+          : minute === 'hers' ? g.say('radioman', 'From your wife: not gone to bed. Waiting', { how: 'a note written in the air, read short over the engine' })
+            : g.say('radioman', 'Rivière: the whole line is listening to you. Your wife is here', { how: 'a note written in the air, read short over the engine' })),
       }, () => g.scene('cockpit', { beat: 'gap', here: ['fabien', 'radioman'], moods: { fabien: 'thinking', radioman: 'thinking' }, keys: { ...SKY.storm, fabien_look: [-2, 1.5, 5] } }));
       if (minute === 'bearing') {
         await piece(g, 'key_held');
       } else if (minute === 'hers') {
         g.mood('fabien', 'sad');
-        await piece(g, 'lamp_note', { write: () => g.say('fabien', 'To her: I see a light', NOTE) });
+        await piece(g, 'lamp_note', { write: () => g.say('fabien', 'To her: I see a light', { how: 'a note written in the air, read short over the engine' }) });
       } else {
         g.mood('fabien', 'smile');
         await piece(g, 'laugh_note', {
           write: async () => {
             g.mood('fabien', 'sad');
-            await g.say('fabien', 'To Rivière: understood. To her —', NOTE);
+            await g.say('fabien', 'To Rivière: understood. To her —', { how: 'a note written in the air, read short over the engine' });
           },
         });
       }
