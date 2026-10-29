@@ -22,6 +22,26 @@ sit, kneel and breathe; no motion of people, no camera moves.
 - **Light.** The moon from behind and to the left (`moon`, `from: "sky#disc"`): its shafts in the haze, the grass's
   long shadows toward the viewer, the yew's shadow; low cold ambient; his own pale light. Cold, silver-blue, still.
 
+## Stage 5: the pieces
+
+The module `beats` (lib.js `film`; script.js plays it). What the scene got for them:
+
+- **Keys.** `nightingale` (0 silent … 1 sings: the bird's lift on the yew, its animate; the song is the game's sound);
+  `parcel` (her paper parcel on the grass by him, `parcel#parcel`; in `garden_come` the game's: he has it and lays it
+  down); `simon_fade` (0…1: he sinks under the turned loam — the script lowers his place's elevation `simon_e` to
+  −0.6 m, the grass plane hides him — and his light goes); `named` (the game's: in `tears` she reaches for his hand);
+  the people's place keys; his light kept before him by the script (`ghost_a`, `ghost_d`, `ghost_light`).
+- No `hands` point: М7 «Let Go» marks `simon#hand_r` (the contract as changed).
+
+| piece | after | what |
+| --- | --- | --- |
+| garden_come | — | the two walk in through the grass from the far side and sit/kneel at their places; he lays the parcel down (`parcel`) |
+| named | — | he gets up, walks to the edge of the grass by the yew, stands half turned from her; the nightingale falls silent |
+| named_back | named | he looks at the earth («Eleanore»), walks back and sits further off |
+| unnamed | — | he says it again, looks at her; the nightingale sings |
+| tears | garden_come, named_back, unnamed | she weeps (`named`: reaches for his hand); he takes the casket from his sleeve, lays it in her hand — the pose for М7 |
+| sleep | tears | he lies down on the turned earth under the yew and sinks into it; his light goes |
+
 ## What is not right yet
 
 - Virginia's skirt kneeling is a lump (the engine's skirt does not fold over knees); low grass round her hides only its
@@ -34,3 +54,13 @@ sit, kneel and breathe; no motion of people, no camera moves.
   grass that parts round them.
 - The nightingale is a small painted bird that lifts a little; it does not sing in the picture (its song is sound,
   the game's).
+
+## Contract for the check
+
+```json
+{"beats": {"garden_come":{"after":[],"tells":["garden_come:sat","garden_come:parcel"],"seconds":10}, "named":{"after":[],"tells":["named:stand"],"seconds":10}, "named_back":{"after":["named"],"tells":["named_back:name","named_back:sat"],"seconds":10}, "unnamed":{"after":[],"tells":["unnamed:look"],"seconds":6}, "tears":{"after":["garden_come","named_back","unnamed"],"tells":["tears:weep","tears:casket"],"seconds":12}, "sleep":{"after":["tears"],"tells":["sleep:lie","sleep:gone"],"seconds":10}}}
+```
+- Sitting down in the grass and kneeling are loops: in `garden_come` the two go from standing to sitting/kneeling in a
+  third of a second (no motion of sitting down on the ground), and he gets up the same way in `named`.
+- Going into the earth is his figure sinking under the grass plane (no person fades in the engine): seen from the
+  start it reads as sinking into the long grass.

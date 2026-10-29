@@ -1,0 +1,990 @@
+{
+  "engine": 3,
+  "title": "The Corridor",
+  "caption": "Canterville Chase, one o'clock at night. Something clanks in the corridor.",
+  "horizon": 0.42,
+  "camera": {
+    "mode": "picture"
+  },
+  "light": {
+    "ambient": 0.5,
+    "ambientColor": "#7080a8",
+    "bounce": 0.55,
+    "haze": 0.07,
+    "hazeColor": "#2a3042",
+    "hazeGlow": 0.5,
+    "shafts": 1.5,
+    "tint": "#c9d2ea",
+    "tintStrength": 0.05,
+    "vignette": 0.45,
+    "grain": 0.07,
+    "looks": {
+      "evening": {
+        "ambient": 0.5,
+        "ambientColor": "#9a8a96",
+        "tint": "#f0c89a",
+        "tintStrength": 0.06,
+        "shafts": 0.5,
+        "lights": {
+          "moon": 0.25
+        }
+      }
+    }
+  },
+  "lights": [
+    {
+      "id": "moon",
+      "from": [
+        260,
+        26
+      ],
+      "color": "#a9bde6",
+      "strength": 2.5,
+      "through": [
+        [
+          [
+            -2.0,
+            1.6,
+            0.9
+          ],
+          [
+            -2.0,
+            2.8,
+            0.9
+          ],
+          [
+            -2.0,
+            2.8,
+            3.0
+          ],
+          [
+            -2.0,
+            1.6,
+            3.0
+          ]
+        ],
+        [
+          [
+            -2.0,
+            3.6,
+            0.9
+          ],
+          [
+            -2.0,
+            4.8,
+            0.9
+          ],
+          [
+            -2.0,
+            4.8,
+            3.0
+          ],
+          [
+            -2.0,
+            3.6,
+            3.0
+          ]
+        ],
+        [
+          [
+            -2.0,
+            11.4,
+            0.9
+          ],
+          [
+            -2.0,
+            12.6,
+            0.9
+          ],
+          [
+            -2.0,
+            12.6,
+            3.0
+          ],
+          [
+            -2.0,
+            11.4,
+            3.0
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "ghost",
+      "across": 0.2,
+      "distance": 4.0,
+      "elevation": 1.5,
+      "place": {
+        "across": "simon_a",
+        "distance": "ghost_d"
+      },
+      "color": "#bdf0df",
+      "strength": 1.8,
+      "reach": 2.6,
+      "on": "ghost_light"
+    },
+    {
+      "id": "otis_candle",
+      "at": "otis#flame",
+      "color": "#ffcf8a",
+      "strength": 1.5,
+      "reach": 3.2,
+      "on": "otis_candle",
+      "flicker": 0.25
+    },
+    {
+      "id": "virginia_candle",
+      "at": "virginia#flame",
+      "color": "#ffcf8a",
+      "strength": 1.5,
+      "reach": 3.2,
+      "on": "virginia_candle",
+      "flicker": 0.25
+    },
+    {
+      "id": "sconces",
+      "of": "sconce#flame",
+      "color": "#ffcf8a",
+      "strength": 1.3,
+      "reach": 4.0,
+      "on": "sconces",
+      "flicker": 0.2
+    }
+  ],
+  "modules": [
+    "cast",
+    "beats"
+  ],
+  "state": {
+    "evening": 0,
+    "sconces": 0,
+    "door_parents": 12,
+    "door_virginia": 300,
+    "door_twins": 276,
+    "bottle": "none",
+    "spook": "none",
+    "armchair": false,
+    "ghost_light": 1,
+    "ghost_d": 4.0,
+    "simon_a": 0.2,
+    "simon_d": 4.6,
+    "simon_mood": "angry",
+    "otis_a": -1.6,
+    "otis_d": 6.1,
+    "otis_with": [
+      "bottle",
+      "candle_l"
+    ],
+    "otis_candle": 1,
+    "otis_look": "simon",
+    "otis_mood": "smile",
+    "virginia_a": 1.8,
+    "virginia_d": 6.35,
+    "virginia_with": [
+      "candle_l"
+    ],
+    "virginia_candle": 1,
+    "virginia_look": "simon",
+    "virginia_mood": "surprised",
+    "washington_here": false,
+    "washington_a": -0.5,
+    "washington_d": 8.3,
+    "washington_look": "twin_star",
+    "washington_mood": "smile",
+    "twin_star_here": false,
+    "twin_star_a": -1.55,
+    "twin_star_d": 7.4,
+    "twin_star_mood": "laugh",
+    "twin_star_look": "washington",
+    "twin_stripes_here": false,
+    "twin_stripes_a": -0.75,
+    "twin_stripes_d": 7.2,
+    "twin_stripes_mood": "laugh",
+    "twin_stripes_look": "twin_star",
+    "stand_candle": true,
+    "pillow": false,
+    "pillow_a": 1.9,
+    "pillow_d": 10.2,
+    "pillow_e": 1.5,
+    "pillow_spin": 0
+  },
+  "states": {
+    "evening": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 the night (the moon through the windows), 1 the evening (dusk at the windows, the moon's light almost gone)"
+    },
+    "sconces": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the candles in the six wall sconces: 0 out, 1 lit (their flames and light)"
+    },
+    "door_parents": {
+      "range": [
+        0,
+        90
+      ],
+      "smooth": true,
+      "means": "the parents' door (left), degrees it faces: 90 shut, 0 wide open into their room"
+    },
+    "door_virginia": {
+      "range": [
+        270,
+        360
+      ],
+      "smooth": true,
+      "means": "Virginia's door (right), degrees it faces: 270 shut, about 290 ajar (a crack), 360 wide open into her room"
+    },
+    "door_twins": {
+      "range": [
+        270,
+        360
+      ],
+      "smooth": true,
+      "means": "the twins' door (right, further on), degrees it faces: 270 shut, 360 wide open into their room"
+    },
+    "bottle": {
+      "values": [
+        "none",
+        "table",
+        "smashed"
+      ],
+      "means": "the bottle of oil in the place: none (in Mr Otis's hand while otis_with has it, or gone), on the little table by the armour, smashed on the floor"
+    },
+    "spook": {
+      "values": [
+        "none",
+        "making",
+        "standing"
+      ],
+      "means": "the twins' turnip ghost: none, its makings on the floor by the corner, standing at the corner lit from within"
+    },
+    "armchair": {
+      "type": "boolean",
+      "means": "the armchair by Virginia's door (Mr Otis sits in it on the last nights: otis_on [1.4, 7.32, 0.45]), a candle burning on a stand beside it"
+    },
+    "ghost_light": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Sir Simon's own pale light: 1 his full glow, about 0.4 the faint light of the last night, 0 when he is not here"
+    },
+    "ghost_d": {
+      "type": "number",
+      "means": "where Sir Simon's light stands along the corridor: keep it 0.6 m nearer the viewer than simon_d (it is just before him; across it goes with simon_a)"
+    },
+    "simon_a": {
+      "type": "number",
+      "means": "Sir Simon's place across (metres right of the middle)"
+    },
+    "simon_d": {
+      "type": "number",
+      "means": "Sir Simon's place along the corridor (metres away)"
+    },
+    "otis_a": {
+      "type": "number",
+      "means": "Mr Otis's place across"
+    },
+    "otis_d": {
+      "type": "number",
+      "means": "Mr Otis's place along"
+    },
+    "otis_candle": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light of the candle in Mr Otis's hand (otis_with having candle_l): 0 none, 1 burning"
+    },
+    "virginia_a": {
+      "type": "number",
+      "means": "Virginia's place across"
+    },
+    "virginia_d": {
+      "type": "number",
+      "means": "Virginia's place along"
+    },
+    "virginia_candle": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the light of the candle in Virginia's hand (virginia_with having candle_l): 0 none, 1 burning"
+    },
+    "washington_a": {
+      "type": "number",
+      "means": "Washington's place across"
+    },
+    "washington_d": {
+      "type": "number",
+      "means": "Washington's place along"
+    },
+    "twin_star_a": {
+      "type": "number",
+      "means": "the twin Star: place across"
+    },
+    "twin_star_d": {
+      "type": "number",
+      "means": "the twin Star: place along"
+    },
+    "twin_stripes_a": {
+      "type": "number",
+      "means": "the twin Stripes: place across"
+    },
+    "twin_stripes_d": {
+      "type": "number",
+      "means": "the twin Stripes: place along"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "plays": {
+      "type": "boolean",
+      "means": "the game's: Sir Simon still plays (farewell: his full array and full light, else his garden look and a faint light; wake_papa: he bows, else nods)"
+    },
+    "stand_candle": {
+      "type": "boolean",
+      "means": "the candle on the iron stand by the armchair: true burning there, false taken (Mr Otis takes it, 4С.5)"
+    },
+    "pillow": {
+      "type": "boolean",
+      "means": "the twins' pillow in the air (1.2: flung at Sir Simon from their door), then lying where it fell"
+    },
+    "pillow_a": {
+      "type": "number",
+      "means": "the pillow: across (metres right of the middle)"
+    },
+    "pillow_d": {
+      "type": "number",
+      "means": "the pillow: along the corridor (metres away)"
+    },
+    "pillow_e": {
+      "type": "number",
+      "means": "the pillow: height over the floor (metres)"
+    },
+    "pillow_spin": {
+      "type": "number",
+      "means": "the pillow: how it is turned over as it flies (degrees)"
+    }
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "name": "The night sky through the windows",
+      "sky": true
+    },
+    {
+      "id": "floor",
+      "name": "The floor",
+      "plane": true,
+      "across": 0.4,
+      "distance": 7.4,
+      "width": 6.8,
+      "depth": 13.4
+    },
+    {
+      "id": "runner",
+      "name": "The runner down the corridor",
+      "plane": true,
+      "across": 0,
+      "distance": 7.6,
+      "elevation": 0.004,
+      "width": 1.5,
+      "depth": 12.4
+    },
+    {
+      "id": "oil",
+      "name": "The smashed bottle of oil",
+      "plane": true,
+      "across": 0.4,
+      "distance": 4.3,
+      "elevation": 0.008,
+      "width": 1.0,
+      "depth": 0.8
+    },
+    {
+      "id": "spook_bits",
+      "name": "The twins' ghost in the making",
+      "plane": true,
+      "across": -1.05,
+      "distance": 7.9,
+      "elevation": 0.008,
+      "width": 1.6,
+      "depth": 1.2
+    },
+    {
+      "id": "ceiling",
+      "name": "The beamed ceiling",
+      "across": 0,
+      "distance": 14.05,
+      "elevation": 3.6,
+      "facing": 180,
+      "tilt": -90,
+      "height": 13.4,
+      "box": [
+        -2.05,
+        -13.4,
+        2.05,
+        0.05
+      ]
+    },
+    {
+      "id": "back_wall",
+      "name": "The far end: the door of the Tapestry Chamber",
+      "across": 0,
+      "distance": 14.0,
+      "facing": 180,
+      "height": 3.6,
+      "box": [
+        -2.05,
+        -3.62,
+        2.05,
+        0.02
+      ]
+    },
+    {
+      "id": "left_wall",
+      "name": "The left wall: the windows, the parents' door, the corner",
+      "across": -2.0,
+      "distance": 7.4,
+      "facing": 90,
+      "height": 3.6,
+      "box": [
+        -6.7,
+        -3.62,
+        6.7,
+        0.02
+      ]
+    },
+    {
+      "id": "right_wall",
+      "name": "The right wall: Virginia's door, the twins' door, the ancestors",
+      "across": 2.0,
+      "distance": 7.4,
+      "facing": 270,
+      "height": 3.6,
+      "box": [
+        -6.7,
+        -3.62,
+        6.7,
+        0.02
+      ]
+    },
+    {
+      "id": "window",
+      "name": "A window's leaded glass",
+      "across": -2.02,
+      "distance": 2.2,
+      "facing": 90,
+      "height": 3.0,
+      "box": [
+        -0.62,
+        -3.02,
+        0.62,
+        -0.88
+      ],
+      "copies": [
+        {
+          "across": -2.02,
+          "distance": 2.2,
+          "facing": 90
+        },
+        {
+          "across": -2.02,
+          "distance": 4.2,
+          "facing": 90
+        },
+        {
+          "across": -2.02,
+          "distance": 12.0,
+          "facing": 90
+        }
+      ]
+    },
+    {
+      "id": "room_parents",
+      "name": "The parents' bedroom, its far wall",
+      "across": -2.4,
+      "distance": 7.2,
+      "facing": 180,
+      "height": 3.0,
+      "box": [
+        -0.4,
+        -3.02,
+        0.4,
+        0.02
+      ]
+    },
+    {
+      "id": "room_virginia",
+      "name": "Virginia's room, its far wall",
+      "across": 2.9,
+      "distance": 8.2,
+      "facing": 180,
+      "height": 3.0,
+      "box": [
+        -0.9,
+        -3.02,
+        0.9,
+        0.02
+      ]
+    },
+    {
+      "id": "room_virginia_side",
+      "name": "Virginia's room, its right-hand wall",
+      "across": 3.8,
+      "distance": 7.0,
+      "facing": 270,
+      "height": 3.0,
+      "box": [
+        -1.3,
+        -3.02,
+        1.3,
+        0.02
+      ]
+    },
+    {
+      "id": "room_twins",
+      "name": "The twins' room, its far wall",
+      "across": 2.9,
+      "distance": 12.4,
+      "facing": 180,
+      "height": 3.0,
+      "box": [
+        -0.9,
+        -3.02,
+        0.9,
+        0.02
+      ]
+    },
+    {
+      "id": "wing",
+      "name": "The wall of the parents' wing, outside the middle window",
+      "across": -2.55,
+      "distance": 5.5,
+      "facing": 180,
+      "height": 3.9,
+      "box": [
+        -0.55,
+        -3.92,
+        0.55,
+        0.02
+      ]
+    },
+    {
+      "id": "passage",
+      "name": "The side passage round the corner",
+      "across": -2.45,
+      "distance": 10.2,
+      "facing": 180,
+      "height": 3.6,
+      "box": [
+        -0.45,
+        -3.62,
+        0.45,
+        0.02
+      ]
+    },
+    {
+      "id": "door_parents",
+      "name": "The parents' door",
+      "across": -2.03,
+      "distance": 5.6,
+      "facing": 90,
+      "place": {
+        "facing": "door_parents"
+      },
+      "height": 2.2,
+      "box": [
+        -0.02,
+        -2.22,
+        1.02,
+        0.02
+      ]
+    },
+    {
+      "id": "door_virginia",
+      "name": "Virginia's door",
+      "across": 2.03,
+      "distance": 5.8,
+      "facing": 270,
+      "place": {
+        "facing": "door_virginia"
+      },
+      "height": 2.2,
+      "box": [
+        -1.02,
+        -2.22,
+        0.02,
+        0.02
+      ]
+    },
+    {
+      "id": "door_twins",
+      "name": "The twins' door",
+      "across": 2.03,
+      "distance": 9.8,
+      "facing": 270,
+      "place": {
+        "facing": "door_twins"
+      },
+      "height": 2.2,
+      "box": [
+        -1.02,
+        -2.22,
+        0.02,
+        0.02
+      ]
+    },
+    {
+      "id": "armour",
+      "name": "The suit of armour on its stand",
+      "across": 1.62,
+      "distance": 3.8,
+      "height": 2.05,
+      "box": [
+        -0.45,
+        -2.1,
+        0.45,
+        0.03
+      ],
+      "shadow": true
+    },
+    {
+      "id": "table",
+      "name": "The little table by the armour",
+      "across": 1.6,
+      "distance": 4.6,
+      "height": 0.8,
+      "box": [
+        -0.36,
+        -1.1,
+        0.36,
+        0.02
+      ],
+      "shadow": true
+    },
+    {
+      "id": "sconce",
+      "name": "A candle sconce",
+      "across": 1.94,
+      "distance": 7.35,
+      "elevation": 1.6,
+      "height": 0.42,
+      "box": [
+        -0.1,
+        -0.42,
+        0.1,
+        0.02
+      ],
+      "copies": [
+        {
+          "across": 1.94,
+          "distance": 7.35,
+          "elevation": 1.6
+        },
+        {
+          "across": 1.94,
+          "distance": 11.6,
+          "elevation": 1.6
+        },
+        {
+          "across": -1.94,
+          "distance": 5.2,
+          "elevation": 1.6
+        },
+        {
+          "across": -1.94,
+          "distance": 7.7,
+          "elevation": 1.6
+        },
+        {
+          "across": -1.2,
+          "distance": 13.95,
+          "elevation": 1.6
+        },
+        {
+          "across": 1.2,
+          "distance": 13.95,
+          "elevation": 1.6
+        }
+      ]
+    },
+    {
+      "id": "spook",
+      "name": "The twins' turnip ghost",
+      "across": -1.3,
+      "distance": 8.3,
+      "height": 2.0,
+      "box": [
+        -0.6,
+        -2.36,
+        1.2,
+        0.03
+      ],
+      "flicker": 0.35,
+      "shadow": true
+    },
+    {
+      "id": "armchair",
+      "name": "The armchair by Virginia's door",
+      "across": 1.4,
+      "distance": 7.6,
+      "height": 1.22,
+      "box": [
+        -0.5,
+        -1.25,
+        0.5,
+        0.02
+      ]
+    },
+    {
+      "id": "armchair_front",
+      "name": "The armchair's arms",
+      "across": 1.4,
+      "distance": 7.02,
+      "height": 0.7,
+      "box": [
+        -0.52,
+        -0.7,
+        0.52,
+        0.02
+      ]
+    },
+    {
+      "id": "chair_candle",
+      "name": "The candlestick by the armchair",
+      "across": 0.75,
+      "distance": 7.25,
+      "height": 1.25,
+      "box": [
+        -0.16,
+        -1.3,
+        0.16,
+        0.02
+      ],
+      "flicker": 0.3,
+      "shadow": true
+    },
+    {
+      "id": "pillow",
+      "name": "The twins' pillow",
+      "across": 1.9,
+      "distance": 10.2,
+      "elevation": 1.5,
+      "height": 0.4,
+      "box": [
+        -0.32,
+        -0.42,
+        0.32,
+        0.03
+      ],
+      "place": {
+        "across": "pillow_a",
+        "distance": "pillow_d",
+        "elevation": "pillow_e",
+        "tilt": "pillow_spin"
+      }
+    },
+    {
+      "id": "motes",
+      "name": "Dust in the moonlight",
+      "particles": {
+        "kind": "dust",
+        "at": [
+          -0.4,
+          4.6,
+          1.4
+        ],
+        "source": [
+          3,
+          2.5,
+          2.6
+        ]
+      }
+    },
+    {
+      "id": "simon",
+      "name": "Sir Simon",
+      "person": {
+        "cast": "cast",
+        "who": "simon",
+        "turn": 195,
+        "does": "stand"
+      },
+      "across": 0.2,
+      "distance": 4.6,
+      "place": {
+        "across": "simon_a",
+        "distance": "simon_d"
+      }
+    },
+    {
+      "id": "otis",
+      "name": "Mr Otis",
+      "person": {
+        "cast": "cast",
+        "who": "otis_gown",
+        "turn": 135,
+        "does": "offer"
+      },
+      "across": -1.6,
+      "distance": 6.1,
+      "place": {
+        "across": "otis_a",
+        "distance": "otis_d"
+      }
+    },
+    {
+      "id": "virginia",
+      "name": "Virginia",
+      "person": {
+        "cast": "cast",
+        "who": "virginia_night",
+        "turn": 225,
+        "does": "hold_candle"
+      },
+      "across": 1.8,
+      "distance": 6.35,
+      "place": {
+        "across": "virginia_a",
+        "distance": "virginia_d"
+      }
+    },
+    {
+      "id": "washington",
+      "name": "Washington",
+      "person": {
+        "cast": "cast",
+        "who": "washington",
+        "turn": 200,
+        "does": "stand"
+      },
+      "across": -0.5,
+      "distance": 8.3,
+      "place": {
+        "across": "washington_a",
+        "distance": "washington_d"
+      }
+    },
+    {
+      "id": "twin_star",
+      "name": "The twin Star",
+      "person": {
+        "cast": "cast",
+        "who": "twin_star",
+        "turn": 150,
+        "does": "stand"
+      },
+      "across": -1.55,
+      "distance": 7.4,
+      "place": {
+        "across": "twin_star_a",
+        "distance": "twin_star_d"
+      }
+    },
+    {
+      "id": "twin_stripes",
+      "name": "The twin Stripes",
+      "person": {
+        "cast": "cast",
+        "who": "twin_stripes",
+        "turn": 170,
+        "does": "stand"
+      },
+      "across": -0.75,
+      "distance": 7.2,
+      "place": {
+        "across": "twin_stripes_a",
+        "distance": "twin_stripes_d"
+      }
+    }
+  ],
+  "music": {
+    "prompts": [
+      {
+        "text": "chamber gothic comedy, pizzicato strings tiptoeing, a harpsichord, sly and dry, Victorian manor at night",
+        "weight": 0.8
+      },
+      {
+        "text": "solo cello, slow and tender, a lament for someone three hundred years tired",
+        "weight": 0
+      },
+      {
+        "text": "music box waltz, slightly out of tune, old English country house, moonlight",
+        "weight": 0
+      },
+      {
+        "text": "distant church organ, low and soft, through thick stone walls",
+        "weight": 0
+      },
+      {
+        "text": "bassoon and clarinet, comic and pompous, a theatrical villain's entrance",
+        "weight": 0.3
+      },
+      {
+        "text": "celesta and harp, a girl's quiet pity, glassy and clear",
+        "weight": 0
+      },
+      {
+        "text": "low string drone with clanking metallic percussion, chains in a corridor",
+        "weight": 1.0
+      },
+      {
+        "text": "Elizabethan lute galliard, faded, as if remembered",
+        "weight": 0
+      },
+      {
+        "text": "ragtime piano, American, cheerful, very far away in another wing",
+        "weight": 0
+      },
+      {
+        "text": "thunderstorm rumble under a slow minor piano",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, Victorian, restrained melancholy",
+        "weight": 0
+      },
+      {
+        "text": "boys' choir, a single held note, a garden under the moon",
+        "weight": 0
+      },
+      {
+        "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom",
+        "weight": 0
+      },
+      {
+        "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense",
+        "weight": 0.6
+      },
+      {
+        "text": "mock-heroic brass fanfare, muted, slightly ridiculous",
+        "weight": 0
+      },
+      {
+        "text": "slow harpsichord pavane, dignified and dusty",
+        "weight": 0
+      }
+    ],
+    "bpm": 66,
+    "density": 0.25,
+    "brightness": 0.45,
+    "scale": "D_MAJOR_B_MINOR"
+  }
+}

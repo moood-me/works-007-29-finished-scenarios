@@ -1,0 +1,57 @@
+{
+  "narrator": {
+    "voice": "Charon",
+    "how": "an English storyteller of the 1880s reading aloud by the fire: urbane, dry, gently mocking, every sentence turned like a joke at dinner; under the wit, now and then, a quiet sadness",
+    "short": "narrator"
+  },
+  "virginia": {
+    "voice": "Leda",
+    "how": "an American girl of fifteen: light, quick and free; says hard things straight out, short, as a question to the face; flares up childishly when the weak are laughed at; tender and very quiet when moved, hiding that she is near tears",
+    "short": "Virginia"
+  },
+  "simon": {
+    "voice": "Algenib",
+    "how": "a three-hundred-year-old ghost and an old actor: grand, pompous, theatrical, rolling his words, wounded pride in every phrase; when no one is watching, a very tired old man, hoarse and slow",
+    "short": "Sir Simon"
+  },
+  "otis": {
+    "voice": "Schedar",
+    "how": "the American Minister: impeccably polite, slow, even and reasonable; the more trying things are, the slower and politer he speaks; never raises his voice; warm with his daughter",
+    "short": "Mr Otis"
+  },
+  "washington": {
+    "voice": "Puck",
+    "how": "the eldest son, a cheerful handsome young American: jokes about everything, quick and sure of himself; when something touches him, suddenly serious and short",
+    "short": "Washington"
+  },
+  "mrs_otis": {
+    "voice": "Kore",
+    "how": "a healthy, practical American mother: brisk, warm, sensible, a little amused; brooks no nonsense",
+    "short": "Mrs Otis"
+  },
+  "twin_star": {
+    "voice": "Fenrir",
+    "how": "a boy of ten, one of the twins: loud, excited, mischievous, shouting and laughing over his brother",
+    "short": "a twin"
+  },
+  "twin_stripes": {
+    "voice": "Zephyr",
+    "how": "a boy of ten, the other twin: bright, cheeky, teasing in a sing-song, breathless with fun",
+    "short": "the other twin"
+  },
+  "mrs_umney": {
+    "voice": "Gacrux",
+    "how": "an old English housekeeper in black silk and a white cap: low, hushed and solemn; she believes in the ghost and remembers when everyone here was afraid",
+    "short": "Mrs Umney"
+  },
+  "voices": {
+    "voice": "Enceladus",
+    "how": "many voices in the dark beyond the wall, whispering together, breathy and cold, pleading and wicked at once",
+    "short": "voices"
+  },
+  "cecil": {
+    "voice": "Achird",
+    "how": "the young Duke of Cheshire, fifteen and in love: shy, warm and plain; says little and asks nothing more than he must",
+    "short": "Cecil"
+  }
+}
