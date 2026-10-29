@@ -1,0 +1,707 @@
+{
+ "engine": 3,
+ "title": "Inside the Shepherd's House",
+ "caption": "One lamp, a table, a hundred acorns.",
+ "horizon": 0.45,
+ "camera": {
+  "mode": "picture"
+ },
+ "light": {
+  "ambient": 0.62,
+  "ambientColor": "#d2c3b8",
+  "tint": "#f2b078",
+  "tintStrength": 0.07,
+  "haze": 0.05,
+  "hazeColor": "#4a3a34",
+  "hazeGlow": 0.6,
+  "bounce": 0.6,
+  "vignette": 0.45,
+  "grain": 0.1,
+  "wind": [
+   1,
+   0.1,
+   0.4
+  ],
+  "looks": {
+   "night": {
+    "ambient": 0.5,
+    "ambientColor": "#9096c0",
+    "tint": "#c8c0e0",
+    "tintStrength": 0.05,
+    "hazeColor": "#22283e"
+   }
+  }
+ },
+ "lights": [
+  {
+   "id": "lamp",
+   "of": "lamp#flame",
+   "color": "#ffc27a",
+   "strength": 1.8,
+   "reach": 6,
+   "flicker": 0.05,
+   "on": "lamp"
+  },
+  {
+   "id": "hearth_fire",
+   "of": "fire#fire",
+   "color": "#ff9a52",
+   "strength": 1.0,
+   "reach": 4.5,
+   "flicker": 0.3,
+   "on": "hearth"
+  }
+ ],
+ "modules": [
+  "cast",
+  "beats"
+ ],
+ "objects": [
+  {
+   "id": "sky",
+   "name": "The sky outside",
+   "sky": true
+  },
+  {
+   "id": "ground_out",
+   "name": "The plateau outside",
+   "plane": true,
+   "across": 0,
+   "distance": 160,
+   "elevation": -0.03,
+   "width": 800,
+   "depth": 320
+  },
+  {
+   "id": "slope",
+   "name": "The empty slope across the stream and the ridge",
+   "across": 60,
+   "distance": 300,
+   "height": 30,
+   "box": [
+    -320,
+    -30,
+    320,
+    1
+   ]
+  },
+  {
+   "id": "floor",
+   "name": "The stone floor",
+   "plane": true,
+   "walk": true,
+   "across": 0,
+   "distance": 3.0,
+   "elevation": 0.01,
+   "width": 6.0,
+   "depth": 4.8
+  },
+  {
+   "id": "ceiling",
+   "name": "The low ceiling",
+   "across": 0,
+   "distance": 5.4,
+   "elevation": 2.5,
+   "facing": 180,
+   "tilt": -90,
+   "height": 4.8,
+   "box": [
+    -3.05,
+    -4.8,
+    3.05,
+    0.05
+   ]
+  },
+  {
+   "id": "back_wall",
+   "name": "The back wall: the window",
+   "across": 0,
+   "distance": 5.4,
+   "facing": 180,
+   "height": 2.5,
+   "box": [
+    -3.05,
+    -2.52,
+    3.05,
+    0.02
+   ]
+  },
+  {
+   "id": "reveal",
+   "name": "The window's right reveal",
+   "across": 1.7,
+   "distance": 5.65,
+   "facing": 270,
+   "height": 2.0,
+   "box": [
+    -0.25,
+    -2.02,
+    0.25,
+    0.02
+   ]
+  },
+  {
+   "id": "sill",
+   "name": "The window's sill",
+   "plane": true,
+   "across": 1.25,
+   "distance": 5.65,
+   "elevation": 1.05,
+   "width": 0.9,
+   "depth": 0.5
+  },
+  {
+   "id": "window",
+   "name": "The casement, open",
+   "across": 1.25,
+   "distance": 5.6,
+   "facing": 180,
+   "height": 2.0,
+   "box": [
+    -0.45,
+    -2.0,
+    0.45,
+    -1.05
+   ]
+  },
+  {
+   "id": "shutter",
+   "name": "The inner shutter and his shaving mirror",
+   "across": 0.8,
+   "distance": 5.4,
+   "facing": 270,
+   "height": 2.0,
+   "box": [
+    0,
+    -2.0,
+    0.42,
+    -1.05
+   ]
+  },
+  {
+   "id": "left_wall",
+   "name": "The left wall: the door",
+   "across": -3.0,
+   "distance": 3.0,
+   "facing": 90,
+   "height": 2.5,
+   "box": [
+    -2.42,
+    -2.52,
+    2.42,
+    0.02
+   ]
+  },
+  {
+   "id": "right_wall",
+   "name": "The right wall: the hearth",
+   "across": 3.0,
+   "distance": 3.0,
+   "facing": 270,
+   "height": 2.5,
+   "box": [
+    -2.42,
+    -2.52,
+    2.42,
+    0.02
+   ]
+  },
+  {
+   "id": "fire",
+   "name": "The fire in the hearth",
+   "across": 2.97,
+   "distance": 4.3,
+   "facing": 270,
+   "glows": true,
+   "height": 0.47,
+   "box": [
+    -0.42,
+    -0.47,
+    0.42,
+    0.03
+   ]
+  },
+  {
+   "id": "table_top",
+   "name": "The table top",
+   "plane": true,
+   "across": 0,
+   "distance": 3.3,
+   "elevation": 0.76,
+   "width": 1.7,
+   "depth": 0.8,
+   "shadow": true
+  },
+  {
+   "id": "table_things",
+   "name": "What lies on the table",
+   "plane": true,
+   "across": 0,
+   "distance": 3.3,
+   "elevation": 0.763,
+   "width": 1.7,
+   "depth": 0.8
+  },
+  {
+   "id": "acorns",
+   "name": "The acorns on the table",
+   "plane": true,
+   "across": 0,
+   "distance": 3.3,
+   "elevation": 0.766,
+   "width": 1.7,
+   "depth": 0.8
+  },
+  {
+   "id": "table_front",
+   "name": "The table's near side",
+   "across": 0,
+   "distance": 2.9,
+   "facing": 180,
+   "height": 0.77,
+   "box": [
+    -0.87,
+    -0.77,
+    0.87,
+    0.01
+   ],
+   "shadow": true
+  },
+  {
+   "id": "table_back",
+   "name": "The table's far legs",
+   "across": 0,
+   "distance": 3.68,
+   "facing": 180,
+   "height": 0.72,
+   "box": [
+    -0.83,
+    -0.72,
+    0.83,
+    0.01
+   ]
+  },
+  {
+   "id": "lamp",
+   "name": "The oil lamp",
+   "across": 0.7,
+   "distance": 3.3,
+   "elevation": 0.76,
+   "height": 0.42,
+   "box": [
+    -0.08,
+    -0.43,
+    0.08,
+    0.01
+   ]
+  },
+  {
+   "id": "stool",
+   "name": "The stools",
+   "across": 0.15,
+   "distance": 4.12,
+   "height": 0.46,
+   "box": [
+    -0.2,
+    -0.47,
+    0.2,
+    0.01
+   ],
+   "copies": [
+    {
+     "across": 0.15,
+     "distance": 4.12
+    },
+    {
+     "across": -1.27,
+     "distance": 3.45,
+     "flip": true
+    }
+   ]
+  },
+  {
+   "id": "pail",
+   "name": "The pail of water",
+   "across": -0.5,
+   "distance": 3.95,
+   "height": 0.4,
+   "box": [
+    -0.65,
+    -0.42,
+    0.22,
+    0.02
+   ],
+   "shadow": true
+  },
+  {
+   "id": "sack",
+   "name": "The sack of acorns",
+   "across": 0.75,
+   "distance": 4.35,
+   "height": 0.48,
+   "box": [
+    -0.24,
+    -0.5,
+    0.24,
+    0.01
+   ]
+  },
+  {
+   "id": "dog",
+   "name": "The shepherd's dog",
+   "across": -2.45,
+   "distance": 2.05,
+   "height": 0.5,
+   "box": [
+    -0.62,
+    -0.58,
+    0.62,
+    0.04
+   ],
+   "shadow": true
+  },
+  {
+   "id": "step_gifts",
+   "name": "Bread and socks on the threshold",
+   "across": -3.05,
+   "distance": 2.6,
+   "height": 0.32,
+   "box": [
+    -0.48,
+    -0.34,
+    0.45,
+    0.03
+   ]
+  },
+  {
+   "id": "table_mid",
+   "name": "Between the two at the table",
+   "unseen": true,
+   "across": -0.55,
+   "distance": 3.65,
+   "height": 1.25,
+   "box": [
+    -0.3,
+    -1.25,
+    0.3,
+    0
+   ]
+  },
+  {
+   "id": "table_close",
+   "name": "The table close, under the lamp",
+   "insert": "close"
+  },
+  {
+   "id": "elzeard",
+   "name": "Elzéard",
+   "person": {
+    "cast": "cast",
+    "who": "elzeard",
+    "turn": 180,
+    "does": "eat_soup"
+   },
+   "across": 0.15,
+   "distance": 4.05,
+   "place": {
+    "across": "elzeard_a",
+    "distance": "elzeard_d"
+   },
+   "shadow": true
+  },
+  {
+   "id": "traveller",
+   "name": "The Traveller",
+   "person": {
+    "cast": "cast",
+    "who": "traveller",
+    "turn": 115,
+    "does": "eat_soup"
+   },
+   "across": -1.25,
+   "distance": 3.35,
+   "place": {
+    "across": "traveller_a",
+    "distance": "traveller_d"
+   },
+   "shadow": true
+  }
+ ],
+ "state": {
+  "moment": "arrival",
+  "time": "dusk",
+  "night": 0,
+  "lamp": 1,
+  "hearth": 1,
+  "soup": true,
+  "acorns": "none",
+  "tens": 0,
+  "counted": 0,
+  "cracked_out": 0,
+  "close": 0,
+  "pail_push": 0,
+  "sack": true,
+  "notebook": "none",
+  "letter": false,
+  "dog": true,
+  "bread_step": false,
+  "elzeard_a": 0.15,
+  "elzeard_d": 4.05,
+  "elzeard_on": [
+   0.15,
+   4.05,
+   0.46
+  ],
+  "elzeard_turn": 180,
+  "elzeard_do": "eat_soup",
+  "elzeard_look": "table_things#bowl",
+  "traveller_a": -1.25,
+  "traveller_d": 3.35,
+  "traveller_on": [
+   -1.25,
+   3.35,
+   0.46
+  ],
+  "traveller_turn": 115,
+  "traveller_do": "eat_soup",
+  "traveller_look": "elzeard"
+ },
+ "states": {
+  "moment": {
+   "values": [
+    "arrival",
+    "button",
+    "night",
+    "evening"
+   ],
+   "means": "the room in its year and hour, and who sits where (script.js; notes.md): arrival - П.4-П.5, dusk, the soup, Elzéard (55) and the Traveller (20) at the table; button - 1.5, evening, Elzéard (55) shaving at the window; night - 2.7, six years on, the moon in the window, the acorns being counted, the notebook and the city's letter, Elzéard (61), the Traveller (26); evening - 3.4, fourteen years on, dusk, the old man counting, Elzéard (75), the Traveller (40)"
+  },
+  "staged": {
+   "type": "string",
+   "means": "the moment last laid out (the script's own)"
+  },
+  "time": {
+   "values": [
+    "dusk",
+    "night"
+   ],
+   "means": "what the window and the door show: dusk, or night with the moon over the empty slope (the light's look `night` follows)"
+  },
+  "night": {
+   "range": [
+    0,
+    1
+   ],
+   "smooth": true,
+   "means": "the light's night look (the script sets it from `time`)"
+  },
+  "lamp": {
+   "range": [
+    0,
+    1
+   ],
+   "smooth": true,
+   "means": "the oil lamp on the table: 0 out, 1 lit"
+  },
+  "hearth": {
+   "range": [
+    0,
+    1
+   ],
+   "smooth": true,
+   "means": "the fire in the hearth: 0 out, 1 burning up"
+  },
+  "soup": {
+   "type": "boolean",
+   "means": "the two bowls of soup and the bread on the table"
+  },
+  "acorns": {
+   "values": [
+    "none",
+    "heap",
+    "sorted",
+    "counting",
+    "pail"
+   ],
+   "means": "the acorns: none - not out; heap - poured out on the table; sorted - the cracked ones put aside by the Traveller's place; counting - counted out in heaps of ten (`tens`, then the last ten's `counted`); pail - swept into the pail of water to soak"
+  },
+  "tens": {
+   "range": [
+    0,
+    10
+   ],
+   "smooth": true,
+   "means": "while counting: how many heaps of ten are counted out of the heap (a piece moves it on; to 9, and the last ten are the game's `counted`)"
+  },
+  "counted": {
+   "range": [
+    0,
+    10
+   ],
+   "means": "the last ten (the guiding `count`): how many of them the player has counted into the tenth heap - in the table close and on the table"
+  },
+  "cracked_out": {
+   "range": [
+    0,
+    1023
+   ],
+   "means": "МИ1 in the table close: which of the ten cracked acorns (`table_close#cracked_k`) are put aside - bit k for acorn k (all ten: 1023)"
+  },
+  "close": {
+   "range": [
+    0,
+    1
+   ],
+   "smooth": true,
+   "means": "the table close under the lamp (the insert `table_close`): 0 closed, 1 open - МИ1 on the heap, the guiding `count` on the last ten"
+  },
+  "pail_push": {
+   "range": [
+    0,
+    1
+   ],
+   "smooth": true,
+   "means": "the pail pushed along the floor from his stool to the Traveller (П.5, silent): 0 by him, 1 by the Traveller"
+  },
+  "sack": {
+   "type": "boolean",
+   "means": "the full sack of acorns on the floor by his stool"
+  },
+  "notebook": {
+   "values": [
+    "none",
+    "shut",
+    "open"
+   ],
+   "means": "the Traveller's notebook on the table by his place"
+  },
+  "letter": {
+   "type": "boolean",
+   "means": "the city's letter on the table (2.7)"
+  },
+  "dog": {
+   "type": "boolean",
+   "means": "the shepherd's dog lying by the door"
+  },
+  "bread_step": {
+   "type": "boolean",
+   "means": "the game's: the bread and the knitted socks on the threshold, untouched (3.4 when Lina knows)"
+  },
+  "beat": {
+   "type": "string",
+   "means": "the piece playing (modules/beats; notes.md, Pieces)"
+  },
+  "beat_next": {
+   "type": "string",
+   "means": "the piece the game plays next (modules/beats: made ready ahead)"
+  },
+  "elzeard_a": {
+   "range": [
+    -4,
+    3
+   ],
+   "means": "where Elzéard is, metres right of the middle (outside the door: about -3.7)"
+  },
+  "elzeard_d": {
+   "range": [
+    0.6,
+    5.4
+   ],
+   "means": "where Elzéard is, metres away"
+  },
+  "traveller_a": {
+   "range": [
+    -4,
+    3
+   ],
+   "means": "where the Traveller is, metres right of the middle (outside the door: about -3.7)"
+  },
+  "traveller_d": {
+   "range": [
+    0.6,
+    5.4
+   ],
+   "means": "where the Traveller is, metres away"
+  }
+ },
+ "music": {
+  "prompts": [
+   {
+    "text": "Solo nylon-string guitar, slow sparse fingerpicking, long silences between phrases, warm and wistful",
+    "weight": 1.2
+   },
+   {
+    "text": "Soft wooden flute over a low drone, open fifths, a lonely high plateau at dusk",
+    "weight": 1
+   },
+   {
+    "text": "Quiet felt piano, few notes, lots of air, like wind over dry grass",
+    "weight": 0.8
+   },
+   {
+    "text": "Ambient pads of distant wind, barely moving, golden evening light",
+    "weight": 0.4
+   },
+   {
+    "text": "Pastoral folk waltz on accordion and violin, gentle and old-fashioned",
+    "weight": 0
+   },
+   {
+    "text": "Cello and harp duet, slow and tender, a sense of patience",
+    "weight": 0
+   },
+   {
+    "text": "Minimalist marimba patterns, slowly growing, like seedlings",
+    "weight": 0
+   },
+   {
+    "text": "Shepherd's pipe melody, modal, unaccompanied, echoing across hills",
+    "weight": 0
+   },
+   {
+    "text": "String quartet, sustained hopeful chords, slow build",
+    "weight": 0
+   },
+   {
+    "text": "Music box lullaby, simple and fragile, slightly out of tune",
+    "weight": 0
+   },
+   {
+    "text": "Warm clarinet over soft strings, nostalgic, unhurried",
+    "weight": 0
+   },
+   {
+    "text": "Hammered dulcimer, gentle repeating figure, morning mist",
+    "weight": 0
+   },
+   {
+    "text": "Low bowed double bass and wind, sparse and dry, a dead land",
+    "weight": 0
+   },
+   {
+    "text": "Choir humming softly in the distance, no words, reverent",
+    "weight": 0
+   },
+   {
+    "text": "Mandolin tremolo, quiet and bittersweet, a village at evening",
+    "weight": 0
+   },
+   {
+    "text": "Glassy electric piano with tape warmth, calm and spacious",
+    "weight": 0
+   },
+   {
+    "text": "Solo violin, plain slow melody, the bow almost whispering",
+    "weight": 0
+   },
+   {
+    "text": "Birdsong-like woodwinds over a gentle string bed, a forest waking",
+    "weight": 0
+   }
+  ],
+  "bpm": 66,
+  "density": 0.25,
+  "brightness": 0.45,
+  "scale": "D_MAJOR_B_MINOR"
+ }
+}

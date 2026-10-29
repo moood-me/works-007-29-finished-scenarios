@@ -21,7 +21,8 @@ export default {
       g.title(tr('A Hundred Acorns'));
       await g.plate(tr('Morning, mist on the bare slope. Elzéard leaves the sheep to the dog and goes out with an iron rod and a pail. He drives the rod into the earth, lays an acorn in the hole, closes the earth with his foot. The blow of the rod is dull.'));
       await g.say('narrator', 'He was planting oaks');
-      await g.play(hand_in);
+      const handed = await g.play(hand_in);
+      if (handed.took) await g.plate(tr('Elzéard takes up the pail himself. The Traveller stands there empty-handed.'));
     },
     // 1.3: on a stone — his facts, in a few words
     async g => {

@@ -122,13 +122,13 @@
     "elzeard_a": {
       "range": [
         -12,
-        8
+        10
       ],
       "means": "where Elzéard stands, metres right of the view's line (the moment sets it)"
     },
     "elzeard_d": {
       "range": [
-        2,
+        -6,
         30
       ],
       "means": "where Elzéard stands, metres ahead (the moment sets it)"
@@ -136,13 +136,13 @@
     "traveller_a": {
       "range": [
         -12,
-        8
+        10
       ],
       "means": "where the Traveller stands, metres right of the view's line (the moment sets it)"
     },
     "traveller_d": {
       "range": [
-        2,
+        -6,
         30
       ],
       "means": "where the Traveller stands, metres ahead (the moment sets it)"
@@ -150,13 +150,13 @@
     "lina_a": {
       "range": [
         -12,
-        8
+        10
       ],
       "means": "where Lina stands, metres right of the view's line (the moment sets it)"
     },
     "lina_d": {
       "range": [
-        2,
+        -6,
         30
       ],
       "means": "where Lina stands, metres ahead (the moment sets it)"
@@ -164,13 +164,13 @@
     "jan_a": {
       "range": [
         -12,
-        8
+        10
       ],
       "means": "where Jan stands, metres right of the view's line (the moment sets it)"
     },
     "jan_d": {
       "range": [
-        2,
+        -6,
         30
       ],
       "means": "where Jan stands, metres ahead (the moment sets it)"
@@ -178,13 +178,13 @@
     "chief_a": {
       "range": [
         -12,
-        8
+        10
       ],
       "means": "where the chief from town stands, metres right of the view's line (the moment sets it)"
     },
     "chief_d": {
       "range": [
-        2,
+        -6,
         30
       ],
       "means": "where the chief from town stands, metres ahead (the moment sets it)"
@@ -192,13 +192,13 @@
     "ranger_a": {
       "range": [
         -12,
-        8
+        10
       ],
       "means": "where the ranger stands, metres right of the view's line (the moment sets it)"
     },
     "ranger_d": {
       "range": [
-        2,
+        -6,
         30
       ],
       "means": "where the ranger stands, metres ahead (the moment sets it)"

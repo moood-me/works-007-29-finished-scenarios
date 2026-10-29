@@ -14,12 +14,27 @@ function FILM(scene) {
     return o;
   };
   const merge = (...xs) => Object.assign({}, ...xs);
-  const shot = (s, target, size = "medium", glide = 1.5) => {
-    s.set("camera_glide", glide);
-    s.set("camera_shot", size);
-    s.set("camera_target", target);
+  // shots: the eye and what it looks at (metres: across, ahead, up), glided to — the picture camera moved, never the
+  // operator (the picture's camera walks through no one); `wide` — back to the picture
+  const DEG = 180 / Math.PI, EYE = 1.7, CAMK = ["camera_x", "camera_z", "camera_h", "camera_yaw", "camera_pitch"];
+  const CAM = ([ex, ez, eh], [tx, tz, th]) => ({ ...CAM0, camera_x: ex, camera_z: ez, camera_h: eh - EYE,
+    camera_yaw: Math.atan2(tx - ex, tz - ez) * DEG, camera_pitch: Math.atan2(th - eh, Math.hypot(tx - ex, tz - ez)) * DEG });
+  const view = (s, c, over = 1.5) => (over ? s.all(...CAMK.map((k) => s.move(k, c[k], { over, ease: "inOut" }))) : s.all(...CAMK.map((k) => s.set(k, c[k]))));
+  const wide = (s, over = 1.5) => view(s, CAM0, over);
+  const SH = {
+    gourd: CAM([0.2, 3.0, 1.6], [0.35, 5.6, 1.5]),
+    door: CAM([0.6, 5.4, 1.6], [1.7, 7.4, 1.55]),
+    nod: CAM([0.9, 6.0, 1.65], [1.7, 7.4, 1.65]),
+    ranger: CAM([0.8, 4.4, 1.6], [0.6, 6.6, 1.5]),
+    elzeard: CAM([0.6, 5.2, 1.6], [1.6, 7.0, 1.6]),
+    laugh: CAM([0.7, 5.7, 1.65], [1.6, 7.0, 1.65]),
+    visitors: CAM([2.0, 4.8, 1.6], [2.2, 7.0, 1.5]),
+    at_door: CAM([1.2, 4.8, 1.6], [2.0, 7.2, 1.3]),
+    porch: CAM([0.0, 4.2, 1.6], [1.0, 6.4, 1.4]),
+    hut: CAM([-0.6, 2.6, 1.6], [0.0, 4.8, 1.3]),
+    rod_house: CAM([0.2, 4.6, 1.5], [0.25, 6.6, 1.1]),
+    rod_hut: CAM([0.4, 2.6, 1.5], [1.0, 4.7, 1.1]),
   };
-  const wide = (s) => s.set("camera_target", null);
   const DOOR = [2.3, 7.4];
 
   return {
@@ -37,7 +52,7 @@ function FILM(scene) {
         await e.turn(250);
         e.with(["gourd"]);
         await e.go("offer", { to: [1.1, 6.0], turn: 250 });
-        shot(s, "traveller", "medium");
+        view(s, SH.gourd);
         s.tell("climb:gourd");
         await s.wait(3);
         e.with([]);
@@ -69,7 +84,7 @@ function FILM(scene) {
         await t.turn(125);
         t.look("elzeard");
         s.tell("dawn_door:out");
-        shot(s, "elzeard", "medium");
+        view(s, SH.door);
         await s.wait(1.5);
       },
     },
@@ -79,7 +94,7 @@ function FILM(scene) {
       from: () => merge(CAM0, who("traveller", [-1.3, 5.2, 125], "stand", { look: "elzeard" }), who("elzeard", [1.7, 7.4, 200], "stand", { look: "traveller" })),
       run: async (s) => {
         const e = s.person("elzeard");
-        shot(s, "elzeard", "close", 1);
+        view(s, SH.nod, 1);
         await e.go("nod", { to: [1.7, 7.4], turn: 215 });
         s.tell("farewell_back:nod");
         await s.wait(2.5);
@@ -111,17 +126,17 @@ function FILM(scene) {
         await r.turn(95);
         r.look("elzeard");
         await e.turn(260);
-        shot(s, "ranger", "medium");
+        view(s, SH.ranger);
         s.tell("ranger:speak");
         await s.wait(4);
-        shot(s, "elzeard", "medium");
+        view(s, SH.elzeard);
         await e.go("nod", { to: [1.6, 7.0], turn: 260 });
         s.tell("ranger:nod");
         await s.wait(1);
         wide(s);
         await r.walk([[-1.4, 3.4], [-2.8, -0.8]]);
         r.here(false);
-        shot(s, "elzeard", "close", 1);
+        view(s, SH.laugh, 1);
         await e.go("laugh_short", { to: [1.6, 7.0], turn: 230 });
         s.tell("ranger:laugh");
         await s.wait(1.5);
@@ -140,7 +155,7 @@ function FILM(scene) {
         await t.turn(150);
         a.look("traveller");
         b.look("traveller");
-        shot(s, "visitor_a", "medium");
+        view(s, SH.visitors);
         s.tell("empty_house:ask");
         await s.wait(3);
         wide(s);
@@ -153,7 +168,7 @@ function FILM(scene) {
         await t.walk([[1.6, 6.6], [2.0, 7.25]]);
         await t.turn(195);
         t.look("door_glow#handle");
-        shot(s, "traveller", "full");
+        view(s, SH.at_door);
         s.tell("empty_house:door");
       },
     },
@@ -171,7 +186,7 @@ function FILM(scene) {
         t.look("elzeard");
         await e.turn(260);
         e.look("traveller");
-        shot(s, "elzeard", "medium");
+        view(s, SH.porch);
         s.tell("last_house:up");
         await s.wait(2);
       },
@@ -179,7 +194,7 @@ function FILM(scene) {
     // Э.2 the Name: the hut beyond the ridge, the young trees behind, the seedlings ahead; the Traveller comes; Elzéard
     // does not look up at once — he finishes the row, and only then straightens
     hut: {
-      after: [], tells: ["hut:up"], seconds: 22,
+      after: [], tells: ["hut:up"], seconds: 34,
       from: () => merge(CAM0, who("elzeard", [-1.8, 5.2, 100], "stand", { gait: "walk_old" }), who("traveller", [-4.4, 0.6, 50], "stand", { look: "elzeard" })),
       run: async (s) => {
         const e = s.person("elzeard"), t = s.person("traveller");
@@ -191,7 +206,7 @@ function FILM(scene) {
         await e.go("plant_rod", { to: [0.6, 4.9], turn: 100 });
         await e.turn(150);
         e.look("traveller");
-        shot(s, "elzeard", "medium");
+        view(s, SH.hut);
         s.tell("hut:up");
         await s.wait(2);
       },
@@ -208,7 +223,7 @@ function FILM(scene) {
         await t.turn(hut ? 260 : 100);
         await e.turn(hut ? 100 : 260);
         await e.go("offer", { to: [ea, ed], turn: hut ? 100 : 260 });
-        shot(s, "elzeard#rod", "medium");
+        view(s, hut ? SH.rod_hut : SH.rod_house);
         s.tell("rod_held:out");
         await s.wait(2);
       },

@@ -64,7 +64,7 @@ hands in the water: the water's edge before Lina, `stones:k`).
 |---|---|---|
 | `water` | stream6 | the Traveller comes down to the stream; Lina knows him (`meet`) |
 | `palms` | stream6, after `water` | both kneel at the water (`kneel`) — then МИ3 (`traveller#hand_r`) |
-| `letter` | stream6, after `palms` | Lina writes her letter (`write`), looks up the slope (`look`) — then the choice |
+| `letter` | stream6 | Lina writes her letter (`write`), looks up the slope (`look`) — then the choice |
 | `letter_pocket` | after `letter` | the letter into her pocket, they go up (`go`) |
 | `letter_write` | after `letter` | she writes on, looks once more at the slope (`look`) |
 | `maples` | far6 | Elzéard points at the dead maples (`point`), then at the beeches (`beeches`) |
@@ -74,5 +74,5 @@ New motions (cast): `kneel_water`, `write_standing`, `point`; the cast's part `l
 ## Contract for the check
 
 ```json
-{"beats":{"water":{"after":[],"tells":["water:meet"],"seconds":12},"palms":{"after":["water"],"tells":["palms:kneel"],"seconds":9},"letter":{"after":["palms"],"tells":["letter:write","letter:look"],"seconds":14},"letter_pocket":{"after":["letter"],"tells":["letter_pocket:go"],"seconds":10},"letter_write":{"after":["letter"],"tells":["letter_write:look"],"seconds":9},"maples":{"after":[],"tells":["maples:point","maples:beeches"],"seconds":12}},"points":["traveller#hand_r","lina#letter","maple_sticks:8","beech_young:4","hives:0"],"keys":["moment","beat","beat_next","hives"]}
+{"beats":{"water":{"after":[],"tells":["water:meet"],"seconds":12},"palms":{"after":["water"],"tells":["palms:kneel"],"seconds":9},"letter":{"after":[],"tells":["letter:write","letter:look"],"seconds":14},"letter_pocket":{"after":["letter"],"tells":["letter_pocket:go"],"seconds":10},"letter_write":{"after":["letter"],"tells":["letter_write:look"],"seconds":9},"maples":{"after":[],"tells":["maples:point","maples:beeches"],"seconds":12}},"points":["traveller#hand_r","lina#letter","maple_sticks:8","beech_young:4","hives:0"],"keys":["moment","beat","beat_next","hives"]}
 ```

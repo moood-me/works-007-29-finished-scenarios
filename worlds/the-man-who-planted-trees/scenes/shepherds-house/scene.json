@@ -279,84 +279,84 @@
     },
     "elzeard_a": {
       "range": [
-        -8,
-        8
+        -12,
+        10
       ],
       "means": "where Elzéard stands, metres right of the view's line (the moment sets it)"
     },
     "elzeard_d": {
       "range": [
-        2,
+        -6,
         16
       ],
       "means": "where Elzéard stands, metres ahead (the moment sets it)"
     },
     "traveller_a": {
       "range": [
-        -8,
-        8
+        -12,
+        10
       ],
       "means": "where the Traveller stands, metres right of the view's line (the moment sets it)"
     },
     "traveller_d": {
       "range": [
-        2,
+        -6,
         16
       ],
       "means": "where the Traveller stands, metres ahead (the moment sets it)"
     },
     "lina_a": {
       "range": [
-        -8,
-        8
+        -12,
+        10
       ],
       "means": "where Lina stands, metres right of the view's line (the moment sets it)"
     },
     "lina_d": {
       "range": [
-        2,
+        -6,
         16
       ],
       "means": "where Lina stands, metres ahead (the moment sets it)"
     },
     "ranger_a": {
       "range": [
-        -8,
-        8
+        -12,
+        10
       ],
       "means": "where the ranger stands, metres right of the view's line (the moment sets it)"
     },
     "ranger_d": {
       "range": [
-        2,
+        -6,
         16
       ],
       "means": "where the ranger stands, metres ahead (the moment sets it)"
     },
     "visitor_a_a": {
       "range": [
-        -8,
-        8
+        -12,
+        10
       ],
       "means": "where the visitor with the basket stands, metres right of the view's line (the moment sets it)"
     },
     "visitor_a_d": {
       "range": [
-        2,
+        -6,
         16
       ],
       "means": "where the visitor with the basket stands, metres ahead (the moment sets it)"
     },
     "visitor_b_a": {
       "range": [
-        -8,
-        8
+        -12,
+        10
       ],
       "means": "where the visitor with the notebook stands, metres right of the view's line (the moment sets it)"
     },
     "visitor_b_d": {
       "range": [
-        2,
+        -6,
         16
       ],
       "means": "where the visitor with the notebook stands, metres ahead (the moment sets it)"
