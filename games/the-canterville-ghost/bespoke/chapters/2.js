@@ -16,7 +16,7 @@ export default {
     // 2.1: the morning after the paints
     async g => {
       const { paints } = facts(g.state);
-      await g.scene('library', { here: ['otis', 'virginia'], moods: { otis: 'smile', virginia: 'neutral' }, keys: LIBRARY.morning });
+      await g.scene('library', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'smile', virginia: 'neutral' }, keys: LIBRARY.morning });
       if (paints === 'leave') {
         await g.plate(tr('Breakfast. The reds have run out: the stain is emerald green.'));
         g.mood('otis', 'laugh');
@@ -39,7 +39,7 @@ export default {
     },
     // 2.2: Cecil
     async g => {
-      await g.scene('library', { here: ['virginia'], moods: { virginia: 'smile' }, keys: LIBRARY.morning });
+      await g.scene('library', { here: ['virginia', 'cecil'], moods: { virginia: 'smile', cecil: 'smile' }, keys: LIBRARY.morning });
       await g.plate(tr('On the threshold, the young Duke of Cheshire, come to stay.'));
       await g.say('narrator', 'Virginia had twice raced old Lord Bilton on her pony round the park, and the young Duke fell in love with her on the spot — and stayed till the autumn');
       await g.say('cecil', 'Shall we ride to the brook tomorrow?');
@@ -84,7 +84,7 @@ export default {
         await g.plate(tr('She leaves the candle-end on the window-sill.'));
         await g.scene('corridor', { here: ['simon'], moods: { simon: 'disgusted' }, keys: CORRIDOR.midnight });
         await g.plate(tr('Midnight. He comes down the corridor, stops at the corner, looks the glowing turnip over, runs a finger along the placard, snorts — and walks past. Behind the door the twins groan with vexation.'));
-        await g.scene('library', { here: ['virginia'], moods: { virginia: 'neutral' }, keys: LIBRARY.morning });
+        await g.scene('library', { here: ['virginia', 'washington'], moods: { virginia: 'neutral', washington: 'thinking' }, keys: LIBRARY.morning });
         await g.plate(tr('In the morning Washington looks at his sister.'));
         await g.say('washington', 'Somebody told him');
       } else if (trap === 'watch') {
@@ -138,6 +138,7 @@ export default {
       await g.say('virginia', 'Papa. If a person did something very bad — long, long ago — may one pity him?');
       await g.plate(tr('Papa lays down his pen and thinks.'));
       await g.say('otis', 'One may pity anyone, Ginny. Paying his debts — no');
+      g.here('washington', true);
       await g.plate(tr('In the doorway, Washington with a candle: he saw the light.'));
       if (trap === 'watch') {
         await g.say('washington', 'Is this about our old man? Ginny, he killed his wife. And the butler shot himself because of him — Mrs Umney told us');
@@ -157,9 +158,11 @@ export default {
       if (askew) {
         g.mood('otis', 'laugh');
         await g.say('otis', 'My nose is longer, I believe', { how: 'amused, warmly' });
+        g.here('mrs_otis', true);
         await g.plate(tr('He laughs — and stands it against his inkstand all the same. In the doorway, Mrs Otis in her shawl.'));
       } else {
         await g.say('otis', 'It is like me. Let it stand here');
+        g.here('mrs_otis', true);
         await g.plate(tr('He stands it against his inkstand. In the doorway, Mrs Otis in her shawl.'));
       }
       await g.say('mrs_otis', 'Your feet are like ice. Off to bed');

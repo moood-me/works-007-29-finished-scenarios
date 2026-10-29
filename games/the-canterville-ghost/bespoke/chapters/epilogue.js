@@ -26,7 +26,7 @@ export default {
         if (f.shares) await g.plate(tr('The whole family beside her; Washington with a torch; the twins silent.'));
         else await g.plate(tr('She stands at the coffin alone; the family a step behind.'));
       } else if (f.ending === 'candle') {
-        await g.scene('library', { here: ['otis', 'virginia'], moods: { otis: 'tired', virginia: 'sad' }, keys: LIBRARY.morning });
+        await g.scene('library', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'tired', virginia: 'sad' }, keys: LIBRARY.morning });
         g.title(label('candle'));
         await g.plate(tr('Morning, breakfast.'));
         await g.say('otis', 'We shall stay four more days. A funeral');
@@ -46,7 +46,7 @@ export default {
         await g.plate(tr('Downstairs, in the library, the lamp: Papa is writing letters. The drawing that stood against his inkstand he has put away in a drawer of his desk.'));
         await funeral(g, f, tr('The funeral, at night, under the yew. Virginia lays a cross of almond blossom on the coffin; Papa stands apart, with a candle.'));
       } else {
-        await g.scene('library', { here: ['otis', 'virginia'], moods: { otis: 'neutral', virginia: 'sad' }, keys: LIBRARY.morning });
+        await g.scene('library', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'mrs_umney'], moods: { otis: 'neutral', virginia: 'sad' }, keys: LIBRARY.morning });
         g.title(label('stain'));
         if (f.plays) {
           await g.plate(tr('The morning they leave. In the library, before the hearth, the stain again — fresh, scarlet; where he found the red, nobody knows. Washington takes out his little bottle.'));
@@ -87,16 +87,16 @@ export default {
       } else if (f.ending === 'candle') {
         if (!f.named) await stain(g);
         await g.say('narrator', 'The Otises kept Canterville, and came there every summer');
-        await g.scene('hall', { here: ['otis', 'virginia'], moods: { otis: 'smile', virginia: 'smile' }, keys: OTIS });
+        await g.scene('hall', { here: ['otis', 'virginia', 'cecil'], moods: { otis: 'smile', virginia: 'smile', cecil: 'smile' }, keys: OTIS });
         await g.plate(tr('Her wedding. At the carriage.'));
         await g.say('cecil', 'I promise you, sir, she will write every week');
         await g.say('otis', 'Promise for yourself, Your Grace');
         g.mood('otis', 'sad');
         await g.plate(tr('He takes her hand — and lets it go first.'));
-        await g.scene('tapestry', {});
+        await g.scene('tapestry', { here: ['otis'], moods: { otis: 'sad' } });
         await g.plate(tr('The carriage has gone. Papa, with a candle, goes into the Tapestry Chamber and sits down on the floor facing the tapestry, as on that night when he waited for her. The tapestry stirs no more. Quiet.'));
       } else {
-        await g.scene('hall', { here: ['otis', 'virginia'], moods: { otis: 'neutral', virginia: 'sad' }, keys: OTIS });
+        await g.scene('hall', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'neutral', virginia: 'sad' }, keys: OTIS });
         await g.plate(tr('The porch; the carriages.'));
         if (f.door === 'wake') await g.plate(tr('Papa gives her his hand at the carriage.'));
         if (f.shares) await g.plate(tr('She sits between the twins, who are arguing about which of them will see London first.'));
@@ -125,7 +125,7 @@ async function funeral(g, f, text) {
 }
 // the next morning, when nobody said her name: the old brown stain under the paints, and a rug over it
 async function stain(g) {
-  await g.scene('library', { here: ['virginia'], moods: { virginia: 'sad' }, keys: LIBRARY.morning });
+  await g.scene('library', { here: ['virginia', 'washington', 'mrs_otis'], moods: { virginia: 'sad', washington: 'thinking' }, keys: LIBRARY.morning });
   await g.plate(tr('In the morning, before the hearth in the library, an old brown stain has come through from under all the paints — a real one. Washington rubs it with Pinkerton’s Champion; it does not come off. He sits back on his heels and puts the stick in his pocket.'));
   await g.say('mrs_otis', 'Put a rug over it');
   await g.plate(tr('They unroll the rug. Virginia stands in the doorway, silent.'));

@@ -14,7 +14,7 @@ export default {
   steps: [
     // П.1–П.2: the storm; the stain
     async g => {
-      await g.scene('library', { here: ['virginia', 'otis'], moods: { virginia: 'neutral', otis: 'smile' }, keys: LIBRARY.evening });
+      await g.scene('library', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'mrs_umney'], moods: { virginia: 'neutral', otis: 'smile' }, keys: LIBRARY.evening });
       g.title(tr('The Canterville Ghost'));
       await g.plate(tr('Evening; rain lashes the painted window. The Otises come into the library with wet umbrellas: Mr Otis, Mrs Otis, Washington, the twins and Virginia. The old housekeeper, Mrs Umney, in black silk and a white cap, drops them a curtsey.'));
       await g.say('narrator', 'When Mr Hiram B. Otis, the American Minister, bought Canterville Chase, everyone told him he was doing a very foolish thing, as there was no doubt at all that the place was haunted');
@@ -32,7 +32,7 @@ export default {
     },
     // П.3–П.4: the window; ⚑ the face
     async g => {
-      await g.scene('library', { here: ['virginia', 'otis'], moods: { virginia: 'thinking', otis: 'laugh' }, keys: LIBRARY.evening }, { cut: true });
+      await g.scene('library', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'mrs_umney'], moods: { virginia: 'thinking', otis: 'laugh', twin_star: 'laugh', twin_stripes: 'laugh', washington: 'laugh', mrs_umney: 'eyes_closed' }, keys: LIBRARY.evening }, { cut: true });
       await g.plate(tr('Everyone is laughing and fanning Mrs Umney. Virginia is looking at the dark window.'));
       const { touched } = await g.play(glass);
       g.mood('virginia', 'afraid');

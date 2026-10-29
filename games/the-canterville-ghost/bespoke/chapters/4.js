@@ -30,7 +30,7 @@ export default {
         await dark(g);
         return;
       }
-      await g.scene('library', { here: ['otis', 'virginia'], moods: { otis: 'neutral', virginia: 'sad' }, keys: LIBRARY.evening });
+      await g.scene('library', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'neutral', virginia: 'sad' }, keys: LIBRARY.evening });
       await g.plate(tr('Evening by the fire; the whole family.'));
       await g.say('virginia', 'He asked me to go with him into the Garden of Death. Through the wall. To pray for him');
       if (shares) {
@@ -40,11 +40,11 @@ export default {
         await g.plate(tr('She does not answer. Papa touches her forehead — then looks at her longer, and stops smiling.'));
         g.mood('otis', 'sad');
       }
-      await g.scene('tapestry', {});
+      await g.scene('tapestry', { here: ['otis'], moods: { otis: 'thinking' } });
       await g.plate(tr('Papa takes a candle and climbs to the Tapestry Chamber: it is empty, the tapestry hangs still. He knocks politely on the wall with his knuckles.'));
       await g.say('otis', 'Sir?');
       await g.plate(tr('Silence.'));
-      await g.scene('library', { here: ['otis', 'virginia'], moods: { otis: 'thinking', virginia: 'sad' }, keys: LIBRARY.evening });
+      await g.scene('library', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'thinking', virginia: 'sad' }, keys: LIBRARY.evening });
       await g.say('otis', 'We are going to London. Tomorrow morning, all of us');
       await g.plate(tr('Mrs Otis nods.'));
       await g.say('twin_star', 'And the ghost?');
@@ -54,10 +54,10 @@ export default {
     async g => {
       const { wall, shares, trap } = facts(g.state);
       if (wall === 'go') {
-        await g.scene('hall', {});
+        await g.scene('hall', { here: ['mrs_otis', 'twin_star', 'twin_stripes'], moods: { mrs_otis: 'afraid' } });
         await g.plate(tr('Only you see this. The supper bell; Virginia is not there. Mrs Otis calls from the stairs; the twins run up and down the corridor.'));
         await g.say('mrs_otis', 'Virginia! Ginny!', { how: 'calling up the stairs, worried' });
-        await g.scene('tapestry', {});
+        await g.scene('tapestry', { here: ['washington'], moods: { washington: 'afraid' } });
         await g.plate(tr('Washington with a lantern opens the Tapestry Chamber: empty; the tapestry hangs still.'));
         if (shares) {
           await g.plate(tr('He beats on the wall with his fist:'));
@@ -184,7 +184,7 @@ export default {
     async g => {
       const { wall, door, shares, trap, named, warned } = facts(g.state);
       if (wall === 'go') {
-        await g.scene('hall', { here: ['otis', 'virginia'], moods: { otis: 'sad', virginia: 'tired' }, keys: OTIS });
+        await g.scene('hall', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'cecil'], moods: { otis: 'sad', virginia: 'tired', mrs_otis: 'afraid' }, keys: OTIS });
         await g.plate(tr('The hall. The clock strikes — and with its last stroke the whole house falls silent: no wind, no creaking boards. Papa and Cecil have just come back with nothing.'));
         await g.plate(tr('The panel on the landing of the stairs opens with a crack; on the landing stands Virginia, pale, with a little casket in her hands.'));
         if (shares) await g.plate(tr('Washington runs down from the Tapestry Chamber first and seizes both her hands.'));
@@ -213,7 +213,7 @@ export default {
       await g.plate(tr('The clock strikes — and the whole house falls silent at once.'));
       g.mood('otis', 'afraid');
       await g.plate(tr('The silence wakes Papa: the armchair, the open door, the empty bed. He wakes no one.'));
-      await g.scene('tapestry', {});
+      await g.scene('tapestry', { here: ['otis'], moods: { otis: 'afraid' } });
       await g.plate(tr('He takes a candle to the Tapestry Chamber and knocks on the wall with his knuckles, as he did in the evening:'));
       await g.say('otis', 'Sir. Ginny');
       await g.plate(tr('Silence. He sets the candle on the floor and sits down facing the tapestry. The wall parts: Virginia, with the casket.'));

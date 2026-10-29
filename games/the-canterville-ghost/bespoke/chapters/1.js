@@ -71,7 +71,7 @@ export default {
     },
     // 1.4: the wagers
     async g => {
-      await g.scene('library', { here: ['otis', 'virginia'], moods: { otis: 'thinking', virginia: 'neutral' }, keys: LIBRARY.morning });
+      await g.scene('library', { here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'thinking', virginia: 'neutral', twin_star: 'smile', twin_stripes: 'smile' }, keys: LIBRARY.morning });
       await g.plate(tr('Morning after morning. The stain is back in its place, bright red. Washington rubs it out; Papa locks the library and puts the key in his pocket; in the morning the stain is there again.'));
       await g.say('narrator', 'Sometimes it was a dull red, then it would be vermilion, then a rich purple');
       await g.plate(tr('Breakfast at the window. The family bets on the colour.'));
