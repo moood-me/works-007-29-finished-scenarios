@@ -25,7 +25,14 @@ mouth — `<id>_mood` shows on it), so faces read in a wide shot.
 - `telegraphist` — the telegraphist: in shirtsleeves, dark trousers, a green eyeshade (`visor`), thin grey hair, a small
   moustache.
 
-Rivière indoors (the bureau) wears no hat and a jacket: `"look": {"hat": "none", "garment": "jacket"}` over `riviere`.
+- `pellerin` — Pellerin, the Chilean mail's pilot: broad, weathered, a heavy dark leather coat, a white scarf; his
+  helmet pulled off, in his right hand (`helmet_held`).
+- `asuncion` — the Asunción mail's pilot: a tan sheepskin-collared flying jacket, his helmet on, the goggles up, a
+  moustache.
+- `mechanic` — the young mechanic: blue overalls, a cloth cap (`cap`), fair hair. `mechanic_b` — an older one: stocky,
+  grey-blue overalls, a cap, a grey moustache. `mechanic_c` — a lanky one: faded khaki overalls, bareheaded.
+
+Rivière indoors (the bureau, the office) wears no hat and a jacket: `"look": {"hat": "none", "garment": "jacket"}` over `riviere`.
 
 ## Things (a look's `parts`, or `<id>_with`)
 
@@ -34,7 +41,9 @@ hands, its top to us, the peak below (its colour the look's `hat`). `fedora` (a 
 crown and ears, the goggles pushed up on the brow. `headphones` — a band over the crown, an earpiece on each ear.
 `pad` — a message pad in the left hand. `visor` (a hat) — a green eyeshade: a band and a peak over the eyes.
 `moustache` — a small moustache (the hair's colour). `helmet_held` — a leather flying helmet with its goggles, hanging
-from the right hand (its colour the look's `hat`).
+from the right hand (its colour the look's `hat`). `sack` — a mail sack carried before him in both hands.
+`toolbox_held` — Roblet's tool box carried by its handle in the right hand. `spanner` — a big spanner in the right
+hand. `note` — a note torn off a message pad, in the right hand (its point `#note`). These four are for `<id>_with`.
 
 ## Motions (Kimodo)
 
