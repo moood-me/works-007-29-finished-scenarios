@@ -417,5 +417,77 @@
       "distance": 13.55,
       "shadow": true
     }
-  ]
+  ],
+  "music": {
+    "bpm": 60,
+    "density": 0.25,
+    "brightness": 0.4,
+    "scale": "E_MAJOR_D_FLAT_MINOR",
+    "prompts": [
+      {
+        "text": "sparse prepared piano and dry plucked strings, angular and precise, sand trickling, a little mocking",
+        "weight": 0
+      },
+      {
+        "text": "eerie sliding string glissandi, a modernist Japanese film score of the 1960s, dissonant and cold",
+        "weight": 0.4
+      },
+      {
+        "text": "the sea heard and not seen: a distant low surf under a thin drone",
+        "weight": 1.1
+      },
+      {
+        "text": "shakuhachi, breathy long notes with silences, wind over the dunes",
+        "weight": 0
+      },
+      {
+        "text": "dry rattling percussion like sand pouring, minimal and hypnotic, a slow repeating pattern",
+        "weight": 0.6
+      },
+      {
+        "text": "a ticking clock and a dripping water jar in a hot room, sparse, no melody",
+        "weight": 0
+      },
+      {
+        "text": "a koto plucked sparsely, a few cold notes, an insect pinned in a box",
+        "weight": 0
+      },
+      {
+        "text": "a low hum of wind in a rope and a winch, metallic and creaking, night above the pits",
+        "weight": 0
+      },
+      {
+        "text": "a slow bowed bass and cello cluster, the walls of a pit closing in, claustrophobic",
+        "weight": 0.8
+      },
+      {
+        "text": "a radio far off playing a cheerful pop tune, muffled, absurd in the sand",
+        "weight": 0
+      },
+      {
+        "text": "a warm low drone and a hearth's crackle, a lamp in a sand-filled room, tired tenderness",
+        "weight": 0
+      },
+      {
+        "text": "shimmering heat haze textures, high glassy tones, white noon over the dunes",
+        "weight": 0
+      },
+      {
+        "text": "a lone flute melody far away, a bus that has already gone",
+        "weight": 0
+      },
+      {
+        "text": "a slow soft taiko heartbeat, night digging, endless labour",
+        "weight": 0
+      },
+      {
+        "text": "brushed metal and scraped sand textures, a shovel's rhythm, rough and patient",
+        "weight": 0
+      },
+      {
+        "text": "a lantern-lit night, wind across sand, distant dogs, sparse",
+        "weight": 0
+      }
+    ]
+  }
 }

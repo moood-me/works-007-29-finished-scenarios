@@ -515,5 +515,77 @@
       "shadow": true,
       "inside": true
     }
-  ]
+  ],
+  "music": {
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.35,
+    "scale": "F_MAJOR_D_MINOR",
+    "prompts": [
+      {
+        "text": "a lone bayan playing a slow Russian folk melody, a railway village in late August, warm and sore",
+        "weight": 0
+      },
+      {
+        "text": "sparse solo piano, plain chords, a high pale sky over sand and rails, restrained and tender",
+        "weight": 0
+      },
+      {
+        "text": "soft sustained strings, a homecoming after four years, awkward and warm, no grandeur",
+        "weight": 0
+      },
+      {
+        "text": "a distant steam locomotive whistle and the slow knock of wheels, blended into a low drone",
+        "weight": 0
+      },
+      {
+        "text": "a balalaika plucked softly far away, a few notes, a village evening",
+        "weight": 0
+      },
+      {
+        "text": "a stove crackling and a kerosene lamp humming under a gentle low pad, an izba at night",
+        "weight": 1
+      },
+      {
+        "text": "a simple clarinet melody, a little hesitant, children who speak with their hands",
+        "weight": 0.4
+      },
+      {
+        "text": "wind over dry grass and sand, grasshoppers in the heat of noon, sparse",
+        "weight": 0
+      },
+      {
+        "text": "slow solo cello, long phrases, a man who cannot find the words",
+        "weight": 0.6
+      },
+      {
+        "text": "a wooden music box tune, a carved toy horse, fragile and kind",
+        "weight": 0.7
+      },
+      {
+        "text": "a muted brass chorale far away, 1945, the war over and still in the bones",
+        "weight": 0
+      },
+      {
+        "text": "a misty morning at a small station, a water tower dripping, distant voices, a soft drone",
+        "weight": 0
+      },
+      {
+        "text": "a children's song hummed on a harmonium, half remembered, warm",
+        "weight": 0
+      },
+      {
+        "text": "a low string drone with a slow heartbeat on felt timpani, a night conversation that hurts",
+        "weight": 0
+      },
+      {
+        "text": "an accordion waltz from a gramophone far away, scratched and nostalgic",
+        "weight": 0
+      },
+      {
+        "text": "airy fingerpicked guitar and a soft flute, a sandy path along the railway, children running",
+        "weight": 0
+      }
+    ]
+  }
 }

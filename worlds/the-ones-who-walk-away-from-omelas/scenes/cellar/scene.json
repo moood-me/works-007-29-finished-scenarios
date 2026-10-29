@@ -327,5 +327,89 @@
       "distance": 4.45,
       "shadow": true
     }
-  ]
+  ],
+  "music": {
+    "bpm": 60,
+    "density": 0.1,
+    "brightness": 0.15,
+    "scale": "G_MAJOR_E_MINOR",
+    "prompts": [
+      {
+        "text": "festival bells heard faintly through earth and stone, muffled, far above",
+        "weight": 0.3
+      },
+      {
+        "text": "cold water dripping in an earth cellar, very sparse, no melody",
+        "weight": 0.5
+      },
+      {
+        "text": "a single low drone, almost silence, a damp locked room under the earth, no melody",
+        "weight": 1
+      },
+      {
+        "text": "A solo wooden flute, bright and unhurried, a girl playing on a fountain's rim on a summer morning",
+        "weight": 0
+      },
+      {
+        "text": "Distant church bells ringing one after another over a white city by the sea, festive and airy",
+        "weight": 0
+      },
+      {
+        "text": "Light pastoral strings and harp, sunlit, a festival procession far off",
+        "weight": 0
+      },
+      {
+        "text": "Medieval dance on recorders and frame drum, joyful, a summer fair",
+        "weight": 0
+      },
+      {
+        "text": "Celtic harp arpeggios, clear water, morning light",
+        "weight": 0
+      },
+      {
+        "text": "A lonely flute melody with a quiet drone, a hint of sadness under the joy",
+        "weight": 0
+      },
+      {
+        "text": "Mediterranean guitar and mandolin, a square in the sun",
+        "weight": 0
+      },
+      {
+        "text": "Choir humming softly, no words, open fifths, sacred and calm",
+        "weight": 0
+      },
+      {
+        "text": "Glockenspiel and celesta, sparkling, children's festival",
+        "weight": 0
+      },
+      {
+        "text": "Low cello note held under bright woodwinds, something unspoken beneath",
+        "weight": 0
+      },
+      {
+        "text": "Pan flute and gentle hand percussion, a mountain festival",
+        "weight": 0
+      },
+      {
+        "text": "Hurdy-gurdy and fiddle, a slow folk waltz at evening with lanterns",
+        "weight": 0
+      },
+      {
+        "text": "Ambient seaside: gulls, wind over the bay, soft tonal pads",
+        "weight": 0
+      },
+      {
+        "text": "Solo piano, sparse and luminous, Satie-like, a white town at noon",
+        "weight": 0
+      },
+      {
+        "text": "Renaissance lute, a simple tender melody",
+        "weight": 0
+      },
+      {
+        "text": "Woodwind quintet, playful and light, horses in ribbons trotting by",
+        "weight": 0
+      }
+    ]
+  }
 }

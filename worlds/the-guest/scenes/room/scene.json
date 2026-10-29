@@ -521,5 +521,89 @@
       "across": 1.55,
       "distance": 4.05
     }
-  ]
+  ],
+  "music": {
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.35,
+    "scale": "E_FLAT_MAJOR_C_MINOR",
+    "prompts": [
+      {
+        "text": "cold blue dusk wind at the windows, a faint pad, minimal",
+        "weight": 0.4
+      },
+      {
+        "text": "low cello drone, one held note, a revolver lying on the table, restrained tension",
+        "weight": 0.6
+      },
+      {
+        "text": "sparse felt piano, a few slow notes by lamplight, a stove ticking, two men silent",
+        "weight": 1.1
+      },
+      {
+        "text": "solo oud, sparse slow phrases, long silences, cold dry wind, North African high plateau",
+        "weight": 0.7
+      },
+      {
+        "text": "low ney flute, breathy and lonely, slow, wide open space",
+        "weight": 0
+      },
+      {
+        "text": "sparse felt piano, a few cold notes, winter morning, restrained",
+        "weight": 0
+      },
+      {
+        "text": "bowed double bass drone, very slow, austere",
+        "weight": 0
+      },
+      {
+        "text": "distant frame drum, a slow heartbeat, desert silence",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, plain and grave, long notes",
+        "weight": 0
+      },
+      {
+        "text": "guitar harmonics, glassy and thin, snow light",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, quiet and dry, unresolved, 1950s French film",
+        "weight": 0
+      },
+      {
+        "text": "ambient wind pad, cold air, minimal",
+        "weight": 0
+      },
+      {
+        "text": "clarinet in the low register, slow and dignified, melancholy",
+        "weight": 0
+      },
+      {
+        "text": "qanun plucked softly, a few notes, distant",
+        "weight": 0
+      },
+      {
+        "text": "harmonium chord held, bare and austere",
+        "weight": 0
+      },
+      {
+        "text": "solo violin, high and thin, sorrow without tears",
+        "weight": 0
+      },
+      {
+        "text": "music box, faraway, a classroom memory",
+        "weight": 0
+      },
+      {
+        "text": "low brass chorale, slow, solemn",
+        "weight": 0
+      },
+      {
+        "text": "minimal piano ostinato, waiting, tension held",
+        "weight": 0
+      }
+    ]
+  }
 }

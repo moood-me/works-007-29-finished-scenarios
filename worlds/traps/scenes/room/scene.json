@@ -436,5 +436,89 @@
       "inside": true,
       "shadow": true
     }
-  ]
+  ],
+  "music": {
+    "bpm": 60,
+    "density": 0.2,
+    "brightness": 0.25,
+    "scale": "F_MAJOR_D_MINOR",
+    "prompts": [
+      {
+        "text": "solo cello sul tasto, one held low note, quiet dread",
+        "weight": 0.4
+      },
+      {
+        "text": "a waltz from downstairs heard faintly through the floor, tipsy and fading",
+        "weight": 0.6
+      },
+      {
+        "text": "low sustained strings, a cold turn after laughter, moonlight in a guest room at night",
+        "weight": 1
+      },
+      {
+        "text": "a small café orchestra of the 1950s playing a slow, warm waltz on a summer evening, accordion and violin",
+        "weight": 0
+      },
+      {
+        "text": "gentle Swiss Ländler on a button accordion, unhurried, in a garden far off",
+        "weight": 0
+      },
+      {
+        "text": "pizzicato strings and a bassoon, sly and comic, a grotesque minuet",
+        "weight": 0
+      },
+      {
+        "text": "a clarinet melody over soft plucked double bass, playful but with something uneasy under it",
+        "weight": 0.6
+      },
+      {
+        "text": "late romantic chamber music, a piano trio, tender and slightly melancholic",
+        "weight": 0
+      },
+      {
+        "text": "a music box waltz slowing down",
+        "weight": 0
+      },
+      {
+        "text": "distant church bells over a valley, warm evening air",
+        "weight": 0
+      },
+      {
+        "text": "a slow tango on bandoneon and piano, theatrical",
+        "weight": 0
+      },
+      {
+        "text": "cool jazz trio, brushed drums, muted trumpet, 1956",
+        "weight": 0
+      },
+      {
+        "text": "a wind quintet playing a light pastoral serenade",
+        "weight": 0
+      },
+      {
+        "text": "solo harpsichord, a stately baroque dance with a mocking edge",
+        "weight": 0
+      },
+      {
+        "text": "string quartet tremolo, a cold, sudden chill",
+        "weight": 0
+      },
+      {
+        "text": "tavern piano, slightly out of tune, cheerful drinking song",
+        "weight": 0
+      },
+      {
+        "text": "low sustained cello and soft timpani, a trial about to begin",
+        "weight": 0
+      },
+      {
+        "text": "crickets and a faraway gramophone playing an old foxtrot",
+        "weight": 0
+      },
+      {
+        "text": "a small brass band playing a village march, heard across the fields",
+        "weight": 0
+      }
+    ]
+  }
 }

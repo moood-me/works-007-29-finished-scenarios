@@ -439,5 +439,89 @@
       "across": 1.75,
       "distance": 3.6
     }
-  ]
+  ],
+  "music": {
+    "bpm": 64,
+    "density": 0.3,
+    "brightness": 0.4,
+    "scale": "D_MAJOR_B_MINOR",
+    "prompts": [
+      {
+        "text": "bowed vibraphone and reverb, cold blue air over the clouds, stars, stillness",
+        "weight": 0.3
+      },
+      {
+        "text": "steady low engine drone of a small mail plane under sustained strings, dusk over Patagonia, the lights coming on below",
+        "weight": 1.1
+      },
+      {
+        "text": "slow solo piano, sparse chords, nocturnal, restrained and dignified, French impressionist colour",
+        "weight": 0.7
+      },
+      {
+        "text": "distant morse telegraph clicks over a low string drone, tense and patient, night office",
+        "weight": 0.4
+      },
+      {
+        "text": "low strings sustained, slow, grave and tender, a long night of waiting",
+        "weight": 0.6
+      },
+      {
+        "text": "muted trumpet far away, a few long notes, lonely airfield at night",
+        "weight": 0
+      },
+      {
+        "text": "warm accordion, slow, nostalgic, 1930s France",
+        "weight": 0
+      },
+      {
+        "text": "ambient engine hum, low propeller drone, airy pad, vast night sky",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, grave, restrained, noble sadness",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, stars over clouds, weightless and cold",
+        "weight": 0
+      },
+      {
+        "text": "deep timpani rolls and low brass, a storm gathering far off",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, long bowed notes, bitter and beautiful",
+        "weight": 0
+      },
+      {
+        "text": "minimalist piano ostinato, clockwork pulse, waiting for news",
+        "weight": 0
+      },
+      {
+        "text": "clarinet and bassoon, quiet and dry, an office at midnight",
+        "weight": 0
+      },
+      {
+        "text": "wordless choir very soft, high and far, moonlit sea of clouds",
+        "weight": 0
+      },
+      {
+        "text": "slow waltz on a small orchestra, faded, a lamp in a window",
+        "weight": 0
+      },
+      {
+        "text": "bowed vibraphone and reverb, cold blue air, stillness",
+        "weight": 0
+      },
+      {
+        "text": "orchestral swell, heroic yet sorrowful, dawn after a lost night",
+        "weight": 0
+      },
+      {
+        "text": "low horn chorale, slow, mourning without tears",
+        "weight": 0
+      }
+    ]
+  }
 }
