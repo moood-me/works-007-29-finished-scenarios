@@ -109,6 +109,11 @@ async function step(c, s, state, where, result = null) {
   };
   g.beat = (name, o) => { piece(name); return beat(name, o); };
   g.told = (text, ms) => {
+    // (a piece's moments are listened for before its scene is opened: checked once it is)
+    queueMicrotask(() => know(text));
+    return told(text, ms);
+  };
+  const know = text => {
     const [name, moment] = text.split(':');
     if (name === 'beat') piece(moment);
     else {
@@ -116,7 +121,6 @@ async function step(c, s, state, where, result = null) {
       const beats = SCENES.get(folder)?.beats;
       if (beats?.[name] && !beats[name].tells?.includes(text)) miss(`${where}: “${text}” — the piece does not tell it`);
     }
-    return told(text, ms);
   };
   // a key of the shown scene's own: in its states, its value allowed — or a person's of the scene (`<id>_with`…)
   const PERSON = /^(.+)_(do|turn|look|reach|with|wear|gait|steps|on|here|still|mood)$/;
