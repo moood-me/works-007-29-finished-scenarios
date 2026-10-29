@@ -303,14 +303,85 @@ function book(F) {
   F.ball(c, K.axes, K.radii, BOOK, 8, 4);
   F.point('book', c);
 }
-// (stage 5: what the pieces put in their hands — a paper parcel, the casket, a lantern, a newspaper, her sketchbook, the
+// (the hall: Mrs Otis's shawl, Virginia's little casket, Washington's lantern)
+// a cream cashmere shawl round the shoulders: a soft roll over them and behind the neck, a point down the back, its
+// two ends hanging down the front from the shoulders (drawn as soft solids, as the cloak is; it moves with the body)
+const SHAWL_C = [0.86, 0.8, 0.7, 1];
+const SHAWL = F => ({
+  yoke: [null, null, null, null, null],
+  yp: [[0, 0.055 * F.k], [2, 0.065 * F.k], [4, 0.055 * F.k]],
+  back: [null, null, null],
+  bp: [[0, 0.16 * F.k], [1, 0.11 * F.k], [2, 0.015 * F.k]],
+  ends: [[null, null], [null, null]],
+  ep: [[0, 0.05 * F.k], [1, 0.04 * F.k]],
+  col: [[0, SHAWL_C]],
+});
+function shawl(F) {
+  const { add, mul, mix } = V();
+  const k = F.k;
+  const h = F.fit.h;
+  const K = F.keep(SHAWL);
+  const f = F.fwd('Chest');
+  const u = F.up('Chest');
+  const s = F.side('Chest');
+  const l = F.P('LeftArm');
+  const r = F.P('RightArm');
+  const n = F.P('Neck1');
+  K.yoke[0] = add(l, mul(u, 0.025 * h));
+  K.yoke[1] = add(mix(l, n, 0.5), add(mul(f, -0.05 * k), mul(u, 0.03 * h)));
+  K.yoke[2] = add(n, add(mul(f, -0.08 * k), mul(u, -0.02 * h)));
+  K.yoke[3] = add(mix(r, n, 0.5), add(mul(f, -0.05 * k), mul(u, 0.03 * h)));
+  K.yoke[4] = add(r, mul(u, 0.025 * h));
+  F.tube(K.yoke, K.yp, K.col, 10, u);
+  K.back[0] = add(K.yoke[2], mul(u, -0.03 * h));
+  K.back[1] = F.clear(add(K.back[0], add(mul(u, -0.2 * h), mul(f, -0.02 * k))), -1, 0.03 * k);
+  K.back[2] = F.clear(add(K.back[1], mul(u, -0.17 * h)), -1, 0.03 * k);
+  F.tube(K.back, K.bp, K.col, 8, s, 0.25);
+  for (const j of [0, 1]) {
+    const end = K.ends[j];
+    end[0] = add(K.yoke[j * 4], mul(f, 0.05 * k));
+    end[1] = F.clear(add(end[0], add(mul(u, -0.27 * h), mul(f, 0.03 * k))), 1, 0.03 * k);
+    F.tube(end, K.ep, K.col, 8, s, 0.5);
+  }
+}
+// a little old casket of dark wood bound in brass, held in both hands before the chest (with `clasped`; its point
+// `casket`)
+const CASKET_WOOD = [0.36, 0.22, 0.13, 1];
+const CASKET = F => ({ radii: [0.085 * F.k, 0.05 * F.fit.h, 0.06 * F.k], band: [0.088 * F.k, 0.012 * F.fit.h, 0.063 * F.k], axes: [null, null, null] });
+function casket(F) {
+  const { add, mul, mix } = V();
+  const K = F.keep(CASKET);
+  K.axes[0] = F.side('Chest');
+  K.axes[1] = F.up('Chest');
+  K.axes[2] = F.fwd('Chest');
+  const c = add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), add(mul(K.axes[2], 0.05 * F.k), mul(K.axes[1], 0.02 * F.fit.h)));
+  F.ball(c, K.axes, K.radii, CASKET_WOOD, 8, 4);
+  F.ball(add(c, mul(K.axes[1], 0.025 * F.fit.h)), K.axes, K.band, BRASS, 8, 4);
+  F.point('casket', c);
+}
+// a hand lantern hanging from the right hand by its ring: a black iron frame, its glass glowing (its point `lantern`:
+// a scene's light there)
+const IRON = [0.16, 0.15, 0.14, 1];
+const LIT_GLASS = [1, 0.84, 0.55, 2];
+const LANTERN = F => ({ down: [-0.02, -0.06, -0.09, -0.25, -0.28].map(y => [0, y * F.fit.h, 0]), iron: [[0, IRON]], glass: [[0, LIT_GLASS]] });
+function lantern(F) {
+  const { add } = V();
+  const k = F.k;
+  const K = F.keep(LANTERN);
+  const hand = F.P('RightHand');
+  const at = i => add(hand, K.down[i]);
+  F.bar(at(0), at(1), 0.012 * k, 0.012 * k, K.iron, 6, F.side('RightHand'));
+  F.bar(at(1), at(2), 0.06 * k, 0.05 * k, K.iron, 10, F.side('RightHand'));
+  F.bar(at(2), at(3), 0.05 * k, 0.05 * k, K.glass, 10, F.side('RightHand'));
+  F.bar(at(3), at(4), 0.06 * k, 0.06 * k, K.iron, 10, F.side('RightHand'));
+  F.point('lantern', add(hand, [0, -0.17 * F.fit.h, 0]));
+}
+// (stage 5: what the pieces put in their hands — a paper parcel, the casket on a palm, a newspaper, her sketchbook, the
 // candle-end; each a point of its own where it is)
 const PAPER = [0.86, 0.8, 0.66, 1];
 const STRING = [0.55, 0.42, 0.3, 1];
-const CASKET = [0.36, 0.2, 0.12, 1];
+const CASKET_DARK = [0.36, 0.2, 0.12, 1];
 const GILT = [0.78, 0.62, 0.3, 1];
-const IRON = [0.16, 0.15, 0.14, 1];
-const LANTERN_GLASS = [1, 0.86, 0.55, 2];
 const NEWS = [0.9, 0.88, 0.8, 1];
 const NEWS_INK = [0.42, 0.4, 0.38, 1];
 const SKETCH = [0.95, 0.93, 0.86, 1];
@@ -327,30 +398,18 @@ function parcel(F) {
   F.ball(add(c, [0, 0.02 * F.fit.h, 0]), K.axes, K.tie, STRING, 8, 4);
   F.point('parcel', c);
 }
-// a small old casket of dark wood with gilt corners, lying on the right palm (point `casket`)
+// the same casket lying on the right palm, held out in one hand (`casket_hand`; point `casket`) — the hall's `casket`
+// is held in both hands
 const CASKET_SIZE = F => ({ box: [0.075 * F.k, 0.045 * F.fit.h, 0.055 * F.k], lid: [0.078 * F.k, 0.012 * F.fit.h, 0.058 * F.k], axes: [null, [0, 1, 0], null] });
-function casket(F) {
+function casketHand(F) {
   const { add, mul } = V();
   const K = F.keep(CASKET_SIZE);
   const c = add(F.P('RightHand'), add(mul(F.fwd('RightHand'), 0.02 * F.k), [0, 0.06 * F.fit.h, 0]));
   K.axes[0] = F.side('RightHand');
   K.axes[2] = F.fwd('RightHand');
-  F.ball(c, K.axes, K.box, CASKET, 8, 4);
+  F.ball(c, K.axes, K.box, CASKET_DARK, 8, 4);
   F.ball(add(c, [0, 0.045 * F.fit.h, 0]), K.axes, K.lid, GILT, 8, 4);
   F.point('casket', c);
-}
-// a lantern hanging from the right hand by its ring: an iron frame, glowing glass (point `lantern`: a scene's light there)
-const LANTERN = F => ({ glass: [0.06 * F.k, 0.09 * F.fit.h, 0.06 * F.k], cap: [0.07 * F.k, 0.025 * F.fit.h, 0.07 * F.k], down: [[0, -0.05 * F.fit.h, 0], [0, -0.16 * F.fit.h, 0], [0, -0.27 * F.fit.h, 0]] });
-function lantern(F) {
-  const { add } = V();
-  const K = F.keep(LANTERN);
-  const hand = F.P('RightHand');
-  F.bar(hand, add(hand, K.down[0]), 0.006 * F.k, 0.006 * F.k, [[0, IRON]], 6, F.side('RightHand'));
-  F.ball(add(hand, K.down[0]), UPRIGHT, K.cap, IRON, 8, 3);
-  const glass = add(hand, K.down[1]);
-  F.ball(glass, UPRIGHT, K.glass, LANTERN_GLASS, 8, 3);
-  F.ball(add(hand, K.down[2]), UPRIGHT, K.cap, IRON, 8, 3);
-  F.point('lantern', glass);
 }
 // a newspaper held open between both hands before one who sits reading (point `newspaper`)
 const NEWSPAPER = F => ({ half: 0.2 * F.fit.h, axes: [null, [0, 1, 0], null] });
@@ -530,6 +589,9 @@ return {
       candle: { name: 'a candle', draw: candle },
       candle_l: { name: 'a candle in the left hand', draw: candleLeft },
       book: { name: 'a book on the lap', draw: book },
+      shawl: { name: 'shawl', draw: shawl },
+      casket: { name: 'a little casket', draw: casket },
+      lantern: { name: 'a hand lantern', draw: lantern },
       // a white stock at the throat, in the look's accent colour
       stock: {
         name: 'stock',
@@ -552,8 +614,7 @@ return {
       brush: { name: 'paint brush', draw: brush },
       almond_cross: { name: 'cross of almond blossom', draw: almondCross },
       parcel: { name: 'a paper parcel', draw: parcel },
-      casket: { name: 'a small old casket', draw: casket },
-      lantern: { name: 'a lantern', draw: lantern },
+      casket_hand: { name: 'the little casket on one palm', draw: casketHand },
       newspaper: { name: 'a newspaper held open', draw: newspaper },
       sketchbook: { name: 'a sketchbook on the knees', draw: sketchbook },
       stub: { name: 'a candle-end', draw: stub },
