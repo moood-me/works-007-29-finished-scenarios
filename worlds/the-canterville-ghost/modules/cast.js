@@ -303,6 +303,78 @@ function book(F) {
   F.ball(c, K.axes, K.radii, BOOK, 8, 4);
   F.point('book', c);
 }
+// (the hall: Mrs Otis's shawl, Virginia's little casket, Washington's lantern)
+// a cream cashmere shawl round the shoulders: a soft roll over them and behind the neck, a point down the back, its
+// two ends hanging down the front from the shoulders (drawn as soft solids, as the cloak is; it moves with the body)
+const SHAWL_C = [0.86, 0.8, 0.7, 1];
+const SHAWL = F => ({
+  yoke: [null, null, null, null, null],
+  yp: [[0, 0.055 * F.k], [2, 0.065 * F.k], [4, 0.055 * F.k]],
+  back: [null, null, null],
+  bp: [[0, 0.16 * F.k], [1, 0.11 * F.k], [2, 0.015 * F.k]],
+  end: [null, null],
+  ep: [[0, 0.05 * F.k], [1, 0.04 * F.k]],
+  col: [[0, SHAWL_C]],
+});
+function shawl(F) {
+  const { add, mul, mix } = V();
+  const k = F.k;
+  const h = F.fit.h;
+  const K = F.keep(SHAWL);
+  const f = F.fwd('Chest');
+  const u = F.up('Chest');
+  const s = F.side('Chest');
+  const l = F.P('LeftArm');
+  const r = F.P('RightArm');
+  const n = F.P('Neck1');
+  K.yoke[0] = add(l, mul(u, 0.025 * h));
+  K.yoke[1] = add(mix(l, n, 0.5), add(mul(f, -0.05 * k), mul(u, 0.03 * h)));
+  K.yoke[2] = add(n, add(mul(f, -0.08 * k), mul(u, -0.02 * h)));
+  K.yoke[3] = add(mix(r, n, 0.5), add(mul(f, -0.05 * k), mul(u, 0.03 * h)));
+  K.yoke[4] = add(r, mul(u, 0.025 * h));
+  F.tube(K.yoke, K.yp, K.col, 10, u);
+  K.back[0] = add(K.yoke[2], mul(u, -0.03 * h));
+  K.back[1] = F.clear(add(K.back[0], add(mul(u, -0.2 * h), mul(f, -0.02 * k))), -1, 0.03 * k);
+  K.back[2] = F.clear(add(K.back[1], mul(u, -0.17 * h)), -1, 0.03 * k);
+  F.tube(K.back, K.bp, K.col, 8, s, 0.25);
+  for (const i of [0, 4]) {
+    K.end[0] = add(K.yoke[i], mul(f, 0.05 * k));
+    K.end[1] = F.clear(add(K.end[0], add(mul(u, -0.27 * h), mul(f, 0.03 * k))), 1, 0.03 * k);
+    F.tube(K.end, K.ep, K.col, 8, s, 0.5);
+  }
+}
+// a little old casket of dark wood bound in brass, held in both hands before the chest (with `clasped`; its point
+// `casket`)
+const CASKET_WOOD = [0.36, 0.22, 0.13, 1];
+const CASKET = F => ({ radii: [0.085 * F.k, 0.05 * F.fit.h, 0.06 * F.k], band: [0.088 * F.k, 0.012 * F.fit.h, 0.063 * F.k], axes: [null, null, null] });
+function casket(F) {
+  const { add, mul, mix } = V();
+  const K = F.keep(CASKET);
+  K.axes[0] = F.side('Chest');
+  K.axes[1] = F.up('Chest');
+  K.axes[2] = F.fwd('Chest');
+  const c = add(mix(F.P('LeftHand'), F.P('RightHand'), 0.5), add(mul(K.axes[2], 0.05 * F.k), mul(K.axes[1], 0.02 * F.fit.h)));
+  F.ball(c, K.axes, K.radii, CASKET_WOOD, 8, 4);
+  F.ball(add(c, mul(K.axes[1], 0.025 * F.fit.h)), K.axes, K.band, BRASS, 8, 4);
+  F.point('casket', c);
+}
+// a hand lantern hanging from the right hand by its ring: a black iron frame, its glass glowing (its point `lantern`:
+// a scene's light there)
+const IRON = [0.16, 0.15, 0.14, 1];
+const LIT_GLASS = [1, 0.84, 0.55, 2];
+const LANTERN = F => ({ down: [-0.02, -0.06, -0.09, -0.25, -0.28].map(y => [0, y * F.fit.h, 0]), iron: [[0, IRON]], glass: [[0, LIT_GLASS]] });
+function lantern(F) {
+  const { add } = V();
+  const k = F.k;
+  const K = F.keep(LANTERN);
+  const hand = F.P('RightHand');
+  const at = i => add(hand, K.down[i]);
+  F.bar(at(0), at(1), 0.012 * k, 0.012 * k, K.iron, 6, F.side('RightHand'));
+  F.bar(at(1), at(2), 0.06 * k, 0.05 * k, K.iron, 10, F.side('RightHand'));
+  F.bar(at(2), at(3), 0.05 * k, 0.05 * k, K.glass, 10, F.side('RightHand'));
+  F.bar(at(3), at(4), 0.06 * k, 0.06 * k, K.iron, 10, F.side('RightHand'));
+  F.point('lantern', add(hand, [0, -0.17 * F.fit.h, 0]));
+}
 return {
   ...data,
   characters: {
@@ -443,6 +515,9 @@ return {
       candle: { name: 'a candle', draw: candle },
       candle_l: { name: 'a candle in the left hand', draw: candleLeft },
       book: { name: 'a book on the lap', draw: book },
+      shawl: { name: 'shawl', draw: shawl },
+      casket: { name: 'a little casket', draw: casket },
+      lantern: { name: 'a hand lantern', draw: lantern },
       // a white stock at the throat, in the look's accent colour
       stock: {
         name: 'stock',
