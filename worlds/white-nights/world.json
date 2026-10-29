@@ -8,5 +8,5 @@
     "classic": 30
   },
   "main": "embankment",
-  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant", "pt"]
+  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant", "pt", "pl"]
 }

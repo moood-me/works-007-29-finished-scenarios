@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Fog Horn","translation":"Syrena","where":"worlds/the-fog-horn/world.json title"},
+  {"text":"After Ray Bradbury. A lighthouse on a rock in grey water, a keeper who waits for November, his young assistant, and a window on the far shore that lights at ten.","translation":"Według Raya Bradbury’ego. Latarnia morska na skale pośród szarej wody, latarnik, który czeka na listopad, jego młody pomocnik i okno na dalekim brzegu, które zapala się o dziesiątej.","where":"worlds/the-fog-horn/world.json description"}
+]}

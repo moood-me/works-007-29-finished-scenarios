@@ -1,0 +1,5 @@
+{"strings": [
+  {"text":"NO SMOKING","translation":"ZAKAZ PALENIA","where":"worlds/the-glass-menagerie/scenes/warehouse/elements/back_wall.js"},
+  {"text":"The Warehouse","translation":"Magazyn","where":"worlds/the-glass-menagerie/scenes/warehouse/scene.json title"},
+  {"text":"A week later, in the shoe warehouse. Tom writes on a shoebox lid; Jim has a foot up on a carton.","translation":"Tydzień później, w magazynie obuwia. Tom pisze na wieczku pudełka po butach; Jim oparł nogę na kartonie.","where":"worlds/the-glass-menagerie/scenes/warehouse/scene.json caption"}
+]}

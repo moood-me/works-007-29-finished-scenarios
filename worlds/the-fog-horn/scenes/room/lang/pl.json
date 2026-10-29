@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Room","translation":"Izba","where":"worlds/the-fog-horn/scenes/room/scene.json title"},
+  {"text":"The sun goes into the sea. Two cups on the table.","translation":"Słońce zachodzi w morze. Na stole dwa kubki.","where":"worlds/the-fog-horn/scenes/room/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Secret Chamber","translation":"Tajna komnata","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json title"},
+  {"text":"Behind the panel on the landing: a low stone room, an iron ring in the wall, the moon at a little barred window.","translation":"Za boazerią na podeście schodów: niska kamienna izba, żelazny pierścień w ścianie, księżyc w małym zakratowanym okienku.","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json caption"}
+]}

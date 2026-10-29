@@ -1,0 +1,8 @@
+{"strings": [
+  {"text":"YE OTIS GHOSTE","translation":"DUCH OTISÓW","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"Ye Onlie True and Originale Spook.","translation":"Jedyny Prawdziwy y Oryginalny Strach.","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"Beware of Ye Imitationes.","translation":"Strzeż się Podróbek.","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"All others are Counterfeite.","translation":"Wszystkie inne to Fałszerstwa.","where":"worlds/the-canterville-ghost/scenes/tapestry/elements/turnip.js"},
+  {"text":"The Tapestry Chamber","translation":"Komnata Gobelinowa","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json title"},
+  {"text":"Autumn, late in the afternoon. The door of the Tapestry Chamber stands ajar.","translation":"Jesień, późne popołudnie. Drzwi Komnaty Gobelinowej są uchylone.","where":"worlds/the-canterville-ghost/scenes/tapestry/scene.json caption"}
+]}

@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"The Turn of the Screw","translation":"W kleszczach lęku","where":"worlds/the-turn-of-the-screw/world.json title"},
+  {"text":"A country house, a governess and two children. Figures that may be there, or may not.","translation":"Wiejska rezydencja, guwernantka i dwoje dzieci. Postacie, które może tam są, a może ich nie ma.","where":"worlds/the-turn-of-the-screw/world.json description"}
+]}

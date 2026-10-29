@@ -7,5 +7,5 @@
     "comedy": 20
   },
   "main": "yard",
-  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant", "pt"]
+  "languages": ["en", "ru", "uk", "de", "es", "ja", "be", "fr", "zh-hant", "pt", "pl"]
 }
