@@ -5,9 +5,9 @@
 // Stage 4: Pellerin and the mechanics on the field; the Chilean mail coming down out of the dark, then standing; Roblet's
 // box at his feet, in his hands or gone; the spanner from hand to hand. Stage 5: the mini-games real — М8 lights the
 // field, М2 leaves a blot Robineau blots, М3 and М4 pass the box and the spanner (М4 missed: the spanner on the
-// workbench); “Touch his shoulder” one touch in 3 s.
+// workbench); “Touch his shoulder” one touch in 3 s. The cockpit on its piece (`trelew`); the field's pieces to come.
 // Reads: nothing. Leaves: choices.touch, .fine, .roblet; marks.touched, .fine, .roblet; scales.exceptions.
-import { FIELD, PLANE, SKY } from '../story.js';
+import { FIELD, PLANE, SKY, piece } from '../story.js';
 import { light, pen, box, spanner } from '../minigames/all.js';
 
 // the mechanics at the plane; listening, their faces to Roblet (1.3–1.4)
@@ -137,14 +137,15 @@ export default {
       }
       g.apply('roblet');
     },
-    // 1.5: Trelew
+    // 1.5: Trelew (`trelew`)
     async g => {
-      await g.scene('cockpit', { here: ['fabien', 'radioman'], moods: { fabien: 'neutral', radioman: 'thinking' }, keys: SKY.night });
-      await g.plate(tr('Eleven o’clock. Below, the lights of Trelew. Far away in the south, silent sheet lightning. The radio operator passes a note forward.'));
-      await g.say('radioman', 'Trelew: land?', { how: 'a note written in the air, read short over the engine' });
-      await g.say('fabien', 'No. We’ll outrun it', { how: 'a note written in the air, read short over the engine' });
-      g.mood('fabien', 'thinking');
-      await g.plate(tr('He looks at the lights of the little town till they go under the wing.'));
+      await piece(g, 'trelew', {
+        note: () => g.say('radioman', 'Trelew: land?', { how: 'a note written in the air, read short over the engine' }),
+        answer: async () => {
+          await g.say('fabien', 'No. We’ll outrun it', { how: 'a note written in the air, read short over the engine' });
+          g.mood('fabien', 'thinking');
+        },
+      }, () => g.scene('cockpit', { beat: 'trelew', here: ['fabien', 'radioman'], moods: { fabien: 'neutral', radioman: 'thinking' }, keys: SKY.night }));
     },
   ],
 };
