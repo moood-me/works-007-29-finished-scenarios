@@ -75,12 +75,11 @@ export const PLACES = {
   square: { folder: 'square' }, // С6 the square
   porch: { folder: 'yard' }, // С1 in chapter 3 (a year on: its pieces' `year`, `sold`)
 };
-// Jack's room's moments (its key `moment`: the light, what stands where and who is here) — for its pieces' openings
-// and the one moment with no piece, 1.5 «Run away» call (Mom at his door). `menagerie` — the menagerie as the room
+// Jack's room's moments (its key `moment`: the light, what stands where and who is here) — the one moment with no
+// piece, 1.5 «Run away» call (Mom at his door). `menagerie` — the menagerie as the room
 // shows it (MENAGERIE: by the scale).
-export const ROOM = {
-  bedtime: { moment: 'bedtime' }, ran: { moment: 'ran' }, call: { moment: 'call' }, night: { moment: 'night', menagerie: 'shelf' },
-};
+// (a piece starts from its own moment: the game never names one beside a piece — only for 1.5's call, which has none)
+export const ROOM = { call: { moment: 'call' } };
 export const MENAGERIE = ['attic', 'laohu', 'house'];
 // What the scenes' pieces take from the game (their notes.md «Stage 5»: a piece starts from every value but these and
 // the people's `_here`, `_mood`): the kitchen — the marks; Jack's room — the menagerie as it stands (before 1.6:
@@ -291,7 +290,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         put('beat', null); // (the same piece again is a change too)
         put('beat', name);
       }
-      if (wait && !(await ended)) b.trouble(`the piece “${name}” did not end`);
+      if (wait && !(await ended)) b.trouble(tr('The piece “{name}” did not end', { name }));
     },
     told(text, ms = 60000) {
       return gone() ? never : unseen() ? j.heard(text, ms) : alive(hub.told(text, ms));
