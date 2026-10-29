@@ -66,6 +66,13 @@ Spots for the other moments (a / d, turn), checked on renders where noted:
 | 4С.3 night (rendered) | Mr Otis (coat) asleep: `otis_on` [1.4, 7.32, 0.45], `otis_do` "doze", `otis_with` ["book"], `otis_mood` "eyes_closed", turn 180; Sir Simon at the far end 0 / 12.4 (`ghost_d` 11.8), then at her door; Virginia at her open door (`door_virginia` 330) 1.7 / 6.2 |
 | 4С.4 «Мимо кресла» | she passes the chair on the corridor side (x ≈ 0.6) toward the far door |
 
+## Measured
+
+`measure_scene` (run 98, commit 544c912, Tesla T4): GPU ~4.0 ms a frame, 266 pages a view against 1420, no soft run,
+no late cuts. Fails: "allocated a frame" (~29–32 KB — the engine's modules; the scene's own code, the cast's drawing
+included, ~4 KB), a GC pause of 3.7 ms on the desktop profile, and frames p95 16.8 ms against 16.7 (the 60 Hz pace).
+The same as the chamber's measure: the engine's, not the scene's.
+
 ## What is not right yet
 
 - People who face each other along the corridor show the viewer one side's backs (4С.3: Virginia looks down the
