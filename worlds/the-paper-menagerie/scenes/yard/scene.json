@@ -127,7 +127,13 @@
     "sold": false,
     "shoebox": 0,
     "menu_house": false,
-    "dad_here": false
+    "dad_here": false,
+    "year": 0,
+    "view": "house",
+    "bus_a": 40,
+    "mark_grown_here": false,
+    "boy_a_here": false,
+    "boy_b_here": false
   },
   "objects": [
     {
@@ -559,6 +565,153 @@
       }
     },
     {
+      "id": "street_eye",
+      "name": "Where the eye stands looking out to the street (view: street)",
+      "unseen": true,
+      "across": 0,
+      "distance": 1.2,
+      "facing": 0
+    },
+    {
+      "id": "street",
+      "name": "The street behind the yard: the sidewalk, the road, the lawns across it",
+      "plane": true,
+      "across": 0,
+      "distance": -31,
+      "elevation": 0.006,
+      "width": 400,
+      "depth": 59.2
+    },
+    {
+      "id": "far_street",
+      "name": "The town's trees and roofs far off behind the street",
+      "across": 0,
+      "distance": -100,
+      "facing": 0,
+      "height": 9,
+      "box": [
+        -300,
+        -9.5,
+        300,
+        0.05
+      ]
+    },
+    {
+      "id": "houses_across",
+      "name": "The houses across the street, Mark's among them",
+      "shadow": true,
+      "across": 0,
+      "distance": -20,
+      "facing": 0,
+      "height": 8,
+      "box": [
+        -37,
+        -8.0,
+        37,
+        0.05
+      ]
+    },
+    {
+      "id": "street_trees",
+      "name": "Street maples in new leaf",
+      "shadow": true,
+      "translucent": 0.3,
+      "across": 7,
+      "distance": -11.4,
+      "height": 7.2,
+      "box": [
+        -3,
+        -7.3,
+        3,
+        0.05
+      ],
+      "copies": [
+        {
+          "across": 7,
+          "distance": -11.4
+        },
+        {
+          "across": -11,
+          "distance": -11.6,
+          "flip": true,
+          "scale": 1.1
+        },
+        {
+          "across": -8.5,
+          "distance": -2.4,
+          "scale": 0.9
+        },
+        {
+          "across": 17,
+          "distance": -2.5,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "id": "car",
+      "name": "Mark's car at the far curb",
+      "shadow": true,
+      "across": -4.2,
+      "distance": -9.7,
+      "facing": 0,
+      "height": 1.4,
+      "box": [
+        -2.3,
+        -1.42,
+        2.3,
+        0.02
+      ]
+    },
+    {
+      "id": "bus",
+      "name": "The yellow school bus",
+      "shadow": true,
+      "across": 40,
+      "distance": -5.0,
+      "facing": 0,
+      "height": 3.0,
+      "box": [
+        -5.4,
+        -3.0,
+        5.4,
+        0.05
+      ],
+      "place": {
+        "across": "bus_a"
+      }
+    },
+    {
+      "id": "stop",
+      "name": "The school bus stop: the sign on its post, a concrete block",
+      "shadow": true,
+      "across": -3.6,
+      "distance": -2.9,
+      "facing": 0,
+      "height": 2.4,
+      "box": [
+        -0.35,
+        -2.4,
+        1.1,
+        0.02
+      ]
+    },
+    {
+      "id": "front_fence",
+      "name": "The white picket fence along the front, its gate open",
+      "shadow": true,
+      "across": 0,
+      "distance": -1.6,
+      "facing": 0,
+      "height": 1.16,
+      "box": [
+        -12,
+        -1.18,
+        12,
+        0.03
+      ]
+    },
+    {
       "id": "mom",
       "name": "Mom",
       "person": {
@@ -619,6 +772,52 @@
       "place": {
         "across": "dad_a",
         "distance": "dad_d"
+      }
+    },
+    {
+      "id": "mark_grown",
+      "name": "Mark, grown",
+      "person": {
+        "cast": "cast",
+        "who": "mark_grown",
+        "turn": 0
+      },
+      "across": -4.0,
+      "distance": -11.0,
+      "place": {
+        "across": "mark_grown_a",
+        "distance": "mark_grown_d"
+      }
+    },
+    {
+      "id": "boy_a",
+      "name": "A tall boy at the stop",
+      "person": {
+        "cast": "cast",
+        "who": "boy_a",
+        "turn": 20,
+        "does": "hands_in_pockets"
+      },
+      "across": -2.7,
+      "distance": -2.6,
+      "place": {
+        "across": "boy_a_a",
+        "distance": "boy_a_d"
+      }
+    },
+    {
+      "id": "boy_b",
+      "name": "A stocky boy at the stop",
+      "person": {
+        "cast": "cast",
+        "who": "boy_b",
+        "turn": 345
+      },
+      "across": -4.4,
+      "distance": -2.5,
+      "place": {
+        "across": "boy_b_a",
+        "distance": "boy_b_d"
       }
     }
   ],
@@ -746,6 +945,28 @@
     "menu_house": {
       "type": "boolean",
       "means": "the paper house from the hospital menu on top of the shoebox ('Left' - he took the train)"
+    },
+    "year": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "a year on (the game's; chapter 3): 1 - the scene's script dresses Jack grown (jack_grown, no suit bag) and Dad grey (dad_grey, no book), Mom not here; 0 - as they are"
+    },
+    "view": {
+      "values": [
+        "house",
+        "street"
+      ],
+      "means": "which way the eye looks: house - the yard and the house (the scene's picture); street - turned round from the yard toward the street (the script sets camera_on to street_eye): the front fence and its open gate, the sidewalk with the school bus stop, the road, Mark's house across it and his car at the curb"
+    },
+    "bus_a": {
+      "range": [
+        -40,
+        40
+      ],
+      "smooth": true,
+      "means": "where the school bus is along the street (metres across; it comes from +40, the left as seen from the street eye): about -0.6 its door at the stop; 40 or -40 out of sight"
     }
   }
 }

@@ -86,6 +86,8 @@ function keys(moment, menagerie) {
       k.jack_mood = 'smile';
     }
   }
+  // the prologue (`young`): Jack at five, whatever the moment but chapter 3's
+  if (scene.state.young && moment !== 'packed') k.jack_wear = { ...cast.jack_five };
   return k;
 }
 function stage() {
@@ -95,3 +97,4 @@ function stage() {
 stage();
 scene.on('change', 'moment', () => stage());
 scene.on('change', 'menagerie', () => stage());
+scene.on('change', 'young', () => stage());

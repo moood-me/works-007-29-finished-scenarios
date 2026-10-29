@@ -90,7 +90,9 @@
     "day": 0,
     "packed": false,
     "menagerie": "none",
-    "suit_bag": false
+    "suit_bag": false,
+    "young": false,
+    "year": 0
   },
   "states": {
     "lamp": {
@@ -123,6 +125,17 @@
     "suit_bag": {
       "type": "boolean",
       "means": "Jack's suit in its bag hanging on the hook by the door, the shop's tag still on it ('Stayed', 3.1)"
+    },
+    "young": {
+      "type": "boolean",
+      "means": "the prologue (the game's): Jack at five - the scene's script dresses him as the cast's jack_five"
+    },
+    "year": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "a year on (the game's; chapter 3): 1 - the scene's script dresses Jack grown (jack_grown, no suit bag) and Dad grey (dad_grey, no book), Mom not here; 0 - as they are"
     }
   },
   "objects": [

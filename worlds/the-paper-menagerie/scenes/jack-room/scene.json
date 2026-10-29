@@ -148,7 +148,8 @@
     },
     "dad_here": false,
     "dad_a": 1.05,
-    "dad_d": 3.3
+    "dad_d": 3.3,
+    "young": false
   },
   "states": {
     "moment": {
@@ -388,6 +389,10 @@
         4.2
       ],
       "means": "where Dad stands, metres away"
+    },
+    "young": {
+      "type": "boolean",
+      "means": "the prologue (the game's): Jack at five - the moment's Jack dressed as the cast's jack_five (not in 'packed')"
     }
   },
   "objects": [
