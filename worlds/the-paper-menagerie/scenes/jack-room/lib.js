@@ -272,8 +272,8 @@ function film(scene) {
   const glide = (s, c, over) => s.all(...CAMK.map(k => s.move(k, c[k], { over, ease: 'inOut' })));
   const SH = {
     wide: CAM0,
-    bed: CAM([-0.55, 2.0, 1.2], [-1.6, 3.25, 0.98]),
-    jack_bed: CAM([-0.45, 2.05, 1.3], [-1.6, 3.35, 0.9]),
+    bed: CAM([-0.75, 2.75, 1.6], [-1.75, 3.75, 0.7]),
+    jack_bed: CAM([-0.7, 2.65, 1.65], [-1.8, 3.7, 0.65]),
     door: CAM([0.5, 2.1, 1.5], [1.95, 3.35, 1.4]),
     hatch: CAM([2.1, 2.0, 1.2], [1.9, 3.3, 1.8]),
     floor: CAM([0.6, 1.9, 1.2], [-0.3, 3.2, 0.6]),
@@ -310,6 +310,14 @@ function film(scene) {
   const onFloor = { jack_a: FLOOR[0], jack_d: FLOOR[1], jack_turn: 170, jack_do: 'sit_floor', jack_on: null, jack_look: 'laohu', jack_with: [], jack_reach: null };
   // where Laohu wakes by the menagerie: by the attic's box on the floor (attic), or on the bare shelf
   const wakeAt = m => (m === 'attic' ? { laohu_a: -0.55, laohu_d: 3.1, laohu_e: 0 } : { laohu_a: -1.1, laohu_d: 4.12, laohu_e: 1.285 });
+  // Jack lying in his bed (П.4, 1.6): on his back, his head on the pillow, his feet toward the bed's foot (turn 180 —
+  // the cast's lie_bed lies its feet the way the turn faces), his hips at the seat height over the mattress (0.48);
+  // at five he is shorter, his hips nearer the pillow. Laohu under his right hand on the quilt.
+  const lying = five => {
+    const at = five ? [-1.84, 3.5, 0.46] : [-1.84, 3.3, 0.45];
+    return { jack_a: at[0], jack_d: at[1], jack_turn: 180, jack_on: at, jack_do: 'lie_bed', jack_look: 'laohu', jack_reach: { r: 'laohu#back' },
+      laohu_a: -1.58, laohu_d: five ? 3.4 : 3.2, laohu_e: QUILT };
+  };
 
   return {
     // ---- the prologue
@@ -317,13 +325,14 @@ function film(scene) {
     // straightens the blanket; his eyes close
     bedtime: {
       tells: ['bedtime:ask', 'bedtime:blanket'], seconds: 14,
-      from: () => at('bedtime', null, { young: true, jack_wear: cast.jack_five ?? null, jack_reach: { r: 'laohu#back' }, ...SH.bed }),
+      from: () => at('bedtime', null, { young: true, jack_wear: cast.jack_five ?? null, ...lying(true), jack_look: 'mom', laohu_tape: false,
+        mom_a: -1.5, mom_d: 3.55, mom_on: [-1.5, 3.55, BED], mom_turn: 230, mom_do: 'sitting_on_bed', mom_look: 'jack', ...SH.bed }),
       run: async s => {
         const mom = s.person('mom'), jack = s.person('jack');
         await s.wait(1);
         s.tell('bedtime:ask');
         await s.wait(6);
-        mom.reach({ r: [-1.8, 3.0, 0.52] });
+        mom.reach({ r: [-1.8, 3.05, 0.55] });
         mom.look('bed_top#quilt');
         await s.wait(1.5);
         mom.reach(null);
@@ -359,10 +368,11 @@ function film(scene) {
     // (with «Шов» he keels over); the animals on the shelf; then the choice
     box_night: {
       tells: ['box_night:end'], seconds: 8,
-      from: () => at('night', 'shelf', { laohu_a: -2.1, laohu_d: 3.88, laohu_e: 0.59, jack_look: 'laohu', ...SH.jack_bed }),
+      from: () => at('night', 'shelf', { ...lying(false), jack_reach: null, laohu_a: -2.1, laohu_d: 3.88, laohu_e: 0.59, ...SH.jack_bed }),
       run: async s => {
-        await walkTo(s, [-1.75, 3.85, 0.59], 2);
-        await walkTo(s, [-1.8, 3.15, QUILT], 3);
+        await walkTo(s, [-1.6, 3.85, 0.59], 2);
+        await walkTo(s, [-1.58, 3.2, QUILT], 3);
+        s.person('jack').reach({ r: 'laohu#back' });
         await s.wait(1.2);
         s.tell('box_night:end');
         await s.wait(1);
@@ -372,10 +382,14 @@ function film(scene) {
     // hatch in the hall (the cast's part `shoebox`)
     box_attic: {
       after: ['box_night'], tells: ['box_attic:shut', 'box_attic:hatch'], seconds: 15,
-      from: () => at('night', 'shelf', { laohu_a: -1.8, laohu_d: 3.15, laohu_e: QUILT, jack_look: 'laohu', ...SH.jack_bed }),
+      from: () => at('night', 'shelf', { ...lying(false), ...SH.jack_bed }),
       run: async s => {
         const jack = s.person('jack');
-        put(s, { jack_on: null, jack_do: 'stand' });
+        // he gets up out of bed (off the bed onto his feet beside it, as the motion goes) and to the shelf
+        jack.reach(null);
+        put(s, { jack_on: null });
+        await jack.do('rise', { loop: false });
+        jack.do('stand');
         await jack.walk([[-1.3, 3.75]]);
         await jack.turn(0);
         jack.look('shelf');
@@ -400,16 +414,14 @@ function film(scene) {
     // «Всех, кроме Лаоху»: the others into the box; Laohu falls asleep under his hand
     box_laohu: {
       after: ['box_night'], tells: ['box_laohu:asleep'], seconds: 9,
-      from: () => at('night', 'shelf', { laohu_a: -1.8, laohu_d: 3.15, laohu_e: QUILT, jack_look: 'laohu', ...SH.jack_bed }),
+      from: () => at('night', 'shelf', { ...lying(false), ...SH.jack_bed }),
       run: async s => {
         const jack = s.person('jack');
         jack.look('shelf');
         await s.wait(1);
         put(s, { shelf: 'empty', box: 'shut' });
         await s.wait(1.5);
-        await hop(s, [-1.7, 3.3, QUILT]);
         jack.look('laohu');
-        jack.reach({ r: 'laohu#back' });
         glide(s, SH.quilt, 2);
         s.set('laohu_asleep', true);
         s.tell('box_laohu:asleep');
@@ -420,15 +432,16 @@ function film(scene) {
     // creeps under the covers
     box_all: {
       after: ['box_night'], tells: ['box_all:goats'], seconds: 9,
-      from: () => at('night', 'shelf', { laohu_a: -1.8, laohu_d: 3.15, laohu_e: QUILT, jack_look: 'laohu', ...SH.jack_bed }),
+      from: () => at('night', 'shelf', { ...lying(false), ...SH.jack_bed }),
       run: async s => {
         const jack = s.person('jack');
-        put(s, { zoo: true, shelf: 'deer', goats_a: -1.95, goats_d: 3.6, goats_e: QUILT });
+        put(s, { zoo: true, shelf: 'deer', goats_a: -1.5, goats_d: 3.1, goats_e: QUILT });
         jack.look('goats');
         glide(s, SH.quilt, 2);
-        await s.path(['goats_a', 'goats_d'], [[-1.95, 3.6], [-2.0, 3.3], [-1.95, 2.95]], { over: 3 });
+        await s.path(['goats_a', 'goats_d'], [[-1.5, 3.1], [-1.55, 2.85], [-1.7, 2.65]], { over: 3 });
         s.tell('box_all:goats');
-        await hop(s, [-1.9, 3.5, QUILT]);
+        jack.reach(null);
+        await hop(s, [-1.75, 3.55, QUILT]);
         s.set('laohu_out', false);
         jack.mood('smile');
         await s.wait(3);
