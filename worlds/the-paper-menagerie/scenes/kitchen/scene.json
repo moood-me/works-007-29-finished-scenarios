@@ -21,7 +21,7 @@
     "grain": 0.1,
     "looks": {
       "day": {
-        "ambient": 0.9,
+        "ambient": 1.0,
         "ambientColor": "#dfe3ec",
         "haze": 0.03,
         "hazeColor": "#dfe4ea",
@@ -30,7 +30,8 @@
         "tintStrength": 0.02,
         "lights": {
           "afterglow": 0
-        }
+        },
+        "inside": 0.85
       }
     }
   },
@@ -65,7 +66,7 @@
         40
       ],
       "color": "#fff2dc",
-      "strength": 1.0,
+      "strength": 1.2,
       "on": "day"
     }
   ],
@@ -714,7 +715,7 @@
       "name": "The box on the table being packed",
       "inside": true,
       "shadow": true,
-      "across": 0.0,
+      "across": -0.5,
       "distance": 2.35,
       "elevation": 0.76,
       "facing": 180,

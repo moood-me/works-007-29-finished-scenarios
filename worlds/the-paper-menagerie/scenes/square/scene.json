@@ -47,8 +47,8 @@
     "translator_with": [
       "letter"
     ],
-    "translator_look": "translator#letter",
-    "translator_mood": "thinking",
+    "translator_look": "jack",
+    "translator_mood": "neutral",
     "jack_wear": {
       "parts": []
     },
@@ -112,10 +112,10 @@
       "across": -16,
       "distance": 22,
       "facing": 90,
-      "height": 12,
+      "height": 13,
       "box": [
         -16,
-        -12,
+        -13,
         16,
         0.05
       ]
@@ -126,10 +126,10 @@
       "across": 18,
       "distance": 26,
       "facing": 270,
-      "height": 12,
+      "height": 13,
       "box": [
         -16,
-        -12,
+        -13,
         16,
         0.05
       ]

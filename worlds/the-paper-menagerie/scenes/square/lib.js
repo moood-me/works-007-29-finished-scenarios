@@ -10,6 +10,10 @@ function row(g, x0, x1, rnd) {
       ['#3e5d8f', '#f3ece0'],
       ['#c99a3a', '#f3ece0'],
     ];
+  g.save();
+  g.beginPath();
+  g.rect(x0, -13, x1 - x0, 13.05);
+  g.clip();
   let x = x0,
     i = 0;
   while (x < x1) {
@@ -56,5 +60,6 @@ function row(g, x0, x1, rnd) {
     x += w;
     i++;
   }
+  g.restore();
 }
 return { row };

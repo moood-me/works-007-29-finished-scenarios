@@ -44,7 +44,8 @@ the room.
   light-up sword gone grey; the point `knight`.
 - `phrasebook` — a small book held open in both hands before the chest; the point `book` (cover: the look's `accent`).
 - `letter` — Laohu unfolded: a square of red wrapping paper with gold stars, the old yellow tape across it, held open
-  in both hands before the chest — its writing (cream, columns of ink) toward the reader; the point `letter`.
+  in both hands before the chest, its outside away from the reader (her writing on its back is an insert's); the point
+  `letter`.
 - `flag` — a tour guide's little flag held up in the right hand, its pennant the look's `accent`; the point `flag`.
 - `frog` — a paper frog of green wrapping paper sitting on the open right hand; the point `frog`.
 
