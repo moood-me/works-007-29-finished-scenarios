@@ -1,4 +1,4 @@
 {"strings": [
-  {"text":"The Secret Chamber","translation":"","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json title"},
-  {"text":"Behind the panel on the landing: a low stone room, an iron ring in the wall, the moon at a little barred window.","translation":"","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json caption"}
+  {"text":"The Secret Chamber","translation":"Die geheime Kammer","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json title"},
+  {"text":"Behind the panel on the landing: a low stone room, an iron ring in the wall, the moon at a little barred window.","translation":"Hinter der Täfelung am Treppenabsatz: ein niedriger Raum aus Stein, ein eiserner Ring in der Wand, der Mond an einem kleinen vergitterten Fenster.","where":"worlds/the-canterville-ghost/scenes/chamber/scene.json caption"}
 ]}
