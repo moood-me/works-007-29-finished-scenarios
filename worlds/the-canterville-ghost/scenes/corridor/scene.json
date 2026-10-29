@@ -598,7 +598,7 @@
       "id": "armour",
       "name": "The suit of armour on its stand",
       "across": 1.62,
-      "distance": 3.3,
+      "distance": 3.8,
       "height": 2.05,
       "box": [
         -0.45,
@@ -612,7 +612,7 @@
       "id": "table",
       "name": "The little table by the armour",
       "across": 1.6,
-      "distance": 4.25,
+      "distance": 4.6,
       "height": 0.8,
       "box": [
         -0.36,
