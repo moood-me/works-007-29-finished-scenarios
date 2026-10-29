@@ -40,12 +40,13 @@ const PAPERS = [
   ['#f4e7b8', '#dfcd8f'],
 ];
 if (m === 'sill') {
-  crane(g, -0.45, -0.01, 1, ...PAPERS[0]);
-  crane(g, -0.2, -0.01, -1, ...PAPERS[1]);
-  crane(g, 0.42, -0.01, 1, ...PAPERS[2]);
-  frog(g, 0.1, -0.005, '#86b874', '#6a9a5c');
-  frog(g, 0.24, -0.005, '#b8d27a', '#98b25e');
-  e.at(-0.2, -0.06, 'cranes');
+  // (to the right of the sill: the box on the table hides its left half from where we stand)
+  crane(g, 0.05, -0.01, 1, ...PAPERS[0]);
+  crane(g, 0.3, -0.01, -1, ...PAPERS[1]);
+  crane(g, 0.55, -0.01, 1, ...PAPERS[2]);
+  frog(g, 0.18, -0.005, '#86b874', '#6a9a5c');
+  frog(g, 0.43, -0.005, '#b8d27a', '#98b25e');
+  e.at(0.3, -0.06, 'cranes');
 } else {
   [
     [-0.55, -1.02, 1],

@@ -1,12 +1,14 @@
-// Laohu breathes — the flanks swell a little, slowly, unevenly — and its tail ticks from pose to pose as paper moves.
-if (e.state.packed) return;
-const breath = Math.sin(e.t * 1.5 + 0.6 * e.anim.noise(e.t * 0.2, 2));
-const tiger = e.layer('tiger');
-tiger.scaleY = 1 + 0.03 * breath;
-tiger.scaleX = 1 + 0.012 * breath;
-const t = e.t * 0.5;
-const step = Math.floor(t);
-const from = e.anim.hash(step, 5) - 0.5;
-const to = e.anim.hash(step + 1, 5) - 0.5;
-const u = e.anim.ease.inOut(e.anim.clamp((t - step - 0.75) / 0.25, 0, 1));
-e.layer('tail').rotate = (from + (to - from) * u) * 0.6;
+// Laohu breathes by `laohu_breath` (0 paper, 1 alive) and moves as paper does (modules/paper: move): his tail ticks,
+// he leans with «Шов», turns at once (`laohu_dir`), sits in Jack's or Mom's hands (`laohu_held`), shakes himself
+// (`laohu_shake`), and the tape is laid along his tear (`tape_laid`).
+const st = e.state;
+e.kit.paper.move(e, {
+  show: !st.packed && st.laohu !== 'none',
+  breath: st.laohu_breath,
+  seam: st.laohu_seam && st.laohu !== 'torn',
+  dir: st.laohu_dir,
+  held: st.laohu_held === 'none' ? null : `${st.laohu_held}#hands`,
+  shake: st.laohu_shake,
+  torn: st.laohu === 'torn',
+  tape: st.tape_laid,
+});

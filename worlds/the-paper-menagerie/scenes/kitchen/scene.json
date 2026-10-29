@@ -21,7 +21,7 @@
     "grain": 0.1,
     "looks": {
       "day": {
-        "ambient": 0.9,
+        "ambient": 1.0,
         "ambientColor": "#dfe3ec",
         "haze": 0.03,
         "hazeColor": "#dfe4ea",
@@ -30,7 +30,8 @@
         "tintStrength": 0.02,
         "lights": {
           "afterglow": 0
-        }
+        },
+        "inside": 0.85
       }
     }
   },
@@ -65,12 +66,14 @@
         40
       ],
       "color": "#fff2dc",
-      "strength": 1.0,
+      "strength": 1.2,
       "on": "day"
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats",
+    "paper"
   ],
   "state": {
     "lamp": 1,
@@ -91,8 +94,26 @@
     "packed": false,
     "menagerie": "none",
     "suit_bag": false,
+    "year": 0,
     "young": false,
-    "year": 0
+    "wrapping": true,
+    "robot": false,
+    "ingots": 0.4,
+    "ingot_fold": 0,
+    "ingot_named": false,
+    "scraps": false,
+    "tape": true,
+    "laohu": "alive",
+    "laohu_a": -0.5,
+    "laohu_d": 2.1,
+    "laohu_e": 0.76,
+    "laohu_dir": 1,
+    "laohu_held": "none",
+    "laohu_breath": 1,
+    "laohu_shake": 0,
+    "tape_laid": 0,
+    "laohu_ear": false,
+    "laohu_seam": false
   },
   "states": {
     "lamp": {
@@ -126,16 +147,131 @@
       "type": "boolean",
       "means": "Jack's suit in its bag hanging on the hook by the door, the shop's tag still on it ('Stayed', 3.1)"
     },
-    "young": {
-      "type": "boolean",
-      "means": "the prologue (the game's): Jack at five - the scene's script dresses him as the cast's jack_five"
-    },
     "year": {
       "values": [
         0,
         1
       ],
-      "means": "a year on (the game's; chapter 3): 1 - the scene's script dresses Jack grown (jack_grown, no suit bag) and Dad grey (dad_grey, no book), Mom not here; 0 - as they are"
+      "means": "0 the story's own years; 1 a year on (chapter 3): Jack grown, Dad grey (the script dresses them)"
+    },
+    "young": {
+      "type": "boolean",
+      "means": "the prologue: Jack is five (the script dresses him so)"
+    },
+    "wrapping": {
+      "type": "boolean",
+      "means": "the torn Christmas wrapping paper on the oilcloth, red with gold stars and green with white dots (the prologue)"
+    },
+    "robot": {
+      "type": "boolean",
+      "means": "Jack's broken wind-up robot on the table, a leg snapped off beside it (the prologue)"
+    },
+    "ingots": {
+      "range": [
+        0,
+        1
+      ],
+      "means": "Qingming (1.1): 0 none; above 0 the stack of yellow squares and her folded gold ingots on the table, more as it grows, and Jack's own square before him (`ingot`)"
+    },
+    "ingot_fold": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Jack's square folded along its line (the mini-game «Сгиб»): 0 flat, 1 a little gold ingot"
+    },
+    "ingot_named": {
+      "type": "boolean",
+      "means": "his name pencilled on his ingot"
+    },
+    "scraps": {
+      "type": "boolean",
+      "means": "Laohu torn: his red scraps heaped on the oilcloth (1.5)"
+    },
+    "tape": {
+      "type": "boolean",
+      "means": "the roll of tape on the table"
+    },
+    "laohu": {
+      "values": [
+        "none",
+        "paper",
+        "alive",
+        "torn",
+        "taped"
+      ],
+      "means": "Laohu on the table or in someone's hands: none — not here; paper — just folded, still paper; alive — awake; torn — his two halves laid together by the old lines, the tear down his middle; taped — whole again, the clear strip across his flank"
+    },
+    "laohu_a": {
+      "range": [
+        -2.8,
+        2.8
+      ],
+      "smooth": true,
+      "means": "where Laohu is, metres right of the middle (the table: −0.8…0.5)"
+    },
+    "laohu_d": {
+      "range": [
+        1.5,
+        4.4
+      ],
+      "smooth": true,
+      "means": "where Laohu is, metres away (the table: 1.8…2.6)"
+    },
+    "laohu_e": {
+      "range": [
+        0,
+        1.5
+      ],
+      "smooth": true,
+      "means": "how high Laohu is (the oilcloth 0.76)"
+    },
+    "laohu_dir": {
+      "values": [
+        1,
+        -1
+      ],
+      "means": "which way Laohu faces: 1 his head to the left, −1 to the right (he turns at once, as paper does)"
+    },
+    "laohu_held": {
+      "values": [
+        "none",
+        "jack",
+        "mom"
+      ],
+      "means": "Laohu sitting in someone's hands (`<id>#hands`), or none"
+    },
+    "laohu_breath": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 still paper; 1 alive, breathing (the mini-game «Ладони» warms him up)"
+    },
+    "laohu_shake": {
+      "range": [
+        0,
+        1
+      ],
+      "means": "Laohu shaking himself, growling"
+    },
+    "tape_laid": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "her tape laid along his tear, from its top down (the mini-game «Скотч»)"
+    },
+    "laohu_ear": {
+      "type": "boolean",
+      "means": "the game's «Ухо»: Laohu has lost an ear, its stub taped flat"
+    },
+    "laohu_seam": {
+      "type": "boolean",
+      "means": "the game's «Шов»: the crooked seam — he leans over to one side and limps"
     }
   },
   "objects": [
@@ -388,6 +524,21 @@
       ]
     },
     {
+      "id": "deer",
+      "name": "The paper deer on the counter",
+      "inside": true,
+      "across": 0.6,
+      "distance": 4.25,
+      "elevation": 0.9,
+      "height": 0.24,
+      "box": [
+        -0.13,
+        -0.25,
+        0.13,
+        0.01
+      ]
+    },
+    {
       "id": "buffalo",
       "name": "The paper buffalo in the flower pot",
       "inside": true,
@@ -434,6 +585,48 @@
       "depth": 0.8
     },
     {
+      "id": "chair_back",
+      "name": "Mom's chair behind the table",
+      "inside": true,
+      "shadow": true,
+      "across": -0.1,
+      "distance": 3.08,
+      "facing": 180,
+      "height": 0.95,
+      "box": [
+        -0.24,
+        -0.97,
+        0.24,
+        0.01
+      ]
+    },
+    {
+      "id": "chairs",
+      "name": "The chairs at the table's ends, from the side",
+      "inside": true,
+      "shadow": true,
+      "across": -1.08,
+      "distance": 2.32,
+      "height": 0.95,
+      "box": [
+        -0.24,
+        -0.97,
+        0.24,
+        0.01
+      ],
+      "copies": [
+        {
+          "across": -1.08,
+          "distance": 2.32
+        },
+        {
+          "across": 0.8,
+          "distance": 2.32,
+          "flip": true
+        }
+      ]
+    },
+    {
       "id": "table_front",
       "name": "The table's oilcloth hem and legs",
       "inside": true,
@@ -464,6 +657,39 @@
       ]
     },
     {
+      "id": "ingot",
+      "name": "Jack's yellow square, his ingot",
+      "plane": true,
+      "inside": true,
+      "across": -0.62,
+      "distance": 2.12,
+      "elevation": 0.765,
+      "width": 0.17,
+      "depth": 0.17,
+      "redraw": {
+        "ingot_fold": 0.05,
+        "ingots": 1,
+        "ingot_named": 1,
+        "packed": 1
+      }
+    },
+    {
+      "id": "robot",
+      "name": "Jack's broken wind-up robot",
+      "inside": true,
+      "shadow": true,
+      "across": -0.72,
+      "distance": 2.0,
+      "elevation": 0.76,
+      "height": 0.22,
+      "box": [
+        -0.1,
+        -0.23,
+        0.12,
+        0.01
+      ]
+    },
+    {
       "id": "laohu",
       "name": "Laohu, the paper tiger",
       "inside": true,
@@ -473,18 +699,23 @@
       "elevation": 0.76,
       "height": 0.28,
       "box": [
-        -0.28,
         -0.3,
-        0.28,
-        0.01
-      ]
+        -0.36,
+        0.3,
+        0.02
+      ],
+      "place": {
+        "across": "laohu_a",
+        "distance": "laohu_d",
+        "elevation": "laohu_e"
+      }
     },
     {
       "id": "table_box",
       "name": "The box on the table being packed",
       "inside": true,
       "shadow": true,
-      "across": 0.0,
+      "across": -0.5,
       "distance": 2.35,
       "elevation": 0.76,
       "facing": 180,

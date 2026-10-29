@@ -1,7 +1,10 @@
 // What Mark threw down, on the grass round Jack, from above (metres, its middle at distance 5.0, y toward the viewer):
 // torn pieces of Laohu — red wrapping paper with gold stars, its folds still creased into them, a leg here, a strip of
-// flank with its stripes there; just paper now. There while `scraps` (and not a year on, `sold`). Two of them, lighter, lift and settle at an edge in the breeze (layers).
+// flank with its stripes there; just paper now. There while `scraps` (and not a year on, `sold`). Two of them, lighter,
+// lift and settle at an edge in the breeze (layers). The mini-game «Клочки» catches five of them, one by one — the
+// points `scraps#s1` … `#s5`; `scraps_left` (5..0) says how many are still on the grass (the first caught first).
 if (!e.state.scraps || e.state.sold) return;
+const left = e.state.scraps_left ?? 5;
 const L = '#e8503f',
   D = '#b02a20',
   GOLD = '#ecc65a',
@@ -42,10 +45,18 @@ const piece = (l, x, y, a, pts, stars) => {
   }
   l.restore();
 };
-piece(g, -0.62, 0.18, 0.4, [[-0.06, -0.04], [0.07, -0.05], [0.05, 0.05], [-0.04, 0.06]], [[0.0, 0.0]]);
-piece(g, 0.55, 0.32, -0.8, [[-0.05, -0.03], [0.06, -0.04], [0.04, 0.03]], [[0.01, -0.01]]);
-piece(g, -0.2, 0.45, 1.6, [[-0.08, -0.02], [0.08, -0.03], [0.07, 0.02], [-0.07, 0.03]], [[-0.03, 0.0], [0.04, 0.0]]);
-piece(g, 0.75, -0.15, 2.2, [[-0.04, -0.04], [0.05, -0.03], [0.03, 0.05]], []);
+// the five he catches (in the order caught: s1 first), each where it lies; the ones caught are gone from the grass
+const CAUGHT = [
+  [-0.62, 0.18, 0.4, [[-0.06, -0.04], [0.07, -0.05], [0.05, 0.05], [-0.04, 0.06]], [[0.0, 0.0]]],
+  [0.55, 0.32, -0.8, [[-0.05, -0.03], [0.06, -0.04], [0.04, 0.03]], [[0.01, -0.01]]],
+  [-0.2, 0.45, 1.6, [[-0.08, -0.02], [0.08, -0.03], [0.07, 0.02], [-0.07, 0.03]], [[-0.03, 0.0], [0.04, 0.0]]],
+  [0.75, -0.15, 2.2, [[-0.04, -0.04], [0.05, -0.03], [0.03, 0.05]], []],
+  [0.1, -0.3, -1.2, [[-0.05, -0.04], [0.06, -0.03], [0.04, 0.04], [-0.04, 0.03]], [[0.0, 0.0]]],
+];
+CAUGHT.forEach(([x, y, a, pts, stars], i) => {
+  if (i >= 5 - left) piece(g, x, y, a, pts, stars);
+  e.at(x, y, ['s1', 's2', 's3', 's4', 's5'][i]);
+});
 e.layer('flutter', { pivot: [-0.86, -0.42], wind: { strength: 0.5, gust: 0.8, scale: 0.5 } }, l =>
   piece(l, -0.8, -0.4, 0.9, [[-0.06, -0.03], [0.07, -0.04], [0.06, 0.04], [-0.05, 0.03]], [[0.0, 0.0]]),
 );

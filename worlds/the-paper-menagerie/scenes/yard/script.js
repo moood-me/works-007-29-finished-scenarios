@@ -16,3 +16,5 @@ if (scene.state.year) dress();
 if (scene.state.view === 'street') look();
 scene.on('change', 'year', () => dress());
 scene.on('change', 'view', () => look());
+// its pieces (the game sets `beat`: modules/beats, lib.film)
+scene.kit.beats.play(scene, scene.lib.film(scene));
