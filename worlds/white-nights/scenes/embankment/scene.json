@@ -79,6 +79,13 @@
           "glow": 0,
           "skylight": 1.25
         }
+      },
+      "wind": {
+        "wind": [
+          1,
+          0.4,
+          2.2
+        ]
       }
     }
   },
@@ -136,8 +143,7 @@
     }
   ],
   "modules": [
-    "cast",
-    "beats"
+    "cast"
   ],
   "state": {
     "moment": "first_meet",
@@ -148,11 +154,14 @@
     "overcast": 0,
     "day": 0,
     "rain": 0,
+    "wind": 0,
     "lamp": 1,
     "cart": false,
-    "pin": 0,
+    "hem": "none",
     "scraps": false,
     "ripple": 0.4,
+    "pin": 0,
+    "bell": 0,
     "nastya_here": true,
     "nastya_a": -1.4,
     "nastya_d": 3.6,
@@ -202,14 +211,10 @@
     },
     "lodger_here": false,
     "gentleman_here": false,
-    "dvornik_here": false,
+    "yardman_here": false,
     "nanny_here": false,
     "child_here": false,
-    "passerby_here": false,
-    "stick_down": false,
-    "stick_a": 0.8,
-    "stick_d": 6.7,
-    "letter_down": false
+    "passerby_here": false
   },
   "states": {
     "moment": {
@@ -332,13 +337,36 @@
       "type": "boolean",
       "means": "a dray loaded with furniture standing in the far bank's street (the city going to and coming back from the dachas)"
     },
+    "hem": {
+      "values": [
+        "none",
+        "pinned",
+        "torn"
+      ],
+      "means": "her hem on the second night: pinned to the Dreamer's left sleeve with Grandmother's pin (its glint at his wrist), torn (the pin gone; М2 missed), none"
+    },
     "pin": {
       "range": [
         0,
         1
       ],
       "smooth": true,
-      "means": "the glint of Grandmother's pin at the Dreamer's left wrist (her hem pinned to his sleeve, the second night)"
+      "means": "the pin's glint at the Dreamer's left wrist (script.js: 1 while `hem` is pinned)"
+    },
+    "wind": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the wind off the canal (Д2, М3): lime leaves blown along the street, more as it rises"
+    },
+    "bell": {
+      "range": [
+        0,
+        10
+      ],
+      "means": "the bell's strokes counted at ten (the game's sound; nothing is shown)"
     },
     "scraps": {
       "type": "boolean",
@@ -355,7 +383,7 @@
     "nastya_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where nastya stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -369,7 +397,7 @@
     "dreamer_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where dreamer stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -383,7 +411,7 @@
     "lodger_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where lodger stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -397,7 +425,7 @@
     "gentleman_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where gentleman stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -408,24 +436,24 @@
       ],
       "means": "where gentleman stands, metres away (the corner behind the viewer, below 0)"
     },
-    "dvornik_a": {
+    "yardman_a": {
       "range": [
         -3,
-        8
+        24
       ],
-      "means": "where dvornik stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
+      "means": "where yardman stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
-    "dvornik_d": {
+    "yardman_d": {
       "range": [
         -6,
         60
       ],
-      "means": "where dvornik stands, metres away (the corner behind the viewer, below 0)"
+      "means": "where yardman stands, metres away (the corner behind the viewer, below 0)"
     },
     "nanny_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where nanny stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -439,7 +467,7 @@
     "child_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where child stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -453,7 +481,7 @@
     "passerby_a": {
       "range": [
         -3,
-        8
+        24
       ],
       "means": "where passerby stands, metres right of the line of sight (the parapet's face −1.7, the houses 6.1)"
     },
@@ -463,72 +491,6 @@
         60
       ],
       "means": "where passerby stands, metres away (the corner behind the viewer, below 0)"
-    },
-    "stick_down": {
-      "type": "boolean",
-      "means": "his stick lying on the setts where it fell (M1 missed), at stick_a, stick_d"
-    },
-    "stick_a": {
-      "range": [
-        -2,
-        6
-      ],
-      "means": "where the dropped stick lies, metres right"
-    },
-    "stick_d": {
-      "range": [
-        -2,
-        30
-      ],
-      "means": "where the dropped stick lies, metres away"
-    },
-    "letter_down": {
-      "type": "boolean",
-      "means": "the letter lying in the puddle (M3 missed, a moment before he snatches it out)"
-    },
-    "arm": {
-      "type": "boolean",
-      "means": "the game's: the mark «Под руку» (the first night she took his arm): on the second night she takes it at once (piece waiting); else he hides his empty hands behind his back"
-    },
-    "cross": {
-      "type": "boolean",
-      "means": "the game's: the mark «Уколол»: on the third night she takes his arm only after a while (third_come)"
-    },
-    "ten": {
-      "values": [
-        "carried",
-        "glasha",
-        "kept"
-      ],
-      "means": "the game's: at ten on the third night (piece ten) — carried: he knows «he was there today»; glasha: she knows «tomorrow» and waits all the same; kept: the letter in his pocket"
-    },
-    "kept": {
-      "type": "boolean",
-      "means": "the game's: branch У (the letter kept): on the fourth night his hand goes to his pocket (fourth_weep)"
-    },
-    "went": {
-      "type": "boolean",
-      "means": "the game's: the mark «Ушёл»: on the fourth night she gives him her arm only in the rain; no kiss at the lamp, only a wave"
-    },
-    "couldnt": {
-      "type": "boolean",
-      "means": "the game's: the mark «Не смог»: on the fourth night (С) she takes his arm herself, as a sister (rail_c)"
-    },
-    "first": {
-      "type": "boolean",
-      "means": "the game's: on the fourth night (С) his «I love you» said for the first time (confess_c: she stops and looks long)"
-    },
-    "confessed": {
-      "type": "boolean",
-      "means": "the game's: the mark «Признался» (С): under the awning at ten she turns from the corner to him (awning_c)"
-    },
-    "bowed": {
-      "type": "boolean",
-      "means": "the game's: the mark «Поклон»: in the morning's end he nods to the yellow house (morning)"
-    },
-    "stained": {
-      "type": "boolean",
-      "means": "the game's: the mark «Пятно»: the letter carries the puddle's brown stain wherever it is (letter_stained)"
     }
   },
   "objects": [
@@ -663,30 +625,6 @@
         "rough": 0.06,
         "ripple": 0.12
       }
-    },
-    {
-      "id": "stick_ground",
-      "name": "The stick dropped on the setts",
-      "plane": true,
-      "across": 0.8,
-      "distance": 6.7,
-      "elevation": 0.03,
-      "width": 1.0,
-      "depth": 1.0,
-      "place": {
-        "across": "stick_a",
-        "distance": "stick_d"
-      }
-    },
-    {
-      "id": "letter_puddle",
-      "name": "The letter fallen in the puddle",
-      "plane": true,
-      "across": 1.85,
-      "distance": 4.6,
-      "elevation": 0.02,
-      "width": 0.3,
-      "depth": 0.3
     },
     {
       "id": "house_a",
@@ -1324,6 +1262,25 @@
       }
     },
     {
+      "id": "gust",
+      "name": "Leaves blown along the street",
+      "across": 1.5,
+      "distance": 8,
+      "particles": {
+        "kind": "leaves",
+        "amount": "wind",
+        "source": [
+          9,
+          16,
+          3
+        ],
+        "color": [
+          "#9aa86a",
+          "#c2b46a"
+        ]
+      }
+    },
+    {
       "id": "nastya",
       "name": "Nastenka",
       "person": {
@@ -1400,18 +1357,18 @@
       }
     },
     {
-      "id": "dvornik",
+      "id": "yardman",
       "name": "Yard-keeper",
       "person": {
         "cast": "cast",
-        "who": "dvornik",
+        "who": "yardman",
         "turn": 215
       },
       "across": 4.9,
       "distance": 14.2,
       "place": {
-        "across": "dvornik_a",
-        "distance": "dvornik_d"
+        "across": "yardman_a",
+        "distance": "yardman_d"
       },
       "shadow": {
         "light": "lamp",

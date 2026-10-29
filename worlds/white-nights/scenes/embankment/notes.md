@@ -38,8 +38,13 @@ upper half, the people's feet in the frame though they stand near)
 The view stands in the street 1.7 m off the parapet: the canal fills the left of the frame, the two stand together in
 the middle, near and large. What matters stays within the 4:3 frame (x 0.125…0.875); the near lamp too.
 
+- The world goes on behind the viewer too (for cameras that look back): the canal, both banks' walls and streets, the
+  parapet start 40 m behind; on the near side, behind the viewer, **the side street — the corner they come from**
+  (`lane`, its floor, across 6.1…30, distance −2…3, between the yellow house and the house behind it; its walls
+  `lane_wall`, a house closing it at across 30), houses beyond it on both banks, the canal's far end closed by the
+  `vista`'s second copy.
 - The canal runs straight away from the viewer: its water a reflecting plane 1.6 m under the streets, across −23.9 …
-  −2.2, 320 m long (`water`; a slow ripple layer drifting toward the viewer).
+  −2.2, from 40 m behind the viewer to 320 m ahead (`water`; a slow ripple layer drifting toward the viewer).
 - The near granite parapet — her place — along the canal, its face at across −1.7 (`parapet`, its face to the street,
   a darker granite with its top edge inked; its top `parapet_top` at 1.05 m, −2.2 … −1.7, a lighter stone where hands
   rest), from a metre off into the distance: the leading line from the bottom-left.
@@ -93,16 +98,19 @@ first night) is all of them 0. `rain` 0…1 — the rain round the eye (particle
 ripple, the key `ripple`, follows the rain in script.js). `lamp` puts out every lamp — the near one (light `lamp`), the
 banks' (`bank_lamps`, the copies' flames) — and their glass goes a cool pale grey (lib.lamp reads it; `redraw` 0.25).
 
+`wind` 0…1 — the wind off the canal (Д2, the game's М3): a look (the light's wind) and lime leaves blown along the street
+(particles `gust`, amount `wind`). `bell` 0…10 — the strokes of ten counted: the game's sound, nothing shown.
+
 Other keys: `cart` — a dray loaded with furniture in the far bank's street (`cart`: the city going to the dachas, coming
 back); `scraps` — the torn letter's bits afloat before the parapet (`scraps`, a plane on the water, its layer drifting
-down the canal); `pin` 0…1 — the glint of Grandmother's pin at the Dreamer's left wrist (a light at `dreamer#hand_l`,
-the second night on the bench).
+down the canal); `hem` none / pinned / torn — her hem on the second night: pinned to his left sleeve with Grandmother's pin, whose glint
+(the light `pin` at `dreamer#hand_l`, the key `pin` set by script.js from `hem`) shows at his wrist; torn — the pin gone.
 
 ## The people
 
 The world's `cast` (modules/cast.md). Each stands by its place keys `<id>_a`, `<id>_d`; casts the lamp's shadow.
 `nastya` (Nastenka), `dreamer`, `lodger`; the embankment's own passers (new in the cast): `gentleman` (the tipsy
-gentleman in a tailcoat, 1.2), `dvornik` (the yard-keeper with his broom, the prologue; part `broom`), `nanny` and
+gentleman in a tailcoat, 1.2), `yardman` (the yard-keeper with his broom, the prologue; part `broom`), `nanny` and
 `child` (the morning's end; the child's part `bagel`), `passerby` (the morning). New parts: `broom`, `bagel`,
 `letter_stained` (the letter with the puddle's brown stain — the mark «Пятно»). All but Nastenka and the Dreamer are
 `_here` false by default.
@@ -145,7 +153,8 @@ The moments one after another, four seconds each (showcase.js).
 
 ## State
 
-`lamp` 0…1 — the lamps' light. `moment`, `staged`, the looks, `rain`, `ripple`, `cart`, `pin`, `scraps` (above). The
+`lamp` 0…1 — the lamps' light. `moment`, `staged`, the looks, `rain`, `ripple`, `wind`, `bell`, `cart`, `hem`, `pin`,
+`scraps` (above). The
 people's keys are the engine's (`<id>_here`, `_a`, `_d`, `_turn`, `_do`, `_reach`, `_look`, `_with`, `_mood`, …).
 
 ## What moves
@@ -154,6 +163,21 @@ The clouds drift (a sky layer), the ripple runs down the canal (a layer of the w
 lamp's flame flickers a little, the rain falls, the scraps drift, the people breathe. A night's sky is a layer shown by
 its key. Nothing is painted again while the scene plays (the lamps' glass only when `lamp` crosses a quarter).
 
+## Points (for the game's marks and cameras)
+
+The people's own (`<id>#head`, `#hand_r`, `#hand_l`, `#elbow_r`, `#elbow_l`, `#chest`, `#shoulder_r`, …; the letter's
+`<id>#letter` while held), `lamp#flame`, `sky#afterglow`. Arm in arm: her hand on his elbow on the side she walks —
+walking toward the viewer she is on his right (`nastya_reach` {l: `dreamer#elbow_r`}), walking away or facing the
+viewer under the awning, on his left ({r: `dreamer#elbow_l`}, as the game's М4 marks `nastya#hand_r`).
+
+## Stage 5 — not begun here
+
+The owner stopped «Белые ночи» at stage 4 (2026-10-29). Not in the scene: the pieces (`lib.film`, the key `beat`), its
+cameras and close faces, its motions. A first draft of the pieces was written against scenario §5 before the game's
+contract came and was taken out whole (nothing half-made is left); what it taught is in the history note
+`docs/history/2026-10-29-nochi-embankment.md`. The world has the module `beats` (copied from Canterville) for when the
+pieces are written.
+
 ## What is not right yet
 
 - The rain falls through the awning (weather fills the air round the eye; its `area` is a box, not «not under this»):
@@ -161,8 +185,3 @@ its key. Nothing is painted again while the scene plays (the lamps' glass only w
 - People far up the street (the awning at 12 m, the bench at 9–11 m) are small in the picture camera: the close faces
   are stage 5's cameras.
 
-## Contract for the check
-
-```json
-{"beats": {"prologue":{"after":[],"tells":["prologue:walk","prologue:stop"],"seconds":14}, "bow_house":{"after":["prologue"],"tells":["bow_house:bow","bow_house:laugh"],"seconds":6}, "pass_house":{"after":["prologue"],"tells":["pass_house:gone"],"seconds":8}, "lamp_lit":{"after":[],"tells":["lamp_lit:on"],"seconds":9}, "crying":{"after":[],"tells":["crying:see"],"seconds":9}, "approach":{"after":["crying"],"tells":["approach:stop","approach:startle","approach:gone"],"seconds":10}, "pass_by":{"after":["crying"],"tells":["pass_by:look"],"seconds":10}, "gentleman":{"after":[],"tells":["gentleman:follow"],"seconds":9}, "stick_go":{"after":["gentleman"],"tells":["stick_go:raise"],"seconds":4}, "stick_off":{"after":["stick_go"],"tells":["stick_off:pardon","stick_off:gone"],"seconds":9}, "stick_drop":{"after":["stick_go"],"tells":["stick_drop:clatter","stick_drop:laugh"],"seconds":8}, "arm_go":{"after":["gentleman"],"tells":["arm_go:offer"],"seconds":5}, "arm_take":{"after":["arm_go"],"tells":["arm_take:hand","arm_take:off"],"seconds":8}, "walk":{"after":[],"tells":["walk:near","walk:seen"],"seconds":16}, "nod_house":{"after":[],"tells":["nod_house:nod","nod_house:laugh"],"seconds":8}, "silence":{"after":[],"tells":["silence:far"],"seconds":18}, "corner":{"after":[],"tells":["corner:let"],"seconds":10}, "promise":{"after":["corner"],"tells":["promise:hand"],"seconds":4}, "silent_bow":{"after":["corner"],"tells":["silent_bow:bow"],"seconds":3}, "she_goes":{"after":["corner","promise","silent_bow"],"tells":["she_goes:gone"],"seconds":6}, "waiting":{"after":[],"tells":["waiting:pace","waiting:she"],"seconds":15}, "bench":{"after":[],"tells":["bench:sit"],"seconds":11}, "sleeve":{"after":["bench"],"tells":["sleeve:touch","sleeve:away"],"seconds":6}, "type":{"after":["bench"],"tells":["type:talk"],"seconds":8}, "pin":{"after":["bench","sleeve","type"],"tells":["pin:pinned"],"seconds":6}, "unpin":{"after":["pin"],"tells":["unpin:free"],"seconds":4}, "tear_hem":{"after":["pin"],"tells":["tear_hem:rip","tear_hem:laugh"],"seconds":5}, "back_bench":{"after":[],"tells":["back_bench:face"],"seconds":5}, "to_rail":{"after":["back_bench"],"tells":["to_rail:up","to_rail:rail"],"seconds":7}, "rise":{"after":["back_bench","to_rail","sleeve","type","unpin","tear_hem"],"tells":["rise:up"],"seconds":5}, "freeze":{"after":["rise"],"tells":["freeze:face","freeze:back"],"seconds":6}, "letter":{"after":["rise","freeze"],"tells":["letter:out","letter:give","letter:gone"],"seconds":15}, "alone_letter":{"after":["letter"],"tells":["alone_letter:rail"],"seconds":12}, "errand":{"after":[],"tells":["errand:wind"],"seconds":10}, "puddle":{"after":["errand"],"tells":["puddle:fall","puddle:snatch"],"seconds":6}, "third_come":{"after":[],"tells":["third_come:here","third_come:arm"],"seconds":11}, "pull_along":{"after":["third_come"],"tells":["pull_along:go"],"seconds":7}, "slow_along":{"after":["third_come"],"tells":["slow_along:stop","slow_along:arm"],"seconds":10}, "no_eyes":{"after":["third_come"],"tells":["no_eyes:look"],"seconds":6}, "here_it_is":{"after":["third_come"],"tells":["here_it_is:give","here_it_is:face"],"seconds":8}, "to_water":{"after":["here_it_is"],"tells":["to_water:turn"],"seconds":5}, "at_letter":{"after":["here_it_is"],"tells":["at_letter:look"],"seconds":4}, "guessed":{"after":["pull_along","slow_along","no_eyes"],"tells":["guessed:face"],"seconds":6}, "yes_hand":{"after":["guessed"],"tells":["yes_hand:let","yes_hand:take"],"seconds":5}, "ten":{"after":[],"tells":["ten:stroke","ten:last"],"seconds":22}, "sit_silent":{"after":["ten"],"tells":["sit_silent:sit"],"seconds":9}, "stay":{"after":["sit_silent"],"tells":["stay:sit","stay:head","stay:face"],"seconds":11}, "leave":{"after":["sit_silent"],"tells":["leave:go","leave:gone"],"seconds":8}, "head_up":{"after":["sit_silent"],"tells":["head_up:look"],"seconds":4}, "tear_letter":{"after":[],"tells":["tear_letter:stroke","tear_letter:tear","tear_letter:gone"],"seconds":30}, "fourth_weep":{"after":[],"tells":["fourth_weep:cry","fourth_weep:pocket"],"seconds":10}, "confess":{"after":["fourth_weep"],"tells":["confess:him","confess:her"],"seconds":9}, "shoulders":{"after":["fourth_weep"],"tells":["shoulders:arm"],"seconds":8}, "give_back":{"after":["fourth_weep"],"tells":["give_back:out","give_back:face","give_back:take","give_back:gone","give_back:rain"],"seconds":24}, "rain_walk":{"after":[],"tells":["rain_walk:rain","rain_walk:arm"],"seconds":6}, "hold_close":{"after":["rain_walk"],"tells":["hold_close:close"],"seconds":3}, "walk_ahead":{"after":["rain_walk"],"tells":["walk_ahead:take"],"seconds":3}, "awning_alone":{"after":[],"tells":["awning_alone:look","awning_alone:back"],"seconds":11}, "rail_c":{"after":[],"tells":["rail_c:arm","rail_c:walk"],"seconds":12}, "confess_c":{"after":[],"tells":["confess_c:stop","confess_c:on"],"seconds":10}, "brother_c":{"after":[],"tells":["brother_c:let"],"seconds":8}, "quiet_c":{"after":[],"tells":["quiet_c:walk"],"seconds":12}, "awning_c":{"after":[],"tells":["awning_c:rain","awning_c:stroke","awning_c:last"],"seconds":30}, "lodger":{"after":["rain_walk","hold_close","walk_ahead"],"tells":["lodger:see","lodger:turn","lodger:hand"],"seconds":12}, "let_go":{"after":["lodger"],"tells":["let_go:run","let_go:back","let_go:kiss","let_go:with"],"seconds":18}, "held":{"after":["lodger"],"tells":["held:pull","held:free","held:look"],"seconds":10}, "reached":{"after":["lodger"],"tells":["reached:call","reached:stop","reached:cheek","reached:go"],"seconds":13}, "leave_with":{"after":["let_go","held","reached"],"tells":["leave_with:speak","leave_with:look","leave_with:hat","leave_with:gone"],"seconds":18}, "morning":{"after":[],"tells":["morning:pardon","morning:look","morning:last"],"seconds":22}}}
-```

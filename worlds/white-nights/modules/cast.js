@@ -131,7 +131,7 @@ return {
       colors: { skin: '#e8b49c', hair: '#6a5240', top: '#efe9de', garment: '#2f2d35', bottom: '#57535d', shoes: '#1e1c1f', hat: '#26252b' } },
     // the yard-keeper with his broom (the prologue): a red shirt, a long white apron, a peaked cap, a short beard's
     // colour in his hair
-    dvornik: { kind: 'shapes', style: 'litho', who: 'man', garment: 'apron', hair: 'short', hat: 'cap',
+    yardman: { kind: 'shapes', style: 'litho', who: 'man', garment: 'apron', hair: 'short', hat: 'cap',
       body: { height: 0.97, thick: 1.08, shoulders: 1.02 },
       colors: { skin: '#dcae8e', hair: '#7a6450', top: '#b0503e', garment: '#ece6d6', bottom: '#4c4642', shoes: '#2a2522', hat: '#3c3a3a' } },
     // a nurse-maid with the child she walks (the morning's end): a blue-grey dress, a cream shawl, a white kerchief
