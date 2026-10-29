@@ -55,11 +55,16 @@ there); `brush` — a paint
 brush in the right hand; `almond_cross` — a cross of white and pink almond blossom held upright between the hands
 before the chest (with `clasped`).
 
-Stage 5's: `parcel` — a little paper parcel tied with string in the right hand (point `parcel`); `casket` — a small old
-casket of dark wood, its lid gilt, lying on the right palm (point `casket`); `lantern` — a lantern hanging from the right
-hand, its glass glowing (point `lantern`: a scene's light there); `newspaper` — a newspaper held open between both hands
+Stage 5's: `parcel` — a little paper parcel tied with string in the right hand (point `parcel`); `casket_hand` — the little
+casket of dark wood, its lid gilt, lying on the right palm, held in one hand (point `casket`; the hall's `casket` below
+is the same held in both hands; the hall's `lantern` serves the tapestry too); `newspaper` — a newspaper held open between both hands
 before one who sits (point `newspaper`); `sketchbook` — a sketchbook lying open on the knees of one who sits (point
 `sketchbook`); `stub` — an unlit candle-end between the fingers of the right hand (point `stub`). The hat `bonnet` — Mrs Umney's white cap.
+
+`shawl` — a cream cashmere shawl round the shoulders, its point down the back and its ends down the front (Mrs Otis's,
+by `_with`, the night Virginia is missing); `casket` — the little old casket bound in brass held in both hands before
+the chest (with `clasped`; its point `casket`); `lantern` — a hand lantern hanging from the right hand by its ring, its
+glass glowing (its point `lantern`: a scene's light there) — the hall's.
 
 ## Motions (Kimodo)
 

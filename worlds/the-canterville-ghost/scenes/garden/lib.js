@@ -122,7 +122,7 @@ function film(scene) {
           await s.wait(1.5);
           v.reach(null);
         }
-        p.with(['casket']);
+        p.with(['casket_hand']);
         p.look('simon#hand_r');
         await s.wait(1);
         v.do('pray');
@@ -131,7 +131,7 @@ function film(scene) {
         v.look('simon#hand_r');
         await s.wait(2);
         p.with([]);
-        v.with(['casket']);
+        v.with(['casket_hand']);
         s.tell('tears:casket');
         await s.wait(1.5);
       },
@@ -141,7 +141,7 @@ function film(scene) {
       after: ['tears'],
       tells: ['sleep:lie', 'sleep:gone'],
       seconds: 10,
-      from: () => ({ ...AT, virginia_with: ['casket'], ...CAM }),
+      from: () => ({ ...AT, virginia_with: ['casket_hand'], ...CAM }),
       run: async s => {
         const p = s.person('simon');
         const v = s.person('virginia');
