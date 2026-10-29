@@ -149,7 +149,7 @@ function coach(g) {
 // The garden's pieces (the game's `beat`; modules/beats; notes.md «Pieces»). Places in metres: across (right of the
 // viewer's line), away. Her easel at 3.3 / 5.35, she paints at 2.9 / 5.9; the path across the lawn at 4.25 m; the
 // almond at 0.6 / 5.2; the churchyard beyond the railing (5.6 m), its wicket at 1.4…2.1; the coffin at −1.6 / 7.0, the
-// grave under the yew at −4.3 / 8.8.
+// grave under the yew at −4.3 / 8.8. At the funeral she lays the cross from behind the coffin, facing the viewer.
 const CAM = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
   camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
 const shot = (target, size, frame = null) => ({ ...CAM, camera_target: target, camera_shot: size, camera_frame: frame });
@@ -180,7 +180,7 @@ function film(scene) {
         ...shot('virginia', 'medium', 0.6) }),
       run: async s => {
         const u = s.person('mrs_umney');
-        await s.wait(1);
+        await s.wait(3);
         s.camera({ target: null });
         await u.walk([[-0.4, 4.4]]);
         await u.turn(160);
@@ -246,9 +246,9 @@ function film(scene) {
           s.set('otis_turn', 120);
         }
         await s.wait(1);
-        await v.walk([[0.9, 7.6], [0.1, 7.15]]);
-        await v.turn(255);
-        s.camera({ target: 'virginia', shot: 'medium', frame: 0.6 });
+        await v.walk([[0.9, 7.9], [-0.7, 7.75]]);
+        await v.turn(195);
+        s.camera({ target: 'virginia', shot: 'full', frame: 0.5 });
         await v.do('lay_down', { loop: false });
         v.with([]);
         s.set('cross', true);
