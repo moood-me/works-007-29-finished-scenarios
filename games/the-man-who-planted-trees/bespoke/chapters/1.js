@@ -2,7 +2,6 @@
 // him acorns; on a stone, his facts in a few words; ⚑ the rod left standing — take it or wait; the evening, the razor,
 // the button; ⚑ at the door at dawn — “I’ll be back” or a raised hand; down through the village, the war; ⚑ Lina asks
 // what the shepherd does up there. Its choices only lean the scales (§3, §8); the map after it is the prologue's too.
-// Stand-ins (story.js PLACES): the slope — the shepherd's house (its rod standing in the earth).
 // Reads: nothing. Leaves: choices.rod, choices.farewell, choices.tell, their marks (and the promise marks.back),
 // scales.path, scales.word.
 import { hand_in } from '../minigames/all.js';
@@ -43,6 +42,8 @@ export default {
       await g.scene('slope0', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'thinking' } }, { cut: true });
       await g.plate(tr('Elzéard goes off to move the sheep; the rod is left standing in the earth.'));
       g.here('elzeard', false);
+      g.set('elzeard_with', []);
+      g.set('rod_ground', true);
       const rod = await g.choose('rod', { rod: [
         { id: 'take', label: tr('Take the rod') },
         { id: 'wait', label: tr('Wait for him') },
@@ -50,9 +51,13 @@ export default {
       if (rod === 'take') {
         await g.plate(tr('The Traveller pushes the rod in himself, lays an acorn, closes the earth — clumsily.'));
         g.here('elzeard', true);
+        g.set('rod_ground', false);
+        g.set('elzeard_with', ['rod']);
         await g.plate(tr('Elzéard comes back, looks at his hole by the stone, takes the rod and plants on, as if that was how it should be.'));
       } else {
         g.here('elzeard', true);
+        g.set('rod_ground', false);
+        g.set('elzeard_with', ['rod']);
         await g.plate(tr('Elzéard comes back and plants on. The Traveller counts aloud.'));
         await g.say('traveller', 'Forty-one… forty-two…', { how: 'counting under his breath, in time with the rod' });
         await g.say('elzeard', 'Don’t count. You put me off');
@@ -69,7 +74,7 @@ export default {
     },
     // 1.6: ⚑ at the door at dawn
     async g => {
-      await g.scene('house0', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'sad' }, keys: { lamp: 0 } });
+      await g.scene('house0', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'sad' }, keys: { moment: 'leaving' } });
       await g.plate(tr('Dawn, the threshold. The Traveller is leaving. Elzéard at the door.'));
       const farewell = await g.choose('farewell', { 'traveller#chest': [
         { id: 'back', label: tr('“I’ll be back”') },

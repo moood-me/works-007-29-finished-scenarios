@@ -33,7 +33,7 @@ export default {
         await g.plate(tr('Lina looks at the stump, then at him.'));
         await g.say('lina', 'Drink. She won’t mind');
         g.set('mug', true);
-      g.set('lina_wear', { parts: [] });
+        g.set('lina_wear', { parts: [] });
       await g.plate(tr('He drinks. The stump stays dry. Lina sets the mug on it upside down.'));
       } else {
         g.set('wet', true);

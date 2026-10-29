@@ -44,10 +44,20 @@
     "how": "a village man with an axe: gruff, practical, unbothered, a little mocking",
     "short": "a man with an axe"
   },
-  "visitor": {
+  "visitor_a": {
     "voice": "Pulcherrima",
     "how": "a visitor from the city: eager, curious, a little loud, polite",
     "short": "a visitor"
+  },
+  "visitor_b": {
+    "voice": "Erinome",
+    "how": "another visitor from the city: brisk, curious, a little pushy, friendly",
+    "short": "a visitor"
+  },
+  "boy": {
+    "voice": "Leda",
+    "how": "a boy of ten, a visitor's son: eager, shy, wanting to try",
+    "short": "a boy"
   },
   "neighbour_a": {
     "voice": "Kore",

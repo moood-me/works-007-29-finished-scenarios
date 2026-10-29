@@ -16,53 +16,50 @@
 
 ## Места — одна карта, по годам
 
-`story.js PLACES`: место сценария в своём году → папка сцены мира, её ключи (`keys`) и, если сцена чужая или год не
-тот, `where` — подпись «На самом деле: …». Шаги называют только места, никогда папки. Годы — от начала игры: 0
-(пролог, гл. 1), 6 (гл. 2), 20 (гл. 3), 30 (эпилог).
+`story.js PLACES`: место сценария в своём году → папка сцены мира и её ключи: у деревни — `time`, у дома, опушки и
+ручья — `moment` (скрипт сцены раскладывает момент сценария: год, кто есть, где стоит, в каком облике — notes.md
+сцен; `g.scene` открывает сцену на моменте, а `here`, лица и ключи шага кладёт поверх — `bespoke.show` с `then`).
+Шаги называют только места, никогда папки; ключи шага могут назвать другой момент того же места. Годы — от начала
+игры: 0 (пролог, гл. 1), 6 (гл. 2), 20 (гл. 3), 30 (эпилог). С 2026-10-29 все места на своих сценах
+(`r3/trees-village`, `r3/trees-years` влиты); подпись `where` осталась одна — у деревни эпилога (см. ниже).
 
-| Место | Шаги | Сейчас | На стадии 4–5 |
-| --- | --- | --- | --- |
-| `village0` М1 | П.1–П.2, 1.7 | `village` (`time` prologue; `home_door`, `mug`, `wet`, `cart`; отец в 1.7) | — |
-| `house0` М2 | П.3–П.5, 1.5, 1.6 | `shepherds-house` (`lamp`) | — (внутри дома — см. «Asks») |
-| `slope0` М3 | 1.1–1.4 | `shepherds-house` + подпись (его `rod` в земле — точка выбора 1.4) | склон год 0 (`r3/trees-years`) |
-| `village6` М1 | 2.1, начало 2.2 | `village` (`time` chapter2, `dawn`; Ян 26) | — |
-| `stream6` М4 | 2.2–2.4 | `stream` (`mist`) | — |
-| `slope6` М3 | 2.5 | `stream` (дубы, ульи, Эльзеар 61) | склон год 6 |
-| `far6` М3 | 2.6 | `stream` + подпись (клёны, буки) | дальний край склона, год 6 |
-| `house6` М2 | 2.7 | `shepherds-house` + подпись (люди там двадцатилетние) | дом, год 6 |
-| `edge20` М3 | 3.1–3.3 | `forest-edge` (`smoke`, `bread`) | — |
-| `house20` М2 | 3.4, 3.5 (Имя) | `shepherds-house` + подпись | дом, год 20 |
-| `stumps20` М3 | 3.5 (Тишина) | `forest-edge` + подпись (Эльзеара в сцене нет — на плашке) | нижний край с пнями, год 20 |
-| `village30` М1 | Э.1, финал «Рассказ» | `village` (`time` epilogue, `fountain`, `stump` dug → planted, `edge` по Имени/Тишине, `rod` в «Рассказе»; соседи, дети) + подпись: Лина и Путник там 17 и 20 лет, а не 47 и 50 | возраст людей по `time` — дело сцены |
-| `house30` М2 | Э.2 (Тишина) | `shepherds-house` + подпись | дом, год 30 |
-| `hut30` | Э.2 (Имя) | `shepherds-house` + подпись | хижина за хребтом (новое место) |
-| `edge30` М3 | финалы «Табличка», «Ученик» | `forest-edge` + подпись | опушка, год 30 (доска) |
-| `beeches30` М3 | финал «Два прута» | `forest-edge` + подпись | склон Путника за ручьём, год 30 |
+| Место | Шаги | Сцена, ключи |
+| --- | --- | --- |
+| `village0` М1 | П.1–П.2, 1.7 | `village` `time` prologue (`home_door` 120 → 180, `mug`, кружка у Лины уходит — `lina_wear {parts: []}`, `wet`; 1.7 `cart`, отец, Лина у колодца) |
+| `house0` М2 | П.3–П.5, 1.5; 1.6 | `shepherds-house` `moment` arrival; 1.6 — leaving |
+| `slope0` М3 | 1.1–1.4 | `forest-edge` `moment` planting (1.4: `rod_ground`, прут из рук Эльзеара — точка выбора `rod`) |
+| `village6` М1 | 2.1, начало 2.2 | `village` `time` chapter2, `dawn` |
+| `stream6` М4 | 2.2–2.4 | `stream` `moment` water |
+| `slope6` М3 | 2.5 | `forest-edge` `moment` grove (`own_oak` по «Свой дуб»; Лина — если знает) |
+| `far6` М3 | 2.6 | `stream` `moment` far_edge |
+| `house6` М2 | 2.7 | `shepherds-house` `moment` night |
+| `edge20` М3 | 3.1; 3.2–3.3 | `forest-edge` `moment` edge; delegation — по пути: `bread`, `hives` stands / hives, `stumps` none / begun, `beeches` slope / row (`beech_row` 13 → 14), мужик с топором |
+| `house20` М2 | 3.4; 3.5 (Имя) | `shepherds-house` `moment` evening (`bread_step`); ranger; empty (приезжие, потом `door` propped) |
+| `stumps20` М3 | 3.5 (Тишина) | `forest-edge` `moment` stumps (`stump_bread`, когда Лина знает) |
+| `village30` М1 | Э.1, финал «Рассказ» | `village` `time` epilogue (`stump` dug → planted, `edge` whole / regrown, соседи, дети; «Рассказ» — `rod`) + подпись |
+| `house30` М2 | Э.2 (Тишина) | `shepherds-house` `moment` last_silence |
+| `hut30` | Э.2 (Имя) | `shepherds-house` `moment` hut |
+| `board30`, `pupil30`, `beeches30` М3 | финалы «Табличка», «Ученик», «Два прута» | `forest-edge` `moment` board (`stumps` begun_old, если Лина не знала), pupil, two_rods |
 
-Деревня — своя сцена `village` (из `r3/trees`, её notes.md: `time` и ключи моментов §5): П.1–П.2 (`home_door` 120 → 180,
-`mug`, у Лины кружка уходит — `lina_wear {parts: []}`, `wet`), 1.7 (`cart`, отец, Лина у колодца), 2.1–2.2 (`dawn`),
-Э.1 (`stump` dug → planted, соседи, дети, `edge`), «Рассказ» (`rod`). **Чего игра сделать не может:** возраст людей
-деревни по `time` (Лина 23/47, Путник 26/50) — `<id>_wear` берёт только сам объект облика
-(`scene.kit.cast.characters.<name>`), а у игры есть только имя облика; правильнее, чтобы сцена сама надевала облик
-по `time` (или чтобы `_wear` понимал имя) — вопрос к ведущему/«three». Пока — подпись в `village30`.
-
-Правило выбора чужой сцены: в ней есть люди шага (их видно), и место по возможности своё (дом — дом, даже если годы
-людей не те; подпись говорит год). Когда сцена года придёт, её строка — `{ folder, keys }`, больше ничего.
+**Чего игра сделать не может:** возраст людей деревни (`village` без скрипта: Лина 17 и Путник 20 во всех `time`) —
+`<id>_wear` берёт только сам объект облика (`scene.kit.cast.characters.<name>`), а у игры есть только имя облика.
+Дом, опушка и ручей это делают сами (их скрипт по `moment`); деревне нужно так же (или чтобы `_wear` понимал имя) —
+вопрос к ведущему. Пока у `village30` подпись: «Лине здесь сорок семь, Путнику пятьдесят». Внутри дома (стол, лампа,
+сто желудей) сцены нет — П.4, 1.5, 2.7, 3.4 идут у двери дома, «в доме» говорит плашка.
 
 ## Люди
 
 `bespoke/people.json`: `narrator` (Sadaltager — старый Путник), `traveller` (Achird), `elzeard` (Algenib), `lina`
 (Autonoe), `jan` (Alnilam), `father` (Fenrir — отец Лины), `chief` (Puck — Начальник), `ranger` (Orus — егерь),
-`axeman` (Rasalgethi — мужик с топором), `visitor` (Pulcherrima — приезжие); соседи и дети деревни (`neighbour_a`,
+`axeman` (Rasalgethi — мужик с топором), `visitor_a` (Pulcherrima) и `visitor_b` (Erinome) — приезжие, `boy` (Leda); соседи и дети деревни (`neighbour_a`,
 `neighbour_b`, `child_a`, `child_b`) — без реплик. Голоса делает студия, когда страница
 говорит реплику (`speak {text, voice, how}`); все реплики (по 147 на язык) озвучены заранее `voice_line` по списку
 `moood-check --json`. У некоторых реплик свой `how`.
 
-`g.scene(place, {here, moods, keys})`: из людей игры в кадре те, кто есть в сцене (`elzeard`, `traveller`, `lina` —
-в `shepherds-house` и `stream`; `traveller`, `jan`, `lina` — в `forest-edge`; `lina`, `traveller`, `father`, `jan`,
-`neighbour_a`, `neighbour_b`, `child_a`, `child_b` — в `village`); Начальник, егерь, мужик с топором, приезжие,
-мальчик на опушке — только голос и плашки. Эльзеара 75 и 85 лет нет ни в одной сцене: в гл. 3 и
-эпилоге он в доме пастуха (55 лет), а у пней (3.5, Тишина) — только на плашке.
+Люди сцен (id = ключи `people.json`): дом — `elzeard`, `traveller`, `lina`, `ranger`, `visitor_a`, `visitor_b`;
+опушка — они же и `jan`, `chief`, `axeman`, `boy`; ручей — `elzeard`, `traveller`, `lina`, `jan`, `chief`, `ranger`;
+деревня — `lina`, `traveller`, `father`, `jan`, `neighbour_a`, `neighbour_b`, `child_a`, `child_b`. Из людей игры в
+кадре те, кого шаг называет в `here` (остальные моменты сцены — `_here: false`).
 
 ## Главы и шаги
 
@@ -148,6 +145,10 @@ the ranger at М2 year 20 too), `axeman` (М3 year 20), `visitor` (two or three 
 motions.
 
 ### Asks of the world (stage 4)
+
+Written before stage 4; `r3/trees-village` and `r3/trees-years` have since made most of it (the scenes' `time` and
+`moment`, their notes.md). Still open: the house's inside (the table, the lamp, the acorns), the village people's
+looks by `time`, the Traveller's beech planted as a piece (the hole and the sapling).
 
 1. **М1 the village** (`r3/trees-village` — made; what is still asked:) the people's looks by `time` (Lina 23/47, the
    Traveller 26/50 — the scene shows Lina 17 and the Traveller 20 in every time), and, as first asked, years 0, 6, 30: the square with the stump (`square`: stump | mug — the mug

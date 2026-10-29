@@ -5,8 +5,6 @@
 // Road and Silence), “The Plaque” (the Road and the Name), “Two Rods” (the Slope and Silence), “The Pupil” (the Slope
 // and the Name) — its last shot the iron rod in other hands. The finale's name comes over black after it (game.js
 // closing); the step remembers which it played (marks.ending).
-// Stand-ins (story.js PLACES): the forest edge, the Traveller's slope — the forest edge; the old house and
-// the hut beyond the ridge — the shepherd's house of the prologue.
 // Reads: facts — drank, asked, learned, lied, slope, named, knows, ending.
 import { facts } from '../story.js';
 import { linden, hand } from '../minigames/all.js';
@@ -50,7 +48,7 @@ export default {
         else await g.plate(tr('The last meeting. Three hours’ walk beyond the ridge.'));
         await g.plate(tr('A hut; behind it, a slope of young trees waist-high — his ten years; ahead, on the bare ground, a new edge of tiny seedlings. Elzéard is eighty-five. He does not raise his head at once: he finishes the row, and only then straightens up.'));
       } else {
-        await g.scene('house30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' }, keys: { lamp: 0 } });
+        await g.scene('house30', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'neutral' } });
         await g.plate(tr('The last meeting. Elzéard is eighty-five. By the old house, the hives; on the porch, bread nobody has touched. He is planting by the porch, slowly.'));
       }
       if (f.asked) await g.say('elzeard', 'You asked about my son, that time', { how: 'old, slow, plain' });
@@ -72,7 +70,7 @@ export default {
         await g.say('narrator', 'When I think that one man, with only his own two hands, made this land out of a desert — I think that people can, after all');
         await g.plate(tr('The wind turns the pages back, to “It was.”'));
       } else if (f.ending === 'plaque') {
-        await g.scene('edge30', { here: ['traveller'], moods: { traveller: 'neutral' } });
+        await g.scene('board30', { here: ['traveller', 'visitor_a', 'visitor_b'], moods: { traveller: 'neutral' }, keys: { stumps: f.knows ? 'none' : 'begun_old' } });
         if (f.knows) await g.plate(tr('The forest edge; the forest under guard.'));
         else await g.plate(tr('The forest edge; the forest under guard. At its rim, old stumps grown over with young trees.'));
         await g.plate(tr('A board: “The Forest of Elzéard”. Visitors read it aloud and argue whether it was really one man; none of them knows what he looked like. Beyond the ridge, three hours away — a slope of young trees waist-high, and an edge of tiny seedlings he planted last.'));
@@ -84,12 +82,12 @@ export default {
         await g.plate(tr('In the pail of acorns — pages from the notebook, seeds wrapped in them. Below, by the old forest, stumps and young trees as tall as a man.'));
         await g.say('narrator', 'The notebook went on seeds. The slope remained');
       } else {
-        await g.scene('edge30', { here: ['traveller'], moods: { traveller: 'neutral' } });
+        await g.scene('pupil30', { here: ['traveller', 'boy', 'visitor_a', 'visitor_b'], moods: { traveller: 'neutral' } });
         await g.plate(tr('The forest edge; visitors.'));
-        await g.say('visitor', 'Is it you — Elzéard?', { how: 'eager, a little shy' });
+        await g.say('visitor_a', 'Is it you — Elzéard?', { how: 'eager, a little shy' });
         await g.say('traveller', 'No', { how: 'plain, older now' });
         await g.plate(tr('Nothing more; he does not look at the ridge. The visitors crowd round him all the same.'));
-        await g.say('visitor', 'Show us how he planted');
+        await g.say('visitor_b', 'Show us how he planted');
         g.mood('traveller', 'smile');
         await g.plate(tr('A boy asks to try — the Traveller gives him the rod and sets his hands the right way. Across the stream, his beeches stand in uncut grass.'));
         await g.say('narrator', 'They asked me every day. Him — no one. I went to him once a month, before dawn, along the bed of the stream; he nodded and planted');

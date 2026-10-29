@@ -3,12 +3,16 @@
 // fourteenth in his row — by Ш1); the delegation from the city, Jan a forester; along the row, Jan's notebook — ⚑ (Ш2)
 // the name, “it grew by itself”, or nothing; the evening at the house, a hundred acorns; after: the ranger and the
 // empty house (the Name), or the stumps and the rod among them (Silence).
-// Stand-ins (story.js PLACES): the house — the shepherd's house of the prologue; the lower edge with its stumps — the
-// forest edge.
 // Reads: facts — knows, lied, slope, heard. Leaves: choices.name, its marks (and the promises kept: marks.year,
 // marks.tell), marks.after — what Lina did with the name, scales.word.
 import { facts, linaAfter } from '../story.js';
 import { beech, row, count, door, stumps } from '../minigames/all.js';
+
+// the forest edge in chapter III by the path (scenario §4, §12): the bread on the stone and the hives' empty stands
+// (Lina knows), or the hives and the edge begun to be cut (she does not); his beeches on his own slope (the Slope) or
+// in his row by the path, `row` of them (the Road)
+const edge = (f, row) => ({ bread: f.knows, hives: f.knows ? 'stands' : 'hives', stumps: f.knows ? 'none' : 'begun',
+  beeches: f.slope ? 'slope' : 'row', beech_row: f.slope ? 0 : row });
 
 export default {
   number: 'III', title: tr('The Natural Forest'),
@@ -21,7 +25,7 @@ export default {
     // 3.1: the forest edge — by 2.4; the beech — by Ш1
     async g => {
       const f = facts(g.state);
-      await g.scene('edge20', { here: ['traveller', 'lina'], moods: { traveller: 'neutral', lina: 'neutral' }, keys: { bread: f.knows } });
+      await g.scene('edge20', { here: ['traveller', 'lina', ...(f.knows ? [] : ['axeman'])], moods: { traveller: 'neutral', lina: 'neutral' }, keys: edge(f, 13) });
       g.title(tr('Fourteen Years Later'));
       await g.plate(tr('Elzéard is seventy-five. The slopes by the village are planted; he plants beeches on the far slopes, two hours’ walk away, and comes home at nightfall.'));
       if (f.slope) await g.plate(tr('The forest edge above the village, by the stream; a tall forest. The Traveller is forty. He lives in the village, in an empty house, and every day goes to his own slope across the stream, past the edge of the wood.'));
@@ -47,6 +51,7 @@ export default {
         g.mood('traveller', 'sad');
         await g.plate(tr('The Traveller says nothing. Lina looks at him — for a long time.'));
         await g.say('axeman', 'There you are');
+        g.here('axeman', false);
         await g.plate(tr('He goes off with his bundle of wood.'));
         if (f.slope) {
           await g.plate(tr('So it goes with every new roof in the village: the Traveller answers the same every time — and every time, at “whose?”, he says nothing.'));
@@ -58,11 +63,12 @@ export default {
       if (f.slope) await g.plate(tr('On his own slope by the stream, opposite the edge of the wood, the Traveller plants a beech.'));
       else await g.plate(tr('The fourteenth beech in his row.'));
       await g.play(beech);
+      if (!f.slope) g.set('beech_row', 14);
     },
     // 3.2: the delegation
     async g => {
       const f = facts(g.state);
-      await g.scene('edge20', { here: ['traveller', 'jan', 'lina'], moods: { traveller: 'neutral', jan: 'neutral', lina: 'neutral' }, keys: { bread: f.knows } });
+      await g.scene('edge20', { here: ['traveller', 'jan', 'lina', 'chief', 'ranger'], moods: { traveller: 'neutral', jan: 'neutral', lina: 'neutral', chief: 'smile' }, keys: { moment: 'delegation', ...edge(f, 14) } });
       await g.plate(tr('Along the path by the stream comes a delegation: the Chief from the city, a young ranger, and Jan, forty, in a forester’s uniform. Lina, thirty-seven, is leading them.'));
       await g.say('jan', 'The district gave me this edge in spring. On the maps it’s waste land');
       await g.plate(tr('He looks down at the village, then up at the forest: he spent one night here, in the dark, and never looked up.'));
@@ -87,7 +93,7 @@ export default {
     // 3.3: along the row; Jan's notebook; ⚑ (Ш2) the name
     async g => {
       const f = facts(g.state);
-      await g.scene('edge20', { here: ['traveller', 'jan', 'lina'], moods: { traveller: 'thinking', jan: 'thinking', lina: 'neutral' }, keys: { bread: f.knows } }, { cut: true });
+      await g.scene('edge20', { here: ['traveller', 'jan', 'lina', 'chief', 'ranger'], moods: { traveller: 'thinking', jan: 'thinking', lina: 'neutral' }, keys: { moment: 'delegation', ...edge(f, 14) } }, { cut: true });
       await g.say('jan', 'Show me');
       await g.play(row);
       await g.say('jan', 'Straight as a regiment. Things don’t grow like that by themselves');
@@ -160,7 +166,7 @@ export default {
     // 3.4: the evening at the house; a hundred acorns, slower
     async g => {
       const f = facts(g.state);
-      await g.scene('house20', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'thinking' }, keys: { lamp: 1 } });
+      await g.scene('house20', { here: ['elzeard', 'traveller'], moods: { elzeard: 'tired', traveller: 'thinking' }, keys: { bread_step: f.knows } });
       await g.plate(tr('Evening, Elzéard’s house: hives, the lamp, a hundred acorns.'));
       if (f.knows) await g.plate(tr('On the threshold, bread and knitted socks — untouched; Elzéard steps over them.'));
       if (!f.slope) {
@@ -198,23 +204,25 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.named) {
-        await g.scene('house20', { here: ['elzeard', 'traveller'], moods: { elzeard: 'neutral', traveller: 'neutral' }, keys: { lamp: 0 } });
+        await g.scene('house20', { here: ['elzeard', 'traveller', 'ranger'], moods: { elzeard: 'neutral', traveller: 'neutral' }, keys: { moment: 'ranger' } });
         await g.plate(tr('Next morning, at the house — a young ranger.'));
         await g.say('ranger', 'Old man, fires in the Forest of Elzéard are forbidden. This is a reserve', { how: 'sternly, by the book' });
         await g.plate(tr('He does not know who is in front of him. Elzéard nods seriously. The ranger goes.'));
+        g.here('ranger', false);
         g.mood('elzeard', 'laugh');
         await g.plate(tr('Elzéard laughs.'));
-        await g.scene('house20', { here: ['traveller'], moods: { traveller: 'sad' }, keys: { lamp: 0 } });
+        await g.scene('house20', { here: ['traveller', 'visitor_a', 'visitor_b'], moods: { traveller: 'sad' }, keys: { moment: 'empty' } });
         if (f.slope) await g.plate(tr('A month later.'));
         else await g.plate(tr('A year later, on his next visit.'));
         await g.plate(tr('The path to the house is trodden hard; at the door, strangers — with baskets, with a notebook.'));
-        await g.say('visitor', 'Where’s the old man around here?');
+        await g.say('visitor_a', 'Where’s the old man around here?');
         await g.plate(tr('The house is empty and clean; no hives; the door is open.'));
         await g.play(door);
+        g.set('door', 'propped');
         if (f.slope) await g.say('narrator', 'He went beyond the ridge. He was seventy-five');
         else await g.say('narrator', 'He went beyond the ridge. He was seventy-six');
       } else {
-        await g.scene('stumps20', { here: ['traveller', 'jan'], moods: { traveller: 'sad', jan: 'sad', lina: 'neutral' } });
+        await g.scene('stumps20', { here: ['traveller', 'jan'], moods: { traveller: 'sad', jan: 'sad', lina: 'neutral' }, keys: { beeches: f.slope ? 'slope' : 'row', beech_row: f.slope ? 0 : 14 } });
         if (f.slope) await g.plate(tr('A month later.'));
         else await g.plate(tr('A year later.'));
         await g.plate(tr('The lower edge of the forest above the village — stumps, fresh or a year old; the wood has been carted away. Among the stumps, Jan with his notebook counts them and marks each one; at one he lays his palm on the cut, as he laid it on the bark that day, and stands so.'));
@@ -224,9 +232,11 @@ export default {
         await g.say('jan', 'I didn’t go up');
         g.here('jan', false);
         await g.plate(tr('He goes off down the path. Then, from above — Elzéard with his rod, walking among the stumps.'));
+        g.here('elzeard', true);
         await g.play(stumps);
         g.here('lina', true);
         if (f.knows) {
+          g.set('stump_bread', true);
           await g.plate(tr('Lina by the stumps with her pail. She lays on a stump the bread she was carrying to the stone.'));
           g.mood('lina', 'laugh');
           await g.say('lina', 'Funny, isn’t it?', { how: 'laughing first, briefly' });

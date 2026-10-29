@@ -2,7 +2,6 @@
 // over the plateau — leaves; water running in the dry bed, Lina at it; their palms in the first water; ⚑ (the half
 // hinge) where the water comes from — “It’s him”, “The land has rested”, or nothing; the oaks taller than a man, the
 // hives, Elzéard; the year of the maples; at night a hundred acorns, the letter from the city — ⚑ (Ш1) stay or go.
-// Stand-ins (story.js PLACES): the far edge of the slope — the stream; the house at night — the shepherd's house of the prologue.
 // Reads: marks of the prologue and chapter I (facts: drank, heard, promised, own). Leaves: choices.lina,
 // choices.stay, their marks (and the promises: marks.tell — Lina's, marks.year — his), scales.
 import { facts } from '../story.js';
@@ -89,7 +88,7 @@ export default {
     // 2.5: the oaks; the hives; Elzéard
     async g => {
       const f = facts(g.state);
-      await g.scene('slope6', { here: ['traveller', ...(f.knows ? ['lina'] : [])], moods: { traveller: 'smile', elzeard: 'neutral', lina: 'surprised' }, keys: { mist: 0.3 } });
+      await g.scene('slope6', { here: ['traveller', ...(f.knows ? ['lina'] : [])], moods: { traveller: 'smile', elzeard: 'neutral', lina: 'surprised' }, keys: { own_oak: f.own } });
       await g.plate(tr('The slope above the village, half an hour up the stream. Oaks taller than a man, leaves, birds — the first place where nothing needs doing.'));
       await g.play(trunks);
       g.here('elzeard', true);

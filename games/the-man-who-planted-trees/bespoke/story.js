@@ -14,7 +14,8 @@
 //     game's people only `here` are there — those of them the scene has (`<id>_here`, the engine's key; whom it has
 //     not are not seen: voices only) —, their faces as `moods` say ({id: mood}); `keys` — values of the scene's own
 //     keys (its scene.json's states) or a person's (`<id>_look`…). Always opened anew; `cut` — in one cut, else
-//     through black
+//     through black. A scene with a `moment` (its script lays out the scenario's moment: the year, who is there, where
+//     they stand, what they wear) is opened on the moment, the rest set over it
 //   g.here(id, on) — someone of the shown scene comes or goes (in one cut); g.mood(id, mood) — their face (both: only
 //     the game's people the scene has; others are let be)
 //   g.set(key, value) — one of the shown scene's own keys (in one cut)
@@ -47,33 +48,35 @@
 // minigame gives its `skipped`.
 
 // The game's places in their years (scenario §4: each place changes — the prologue and chapter I, +6, +20, +30 years
-// from the beginning) and the world's scene each is played on — the one map of them. A place the world has not drawn
-// (Elzéard's hut beyond the ridge; the far slopes), or not in that year, stands in a ready scene that has
-// the step's people, and `where` says (a label high on the left) where and when it really is. When its own scene, or
-// its year of it, comes (stage 4: `r3/trees-village`, `r3/trees-years`), its line here becomes `{ folder, keys }` —
-// nothing else changes: the steps name places, never folders. `keys` — the scene's own keys that make it that place in
-// that year. (The house at dusk, no one there, is also the map's background: game.js.)
+// from the beginning) and the world's scene each is played on — the one map of them: its folder and the keys that make
+// it that place in that year (the village: its `time`; the house, the forest edge, the stream: their `moment` — the
+// scene's script lays out the scenario's moment, its year, who is there and in which look; the game's `here`, moods
+// and step keys go over it). The steps name places, never folders; a step's own keys may name another moment of the
+// same place (1.6 `leaving`, 3.2 `delegation`, 3.5 `ranger`, `empty`). `where` — a label high on the left, where the
+// scene is not yet quite what the scenario has. (The house at dusk, no one there, is also the map's background:
+// game.js.)
 export const PLACES = {
   // the prologue and chapter I — the dead plateau
   village0: { folder: 'village', keys: { time: 'prologue', coal: 1, fountain: 0, dawn: 0 } }, // М1
-  house0: { folder: 'shepherds-house' }, // М2
-  slope0: { folder: 'shepherds-house', keys: { lamp: 0 }, where: tr('In truth: the gentle slope above the village — bare earth and wind; below it, the dry bed of a stream.') }, // М3
+  house0: { folder: 'shepherds-house', keys: { moment: 'arrival' } }, // М2
+  slope0: { folder: 'forest-edge', keys: { moment: 'planting' } }, // М3, the bare slope
   // chapter II — six years on
   village6: { folder: 'village', keys: { time: 'chapter2', coal: 0, fountain: 0 } }, // М1
-  stream6: { folder: 'stream' }, // М4
-  slope6: { folder: 'stream' }, // М3: up the stream, the young oaks and the hives
-  far6: { folder: 'stream', keys: { mist: 0 }, where: tr('In truth: the far edge of the slope — rows of dry sticks, the maples; beside them, rows of tiny beeches.') }, // М3
-  house6: { folder: 'shepherds-house', where: tr('In truth: six years on — beehives instead of sheep; Elzéard is sixty-one, the Traveller twenty-six, in a soldier’s greatcoat.') }, // М2
+  stream6: { folder: 'stream', keys: { moment: 'water' } }, // М4
+  slope6: { folder: 'forest-edge', keys: { moment: 'grove' } }, // М3, the young oaks and the hives
+  far6: { folder: 'stream', keys: { moment: 'far_edge' } }, // М3, the far edge: the maples, the beeches
+  house6: { folder: 'shepherds-house', keys: { moment: 'night' } }, // М2
   // chapter III — fourteen years more
-  edge20: { folder: 'forest-edge', keys: { smoke: 1 } }, // М3: the forest edge above the village, by the stream
-  house20: { folder: 'shepherds-house', where: tr('In truth: fourteen years later — hives by the house; Elzéard is seventy-five, the Traveller forty.') }, // М2
-  stumps20: { folder: 'forest-edge', keys: { smoke: 1, bread: false }, where: tr('In truth: the lower edge of the forest above the village — stumps, fresh or a year old; the wood has been carted away.') }, // М3
+  edge20: { folder: 'forest-edge', keys: { moment: 'edge' } }, // М3, the forest edge above the village
+  house20: { folder: 'shepherds-house', keys: { moment: 'evening' } }, // М2
+  stumps20: { folder: 'forest-edge', keys: { moment: 'stumps' } }, // М3, the lower edge felled (Silence)
   // the epilogue — ten years more
   village30: { folder: 'village', keys: { time: 'epilogue', coal: 0, fountain: 1, dawn: 0, smoke_home: 1, smoke_edge: 1, smoke_b1: 1, smoke_b2: 1, smoke_l2: 1, smoke_r1: 1 }, where: tr('In truth: Lina is forty-seven here, the Traveller fifty.') }, // М1
-  house30: { folder: 'shepherds-house', where: tr('In truth: ten years on — the same house, the hives; on the porch, bread nobody has touched. Elzéard is eighty-five.') }, // М2
-  hut30: { folder: 'shepherds-house', keys: { lamp: 0 }, where: tr('In truth: a hut beyond the ridge, three hours’ walk away: behind it a slope of young trees waist-high — his ten years; ahead, on the bare ground, a new edge of tiny seedlings. Elzéard is eighty-five.') }, // М2 beyond the ridge
-  edge30: { folder: 'forest-edge', keys: { smoke: 1, bread: false }, where: tr('In truth: the forest edge, ten years on — the forest under guard.') }, // М3
-  beeches30: { folder: 'forest-edge', keys: { smoke: 1, bread: false }, where: tr('In truth: the slope across the stream — the Traveller’s beeches, taller than a man.') }, // М3
+  house30: { folder: 'shepherds-house', keys: { moment: 'last_silence' } }, // М2 (Silence)
+  hut30: { folder: 'shepherds-house', keys: { moment: 'hut' } }, // the hut beyond the ridge (the Name)
+  board30: { folder: 'forest-edge', keys: { moment: 'board' } }, // М3, the board (finale «The Plaque»)
+  pupil30: { folder: 'forest-edge', keys: { moment: 'pupil' } }, // М3, the board, his beeches (finale «The Pupil»)
+  beeches30: { folder: 'forest-edge', keys: { moment: 'two_rods' } }, // М3, his slope across the stream (finale «Two Rods»)
 };
 // The house at dusk with no one there: the map's background (game.js)
 export const MAP = { folder: 'shepherds-house', state: { elzeard_here: false, traveller_here: false, lina_here: false, lamp: 1 } };
@@ -247,13 +250,17 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       for (const id of people) st[`${id}_here`] = present.has(id);
       for (const [id, mood] of Object.entries(moods)) if (people.has(id)) st[`${id}_mood`] = mood;
       Object.assign(st, own, keys);
-      if (unseen()) { j.scene(folder, st, where); return; }
+      // (a scene laid out by its `moment` — its script stages the moment's place and people as it opens: the moment
+      // first, everything else over it, as the scene's notes ask — bespoke.show's `then`)
+      const first = 'moment' in st ? { moment: st.moment } : st;
+      const then = 'moment' in st ? Object.entries(st).filter(([k]) => k !== 'moment') : [];
+      if (unseen()) { j.scene(folder, first, where); for (const change of then) j.did(change); return; }
       showing = true;
       try {
         if (fast) await alive(land());
         hub.withdraw();
         view.where(null);
-        await alive(b.show(folder, { state: st, captions: false, fade: !cut }));
+        await alive(b.show(folder, { state: first, ...(then.length ? { then } : {}), captions: false, fade: !cut }));
         view.where(where);
       } finally { showing = false; }
     },
