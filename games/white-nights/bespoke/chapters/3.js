@@ -170,6 +170,7 @@ export default {
       const f = facts(g.state);
       if (f.letter === 'C') {
         await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'third_tear', scraps: false } }, { cut: true });
+        g.set('bell', 10, 10);
         await g.plate(tr('She stands at the railing holding the letter over the water. The bell strikes ten. On the tenth stroke she tears the letter to shreds and lets them fall into the water.'));
         g.set('nastya_with', []);
         g.set('scraps', true);
@@ -183,6 +184,7 @@ export default {
         return;
       }
       await g.scene('night', { here: ['dreamer', 'nastya'], keys: { moment: 'third_ten' } }, { cut: true });
+      g.set('bell', 10, 10);
       await g.plate(tr('⏸ Ten. The bell strikes ten times. She stands at the railing facing the corner, her back to him; he behind her. Nothing to do: the strokes, the water, a cab that does not turn in. The camera on his face.'));
       if (f.letter === 'U') await g.plate(tr('He looks at the granite; his hand lies on his pocket by itself; the rustle of paper only he hears.'));
       else if (f.glasha) await g.plate(tr('She knows “tomorrow” and stands facing the corner all the same; he watches her wait.'));

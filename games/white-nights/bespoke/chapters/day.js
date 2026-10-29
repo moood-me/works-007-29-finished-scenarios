@@ -29,6 +29,7 @@ export default {
     async g => {
       await g.scene('day', { here: ['dreamer'] });
       await g.plate(tr('By day. At every house he checks the number against the address in her hand. A wind off the canal.'));
+      g.set('wind', 1, 2);
       const r = await g.play(letter);
       if (r.stain) {
         g.mood('dreamer', 'afraid');

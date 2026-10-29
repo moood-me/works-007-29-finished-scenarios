@@ -112,6 +112,7 @@ export default {
       if (f.letter === 'U4') return;
       if (f.letter === 'C') {
         await g.scene('rain', { here: ['dreamer', 'nastya'], keys: { moment: 'fourth_awning' } }, { cut: true });
+        g.set('bell', 10, 10);
         await g.plate(tr('The rain begins. Under the awning of the yellow house. The bell strikes ten — her hour. At the first stroke, out of habit, she turns to the corner (close up).'));
         if (f.confessed) {
           await g.plate(tr('She stands a step from him, her back to him, her face to the corner. On the tenth stroke she turns away from the corner — to him; she comes up herself, takes his arm and stands shoulder to shoulder.'));

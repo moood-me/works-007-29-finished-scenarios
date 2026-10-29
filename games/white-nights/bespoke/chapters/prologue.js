@@ -11,7 +11,7 @@ export default {
   steps: [
     // the empty city; the yellow house; ⚑ a bow; the lamp lit
     async g => {
-      await g.scene('evening', { here: ['dreamer', 'dvornik'], moods: { dreamer: 'neutral', dvornik: 'neutral' } });
+      await g.scene('evening', { here: ['dreamer', 'yardman'], moods: { dreamer: 'neutral', yardman: 'neutral' } });
       g.title(tr('White Nights'));
       await g.plate(tr('Evening. The city has emptied: everyone has gone to their dachas, and carts of furniture trail along the streets. The Dreamer walks along the canal, tapping the granite with his stick.'));
       await g.think('dreamer', 'Eight years in Petersburg — and not a single acquaintance. The houses, though — the houses I know');
@@ -24,8 +24,8 @@ export default {
       ] });
       if (bow === 'bow') {
         await g.plate(tr('He bows to the house. A yardman with a broom bursts out laughing.'));
-        g.mood('dvornik', 'laugh');
-        await g.say('dvornik', 'Who are you talking to, sir?');
+        g.mood('yardman', 'laugh');
+        await g.say('yardman', 'Who are you talking to, sir?');
         g.mood('dreamer', 'laugh');
         await g.plate(tr('The Dreamer blushes — and laughs himself.'));
       } else {

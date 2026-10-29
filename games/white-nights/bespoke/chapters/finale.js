@@ -25,7 +25,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.ending === 'minute' || f.ending === 'morning') {
-        await g.scene(f.ending === 'minute' ? 'morning' : 'sunny', { here: ['dreamer', 'matryona'], moods: { dreamer: 'sad', matryona: 'thinking' }, keys: { brings: 'letter' } });
+        await g.scene(f.ending === 'minute' ? 'morning' : 'sunny', { here: ['dreamer', 'matryona'], moods: { dreamer: 'sad', matryona: 'thinking' } });
         await g.plate(f.ending === 'minute' ? tr('Morning, rain. Matryona brings a letter.') : tr('Morning. Matryona brings a letter.'));
         await g.say('matryona', 'From the young lady, is it?', { how: 'the same question as on the first day; indifferent, the eyes sharp' });
         await g.plate(tr('He opens the letter. Her voice:'));
@@ -46,12 +46,12 @@ export default {
         return;
       }
       if (f.ending === 'stairs') {
-        await g.scene('morning', { here: ['dreamer', 'matryona'], moods: { dreamer: 'sad', matryona: 'thinking' }, keys: { brings: 'none' } });
+        await g.scene('morning', { here: ['dreamer', 'matryona'], moods: { dreamer: 'sad', matryona: 'thinking' }, keys: { matryona_with: [], matryona_reach: null } });
         await g.plate(tr('Morning, rain. No letter: everything was said on the stairs.'));
         await g.say('matryona', 'From the young lady, is it?', { how: 'the same question as on the first day; indifferent, the eyes sharp' });
         await g.say('dreamer', 'No, Matryona. Nothing');
         if (f.sunday === 'out') {
-          g.set('brings', 'hat');
+          g.set('hat_peg', true);
           await g.plate(tr('A boy from Grandmother’s brings his hat.'));
           await g.say('matryona', 'Shall I give the boy a kopeck?');
         }
@@ -122,7 +122,9 @@ export default {
         return;
       }
       // the Window: U4 — Matryona and the frock coat; U, the letter on the table — nothing comes
-      await g.scene('morning', { here: ['dreamer', 'matryona'], moods: { dreamer: 'sad', matryona: 'thinking' }, keys: { brings: 'none', coat_drying: f.letter === 'U4' } });
+      await g.scene('morning', { here: ['dreamer', 'matryona'], moods: { dreamer: 'sad', matryona: 'thinking' }, keys: { moment: 'none', coat_drying: f.letter === 'U4' } });
+      // (`monday` reads `coat_drying`: set before it)
+      g.set('moment', 'monday');
       if (f.letter === 'U4') {
         await g.plate(tr('Monday morning. Matryona, back from the market, hangs his frock coat up by the stove.'));
         await g.say('matryona', 'Second day it won’t dry. Stood in the rain, did you?');
@@ -137,19 +139,20 @@ export default {
       const r = await g.play(open_window);
       if (r.matryona) await g.plate(tr('Matryona opens it herself, grumbling.'));
       g.set('window', 1, 2);
+      g.set('wet', 1, 4);
     },
     // the last shot
     async g => {
       const f = facts(g.state);
       if (f.ending === 'minute' || f.ending === 'stairs') {
-        await g.scene('morning', { here: ['dreamer', 'matryona'], moods: { dreamer: 'sad', matryona: 'neutral' }, keys: { brings: 'none' } }, { cut: true });
+        await g.scene('morning', { here: ['dreamer', 'matryona'], moods: { dreamer: 'sad', matryona: 'neutral' }, keys: { moment: 'corner' } }, { cut: true });
         if (g.state.choices.cobweb === 'sweep') g.set('cobweb', 0, 2);
         if (g.state.choices.cobweb === 'sweep') await g.plate(tr('Matryona, grumbling, takes the long brush and sweeps the cobweb down. The empty corner looks strangely bare.'));
         else await g.plate(tr('She nods with relief. Suddenly it seems to him that she has grown old — and the room with her.'));
         await g.say('dreamer', 'A whole minute of bliss! Is that so little, even for the whole of a man’s life?..', { how: 'quietly, without pathos; the question is real — he does not know himself' });
         await g.plate(g.state.choices.cobweb === 'sweep' ? tr('The last shot: Matryona by the bare corner. The window is shut.') : tr('The last shot: Matryona by the cobweb. The window is shut.'));
       } else if (f.ending === 'morning') {
-        await g.scene('town', { here: ['dreamer', 'nanny', 'child', 'passerby', 'dvornik'], moods: { dreamer: 'thinking' } });
+        await g.scene('town', { here: ['dreamer', 'nanny', 'child', 'passerby', 'yardman'], moods: { dreamer: 'thinking' } });
         await g.plate(tr('The embankment by day: the city is back from the dachas, people walk by. A passer-by catches his shoulder:'));
         await g.say('passerby', 'Pardon');
         if (f.bowed) await g.plate(tr('He nods to the yellow house.'));
@@ -164,7 +167,8 @@ export default {
         await g.say('babushka', 'And what’s that rustling in there?', { how: 'patting his pocket' });
         await g.plate(tr('He takes out the letter and hides it again. The last shot: the bright line of the pin between her dress and his coat.'));
       } else {
-        await g.scene('morning', { here: ['dreamer', 'yard_man', 'yard_woman'], moods: { dreamer: 'sad' }, keys: { window: 1, wet: 1, brings: 'none' } }, { cut: true });
+        await g.scene('morning', { here: ['dreamer', 'yard_man', 'yard_woman'], moods: { dreamer: 'sad' }, keys: { moment: 'none', coat_drying: f.letter === 'U4', window: 1, wet: 1 } }, { cut: true });
+        g.set('moment', 'window');
         await g.plate(tr('Below — the yard, the rain, an ordinary day; nobody looks up. The rain floods the sill and the table under it; he does not shut the window. The last shot: the open window, the wet sill, his hand on it — his face not seen.'));
       }
       g.mark('ending', f.ending, null);

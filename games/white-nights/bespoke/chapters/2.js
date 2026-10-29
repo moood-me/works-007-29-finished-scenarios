@@ -70,16 +70,19 @@ export default {
       await g.say('nastya', 'And my story is this');
       await g.plate(tr('She takes the pin out of her collar.'));
       await g.say('nastya', 'This is how she does it to me — give me your sleeve', { how: 'gaily; under it, half of every day of her life' });
+      g.set('hem', 'pinned');
       await g.plate(tr('She pins her hem to his sleeve.'));
       const r = await g.play(pin);
       if (r.torn) {
         g.mood('dreamer', 'afraid');
+        g.set('hem', 'torn');
         await g.plate(tr('He jerks his arm — a rip: the hem is torn.'));
         g.mood('nastya', 'laugh');
         await g.say('nastya', 'Grandmother will kill me', { how: 'roaring with laughter' });
         g.mark('hem', true, tr('The hem is torn.'));
       } else {
         await g.say('nastya', 'There, you see how I sit');
+        g.set('hem', 'none');
         await g.plate(tr('She unpins it herself.'));
       }
     },
