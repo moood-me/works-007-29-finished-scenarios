@@ -128,7 +128,7 @@ export default {
             await g.wait(1200);
           },
           plate: () => g.say('dad', 'Okay. Whenever you want to tell me', { at: 'narrator', how: 'through the door, gently' }),
-        }, () => g.scene('room', { beat: 'knock', here: ['jack'], moods: { jack: 'sad' }, keys: { ...ROOM.ran, ...ROOMS(f, false) } }));
+        }, () => g.scene('room', { beat: 'knock', here: ['jack'], moods: { jack: 'sad' }, keys: ROOMS(f, false) }));
       }
     },
     // 1.5: the tape; М4 «The Tape»; she breathes; what she says now, in his language; 爱 on his palm (`tape`, М4,
@@ -215,7 +215,7 @@ export default {
     // 1.6: ⚑ the box (the menagerie) (`box_night`, then `box_<choice>`)
     async g => {
       const f = facts(g.state);
-      await piece(g, 'box_night', {}, () => g.scene('room', { beat: 'box_night', here: ['jack'], moods: { jack: 'thinking' }, keys: { ...ROOM.night, ...ROOMS(f, false) } }));
+      await piece(g, 'box_night', {}, () => g.scene('room', { beat: 'box_night', here: ['jack'], moods: { jack: 'thinking' }, keys: ROOMS(f, false) }));
       const box = await g.choose('box', { 'jack#chest': [
         { id: 'attic', label: tr('All of them into the box') },
         { id: 'laohu', label: tr('All but Laohu') },
