@@ -37,7 +37,7 @@ export const stroke = stub({ title: tr('Stroking'), gesture: SLOW, at: 'laohu',
   about: tr('Five seconds: run a finger slowly down the paper tiger’s back. Too quick — he grumbles, and lies down all the same. Then he purrs, lies down in Jack’s lap — and unfolds.'),
   phrase: tr('Laohu rubs against his hand.'),
   miss: tr('Missed: he grumbles — and lies down all the same') });
-export const peel = stub({ title: tr('The Tape, Her Last'), gesture: SLOW, at: 'jack#chest',
+export const peel = stub({ title: tr('The Tape, Her Last'), gesture: SLOW, at: 'translator#letter',
   about: tr('Five seconds: peel off her fresh strip of tape, slowly, so the overlapping edges of the tear come apart and lie side by side. The mirror of the tape in chapter 1: he held while she taped; her last strip he peels himself. Too quick — the edge of the tear stays folded under: “I can’t see. Probably — ‘alone’.” The same meaning; the paper whole.'),
   phrase: tr('A fresh strip of tape over the tear; a word under the overlap.'),
   miss: tr('Missed: the edge stays folded — “probably ‘alone’”') });

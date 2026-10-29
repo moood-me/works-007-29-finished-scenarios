@@ -5,15 +5,19 @@
 // ⚑ Laohu (hinge 2) — fold him, keep the letter, or give him to her in the fire: the finale, «The Tiger», «The Letter»
 // or «The Smoke», its form by the train (2.3), its details by the language, the menagerie and the marks — Dad, the ear,
 // the seam, the sign.
-// Stand-ins (story.js PLACES): the kitchen, Jack's room and the attic a spring later, the square, the yard at dusk —
-// the ward (the world's only scene with Jack grown and Dad grey), Mom not there; the woman, the guide, Mark grown are
-// voices.
+// Stand-ins (story.js PLACES): the kitchen, Jack's room and the attic a spring later, the yard at dusk — the ward (Jack
+// grown and Dad grey are the cast's looks of another year, which a game cannot name on the kitchen's and the yard's
+// people: game.md, asks of the world), Mom not there; Mark grown is a voice. The square is its own scene: the woman on
+// the bench, the guide at the coach, the tourists; the letter goes from Jack's hands to hers and back (the cast's part
+// `letter`).
 // Reads: everything. Leaves: choices.father, choices.laohu; marks.father, marks.crooked.
 import { GROWN, WARD, ENDINGS, facts } from '../story.js';
 import { read } from '../letter.js';
 import { flame, fold, peel, sign, smooth, stroke } from '../minigames/all.js';
 
 const label = id => ENDINGS.find(e => e.id === id).label;
+// the square's people (С6): Jack, the woman on the bench, the guide at the coach, three of the group
+const SQUARE = ['jack', 'translator', 'guide', 'tourist_cap', 'tourist_hat', 'tourist_coat'];
 
 export default {
   number: '3', title: tr('Qingming'),
@@ -95,7 +99,7 @@ export default {
     // 3.3: the square; the woman; the letter's first half
     async g => {
       const f = facts(g.state);
-      await g.scene('square', { here: ['jack'], moods: { jack: 'neutral' }, keys: { ...WARD.evening, ...GROWN } });
+      await g.scene('square', { here: SQUARE, moods: { jack: 'neutral', translator: 'neutral' }, keys: { jack_with: ['letter'], jack_look: 'translator', translator_with: [], translator_look: 'jack' } });
       await g.plate(tr('The square. A tour bus; the guide is calling. A woman on the bench looks at her watch.'));
       if (f.lang === 2) {
         await g.say('jack_grown', '阿姨，您能帮我念一下吗？', { sub: tr('Auntie, could you read this for me?'), how: 'in Mandarin Chinese, plain home Chinese, a little shy' });
@@ -105,6 +109,11 @@ export default {
       } else {
         await g.say('jack_grown', 'Could you read this for me? It’s in Chinese', { how: 'a little shy' });
       }
+      g.set('jack_with', []);
+      g.set('translator_with', ['letter']);
+      g.set('translator_look', 'translator#letter');
+      g.set('jack_look', 'translator#letter');
+      g.mood('translator', 'surprised');
       await g.plate(tr('She takes the sheet — and raises her eyebrows.'));
       if (f.lang === 2) await g.say('translator', '这么暖和。', { sub: tr('So warm.'), how: 'surprised' });
       else await g.say('translator', 'So warm', { how: 'surprised' });
@@ -133,7 +142,7 @@ export default {
     // 3.3: the tear; М7 «The Tape, Her Last»; the letter's second half; the woman goes
     async g => {
       const f = facts(g.state);
-      await g.scene('square', { here: ['jack'], moods: { jack: 'sad' }, keys: { ...WARD.evening, ...GROWN } }, { cut: true });
+      await g.scene('square', { here: SQUARE, moods: { jack: 'sad', translator: 'thinking' } }, { cut: true });
       if (f.lang === 2) await g.say('translator', '这儿撕破了，边叠在一起了。字在底下。', { sub: tr('It’s torn here, the edges overlap. The word is under them.'), how: 'peering, practical' });
       else await g.say('translator', 'It’s torn here, the edges overlap. The word is under them', { how: 'peering, practical' });
       const { missed } = await g.play(peel);
@@ -158,9 +167,13 @@ export default {
       if (f.asked) g.kept(tr('“I’ll tell you later” — “Here is later.”'));
       else g.kept(tr('“I’ll tell you later” — she told it in the letter.'));
       await g.plate(tr('Out of habit the woman starts to fold the sheet — Jack takes it from her, flat.'));
+      g.set('translator_with', []);
+      g.set('jack_with', ['letter']);
+      g.set('jack_look', 'jack#letter');
       if (f.lang === 2) await g.say('jack_grown', '不用。我就这样拿着。', { sub: tr('Don’t. I’ll keep it like this.'), how: 'in Mandarin Chinese, gently' });
       else await g.say('jack_grown', 'Don’t. I’ll keep it like this', { how: 'gently' });
       await g.say('guide', '周阿姨！上车了！', { sub: f.lang > 0 ? tr('Auntie Zhou! The bus!') : null, how: 'shouting across the square in Mandarin Chinese' });
+      g.here('translator', false);
       await g.plate(tr('She goes to the bus without looking back.'));
     },
     // 3.4: Mark across the street; the box of the woken animals; ⚑ what does she write?

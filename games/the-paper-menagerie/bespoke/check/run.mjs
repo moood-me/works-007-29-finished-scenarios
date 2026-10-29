@@ -68,11 +68,15 @@ function point(folder, ref, where, present) {
   if (!s) return;
   if (s.objects.get(id)?.person) {
     if (!present.has(id)) miss(`${where}: the point “${ref}” — “${id}” is not there now`);
-    else if (name && name !== 'chest') miss(`${where}: the point “${ref}” — a person's point is their head or “#chest”`);
+    else if (name && name !== 'chest' && !PARTS.has(name)) miss(`${where}: the point “${ref}” — a person's point is their head, “#chest” or a point of a part of the cast (modules/cast.js F.point)`);
   } else if (!s.objects.has(id)) miss(`${where}: the point “${ref}” — no element “${id}” in the scene “${folder}”`);
   else if (name && !new RegExp(`['"\`]${name}['"\`]`).test(s.code(id))) miss(`${where}: the point “${ref}” — the element's code names no “${name}”`);
 }
 
+// the points the cast's parts name (a person's point by a part they have: `jack#letter`)
+const PARTS = new Set();
+const CAST = join(world, 'modules', 'cast.js');
+if (existsSync(CAST)) for (const [, n] of readFileSync(CAST, 'utf8').matchAll(/F\.point\('(\w+)'/g)) PARTS.add(n);
 const lines = new Map(); // `${who}\n${text}` → {who, text}
 // a step played unseen on `state` (its choices made as they say, the first offered where they say nothing) → {state,
 // made: the choice it made, titles: the titles it showed}
@@ -83,7 +87,7 @@ async function step(c, s, state, where, missed = false) {
   const made = [], titles = [];
   const { scene, say: speak, choose, play, title, here, set } = g;
   // a key of the shown scene's own: in its states, its value allowed — or a person's of the scene (`<id>_with`…)
-  const PERSON = /^(.+)_(do|turn|look|reach|with|wear|gait|steps|on|here|still|mood)$/;
+  const PERSON = /^(.+)_(do|turn|look|reach|with|wear|gait|steps|on|here|still|mood|a|d)$/;
   const key = (k, v) => {
     const def = SCENES.get(folder)?.states[k];
     if (!SCENES.has(folder)) return;
@@ -99,13 +103,14 @@ async function step(c, s, state, where, missed = false) {
     else if (!SCENES.has(at.folder)) miss(`${where}: the place “${place}” — the world has no scene “${at.folder}”`);
     folder = at?.folder;
     const people = SCENES.get(folder)?.objects ?? new Map();
-    for (const id of [...(o.here ?? []), ...Object.keys(o.moods ?? {})]) if (!PEOPLE[id] || id === 'narrator') miss(`${where}: “${id}” is not one of the game's people`);
+    // (one who never speaks — the tourists on the square — is a person of the scene only)
+    for (const id of [...(o.here ?? []), ...Object.keys(o.moods ?? {})]) if ((!PEOPLE[id] && !people.get(id)?.person) || id === 'narrator') miss(`${where}: “${id}” is neither one of the game's people nor a person of the scene`);
     present = new Set((o.here ?? []).filter(id => people.get(id)?.person));
     for (const [k, v] of Object.entries(o.keys ?? {})) key(k, v);
     return scene(place, o, x);
   };
   g.here = (id, on) => {
-    if (!PEOPLE[id]) miss(`${where}: “${id}” is not one of the game's people`);
+    if (!PEOPLE[id] && !SCENES.get(folder)?.objects.get(id)?.person) miss(`${where}: “${id}” is neither one of the game's people nor a person of the scene`);
     if (SCENES.get(folder)?.objects.get(id)?.person) { if (on) present.add(id); else present.delete(id); }
     return here(id, on);
   };

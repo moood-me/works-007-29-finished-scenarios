@@ -52,33 +52,45 @@
 // The game's places (scenario §4) and the world's scene each is played on — the one map of them: a place whose own
 // scene is not made yet stands in one of the ready ones, its people there, and `where` says (a label high on the left)
 // where it really is. When the place's own scene comes (stage 4), its line here becomes `{ folder: '<its folder>' }`
-// — nothing else changes: the steps name places, never folders. The world's three scenes have the people of their own
-// years: the kitchen and the yard — Jack at ten, Mom, Dad (the kitchen), Mark (the yard); the ward — Jack at
-// twenty-one, Mom ill, Dad grey. So chapter 3, a spring later — Jack grown, Dad grey — stands in the ward wherever it
-// shows them, the house and the yard as they really are said by the label. (The kitchen is also the map's
-// background, game.js.)
+// — nothing else changes: the steps name places, never folders. The world's scenes have the people of their own
+// years: the kitchen and the yard — Jack at ten, Mom, Dad, Mark (the yard); the ward — Jack at twenty-one, Mom ill, Dad
+// grey; the square — Jack grown, the woman, the guide, the tourists. A look of another year is the cast's object
+// (`<id>_wear`), which a game cannot name: so chapter 3 at home — Jack grown, Dad grey — stands in the ward until the
+// kitchen and the yard have a key that dresses their people a year on (game.md, asks of the world); the house and the
+// yard as they really are said by the label. (The kitchen is also the map's background, game.js.)
 export const PLACES = {
   kitchen: { folder: 'kitchen' }, // С2 the kitchen
   room: { folder: 'kitchen', where: tr('In truth: Jack’s room — a bed, a shelf with the paper animals, a window onto the street; in the corridor ceiling, the hatch to the attic.') }, // С3
   yard: { folder: 'yard' }, // С1 the yard
-  dusk: { folder: 'yard', where: tr('In truth: the same yard at dusk — the lamp over the door is lit, a fire in the tin bucket under the apple tree.') }, // С1 at dusk, the fire
-  stop: { folder: 'yard', where: tr('In truth: the same yard on Monday morning — across the street, the school bus stop: Mark and two boys.') }, // С1, the bus stop
+  dusk: { folder: 'yard' }, // С1 at dusk, the fire (the yard's keys: DUSK)
+  stop: { folder: 'yard', where: tr('In truth: the same yard on Monday morning — across the street, behind you, the school bus stop: Mark and two boys.') }, // С1, the bus stop
   ward: { folder: 'ward' }, // С5 the ward
   hallway: { folder: 'ward', where: tr('In truth: the hospital corridor outside the ward door — and, down it, a payphone.') }, // С5, the corridor
   house: { folder: 'ward', where: tr('In truth: the kitchen, a spring later — empty, boxes on the floor, the house sold.') }, // С2 in chapter 3
   bare: { folder: 'ward', where: tr('In truth: Jack’s room, a spring later — empty, a bare shelf, the hatch to the attic in the corridor ceiling.') }, // С3 in chapter 3
   attic: { folder: 'ward', where: tr('In truth: the attic — a sloping roof, dusty light from a little window, boxes; a shoebox among them.') }, // С4
-  square: { folder: 'ward', where: tr('In truth: the town square — the town hall, a bench, a tour bus; a woman from the tour group on the bench, looking at her watch.') }, // С6
+  square: { folder: 'square' }, // С6 the square
   porch: { folder: 'ward', where: tr('In truth: the yard at dusk, a spring later — the porch steps, the apple tree, her rusty bucket under it; across the street, Mark’s house.') }, // С1 in chapter 3
 };
 // The kitchen's hours (its lamp over the table) and the ward's (the bedside lamp)
 export const KITCHEN = { evening: { lamp: 1 }, morning: { lamp: 0 }, night: { lamp: 0.35 } };
 export const WARD = { evening: { lamp: 1 }, night: { lamp: 0.6 }, dark: { lamp: 0.3 } };
+// The yard at dusk, the fire in the bucket (1.4) — its keys and where its people stand, as the yard's notes have them:
+// Mom and Jack at the bucket, Dad (not here till he comes) by her, his hand on her back; Jack up in his window, Mom
+// looking up at it (UP, «Run away»)
+export const DUSK = {
+  dusk: 1, porch_lamp: 1, house_lights: 1, fire: 1, scraps: false,
+  mom_a: 3.35, mom_d: 5.9, mom_turn: 150, mom_do: 'stand', mom_wear: { parts: [] }, mom_reach: null, mom_look: 'apple#fire',
+  jack_a: 2.8, jack_d: 5.3, jack_turn: 120, jack_do: 'stand', jack_with: [], jack_look: 'apple#fire',
+  dad_a: 3.85, dad_d: 6.25, dad_turn: 215, dad_reach: { r: 'mom#back' }, dad_look: 'mom',
+};
+export const UP = { jack_a: -4.4, jack_d: 8.85, jack_turn: 180, jack_look: 'mom', mom_look: 'house#jack_window' };
 // The yard's people as they are when the step has none of the scene's things in their hands — no plate, no scraps —,
 // standing (the scene's own pose is 1.3's: Jack squatting with the scraps, Mom holding out her hand)
 export const EMPTY = { mom_wear: { parts: [] }, mom_do: 'stand', mom_reach: null, jack_with: [], jack_do: 'stand' };
-// Jack grown in chapter 3, where the ward stands in: no suit bag in his hand (it is chapter 2's), standing
-export const GROWN = { jack_wear: { parts: [] }, jack_do: 'stand' };
+// Jack grown in chapter 3, where the ward stands in: no suit bag in his hand (it is chapter 2's), standing; no menu
+// crane on the sill
+export const GROWN = { jack_wear: { parts: [] }, jack_do: 'stand', crane: false };
 // whose body a voice is in the scenes: Jack grown speaks from the scene's `jack` (the ward's is twenty-one)
 export const BODY = { jack_grown: 'jack' };
 

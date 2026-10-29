@@ -3,11 +3,11 @@
 // which language Jack answers her in front of Mark (the language at home, set once); the fire in the bucket; the tape
 // and 爱 on his palm; ⚑ the question — “Did Dad buy you?”; ⚑ the box (the menagerie, set once); the gate on Monday
 // morning.
-// Stand-ins (story.js PLACES): Jack's room — the kitchen. The yard has no Dad: in 1.4 he is a voice, his hand on her
-// back a plate.
+// Stand-ins (story.js PLACES): Jack's room — the kitchen. The bus stop (1.7) is behind the yard's eye: the label says
+// it.
 // Reads: the miss marks; the yard. Leaves: choices.yard, choices.asked, choices.box; scales.language,
 // scales.menagerie; marks.yard, marks.asked, marks.ear, marks.seam, marks.ingot.
-import { EMPTY, KITCHEN, facts } from '../story.js';
+import { DUSK, EMPTY, KITCHEN, UP, facts } from '../story.js';
 import { ingot, scraps, tape } from '../minigames/all.js';
 
 export default {
@@ -54,13 +54,14 @@ export default {
     },
     // 1.2: the knight; the puddle; Laohu torn; М3 «The Scraps»
     async g => {
-      await g.scene('yard', { here: ['jack', 'mark'], moods: { jack: 'smile', mark: 'smile' }, keys: EMPTY });
+      await g.scene('yard', { here: ['jack', 'mark'], moods: { jack: 'smile', mark: 'smile' }, keys: { ...EMPTY, scraps: false } });
       await g.say('mark', 'My dad sent me this', { how: 'showing off, holding it up' });
       await g.plate(tr('Mark’s plastic knight; its sword lights up. Laohu has followed Jack out onto the porch. He sees the knight, pounces and knocks it off the step into a puddle. The sword goes out.'));
       g.mood('mark', 'angry');
       g.mood('jack', 'afraid');
       await g.plate(tr('Mark picks up the knight, water dripping off it. He grabs Laohu and tears him — once, twice.'));
       await g.say('mark', 'It’s trash. Cheap Chinese trash', { how: 'furious, near tears' });
+      g.set('scraps', true);
       await g.plate(tr('He throws the scraps down — just paper, they don’t move. The wind carries them across the grass. Jack squats down and catches them in the grass.'));
       g.know(tr('Torn, Laohu is just paper: he doesn’t move.'));
       g.mood('jack', 'sad');
@@ -119,22 +120,23 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.yard === 'english') {
-        await g.scene('dusk', { here: ['mom', 'jack'], moods: { mom: 'neutral', jack: 'neutral' }, keys: EMPTY });
+        await g.scene('dusk', { here: ['mom', 'jack'], moods: { mom: 'neutral', jack: 'neutral' }, keys: DUSK });
         await g.plate(tr('Dusk. Mom by the bucket under the apple tree, dropping the ingots into the fire one by one. Jack comes back from Mark’s through the gate.'));
         await g.say('mom', 'Dinner soon', { how: 'in English, slowly' });
         await g.plate(tr('He walks past. At the porch he turns: in the fire — his ingot, with his name.'));
       } else if (f.yard === 'chinese') {
-        await g.scene('dusk', { here: ['mom', 'jack'], moods: { mom: 'smile', jack: 'neutral' }, keys: EMPTY });
+        await g.scene('dusk', { here: ['mom', 'jack'], moods: { mom: 'smile', jack: 'neutral' }, keys: DUSK });
         await g.plate(tr('Dusk. Jack beside Mom at the bucket under the apple tree; they drop the ingots into the fire.'));
         await g.say('mom', '外公外婆看得见你。跟他们说句话。', { sub: tr('Grandma and Grandpa can see you. Say something to them.') });
         await g.say('jack', '你们好。', { sub: tr('Hello.'), how: 'into the fire, awkwardly, in Mandarin Chinese' });
         await g.plate(tr('He drops his own ingot into the fire himself.'));
       } else {
-        await g.scene('dusk', { here: ['mom'], moods: { mom: 'sad' }, keys: EMPTY });
+        await g.scene('dusk', { here: ['mom', 'jack'], moods: { mom: 'sad', jack: 'sad' }, keys: { ...DUSK, ...UP } });
         await g.plate(tr('Dusk. Mom by the bucket under the apple tree, dropping the ingots into the fire one by one. Jack is in the window of his room, the scraps on the sill.'));
         await g.plate(tr('Mom raises her head to his window. She holds the ingot with his name — and drops it into the fire.'));
       }
       g.kept(tr('“We’ll burn them tonight” — his ingot burned with hers.'));
+      g.here('dad', true);
       await g.plate(tr('Dad comes home and stands beside her, his hand on her back; they talk quietly, too low to hear.'));
       if (f.yard === 'english') {
         await g.plate(tr('Then Dad, to Jack, on the porch:'));
@@ -246,7 +248,7 @@ export default {
     // 1.7: the gate, Monday morning
     async g => {
       const f = facts(g.state);
-      await g.scene('stop', { here: ['mom', 'jack', 'mark'], moods: { mom: 'neutral', jack: 'neutral', mark: 'neutral' }, keys: EMPTY });
+      await g.scene('stop', { here: ['mom', 'jack', 'mark'], moods: { mom: 'neutral', jack: 'neutral', mark: 'neutral' }, keys: { ...EMPTY, scraps: false } });
       await g.plate(tr('Morning. At the bus stop across the street, Mark and two boys. Mom on the porch, by the door — she goes no further.'));
       if (f.yard === 'english') {
         g.mood('mark', 'smile');

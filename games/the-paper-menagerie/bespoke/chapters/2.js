@@ -6,7 +6,8 @@
 // Her language: the language at home (scenario §1, §8) — 2 Mom's: both in Chinese, subtitled; 1 two languages: she in
 // Chinese, subtitled, he in English; 0 English: she in English, slowly — and what she says in Chinese is not
 // subtitled: Jack no longer understands it.
-// Stand-ins (story.js PLACES): the corridor outside the ward — the ward, Mom not seen.
+// Stand-ins (story.js PLACES): the corridor outside the ward — the ward, Mom not seen. The menu crane on the sill —
+// only on the menagerie «the whole house» (the ward's key `crane`).
 // Reads: the language, the menagerie, marks.ear. Leaves: choices.talk, choices.train; marks.talk, marks.train.
 import { WARD, facts } from '../story.js';
 import { hand } from '../minigames/all.js';
@@ -29,7 +30,7 @@ export default {
     // 2.1: at the ward door — the nurse, the ticket, the phrasebook, the tiger folded anew
     async g => {
       const f = facts(g.state);
-      await g.scene('hallway', { here: ['jack', 'dad'], moods: { jack: 'tired', dad: 'tired' }, keys: WARD.evening });
+      await g.scene('hallway', { here: ['jack', 'dad'], moods: { jack: 'tired', dad: 'tired' }, keys: { ...WARD.evening, crane: f.zoo === 2 } });
       g.title(tr('A Good Day'));
       await g.plate(tr('Eleven years later, autumn. Jack is twenty-one, his last year at university. Mom has been in hospital for three weeks. Tuesday. Dad, unshaven, with a bag of oranges. Jack with a suit bag over his shoulder — his first suit. In his hand a ticket: “Tue 23:00 → Wed 7:40”; the return — “Fri”.'));
       await g.say('dad', 'A good day today. She ate. Soup… well, half a bowl — that’s a lot, for her', { how: 'rambling a little, trying to sound hopeful' });
@@ -51,7 +52,7 @@ export default {
     // 2.2: the ward; “You've got thin”; “Don't touch. This one is for once only”; the suit
     async g => {
       const f = facts(g.state);
-      await g.scene('ward', { here: ['mom', 'jack', 'dad'], moods: { mom: 'smile', jack: 'neutral', dad: 'neutral' }, keys: { ...WARD.evening, laohu_ear: f.ear } });
+      await g.scene('ward', { here: ['mom', 'jack', 'dad'], moods: { mom: 'smile', jack: 'neutral', dad: 'neutral' }, keys: { ...WARD.evening, laohu_ear: f.ear, crane: f.zoo === 2 } });
       await g.plate(f.ear ? tr('Mom, thin, in a kerchief. On the nightstand, Laohu — paper, not moving: folded a little crookedly, an extra fold at the tail, a fresh strip of tape on his side; one-eared.') : tr('Mom, thin, in a kerchief. On the nightstand, Laohu — paper, not moving: folded a little crookedly, an extra fold at the tail, a fresh strip of tape on his side.'));
       if (f.zoo === 2) await g.plate(tr('On the window sill, a paper crane, not moving.'));
       await g.plate(tr('Dad sits down on the chair by the window.'));
@@ -83,7 +84,7 @@ export default {
     // 2.2: ⚑ what about
     async g => {
       const f = facts(g.state);
-      await g.scene('ward', { here: ['mom', 'jack', 'dad'], moods: { mom: 'smile', jack: 'thinking', dad: 'neutral' }, keys: { ...WARD.evening, laohu_ear: f.ear } }, { cut: true });
+      await g.scene('ward', { here: ['mom', 'jack', 'dad'], moods: { mom: 'smile', jack: 'thinking', dad: 'neutral' }, keys: { ...WARD.evening, laohu_ear: f.ear, crane: f.zoo === 2 } }, { cut: true });
       const talk = await g.choose('talk', { 'jack#chest': [
         { id: 'grandma', label: tr('“Tell me about your mom”') },
         { id: 'forty', label: tr('Tell her about the job in the city') },
@@ -122,7 +123,7 @@ export default {
     // 2.3: ⚑ the train (hinge 1)
     async g => {
       const f = facts(g.state);
-      await g.scene('ward', { here: ['mom', 'jack', 'dad'], moods: { mom: 'smile', jack: 'thinking', dad: 'tired' }, keys: { ...WARD.night, laohu_ear: f.ear } });
+      await g.scene('ward', { here: ['mom', 'jack', 'dad'], moods: { mom: 'smile', jack: 'thinking', dad: 'tired' }, keys: { ...WARD.night, laohu_ear: f.ear, crane: f.zoo === 2 } });
       await g.plate(tr('It is getting dark outside the window. Dad puts on his coat.'));
       await g.say('dad', 'Let’s go, I’ll drive you to the station', { how: 'gently' });
       await g.plate(tr('Jack holds the suit bag. Mom:'));
@@ -170,7 +171,7 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.stayed) {
-        await g.scene('ward', { here: ['mom', 'jack'], moods: { mom: 'neutral', jack: 'tired' }, keys: { ...WARD.dark, laohu_ear: f.ear } });
+        await g.scene('ward', { here: ['mom', 'jack'], moods: { mom: 'neutral', jack: 'tired' }, keys: { ...WARD.dark, laohu_ear: f.ear, crane: f.zoo === 2 } });
         await g.plate(tr('Three in the morning, the lamp. Mom wakes up clear. The first thing she sees is the suit bag on the back of the chair — she looks at it, not at her son.'));
         if (f.lang === 0) await g.say('mom', 'Hang straight. It will crease', { how: 'in English, slowly, practical' });
         else await g.say('mom', '挂直了。会皱的。', { sub: tr('Hang it straight. It’ll crease.'), how: 'practical' });
@@ -209,7 +210,7 @@ export default {
           await g.plate(tr('She falls asleep.'));
           await g.say('jack_grown', 'I know, Mom', { how: 'barely aloud' });
         }
-        await g.scene('hallway', { here: ['jack'], moods: { jack: 'tired' }, keys: WARD.evening });
+        await g.scene('hallway', { here: ['jack'], moods: { jack: 'tired' }, keys: { ...WARD.evening, crane: f.zoo === 2 } });
         await g.plate(tr('Morning. Jack calls from the payphone in the corridor to say he won’t come. The answer: the position will go to another candidate.'));
         g.here('dad', true);
         await g.plate(tr('Dad comes down the corridor with oranges and sees his face.'));
@@ -218,7 +219,7 @@ export default {
         await g.say('dad', 'Well… okay', { how: 'helpless, kind' });
         await g.plate(tr('Jack puts the tiger in his jacket pocket.'));
       } else {
-        await g.scene('ward', { here: ['mom'], moods: { mom: 'neutral' }, keys: { ...WARD.dark, laohu_ear: f.ear } });
+        await g.scene('ward', { here: ['mom'], moods: { mom: 'neutral' }, keys: { ...WARD.dark, laohu_ear: f.ear, crane: f.zoo === 2 } });
         await g.plate(tr('Night in the ward without him: Mom looks out of the window, the tiger on the nightstand. On the blanket, the hospital menu — she slowly folds it in half.'));
         await g.say('dad', 'I’ll take the tiger back home later', { at: 'narrator', how: 'back from the station, in the doorway, quietly' });
         g.promise(tr('Dad: “I’ll take the tiger back home.”'));
@@ -227,7 +228,7 @@ export default {
     // 2.4: Friday night; М5 «The Hand»
     async g => {
       const f = facts(g.state);
-      await g.scene('ward', { here: ['mom', 'jack', 'dad'], moods: { mom: 'eyes_closed', jack: 'sad', dad: 'eyes_closed' }, keys: { ...WARD.dark, laohu_ear: f.ear } });
+      await g.scene('ward', { here: ['mom', 'jack', 'dad'], moods: { mom: 'eyes_closed', jack: 'sad', dad: 'eyes_closed' }, keys: { ...WARD.dark, laohu_ear: f.ear, crane: f.zoo === 2 } });
       await g.plate(tr('Friday, night. Mom no longer speaks. Dad is asleep on the chair.'));
       if (!f.stayed) {
         await g.plate(tr('Jack comes in with his bag, straight from the station, and sits down.'));
