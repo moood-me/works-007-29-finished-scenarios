@@ -7,6 +7,7 @@ const V = () => MooodShapes.V;
 const IRON = [0.2, 0.2, 0.21, 1], TIN = [0.48, 0.48, 0.46, 1], LEATHER = [0.42, 0.31, 0.22, 1], CLOTH = [0.47, 0.5, 0.42, 1];
 const STRAP = [0.3, 0.22, 0.16, 1], WOOD = [0.5, 0.38, 0.26, 1], HOOP = [0.27, 0.25, 0.24, 1], BOOK = [0.2, 0.18, 0.16, 1];
 const WICKER = [0.62, 0.48, 0.3, 1];
+const SACKING = [0.6, 0.52, 0.38, 1], JACKET = [0.37, 0.29, 0.21, 1];
 // toward the person's right, level
 function rightOf(F) {
   const { sub, unit } = V(), d = sub(F.P('RightLeg'), F.P('LeftLeg'));
@@ -144,6 +145,20 @@ return {
         const m = F.fit.h, h = F.P('RightHand'), foot = [h[0], floorOf(F), h[2]], top = [h[0], h[1] + 0.14 * m, h[2]];
         F.bar(foot, top, 0.011 * m, 0.012 * m, [[0, IRON]], 6, rightOf(F));
         F.point('rod', top);
+      } },
+      // a sack of acorns held in both hands, its mouth between them, its weight hanging under (the house inside, П.4);
+      // its point `sack`
+      sack: { name: 'sack', draw: F => {
+        const { add, mean } = V(), m = F.fit.h, right = rightOf(F), c = add(mean([F.P('LeftHand'), F.P('RightHand')]), [0, -0.12 * m, 0]);
+        F.ball(c, [right, [0, 1, 0], V().cross(right, [0, 1, 0])], [0.17 * m, 0.16 * m, 0.13 * m], SACKING, 10, 2.4);
+        F.point('sack', c);
+      } },
+      // a piece of brown jacket cloth in the left hand, its button being sewn on (the house inside, 1.5); its point `cloth`
+      cloth: { name: 'cloth', draw: F => {
+        const { add, mul } = V(), m = F.fit.h, axes = [F.side('LeftHand'), F.up('LeftHand'), F.fwd('LeftHand')];
+        const c = add(F.P('LeftHand'), mul(axes[2], 0.06 * m));
+        F.ball(c, axes, [0.11 * m, 0.012 * m, 0.09 * m], JACKET, 6, 3);
+        F.point('cloth', c);
       } },
       // a tin mug held upright in the right hand, by its rim
       mug: { name: 'tin mug', draw: F => {
