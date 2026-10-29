@@ -79,7 +79,8 @@ the left hand (with `candle_l`), the right hand hanging, a loop.
 
 Stage 5's (Kimodo, made one by one, each looked at on a figure before it was put; loops unless «once»): `kneel_rub` —
 kneels, bent forward, one hand scrubbing the floor (weak: a small scrub); `faint_sit` (once) — sits down heavily into a
-chair and leans back; `laugh_bend` — laughs, the head rocking, a hand on the belly (barely bends); `point` (once) — the
+chair and leans back; `laugh_bend` — laughs, the head thrown back, then doubles over, the hands at the belly, twice, and straightens (remade
+after the play test); `point` (once) — the
 right arm down and forward at the floor; `sit_table` — sits upright, the forearms forward on a table; `read_paper`,
 `read_seated` — sit holding something at the chest (near the same: the newspaper part between the hands; read_seated's
 book is not on the lap); `write` — sits, the forearms at a table's height, the right hand now and then up to the head;

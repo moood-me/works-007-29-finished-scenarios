@@ -18,3 +18,6 @@
 
 Адрес игры в студии: `moood-me/works-007-29-finished-scenarios@r3/canterville-game:games/the-canterville-ghost`
 (страница игры — `http://localhost:8080/games/<адрес>`, «Play it»).
+
+Правки после короткой проверки в браузере (2026-10-29): ветка `r3/canterville-fix`, история —
+`docs/history/2026-10-29-kentervil-fixes.md`.
