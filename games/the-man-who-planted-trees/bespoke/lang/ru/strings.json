@@ -230,6 +230,7 @@
   {"text":"There was a son. There was a wife","who":"elzeard","translation":"Был сын. Была жена","where":"games/the-man-who-planted-trees/bespoke/chapters/prologue.js"},
   {"text":"We were silent until night","who":"narrator","translation":"Мы молчали до ночи","where":"games/the-man-who-planted-trees/bespoke/chapters/prologue.js"},
   {"text":"In the morning I went after him. He did not object","who":"narrator","translation":"Утром я пошёл за ним. Он не возражал","where":"games/the-man-who-planted-trees/bespoke/chapters/prologue.js"},
+  {"text":"the step broke: {why}","translation":"шаг сломался: {why}","where":"games/the-man-who-planted-trees/bespoke/game.js"},
   {"text":"If you keep it, the chapters after this one will have to be played again.","translation":"Если её оставить, главы после этой придётся сыграть заново.","where":"games/the-man-who-planted-trees/bespoke/game.js"},
   {"text":"Drop the replay","translation":"Бросить переигровку","where":"games/the-man-who-planted-trees/bespoke/game.js"},
   {"text":"Keep","translation":"Оставить","where":"games/the-man-who-planted-trees/bespoke/game.js"},
@@ -320,5 +321,6 @@
   {"text":"The Plaque","translation":"Табличка","where":"games/the-man-who-planted-trees/bespoke/story.js"},
   {"text":"Two Rods","translation":"Два прута","where":"games/the-man-who-planted-trees/bespoke/story.js"},
   {"text":"The Pupil","translation":"Ученик","where":"games/the-man-who-planted-trees/bespoke/story.js"},
+  {"text":"the piece “{name}” did not end","translation":"кусок «{name}» не закончился","where":"games/the-man-who-planted-trees/bespoke/story.js"},
   {"text":"Next","translation":"Дальше","where":"games/the-man-who-planted-trees/bespoke/ui.js"}
 ]}

@@ -153,7 +153,7 @@ export default async function (b) {
         { forward: r.step < (kept.seen[r.chapter] ?? 0) });
       b.at({ chapter: r.chapter, step: r.step, replay: !!replay });
       const how = await Promise.race([
-        ch.steps[r.step](g).then(() => 'done', e => { b.trouble(`the step broke: ${e.message || e}`); return 'broke'; }),
+        ch.steps[r.step](g).then(() => 'done', e => { b.trouble(tr('the step broke: {why}', { why: e.message || e })); return 'broke'; }),
         away(),
       ]);
       if (how === 'done') await g.done();

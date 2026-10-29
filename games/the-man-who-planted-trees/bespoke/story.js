@@ -268,15 +268,19 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       for (const id of people) st[`${id}_here`] = present.has(id);
       for (const [id, mood] of Object.entries(moods)) if (people.has(id)) st[`${id}_mood`] = mood;
       Object.assign(st, own, keys);
-      if (beat) st.beat = beat;
       // (a scene laid out by its `moment` — its script stages the moment's place and people as it opens: the moment
-      // first, everything else over it, as the scene's notes ask — bespoke.show's `then`)
-      const first = 'moment' in st ? { moment: st.moment } : st;
-      const then = 'moment' in st ? Object.entries(st).filter(([k]) => k !== 'moment') : [];
+      // first, everything else over it, as the scene's notes ask — bespoke.show's `then`. `then` is a jump: all the
+      // scene does meanwhile ends at once and tells nothing — so a piece the scene opens on is set after it is shown,
+      // never in `then`; a scene with no moment takes its piece with the rest of its state)
+      const staged = 'moment' in st;
+      if (beat && !staged) st.beat = beat;
+      const first = staged ? { moment: st.moment } : st;
+      const then = staged ? Object.entries(st).filter(([k]) => k !== 'moment') : [];
       if (unseen()) {
         opening = beat ? { name: beat, ended: g.told(`beat:${beat}`, BEAT) } : null;
         j.scene(folder, first, where);
         for (const change of then) j.did(change);
+        if (beat && staged) j.did(['beat', beat]);
         return;
       }
       showing = true;
@@ -286,6 +290,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         hub.withdraw();
         view.where(null);
         await alive(b.show(folder, { state: first, ...(then.length ? { then } : {}), captions: false, fade: !cut }));
+        if (beat && staged) put('beat', beat);
         view.where(where);
       } finally { showing = false; }
     },
@@ -304,7 +309,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         put('beat', null); // (the same piece again is a change too)
         put('beat', name);
       }
-      if (wait && !(await ended)) b.trouble(`the piece “${name}” did not end`);
+      if (wait && !(await ended)) b.trouble(tr('the piece “{name}” did not end', { name }));
     },
     told(text, ms = 60000) {
       return gone() ? never : unseen() ? j.heard(text, ms) : alive(hub.told(text, ms));
