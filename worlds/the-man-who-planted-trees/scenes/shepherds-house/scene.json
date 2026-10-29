@@ -50,8 +50,8 @@
         }
       },
       "night": {
-        "ambient": 0.52,
-        "ambientColor": "#7a86b8",
+        "ambient": 0.62,
+        "ambientColor": "#8490c0",
         "tint": "#a8b8e8",
         "tintStrength": 0.08,
         "haze": 0.1,
