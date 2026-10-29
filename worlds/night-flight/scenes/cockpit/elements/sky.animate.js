@@ -12,3 +12,5 @@ else {
   const two = e.anim.hash(n, 9) < 0.5 ? 0.6 * Math.exp(-((u - at - 0.22) ** 2) / 0.003) : 0;
   flash.alpha = e.anim.hash(n, 3) < 0.5 ? Math.min(1, one + two) : 0;
 }
+// The gap in the storm's cloud: there as much as `gap` says (in the storm, below the clouds).
+if (e.state.storm > 0.5 && e.state.above < 0.5) e.layer('gap').alpha = e.state.gap;

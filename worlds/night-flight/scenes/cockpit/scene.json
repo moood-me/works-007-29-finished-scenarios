@@ -23,6 +23,18 @@
       1.2
     ],
     "looks": {
+      "night": {
+        "ambient": 0.5,
+        "ambientColor": "#7a88c0",
+        "tint": "#9aa8d8",
+        "tintStrength": 0.06,
+        "saturation": 0.88,
+        "haze": 0.04,
+        "hazeColor": "#2a3458",
+        "lights": {
+          "sun": 0
+        }
+      },
       "storm": {
         "ambient": 0.4,
         "ambientColor": "#6a6494",
@@ -116,6 +128,16 @@
       "strength": 0.7,
       "reach": 2,
       "flicker": 0.5
+    },
+    {
+      "id": "gap_light",
+      "from": [
+        300,
+        70
+      ],
+      "color": "#c8d0f0",
+      "strength": 0.5,
+      "on": "gap"
     }
   ],
   "modules": [
@@ -155,7 +177,9 @@
       0.2
     ],
     "radioman_mood": "neutral",
-    "bob": 0
+    "bob": 0,
+    "night": 0,
+    "gap": 0
   },
   "states": {
     "storm": {
@@ -202,6 +226,21 @@
       ],
       "smooth": true,
       "means": "how far the plane has risen (+) or sunk (−) in the air from where it flies, metres: moved by the scene's script — a slow few centimetres at dusk and over the clouds, jolts in the storm"
+    },
+    "night": {
+      "values": [
+        0,
+        1
+      ],
+      "means": "the night over the steppe (with storm 0 and above 0): 0 — the dusk; 1 — eleven o'clock, a starry night, the steppe black, the lights of Trelew below ahead; the light's look `night`"
+    },
+    "gap": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "in the storm (storm 1, above 0): a gap in the cloud overhead with stars in it — 0 closed, 1 open; a little starlight comes down through it"
     }
   },
   "objects": [

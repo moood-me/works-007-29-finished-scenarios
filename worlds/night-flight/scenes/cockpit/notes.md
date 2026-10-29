@@ -39,3 +39,16 @@ the front cockpit, his radio operator behind. Its three skies are the scenario's
 - **The storm** is only light and rain; the plane is thrown by `bob` (up and down), not rolled or pitched — a
   `tilt` on the anchor would tip the seated people with it, untried.
 - The propeller is a blur only (no blade seen through it), and at 4:3 it is out of the frame.
+
+## Stage 4: the night and the gap
+
+- **The night over the steppe** (`night` 1, with `storm` 0 and `above` 0; the light's look `night`): eleven o'clock
+  (1.5) — a deep blue starry sky, the steppe black with its pale dry riverbeds, the lights of Trelew below ahead on the
+  left (the layer `town`, drifting back), the silent lightning of the storm far behind in the south. The instrument
+  lamps (`panel`) light the faces.
+- **The gap in the storm** (`gap` 0…1, in the storm: 3.4): a ragged opening overhead, its edges lit, stars in it (the
+  layer `gap`, shown by animate), and a little starlight down through it (light `gap_light`, `on` `gap`).
+- Not done (stage 5): the note passed from hand to hand (the cast has the part `note` — `<id>_with: ["note"]`, point
+  `#note` — for the motion); the plane laid on a wing (the miss of М5) — a `tilt` on the anchor `plane` would tip the
+  seated people with it, untried.
+- Seen on the GPU (a sheet: the night over Trelew; the storm with the gap open).
