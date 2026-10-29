@@ -1,7 +1,7 @@
 # cast — the people of «White Nights» as the engine's people
 
 A module for scenes with people (elements with `person`: `{"cast": "cast", "who": …}` — the engine's people.md). In
-the scene's `modules`. its looks, parts and motions of its own (below) besides the engine's `stand` and `walk`. The parts'
+the scene's `modules`. Its looks, parts and motions of its own (below) besides the engine's `stand` and `walk`. The parts'
 lengths are a man's metres times `F.fit.h` (the height as a share of 1.76 m).
 
 ## Style
