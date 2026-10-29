@@ -1,0 +1,4 @@
+{"strings": [
+  {"text":"Rivière’s Office","translation":"Кабинет Ривьера","where":"worlds/night-flight/scenes/office/scene.json title"},
+  {"text":"Three o’clock. The first rain on the glass.","translation":"Три часа. Первый дождь по стеклу.","where":"worlds/night-flight/scenes/office/scene.json caption"}
+]}
