@@ -99,7 +99,7 @@ function film(scene) {
   const EVENING = { ...CAM, ...ROOM, ...PEOPLE, lamp: 1 };
   // the night: the lamp low, Mom asleep in bed — on her back on the sheet (held over the bed by `_on`, as a seat holds
   // one sitting), her head on the pillow, her right hand on the near side
-  const IN_BED = { mom_on: [0.72, 3.98, 0.5], mom_a: 0.72, mom_d: 3.98, mom_turn: 90, mom_do: 'lie_bed', mom_look: null };
+  const IN_BED = { mom_on: [0.55, 3.98, 0.54], mom_a: 0.55, mom_d: 3.98, mom_turn: 90, mom_do: 'lie_bed', mom_look: null };
   // sitting down (the motion sit_down, ending over the seat), then held on it, a seated loop
   const sit = async (p, seat, turn, loop = 'sitting_on_bed') => {
     await p.go('sit_down', { to: [seat[0], seat[1]], turn });
