@@ -38,17 +38,34 @@
       "elevation": 0.9,
       "color": "#bdf0df",
       "strength": 1.1,
-      "reach": 2.6
+      "reach": 2.6,
+      "place": {
+        "across": "ghost_a",
+        "distance": "ghost_d"
+      },
+      "on": "ghost_light"
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "simon_mood": "tired",
     "simon_look": "earth",
     "virginia_look": "simon",
-    "virginia_mood": "sad"
+    "virginia_mood": "sad",
+    "nightingale": 1,
+    "parcel": false,
+    "simon_fade": 0,
+    "ghost_light": 1,
+    "ghost_a": 0.85,
+    "ghost_d": 4.9,
+    "simon_a": 1.2,
+    "simon_d": 5.3,
+    "simon_e": 0,
+    "virginia_a": -0.3,
+    "virginia_d": 4.7
   },
   "objects": [
     {
@@ -833,6 +850,19 @@
       ]
     },
     {
+      "id": "parcel",
+      "name": "Her paper parcel on the grass",
+      "across": 0.55,
+      "distance": 4.85,
+      "height": 0.08,
+      "box": [
+        -0.1,
+        -0.09,
+        0.1,
+        0.01
+      ]
+    },
+    {
       "id": "simon",
       "name": "Sir Simon",
       "person": {
@@ -842,7 +872,12 @@
         "does": "sit_ground"
       },
       "across": 1.2,
-      "distance": 5.3
+      "distance": 5.3,
+      "place": {
+        "across": "simon_a",
+        "distance": "simon_d",
+        "elevation": "simon_e"
+      }
     },
     {
       "id": "virginia",
@@ -854,7 +889,11 @@
         "does": "pray"
       },
       "across": -0.3,
-      "distance": 4.7
+      "distance": 4.7,
+      "place": {
+        "across": "virginia_a",
+        "distance": "virginia_d"
+      }
     }
   ],
   "music": {
@@ -928,5 +967,75 @@
     "density": 0.2,
     "brightness": 0.4,
     "scale": "D_MAJOR_B_MINOR"
+  },
+  "states": {
+    "nightingale": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the nightingale on the yew: 0 silent (it sits still), 1 sings (its body lifts now and then; the song is the game's sound)"
+    },
+    "parcel": {
+      "type": "boolean",
+      "means": "her little paper parcel lying on the grass by him (parcel#parcel); in garden_come the game's: he has it and lays it down"
+    },
+    "simon_fade": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "Sir Simon gone into the earth: 0 here, 1 sunk under the turned loam and his light gone (the script lowers him: simon_e)"
+    },
+    "named": {
+      "type": "boolean",
+      "means": "the game's: she named Eleanore in the prayer (tears: she reaches for his hand)"
+    },
+    "ghost_light": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the scene's own: his light, set by the script (out while he is away, dimmed as he goes into the earth)"
+    },
+    "ghost_a": {
+      "type": "number",
+      "means": "the scene's own: where his light stands across (before him), set by the script"
+    },
+    "ghost_d": {
+      "type": "number",
+      "means": "the scene's own: where his light stands away, set by the script"
+    },
+    "simon_a": {
+      "type": "number",
+      "means": "Sir Simon's place across"
+    },
+    "simon_d": {
+      "type": "number",
+      "means": "Sir Simon's place away"
+    },
+    "simon_e": {
+      "type": "number",
+      "means": "the scene's own: Sir Simon's height over the land (below it as he goes into the earth), set by the script from simon_fade"
+    },
+    "virginia_a": {
+      "type": "number",
+      "means": "Virginia's place across"
+    },
+    "virginia_d": {
+      "type": "number",
+      "means": "Virginia's place away"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    }
   }
 }

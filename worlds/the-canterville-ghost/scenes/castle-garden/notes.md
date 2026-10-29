@@ -44,18 +44,18 @@ the same scene in another state, set by the game:
 | moment | state |
 |---|---|
 | 1.5 Virginia paints, Mrs Umney passes | the default |
-| 2.6 Virginia sits at the easel and does not paint; Cecil sits on the grass by her | `umney_here: false`, `virginia_on: [3.35, 6.35, 0.45]` (the stool) with `virginia_do: "brood"`, `virginia_with: null`; `cecil_here: true` (`sit_ground`, looking at the board) |
-| the funeral (finals «Миндаль», «Свеча»), night, autumn, the almond in blossom | `night: 1`, `autumn: 1`, `almond: "blossom"`, `easel: false`, `umney_here: false`, `funeral: true`, `grave: "open"`, `torches: 1`; Virginia at the coffin (`virginia_a: 0.25`, `virginia_d: 7.2`, `virginia_turn: 250`, `virginia_do: "clasped"`, `virginia_with: ["almond_cross"]`, `virginia_look: "coffin#lid"`); the family here (`otis`, `mrs_otis`, `washington` — `washington_with: ["torch"]`, `torch_held: 1` —, `twin_star`, `twin_stripes`), placed round the coffin (their own places are these); the cross laid: `cross: true`, `virginia_with: null`; the moon coming out: `clouds` 1 → 0. «Свеча»: `otis_with: ["candle"]` (the cast's candle; its light `candle` at `otis#flame`), `candle: 1`, Mr Otis apart (`otis_a`, `otis_d`), `otis_do: "offer"` |
+| 2.6 Virginia sits at the easel and does not paint; Cecil sits on the grass by her | `mrs_umney_here: false`, `virginia_on: [3.35, 6.35, 0.45]` (the stool) with `virginia_do: "brood"`, `virginia_with: null`; `cecil_here: true` (`sit_ground`, looking at the board) |
+| the funeral (finals «Миндаль», «Свеча»), night, autumn, the almond in blossom | `night: 1`, `autumn: 1`, `almond: "blossom"`, `easel: false`, `mrs_umney_here: false`, `funeral: true`, `grave: "open"`, `torches: 1`; Virginia at the coffin (`virginia_a: 0.25`, `virginia_d: 7.2`, `virginia_turn: 250`, `virginia_do: "clasped"`, `virginia_with: ["almond_cross"]`, `virginia_look: "coffin#lid"`); the family here (`otis`, `mrs_otis`, `washington` — `washington_with: ["torch"]`, `torch_held: 1` —, `twin_star`, `twin_stripes`), placed round the coffin (their own places are these); the cross laid: `cross: true`, `virginia_with: null`; the moon coming out: `clouds` 1 → 0. «Свеча»: `otis_with: ["candle"]` (the cast's candle; its light `candle` at `otis#flame`), `candle: 1`, Mr Otis apart (`otis_a`, `otis_d`), `otis_do: "offer"` |
 | the last shot of «Миндаль» | night, `almond: "blossom"`, `grave: "mound"`, `cross: true`, no people |
 | years later (Virginia and Cecil under the yew) | `virginia_wear` / `cecil_wear`: the cast's `virginia_duchess`, `cecil_duke` (the look objects, `scene.kit.cast.characters.…`), placed by the grave |
-| the last shot of «Пятно»: the coaches go out past the dry almond | `autumn: 1`, `easel: false`, `umney_here: false`, `coaches: true`, `coach_d` moved toward the gates (stage 5) |
+| the last shot of «Пятно»: the coaches go out past the dry almond | `autumn: 1`, `easel: false`, `mrs_umney_here: false`, `coaches: true`, `coach_d` moved toward the gates (stage 5) |
 
 Every key is in `states`; the people's places are `<id>_a`, `<id>_d` (metres), so the game puts them where a moment
 needs.
 
 ## People (cast: modules/cast)
 
-`virginia` (her white frock; `brush`, `almond_cross` by `_with`), `umney` (`mrs_umney`: black silk, white cap),
+`virginia` (her white frock; `brush`, `almond_cross` by `_with`), `mrs_umney` (black silk, white cap),
 `cecil` (`cecil`: riding coat, breeches), `otis`, `mrs_otis`, `washington` (`torch` by `_with`: its point
 `washington#torch`, the light `torch_held` and the fire `fire_held` there), `twin_star`, `twin_stripes` — `mrs_otis`, `washington`, the twins and the candle are the cast's as the
 chamber's author made them (one definition each). Added to the cast for this place: the characters `mrs_umney`,
@@ -73,17 +73,42 @@ Rendered on the studio (picture of the default; frames of the funeral at night a
 sitting, Cecil on the grass and the coaches): every face reads; the funeral is lit warm by the torches under the
 moon, readable; the colours are the world's (the library's and the tapestry room's storybook look).
 
+## Stage 5: the pieces
+
+The module `beats` (lib.js `film`; script.js plays it). What the scene got for them:
+
+- **The insert `board`** (М3 «Этюд», opened by `board_open`): the sheet on her easel close — her pencil study of the dry
+  almond, a wash of sky, and the brush line up the trunk from `board#root` to `board#fork`, shown as `sketch_line` rises
+  (a strip of paper over it draws back toward the fork: its animate); the trunk in faint pencil to follow; `blot` — a
+  blot of brown run on the trunk.
+- **Keys.** `nightingale` (the bird on the churchyard yew lifts as it sings; the song is the game's); the game's
+  `with_family` and `father_apart` (the funeral). Mrs Umney's element is `mrs_umney` (was `umney`).
+
+| piece | after | what |
+| --- | --- | --- |
+| paint | — | 1.5: she paints at her easel; Mrs Umney comes along the path, stops by the almond and looks; then the box |
+| look_house | paint | she turns and looks back at the house, toward the viewer (close) |
+| easel_idle | — | 2.6: she sits at the easel not painting; Cecil on the grass looks up at her and asks |
+| funeral | — | night: she walks to the coffin and lays the cross of almond blossom (`lay_down`); the moon comes out; the family beside her or a step behind; Mr Otis apart with his candle («Свеча») |
+| years | — | years later: Virginia and Cecil (the Duchess, the Duke) come through the wicket and walk to the mound under the yew |
+| almond_last | — | night: the camera goes slowly in and up onto the blossoming almond |
+| coaches | — | autumn morning: the coaches go out down the avenue to the gates |
+
 ## What is not right yet
 
 - Virginia at the easel shows her face: the board is seen from behind (its back, her box of colours on its shelf);
-  the study itself is never seen in this view — M3 «Этюд» (stage 5) needs its own close-up of the sheet.
+  the study itself is seen only in the insert `board` (М3).
 - The mourners stand behind the churchyard railing as seen from the garden: its bars cross them. A closer shot of
   the funeral is stage 5's camera.
 - The cross of almond blossom laid on the coffin is a ridge of flowers along its top: the coffin is a side-on card,
   its lid seen almost edge on from the garden.
 - The coaches are seen from behind only (they go away from the viewer); their horses are legs and tails under them.
-- Mrs Umney passing and Virginia painting are standing poses (`stand`, `offer` with a brush): the walk past and the
-  brush stroke are stage 5's.
+- Virginia painting is a standing pose (`offer` with a brush), no brush stroke.
+- The funeral is seen from the garden over the railing (the camera raised and pushed in to it): the operator framing her
+  went round into the churchyard, behind the mourners. She lays the cross at the coffin's right end, small at that
+  distance; the coffin's pall and the railing frame the family.
+- Looks at something behind a person turn the head away (years: looking at the mound from its near side showed the
+  backs of their heads): they stand beyond the mound, facing the viewer, and look down at it.
 
 
 ## Measured (measure_scene, 0b640c4 — before the merge; the default 1.5 state)
@@ -94,3 +119,9 @@ FAILS: allocated a frame ~30 KB in all three — the engine's modules (sheets/ca
 people/shapes.js, cloth.js), the scene's own code ~0.4–0.5 KB of it, most of that the cast's `brush` part (fixed
 after the measure: the torch, the brush and the cross keep their vectors with F.keep); GC pause worst 2.2 ms
 (desktop) and 3.7 ms (phone) on the scene's thread. The engine's share is the engine's, not this scene's to mend.
+
+## Contract for the check
+
+```json
+{"beats": {"paint":{"after":[],"tells":["paint:umney","paint:box"],"seconds":10}, "look_house":{"after":["paint"],"tells":["look_house:end"],"seconds":4}, "easel_idle":{"after":[],"tells":["easel_idle:ask"],"seconds":8}, "funeral":{"after":[],"tells":["funeral:cross","funeral:moon"],"seconds":16}, "years":{"after":[],"tells":["years:stop"],"seconds":10}, "almond_last":{"after":[],"tells":["almond_last:end"],"seconds":10}, "coaches":{"after":[],"tells":["coaches:end"],"seconds":14}}}
+```

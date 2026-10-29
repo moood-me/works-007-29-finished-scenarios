@@ -56,4 +56,108 @@ function arch(g, x0, x1, y1) {
   g.closePath();
 }
 
-return { stone, arch, MORTAR };
+// The chamber's pieces (the game's `beat`; modules/beats; notes.md «Pieces»); the moment (`moment`) is the game's and
+// the script's (who is here). Places in metres: across, away. The panel to the landing is in the left wall
+// (4.3…5.1 m away), the landing beyond it; the passage's mouth in the far wall at 1.35…2.05; the little window high in
+// the right wall at 4.5…5.2 m, the almond outside it, 2.2 m below.
+const PANEL = [-2.6, 4.7];
+const KNEEL = [1.0, 4.45];
+const CAM = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
+  camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
+// the camera at the little window, looking out through its bars at the almond in blossom
+// (the eye in the window's opening, looking out and down at the tree: the wall round it fades before the eye, as near
+// things do — as if leaning to the bars)
+const WINDOW = { camera_x: 3.05, camera_z: 4.8, camera_h: -0.3, camera_yaw: 32, camera_pitch: -6 };
+async function toWindow(s) {
+  await s.all(...Object.entries(WINDOW).map(([k, v]) => s.move(k, v, { over: 4, ease: 'inOut' })));
+}
+// where each of the family comes to (across, away, turn), as the look has them
+const SPOT = {
+  virginia: [KNEEL[0], KNEEL[1], 248], otis: [1.6, 4.65, 225], mrs_otis: [-1.75, 3.8, 120], washington: [-2.75, 4.75, 120],
+  twin_star: [2.35, 4.25, 120], twin_stripes: [2.7, 5.48, 165],
+};
+// on the landing behind the panel, about to come in
+const LANDING = {
+  virginia_a: -3.5, virginia_d: 4.7, otis_a: -3.9, otis_d: 5.3, mrs_otis_a: -4.0, mrs_otis_d: 4.3, washington_a: -4.1, washington_d: 5.9,
+  twin_star_a: -3.8, twin_star_d: 3.7, twin_stripes_a: -4.2, twin_stripes_d: 3.4,
+};
+
+function film(scene) {
+  return {
+    // 4.6: the family come in through the panel with candles; Virginia, with the casket, kneels by the bones; the
+    // camera goes to the little window: the almond in blossom
+    chamber_family: {
+      tells: ['chamber_family:kneel', 'chamber_family:almond'],
+      seconds: 16,
+      from: () => ({ ...CAM, ...LANDING, virginia_turn: 90, virginia_do: 'stand', virginia_with: ['casket'], virginia_look: null, otis_turn: 90,
+        otis_do: 'offer', otis_with: ['candle'], otis_look: 'virginia', mrs_otis_turn: 90, mrs_otis_do: 'stand', mrs_otis_look: 'virginia',
+        washington_turn: 90, washington_do: 'offer', washington_with: ['candle'], washington_look: 'virginia', twin_star_turn: 90,
+        twin_star_do: 'stand', twin_star_look: null, twin_stripes_turn: 90, twin_stripes_do: 'stand', twin_stripes_look: null, casket_open: 0 }),
+      run: async s => {
+        const go = async (id, delay, through, done) => {
+          await s.wait(delay);
+          const p = s.person(id);
+          const [a, d, turn] = SPOT[id];
+          await p.walk([...through, [a, d]]);
+          await p.turn(turn);
+          done(p);
+        };
+        await s.all(
+          go('virginia', 0, [PANEL, [0.2, 4.4]], p => {
+            p.do('pray');
+            p.look('skeleton#skull');
+            s.tell('chamber_family:kneel');
+          }),
+          go('otis', 0.8, [PANEL], p => p.look('virginia')),
+          go('twin_star', 1.4, [PANEL, [1.2, 4.0]], p => p.look('window#window')),
+          go('twin_stripes', 1.9, [PANEL, [1.6, 5.0]], p => p.look('window#window')),
+          go('mrs_otis', 2.4, [PANEL], p => p.do('clasped')),
+          go('washington', 3.0, [], () => {}),
+        );
+        await s.wait(1);
+        await toWindow(s);
+        s.tell('chamber_family:almond');
+        await s.wait(1.5);
+      },
+    },
+    // 4С.5: she has led him down the passage in the wall; she kneels by the bones, he stays in the passage's mouth; the
+    // camera to the window: the almond
+    chamber_father: {
+      tells: ['chamber_father:almond'],
+      seconds: 14,
+      from: () => ({ ...CAM, virginia_a: 1.55, virginia_d: 5.85, virginia_turn: 200, virginia_do: 'stand', virginia_with: ['casket'], virginia_look: null,
+        otis_a: 1.85, otis_d: 6.1, otis_turn: 200, otis_do: 'offer', otis_with: ['candle'], otis_look: 'virginia', casket_open: 0 }),
+      run: async s => {
+        const v = s.person('virginia');
+        const o = s.person('otis');
+        await s.all(v.walk([KNEEL]), (async () => {
+          await s.wait(1);
+          await o.walk([[1.7, 5.75]]);
+        })());
+        await v.turn(248);
+        v.do('pray');
+        v.look('skeleton#skull');
+        await s.wait(2);
+        await toWindow(s);
+        s.tell('chamber_father:almond');
+        await s.wait(1.5);
+      },
+    },
+    // the casket opened in her hands, close (`stub`: her candle-end on the jewels)
+    casket: {
+      after: ['chamber_family', 'chamber_father'],
+      tells: ['casket:open'],
+      seconds: 5,
+      from: () => ({ ...CAM, virginia_a: KNEEL[0], virginia_d: KNEEL[1], virginia_turn: 248, virginia_do: 'pray', virginia_with: ['casket'],
+        virginia_look: 'virginia#casket', casket_open: 0 }),
+      run: async s => {
+        s.person('virginia').look('virginia#casket');
+        await s.move('casket_open', 1, { over: 1 });
+        s.tell('casket:open');
+        await s.wait(3.5);
+      },
+    },
+  };
+}
+
+return { stone, arch, MORTAR, film };

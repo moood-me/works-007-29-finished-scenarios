@@ -53,7 +53,13 @@ shut on the lap of one who sits (point `<id>#book`), by `<id>_with`.
 `torch` — a torch held upright in the right hand, its flame glowing (its point `<id>#torch`: a scene's fire and light
 there); `brush` — a paint
 brush in the right hand; `almond_cross` — a cross of white and pink almond blossom held upright between the hands
-before the chest (with `clasped`). The hat `bonnet` — Mrs Umney's white cap.
+before the chest (with `clasped`).
+
+Stage 5's: `parcel` — a little paper parcel tied with string in the right hand (point `parcel`); `casket` — a small old
+casket of dark wood, its lid gilt, lying on the right palm (point `casket`); `lantern` — a lantern hanging from the right
+hand, its glass glowing (point `lantern`: a scene's light there); `newspaper` — a newspaper held open between both hands
+before one who sits (point `newspaper`); `sketchbook` — a sketchbook lying open on the knees of one who sits (point
+`sketchbook`); `stub` — an unlit candle-end between the fingers of the right hand (point `stub`). The hat `bonnet` — Mrs Umney's white cap.
 
 ## Motions (Kimodo)
 
@@ -65,3 +71,23 @@ sits on the ground, the knees up, the arms loose on them, looking ahead, a loop;
 together at the chin, a loop; `doze` — sits (on a seat: `<id>_on`), leaning back asleep, the arms folded, the
 head tipped back, a loop (with `<id>_mood` `eyes_closed`); `hold_candle` — stands holding a candle up before the chest in
 the left hand (with `candle_l`), the right hand hanging, a loop.
+
+Stage 5's (Kimodo, made one by one, each looked at on a figure before it was put; loops unless «once»): `kneel_rub` —
+kneels, bent forward, one hand scrubbing the floor (weak: a small scrub); `faint_sit` (once) — sits down heavily into a
+chair and leans back; `laugh_bend` — laughs, the head rocking, a hand on the belly (barely bends); `point` (once) — the
+right arm down and forward at the floor; `sit_table` — sits upright, the forearms forward on a table; `read_paper`,
+`read_seated` — sit holding something at the chest (near the same: the newspaper part between the hands; read_seated's
+book is not on the lap); `write` — sits, the forearms at a table's height, the right hand now and then up to the head;
+`sit_sill` — sits facing ahead, the right hand at the chest (not sideways: the scene turns them); `smash` (once) —
+snatches, crouches, the right hand flung to the floor, ends standing; `recoil` (once) — cowers, the hands up at the
+face (no clear step back); `run` — runs, from the first frame; `bow_deep` (once) — a deep bow, a leg back, upright
+again; `rub_sleeve` — sits, the right hand rubbing the left upper arm; `listen_wall` — stands, the head tilted to
+the left, the left hand cupped at the ear; `shake_chain` — sits, both fists up by the head, shaking; `pound_wall` —
+an angry wide stance, the right fist raised and swung down, twice in 6 s; `weep` — kneels, the hands over the face;
+`lie_down` (once) — an old man sits and lies back (it travels backward: place him a length forward); `lay_down`
+(once) — bends forward, the hands at the thighs' height (weak); `tiptoe` — a hunched creeping walk (a gait);
+`stand_up` (once) — from sitting on a chair to standing; `button_coat` — the hands at the chest, small; `wave_hands` —
+one jump with both hands overhead, then stands (a loop of one jump in 4 s).
+
+Not made: `stamp` and `knock_wall` (three takes each gave an arm raised and held, no foot, no knocking) — the pieces
+use the nearest: `upright` for her stamp, `offer` (the forearm held out to the wall) for the knock.

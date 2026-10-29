@@ -152,7 +152,8 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "evening": 0,
@@ -199,7 +200,13 @@
     "twin_stripes_a": -0.75,
     "twin_stripes_d": 7.2,
     "twin_stripes_mood": "laugh",
-    "twin_stripes_look": "twin_star"
+    "twin_stripes_look": "twin_star",
+    "stand_candle": true,
+    "pillow": false,
+    "pillow_a": 1.9,
+    "pillow_d": 10.2,
+    "pillow_e": 1.5,
+    "pillow_spin": 0
   },
   "states": {
     "evening": {
@@ -337,6 +344,42 @@
     "twin_stripes_d": {
       "type": "number",
       "means": "the twin Stripes: place along"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
+    },
+    "plays": {
+      "type": "boolean",
+      "means": "the game's: Sir Simon still plays (farewell: his full array and full light, else his garden look and a faint light; wake_papa: he bows, else nods)"
+    },
+    "stand_candle": {
+      "type": "boolean",
+      "means": "the candle on the iron stand by the armchair: true burning there, false taken (Mr Otis takes it, 4С.5)"
+    },
+    "pillow": {
+      "type": "boolean",
+      "means": "the twins' pillow in the air (1.2: flung at Sir Simon from their door), then lying where it fell"
+    },
+    "pillow_a": {
+      "type": "number",
+      "means": "the pillow: across (metres right of the middle)"
+    },
+    "pillow_d": {
+      "type": "number",
+      "means": "the pillow: along the corridor (metres away)"
+    },
+    "pillow_e": {
+      "type": "number",
+      "means": "the pillow: height over the floor (metres)"
+    },
+    "pillow_spin": {
+      "type": "number",
+      "means": "the pillow: how it is turned over as it flies (degrees)"
     }
   },
   "objects": [
@@ -498,6 +541,20 @@
         -0.9,
         -3.02,
         0.9,
+        0.02
+      ]
+    },
+    {
+      "id": "room_virginia_side",
+      "name": "Virginia's room, its right-hand wall",
+      "across": 3.8,
+      "distance": 7.0,
+      "facing": 270,
+      "height": 3.0,
+      "box": [
+        -1.3,
+        -3.02,
+        1.3,
         0.02
       ]
     },
@@ -676,8 +733,8 @@
       "height": 2.0,
       "box": [
         -0.6,
-        -2.05,
-        0.7,
+        -2.36,
+        1.2,
         0.03
       ],
       "flicker": 0.35,
@@ -723,6 +780,26 @@
       ],
       "flicker": 0.3,
       "shadow": true
+    },
+    {
+      "id": "pillow",
+      "name": "The twins' pillow",
+      "across": 1.9,
+      "distance": 10.2,
+      "elevation": 1.5,
+      "height": 0.4,
+      "box": [
+        -0.32,
+        -0.42,
+        0.32,
+        0.03
+      ],
+      "place": {
+        "across": "pillow_a",
+        "distance": "pillow_d",
+        "elevation": "pillow_e",
+        "tilt": "pillow_spin"
+      }
     },
     {
       "id": "motes",

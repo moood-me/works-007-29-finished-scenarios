@@ -93,7 +93,8 @@
     }
   ],
   "modules": [
-    "cast"
+    "cast",
+    "beats"
   ],
   "state": {
     "night": 0,
@@ -111,8 +112,8 @@
     "coach_d": 9,
     "virginia_a": 2.9,
     "virginia_d": 5.9,
-    "umney_a": -0.9,
-    "umney_d": 4.25,
+    "mrs_umney_a": -0.9,
+    "mrs_umney_d": 4.25,
     "cecil_a": 2.2,
     "cecil_d": 5.2,
     "otis_a": -1.25,
@@ -130,8 +131,8 @@
     ],
     "virginia_look": "easel#board",
     "virginia_mood": "neutral",
-    "umney_look": "virginia",
-    "umney_mood": "neutral",
+    "mrs_umney_look": "virginia",
+    "mrs_umney_mood": "neutral",
     "cecil_here": false,
     "cecil_look": "easel#board",
     "otis_here": false,
@@ -151,7 +152,11 @@
     "twin_star_mood": "sad",
     "twin_stripes_here": false,
     "twin_stripes_look": "coffin#lid",
-    "twin_stripes_mood": "sad"
+    "twin_stripes_mood": "sad",
+    "board_open": 0,
+    "sketch_line": 0,
+    "blot": false,
+    "nightingale": 1
   },
   "states": {
     "night": {
@@ -256,7 +261,7 @@
       "smooth": true,
       "means": "where Virginia stands, metres ahead of the viewer"
     },
-    "umney_a": {
+    "mrs_umney_a": {
       "range": [
         -16,
         16
@@ -264,7 +269,7 @@
       "smooth": true,
       "means": "where Mrs Umney stands, metres right of the viewer's line"
     },
-    "umney_d": {
+    "mrs_umney_d": {
       "range": [
         3,
         40
@@ -367,6 +372,50 @@
       ],
       "smooth": true,
       "means": "where Twin Stripes stands, metres ahead of the viewer"
+    },
+    "board_open": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "М3 «Этюд»: the sheet on her easel close (the insert `board`): 0 closed, 1 open"
+    },
+    "sketch_line": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "М3: how far her brush line has gone up the trunk on the sheet, from its root (board#root, 0) to the fork (board#fork, 1)"
+    },
+    "blot": {
+      "type": "boolean",
+      "means": "М3: a blot of colour run on the trunk of her study"
+    },
+    "nightingale": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "the nightingale on the churchyard yew: 0 silent (it sits still), 1 sings (its body lifts now and then; the song is the game's sound)"
+    },
+    "with_family": {
+      "type": "boolean",
+      "means": "the game's: at the funeral the family stand beside her (else a step behind)"
+    },
+    "father_apart": {
+      "type": "boolean",
+      "means": "the game's: «Свеча» — Mr Otis stands apart with his candle"
+    },
+    "beat": {
+      "type": "string",
+      "means": "the piece playing (modules/beats; notes.md «Pieces»)"
+    },
+    "beat_next": {
+      "type": "string",
+      "means": "the piece the game plays next (modules/beats: made ready ahead)"
     }
   },
   "objects": [
@@ -1134,7 +1183,7 @@
       }
     },
     {
-      "id": "umney",
+      "id": "mrs_umney",
       "name": "Mrs Umney",
       "person": {
         "cast": "cast",
@@ -1145,8 +1194,8 @@
       "across": -0.9,
       "distance": 4.25,
       "place": {
-        "across": "umney_a",
-        "distance": "umney_d"
+        "across": "mrs_umney_a",
+        "distance": "mrs_umney_d"
       }
     },
     {
@@ -1244,6 +1293,17 @@
         "across": "twin_stripes_a",
         "distance": "twin_stripes_d"
       }
+    },
+    {
+      "id": "board",
+      "name": "Her study on the easel, close (М3)",
+      "insert": "board_open",
+      "iris": [
+        0.889,
+        0.5,
+        0.56,
+        0.48
+      ]
     }
   ],
   "music": {
