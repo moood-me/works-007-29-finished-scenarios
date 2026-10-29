@@ -53,7 +53,13 @@ shut on the lap of one who sits (point `<id>#book`), by `<id>_with`.
 `torch` — a torch held upright in the right hand, its flame glowing (its point `<id>#torch`: a scene's fire and light
 there); `brush` — a paint
 brush in the right hand; `almond_cross` — a cross of white and pink almond blossom held upright between the hands
-before the chest (with `clasped`). The hat `bonnet` — Mrs Umney's white cap.
+before the chest (with `clasped`).
+
+Stage 5's: `parcel` — a little paper parcel tied with string in the right hand (point `parcel`); `casket` — a small old
+casket of dark wood, its lid gilt, lying on the right palm (point `casket`); `lantern` — a lantern hanging from the right
+hand, its glass glowing (point `lantern`: a scene's light there); `newspaper` — a newspaper held open between both hands
+before one who sits (point `newspaper`); `sketchbook` — a sketchbook lying open on the knees of one who sits (point
+`sketchbook`); `stub` — an unlit candle-end between the fingers of the right hand (point `stub`). The hat `bonnet` — Mrs Umney's white cap.
 
 ## Motions (Kimodo)
 

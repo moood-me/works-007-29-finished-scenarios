@@ -111,8 +111,8 @@
     "coach_d": 9,
     "virginia_a": 2.9,
     "virginia_d": 5.9,
-    "umney_a": -0.9,
-    "umney_d": 4.25,
+    "mrs_umney_a": -0.9,
+    "mrs_umney_d": 4.25,
     "cecil_a": 2.2,
     "cecil_d": 5.2,
     "otis_a": -1.25,
@@ -130,8 +130,8 @@
     ],
     "virginia_look": "easel#board",
     "virginia_mood": "neutral",
-    "umney_look": "virginia",
-    "umney_mood": "neutral",
+    "mrs_umney_look": "virginia",
+    "mrs_umney_mood": "neutral",
     "cecil_here": false,
     "cecil_look": "easel#board",
     "otis_here": false,
@@ -256,7 +256,7 @@
       "smooth": true,
       "means": "where Virginia stands, metres ahead of the viewer"
     },
-    "umney_a": {
+    "mrs_umney_a": {
       "range": [
         -16,
         16
@@ -264,7 +264,7 @@
       "smooth": true,
       "means": "where Mrs Umney stands, metres right of the viewer's line"
     },
-    "umney_d": {
+    "mrs_umney_d": {
       "range": [
         3,
         40
@@ -1134,7 +1134,7 @@
       }
     },
     {
-      "id": "umney",
+      "id": "mrs_umney",
       "name": "Mrs Umney",
       "person": {
         "cast": "cast",
@@ -1145,8 +1145,8 @@
       "across": -0.9,
       "distance": 4.25,
       "place": {
-        "across": "umney_a",
-        "distance": "umney_d"
+        "across": "mrs_umney_a",
+        "distance": "mrs_umney_d"
       }
     },
     {

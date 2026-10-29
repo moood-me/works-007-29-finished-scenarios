@@ -44,18 +44,18 @@ the same scene in another state, set by the game:
 | moment | state |
 |---|---|
 | 1.5 Virginia paints, Mrs Umney passes | the default |
-| 2.6 Virginia sits at the easel and does not paint; Cecil sits on the grass by her | `umney_here: false`, `virginia_on: [3.35, 6.35, 0.45]` (the stool) with `virginia_do: "brood"`, `virginia_with: null`; `cecil_here: true` (`sit_ground`, looking at the board) |
-| the funeral (finals «Миндаль», «Свеча»), night, autumn, the almond in blossom | `night: 1`, `autumn: 1`, `almond: "blossom"`, `easel: false`, `umney_here: false`, `funeral: true`, `grave: "open"`, `torches: 1`; Virginia at the coffin (`virginia_a: 0.25`, `virginia_d: 7.2`, `virginia_turn: 250`, `virginia_do: "clasped"`, `virginia_with: ["almond_cross"]`, `virginia_look: "coffin#lid"`); the family here (`otis`, `mrs_otis`, `washington` — `washington_with: ["torch"]`, `torch_held: 1` —, `twin_star`, `twin_stripes`), placed round the coffin (their own places are these); the cross laid: `cross: true`, `virginia_with: null`; the moon coming out: `clouds` 1 → 0. «Свеча»: `otis_with: ["candle"]` (the cast's candle; its light `candle` at `otis#flame`), `candle: 1`, Mr Otis apart (`otis_a`, `otis_d`), `otis_do: "offer"` |
+| 2.6 Virginia sits at the easel and does not paint; Cecil sits on the grass by her | `mrs_umney_here: false`, `virginia_on: [3.35, 6.35, 0.45]` (the stool) with `virginia_do: "brood"`, `virginia_with: null`; `cecil_here: true` (`sit_ground`, looking at the board) |
+| the funeral (finals «Миндаль», «Свеча»), night, autumn, the almond in blossom | `night: 1`, `autumn: 1`, `almond: "blossom"`, `easel: false`, `mrs_umney_here: false`, `funeral: true`, `grave: "open"`, `torches: 1`; Virginia at the coffin (`virginia_a: 0.25`, `virginia_d: 7.2`, `virginia_turn: 250`, `virginia_do: "clasped"`, `virginia_with: ["almond_cross"]`, `virginia_look: "coffin#lid"`); the family here (`otis`, `mrs_otis`, `washington` — `washington_with: ["torch"]`, `torch_held: 1` —, `twin_star`, `twin_stripes`), placed round the coffin (their own places are these); the cross laid: `cross: true`, `virginia_with: null`; the moon coming out: `clouds` 1 → 0. «Свеча»: `otis_with: ["candle"]` (the cast's candle; its light `candle` at `otis#flame`), `candle: 1`, Mr Otis apart (`otis_a`, `otis_d`), `otis_do: "offer"` |
 | the last shot of «Миндаль» | night, `almond: "blossom"`, `grave: "mound"`, `cross: true`, no people |
 | years later (Virginia and Cecil under the yew) | `virginia_wear` / `cecil_wear`: the cast's `virginia_duchess`, `cecil_duke` (the look objects, `scene.kit.cast.characters.…`), placed by the grave |
-| the last shot of «Пятно»: the coaches go out past the dry almond | `autumn: 1`, `easel: false`, `umney_here: false`, `coaches: true`, `coach_d` moved toward the gates (stage 5) |
+| the last shot of «Пятно»: the coaches go out past the dry almond | `autumn: 1`, `easel: false`, `mrs_umney_here: false`, `coaches: true`, `coach_d` moved toward the gates (stage 5) |
 
 Every key is in `states`; the people's places are `<id>_a`, `<id>_d` (metres), so the game puts them where a moment
 needs.
 
 ## People (cast: modules/cast)
 
-`virginia` (her white frock; `brush`, `almond_cross` by `_with`), `umney` (`mrs_umney`: black silk, white cap),
+`virginia` (her white frock; `brush`, `almond_cross` by `_with`), `mrs_umney` (black silk, white cap),
 `cecil` (`cecil`: riding coat, breeches), `otis`, `mrs_otis`, `washington` (`torch` by `_with`: its point
 `washington#torch`, the light `torch_held` and the fire `fire_held` there), `twin_star`, `twin_stripes` — `mrs_otis`, `washington`, the twins and the candle are the cast's as the
 chamber's author made them (one definition each). Added to the cast for this place: the characters `mrs_umney`,
