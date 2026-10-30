@@ -143,6 +143,7 @@ export default {
           },
         });
       }
+      await piece(g, 'at_stick');
       await g.play(climb);
       g.mood('fabien', 'neutral');
       // (over the clouds: the storm gone below, the engine alone)

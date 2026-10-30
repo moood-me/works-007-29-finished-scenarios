@@ -72,6 +72,7 @@ the note passing between them.
 | note_back | dusk | Fabien writes on his knee, passes the note back; the operator reads it and taps it out |
 | trelew | — | the night over Trelew: a note forward, Fabien's answer back; close on him looking down at the lights |
 | storm | — | thrown about (`roll` a little); a note forward, his one-handed answer back; ends at the stick (М5) |
+| at_stick | storm, gap, key_held, lamp_note, laugh_note | before М5 and М6: the shot on his hands on the stick, wide enough for the plane's shaking |
 | gap | — | the gap opens overhead; the operator's note forward |
 | key_held | gap | the operator holds his key down; Fabien looks at the fuel gauge |
 | lamp_note | gap | Fabien holds the note to the lamp, looks at the light, writes «To her», passes it back; the tap |
@@ -102,5 +103,5 @@ the note passing between them.
 ## Contract for the check
 
 ```json
-{"beats": {"dusk":{"after":[],"tells":["dusk:window"],"seconds":8}, "note_back":{"after":["dusk"],"tells":["note_back:read","note_back:tap"],"seconds":8}, "trelew":{"after":[],"tells":["trelew:note","trelew:answer","trelew:under"],"seconds":14}, "storm":{"after":[],"tells":["storm:note","storm:answer"],"seconds":12}, "gap":{"after":[],"tells":["gap:note"],"seconds":8}, "key_held":{"after":["gap"],"tells":["key_held:end"],"seconds":6}, "lamp_note":{"after":["gap"],"tells":["lamp_note:write","lamp_note:tap"],"seconds":14}, "laugh_note":{"after":["gap"],"tells":["laugh_note:write","laugh_note:closed"],"seconds":12}, "above":{"after":[],"tells":["above:face","above:note","above:last"],"seconds":21.5}}}
+{"beats": {"dusk":{"after":[],"tells":["dusk:window"],"seconds":8}, "note_back":{"after":["dusk"],"tells":["note_back:read","note_back:tap"],"seconds":8}, "trelew":{"after":[],"tells":["trelew:note","trelew:answer","trelew:under"],"seconds":14}, "storm":{"after":[],"tells":["storm:note","storm:answer"],"seconds":12}, "at_stick":{"after":["storm","gap","key_held","lamp_note","laugh_note"],"tells":["at_stick:ready"],"seconds":1.5}, "gap":{"after":[],"tells":["gap:note"],"seconds":8}, "key_held":{"after":["gap"],"tells":["key_held:end"],"seconds":6}, "lamp_note":{"after":["gap"],"tells":["lamp_note:write","lamp_note:tap"],"seconds":14}, "laugh_note":{"after":["gap"],"tells":["laugh_note:write","laugh_note:closed"],"seconds":12}, "above":{"after":[],"tells":["above:face","above:note","above:last"],"seconds":21.5}}}
 ```

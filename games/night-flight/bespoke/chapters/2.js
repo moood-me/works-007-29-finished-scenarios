@@ -66,6 +66,7 @@ export default {
         note: () => g.say('radioman', 'Trelew closed. Comodoro closed. Where to?', { how: 'a note written in the air, read short over the engine' }),
         answer: () => g.say('fabien', 'I don’t know', { how: 'a note written in the air, read short over the engine' }),
       }, () => g.scene('cockpit', { beat: 'storm', here: ['fabien', 'radioman'], moods: { fabien: 'thinking', radioman: 'afraid' }, keys: SKY.storm }));
+      await piece(g, 'at_stick');
       await g.play(stick);
       await g.say('narrator', 'He no longer knew whether he was over land');
     },

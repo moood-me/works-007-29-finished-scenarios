@@ -20,6 +20,9 @@ function film(scene) {
     two: CAM([0.6, 0.7, 2.3], [0.95, 3.6, 1.95]),
     two_up: CAM([0.55, 0.9, 1.95], [0.95, 3.6, 2.55]),
     radio: CAM([1.3, 2.4, 2.2], [1.75, 3.6, 2.05]),
+    // the stick in his hands, for М5 and М6: Fabien from the waist up, his hands in the frame's middle — wide enough that
+    // the plane may bank, bob and pitch (the anchor turns about his seat) and his hands stay well inside it
+    stick: CAM([-1.2, 0.9, 2.05], [0.15, 3.3, 1.6]),
   };
   const LAMP = [-0.1, 3.45, 1.85]; // before Fabien's face: the instrument lamp, where he holds the note up to it
   const KEY = [1.55, 3.45, 1.7]; // the radio's key before the operator, below the rim
@@ -172,6 +175,18 @@ function film(scene) {
         drop(s, 'radioman', 'fabien');
         await glide(s, SH.fab_med, 1.5);
         await s.wait(0.5);
+      },
+    },
+    // before М5 and М6: the shot on his hands on the stick (`SH.stick`) — the thing the player holds always in sight
+    at_stick: {
+      after: ['storm', 'gap', 'key_held', 'lamp_note', 'laugh_note'],
+      tells: ['at_stick:ready'],
+      seconds: 1.5,
+      from: () => ({ ...SKY.storm, ...AIR, ...SEATS, fabien_look: STORM_LOOK, ...SH.fab_med }),
+      run: async s => {
+        s.person('fabien').do('fly_seated');
+        await glide(s, SH.stick, 1.2);
+        s.tell('at_stick:ready');
       },
     },
     // 3.3: the gap opens overhead, stars in it; the operator writes and passes his note forward
