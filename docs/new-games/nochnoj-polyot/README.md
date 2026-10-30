@@ -25,3 +25,4 @@
 
 Адрес игры в студии: `moood-me/works-007-29-finished-scenarios@r3/night-flight-game:games/night-flight`
 (страница игры — `http://localhost:8080/games/<адрес>`, «Play it»).
+- Доводка (ветка `r3/polish-night-flight`): звук мест, плашки, которые сцены показывают, убраны, карта своей сцены, кадры на лицах — `docs/history/2026-10-30-nochnoj-polyot-polish.md`.
