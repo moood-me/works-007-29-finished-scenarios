@@ -19,6 +19,10 @@ export default {
     // 1.1: one o'clock at night; the door (the piece `chains`, М2)
     async g => {
       await g.scene('corridor', { beat: 'chains', here: ['simon'], moods: { simon: 'angry' }, keys: CORRIDOR.chains });
+      // (chains, steps, a groan — what wakes her)
+      g.sound('chains', { loud: 0.8 });
+      g.sound('groan', { delay: 2.4, loud: 0.7 });
+      g.sound('chains', { delay: 4.2 });
       g.title(tr('The First Night'));
       await g.beat('chains');
       const { creaked } = await g.play(door);
@@ -29,11 +33,19 @@ export default {
     async g => {
       await piece(g, 'oil', {
         speak: () => g.say('otis', 'My dear sir, I really must insist on your oiling those chains. I have brought you a small bottle of the Tammany Rising Sun Lubricator. It is said to be completely efficacious upon one application'),
-      }, () => g.scene('corridor', { beat: 'oil', here: ['simon', 'virginia', 'otis'], moods: { simon: 'angry', virginia: 'afraid', otis: 'smile' }, keys: CORRIDOR.oil }, { cut: true }));
-      await piece(g, 'smash');
-      const goodnight = await g.choose('goodnight', { 'simon#chest': [
+        shut: () => { g.sound('door', { loud: 0.6 }); },
+      }, async () => {
+        await g.scene('corridor', { beat: 'oil', here: ['simon', 'virginia', 'otis'], moods: { simon: 'angry', virginia: 'afraid', otis: 'smile' }, keys: CORRIDOR.oil }, { cut: true });
+        g.sound('creak', { loud: 0.5 });
+      });
+      await piece(g, 'smash', {
+        howl: () => { g.sound('smash'); g.sound('groan', { delay: 0.3 }); },
+        pillow: () => { g.sound('pillow', { delay: 0.6 }); g.sound('laugh', { far: true, delay: 0.4 }); },
+      });
+      // (a chance, hers: the mark on her, behind the crack — a whisper is hers to say; a few seconds while he is there)
+      const goodnight = await g.choose('goodnight', { 'virginia#chest': [
         { id: 'wish', label: tr('Whisper: “Good night, sir”') },
-      ] }, { within: 3000, otherwise: 'pass', touch: tr('An old man in fetters at the crack of her door.') });
+      ] }, { within: 5000, otherwise: 'pass', touch: tr('An old man in fetters at the crack of her door.') });
       if (goodnight === 'wish') {
         await g.say('virginia', 'Good night, sir', { how: 'a whisper through the crack of the door' });
         await piece(g, 'wish_stop');
@@ -50,10 +62,13 @@ export default {
       const { wished } = facts(g.state);
       await piece(g, 'insulted', {
         ear: async () => {
+          // (the twins' laughter, from downstairs)
+          g.sound('laugh', { far: true });
+          await g.wait(1200);
           await g.say('narrator', 'Never, in a brilliant and uninterrupted career of three hundred years, had he been so grossly insulted');
           await g.say('simon', 'Oil. For me. For me, at whom the Dowager Duchess of Bolton…');
         },
-      }, () => g.scene('tapestry', { beat: 'insulted', here: ['simon'], moods: { simon: 'angry' } }));
+      }, () => g.scene('tapestry', { beat: 'insulted', here: ['simon'], moods: { simon: 'angry' }, air: { wind: 0.24 } }));
       if (wished) {
         await g.say('simon', '“Good night”… She is mocking me');
         g.mark('goodnight', 'wish', tr('He decided you were mocking him.'));
@@ -88,14 +103,19 @@ export default {
         umney: () => g.say('mrs_umney', 'It does not flower. Not as long as I can remember', { how: 'in passing, to herself' }),
         box: async () => {
           g.mood('virginia', 'surprised');
+          // (her box, close: the pans of red and vermilion scraped out)
+          g.set('paintbox', true);
+          g.set('board_open', 1, 0.8);
           await g.say('narrator', 'Virginia reached for her red. The cakes of red and of vermilion in her box were nearly gone — scraped out');
+          await g.wait(1200);
+          g.set('board_open', 0, 0.8);
         },
       });
     },
     // 1.6: ⚑ the paints (`look_house`; then `box_morning` | `pacing`, `clean_floor` | `peas_night`, `half_stain`)
     async g => {
       await piece(g, 'look_house', {}, () => g.scene('grounds', { beat: 'look_house', here: ['virginia'], moods: { virginia: 'thinking' }, keys: GROUNDS.paint }, { cut: true }));
-      await g.say('narrator', 'Her reds were on the stain. To go to him herself was too soon: she had never spoken to him, and the Tapestry Chamber was the murderer’s room, where, Mrs Umney said, nobody went');
+      await g.say('narrator', 'Her reds were on the stain');
       const paints = await g.choose('paints', { 'virginia#chest': [
         { id: 'leave', label: tr('Leave the open box by the library') },
         { id: 'lock', label: tr('Lock the paints away') },
@@ -106,7 +126,7 @@ export default {
         await piece(g, 'box_morning', {}, () => g.scene('library', { beat: 'box_morning', here: ['virginia'], moods: { virginia: 'sad' }, keys: { ...LIBRARY.morning, paints: true, stain: 'scarlet' } }));
       } else if (paints === 'lock') {
         await g.say('narrator', 'She locked her paints in the chest of drawers, and put the key under her pillow');
-        await piece(g, 'pacing', {}, () => g.scene('corridor', { beat: 'pacing', here: ['simon'], moods: { simon: 'angry' }, keys: CORRIDOR.pacing }));
+        await piece(g, 'pacing', { clink: () => { g.sound('chain_clink'); g.sound('chain_clink', { delay: 3, loud: 0.8 }); } }, () => g.scene('corridor', { beat: 'pacing', here: ['simon'], moods: { simon: 'angry' }, keys: CORRIDOR.pacing }));
         await piece(g, 'clean_floor', {}, () => g.scene('library', { beat: 'clean_floor', here: ['virginia'], moods: { virginia: 'thinking' }, keys: { ...LIBRARY.morning, stain: 'none' } }));
       } else {
         g.here('washington', true);
@@ -115,7 +135,12 @@ export default {
         await g.say('washington', 'Does he? Then we’ll be waiting for him');
         await g.say('narrator', 'That evening Washington begged the library key from his father');
         await piece(g, 'peas_night', {
-          cry: () => g.say('twin_star', 'For Ginny’s paints!', { at: 'narrator', how: 'a battle cry, in the dark, from downstairs' }),
+          cry: async () => {
+            await g.say('twin_star', 'For Ginny’s paints!', { at: 'narrator', how: 'a battle cry, in the dark, from downstairs' });
+            g.sound('peas', { far: true });
+            g.sound('peas', { far: true, delay: 0.7, loud: 0.8 });
+          },
+          groan: () => { g.sound('groan', { far: true }); },
         }, () => g.scene('corridor', { beat: 'peas_night', keys: CORRIDOR.night }));
         await piece(g, 'half_stain', {}, () => g.scene('library', { beat: 'half_stain', here: ['virginia'], moods: { virginia: 'sad' }, keys: { ...LIBRARY.morning, stain: 'half' } }));
       }

@@ -156,6 +156,7 @@
     "board_open": 0,
     "sketch_line": 0,
     "blot": false,
+    "paintbox": false,
     "nightingale": 1
   },
   "states": {
@@ -392,6 +393,10 @@
     "blot": {
       "type": "boolean",
       "means": "М3: a blot of colour run on the trunk of her study"
+    },
+    "paintbox": {
+      "type": "boolean",
+      "means": "1.5: her open paint-box lying on the board by the sheet (the insert `board`): the pans of red and vermilion scraped out to the white"
     },
     "nightingale": {
       "range": [

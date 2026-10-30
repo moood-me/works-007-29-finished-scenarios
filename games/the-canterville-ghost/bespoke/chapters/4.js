@@ -41,7 +41,7 @@ export default {
         g.mood('otis', 'sad');
         await g.say('narrator', 'She did not answer. Her father touched her forehead — then looked at her a long while, and stopped smiling');
       }
-      await piece(g, 'knock_evening', { knock: () => g.say('otis', 'Sir?') },
+      await piece(g, 'knock_evening', { knock: async () => { g.sound('knock'); await g.wait(1300); await g.say('otis', 'Sir?'); } },
         () => g.scene('tapestry', { beat: 'knock_evening', here: ['otis'], moods: { otis: 'thinking' } }));
       await piece(g, 'london', {
         say: async () => {
@@ -55,11 +55,23 @@ export default {
       const { wall, shares, trap } = facts(g.state);
       if (wall === 'go') {
         await piece(g, 'calling', { call: () => g.say('mrs_otis', 'Virginia! Ginny!', { how: 'calling up the stairs, worried' }) },
-          () => g.scene('hall', { beat: 'calling', here: ['mrs_otis', 'twin_star', 'twin_stripes'], moods: { mrs_otis: 'afraid' } }));
-        await piece(g, 'lantern', { pound: () => (shares ? g.say('washington', 'Give her back!', { how: 'shouting, beating on the wall' }) : null) },
+          async () => {
+            await g.scene('hall', { beat: 'calling', here: ['mrs_otis', 'twin_star', 'twin_stripes'], moods: { mrs_otis: 'afraid' } });
+            g.sound('bell');
+          });
+        await piece(g, 'lantern', {
+          pound: async () => {
+            if (!shares) return;
+            g.sound('knock', { rate: 0.75 });
+            g.sound('knock', { rate: 0.7, delay: 1.1 });
+            await g.say('washington', 'Give her back!', { how: 'shouting, beating on the wall' });
+          },
+        },
           () => g.scene('tapestry', { beat: 'lantern', here: ['washington'], moods: { washington: 'afraid' }, keys: { trap, shares } }));
         await piece(g, 'pocket', { say: () => g.say('otis', 'The gypsies were camped by the field') },
           () => g.scene('library', { beat: 'pocket', here: ['otis'], moods: { otis: 'sad' }, keys: LIBRARY.night }));
+        g.sound('hooves', { far: true });
+        await g.wait(1500);
         await g.say('narrator', 'Hoofbeats in the yard: Mr Otis and Cecil galloped off to the gypsy camp. Mrs Otis sat in the hall in her shawl, and did not get up');
         return;
       }
@@ -156,7 +168,11 @@ export default {
       const { wall, door, shares, trap, named, warned } = facts(g.state);
       if (wall === 'go') {
         await piece(g, 'midnight', {
-          stroke: () => g.say('narrator', 'The clock struck, and with its last stroke the whole house fell silent'),
+          stroke: async () => {
+            await twelve(g);
+            await g.say('narrator', 'The clock struck, and with its last stroke the whole house fell silent');
+          },
+          panel: () => { g.sound('panel'); },
           hold: async () => {
             await g.say('otis', 'How could you!');
             await g.say('virginia', 'Papa, I have been with the ghost. He is dead. Come');
@@ -172,10 +188,12 @@ export default {
       }
       if (door !== 'pass') return;
       await tears(g);
+      await g.scene('corridor', { here: ['otis'], moods: { otis: 'eyes_closed' }, keys: CORRIDOR.woken, air: { wind: 0.22, clock: 0.12 } });
+      await twelve(g, { far: true });
       await g.say('narrator', 'The clock struck — and the whole house fell silent at once');
-      await piece(g, 'woken', {}, () => g.scene('corridor', { beat: 'woken', here: ['otis'], moods: { otis: 'eyes_closed' }, keys: CORRIDOR.woken }));
+      await piece(g, 'woken', {}, () => g.scene('corridor', { beat: 'woken', here: ['otis'], moods: { otis: 'eyes_closed' }, keys: CORRIDOR.woken, air: {} }, { cut: true }));
       await piece(g, 'wait_wall', {
-        knock: () => g.say('otis', 'Sir. Ginny'),
+        knock: async () => { g.sound('knock'); await g.wait(1300); await g.say('otis', 'Sir. Ginny'); },
         out: async () => {
           g.mood('virginia', 'tired');
           await g.say('otis', 'You promised');
@@ -183,7 +201,7 @@ export default {
           await g.wait(2000);
           await g.say('otis', 'Show me');
         },
-      }, () => g.scene('tapestry', { beat: 'wait_wall', here: ['otis', 'virginia'], moods: { otis: 'afraid' } }));
+      }, () => g.scene('tapestry', { beat: 'wait_wall', here: ['otis', 'virginia'], moods: { otis: 'afraid' }, air: {} }));
       await g.say('narrator', 'He did not give her his hand. She led him behind the tapestry, down a narrow passage in the wall, into the secret chamber');
       await piece(g, 'chamber_father', {}, () => g.scene('chamber', { beat: 'chamber_father', here: ['virginia', 'otis'], moods: { virginia: 'sad', otis: 'sad' }, keys: CHAMBER.father }));
       await piece(g, 'casket', {}, () => { g.set('stub', warned); });
@@ -191,10 +209,22 @@ export default {
   ],
 };
 
+// 4.6 / 4С.5: midnight — the clock strikes twelve, and with the last stroke the whole house falls silent at once: the
+// clock, the wind, the boards (every bed of sound out). far — heard from the hall below
+async function twelve(g, { far = false } = {}) {
+  for (let i = 0; i < 12; i++) {
+    g.sound('strike', { far, loud: far ? 0.9 : 1 });
+    await g.wait(1100);
+  }
+  await g.wait(600);
+  g.air({});
+  await g.wait(1400);
+}
 // 4.1 / 4С.5: the dark beyond the wall, the voices; holding his hand (`dark`, М6)
 async function dark(g) {
   await piece(g, 'dark', {
     voices: async () => {
+      g.sound('wings', { loud: 0.7 });
       await g.say('voices', 'Go back, little Virginia! Go back!');
       await g.say('simon', 'Do not listen');
     },
@@ -216,7 +246,10 @@ async function name(g) {
   ] });
   if (name === 'named') {
     await g.say('virginia', 'Lord, have mercy on him — and give rest to Lady Eleanore', { how: 'praying aloud, simply, like a child' });
+    // (he repeats it after her — up to the name, and stops)
+    await g.say('simon', 'Lord, have mercy on me — and give rest to…', { how: 'repeating after her word for word, hoarse and slow; he stops dead before the name' });
     g.mood('simon', 'angry');
+    g.air({ night: 0.22 });
     await piece(g, 'named', {
       stand: () => (plays ? g.say('simon', 'Madam, I said: of her we will not speak. I am Sir Simon de Canterville, and I do not bargain at a graveside', { how: 'drawing himself up, cold and proud' }) : null),
     });
@@ -227,9 +260,12 @@ async function name(g) {
         if (plays) await g.say('simon', 'There. Your father would be pleased: a bargain', { how: 'dryly' });
       },
     });
-    await g.say('narrator', 'He repeated the prayer to the end — for her, then for himself — and did not look at Virginia. The nightingale sang no more');
+    await g.say('simon', 'Lord, give rest to Lady Eleanore. And have mercy on me', { how: 'the prayer to its end, quietly and flatly, not looking at her' });
+    await g.say('narrator', 'He did not look at Virginia again. The nightingale sang no more');
   } else {
     await g.say('virginia', 'Lord, let him sleep', { how: 'praying aloud, simply, like a child' });
+    // (he repeats it after her, like a child, looking at her)
+    await g.say('simon', 'Lord… let me sleep', { how: 'repeating after her like a child, slowly, wondering at the words, looking at her' });
     await piece(g, 'unnamed');
   }
   g.apply('name');

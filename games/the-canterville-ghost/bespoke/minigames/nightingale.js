@@ -21,9 +21,12 @@ export default {
   keys: ['vision'],
   async run(g, b, opts, signal) {
     const mg = g.minigame({ phrase: tr('“Far away beyond the pine-woods there is a little garden…”') });
-    const over = settle(signal, () => g.set('vision', 0, 1));
+    // (the room's own air again: the limes beyond the window)
+    const ROOM = { trees: 0.24 };
+    const over = settle(signal, () => { g.set('vision', 0, 1); g.air(ROOM); });
     const sign = handsOff(mg);
     g.set('vision', 1, 3);
+    g.air({ nightingale: 0.5, trees: 0.04 });
     let touched = false;
     const off = mg.on('down', () => {
       if (touched) return;
@@ -31,6 +34,7 @@ export default {
       g.failed();
       mg.error('early', { chip: true });
       g.set('vision', 0, 0.4);
+      g.air(ROOM);
     });
     const t0 = mg.t;
     const done = await until(mg, ({ t }) => {
@@ -41,6 +45,7 @@ export default {
     sign.remove();
     if (!done) return this.skipped;
     g.set('vision', 0, touched ? 0.4 : 2);
+    g.air(ROOM);
     over();
     await mg.end({ as: 'neutral' });
     return { touched };

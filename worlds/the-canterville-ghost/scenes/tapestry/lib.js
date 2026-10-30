@@ -278,6 +278,27 @@ function people(scene) {
     washington_reach: null, washington_with: [],
   };
 }
+// The talk (3.2–3.6): her face seen from beside him, his from beside her — the camera's own eye a third of the way from
+// the one toward the other and a step aside toward the room, so the face looked at turns to us (from the scene's camera
+// they stand level and both show their profiles). Where they are now: she where she stopped, he on the seat or standing.
+const HEAD = 1.42; // her face, standing
+function faces(scene) {
+  const her = [scene.get('virginia_a') ?? NEAR[0], scene.get('virginia_d') ?? NEAR[1], HEAD];
+  const on = scene.get('simon_on');
+  const him = Array.isArray(on) ? [on[0] - 0.05, on[1] - 0.1, 1.12] : [scene.get('simon_a'), scene.get('simon_d'), 1.6];
+  return { her, him };
+}
+// the eye beside `from`, looking at `to`'s face
+function over(from, to) {
+  const dx = to[0] - from[0], dz = to[1] - from[1], l = Math.hypot(dx, dz) || 1;
+  // (aside: across the line between them, on the room's side — nearer the viewer, away from the window)
+  const flip = dx / l > 0 ? -1 : 1, px = (-dz / l) * flip, pz = (dx / l) * flip;
+  const ex = from[0] + dx * 0.3 + px * 0.25, ez = from[1] + dz * 0.3 + pz * 0.25;
+  return eye([ex, ez, (from[2] + to[2]) / 2 + 0.05], to);
+}
+// the talk's start, when a piece of it opens the scene: he on the seat looking at her, she near him
+const TALK = () => ({ ...ROOM, simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, virginia_look: 'simon' });
+
 // he gets up off the window seat (where it puts him), and sits down on it again
 async function rise(p) {
   p.on(null);
@@ -461,7 +482,7 @@ function film(scene) {
     },
     // 3.2 «hunger: bread»: she holds out the parcel, he takes it
     sandwich: {
-      after: ['talk'],
+      after: ['talk', 'her_face', 'his_face', 'room'],
       tells: ['sandwich:taken'],
       seconds: 8,
       from: () => ({ ...ROOM, ...people(scene), virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, simon_look: 'virginia',
@@ -469,6 +490,8 @@ function film(scene) {
       run: async s => {
         const v = s.person('virginia');
         const p = s.person('simon');
+        // (from the talk's own shots: back to the operator's)
+        s.cut(shot('virginia', 'full', 0.35));
         v.with(['parcel']);
         await v.walk([[0.6, 4.95]]);
         await v.turn(75);
@@ -489,23 +512,61 @@ function film(scene) {
     },
     // 3.2: she stamps her foot
     stamp: {
-      after: ['talk', 'sandwich'],
+      after: ['talk', 'sandwich', 'her_face', 'his_face', 'room'],
       tells: ['stamp:stamp'],
       seconds: 3,
       from: () => ({ ...ROOM, ...people(scene), virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, simon_look: 'virginia',
         ...shot('virginia', 'full') }),
       run: async s => {
         const v = s.person('virginia');
-        s.camera({ target: 'virginia', shot: 'full' });
-        // (no `stamp`: Kimodo could not make it — she draws herself up, her face as the game gives it)
+        s.cut(shot('virginia', 'full'));
+        // (no `stamp`: Kimodo could not make it — she draws herself up, her face as the game gives it; the stamp is
+        // the game's sound)
         s.tell('stamp:stamp');
         v.do('upright');
         await s.wait(2);
       },
     },
+    // 3.2–3.6, the talk: her face (from beside him), his face (from beside her), the room (the scene's own camera: М5's
+    // vision in the window). No one moves; a cut to the shot, a breath — the lines are the game's
+    her_face: {
+      after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
+      tells: [],
+      seconds: 0.5,
+      from: () => {
+        const v = { ...people(scene), ...TALK() };
+        return { ...v, ...over([SEAT[0] - 0.05, SEAT[1] - 0.1, 1.12], [NEAR[0], NEAR[1], HEAD]) };
+      },
+      run: async s => {
+        const { her, him } = faces(scene);
+        s.cut(over(him, her));
+        await s.wait(0.5);
+      },
+    },
+    his_face: {
+      after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
+      tells: [],
+      seconds: 0.5,
+      from: () => ({ ...people(scene), ...TALK(), ...over([NEAR[0], NEAR[1], HEAD], [SEAT[0] - 0.05, SEAT[1] - 0.1, 1.12]) }),
+      run: async s => {
+        const { her, him } = faces(scene);
+        s.cut(over(her, him));
+        await s.wait(0.5);
+      },
+    },
+    room: {
+      after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
+      tells: [],
+      seconds: 0.5,
+      from: () => ({ ...people(scene), ...TALK(), ...CAM }),
+      run: async s => {
+        s.cut({ ...CAM });
+        await s.wait(0.5);
+      },
+    },
     // 3.6 after М5 (`vision` back to 0): the hunters stir, the wall parts; he stands and holds out his hand to her
     wall_parts: {
-      after: ['talk', 'sandwich', 'stamp'],
+      after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
       tells: ['wall_parts:supper', 'wall_parts:open', 'wall_parts:hand'],
       seconds: 12,
       from: () => ({ ...ROOM, ...people(scene), virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, simon_look: 'virginia', ...CAM }),

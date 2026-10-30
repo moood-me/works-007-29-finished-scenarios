@@ -25,6 +25,7 @@ export default {
         });
         await g.say('narrator', 'Four days later, at night, they buried him in the churchyard under the old yew');
         await funeral(g, f);
+        if (!f.named) await stain(g);
       } else if (f.ending === 'candle') {
         await piece(g, 'breakfast_funeral', {
           say: async () => {
@@ -44,6 +45,7 @@ export default {
         await piece(g, 'no_chair', {}, () => g.scene('corridor', { beat: 'no_chair', here: ['virginia'], moods: { virginia: 'sad' }, keys: CORRIDOR.empty }));
         await piece(g, 'letters', {}, () => g.scene('library', { beat: 'letters', here: ['otis'], moods: { otis: 'thinking' }, keys: LIBRARY.night }));
         await funeral(g, f);
+        if (!f.named) await stain(g);
       } else {
         await piece(g, 'departure', {
           stain: () => (f.plays ? g.say('otis', 'Leave it. It is his house. At a valuation') : g.say('mrs_umney', 'It has gone quiet. Quite quiet', { how: 'at the doors, softly, almost sorry' })),
@@ -66,7 +68,6 @@ export default {
     async g => {
       const f = facts(g.state);
       if (f.ending === 'almond') {
-        if (!f.named) await stain(g);
         await piece(g, 'years', {}, () => g.scene('grounds', { beat: 'years', here: ['virginia', 'cecil'], moods: { virginia: 'smile', cecil: 'smile' }, keys: GROUNDS.years }));
         await g.say('cecil', 'You have never told me what happened to you that night');
         await g.say('virginia', 'Don’t ask me, Cecil. He showed me what Life is, and what Death signifies, and why Love is stronger than both');
@@ -77,7 +78,6 @@ export default {
         await g.wait(2000);
         await piece(g, 'almond_last', {}, () => g.scene('grounds', { beat: 'almond_last', keys: { ...GROUNDS.last, nightingale: f.named ? 0 : 1 } }));
       } else if (f.ending === 'candle') {
-        if (!f.named) await stain(g);
         await g.say('narrator', 'The Otises kept Canterville, and came there every summer');
         await piece(g, 'wedding', {
           hand: async () => {
@@ -85,30 +85,42 @@ export default {
             await g.say('otis', 'Promise for yourself, Your Grace');
           },
           let: () => { g.mood('otis', 'sad'); },
-        }, () => g.scene('hall', { beat: 'wedding', here: ['otis', 'virginia', 'cecil'], moods: { otis: 'smile', virginia: 'smile', cecil: 'smile' } }));
-        await piece(g, 'candle_last', {}, () => g.scene('tapestry', { beat: 'candle_last', here: ['otis'], moods: { otis: 'sad' } }));
+        }, () => g.scene('hall', { beat: 'wedding', here: ['otis', 'virginia', 'cecil'], moods: { otis: 'smile', virginia: 'smile', cecil: 'smile' }, air: { clock: 0.2, birds: 0.12 } }));
+        // (the last shot: nothing stirs, nothing is heard)
+        await piece(g, 'candle_last', {}, () => g.scene('tapestry', { beat: 'candle_last', here: ['otis'], moods: { otis: 'sad' }, air: {} }));
       } else {
-        await piece(g, 'porch', {}, () => g.scene('hall', { beat: 'porch', here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'neutral', virginia: 'sad' }, keys: { wake: f.door === 'wake', shares: f.shares, plays: f.plays } }));
+        // (the chain heard from the Tapestry Chamber's windows — once, and only while he plays: the piece tells it then)
+        await piece(g, 'porch', {
+          board: () => { g.sound('carriage', { loud: 0.7 }); },
+          ...(f.plays ? { chain: () => { g.sound('chain_clink', { loud: 0.9 }); } } : {}),
+        }, () => g.scene('hall', { air: { clock: 0.1, birds: 0.2 }, beat: 'porch', here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'neutral', virginia: 'sad' }, keys: { wake: f.door === 'wake', shares: f.shares, plays: f.plays } }));
         if (f.wished) {
           await g.say('virginia', 'Good night, sir', { how: 'a whisper, in broad daylight' });
           await g.wait(1500);
         }
         if (f.plays) await g.say('narrator', 'They say that at Canterville they still rattle chains at night, and the new owners buy lubricant');
         else await g.say('narrator', 'They say nothing has been heard at Canterville for a long time. Only the Tapestry Chamber is always cold');
-        await piece(g, 'coaches', {}, () => g.scene('grounds', { beat: 'coaches', keys: GROUNDS.coaches }));
+        await piece(g, 'coaches', {}, async () => {
+          await g.scene('grounds', { beat: 'coaches', keys: GROUNDS.coaches });
+          g.sound('carriage');
+        });
       }
     },
   ],
 };
 
-// the funeral under the yew (`funeral`): the nightingale — or silence (her name); the family beside her, or a step
-// behind; at «Свеча» Mr Otis apart with his candle
+// the funeral under the yew (`funeral`): the moon comes out — and the nightingale begins in the grove, the same as in the
+// Garden; or only the torches crackle (her name); the family beside her, or a step behind; at «Свеча» Mr Otis apart
+// with his candle
 async function funeral(g, f) {
   const home = f.ending === 'almond' ? ['otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'] : ['otis'];
-  await piece(g, 'funeral', {}, () => g.scene('grounds', { beat: 'funeral', here: ['virginia', ...home], moods: { virginia: 'sad' },
+  await piece(g, 'funeral', {
+    moon: () => { if (!f.named) g.air({ night: 0.3, fire: 0.18, nightingale: 0.5 }); },
+  }, () => g.scene('grounds', { beat: 'funeral', here: ['virginia', ...home], moods: { virginia: 'sad' },
     keys: { ...GROUNDS.funeral, ...(f.ending === 'candle' ? GROUNDS.apart : {}), with_family: f.ending === 'almond' && f.shares, father_apart: f.ending === 'candle', nightingale: f.named ? 0 : 1 } }));
 }
-// the next morning, when nobody said her name: the old brown stain under the paints, and a rug over it (`brown`)
+// the morning after the funeral, when nobody said her name: the old brown stain under the paints, and a rug over it
+// (`brown`)
 async function stain(g) {
   await piece(g, 'brown', {
     rug: () => g.say('mrs_otis', 'Put a rug over it'),

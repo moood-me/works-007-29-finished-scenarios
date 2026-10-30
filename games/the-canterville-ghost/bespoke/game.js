@@ -27,6 +27,7 @@
 // player's only where they have been. Where the play is and how it ended — bespoke.at, bespoke.ended.
 import { EFFECTS, ENDINGS, SCALES, PLACES, context, facts, listen } from './story.js';
 import { ui } from './ui.js';
+import { beds } from './sound.js';
 import { trees } from './map.js';
 import { jump as unseen } from './jump.js';
 import prologue from './chapters/prologue.js';
@@ -64,6 +65,8 @@ export default async function (b) {
     font: 'Georgia, "Times New Roman", serif',
     colors: { mark: '#f4ead2', fill: '#f4ead2', good: '#ffe08a', danger: '#c8553d', fork: '#c9d2e4', ghost: '#f4ead2' },
   });
+  // the game's background — its beds of sound — as the page sounds it, where the picture changes (sound.js)
+  b.onBackground((levels, seconds) => beds(levels, seconds));
   const hub = listen(b);
   const view = ui(b.layer);
   // PLAYS[as] played unseen: its n-th step of all (STEPS) from where the steps before leave it → {state: the play
@@ -190,7 +193,7 @@ export default async function (b) {
     b.hush();
     view.quiet();
     view.gauge(null);
-    await b.show(PLACES.library.folder, { state: { virginia_here: false, simon_here: false, otis_here: false }, captions: false });
+    await b.show(PLACES.library.folder, { state: { virginia_here: false, simon_here: false, otis_here: false }, captions: false, background: { fire: 0.18 } });
     if (closed) { closed = false; b.fade(0, 1.5); }
     const drawn = trees(b, sky(), { grow: reveal, author: !!author });
     const notice = replay?.done && anew() ? view.hint(tr('If you keep it, the chapters after this one will have to be played again.')) : () => {};

@@ -211,7 +211,7 @@ function FILM(scene) {
     // 4.6: midnight — the twelve strokes, the silence; the panel opens, Virginia on the landing with the casket; the
     // family to her as the variants say; Mrs Otis takes her face in her hands
     midnight: {
-      after: [], tells: ['midnight:stroke', 'midnight:panel', 'midnight:hold'], seconds: 30,
+      after: [], tells: ['midnight:stroke', 'midnight:panel', 'midnight:hold'], seconds: 42,
       from: () => {
         const watch = scene.get('trap') === 'watch';
         return merge(NIGHT, CAM0, { hour: 23.99 },
@@ -231,9 +231,11 @@ function FILM(scene) {
         s.set('hour', 0);
         s.tell('midnight:stroke');
         for (const id of ['otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'cecil']) s.person(id).look('clock#face');
-        await s.wait(6);
+        // (the twelve strokes are the game's sound, 1.1 s apart: with the last the clock stops and the house falls
+        // silent; the silence held while the game says so)
+        await s.wait(13.8);
         s.set('clock_going', false);
-        await s.wait(2);
+        await s.wait(6);
         glide(s, SH.landing, 2);
         await s.move('panel', 250, { over: 1.5 });
         if (here) v.here(true);

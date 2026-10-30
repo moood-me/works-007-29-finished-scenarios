@@ -31,6 +31,7 @@ export default {
       slip: async () => {
         if (creaked) return;
         creaked = true;
+        g.sound('floorboard');
         g.mood('otis', 'thinking');
         await g.say('otis', 'Ginny?..', { how: 'muttered in his sleep, not waking' });
         g.mood('otis', 'eyes_closed');

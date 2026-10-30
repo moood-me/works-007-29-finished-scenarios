@@ -23,7 +23,7 @@ export default {
     const send = keys(g);
     const over = settle(signal, () => g.set('door_virginia', CRACK));
     send('door_virginia', SHUT);
-    const r = await slowly(g, b, mg, { at: 'door_virginia#handle', pulls: 3, frame: u => send('door_virginia', SHUT + (CRACK - SHUT) * u) });
+    const r = await slowly(g, b, mg, { at: 'door_virginia#handle', pulls: 3, frame: u => send('door_virginia', SHUT + (CRACK - SHUT) * u), jerk: () => g.sound('creak', { rate: 1.3, loud: 0.8 }) });
     if (!r) return this.skipped;
     if (!(await count(mg, 0.6))) return this.skipped;
     over();
