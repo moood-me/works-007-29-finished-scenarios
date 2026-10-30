@@ -173,7 +173,9 @@
   --c-halo:rgba(217,154,58,.55);--c-core:#d99a3a;--trunk:1.5px;--glow:6px;--w:calc(var(--u) * 430)}
 #underlay .map.cant .tree{min-height:calc(var(--u) * 120);padding:calc(var(--u) * 16) calc(var(--u) * 22) calc(var(--u) * 12);
   background:#f4ecd8;border:1px solid #d6c4a0;border-radius:calc(var(--u) * 4);box-shadow:0 calc(var(--u) * 8) calc(var(--u) * 26) rgba(0,0,0,.45)}
-#underlay .map.cant .tree.future{background:rgba(244,236,216,.55);box-shadow:none;min-height:0}
+#underlay .map.cant .tree.future{width:calc(var(--u) * 200);background:none;border:1px dashed rgba(244,236,216,.45);box-shadow:none;min-height:0}
+#underlay .map.cant .tree.future .num{font-size:calc(var(--u) * 26);letter-spacing:.1em;color:#f4ecd8;opacity:.8;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+#underlay .map.cant .tree.future .title{display:none}
 #underlay .map.cant .tree.future .core{visibility:hidden}
 #underlay .map.cant .tree.current{border-top:calc(var(--u) * 4) solid #d99a3a}
 #underlay .map.cant .row{border-top:1px solid rgba(107,90,75,.16);padding-top:calc(var(--u) * var(--s) * 6)}
