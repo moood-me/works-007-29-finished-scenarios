@@ -91,6 +91,7 @@ function film(scene) {
     two_map: CAM([0.05, 3.85, 1.65], [0.05, 5.75, 1.55]), // two by the map
     her: CAM([-1.05, 3.3, 1.6], [-2.3, 4.55, 1.55]), // her by the field door
     her_close: CAM([-1.55, 3.75, 1.57], [-2.3, 4.55, 1.53]),
+    her_riv: CAM([-1.15, 5.05, 1.62], [-2.3, 4.55, 1.52]), // her face at the door, from the side of the one she looks at
     her_all: CAM([-0.6, 3.9, 1.6], [-2.3, 4.55, 1.5]), // her face by the field door, turned to the telegraphist
     her_inker: CAM([0.9, 4.9, 1.6], [1.6, 6.7, 1.5]), // her behind the telegraphist
     // Rivière at the telephone: from before his face (he stands turned to Robineau's desk and the telephone on it, to
@@ -540,7 +541,8 @@ function film(scene) {
         glide(s, SH.her, 2);
         await standUp(s, 'pilot', 0.15);
         s.tell('she:up');
-        await glide(s, SH.her_close, 2);
+        // (her face from Rivière's side of the room — she looks at him)
+        await glide(s, SH.her_riv, 2);
       },
     },
     // 3.1: Robineau moves away to his desk
@@ -890,10 +892,14 @@ function film(scene) {
         s.person('riviere').look('robineau');
         glide(s, SH.rob, 3);
         await b.walk([[-1.2, 5.0], [1.3, 4.25], SPOTS.robineau.desk.at]);
+        // (the spot first — script.js lays him out from it —, then his own turn and motion over it: placed after, the spot
+        // would undo them)
+        placeAt(s, 'robineau', 'desk');
         await b.turn(190);
         b.look('rob_top');
         b.do('shoulders_shake');
-        placeAt(s, 'robineau', 'desk');
+        // (Rivière turned from the map toward him and the lens: at the map's own turn his face went away from both)
+        await s.person('riviere').turn(140);
         await glide(s, SH.shoulders, 1.5);
         s.tell('shoulders:stand');
         await s.wait(1);

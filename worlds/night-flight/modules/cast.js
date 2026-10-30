@@ -227,6 +227,20 @@ return {
           F.ball(b, [F.side('RightHand'), along, F.fwd('RightHand')], [0.045 * m, 0.03 * m, 0.012 * m], [0.55, 0.57, 0.58, 1], 8);
         },
       },
+      // the same spanner in the left hand (Roblet at М4, turned so that his left is toward the lens)
+      spanner_l: {
+        name: 'spanner in the left hand',
+        draw: F => {
+          const { add, mul } = V();
+          const m = F.fit.h;
+          const hand = F.P('LeftHand');
+          const along = F.up('LeftHand');
+          const a = add(hand, mul(along, 0.05 * m));
+          const b = add(hand, mul(along, -0.26 * m));
+          F.bar(a, b, 0.016 * m, 0.016 * m, [[0, [0.55, 0.57, 0.58, 1]]], 6, F.side('LeftHand'), 0.35);
+          F.ball(b, [F.side('LeftHand'), along, F.fwd('LeftHand')], [0.045 * m, 0.03 * m, 0.012 * m], [0.55, 0.57, 0.58, 1], 8);
+        },
+      },
       // a note torn off a message pad, held in the right hand: a small pale slip
       note: {
         name: 'note',

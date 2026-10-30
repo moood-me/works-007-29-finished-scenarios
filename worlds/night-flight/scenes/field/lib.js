@@ -324,13 +324,15 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       run: async s => {
         const r = s.person('riviere'), p = s.person('pellerin');
         glide(s, SH.touch, 2.5);
-        await r.walk([[-1.45, 8.75]]);
+        // (a step farther than arm's length to the eye: the touch leans in, and nearer his head went through Pellerin's;
+        // Pellerin turns to him half toward the lens, his surprise seen)
+        await r.walk([[-1.75, 8.8]]);
         await r.turn(95);
         await r.do('shoulder_touch');
         s.tell('touch:hand');
         r.do('hands_behind');
         p.look('riviere');
-        await p.turn(265);
+        await p.turn(230);
         s.tell('touch:turn');
         await s.wait(1);
       },
@@ -653,17 +655,17 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       run: async s => {
         const r = s.person('riviere'), o = s.person('roblet');
         // (the two turned to each other and half to the lens, faces three-quarters — Roblet on the right, the spanner in
-        // his right hand on the lens's side; Rivière's open hand held out between them at the waist, under the spanner in Roblet's hand — not the Kimodo `palm_out`, whose take turns the body away and lifts the hand to the
+        // his left hand (`spanner_l`), the one toward the lens; the turns are the run's — they win over `from`; Rivière's open hand held out between them at the waist, under the spanner in Roblet's hand — not the Kimodo `palm_out`, whose take turns the body away and lifts the hand to the
         // other's face)
         o.wear(CAP_ON);
-        o.with(['spanner']);
+        o.with(['spanner_l']);
         o.do('stand_easy');
-        o.walk([[-0.15, 3.85]]).then(() => o.turn(315));
+        o.walk([[-0.15, 3.85]]).then(() => o.turn(225));
         await r.walk([[-0.3, 4.5], [-1.05, 3.85]]);
-        await r.turn(45);
+        await r.turn(135);
         r.do('stand');
         o.look('riviere#hand_r');
-        r.look('roblet#hand_r');
+        r.look('roblet#hand_l');
         r.reach({ r: [-0.6, 3.6, 1.0] });
         await cut(s, SH.two_hands);
         s.tell('palm:out');
@@ -676,8 +678,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       tells: ['chocks_pick:say', 'chocks_pick:pick', 'chocks_pick:gone'],
       seconds: 8,
       from: () => ({
-        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...P('roblet', [-0.15, 3.85], 315, 'stand_easy', { look: 'riviere', wear: CAP_ON }),
-        ...P('riviere', [-1.05, 3.85], 45, 'stand', { look: 'roblet' }),
+        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...P('roblet', [-0.15, 3.85], 225, 'stand_easy', { look: 'riviere', wear: CAP_ON }),
+        ...P('riviere', [-1.05, 3.85], 135, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.two_hands,
       }),
       run: async s => {

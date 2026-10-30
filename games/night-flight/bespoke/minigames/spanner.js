@@ -26,8 +26,8 @@ export default {
     const mg = g.minigame({ phrase: tr('Rivière’s palm under the spanner; Roblet’s fingers are slow to open.') });
     const passed = () => { g.set('roblet_reach', null); g.set('roblet_with', null); g.set('riviere_with', HELD); };
     const over = settle(signal, passed);
-    g.set('roblet_with', HELD);
-    g.set('roblet_reach', { r: 'riviere#hand_r' });
+    g.set('roblet_with', ['spanner_l']); // (in his left hand, toward the lens — the piece `palm`)
+    g.set('roblet_reach', { l: 'riviere#hand_r' });
     const mark = mg.mark({ at: 'riviere#hand_r', kind: 'groove' });
     const hold = mg.hold({ on: mark, seconds: TAKE, drain: 0.4 });
     const taught = teach(b, mg, [hold]);

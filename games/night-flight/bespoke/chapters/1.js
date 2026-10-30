@@ -135,7 +135,7 @@ export default {
         await piece(g, 'box_given', { look: () => g.say('robineau', 'Sir… you?') });
       } else {
         await g.say('riviere', 'Not the engines. The field: the chocks, the store');
-        g.set('roblet_with', ['spanner']);
+        g.set('roblet_with', ['spanner_l']);
         await piece(g, 'palm');
         await g.play(spanner);
         await piece(g, 'chocks_pick', { say: () => g.say('roblet', 'Better you had fired me'), pick: () => g.sound('chocks', { loud: 0.7 }) });
