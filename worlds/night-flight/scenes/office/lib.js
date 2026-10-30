@@ -227,7 +227,8 @@ function film(scene) {
     log_done: {
       tells: ['log_done:window'],
       seconds: 8,
-      from: () => ({ ...LOG, log_open: 1, ink: 1, ...PEOPLE({ ...at('riviere', 'desk', 'desk_top#log', { riviere_do: 'write_desk' }) }), ...SH.desk }),
+      // (no reflection of him in the glass: through it the shot goes down to the yard)
+      from: () => ({ ...LOG, log_open: 1, ink: 1, ...PEOPLE({ ...at('riviere', 'desk', 'desk_top#log', { riviere_do: 'write_desk', riviere_reflected: false }) }), ...SH.desk }),
       run: async s => {
         const r = s.person('riviere');
         await s.move('log_open', 0, { over: 0.8, ease: 'in' });
