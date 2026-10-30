@@ -57,8 +57,7 @@ function film(scene) {
     wall: CAM([-2.6, 13.1, 1.7], [-3.4, 17.6, 1.5]),
     box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
-    // M4: Rivière's palm under the spanner in Roblet's hand — from straight before the two, both faces three-quarters
-    two_hands: CAM([-0.45, 1.95, 1.55], [-0.47, 3.7, 1.3]),
+    two_hands: CAM([-0.3, 2.3, 1.3], [-0.5, 3.6, 1.05]),
     roblet_riv: CAM([1.6, 2.2, 1.65], [-0.5, 4.1, 1.5]), // from the right: Roblet turned to Rivière in profile, Rivière's face,
     // chapter IV: Rivière at R4 left of the nose and the pilot by the fuselage at PILOT, level with each other (each looking
     // at the other in profile): each shot from the front on the side he looks to
@@ -655,8 +654,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         o.with(['spanner']);
         o.do('stand_easy');
         await r.walk([[-0.2, 3.9]]);
-        await r.turn(205);
-        o.turn(155);
+        await r.turn(231);
+        o.turn(110);
         o.look('riviere#hand_r');
         r.look('roblet#hand_r');
         r.do('palm_out');
@@ -671,8 +670,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       tells: ['chocks_pick:say', 'chocks_pick:pick', 'chocks_pick:gone'],
       seconds: 8,
       from: () => ({
-        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere', wear: CAP_ON, turn: 155 }),
-        ...P('riviere', [-0.2, 3.9], 205, 'stand', { look: 'roblet' }),
+        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere', wear: CAP_ON, turn: 110 }),
+        ...P('riviere', [-0.2, 3.9], 231, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.two_hands,
       }),
       run: async s => {
