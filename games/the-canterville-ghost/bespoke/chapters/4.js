@@ -112,11 +112,13 @@ export default {
         return;
       }
       await piece(g, 'farewell_go', {}, () => g.scene('corridor', { beat: 'farewell_go', here: ['otis', 'virginia', 'simon'], moods: { otis: 'eyes_closed', virginia: 'sad', simon: 'tired' }, keys: { ...CORRIDOR.farewell, ghost_light: plays ? 1 : 0.4, plays } }, { cut: true }));
+      await g.beat('door_her');
       const door = await g.choose('door', { 'virginia#chest': [
         { id: 'pass', label: tr('Walk past Papa') },
         { id: 'stay', label: tr('Stay at the door') },
         { id: 'wake', label: tr('Wake Papa') },
       ] });
+      await g.beat('door_back');
       if (door === 'pass') {
         await g.play(tiptoe);
         await piece(g, 'pass_chair');
@@ -239,6 +241,7 @@ async function pray(g) {
 // 4.4 / 4С.5: ⚑ her name — she prays aloud, he repeats after her word for word (`named`, `named_back` | `unnamed`)
 async function name(g) {
   const { plays } = facts(g.state);
+  await g.beat('name_her');
   await g.say('narrator', 'She prayed aloud, and he repeated it after her, word for word');
   const name = await g.choose('name', { 'virginia#chest': [
     { id: 'named', label: tr('“…and give rest to Lady Eleanore”') },

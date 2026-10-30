@@ -58,7 +58,7 @@ The module `beats` (lib.js `film`; script.js plays it). What the scene got for t
 ## Contract for the check
 
 ```json
-{"beats": {"garden_come":{"after":[],"tells":["garden_come:sat","garden_come:parcel"],"seconds":10}, "named":{"after":[],"tells":["named:stand"],"seconds":10}, "named_back":{"after":["named"],"tells":["named_back:name","named_back:sat"],"seconds":10}, "unnamed":{"after":[],"tells":["unnamed:look"],"seconds":6}, "tears":{"after":["garden_come","named_back","unnamed"],"tells":["tears:weep","tears:casket"],"seconds":12}, "sleep":{"after":["tears"],"tells":["sleep:lie","sleep:gone"],"seconds":10}}}
+{"beats": {"garden_come":{"after":[],"tells":["garden_come:sat","garden_come:parcel"],"seconds":10}, "named":{"after":[],"tells":["named:stand"],"seconds":10}, "named_back":{"after":["named"],"tells":["named_back:name","named_back:sat"],"seconds":10}, "unnamed":{"after":[],"tells":["unnamed:look"],"seconds":6}, "tears":{"after":["garden_come","named_back","unnamed"],"tells":["tears:weep","tears:casket"],"seconds":12}, "sleep":{"after":["tears"],"tells":["sleep:lie","sleep:gone"],"seconds":10}, "name_her":{"after":[],"tells":[],"seconds":1}}}
 ```
 - Sitting down in the grass and kneeling are loops: in `garden_come` the two go from standing to sitting/kneeling in a
   third of a second (no motion of sitting down on the ground), and he gets up the same way in `named`.

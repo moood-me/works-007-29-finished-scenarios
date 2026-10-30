@@ -7,6 +7,11 @@ const EARTH = [2.3, 5.6];
 const CAM = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
   camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
 const shot = (target, size, frame = null) => ({ ...CAM, camera_target: target, camera_shot: size, camera_frame: frame });
+// the camera's own eye looking at a point, [across, away, up] (the scene's eye 1.7 m up)
+const eye = ([ex, ez, eh], [tx, tz, th]) => ({ ...CAM, camera_x: ex, camera_z: ez, camera_h: eh - 1.7,
+  camera_yaw: Math.atan2(tx - ex, tz - ez) * 180 / Math.PI, camera_pitch: Math.atan2(th - eh, Math.hypot(tx - ex, tz - ez)) * 180 / Math.PI });
+// her face as she kneels praying, seen from his side (he just out of the frame)
+const HER_FACE = eye([HER[0] + 1.0, HER[1] - 0.1, 1.1], [HER[0], HER[1], 1.0]);
 // the two at their places as the look has them: he sits in the grass looking at the earth, she kneels praying
 const AT = {
   simon_fade: 0, simon_a: HIM[0], simon_d: HIM[1], simon_turn: 235, simon_do: 'sit_ground', simon_look: 'earth', simon_reach: null, simon_with: [],
@@ -15,6 +20,16 @@ const AT = {
 
 function film(scene) {
   return {
+    // 4.4 / 4С.5 before the choice «her name»: her face as she prays
+    name_her: {
+      tells: [],
+      seconds: 1,
+      from: () => ({ ...AT, ...HER_FACE }),
+      run: async s => {
+        s.cut({ ...HER_FACE });
+        await s.wait(1);
+      },
+    },
     // 4.3: the two walk in through the long grass from the far side and sit at their places (`parcel`: he has her
     // parcel and lays it on the grass)
     garden_come: {
