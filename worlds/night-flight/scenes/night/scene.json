@@ -1,0 +1,628 @@
+{
+  "engine": 3,
+  "title": "The Airfield at Night",
+  "caption": "",
+  "camera": {
+    "mode": "panorama",
+    "span": [
+      -3.2,
+      20
+    ]
+  },
+  "horizon": 0.62,
+  "light": {
+    "ambient": 0.5,
+    "ambientColor": "#8296cc",
+    "bounce": 0.5,
+    "haze": 0.12,
+    "hazeColor": "#2e3d61",
+    "hazeGlow": 1.1,
+    "tint": "#a3b3db",
+    "tintStrength": 0.06,
+    "saturation": 0.92,
+    "vignette": 0.4,
+    "grain": 0.08,
+    "wind": [
+      -1,
+      0.4,
+      0.5
+    ]
+  },
+  "lights": [
+    {
+      "id": "moon",
+      "from": "sky#moon",
+      "color": "#aebfe6",
+      "strength": 0.7
+    },
+    {
+      "id": "flood_0",
+      "of": "floods#f0",
+      "color": "#e8eeff",
+      "strength": 2.8,
+      "reach": 130
+    },
+    {
+      "id": "flood_1",
+      "of": "floods#f1",
+      "color": "#e8eeff",
+      "strength": 2.8,
+      "reach": 130
+    },
+    {
+      "id": "flood_2",
+      "of": "floods#f2",
+      "color": "#e8eeff",
+      "strength": 2.8,
+      "reach": 130
+    }
+  ],
+  "state": {
+    "shown": 0,
+    "come": 0,
+    "camera_x": 0,
+    "camera_h": 6
+  },
+  "states": {
+    "shown": {
+      "type": "number",
+      "means": "the chapter the player is at: the view goes to its point c<i> (camera_x)"
+    },
+    "come": {
+      "type": "number",
+      "means": "each new value brings the view back to the chapter shown (camera_x), the player's drag with it"
+    }
+  },
+  "music": {
+    "prompts": [
+      {
+        "text": "slow solo piano, sparse chords, nocturnal, restrained and dignified, French impressionist colour",
+        "weight": 1.0
+      },
+      {
+        "text": "celesta and harp, stars over clouds, weightless and cold",
+        "weight": 0.7
+      },
+      {
+        "text": "distant morse telegraph clicks over a low string drone, tense and patient, night office",
+        "weight": 0.5
+      },
+      {
+        "text": "wordless choir very soft, high and far, moonlit sea of clouds",
+        "weight": 0.4
+      },
+      {
+        "text": "low strings sustained, slow, grave and tender, a long night of waiting",
+        "weight": 0.3
+      },
+      {
+        "text": "muted trumpet far away, a few long notes, lonely airfield at night",
+        "weight": 0
+      },
+      {
+        "text": "ambient engine hum, low propeller drone, airy pad, vast night sky",
+        "weight": 0
+      },
+      {
+        "text": "bowed vibraphone and reverb, cold blue air, stillness",
+        "weight": 0
+      },
+      {
+        "text": "deep timpani rolls and low brass, a storm gathering far off",
+        "weight": 0
+      },
+      {
+        "text": "string quartet adagio, grave, restrained, noble sadness",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, long bowed notes, bitter and beautiful",
+        "weight": 0
+      },
+      {
+        "text": "minimalist piano ostinato, clockwork pulse, waiting for news",
+        "weight": 0
+      },
+      {
+        "text": "warm accordion, slow, nostalgic, 1930s France",
+        "weight": 0
+      },
+      {
+        "text": "slow waltz on a small orchestra, faded, a lamp in a window",
+        "weight": 0
+      },
+      {
+        "text": "orchestral swell, heroic yet sorrowful, dawn after a lost night",
+        "weight": 0
+      },
+      {
+        "text": "low horn chorale, slow, mourning without tears",
+        "weight": 0
+      },
+      {
+        "text": "glass harmonica, a single slow line, the hour before dawn",
+        "weight": 0
+      }
+    ],
+    "bpm": 62,
+    "density": 0.2,
+    "brightness": 0.35,
+    "scale": "D_MAJOR_B_MINOR"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "sky": true,
+      "name": "The night over the field",
+      "box": [
+        -0.5,
+        -0.5,
+        2.3,
+        1.3
+      ]
+    },
+    {
+      "id": "field",
+      "name": "The field",
+      "plane": true,
+      "across": 0,
+      "distance": 1500,
+      "width": 6000,
+      "depth": 3000
+    },
+    {
+      "id": "far_lights",
+      "name": "The town's lights far off",
+      "glows": true,
+      "across": 1800,
+      "distance": 3200,
+      "height": 30,
+      "box": [
+        -700,
+        -30,
+        400,
+        2
+      ]
+    },
+    {
+      "id": "floods",
+      "name": "The floodlight masts",
+      "across": 0,
+      "distance": 85,
+      "height": 14,
+      "box": [
+        -57,
+        -14.5,
+        72,
+        0.1
+      ],
+      "shadow": true
+    },
+    {
+      "id": "strip_lamps",
+      "name": "The lamps of the field's edge and its strip",
+      "across": -60,
+      "distance": 70,
+      "height": 0.7,
+      "box": [
+        -0.12,
+        -0.75,
+        0.12,
+        0.03
+      ],
+      "copies": [
+        {
+          "across": -60,
+          "distance": 70
+        },
+        {
+          "across": -50,
+          "distance": 70
+        },
+        {
+          "across": -40,
+          "distance": 70
+        },
+        {
+          "across": -30,
+          "distance": 70
+        },
+        {
+          "across": -20,
+          "distance": 70
+        },
+        {
+          "across": -10,
+          "distance": 70
+        },
+        {
+          "across": 0,
+          "distance": 70
+        },
+        {
+          "across": 10,
+          "distance": 70
+        },
+        {
+          "across": 18,
+          "distance": 60
+        },
+        {
+          "across": 27,
+          "distance": 60
+        },
+        {
+          "across": 36,
+          "distance": 60
+        },
+        {
+          "across": 45,
+          "distance": 60
+        },
+        {
+          "across": 54,
+          "distance": 60
+        },
+        {
+          "across": 63,
+          "distance": 60
+        },
+        {
+          "across": 72,
+          "distance": 60
+        },
+        {
+          "across": 81,
+          "distance": 60
+        },
+        {
+          "across": 90,
+          "distance": 60
+        },
+        {
+          "across": 20,
+          "distance": 90
+        },
+        {
+          "across": 60,
+          "distance": 90
+        },
+        {
+          "across": 20,
+          "distance": 150
+        },
+        {
+          "across": 60,
+          "distance": 150
+        },
+        {
+          "across": 20,
+          "distance": 210
+        },
+        {
+          "across": 60,
+          "distance": 210
+        },
+        {
+          "across": 20,
+          "distance": 270
+        },
+        {
+          "across": 60,
+          "distance": 270
+        },
+        {
+          "across": 20,
+          "distance": 330
+        },
+        {
+          "across": 60,
+          "distance": 330
+        },
+        {
+          "across": 20,
+          "distance": 390
+        },
+        {
+          "across": 60,
+          "distance": 390
+        },
+        {
+          "across": 20,
+          "distance": 450
+        },
+        {
+          "across": 60,
+          "distance": 450
+        },
+        {
+          "across": 20,
+          "distance": 510
+        },
+        {
+          "across": 60,
+          "distance": 510
+        },
+        {
+          "across": 20,
+          "distance": 570
+        },
+        {
+          "across": 60,
+          "distance": 570
+        },
+        {
+          "across": 20,
+          "distance": 630
+        },
+        {
+          "across": 60,
+          "distance": 630
+        },
+        {
+          "across": 20,
+          "distance": 690
+        },
+        {
+          "across": 60,
+          "distance": 690
+        },
+        {
+          "across": 20,
+          "distance": 750
+        },
+        {
+          "across": 60,
+          "distance": 750
+        },
+        {
+          "across": 20,
+          "distance": 810
+        },
+        {
+          "across": 60,
+          "distance": 810
+        },
+        {
+          "across": 20,
+          "distance": 870
+        },
+        {
+          "across": 60,
+          "distance": 870
+        },
+        {
+          "across": 20,
+          "distance": 930
+        },
+        {
+          "across": 60,
+          "distance": 930
+        },
+        {
+          "across": 20,
+          "distance": 990
+        },
+        {
+          "across": 60,
+          "distance": 990
+        },
+        {
+          "across": 20,
+          "distance": 1050
+        },
+        {
+          "across": 60,
+          "distance": 1050
+        },
+        {
+          "across": 20,
+          "distance": 1110
+        },
+        {
+          "across": 60,
+          "distance": 1110
+        },
+        {
+          "across": 20,
+          "distance": 1170
+        },
+        {
+          "across": 60,
+          "distance": 1170
+        },
+        {
+          "across": 20,
+          "distance": 1230
+        },
+        {
+          "across": 60,
+          "distance": 1230
+        },
+        {
+          "across": 20,
+          "distance": 1290
+        },
+        {
+          "across": 60,
+          "distance": 1290
+        },
+        {
+          "across": 20,
+          "distance": 1350
+        },
+        {
+          "across": 60,
+          "distance": 1350
+        },
+        {
+          "across": 20,
+          "distance": 1410
+        },
+        {
+          "across": 60,
+          "distance": 1410
+        },
+        {
+          "across": 20,
+          "distance": 1470
+        },
+        {
+          "across": 60,
+          "distance": 1470
+        },
+        {
+          "across": 20,
+          "distance": 1530
+        },
+        {
+          "across": 60,
+          "distance": 1530
+        }
+      ]
+    },
+    {
+      "id": "apron",
+      "name": "The concrete before the hangar",
+      "plane": true,
+      "across": -24,
+      "distance": 58,
+      "elevation": 0.01,
+      "width": 30,
+      "depth": 16
+    },
+    {
+      "id": "hangar",
+      "name": "The hangar",
+      "across": -28,
+      "distance": 67,
+      "facing": 180,
+      "height": 11,
+      "box": [
+        -12.2,
+        -11.2,
+        12.2,
+        0.05
+      ],
+      "shadow": true
+    },
+    {
+      "id": "plane",
+      "name": "The European mail",
+      "across": -26,
+      "distance": 59,
+      "facing": 180,
+      "height": 4.2,
+      "box": [
+        -6.7,
+        -4.3,
+        5.8,
+        0.12
+      ],
+      "shadow": true
+    },
+    {
+      "id": "windsock",
+      "name": "The windsock",
+      "across": 30,
+      "distance": 42,
+      "height": 6.8,
+      "box": [
+        -3.2,
+        -7,
+        0.4,
+        0.05
+      ]
+    },
+    {
+      "id": "c0",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 0,
+      "distance": 10,
+      "elevation": 11.5,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c1",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 5,
+      "distance": 10,
+      "elevation": 11.5,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c2",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 10,
+      "distance": 10,
+      "elevation": 11.5,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c3",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 15,
+      "distance": 10,
+      "elevation": 11.5,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c4",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 20,
+      "distance": 10,
+      "elevation": 11.5,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "author",
+      "name": "The author’s map",
+      "unseen": true,
+      "across": -3.2,
+      "distance": 10,
+      "elevation": 10.8,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    }
+  ]
+}
