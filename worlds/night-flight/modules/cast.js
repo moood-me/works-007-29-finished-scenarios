@@ -177,10 +177,14 @@ return {
           const { add, mul } = V();
           const m = F.fit.h;
           const axes = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
-          const c = add(F.P('RightHand'), [0, -0.1 * m, 0.02 * m]);
-          F.ball(c, axes, [0.085 * m, 0.105 * m, 0.095 * m], F.colors.hat, 14);
-          for (const s of [-1, 1]) F.ball(add(c, [s * 0.035 * m, 0.03 * m, 0.085 * m]), axes, [0.028 * m, 0.024 * m, 0.012 * m], [0.32, 0.36, 0.38, 1], 10);
-          F.bar(add(c, [0, -0.1 * m, 0]), add(c, [0, -0.17 * m, 0.02 * m]), 0.012 * m, 0.01 * m, [[0, F.colors.hat]], 6, [1, 0, 0], 0.3);
+          // (held by its chin strap, hanging: the leather crown a shallow shell, not a ball — its earflaps down either
+          // side, the goggles pushed up across its brow, the strap from the hand)
+          const c = add(F.P('RightHand'), [0, -0.12 * m, 0.02 * m]);
+          F.ball(add(c, [0, 0.02 * m, 0]), axes, [0.085 * m, 0.06 * m, 0.095 * m], F.colors.hat, 14);
+          for (const s of [-1, 1]) F.ball(add(c, [s * 0.075 * m, -0.045 * m, 0.01 * m]), axes, [0.014 * m, 0.05 * m, 0.04 * m], F.colors.hat, 10);
+          F.bar(add(c, [-0.07 * m, 0.035 * m, 0.07 * m]), add(c, [0.07 * m, 0.035 * m, 0.07 * m]), 0.008 * m, 0.008 * m, [[0, [0.2, 0.18, 0.16, 1]]], 6, [0, 1, 0], 0.4);
+          for (const s of [-1, 1]) F.ball(add(c, [s * 0.034 * m, 0.04 * m, 0.088 * m]), axes, [0.026 * m, 0.022 * m, 0.012 * m], [0.32, 0.36, 0.38, 1], 10);
+          F.bar(F.P('RightHand'), add(c, [0.07 * m, -0.07 * m, 0.01 * m]), 0.006 * m, 0.006 * m, [[0, [0.2, 0.16, 0.12, 1]]], 5, [1, 0, 0], 0.4);
         },
       },
       // a mail sack carried before him in both hands: a fat canvas bag, its neck tied, a brass seal on the cord

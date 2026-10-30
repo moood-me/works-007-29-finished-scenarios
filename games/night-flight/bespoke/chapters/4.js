@@ -201,7 +201,7 @@ export default {
         await piece(g, 'silence_map', {}, () => g.scene('bureau', { beat: 'silence_map', here: ['riviere', 'telegraphist', ...nearby(f)], moods: { riviere: 'tired', telegraphist: 'neutral', robineau: 'sad' }, keys: at3 }));
       } else {
         await piece(g, 'dawn', {}, () => g.scene('bureau', { beat: 'dawn', here: ['riviere', 'telegraphist', ...nearby(f)], moods: { riviere: 'tired', telegraphist: 'eyes_closed', robineau: 'sad' },
-          keys: { ...bureau(clock(6, 0), { flags: night(f), outside: 'rolled' }), ...desk(f), robineau: f.robineau, roblet: f.roblet, telegraphist_spot: 'bench', riviere_look: 'map', telegraphist_look: null } }));
+          keys: { ...bureau(clock(6, 0), { flags: night(f), outside: 'rolled', lamps: 0.45 }), ...desk(f), robineau: f.robineau, roblet: f.roblet, telegraphist_spot: 'bench', riviere_look: 'map', telegraphist_look: null } }));
         await g.play(flag_down);
         await piece(g, 'flags_down');
         if (f.robineau === 'silent') await g.plate(tr('Robineau is not here: he went home without a word.'));

@@ -187,11 +187,8 @@
   },
   "states": {
     "lamps": {
-      "values": [
-        0,
-        1
-      ],
-      "means": "the bureau's lamps — the one hanging over the room, Robineau's desk lamp, the telegraph table's: 0 out, 1 lit"
+      "type": "number",
+      "means": "the bureau's lamps — the one hanging over the room, Robineau's desk lamp, the telegraph table's: 0 out, 1 lit; between, lit low (dawn: the grey light from the window over lamps turned down)"
     },
     "office": {
       "values": [

@@ -22,7 +22,10 @@ export default {
     const over = settle(signal, () => g.set('tape_pull', 1));
     g.set('tape_pull', 0);
     let ran = false;
-    const r = await slowly(g, b, mg, { at: 'tel_inker#ink', pulls: 4, frame: u => send('tape_pull', u),
+    // (Fabien's words as they come out under Rivière's hands: opts.words(k) at each third of the tape drawn)
+    let said = 0;
+    const words = u => { for (; said < 3 && u >= (said + 1) / 3 - 1e-6 && !ran; said++) opts.words?.(said); };
+    const r = await slowly(g, b, mg, { at: 'tel_inker#ink', pulls: 4, frame: u => { send('tape_pull', u); words(u); },
       jerk: () => { ran = true; mg.plate.set({ phrase: tr('Too quick — the tape runs out by itself.') }); return true; } });
     if (!r) return this.skipped;
     // (never touched, or left: it ran out by itself — the telegraphist reads it)
@@ -31,6 +34,6 @@ export default {
     if (!(await count(mg, 0.6))) return this.skipped;
     over();
     await mg.end({ as: ran ? 'flawed' : 'clean' });
-    return { self: ran };
+    return { self: ran, said };
   },
 };

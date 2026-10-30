@@ -53,10 +53,14 @@ export default {
     // 3.2: М9 the tape; Comodoro's minute (`tape`, `comodoro`)
     async g => {
       await piece(g, 'tape', {}, () => g.scene('bureau', { beat: 'tape', here: ALL, moods: MOODS, keys: { ...bureau(clock(2, 15), { tape: 1 }), riviere_look: 'tel_inker', madame_look: 'tel_inker', pilot_look: 'tel_inker' } }));
-      const { self } = await g.play(tape);
-      // (Fabien's words as Rivière draws them out — or, the tape run out by itself, the telegraphist reads them)
+      // (Fabien's words come as Rivière draws the tape out, a phrase at each third; the tape run out by itself, the
+      // telegraphist reads them all)
+      const PARTS = ['We see nothing', 'Trying to climb', 'Fuel for thirty minutes'];
+      const heard = [];
+      const { self, said } = await g.play(tape, { words: k => heard.push(g.say('radioman', PARTS[k], { at: 'narrator', how: 'as the tape gives it, word by word: clipped, far away' })) });
+      await Promise.all(heard);
       if (self) await g.say('telegraphist', 'We see nothing. Trying to climb. Fuel for thirty minutes');
-      else await g.say('radioman', 'We see nothing. Trying to climb. Fuel for thirty minutes', { at: 'narrator', how: 'as the tape gives it, word by word: clipped, far away' });
+      else for (let k = said ?? 0; k < 3; k++) await g.say('radioman', PARTS[k], { at: 'narrator', how: 'as the tape gives it, word by word: clipped, far away' });
       await piece(g, 'comodoro', {
         read: () => g.say('telegraphist', 'Comodoro: we catch him every other time. A gap — perhaps a minute. We ask for him under bearing, for the search: the key held in one long tone, the lines silent. Give him no words: if he answers, there will be no tone'),
       });
