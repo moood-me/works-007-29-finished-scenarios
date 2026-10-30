@@ -84,10 +84,12 @@ never set by a piece. Shots are cameras of their own (the eye and what it looks 
 | piece | what it shows |
 | --- | --- |
 | `calling` | supper-time, night: Mrs Otis in her shawl on the stair's foot steps calling up to the landing; the twins run up and down the stair past her (`run`) |
-| `midnight` | the family waiting (Mrs Otis in the armchair, Mr Otis with his candle); the twelve strokes (`midnight:stroke` — the game's sound), the clock stops, silence; the panel opens and Virginia steps out on the landing with the casket (she is out of sight till then: the piece takes her away and brings her back as the game has her); `shares` — Washington runs up and takes her hands; else Mr Otis climbs to her and Washington stops two steps below (`trap` warn, defend) or comes in last at the front door with his lantern (watch); she comes down, Mrs Otis gets up and takes her face in her hands |
+| `midnight` | the family waiting (Mrs Otis in the armchair, Mr Otis with his candle); the twelve strokes (`midnight:stroke` — the game's sound, 1.6 s apart: the piece waits 19.8 s for them), the clock stops, silence held 6 s (the game's line); the panel opens and Virginia steps out on the landing with the casket (she is out of sight till then: the piece takes her away and brings her back as the game has her); `shares` — Washington runs up and takes her hands; else Mr Otis climbs to her and Washington stops two steps below (`trap` warn, defend) or comes in last at the front door with his lantern (watch); she comes down, Mrs Otis gets up and takes her face in her hands — the camera near on the two (`SH.hold`) |
 | `wedding` | years later, by the open door, the carriage waiting: Mr Otis takes the Duchess's hand and lets it go first; the Duke in the doorway |
 | `coat` | the morning of leaving: Mr Otis buttons his coat (`button_coat`), Virginia by him |
 | `porch` | they go out to the carriage: `shares` — she between the twins; else last, his hand given her (`wake`), turning on the porch to look up at the house — her face to us; `porch:chain` (only when `plays`) — the chain heard |
+
+The insert `facade` (`facade_open`, 2026-10-30): what her look up at the house sees — the Tapestry Chamber's window from below, leaded, dark, nobody at it; the game opens it at `porch:look`.
 
 Not right yet: the strokes and the chain are the game's sound; «she sits between the twins» in the carriage is seen as
 going out with them (the carriage's inside is not shown); the façade with the Tapestry Chamber's windows is not
@@ -116,5 +118,5 @@ departure, wedding).
 ## Contract for the check
 
 ```json
-{"beats": {"calling":{"after":[],"tells":["calling:call"],"seconds":9}, "midnight":{"after":[],"tells":["midnight:stroke","midnight:panel","midnight:hold"],"seconds":30}, "wedding":{"after":[],"tells":["wedding:hand","wedding:let"],"seconds":10}, "coat":{"after":[],"tells":["coat:end"],"seconds":6}, "porch":{"after":[],"tells":["porch:board","porch:chain","porch:look"],"seconds":15}}}
+{"beats": {"calling":{"after":[],"tells":["calling:call"],"seconds":9}, "midnight":{"after":[],"tells":["midnight:stroke","midnight:panel","midnight:hold"],"seconds":50}, "wedding":{"after":[],"tells":["wedding:hand","wedding:let"],"seconds":10}, "coat":{"after":[],"tells":["coat:end"],"seconds":6}, "porch":{"after":[],"tells":["porch:board","porch:chain","porch:look"],"seconds":15}}}
 ```

@@ -152,7 +152,7 @@ function portrait(g, x, y, w, h, seed) {
 const CAM0 = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
   camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
 // the corridor's own keys at rest: the night, the doors shut, nothing on the floor, no candles
-const NIGHT = { evening: 0, sconces: 0, door_parents: 90, door_virginia: 270, door_twins: 270, bottle: 'none', spook: 'none', armchair: false,
+const NIGHT = { evening: 0, morning: 0, sconces: 0, door_parents: 90, door_virginia: 270, door_twins: 270, bottle: 'none', spook: 'none', armchair: false,
   stand_candle: true, pillow: false, pillow_a: 1.9, pillow_d: 10.2, pillow_e: 1.5, pillow_spin: 0, ghost_light: 0, otis_candle: 0, virginia_candle: 0 };
 // one of the people where they stand: across, along, turn, what they do, and the rest of their keys at rest
 function at(id, a, d, turn, does = 'stand', more = {}) {
@@ -474,6 +474,15 @@ function film(scene) {
         await s.wait(1);
       },
     },
+    // 2.5 before the choice: the evening, the boys at the corner with their turnip ghost, she across from them — her
+    // face, seen from their side
+    trap_her: {
+      after: [], tells: [], seconds: 1,
+      from: () => ({ ...CAM0, ...EVENING, spook: 'making', ...at('twin_star', -1.5, 7.2, 140, 'stand', { look: 'virginia' }),
+        ...at('washington', -1.25, 8.9, 165, 'stand', { look: 'virginia' }), ...at('twin_stripes', -0.45, 8.3, 200, 'stand', { look: 'virginia' }),
+        ...at('virginia', 0.9, 7.6, 250, 'stand', { wear: cast().virginia, look: 'twin_stripes' }), ...CAM([-0.6, 6.4], [0.9, 7.6], -0.2) }),
+      run: async s => { await s.wait(1); },
+    },
     // 2.4 «defend»: she stands before the boys at the corner and holds out her hand; then goes into her room
     defend: {
       after: [], tells: ['defend:say', 'defend:go'], seconds: 10,
@@ -497,7 +506,7 @@ function film(scene) {
     // 2.5 the next morning: the twins run down the corridor toward the Tapestry Chamber
     gallop: {
       after: [], tells: ['gallop:run'], seconds: 6,
-      from: () => ({ ...CAM0, ...NIGHT, evening: 1, ...at('twin_stripes', 0.35, 2.2, 0), ...at('twin_star', -0.35, 1.6, 0) }),
+      from: () => ({ ...CAM0, ...NIGHT, morning: 1, ...at('twin_stripes', 0.35, 2.2, 0), ...at('twin_star', -0.35, 1.6, 0) }),
       run: async s => {
         const star = s.person('twin_star'), stripes = s.person('twin_stripes');
         s.tell('gallop:run');
@@ -589,9 +598,30 @@ function film(scene) {
         await s.wait(0.6);
       },
     },
+    // 4С.4 before the choice: her face at her door — the eye across the corridor and a little on, looking back at her
+    // toward the right wall (never back down the corridor: behind the start it has no end wall); then back to the view
+    // from her doorway for what she does (М8, М8в, М8б)
+    door_her: {
+      after: ['farewell_go'], tells: [], seconds: 1,
+      from: () => LATE({ ...CAM0, ...NIGHT, armchair: true, door_virginia: 330, ...simon(0.0, 11.6, 0), ...seated('doze', { wear: cast().otis }),
+        ...at('virginia', 1.75, 6.3, 265, 'stand', { look: 'simon' }), ...CAM([0.2, 7.0], [1.75, 6.3], -0.25) }),
+      run: async s => {
+        s.cut({ ...CAM([0.2, 7.0], [s.get('virginia_a') ?? 1.75, s.get('virginia_d') ?? 6.3], -0.25) });
+        await s.wait(1);
+      },
+    },
+    door_back: {
+      after: ['farewell_go', 'door_her'], tells: [], seconds: 0.3,
+      from: () => LATE({ ...CAM0, ...NIGHT, armchair: true, door_virginia: 330, ...simon(0.0, 11.6, 0), ...seated('doze', { wear: cast().otis }),
+        ...at('virginia', 1.75, 6.3, 265, 'stand', { look: 'simon' }), ...FROM_DOOR }),
+      run: async s => {
+        s.cut({ ...FROM_DOOR });
+        await s.wait(0.3);
+      },
+    },
     // after М8 (she crept past the chair): she walks on to him at the far end; he turns to her
     pass_chair: {
-      after: ['farewell_go'], tells: ['pass_chair:met'], seconds: 8,
+      after: ['farewell_go', 'door_back'], tells: ['pass_chair:met'], seconds: 8,
       from: () => LATE({ ...CAM0, ...NIGHT, armchair: true, door_virginia: 330, ...simon(0.0, 11.6, 0), ...seated('doze', { wear: cast().otis }),
         ...at('virginia', 0.6, 8.2, 0, 'stand') }),
       run: async s => {
@@ -610,7 +640,7 @@ function film(scene) {
     },
     // after М8в (she stayed on her threshold): he walks on to the far door and fades into the wall; she shuts her door
     stay_door: {
-      after: ['farewell_go'], tells: ['stay_door:stop', 'stay_door:gone', 'stay_door:shut'], seconds: 10,
+      after: ['farewell_go', 'door_back'], tells: ['stay_door:stop', 'stay_door:gone', 'stay_door:shut'], seconds: 10,
       from: () => LATE({ ...CAM0, ...NIGHT, armchair: true, door_virginia: 330, ...simon(0.0, 11.6, 0), ...seated('doze', { wear: cast().otis }),
         ...at('virginia', 1.75, 6.3, 265, 'stand', { look: 'simon' }), ...FROM_DOOR }),
       run: async s => {
@@ -630,7 +660,7 @@ function film(scene) {
     },
     // after М8б (she woke him): Mr Otis gets up and faces the far end; Sir Simon bows (or nods) and fades; Papa takes her hand
     wake_papa: {
-      after: ['farewell_go'], tells: ['wake_papa:up', 'wake_papa:bow', 'wake_papa:gone', 'wake_papa:hand'], seconds: 14,
+      after: ['farewell_go', 'door_back'], tells: ['wake_papa:up', 'wake_papa:bow', 'wake_papa:gone', 'wake_papa:hand'], seconds: 14,
       from: () => LATE({ ...CAM0, ...NIGHT, armchair: true, door_virginia: 330, ...simon(0.0, 11.6, 0), ...seated('doze', { wear: cast().otis }),
         ...at('virginia', 1.0, 6.9, 30, 'stand', { look: 'otis' }) }),
       run: async s => {

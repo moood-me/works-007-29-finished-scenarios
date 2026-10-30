@@ -250,8 +250,20 @@ function FILM(scene) {
         s.tell('window_face:ready');
       },
     },
+    // П.4 before the choice: her face, from the window's side (what she saw is in her face)
+    her_window: {
+      after: ['window_face'], tells: [], seconds: 1,
+      from: () => merge(EVENING, SH.face, { rain: 1, stain: 'none' },
+        ...['otis', 'twin_star', 'twin_stripes'].map(id => who(id, EVE[id], 'stand', { look: 'mrs_umney' })), who('virginia', [EVE.virginia[0], EVE.virginia[1], 0], 'stand', { look: 'window' }),
+        who('mrs_otis', [1.9, 6.95, 200], 'stand', { look: 'mrs_umney' }), who('washington', [2.95, 6.3, 180], 'stand', { look: 'mrs_umney' }), sat('mrs_umney', ARM, 'doze', 0.45),
+        out('cecil', 'simon')),
+      run: async s => {
+        s.cut(SH.face);
+        await s.wait(1);
+      },
+    },
     face_told: {
-      after: ['window_face'], tells: ['face_told:turn', 'face_told:hand'], seconds: 8,
+      after: ['window_face', 'her_window'], tells: ['face_told:turn', 'face_told:hand'], seconds: 8,
       from: () => merge(EVENING, CAM([-0.3, 2.4, 1.6], [-0.2, 10, 2.0]), { rain: 1, stain: 'none' },
         ...['otis', 'twin_star', 'twin_stripes'].map(id => who(id, EVE[id], 'stand', { look: 'mrs_umney' })), who('virginia', [EVE.virginia[0], EVE.virginia[1], 0], 'stand', { look: 'window' }),
         who('mrs_otis', [1.9, 6.95, 200]), who('washington', [2.95, 6.3, 180]), sat('mrs_umney', ARM, 'doze', 0.45), out('cecil', 'simon')),
@@ -283,7 +295,7 @@ function FILM(scene) {
       },
     },
     face_silent: {
-      after: ['window_face'], tells: ['face_silent:end'], seconds: 6,
+      after: ['window_face', 'her_window'], tells: ['face_silent:end'], seconds: 6,
       from: () => merge(EVENING, CAM([-0.3, 2.4, 1.6], [-0.2, 10, 2.0]), { rain: 1, stain: 'none' },
         ...['otis', 'twin_star', 'twin_stripes'].map(id => who(id, EVE[id], 'stand', { look: 'mrs_umney' })), who('virginia', [EVE.virginia[0], EVE.virginia[1], 0], 'stand', { look: 'window' }),
         who('mrs_otis', [1.9, 6.95, 200], 'stand', { look: 'mrs_umney' }), who('washington', [2.95, 6.3, 180], 'stand', { look: 'mrs_umney' }), sat('mrs_umney', ARM, 'doze', 0.45),

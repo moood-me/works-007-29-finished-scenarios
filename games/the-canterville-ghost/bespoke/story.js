@@ -7,11 +7,16 @@
 // «Stage 5 — pieces»).
 //   g.state — what the play carries: {scales, shown, marks, choices} (game.js); what follows from it: facts(g.state)
 //   g.signal — aborts when the step is left
-//   g.scene(place, {here, moods, keys}, {cut}) — that place of the game (PLACES: the world's scene it is played on, and
-//     where it really is when that scene only stands in for it), full-screen: of the game's people only `here` are
+//   g.scene(place, {here, moods, keys, air}, {cut}) — that place of the game (PLACES: the world's scene it is played on,
+//     and where it really is when that scene only stands in for it), full-screen: of the game's people only `here` are
 //     there — those of them the scene has (`<id>_here`, the engine's key; whom it has not are not seen: voices only) —,
 //     their faces as `moods` say ({id: mood}); `keys` — values of the scene's own keys (its scene.json's states) or a
-//     person's (`<id>_with`). Always opened anew; `cut` — in one cut, else through black
+//     person's (`<id>_with`); `air` — the beds of sound under it (sound.js BEDS: {bed: level}), else the place's own as
+//     its keys stand (AIR). Always opened anew; `cut` — in one cut, else through black
+//   g.air(levels) — the beds under the shown scene from now on (a change within it: the nightingale stops, the house
+//     falls silent)
+//   g.sound(name, {loud, far, delay, rate}) — a one-off sound (sound.js ONCE); nothing where the step is unseen or hurried
+//     (the page's ⏭)
 //   g.beat(name, {wait}) — a piece of the shown scene (its key `beat`; world module `beats`); → once it has ended (the
 //     scene tells `beat:<name>`), or at once with wait: false; g.scene(place, {beat}) opens the scene on it.
 //     g.told(text, ms) — till the scene tells `text` (→ true) or ms pass (→ false). piece(g, name, {moment: fn}) — the
@@ -49,10 +54,12 @@
 // (a dry run: game.js, check/run.mjs): then nothing of it is said, shown or heard, a plate goes by at once, and a
 // minigame gives its `skipped` (or what the dry run asks: j.result — check/run.mjs plays the misses too).
 
+import { once } from './sound.js';
+
 // The game's places (scenario §4) and the world's scene each is played on — the one map of them: a place whose own
 // scene is not made yet stands in one of the ready ones, its people there, and `where` says (a label high on the left)
 // where it really is. When the place's own scene comes, its line here becomes `{ folder: '<its folder>' }` — nothing
-// else changes: the steps name places, never folders. (The library is also the map's background, game.js.)
+// else changes: the steps name places, never folders. (The map has a scene of its own: `night`, game.js.)
 export const PLACES = {
   library: { folder: 'library' }, // С1 the library
   corridor: { folder: 'corridor' }, // С2 the corridor
@@ -98,7 +105,7 @@ export const CORRIDOR = {
   // 2.5 «warn»: a quarter to midnight, the turnip ghost at the corner, she at her door with a candle
   candle: { spook: 'standing', ghost_light: 0, door_parents: 90, door_virginia: 330, virginia_a: 1.8, virginia_d: 6.3, virginia_with: ['candle_l'], virginia_candle: 1 },
   // the next morning
-  morning: { evening: 1, sconces: 0, ghost_light: 0, door_parents: 90, twin_star_a: -0.3, twin_star_d: 9, twin_stripes_a: 0.4, twin_stripes_d: 10.5 },
+  morning: { evening: 0, morning: 1, sconces: 0, ghost_light: 0, door_parents: 90, twin_star_a: -0.3, twin_star_d: 9, twin_stripes_a: 0.4, twin_stripes_d: 10.5 },
   // 4С.2: the evening, the armchair at her door, Mr Otis by it, she in her doorway
   word: { evening: 1, sconces: 1, armchair: true, ghost_light: 0, otis_a: 1.2, otis_d: 6, otis_with: [], otis_candle: 0, virginia_a: 1.8, virginia_d: 6.3, virginia_with: [], virginia_candle: 0, door_virginia: 330, door_parents: 90 },
   // 4С.3–4С.4: night, Mr Otis asleep in the armchair, Sir Simon at the far end, she at her open door
@@ -127,6 +134,29 @@ export const GROUNDS = {
 // the secret chamber: its key `moment` (its script places the people)
 export const CHAMBER = { family: { moment: 'family' }, father: { moment: 'father' } };
 
+// The places' sound (scenario §4: sound is the game's main instrument) — the beds under each place as its keys stand
+// (sound.js BEDS: {bed: level}); a step gives its own `air` where the moment differs (the storm, a night in the
+// Tapestry Chamber, the silence after the clock). Low: the voices are over them.
+export const AIR = {
+  // the fire by evening; by day the garden through the windows; at night the fire low and the wind
+  library: k => (k.day ? { fire: 0.12, birds: 0.14 } : k.fire >= 1 ? { fire: 0.4 } : { fire: 0.2, wind: 0.12 }),
+  // at night the wind at the windows; by evening quieter (the hall clock only where a step asks for it)
+  corridor: k => (k.evening ? { wind: 0.14 } : { wind: 0.32 }),
+  // the autumn afternoon: the limes in the wind beyond the window
+  tapestry: () => ({ trees: 0.32 }),
+  dark: () => ({ wind: 0.16 }),
+  // the Garden of Death: the nightingale — till it stops
+  death: k => (k.nightingale === 0 ? { night: 0.22 } : { nightingale: 0.55, night: 0.15 }),
+  // (after midnight: the whole house silent)
+  chamber: () => ({}),
+  // the garden by the castle: a summer morning; the funeral at night, the torches; years later, the autumn; the last
+  // shot over the mound; the carriages leaving
+  grounds: k => (k.funeral ? { night: 0.3, fire: 0.18 } : k.coaches ? { trees: 0.3, birds: 0.12 }
+    : k.grave === 'mound' ? (k.night ? { night: 0.28, ...(k.nightingale === 1 ? { nightingale: 0.5 } : {}) } : { trees: 0.3, birds: 0.12 })
+    : { birds: 0.4 }),
+  hall: () => ({ clock: 0.3 }),
+};
+
 // The scales (scenario §8), each with two sides: where they start, their bounds, its name in the gauge, its two ends
 // (`sides`: the left one, the right one), the side the player reads when it moves (up: delta > 0, down: delta < 0),
 // and the one line that says what it means. Neither has a right side.
@@ -149,7 +179,7 @@ export const EFFECTS = {
     silent: { virginia: 1, marks: [['face', 'silent', tr('You kept the face in the window to yourself.')]] },
   },
   goodnight: {
-    wish: { marks: [['goodnight', 'wish', tr('You wished him good night.')]] },
+    wish: { marks: [['goodnight', 'wish', null]] }, // (what came of it is told in 1.3)
     pass: { marks: [['goodnight', 'pass', null]] },
   },
   paints: {
@@ -170,7 +200,10 @@ export const EFFECTS = {
     go: { marks: [['wall', 'go', tr('You took his hand. Downstairs they were calling you to supper.')]] },
     papa: { marks: [['wall', 'papa', tr('You said you would call Papa. He did not ask again.')]] },
   },
+  // (her name: the narrator has just said what came of it — the mark is kept and the map says it; no slip over the
+  // quietest moment of the play)
   name: {
+    quiet: true,
     named: { marks: [['name', 'named', tr('You named her in the prayer. The nightingale sang no more.')]] },
     unnamed: { marks: [['name', 'unnamed', tr('You prayed for him alone. Nobody said her name.')]] },
   },
@@ -266,9 +299,8 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   const seen = () => (seeing ??= (async () => {
     const { shown, then } = j;
     for (const h of j.seen()) hub.told(h.text, h.ms).then(h.ok);
-    view.gauge(state);
     if (shown) {
-      await alive(b.show(shown.folder, { state: shown.state, captions: false, then }));
+      await alive(b.show(shown.folder, { state: shown.state, captions: false, then, background: shown.air }));
       view.where(shown.where);
     }
     ahead();
@@ -284,7 +316,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   const g = {
     state,
     signal: left.signal,
-    async scene(place, { beat = null, here = [], moods = {}, keys = {} } = {}, { cut = false } = {}) {
+    async scene(place, { beat = null, here = [], moods = {}, keys = {}, air = null } = {}, { cut = false } = {}) {
       if (gone()) return never;
       const at = PLACES[place];
       if (!at) throw new Error(`no place “${place}”`);
@@ -298,9 +330,11 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       for (const [id, mood] of Object.entries(moods)) if (people.has(id)) st[`${id}_mood`] = mood;
       Object.assign(st, keys);
       if (beat) st.beat = beat;
+      const background = air ?? AIR[place]?.(keys) ?? {};
       if (unseen()) {
         opening = beat ? { name: beat, ended: g.told(`beat:${beat}`, BEAT) } : null;
         j.scene(folder, st, where);
+        j.shown.air = background;
         return;
       }
       showing = true;
@@ -309,13 +343,21 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         opening = beat ? { name: beat, ended: g.told(`beat:${beat}`, BEAT) } : null;
         hub.withdraw();
         view.where(null);
-        await alive(b.show(folder, { state: st, captions: false, fade: !cut }));
+        await alive(b.show(folder, { state: st, captions: false, fade: !cut, background }));
         view.where(where);
       } finally { showing = false; }
     },
     set(key, value, seconds) {
       if (gone()) return;
       put(key, value, seconds);
+    },
+    air(levels) {
+      if (gone()) return;
+      if (unseen()) { if (j.shown) j.shown.air = levels; } else b.background(levels);
+    },
+    sound(name, o) {
+      if (gone() || unseen() || fast) return;
+      once(name, o);
     },
     async beat(name, { wait = true } = {}) {
       if (gone()) return never;
@@ -412,7 +454,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       const fx = EFFECTS[choice]?.[state.choices[choice]];
       if (!fx) return;
       for (const name of ORDER) g.scale(name, fx[name] ?? 0);
-      for (const [key, value, text] of fx.marks ?? []) g.mark(key, value, text);
+      for (const [key, value, text] of fx.marks ?? []) g.mark(key, value, EFFECTS[choice].quiet ? null : text);
     },
     scale(name, delta) {
       if (gone() || !delta) return;
@@ -420,9 +462,9 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       state.scales[name] = Math.min(S.max, Math.max(S.min, was + delta));
       const moved = state.scales[name] - was;
       g.gauge(name);
-      if (unseen() || !moved) return;
-      view.toast(moved > 0 ? S.up : S.down, 'scale', (moved > 0 ? '↑' : '↓').repeat(Math.abs(moved)));
-      view.gauge(state);
+      if (unseen()) return;
+      // (at its end already: the slip all the same — the way she went is the player's to see — no arrows)
+      view.toast(delta > 0 ? S.up : S.down, 'scale', (moved > 0 ? '↑' : moved < 0 ? '↓' : '').repeat(Math.abs(moved) || 1));
     },
     gauge(name) {
       if (gone()) return;
@@ -430,11 +472,12 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         state.shown[name] = true;
         if (!unseen()) view.toast(SCALES[name].rule, 'rule');
       }
-      if (!unseen()) view.gauge(state);
     },
     mark(key, value, text) {
       if (gone()) return;
       state.marks[key] = value;
+      // (what the map says came of it: the last the player was told)
+      if (text) state.marks[`${key}:came`] = text;
       if (text && !unseen()) view.toast(text, 'mark');
     },
     async title(text) {

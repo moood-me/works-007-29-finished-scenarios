@@ -31,7 +31,7 @@
         "haze": 0.18,
         "hazeColor": "#28344e",
         "hazeGlow": 0.7,
-        "shafts": 1.0,
+        "shafts": 1,
         "tint": "#a8bce8",
         "tintStrength": 0.06,
         "saturation": 0.85,
@@ -86,7 +86,7 @@
       "id": "candle",
       "at": "otis#flame",
       "color": "#ffd08a",
-      "strength": 1.0,
+      "strength": 1,
       "reach": 3,
       "on": "candle",
       "flicker": 0.2
@@ -120,10 +120,10 @@
     "otis_d": 8.15,
     "mrs_otis_a": -1.95,
     "mrs_otis_d": 8.2,
-    "washington_a": -3.0,
+    "washington_a": -3,
     "washington_d": 7.5,
     "twin_star_a": -0.35,
-    "twin_star_d": 8.0,
+    "twin_star_d": 8,
     "twin_stripes_a": -2.55,
     "twin_stripes_d": 8.1,
     "virginia_with": [
@@ -156,6 +156,7 @@
     "board_open": 0,
     "sketch_line": 0,
     "blot": false,
+    "paintbox": false,
     "nightingale": 1
   },
   "states": {
@@ -393,6 +394,10 @@
       "type": "boolean",
       "means": "М3: a blot of colour run on the trunk of her study"
     },
+    "paintbox": {
+      "type": "boolean",
+      "means": "1.5: her open paint-box lying on the board by the sheet (the insert `board`): the pans of red and vermilion scraped out to the white"
+    },
     "nightingale": {
       "range": [
         0,
@@ -535,7 +540,7 @@
         {
           "across": 8.4,
           "distance": 14,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false
         },
         {
@@ -565,7 +570,7 @@
         {
           "across": 8.9,
           "distance": 39,
-          "scale": 1.0,
+          "scale": 1,
           "flip": true
         },
         {
@@ -581,7 +586,7 @@
           "flip": true
         },
         {
-          "across": 3.0,
+          "across": 3,
           "distance": 17,
           "scale": 0.95,
           "flip": true
@@ -593,7 +598,7 @@
           "flip": false
         },
         {
-          "across": 3.0,
+          "across": 3,
           "distance": 27,
           "scale": 0.9,
           "flip": true
@@ -601,11 +606,11 @@
         {
           "across": 3.3,
           "distance": 32,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false
         },
         {
-          "across": 3.0,
+          "across": 3,
           "distance": 37,
           "scale": 0.95,
           "flip": true
@@ -617,7 +622,7 @@
           "flip": false
         },
         {
-          "across": 3.0,
+          "across": 3,
           "distance": 47,
           "scale": 0.9,
           "flip": true
@@ -625,7 +630,7 @@
         {
           "across": 3.3,
           "distance": 52,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false
         }
       ]
@@ -647,7 +652,7 @@
           "across": -6.2,
           "distance": 8.4,
           "facing": 170,
-          "scale": 1.0,
+          "scale": 1,
           "flip": true,
           "tint": "#ffffff"
         },
@@ -687,7 +692,7 @@
           "across": -5.6,
           "distance": 16.4,
           "facing": 187,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false,
           "tint": "#e8e6dc"
         },
@@ -727,12 +732,12 @@
           "across": 1.2,
           "distance": 18.6,
           "facing": 183,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false,
           "tint": "#f4f0e4"
         },
         {
-          "across": -7.0,
+          "across": -7,
           "distance": 23.5,
           "facing": 178,
           "scale": 0.85,
@@ -768,7 +773,7 @@
     {
       "id": "church_cross",
       "name": "Old stone crosses",
-      "across": -9.0,
+      "across": -9,
       "distance": 12.8,
       "height": 1.35,
       "box": [
@@ -779,10 +784,10 @@
       ],
       "copies": [
         {
-          "across": -9.0,
+          "across": -9,
           "distance": 12.8,
           "facing": 173,
-          "scale": 1.0
+          "scale": 1
         },
         {
           "across": -6.4,
@@ -798,9 +803,9 @@
         },
         {
           "across": -12.2,
-          "distance": 23.0,
+          "distance": 23,
           "facing": 185,
-          "scale": 1.0
+          "scale": 1
         },
         {
           "across": -2.6,
@@ -852,7 +857,7 @@
       "id": "coffin",
       "name": "The coffin on its trestles",
       "across": -1.6,
-      "distance": 7.0,
+      "distance": 7,
       "facing": 180,
       "height": 1.8,
       "box": [
@@ -955,7 +960,7 @@
       "name": "The old almond tree",
       "across": 0.6,
       "distance": 5.2,
-      "height": 5.0,
+      "height": 5,
       "box": [
         -3.4,
         -5.3,
@@ -967,7 +972,7 @@
     {
       "id": "tuft",
       "name": "Long grass left uncut",
-      "across": -8.0,
+      "across": -8,
       "distance": 6.45,
       "height": 0.7,
       "box": [
@@ -978,9 +983,9 @@
       ],
       "copies": [
         {
-          "across": -8.0,
+          "across": -8,
           "distance": 5.45,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false
         },
         {
@@ -1004,11 +1009,11 @@
         {
           "across": -1.9,
           "distance": 5.45,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false
         },
         {
-          "across": -1.0,
+          "across": -1,
           "distance": 5.4,
           "scale": 0.85,
           "flip": true
@@ -1028,7 +1033,7 @@
         {
           "across": 0.1,
           "distance": 4.95,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false
         },
         {
@@ -1045,19 +1050,19 @@
         },
         {
           "across": 2.2,
-          "distance": 8.0,
+          "distance": 8,
           "scale": 0.95,
           "flip": true
         },
         {
           "across": 2.2,
           "distance": 10.5,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false
         },
         {
           "across": 2.25,
-          "distance": 13.0,
+          "distance": 13,
           "scale": 0.85,
           "flip": true
         }
@@ -1255,7 +1260,7 @@
         "turn": 140,
         "does": "offer"
       },
-      "across": -3.0,
+      "across": -3,
       "distance": 7.5,
       "place": {
         "across": "washington_a",
@@ -1272,7 +1277,7 @@
         "does": "stand"
       },
       "across": -0.35,
-      "distance": 8.0,
+      "distance": 8,
       "place": {
         "across": "twin_star_a",
         "distance": "twin_star_d"
@@ -1358,7 +1363,7 @@
       },
       {
         "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom",
-        "weight": 0.9
+        "weight": 0
       },
       {
         "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense",

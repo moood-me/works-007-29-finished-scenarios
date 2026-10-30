@@ -19,7 +19,7 @@ export default {
       const at = (beat, stain) => () => g.scene('library', { beat, here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'smile', virginia: 'neutral' }, keys: { ...LIBRARY.morning, stain } });
       if (paints === 'leave') {
         await piece(g, 'breakfast_green', {
-          laugh: () => { g.mood('otis', 'laugh'); },
+          laugh: () => { g.mood('otis', 'laugh'); g.sound('laugh', { loud: 0.7 }); },
           out: () => { g.mood('virginia', 'sad'); },
         }, at('breakfast_green', 'emerald'));
         g.here('virginia', false);
@@ -48,9 +48,13 @@ export default {
     // 2.3: the part — only the player sees it (`rehearse`)
     async g => {
       await piece(g, 'rehearse', {
-        loom: () => g.say('simon', 'Reckless Rupert, or the Headless Earl. Midnight. The corner of the corridor. The twins', { how: 'grandly, rehearsing a part, savouring each word' }),
+        loom: async () => {
+          g.sound('groan');
+          await g.wait(1600);
+          await g.say('simon', 'Reckless Rupert, or the Headless Earl. Midnight. The corner of the corridor. The twins', { how: 'grandly, rehearsing a part, savouring each word' });
+        },
         bow: () => { g.mood('simon', 'smile'); },
-      }, () => g.scene('tapestry', { beat: 'rehearse', here: ['simon'], moods: { simon: 'angry' } }));
+      }, () => g.scene('tapestry', { beat: 'rehearse', here: ['simon'], moods: { simon: 'angry' }, air: { trees: 0.12, wind: 0.1 } }));
     },
     // 2.4: the turnip (`turnip`)
     async g => {
@@ -63,7 +67,8 @@ export default {
     },
     // 2.5: ⚑ the trap (warn: `candle_walk` with М4, `candle_room`, `route`; watch: `fright`; defend: `defend`, `gallop`)
     async g => {
-      await g.scene('corridor', { here: ['virginia', 'washington', 'twin_star', 'twin_stripes'], moods: { virginia: 'thinking', washington: 'smile', twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.evening }, { cut: true });
+      await g.scene('corridor', { beat: 'trap_her', here: ['virginia', 'washington', 'twin_star', 'twin_stripes'], moods: { virginia: 'thinking', washington: 'smile', twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.evening }, { cut: true });
+      await g.beat('trap_her');
       const trap = await g.choose('trap', { 'virginia#chest': [
         { id: 'warn', label: tr('Warn him') },
         { id: 'watch', label: tr('Watch with the boys') },
@@ -75,17 +80,22 @@ export default {
         const { out } = await g.play(candle);
         await piece(g, 'candle_room', {
           whisper: () => g.say('virginia', 'Sir Simon. It is Virginia. Don’t go round the corner tonight', { how: 'a whisper into an empty room' }),
-        }, () => g.scene('tapestry', { beat: 'candle_room', here: ['virginia'], moods: { virginia: 'afraid' }, keys: { candle_out: out } }, { cut: true }));
+        }, () => g.scene('tapestry', { beat: 'candle_room', here: ['virginia'], moods: { virginia: 'afraid' }, keys: { candle_out: out }, air: { wind: 0.24 } }, { cut: true }));
         await g.say('simon', 'Young lady. Ghosts do not change their routes', { at: 'narrator', how: 'out of the dark, from inside the wall, deeply offended' });
-        await piece(g, 'route', {}, () => g.scene('corridor', { beat: 'route', here: ['simon'], moods: { simon: 'disgusted' }, keys: CORRIDOR.midnight }));
+        await piece(g, 'route', { stop: () => { g.sound('chain_clink', { loud: 0.7 }); } }, () => g.scene('corridor', { beat: 'route', here: ['simon'], moods: { simon: 'disgusted' }, keys: CORRIDOR.midnight }));
         await g.scene('library', { here: ['virginia', 'washington'], moods: { virginia: 'neutral', washington: 'thinking' }, keys: LIBRARY.morning });
         await g.say('washington', 'Somebody told him', { how: 'looking at his sister, not smiling' });
       } else if (trap === 'watch') {
         await g.say('narrator', 'At midnight she stood behind the twins’ door with her brothers');
         await piece(g, 'fright', {
-          laugh: async () => { await g.wait(1200); },
-        }, () => g.scene('corridor', { beat: 'fright', here: ['simon'], moods: { simon: 'afraid' }, keys: CORRIDOR.midnight }));
-        await g.say('narrator', 'The twins doubled up with laughter. Virginia laughed out loud — and clapped her hand over her mouth');
+          shriek: () => { g.sound('chains', { loud: 0.7 }); },
+          laugh: async () => {
+            g.mood('virginia', 'laugh');
+            g.sound('laugh');
+            await g.wait(1400);
+            g.mood('virginia', 'surprised');
+          },
+        }, () => g.scene('corridor', { beat: 'fright', here: ['simon', 'virginia', 'washington', 'twin_star', 'twin_stripes'], moods: { simon: 'afraid', virginia: 'thinking', washington: 'smile', twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.midnight }));
       } else {
         await piece(g, 'defend', {
           say: async () => {
@@ -95,21 +105,31 @@ export default {
             await g.say('virginia', 'I know');
           },
         });
+        g.sound('groan', { far: true, rate: 1.25 });
+        g.sound('laugh', { far: true, delay: 1.6 });
         await g.say('narrator', 'At midnight, through the wall, came a shriek — and her brothers’ laughter');
         await piece(g, 'gallop', {
-          run: () => g.say('twin_stripes', 'Ginny’s on the ghost’s side! “He’s o-old!”', { how: 'sing-song, teasing, at the top of his voice' }),
-        }, () => g.scene('corridor', { beat: 'gallop', here: ['twin_star', 'twin_stripes'], moods: { twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.morning }));
+          run: async () => {
+            g.sound('laugh', { loud: 0.6 });
+            await g.say('twin_stripes', 'Ginny’s on the ghost’s side! “He’s o-old!”', { how: 'sing-song, teasing, at the top of his voice' });
+          },
+        }, () => g.scene('corridor', { beat: 'gallop', here: ['twin_star', 'twin_stripes'], moods: { twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.morning, air: { birds: 0.08, wind: 0.05 } }));
       }
       g.apply('trap');
     },
     // 2.6: he took to his bed — only the player sees him (`stub_sleeve` | `turnip_shake`, then `easel_idle`)
     async g => {
       const { warned } = facts(g.state);
+      // (the days going by, heard in the empty corridor: the armour down the stairs)
+      await g.scene('corridor', { keys: CORRIDOR.night, air: { wind: 0.2, clock: 0.1 } });
+      await g.wait(1200);
+      g.sound('armour');
+      await g.wait(2600);
       await g.say('narrator', 'The days went by. Mrs Otis sent him a bottle of Doctor Dobell’s tincture for indigestion. The suit of armour came crashing down the stairs. Someone made a butter-slide on the floor of the corridor');
       if (warned) {
         await piece(g, 'stub_sleeve', {
           turn: () => g.say('simon', 'Warned. Me. As one helps an old woman across a puddle', { how: 'quietly, bitterly, more puzzled than angry' }),
-        }, () => g.scene('tapestry', { beat: 'stub_sleeve', here: ['simon'], moods: { simon: 'tired' }, keys: { stub: 'hand' } }));
+        }, () => g.scene('tapestry', { beat: 'stub_sleeve', here: ['simon'], moods: { simon: 'tired' }, keys: { stub: 'hand' }, air: { trees: 0.18 } }));
       } else {
         await piece(g, 'turnip_shake', {}, () => g.scene('tapestry', { beat: 'turnip_shake', here: ['simon'], moods: { simon: 'tired' }, keys: { turnip: true } }));
       }

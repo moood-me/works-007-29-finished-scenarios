@@ -150,8 +150,8 @@
     {
       "id": "hemlock",
       "name": "Hemlock in flower",
-      "across": -2.0,
-      "distance": 3.0,
+      "across": -2,
+      "distance": 3,
       "height": 1.45,
       "box": [
         -0.4,
@@ -161,9 +161,9 @@
       ],
       "copies": [
         {
-          "across": -2.0,
-          "distance": 3.0,
-          "scale": 1.0,
+          "across": -2,
+          "distance": 3,
+          "scale": 1,
           "flip": false
         },
         {
@@ -174,7 +174,7 @@
         },
         {
           "across": 5.1,
-          "distance": 10.0,
+          "distance": 10,
           "scale": 1.02,
           "flip": true
         },
@@ -335,7 +335,7 @@
       "name": "Tufts of long grass",
       "across": 1.15,
       "distance": 8.05,
-      "height": 1.0,
+      "height": 1,
       "box": [
         -0.6,
         -1.05,
@@ -375,7 +375,7 @@
         },
         {
           "across": -6.54,
-          "distance": 5.0,
+          "distance": 5,
           "scale": 1.12,
           "flip": true
         },
@@ -640,7 +640,7 @@
         {
           "across": 7.47,
           "distance": 7.93,
-          "scale": 1.0,
+          "scale": 1,
           "flip": false
         },
         {
@@ -758,7 +758,7 @@
           "flip": true
         },
         {
-          "across": -7.0,
+          "across": -7,
           "distance": 10.38,
           "scale": 1.23,
           "flip": false
@@ -782,7 +782,7 @@
           "flip": true
         },
         {
-          "across": 3.0,
+          "across": 3,
           "distance": 3.2,
           "scale": 1.25,
           "flip": false
@@ -837,7 +837,7 @@
         },
         {
           "across": -0.9,
-          "distance": 5.0,
+          "distance": 5,
           "scale": 0.55,
           "flip": true
         },
@@ -944,11 +944,11 @@
       },
       {
         "text": "boys' choir, a single held note, a garden under the moon",
-        "weight": 1.0
+        "weight": 1
       },
       {
         "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom",
-        "weight": 0.8
+        "weight": 0
       },
       {
         "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense",

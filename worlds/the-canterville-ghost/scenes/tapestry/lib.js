@@ -278,6 +278,27 @@ function people(scene) {
     washington_reach: null, washington_with: [],
   };
 }
+// The talk (3.2–3.6): her face, his face, each turned to us — from the scene's camera they stand level and both show
+// their profiles. Her face: the eye a metre to her right, level with her (between her and him, near his line of sight:
+// she looks at him), looking along the room toward the door wall — never toward the open side the room has no wall on.
+// His: the eye just beside her, a step nearer the room — he looks at her. Where they are now: she where she stopped, he on the seat or standing.
+const HEAD = 1.42; // her face, standing
+function herEye(scene) {
+  const a = scene.get('virginia_a') ?? NEAR[0], d = scene.get('virginia_d') ?? NEAR[1];
+  return eye([a + 1.05, d + 0.05, 1.38], [a, d, HEAD]);
+}
+function hisEye(scene) {
+  const on = scene.get('simon_on');
+  const [a, d, h] = Array.isArray(on) ? [on[0], on[1], 1.1] : [scene.get('simon_a'), scene.get('simon_d'), 1.6];
+  // (he looks at her: the eye just beside her and a step nearer the room, her height — his face turned this way, the
+  // window behind him)
+  const va = scene.get('virginia_a') ?? NEAR[0], vd = scene.get('virginia_d') ?? NEAR[1];
+  return eye([va + 0.2, vd - 0.4, 1.45], [a - 0.05, d - 0.05, h]);
+}
+// the talk's start, when a piece of it opens the scene: he on the seat looking at her, she near him
+// (in the talk he sits up — `sit_sill`, the right hand at the chest: `brood`'s hand at the brow hid his face)
+const TALK = () => ({ ...ROOM, simon_do: 'sit_sill', simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, virginia_look: 'simon' });
+
 // he gets up off the window seat (where it puts him), and sits down on it again
 async function rise(p) {
   p.on(null);
@@ -451,6 +472,7 @@ function film(scene) {
         const v = s.person('virginia');
         s.camera({ target: 'virginia', shot: 'full', frame: 0.35 });
         s.person('simon').look('virginia');
+        s.person('simon').do('sit_sill');
         await v.walk([NEAR]);
         await v.turn(115);
         v.look('simon');
@@ -461,14 +483,16 @@ function film(scene) {
     },
     // 3.2 «hunger: bread»: she holds out the parcel, he takes it
     sandwich: {
-      after: ['talk'],
+      after: ['talk', 'her_face', 'his_face', 'room'],
       tells: ['sandwich:taken'],
-      seconds: 8,
+      seconds: 10,
       from: () => ({ ...ROOM, ...people(scene), virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, simon_look: 'virginia',
         ...shot('virginia', 'full', 0.35) }),
       run: async s => {
         const v = s.person('virginia');
         const p = s.person('simon');
+        // (from the talk's own shots: back to the operator's)
+        s.cut(shot('virginia', 'full', 0.35));
         v.with(['parcel']);
         await v.walk([[0.6, 4.95]]);
         await v.turn(75);
@@ -484,28 +508,67 @@ function film(scene) {
         v.do('upright');
         s.tell('sandwich:taken');
         p.look('virginia');
-        await s.wait(1.5);
+        await s.wait(1);
+        await v.walk([NEAR]);
+        await v.turn(115);
+        v.look('simon');
+        await s.wait(0.5);
       },
     },
     // 3.2: she stamps her foot
     stamp: {
-      after: ['talk', 'sandwich'],
+      after: ['talk', 'sandwich', 'her_face', 'his_face', 'room'],
       tells: ['stamp:stamp'],
       seconds: 3,
       from: () => ({ ...ROOM, ...people(scene), virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, simon_look: 'virginia',
         ...shot('virginia', 'full') }),
       run: async s => {
         const v = s.person('virginia');
-        s.camera({ target: 'virginia', shot: 'full' });
-        // (no `stamp`: Kimodo could not make it — she draws herself up, her face as the game gives it)
+        s.cut(shot('virginia', 'full'));
+        // (no `stamp`: Kimodo could not make it — she draws herself up, her face as the game gives it; the stamp is
+        // the game's sound)
         s.tell('stamp:stamp');
         v.do('upright');
         await s.wait(2);
       },
     },
+    // 3.2–3.6, the talk: her face (from beside him), his face (from beside her), the room (the scene's own camera: М5's
+    // vision in the window). No one moves; a cut to the shot, a breath — the lines are the game's
+    her_face: {
+      after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
+      tells: [],
+      seconds: 0.5,
+      from: () => {
+        return { ...people(scene), ...TALK(), ...eye([NEAR[0] + 1.05, NEAR[1] + 0.05, 1.38], [NEAR[0], NEAR[1], HEAD]) };
+      },
+      run: async s => {
+        s.cut(herEye(scene));
+        await s.wait(0.5);
+      },
+    },
+    his_face: {
+      after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
+      tells: [],
+      seconds: 0.5,
+      from: () => ({ ...people(scene), ...TALK(), ...eye([NEAR[0] + 0.2, NEAR[1] - 0.4, 1.45], [SEAT[0] - 0.05, SEAT[1] - 0.05, 1.1]) }),
+      run: async s => {
+        s.cut(hisEye(scene));
+        await s.wait(0.5);
+      },
+    },
+    room: {
+      after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
+      tells: [],
+      seconds: 0.5,
+      from: () => ({ ...people(scene), ...TALK(), ...CAM }),
+      run: async s => {
+        s.cut({ ...CAM });
+        await s.wait(0.5);
+      },
+    },
     // 3.6 after М5 (`vision` back to 0): the hunters stir, the wall parts; he stands and holds out his hand to her
     wall_parts: {
-      after: ['talk', 'sandwich', 'stamp'],
+      after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
       tells: ['wall_parts:supper', 'wall_parts:open', 'wall_parts:hand'],
       seconds: 12,
       from: () => ({ ...ROOM, ...people(scene), virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, simon_look: 'virginia', ...CAM }),
@@ -529,9 +592,22 @@ function film(scene) {
         await s.wait(1);
       },
     },
+    // 3.7 before the choice: her face, from between them and a step toward the room (he stands at her right, out of
+    // the frame, his hand held out)
+    wall_her: {
+      after: ['wall_parts'],
+      tells: [],
+      seconds: 1,
+      from: () => ({ ...ROOM, ...people(scene), wall: 1, stir: 1, simon_on: null, simon_a: 1.3, simon_d: 4.95, simon_turn: 250, simon_do: 'offer',
+        simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, ...eye([0.85, 4.45, 1.45], [NEAR[0], NEAR[1], HEAD]) }),
+      run: async s => {
+        s.cut(eye([0.85, 4.45, 1.45], [scene.get('virginia_a') ?? NEAR[0], scene.get('virginia_d') ?? NEAR[1], HEAD]));
+        await s.wait(1);
+      },
+    },
     // 3.6 «go»: she goes to him, hand in hand they walk into the opening; the wall shuts behind them
     into_wall: {
-      after: ['wall_parts'],
+      after: ['wall_parts', 'wall_her'],
       tells: ['into_wall:hand', 'into_wall:shut'],
       seconds: 12,
       from: () => ({ ...ROOM, ...people(scene), wall: 1, stir: 1, simon_on: null, simon_a: 1.3, simon_d: 4.95, simon_turn: 250, simon_do: 'offer',
@@ -539,7 +615,7 @@ function film(scene) {
       run: async s => {
         const p = s.person('simon');
         const v = s.person('virginia');
-        s.camera({ target: 'virginia', shot: 'full' });
+        s.cut(shot('virginia', 'full'));
         await v.walk([[0.75, 4.75]]);
         v.reach({ l: 'simon#hand_r' });
         p.reach({ r: 'virginia#hand_l' });
@@ -563,7 +639,7 @@ function film(scene) {
     // 3.6 «papa»: he lowers his hand — bows (plays) or sits back tired; the wall shuts slowly; she backs to the door and
     // runs out
     hand_down: {
-      after: ['wall_parts'],
+      after: ['wall_parts', 'wall_her'],
       tells: ['hand_down:bow', 'hand_down:whisper', 'hand_down:gone'],
       seconds: 14,
       from: () => ({ ...ROOM, ...people(scene), wall: 1, stir: 1, simon_on: null, simon_a: 1.3, simon_d: 4.95, simon_turn: 250, simon_do: 'offer',
@@ -571,7 +647,7 @@ function film(scene) {
       run: async s => {
         const p = s.person('simon');
         const v = s.person('virginia');
-        s.camera({ target: 'simon', shot: 'full' });
+        s.cut(shot('simon', 'full'));
         p.do('stand');
         await s.wait(1);
         s.tell('hand_down:bow');
