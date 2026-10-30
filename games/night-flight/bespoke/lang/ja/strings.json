@@ -313,5 +313,8 @@
   {"text":"The Heavy Victory","translation":"重い勝利","where":"games/night-flight/bespoke/story.js"},
   {"text":"Without an Order","translation":"命令なしに","where":"games/night-flight/bespoke/story.js"},
   {"text":"Dawn","translation":"夜明け","where":"games/night-flight/bespoke/story.js"},
-  {"text":"Next","translation":"次へ","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"Next","translation":"次へ","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"one","context":"exceptions tonight: one","translation":"一度","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"How many times tonight the rule has bent before everyone.","translation":"今夜、規則が皆の前で何度曲がったか。","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"What she knows","translation":"彼女が知っていること","where":"games/night-flight/bespoke/ui.js"}
 ]}

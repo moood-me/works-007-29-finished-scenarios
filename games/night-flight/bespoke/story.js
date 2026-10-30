@@ -46,8 +46,8 @@
 //   g.minigame({phrase}) — inside a minigame's run: the language's mini-game begun; g.failed() — a mistake in it (from
 //     then on the page's ⏭ may skip it)
 //   g.apply(choice) — what the option chosen does, by EFFECTS: the scales, then each mark
-//   g.scale(name, delta) — a scale moves; the player sees which way (the gauge, the words)
-//   g.gauge(name) — the scale is shown from now on; its one line of what it means said once
+//   g.scale(name, delta) — a scale moves; the player sees which way (its slip: the words, the arrows)
+//   g.gauge(name) — the scale is shown from now on (on the map, game.js); its one line of what it means said once
 //   g.mark(key, value, text) — remembered (state.marks[key]); text — what the player is told; null — told nothing
 //   g.title(text) — words over the scene, as a film's title; → once they have gone
 //   g.done() → once the step's code is through: the page's ⏭ taken back; g.leave() — the step left behind (game.js)
@@ -63,8 +63,8 @@ import { once, tone } from './sound.js';
 
 // The game's places (scenario §4) and the world's scene each is played on — the one map of them. At stage 3 a place
 // whose own scene was not made yet stood in one of the ready ones with a label (`where`) saying where it really was;
-// since stage 4 every place has its own scene. The steps name places, never folders. (The bureau is also the map's
-// background, game.js.)
+// since stage 4 every place has its own scene. The steps name places, never folders. (The map has a scene of its own:
+// `night`, game.js.)
 export const PLACES = {
   office: { folder: 'office' }, // С1 Rivière's office
   bureau: { folder: 'bureau' }, // С2 the bureau
@@ -286,7 +286,6 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   const seen = () => (seeing ??= (async () => {
     const { shown, then } = j;
     for (const h of j.seen()) hub.told(h.text, h.ms).then(h.ok);
-    view.gauge(state);
     if (shown) {
       await alive(b.show(shown.folder, { state: shown.state, captions: false, then, background: shown.air }));
       view.where(shown.where);
@@ -460,7 +459,6 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       g.gauge(name);
       if (unseen() || !moved) return;
       view.toast(moved > 0 ? S.up : S.down, 'scale', (moved > 0 ? '↑' : '↓').repeat(Math.abs(moved)));
-      view.gauge(state);
     },
     gauge(name) {
       if (gone()) return;
@@ -468,7 +466,6 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         state.shown[name] = true;
         if (!unseen()) view.toast(SCALES[name].rule, 'rule');
       }
-      if (!unseen()) view.gauge(state);
     },
     mark(key, value, text) {
       if (gone()) return;

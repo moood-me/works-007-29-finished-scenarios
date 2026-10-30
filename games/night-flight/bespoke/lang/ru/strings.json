@@ -313,5 +313,8 @@
   {"text":"The Heavy Victory","translation":"Тяжёлая победа","where":"games/night-flight/bespoke/story.js"},
   {"text":"Without an Order","translation":"Без приказа","where":"games/night-flight/bespoke/story.js"},
   {"text":"Dawn","translation":"Рассвет","where":"games/night-flight/bespoke/story.js"},
-  {"text":"Next","translation":"Дальше","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"Next","translation":"Дальше","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"one","context":"exceptions tonight: one","translation":"одно","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"How many times tonight the rule has bent before everyone.","translation":"Сколько раз этой ночью правило гнулось при всех.","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"What she knows","translation":"Что она знает","where":"games/night-flight/bespoke/ui.js"}
 ]}
