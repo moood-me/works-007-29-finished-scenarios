@@ -137,8 +137,8 @@ export default {
         await piece(g, 'peas_night', {
           cry: async () => {
             await g.say('twin_star', 'For Ginny’s paints!', { at: 'narrator', how: 'a battle cry, in the dark, from downstairs' });
-            g.sound('peas', { far: true });
-            g.sound('peas', { far: true, delay: 0.7, loud: 0.8 });
+            g.sound('peas', { loud: 0.7 });
+            g.sound('peas', { delay: 0.7, loud: 0.6 });
           },
           groan: () => { g.sound('groan', { far: true }); },
         }, () => g.scene('corridor', { beat: 'peas_night', keys: CORRIDOR.night }));

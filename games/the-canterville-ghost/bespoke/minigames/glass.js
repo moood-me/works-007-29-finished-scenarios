@@ -42,9 +42,9 @@ export default {
       if (gone != null && t >= gone) { gone = Infinity; g.set('flash', 0, 0.2); g.set('face', 0, 0.3); }
       if (!touched) {
         // (the lightning: a flash at 1 s, the face rising in it, held, a second flash at 4 s)
-        if (!lit && k >= 1) { lit = true; g.set('flash', 1, 0.1); g.set('face', 1, 1.2); g.sound('thunder', { delay: 1.4, loud: 0.7 }); }
+        if (!lit && k >= 1) { lit = true; g.set('flash', 1, 0.1); g.set('face', 1, 1.2); g.sound('thunder', { delay: 1.4, loud: 1 }); }
         if (k >= 1.6 && k < 1.7) g.set('flash', 0.5, 0.6);
-        if (k >= 4 && k < 4.1 && !again) { again = true; g.set('flash', 1, 0.1); g.sound('thunder', { delay: 0.9, loud: 0.9 }); }
+        if (k >= 4 && k < 4.1 && !again) { again = true; g.set('flash', 1, 0.1); g.sound('thunder', { delay: 0.9, loud: 1.3 }); }
       }
       mg.plate.set({ fill: Math.min(1, k / SECONDS), glow: 'idle' });
       return k >= SECONDS || (touched && gone === Infinity && k >= 1.5);

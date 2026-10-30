@@ -22,7 +22,7 @@ export default {
   async run(g, b, opts, signal) {
     const mg = g.minigame({ phrase: tr('“Far away beyond the pine-woods there is a little garden…”') });
     // (the room's own air again: the limes beyond the window)
-    const ROOM = { trees: 0.24 };
+    const ROOM = { trees: 0.32 };
     const over = settle(signal, () => { g.set('vision', 0, 1); g.air(ROOM); });
     const sign = handsOff(mg);
     g.set('vision', 1, 3);

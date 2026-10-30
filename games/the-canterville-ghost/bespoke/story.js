@@ -141,9 +141,9 @@ export const AIR = {
   // the fire by evening; by day the garden through the windows; at night the fire low and the wind
   library: k => (k.day ? { fire: 0.12, birds: 0.14 } : k.fire >= 1 ? { fire: 0.4 } : { fire: 0.2, wind: 0.12 }),
   // at night the wind at the windows; by evening quieter (the hall clock only where a step asks for it)
-  corridor: k => (k.evening ? { wind: 0.1 } : { wind: 0.28 }),
+  corridor: k => (k.evening ? { wind: 0.14 } : { wind: 0.32 }),
   // the autumn afternoon: the limes in the wind beyond the window
-  tapestry: () => ({ trees: 0.24 }),
+  tapestry: () => ({ trees: 0.32 }),
   dark: () => ({ wind: 0.16 }),
   // the Garden of Death: the nightingale — till it stops
   death: k => (k.nightingale === 0 ? { night: 0.22 } : { nightingale: 0.55, night: 0.15 }),
@@ -154,7 +154,7 @@ export const AIR = {
   grounds: k => (k.funeral ? { night: 0.3, fire: 0.18 } : k.coaches ? { trees: 0.3, birds: 0.12 }
     : k.grave === 'mound' ? (k.night ? { night: 0.28, ...(k.nightingale === 1 ? { nightingale: 0.5 } : {}) } : { trees: 0.3, birds: 0.12 })
     : { birds: 0.4 }),
-  hall: () => ({ clock: 0.2 }),
+  hall: () => ({ clock: 0.3 }),
 };
 
 // The scales (scenario §8), each with two sides: where they start, their bounds, its name in the gauge, its two ends
@@ -462,8 +462,9 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       state.scales[name] = Math.min(S.max, Math.max(S.min, was + delta));
       const moved = state.scales[name] - was;
       g.gauge(name);
-      if (unseen() || !moved) return;
-      view.toast(moved > 0 ? S.up : S.down, 'scale', (moved > 0 ? '↑' : '↓').repeat(Math.abs(moved)));
+      if (unseen()) return;
+      // (at its end already: the slip all the same — the way she went is the player's to see — no arrows)
+      view.toast(delta > 0 ? S.up : S.down, 'scale', (moved > 0 ? '↑' : moved < 0 ? '↓' : '').repeat(Math.abs(moved) || 1));
     },
     gauge(name) {
       if (gone()) return;

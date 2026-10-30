@@ -33,7 +33,7 @@ export default {
       await g.say('mrs_umney', 'The stain cannot be washed out. And his room is the Tapestry Chamber, upstairs. Nobody goes there');
       await piece(g, 'rub', {
         kneel: () => g.say('washington', 'Pinkerton’s Champion Stain Remover. It will clean up anything'),
-        thunder: () => { g.sound('thunder'); },
+        thunder: () => { g.sound('thunder', { loud: 1.5 }); },
         cheer: async () => {
           await g.say('twin_star', 'Hurrah!');
           await g.say('twin_stripes', 'Hurrah!');

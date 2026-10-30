@@ -7,6 +7,9 @@ MP3 96 kbit/s mono. `storm`, `fire` and `wind` are the same files as in other ga
 (rpg docs/history/2026-10-16-game-sounds.md); the rest were chosen from Freesound's pages (title, description, tags,
 length, downloads, rating) and cut with ffmpeg.
 
+
+2026-10-30, after a measuring of loudness against the scenes' music and the voices: `trees` high-passed at 250 Hz (its energy was the wind's rumble in the microphone, not the leaves); the short sharp one-offs (`smash`, `peas`, `wings`, `pillow`, `knock`, `floorboard`, `door`, `stamp`, `chain_clink`) evened out with a compressor and a limiter. `sound.js` plays each at a gain from its measured loudness (beds: integrated LUFS; one-offs: their loudest 0.4 s), not their peak.
+
 | File | Recording | Author |
 |---|---|---|
 | `storm.mp3` | [STORM_Thunderstorm.Residential Area.Balcony.Moderate Rain.Thunderclaps 1_EM](https://freesound.org/people/newlocknew/sounds/859807/) | newlocknew |

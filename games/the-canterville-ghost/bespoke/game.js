@@ -302,7 +302,9 @@ export default async function (b) {
       const kind = i === (re ? re.chapter : kept.chapter) ? 'here' : i < kept.chapter ? 'played' : i === kept.chapter ? 'next' : 'future';
       // (a fork the chapter's form never reached — 4С's chair on the way of «The Garden of Death» — is no row of it)
       const shown = rows(c, reached ? kept.choices : {}, tried ? re.choices : {}, reached ? kept.marks : {}).filter(r => r.options.some(o => o.state !== 'unseen'));
-      return { number: c.number, title: c.titleOf ? c.titleOf(re ?? kept) : c.title, kind, rows: i === EPILOGUE && kept.chapter >= END ? ending() : shown,
+      const title = c.titleOf ? c.titleOf(re ?? kept) : c.title;
+      // (a chapter to come shows its number only — one without a number, its title)
+      return { number: c.number || (kind === 'future' ? title : ''), title, kind, rows: i === EPILOGUE && kept.chapter >= END ? ending() : shown,
         go: i === kept.chapter ? (kept.step || kept.chapter ? tr('continue\nthe game') : tr('start\nthe game')) : null, replay: tried && !replay.done, badge: tried };
     }).concat(finale());
   }
