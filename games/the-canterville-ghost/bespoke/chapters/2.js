@@ -95,7 +95,6 @@ export default {
             g.mood('virginia', 'surprised');
           },
         }, () => g.scene('corridor', { beat: 'fright', here: ['simon', 'virginia', 'washington', 'twin_star', 'twin_stripes'], moods: { simon: 'afraid', virginia: 'thinking', washington: 'smile', twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.midnight }));
-        await g.say('narrator', 'The twins doubled up with laughter. Virginia laughed out loud — and clapped her hand over her mouth');
       } else {
         await piece(g, 'defend', {
           say: async () => {
@@ -105,8 +104,9 @@ export default {
             await g.say('virginia', 'I know');
           },
         });
+        g.sound('groan', { far: true, rate: 1.25 });
+        g.sound('laugh', { far: true, delay: 1.6 });
         await g.say('narrator', 'At midnight, through the wall, came a shriek — and her brothers’ laughter');
-        g.sound('laugh', { far: true });
         await piece(g, 'gallop', {
           run: async () => {
             g.sound('laugh', { loud: 0.6 });

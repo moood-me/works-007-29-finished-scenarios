@@ -261,7 +261,7 @@ async function name(g) {
       },
     });
     await g.say('simon', 'Lord, give rest to Lady Eleanore. And have mercy on me', { how: 'the prayer to its end, quietly and flatly, not looking at her' });
-    await g.say('narrator', 'He did not look at Virginia again. The nightingale sang no more');
+    await g.say('narrator', 'He did not look at Virginia again');
   } else {
     await g.say('virginia', 'Lord, let him sleep', { how: 'praying aloud, simply, like a child' });
     // (he repeats it after her, like a child, looking at her)

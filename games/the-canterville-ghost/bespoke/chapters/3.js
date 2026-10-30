@@ -85,12 +85,13 @@ export default {
       }
       g.mood('virginia', 'angry');
       await piece(g, 'stamp', { stamp: () => { g.sound('stamp'); } });
-      await g.say('virginia', 'It is you who are rude and vulgar! And as for dishonest — who stole the paints out of my box?');
       if (paints === 'leave') {
-        await g.say('virginia', 'I left them for you myself — and you made her green!');
+        await g.say('virginia', 'It is you who are rude and vulgar!');
+        await g.say('virginia', 'I left you my paints myself — and you made her green!');
         await g.beat('his_face');
         await g.say('simon', 'There was no red left. The emerald — yes, a mistake');
       } else {
+        await g.say('virginia', 'It is you who are rude and vulgar! And as for dishonest — who stole the paints out of my box?');
         await g.say('virginia', 'To furbish up that ridiculous stain!');
         await g.beat('his_face');
         await g.say('simon', 'Well, really, where was I to get it? It is a very difficult thing to get real blood nowadays');

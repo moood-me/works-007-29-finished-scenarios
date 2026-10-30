@@ -71,7 +71,7 @@ export default {
       }, () => g.scene('tapestry', { beat: 'insulted', here: ['simon'], moods: { simon: 'angry' }, air: { wind: 0.24 } }));
       if (wished) {
         await g.say('simon', '“Good night”… She is mocking me');
-        g.mark('goodnight', 'wish', tr('He decided you were mocking him.'));
+        g.mark('goodnight', 'wish', tr('You wished him good night. He decided you were mocking him.'));
       }
       g.mood('simon', 'thinking');
       await g.say('simon', 'The stain. We shall begin with the stain');
@@ -115,7 +115,6 @@ export default {
     // 1.6: ⚑ the paints (`look_house`; then `box_morning` | `pacing`, `clean_floor` | `peas_night`, `half_stain`)
     async g => {
       await piece(g, 'look_house', {}, () => g.scene('grounds', { beat: 'look_house', here: ['virginia'], moods: { virginia: 'thinking' }, keys: GROUNDS.paint }, { cut: true }));
-      await g.say('narrator', 'Her reds were on the stain');
       const paints = await g.choose('paints', { 'virginia#chest': [
         { id: 'leave', label: tr('Leave the open box by the library') },
         { id: 'lock', label: tr('Lock the paints away') },

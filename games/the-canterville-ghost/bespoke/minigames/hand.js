@@ -34,7 +34,7 @@ export default {
         if (lost && held) { lost = false; g.set('virginia_reach', HIS); mg.plate.set({ phrase }); }
         send('shapes', taken && !held ? 1.6 : 1);
       },
-      slip: () => { lost = true; g.set('virginia_reach', null); mg.plate.set({ phrase: tr('Her hand has lost his. Hold on again — the dark is not over.') }); } });
+      slip: () => { lost = true; g.set('virginia_reach', null); mg.plate.set({ phrase: tr('Her hand has lost his. The dark is not over.') }); } });
     if (!r) return this.skipped;
     g.set('virginia_reach', HIS);
     over();

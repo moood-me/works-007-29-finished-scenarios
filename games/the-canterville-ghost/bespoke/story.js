@@ -179,7 +179,7 @@ export const EFFECTS = {
     silent: { virginia: 1, marks: [['face', 'silent', tr('You kept the face in the window to yourself.')]] },
   },
   goodnight: {
-    wish: { marks: [['goodnight', 'wish', tr('You wished him good night.')]] },
+    wish: { marks: [['goodnight', 'wish', null]] }, // (what came of it is told in 1.3)
     pass: { marks: [['goodnight', 'pass', null]] },
   },
   paints: {
@@ -299,7 +299,6 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   const seen = () => (seeing ??= (async () => {
     const { shown, then } = j;
     for (const h of j.seen()) hub.told(h.text, h.ms).then(h.ok);
-    view.gauge(state);
     if (shown) {
       await alive(b.show(shown.folder, { state: shown.state, captions: false, then, background: shown.air }));
       view.where(shown.where);
@@ -465,7 +464,6 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       g.gauge(name);
       if (unseen() || !moved) return;
       view.toast(moved > 0 ? S.up : S.down, 'scale', (moved > 0 ? '↑' : '↓').repeat(Math.abs(moved)));
-      view.gauge(state);
     },
     gauge(name) {
       if (gone()) return;
@@ -473,11 +471,12 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         state.shown[name] = true;
         if (!unseen()) view.toast(SCALES[name].rule, 'rule');
       }
-      if (!unseen()) view.gauge(state);
     },
     mark(key, value, text) {
       if (gone()) return;
       state.marks[key] = value;
+      // (what the map says came of it: the last the player was told)
+      if (text) state.marks[`${key}:came`] = text;
       if (text && !unseen()) view.toast(text, 'mark');
     },
     async title(text) {

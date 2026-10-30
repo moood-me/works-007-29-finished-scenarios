@@ -123,6 +123,8 @@ export default async function (b) {
       continue;
     }
     const done = kept.chapter;
+    // (a breath before the map: the slips the chapter's last choice left are read)
+    if (done < EPILOGUE) await new Promise(ok => setTimeout(ok, 3000));
     await onward();
     if (kept.chapter === END) {
       ended();
@@ -299,18 +301,21 @@ export default async function (b) {
       const tried = re?.chapter === i;
       const kind = i === (re ? re.chapter : kept.chapter) ? 'here' : i < kept.chapter ? 'played' : i === kept.chapter ? 'next' : 'future';
       // (a fork the chapter's form never reached — 4С's chair on the way of «The Garden of Death» — is no row of it)
-      const shown = rows(c, reached ? kept.choices : {}, tried ? re.choices : {}).filter(r => r.options.some(o => o.state !== 'unseen'));
-      return { number: c.number, title: c.titleOf ? c.titleOf(re ?? kept) : c.title, kind, rows: shown,
+      const shown = rows(c, reached ? kept.choices : {}, tried ? re.choices : {}, reached ? kept.marks : {}).filter(r => r.options.some(o => o.state !== 'unseen'));
+      return { number: c.number, title: c.titleOf ? c.titleOf(re ?? kept) : c.title, kind, rows: i === EPILOGUE && kept.chapter >= END ? ending() : shown,
         go: i === kept.chapter ? (kept.step || kept.chapter ? tr('continue\nthe game') : tr('start\nthe game')) : null, replay: tried && !replay.done, badge: tried };
     }).concat(finale());
   }
   // the epilogue's last row, once the play is played through: how it ended — its endings, the one it came to chosen
-  // (at the map's last point: how the play ended — its endings, the one it came to chosen; before that its word only)
+  // (at the map's last point, till the play is played through: the finale to come; then how it ended is the
+  // epilogue's row — its endings, the one it came to chosen)
   function finale() {
     const title = tr('Finale');
-    if (kept.chapter < END) return { number: title, title, kind: 'future', rows: [], go: null };
+    return kept.chapter < END ? [{ number: title, title, kind: 'future', rows: [], go: null }] : [];
+  }
+  function ending() {
     const f = facts(kept);
-    return { number: '', title, kind: 'end', rows: [{ title: '', weight: '⚑', options: ENDINGS.map(e => ({ label: e.label, state: e.id === f.ending ? 'chosen' : 'open' })) }], go: null };
+    return [{ title: tr('Finale'), weight: '⚑', options: ENDINGS.map(e => ({ label: e.label, state: e.id === f.ending ? 'chosen' : 'open' })) }];
   }
 
 }
@@ -334,10 +339,10 @@ const run = p => structuredClone({ chapter: p.chapter, step: p.step, scales: p.s
 const pick = (o, keep) => Object.fromEntries(Object.entries(o).filter(([j]) => keep(Number(j))));
 // a chapter's choices as rows: the main run's chosen, a replay's tried (both — the same), could have been, never
 // reached; and what came of the main run's choice (scenario §11: the mark it left, as the player was told it)
-function rows(ch, mainChoices, triedChoices) {
+function rows(ch, mainChoices, triedChoices, marks = {}) {
   return ch.choices.map(c => {
     const m = mainChoices[c.id], t = triedChoices[c.id];
-    return { title: c.title, weight: c.weight, came: (m && EFFECTS[c.id]?.[m]?.marks?.[0]?.[2]) || null, options: c.options.map(o => ({ label: o.label,
+    return { title: c.title, weight: c.weight, came: (m && (marks[`${c.id}:came`] ?? EFFECTS[c.id]?.[m]?.marks?.[0]?.[2])) || null, options: c.options.map(o => ({ label: o.label,
       state: m === o.id && t === o.id ? 'both' : m === o.id ? 'chosen' : t === o.id ? 'tried' : m || t ? 'open' : 'unseen' })) };
   });
 }

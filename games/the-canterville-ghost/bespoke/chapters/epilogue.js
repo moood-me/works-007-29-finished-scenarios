@@ -3,7 +3,7 @@
 // breakfast, the chair gone, the funeral, the wedding, Papa on the floor before the tapestry), “The Stain” (stayed at the
 // door or woke Papa: the morning they leave, the carriages past the dry almond). Two parts with “Next” between them — a
 // pause meant: the player only watches. The finale's name is its title, at the beginning.
-// On the scenes' pieces (game.md «Stage 5 — pieces»); the hall still the library till its scene comes.
+// On the scenes' pieces (game.md «Stage 5 — pieces»).
 // Reads: the path, choices.name, choices.paints, choices.trap, choices.goodnight, choices.door, scales.
 import { ENDINGS, LIBRARY, CORRIDOR, GROUNDS, facts, piece } from '../story.js';
 

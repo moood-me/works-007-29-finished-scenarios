@@ -57,9 +57,10 @@ export function ui(layer) {
         el('span', 'name', row).textContent = S.name;
         el('span', 'side', row).textContent = S.sides[0];
         const pips = el('span', 'pips', row);
-        const on = S.spent ? S.max - v : v - S.min; // (spent: the bar from the left end grows as the value falls)
-        for (let i = 1; i <= S.max - S.min; i++) el('i', i <= on ? 'on' : '', pips);
+        // (where it stands between its two ends: one mark among the places)
+        for (let i = S.min; i <= S.max; i++) el('i', i === v ? 'on' : '', pips);
         el('span', 'side', row).textContent = S.sides[1];
+        el('span', 'why', row).textContent = S.rule.slice(S.rule.indexOf('. ') + 2);
       }
     },
     toast(text, kind, arrows = '') {

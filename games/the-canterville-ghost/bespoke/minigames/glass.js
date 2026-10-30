@@ -25,18 +25,21 @@ export default {
     g.set('face', 0);
     const sign = handsOff(mg);
     let touched = false;
+    let gone = null; // (touched: when the lightning goes out — at once, or, touched before it came, a breath after it)
     const off = mg.on('down', () => {
       if (touched) return;
       touched = true;
       g.failed();
       mg.error('early', { chip: true });
-      g.set('flash', 0, 0.2);
-      g.set('face', 0, 0.3);
+      gone = mg.t + (lit ? 0 : 0.7);
     });
     const t0 = mg.t;
     let lit = false, again = false;
     const done = await until(mg, ({ t }) => {
       const k = t - t0;
+      // (touched before it: the lightning comes at once and goes, the face a glimpse)
+      if (touched && !lit) { lit = true; g.set('flash', 1, 0.1); g.set('face', 0.7, 0.3); g.sound('thunder', { delay: 0.8, loud: 0.6 }); }
+      if (gone != null && t >= gone) { gone = Infinity; g.set('flash', 0, 0.2); g.set('face', 0, 0.3); }
       if (!touched) {
         // (the lightning: a flash at 1 s, the face rising in it, held, a second flash at 4 s)
         if (!lit && k >= 1) { lit = true; g.set('flash', 1, 0.1); g.set('face', 1, 1.2); g.sound('thunder', { delay: 1.4, loud: 0.7 }); }
@@ -44,7 +47,7 @@ export default {
         if (k >= 4 && k < 4.1 && !again) { again = true; g.set('flash', 1, 0.1); g.sound('thunder', { delay: 0.9, loud: 0.9 }); }
       }
       mg.plate.set({ fill: Math.min(1, k / SECONDS), glow: 'idle' });
-      return k >= SECONDS || (touched && k >= 1.5);
+      return k >= SECONDS || (touched && gone === Infinity && k >= 1.5);
     });
     off();
     sign.remove();
