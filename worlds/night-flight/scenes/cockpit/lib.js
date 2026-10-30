@@ -20,6 +20,7 @@ function film(scene) {
     two: CAM([0.6, 0.7, 2.3], [0.95, 3.6, 1.95]),
     two_up: CAM([0.55, 0.9, 1.95], [0.95, 3.6, 2.55]),
     radio: CAM([1.3, 2.4, 2.2], [1.75, 3.6, 2.05]),
+    below: CAM([-1.4, 1.2, 2.3], [-6, 3.5, -4]), // past the wing and the nose, down at the steppe and the lone house
     // the stick in his hands, for М5 and М6: Fabien from the waist up, his hands in the frame's middle — wide enough that
     // the plane may bank, bob and pitch (the anchor turns about his seat) and his hands stay well inside it
     stick: CAM([-1.2, 0.9, 2.05], [0.15, 3.3, 1.6]),
@@ -86,15 +87,18 @@ function film(scene) {
     // П.1: dusk over the steppe; below, the lone house's window lights; a slow push in to Fabien
     dusk: {
       tells: ['dusk:window'],
-      seconds: 8,
-      from: () => ({ ...SKY.dusk, ...AIR, house: 0, ...SEATS, ...SH.wide }),
+      seconds: 10,
+      // (it opens looking down past the wing at the steppe — the title over it, not over his face —, the lone house's
+      // window lights there; then to Fabien)
+      from: () => ({ ...SKY.dusk, ...AIR, house: 0, ...SEATS, ...SH.below }),
       run: async s => {
         const f = s.person('fabien');
         await s.wait(2);
         s.move('house', 1, { over: 1.5 });
         f.look(DOWN);
         s.tell('dusk:window');
-        await glide(s, SH.fab_med, 5);
+        await s.wait(2.5);
+        await glide(s, SH.fab_med, 4);
         f.look([-3, 0.8, 1.9]);
         await s.wait(1);
       },
