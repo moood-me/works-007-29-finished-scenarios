@@ -557,7 +557,7 @@ return {
   shapes: {
     // the world's style: the storybook's round soft figures (soft), their heads a little smaller, with a face of the
     // world's own drawn bold
-    styles: { canterville: { from: 'soft', name: 'Canterville', head: 1.2, face: 'storybook', arms: 'palm', fingers: true } },
+    styles: { canterville: { from: 'soft', name: 'Canterville', head: 1.2, face: 'storybook', arms: 'palm', hands: 'fingers' } },
     faces: {
       storybook: { name: 'storybook', draw: F => face(F) },
       // the ghost's: the same face, its eyes red coals that glow
