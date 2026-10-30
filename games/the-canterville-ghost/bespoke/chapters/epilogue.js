@@ -62,13 +62,15 @@ export default {
           await g.say('narrator', 'Her father was beside her all morning, and never took his eyes off the windows of the Tapestry Chamber');
         }
       }
-      // (the pause the scenario means: the finale's two parts, “Next” between them)
-      await g.plate(f.ending === 'stain' ? tr('The carriages are at the door.') : tr('Years later.'));
     },
+    // (the finale's second part goes on without a stop: the time between the two said by a title over its first shot)
     async g => {
       const f = facts(g.state);
       if (f.ending === 'almond') {
-        await piece(g, 'years', {}, () => g.scene('grounds', { beat: 'years', here: ['virginia', 'cecil'], moods: { virginia: 'smile', cecil: 'smile' }, keys: GROUNDS.years }));
+        await piece(g, 'years', {}, async () => {
+          await g.scene('grounds', { beat: 'years', here: ['virginia', 'cecil'], moods: { virginia: 'smile', cecil: 'smile' }, keys: GROUNDS.years });
+          g.title(tr('Years later.'));
+        });
         await g.say('cecil', 'You have never told me what happened to you that night');
         await g.say('virginia', 'Don’t ask me, Cecil. He showed me what Life is, and what Death signifies, and why Love is stronger than both');
         await g.say('cecil', 'You may keep your secret, as long as I have your heart');
@@ -85,7 +87,10 @@ export default {
             await g.say('otis', 'Promise for yourself, Your Grace');
           },
           let: () => { g.mood('otis', 'sad'); },
-        }, () => g.scene('hall', { beat: 'wedding', here: ['otis', 'virginia', 'cecil'], moods: { otis: 'smile', virginia: 'smile', cecil: 'smile' }, air: { clock: 0.2, birds: 0.12 } }));
+        }, async () => {
+          await g.scene('hall', { beat: 'wedding', here: ['otis', 'virginia', 'cecil'], moods: { otis: 'smile', virginia: 'smile', cecil: 'smile' }, air: { clock: 0.2, birds: 0.12 } });
+          g.title(tr('Years later.'));
+        });
         // (the last shot: nothing stirs, nothing is heard)
         await piece(g, 'candle_last', {}, () => g.scene('tapestry', { beat: 'candle_last', here: ['otis'], moods: { otis: 'sad' }, air: {} }));
       } else {
@@ -101,7 +106,10 @@ export default {
             await g.wait(2400);
             if (!f.shares) g.set('facade_open', 0, 0.8);
           },
-        }, () => g.scene('hall', { air: { clock: 0.1, birds: 0.2 }, beat: 'porch', here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'neutral', virginia: 'sad' }, keys: { wake: f.door === 'wake', shares: f.shares, plays: f.plays } }));
+        }, async () => {
+          await g.scene('hall', { air: { clock: 0.1, birds: 0.2 }, beat: 'porch', here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'neutral', virginia: 'sad' }, keys: { wake: f.door === 'wake', shares: f.shares, plays: f.plays } });
+          g.title(tr('The carriages are at the door.'));
+        });
         if (f.wished) {
           await g.say('virginia', 'Good night, sir', { how: 'a whisper, in broad daylight' });
           await g.wait(1500);
