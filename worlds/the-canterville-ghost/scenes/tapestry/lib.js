@@ -296,7 +296,8 @@ function hisEye(scene) {
   return eye([va + 0.2, vd - 0.4, 1.45], [a - 0.05, d - 0.05, h]);
 }
 // the talk's start, when a piece of it opens the scene: he on the seat looking at her, she near him
-const TALK = () => ({ ...ROOM, simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, virginia_look: 'simon' });
+// (in the talk he sits up — `sit_sill`, the right hand at the chest: `brood`'s hand at the brow hid his face)
+const TALK = () => ({ ...ROOM, simon_do: 'sit_sill', simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, virginia_look: 'simon' });
 
 // he gets up off the window seat (where it puts him), and sits down on it again
 async function rise(p) {
@@ -471,6 +472,7 @@ function film(scene) {
         const v = s.person('virginia');
         s.camera({ target: 'virginia', shot: 'full', frame: 0.35 });
         s.person('simon').look('virginia');
+        s.person('simon').do('sit_sill');
         await v.walk([NEAR]);
         await v.turn(115);
         v.look('simon');

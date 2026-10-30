@@ -43,7 +43,7 @@ export default {
           g.title(label('candle'));
         });
         await piece(g, 'no_chair', {}, () => g.scene('corridor', { beat: 'no_chair', here: ['virginia'], moods: { virginia: 'sad' }, keys: CORRIDOR.empty }));
-        await piece(g, 'letters', {}, () => g.scene('library', { beat: 'letters', here: ['otis'], moods: { otis: 'thinking' }, keys: LIBRARY.night }));
+        await piece(g, 'letters', { drawer: () => g.say('narrator', 'The drawing that had stood by his inkstand he put away in the drawer') }, () => g.scene('library', { beat: 'letters', here: ['otis'], moods: { otis: 'thinking' }, keys: LIBRARY.night }));
         await funeral(g, f);
         if (!f.named) await stain(g);
       } else {
@@ -63,7 +63,7 @@ export default {
         }
       }
       // (the pause the scenario means: the finale's two parts, “Next” between them)
-      await g.plate(f.ending === 'stain' ? tr('The porch; the carriages.') : tr('Years later.'));
+      await g.plate(f.ending === 'stain' ? tr('The carriages are at the door.') : tr('Years later.'));
     },
     async g => {
       const f = facts(g.state);

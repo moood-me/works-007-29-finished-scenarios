@@ -6,8 +6,9 @@
 //   beds(levels, seconds) — the game's background as the page sounds it (bespoke.onBackground): each bed named to its
 //     level (0…1), every other one to silence, over `seconds`. The game only declares it (story.js g.scene's `air`,
 //     g.air); the page says when.
-//   once(name, {loud, far, delay, rate}) — a one-off sound (ONCE): loud — 0…1 of its own; far — heard through a wall
-//     or from downstairs (dull, quieter); delay — seconds from now; rate — its speed (and pitch)
+//   once(name, {loud, far, delay, rate, cut}) — a one-off sound (ONCE): loud — 0…1 of its own; far — heard through a
+//     wall or from downstairs (dull, quieter); delay — seconds from now; rate — its speed (and pitch); cut — seconds
+//     after which its tail fades out (the clock's strokes: each dies before the next)
 
 // the beds — what lasts under a scene: a recording each, looped, as loud as level × gain (the recordings are brought to
 // −24 dBFS RMS, sounds/README.md)
@@ -30,7 +31,7 @@ export const ONCE = {
   thunder: 'thunder.mp3', chains: 'chains.mp3', chain_clink: 'chain_clink.mp3', groan: 'groan.mp3', creak: 'creak.mp3',
   door: 'door.mp3', smash: 'smash.mp3', pillow: 'pillow.mp3', peas: 'peas.mp3', strike: 'strike.mp3', hooves: 'hooves.mp3',
   knock: 'knock.mp3', armour: 'armour.mp3', panel: 'panel.mp3', bell: 'bell.mp3', laugh: 'laugh.mp3',
-  floorboard: 'floorboard.mp3', wings: 'wings.mp3', carriage: 'carriage.mp3',
+  floorboard: 'floorboard.mp3', wings: 'wings.mp3', carriage: 'carriage.mp3', stamp: 'stamp.mp3',
 };
 
 let ctx = null, master = null, dull = null;
@@ -98,7 +99,7 @@ function bed(name, level, seconds) {
   }, (Math.max(0.05, seconds) + 0.2) * 1000);
 }
 
-export function once(name, { loud = 1, far = false, delay = 0, rate = 1 } = {}) {
+export function once(name, { loud = 1, far = false, delay = 0, rate = 1, cut = null } = {}) {
   const file = ONCE[name];
   if (!file) return;
   const a = audio();
@@ -108,6 +109,12 @@ export function once(name, { loud = 1, far = false, delay = 0, rate = 1 } = {}) 
     s.playbackRate.value = rate;
     g.gain.value = loud * (far ? 0.55 : 1);
     s.connect(g).connect(far ? dull : master);
-    s.start(a.currentTime + delay);
+    const t = a.currentTime + delay;
+    s.start(t);
+    if (cut) {
+      g.gain.setValueAtTime(g.gain.value, t + cut * 0.6);
+      g.gain.linearRampToValueAtTime(0, t + cut);
+      s.stop(t + cut + 0.05);
+    }
   }, () => {});
 }

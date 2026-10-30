@@ -157,6 +157,7 @@ function FILM(scene) {
   const SH = {
     landing: CAM([0.4, 3.4, 2.6], [-3.4, 7.5, 3.3]),
     foot: CAM([-0.6, 3.0, 1.6], [-0.75, 5.9, 1.3]),
+    hold: CAM([-0.5, 4.55, 1.5], [-0.52, 5.9, 1.42]),
     door: CAM([3.3, 4.4, 1.6], [1.85, 6.6, 1.4]),
     coat: CAM([0.9, 3.6, 1.6], [1.3, 6.1, 1.4]),
     porch: CAM([2.0, 3.2, 1.7], [3.2, 9.0, 1.4]),
@@ -211,7 +212,7 @@ function FILM(scene) {
     // 4.6: midnight — the twelve strokes, the silence; the panel opens, Virginia on the landing with the casket; the
     // family to her as the variants say; Mrs Otis takes her face in her hands
     midnight: {
-      after: [], tells: ['midnight:stroke', 'midnight:panel', 'midnight:hold'], seconds: 42,
+      after: [], tells: ['midnight:stroke', 'midnight:panel', 'midnight:hold'], seconds: 50,
       from: () => {
         const watch = scene.get('trap') === 'watch';
         return merge(NIGHT, CAM0, { hour: 23.99 },
@@ -231,9 +232,9 @@ function FILM(scene) {
         s.set('hour', 0);
         s.tell('midnight:stroke');
         for (const id of ['otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes', 'cecil']) s.person(id).look('clock#face');
-        // (the twelve strokes are the game's sound, 1.1 s apart: with the last the clock stops and the house falls
+        // (the twelve strokes are the game's sound, 1.6 s apart: with the last the clock stops and the house falls
         // silent; the silence held while the game says so)
-        await s.wait(13.8);
+        await s.wait(19.8);
         s.set('clock_going', false);
         await s.wait(6);
         glide(s, SH.landing, 2);
@@ -301,6 +302,8 @@ function FILM(scene) {
         m.look('virginia');
         v.look('mrs_otis');
         await s.all(brother, father);
+        // (near: the mother's hands on her face — the two in profile, face to face)
+        glide(s, SH.hold, 1.5);
         m.reach({ r: 'virginia#head', l: 'virginia#head' });
         s.tell('midnight:hold');
         await s.wait(2);

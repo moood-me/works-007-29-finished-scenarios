@@ -213,8 +213,8 @@ export default {
 // clock, the wind, the boards (every bed of sound out). far — heard from the hall below
 async function twelve(g, { far = false } = {}) {
   for (let i = 0; i < 12; i++) {
-    g.sound('strike', { far, loud: far ? 0.9 : 1 });
-    await g.wait(1100);
+    g.sound('strike', { far, loud: far ? 0.9 : 1, cut: 1.9 });
+    await g.wait(1600);
   }
   await g.wait(600);
   g.air({});

@@ -129,8 +129,9 @@ export default {
         await piece(g, 'pacing', { clink: () => { g.sound('chain_clink'); g.sound('chain_clink', { delay: 3, loud: 0.8 }); } }, () => g.scene('corridor', { beat: 'pacing', here: ['simon'], moods: { simon: 'angry' }, keys: CORRIDOR.pacing }));
         await piece(g, 'clean_floor', {}, () => g.scene('library', { beat: 'clean_floor', here: ['virginia'], moods: { virginia: 'thinking' }, keys: { ...LIBRARY.morning, stain: 'none' } }));
       } else {
-        g.here('washington', true);
-        g.mood('washington', 'smile');
+        await g.scene('grounds', { here: ['virginia', 'washington'], moods: { virginia: 'thinking', washington: 'smile' },
+          keys: { ...GROUNDS.paint, washington_a: 1.75, washington_d: 5.2, washington_turn: 60, washington_do: 'stand', washington_with: [],
+            washington_look: 'virginia', virginia_look: 'washington', virginia_do: 'stand', virginia_with: [] } }, { cut: true });
         await g.say('virginia', 'He takes my paints');
         await g.say('washington', 'Does he? Then we’ll be waiting for him');
         await g.say('narrator', 'That evening Washington begged the library key from his father');

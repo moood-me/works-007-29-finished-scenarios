@@ -140,8 +140,8 @@ export const CHAMBER = { family: { moment: 'family' }, father: { moment: 'father
 export const AIR = {
   // the fire by evening; by day the garden through the windows; at night the fire low and the wind
   library: k => (k.day ? { fire: 0.12, birds: 0.14 } : k.fire >= 1 ? { fire: 0.4 } : { fire: 0.2, wind: 0.12 }),
-  // at night the wind at the windows and the hall clock up the stairs; by evening quieter
-  corridor: k => (k.evening ? { wind: 0.1, clock: 0.08 } : { wind: 0.28, clock: 0.1 }),
+  // at night the wind at the windows; by evening quieter (the hall clock only where a step asks for it)
+  corridor: k => (k.evening ? { wind: 0.1 } : { wind: 0.28 }),
   // the autumn afternoon: the limes in the wind beyond the window
   tapestry: () => ({ trees: 0.24 }),
   dark: () => ({ wind: 0.16 }),
@@ -154,7 +154,7 @@ export const AIR = {
   grounds: k => (k.funeral ? { night: 0.3, fire: 0.18 } : k.coaches ? { trees: 0.3, birds: 0.12 }
     : k.grave === 'mound' ? (k.night ? { night: 0.28, ...(k.nightingale === 1 ? { nightingale: 0.5 } : {}) } : { trees: 0.3, birds: 0.12 })
     : { birds: 0.4 }),
-  hall: () => ({ clock: 0.35 }),
+  hall: () => ({ clock: 0.2 }),
 };
 
 // The scales (scenario §8), each with two sides: where they start, their bounds, its name in the gauge, its two ends
@@ -200,7 +200,10 @@ export const EFFECTS = {
     go: { marks: [['wall', 'go', tr('You took his hand. Downstairs they were calling you to supper.')]] },
     papa: { marks: [['wall', 'papa', tr('You said you would call Papa. He did not ask again.')]] },
   },
+  // (her name: the narrator has just said what came of it — the mark is kept and the map says it; no slip over the
+  // quietest moment of the play)
   name: {
+    quiet: true,
     named: { marks: [['name', 'named', tr('You named her in the prayer. The nightingale sang no more.')]] },
     unnamed: { marks: [['name', 'unnamed', tr('You prayed for him alone. Nobody said her name.')]] },
   },
@@ -452,7 +455,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       const fx = EFFECTS[choice]?.[state.choices[choice]];
       if (!fx) return;
       for (const name of ORDER) g.scale(name, fx[name] ?? 0);
-      for (const [key, value, text] of fx.marks ?? []) g.mark(key, value, text);
+      for (const [key, value, text] of fx.marks ?? []) g.mark(key, value, EFFECTS[choice].quiet ? null : text);
     },
     scale(name, delta) {
       if (gone() || !delta) return;
