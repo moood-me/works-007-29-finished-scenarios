@@ -37,7 +37,8 @@ is blue, the floodlights and the lamps, not blackness).
   telegraph far off; nothing recorded yet.
 
 Seen on the GPU (a frame at 16:9, before the trees were over it): the night darker and the floodlights softer than at
-first (the grass had come out pale green, almost by day).
+first (the grass had come out pale green, almost by day). Seen in the play too (Chrome, 1920×1080): the prologue's map, then chapter I's form
+grown with its three rows and the scales' slip in the corner.
 
 ## Contract for the check
 
