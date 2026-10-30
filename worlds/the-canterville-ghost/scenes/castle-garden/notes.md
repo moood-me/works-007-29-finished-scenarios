@@ -77,6 +77,7 @@ moon, readable; the colours are the world's (the library's and the tapestry room
 
 The module `beats` (lib.js `film`; script.js plays it). What the scene got for them:
 
+- **Her paint-box** (2026-10-30, key `paintbox`): in the insert `board`, on the board's corner by the sheet — a black tin, two rows of pans, red and vermilion scraped out to the white (1.5: the game opens the insert at `paint:box`). The music: the «nightingale-like flute» set to 0 — the game plays a real nightingale where the scenario has one (funeral, the last shot).
 - **The insert `board`** (М3 «Этюд», opened by `board_open`): the sheet on her easel close — her pencil study of the dry
   almond, a wash of sky, and the brush line up the trunk from `board#root` to `board#fork`, shown as `sketch_line` rises
   (a strip of paper over it draws back toward the fork: its animate); the trunk in faint pencil to follow; `blot` — a

@@ -64,3 +64,7 @@ The module `beats` (lib.js `film`; script.js plays it). What the scene got for t
   third of a second (no motion of sitting down on the ground), and he gets up the same way in `named`.
 - Going into the earth is his figure sinking under the grass plane (no person fades in the engine): seen from the
   start it reads as sinking into the long grass.
+
+## 2026-10-30
+
+The music without the «nightingale-like flute» (weight 0): the nightingale is the game's recording now, heard while `nightingale` is 1 and silent after her name is said (the flute had sung through the silence).

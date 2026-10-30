@@ -281,8 +281,8 @@ function people(scene) {
 // The talk (3.2–3.6): her face, his face, each turned to us — from the scene's camera they stand level and both show
 // their profiles. Her face: the eye a metre to her right, level with her (between her and him, near his line of sight:
 // she looks at him), looking along the room toward the door wall — never toward the open side the room has no wall on.
-// His: the eye a metre and a half before him where he faces from the seat (toward the room and the door), looking up
-// the room at him and the window. Where they are now: she where she stopped, he on the seat or standing.
+// His: the eye a metre and a half before him on his left (his right hand is at his brow), looking at him and the
+// window behind him. Where they are now: she where she stopped, he on the seat or standing.
 const HEAD = 1.42; // her face, standing
 function herEye(scene) {
   const a = scene.get('virginia_a') ?? NEAR[0], d = scene.get('virginia_d') ?? NEAR[1];
@@ -291,7 +291,8 @@ function herEye(scene) {
 function hisEye(scene) {
   const on = scene.get('simon_on');
   const [a, d, h] = Array.isArray(on) ? [on[0], on[1], 1.1] : [scene.get('simon_a'), scene.get('simon_d'), 1.6];
-  return eye([a - 0.86, d - 1.23, h + 0.15], [a - 0.05, d - 0.1, h]);
+  // (from his left — his right hand is at his brow — a little before him: the face clear of the hand)
+  return eye([a + 0.2, d - 1.5, h + 0.1], [a - 0.05, d - 0.1, h]);
 }
 // the talk's start, when a piece of it opens the scene: he on the seat looking at her, she near him
 const TALK = () => ({ ...ROOM, simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, virginia_look: 'simon' });
@@ -481,7 +482,7 @@ function film(scene) {
     sandwich: {
       after: ['talk', 'her_face', 'his_face', 'room'],
       tells: ['sandwich:taken'],
-      seconds: 8,
+      seconds: 10,
       from: () => ({ ...ROOM, ...people(scene), virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, simon_look: 'virginia',
         ...shot('virginia', 'full', 0.35) }),
       run: async s => {
@@ -504,7 +505,11 @@ function film(scene) {
         v.do('upright');
         s.tell('sandwich:taken');
         p.look('virginia');
-        await s.wait(1.5);
+        await s.wait(1);
+        await v.walk([NEAR]);
+        await v.turn(115);
+        v.look('simon');
+        await s.wait(0.5);
       },
     },
     // 3.2: she stamps her foot
@@ -542,7 +547,7 @@ function film(scene) {
       after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
       tells: [],
       seconds: 0.5,
-      from: () => ({ ...people(scene), ...TALK(), ...eye([SEAT[0] - 0.86, SEAT[1] - 1.23, 1.25], [SEAT[0] - 0.05, SEAT[1] - 0.1, 1.1]) }),
+      from: () => ({ ...people(scene), ...TALK(), ...eye([SEAT[0] + 0.2, SEAT[1] - 1.5, 1.2], [SEAT[0] - 0.05, SEAT[1] - 0.1, 1.1]) }),
       run: async s => {
         s.cut(hisEye(scene));
         await s.wait(0.5);
