@@ -147,6 +147,7 @@ export default {
         },
         hand: () => g.say('simon', 'I shall not ask a second time', { how: 'pride, not a threat; he is almost sure she will refuse' }),
       }, () => g.scene('tapestry', { beat: 'wall_parts', here: ['simon', 'virginia'], moods: { simon: 'tired', virginia: 'thinking' } }, { cut: true }));
+      await g.beat('wall_her');
       const wall = await g.choose('wall', { 'virginia#chest': [
         { id: 'go', label: tr('“I am not afraid. I will ask the Angel for you”') },
         { id: 'papa', label: tr('“No. I’ll call Papa”') },

@@ -67,7 +67,8 @@ export default {
     },
     // 2.5: ⚑ the trap (warn: `candle_walk` with М4, `candle_room`, `route`; watch: `fright`; defend: `defend`, `gallop`)
     async g => {
-      await g.scene('corridor', { here: ['virginia', 'washington', 'twin_star', 'twin_stripes'], moods: { virginia: 'thinking', washington: 'smile', twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.evening }, { cut: true });
+      await g.scene('corridor', { beat: 'trap_her', here: ['virginia', 'washington', 'twin_star', 'twin_stripes'], moods: { virginia: 'thinking', washington: 'smile', twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.evening }, { cut: true });
+      await g.beat('trap_her');
       const trap = await g.choose('trap', { 'virginia#chest': [
         { id: 'warn', label: tr('Warn him') },
         { id: 'watch', label: tr('Watch with the boys') },

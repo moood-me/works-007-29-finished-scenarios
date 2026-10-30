@@ -592,9 +592,21 @@ function film(scene) {
         await s.wait(1);
       },
     },
+    // 3.7 before the choice: her face, over his shoulder and the hand he holds out
+    wall_her: {
+      after: ['wall_parts'],
+      tells: [],
+      seconds: 1,
+      from: () => ({ ...ROOM, ...people(scene), wall: 1, stir: 1, simon_on: null, simon_a: 1.3, simon_d: 4.95, simon_turn: 250, simon_do: 'offer',
+        simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, ...eye([1.75, 4.55, 1.5], [NEAR[0], NEAR[1], HEAD]) }),
+      run: async s => {
+        s.cut(eye([1.75, 4.55, 1.5], [scene.get('virginia_a') ?? NEAR[0], scene.get('virginia_d') ?? NEAR[1], HEAD]));
+        await s.wait(1);
+      },
+    },
     // 3.6 «go»: she goes to him, hand in hand they walk into the opening; the wall shuts behind them
     into_wall: {
-      after: ['wall_parts'],
+      after: ['wall_parts', 'wall_her'],
       tells: ['into_wall:hand', 'into_wall:shut'],
       seconds: 12,
       from: () => ({ ...ROOM, ...people(scene), wall: 1, stir: 1, simon_on: null, simon_a: 1.3, simon_d: 4.95, simon_turn: 250, simon_do: 'offer',
@@ -602,7 +614,7 @@ function film(scene) {
       run: async s => {
         const p = s.person('simon');
         const v = s.person('virginia');
-        s.camera({ target: 'virginia', shot: 'full' });
+        s.cut(shot('virginia', 'full'));
         await v.walk([[0.75, 4.75]]);
         v.reach({ l: 'simon#hand_r' });
         p.reach({ r: 'virginia#hand_l' });
@@ -626,7 +638,7 @@ function film(scene) {
     // 3.6 «papa»: he lowers his hand — bows (plays) or sits back tired; the wall shuts slowly; she backs to the door and
     // runs out
     hand_down: {
-      after: ['wall_parts'],
+      after: ['wall_parts', 'wall_her'],
       tells: ['hand_down:bow', 'hand_down:whisper', 'hand_down:gone'],
       seconds: 14,
       from: () => ({ ...ROOM, ...people(scene), wall: 1, stir: 1, simon_on: null, simon_a: 1.3, simon_d: 4.95, simon_turn: 250, simon_do: 'offer',
@@ -634,7 +646,7 @@ function film(scene) {
       run: async s => {
         const p = s.person('simon');
         const v = s.person('virginia');
-        s.camera({ target: 'simon', shot: 'full' });
+        s.cut(shot('simon', 'full'));
         p.do('stand');
         await s.wait(1);
         s.tell('hand_down:bow');

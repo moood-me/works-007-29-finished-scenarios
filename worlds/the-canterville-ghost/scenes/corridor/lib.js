@@ -474,6 +474,15 @@ function film(scene) {
         await s.wait(1);
       },
     },
+    // 2.5 before the choice: the evening, the boys at the corner with their turnip ghost, she across from them — her
+    // face, seen from their side
+    trap_her: {
+      after: [], tells: [], seconds: 1,
+      from: () => ({ ...CAM0, ...EVENING, spook: 'making', ...at('twin_star', -1.5, 7.2, 140, 'stand', { look: 'virginia' }),
+        ...at('washington', -1.25, 8.9, 165, 'stand', { look: 'virginia' }), ...at('twin_stripes', -0.45, 8.3, 200, 'stand', { look: 'virginia' }),
+        ...at('virginia', 0.9, 7.6, 250, 'stand', { wear: cast().virginia, look: 'twin_stripes' }), ...CAM([-0.6, 6.4], [0.9, 7.6], -0.2) }),
+      run: async s => { await s.wait(1); },
+    },
     // 2.4 «defend»: she stands before the boys at the corner and holds out her hand; then goes into her room
     defend: {
       after: [], tells: ['defend:say', 'defend:go'], seconds: 10,

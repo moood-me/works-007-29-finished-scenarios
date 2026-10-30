@@ -47,6 +47,7 @@ export default {
       await g.beat('window_face');
       const { touched } = await g.play(glass);
       g.mood('virginia', 'afraid');
+      await g.beat('her_window');
       const face = await g.choose('face', { 'virginia#chest': [
         { id: 'told', label: tr('“There was someone. In the window”') },
         { id: 'silent', label: tr('Say nothing') },
