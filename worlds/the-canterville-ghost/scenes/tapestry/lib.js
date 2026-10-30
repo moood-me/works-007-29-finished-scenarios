@@ -281,7 +281,7 @@ function people(scene) {
 // The talk (3.2–3.6): her face, his face, each turned to us — from the scene's camera they stand level and both show
 // their profiles. Her face: the eye a metre to her right, level with her (between her and him, near his line of sight:
 // she looks at him), looking along the room toward the door wall — never toward the open side the room has no wall on.
-// His: the eye on the right wall's side, where he faces sitting sideways on the seat, a little below his face. Where they are now: she where she stopped, he on the seat or standing.
+// His: the eye just beside her, a step nearer the room — he looks at her. Where they are now: she where she stopped, he on the seat or standing.
 const HEAD = 1.42; // her face, standing
 function herEye(scene) {
   const a = scene.get('virginia_a') ?? NEAR[0], d = scene.get('virginia_d') ?? NEAR[1];
@@ -290,9 +290,10 @@ function herEye(scene) {
 function hisEye(scene) {
   const on = scene.get('simon_on');
   const [a, d, h] = Array.isArray(on) ? [on[0], on[1], 1.1] : [scene.get('simon_a'), scene.get('simon_d'), 1.6];
-  // (on the seat he sits sideways, his face to the right wall and the floor: the eye there, a little lower than his
-  // face, looking up at it, the window beside him)
-  return eye([a + 1.25, d - 0.55, h - 0.05], [a, d - 0.05, h]);
+  // (he looks at her: the eye just beside her and a step nearer the room, her height — his face turned this way, the
+  // window behind him)
+  const va = scene.get('virginia_a') ?? NEAR[0], vd = scene.get('virginia_d') ?? NEAR[1];
+  return eye([va + 0.2, vd - 0.4, 1.45], [a - 0.05, d - 0.05, h]);
 }
 // the talk's start, when a piece of it opens the scene: he on the seat looking at her, she near him
 const TALK = () => ({ ...ROOM, simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, virginia_look: 'simon' });
@@ -547,7 +548,7 @@ function film(scene) {
       after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
       tells: [],
       seconds: 0.5,
-      from: () => ({ ...people(scene), ...TALK(), ...eye([SEAT[0] + 1.25, SEAT[1] - 0.55, 1.05], [SEAT[0], SEAT[1] - 0.05, 1.1]) }),
+      from: () => ({ ...people(scene), ...TALK(), ...eye([NEAR[0] + 0.2, NEAR[1] - 0.4, 1.45], [SEAT[0] - 0.05, SEAT[1] - 0.05, 1.1]) }),
       run: async s => {
         s.cut(hisEye(scene));
         await s.wait(0.5);
