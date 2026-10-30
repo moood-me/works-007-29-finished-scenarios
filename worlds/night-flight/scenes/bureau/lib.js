@@ -109,6 +109,7 @@ function film(scene) {
     door: CAM([-0.6, 3.1, 1.7], [-2.6, 4.6, 1.5]), // the field door
     office: CAM([-0.6, 5.0, 1.7], [-2.25, 7.1, 1.4]), // the office door
     window: CAM([0.6, 4.6, 1.75], [1.8, 7.6, 1.65]), // toward the window and the field beyond
+    great: CAM([-0.75, 5.25, 1.66], [-1.0, 6.72, 1.62]), // Rivière before the map, turned to the room, close
     last: CAM([-0.2, 3.0, 1.75], [0.7, 7.4, 1.85]), // the map and the window together, Rivière before the map
     at_window: CAM([1.2, 4.7, 1.75], [2.3, 7.5, 1.55]), // Rivière at the window, the field beyond
     // the last minute's choice (3.3): from the front right, Rivière at the inker on the left, his face, the
@@ -922,7 +923,12 @@ function film(scene) {
         await r.walk([[0.6, 5.0], [1.8, 4.5]]);
         await r.turn(150);
         r.look('robineau');
-        await r.do('hand_hover');
+        // (the hand over his shoulder, not touching, and down again — a reach: the Kimodo `hand_hover` swung the arm out
+        // level at head height, past him, read as a blow)
+        r.do('stand');
+        r.reach({ r: [2.25, 4.2, 1.45] });
+        await s.wait(1.6);
+        r.reach(null);
         r.do('hands_behind');
         s.tell('work:hand');
         await s.wait(1);
@@ -1002,6 +1008,24 @@ function film(scene) {
         r.look('map#red');
         placeAt(s, 'riviere', 'flags');
         s.tell('victory_map:at');
+      },
+    },
+    // Ф.5 «The Heavy Victory» (after М1 `flag_red`): he turns from the map to the room — his face, close, for the
+    // narrator's «Rivière the Great…»
+    great: {
+      after: ['victory_map'],
+      tells: ['great:face'],
+      seconds: 3,
+      from: () => ({ ...NIGHT, time: clock(3, 11), outside: 'empty', ...FLAGS.late,
+        ...ALL({ ...at('riviere', 'flags', 'map'), ...at('telegraphist', 'table', 'tel_inker'), ...robIV() }), ...SH.flags }),
+      run: async s => {
+        const r = s.person('riviere');
+        r.look(null);
+        await r.turn(190);
+        r.do('hands_behind');
+        r.look([-0.6, 4.6, 1.5]);
+        await glide(s, SH.great, 1.6);
+        s.tell('great:face');
       },
     },
     // Ф.5 «No Order»: Rivière comes out to the map; looks at the red flag at the field and does not touch it

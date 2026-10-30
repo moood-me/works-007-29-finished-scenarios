@@ -46,6 +46,7 @@ function film(scene) {
     // (from Robineau's side and in front: Rivière's face, turned to him, three-quarters — the choice is his)
     fine: CAM([2.4, 3.3, 1.7], [1.0, 5.55, 1.55]),
     robineau_I: CAM([1.3, 3.6, 1.7], [1.7, 5.4, 1.5]),
+    roblet_face: CAM([-0.5, 2.0, 1.62], [-0.75, 3.45, 1.55]), // Roblet's face, close (1.3)
     roblet_hands: CAM([-0.6, 2.4, 1.2], [-0.75, 3.35, 1.0]),
     // the two before the choice: Roblet (his eyes on his cap) and Rivière, faces toward the lens, the mechanics behind
     ask: CAM([0.1, 1.2, 1.65], [0.0, 3.9, 1.45]),
@@ -489,7 +490,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     // the camera comes in to his hands on the cap
     roblet: {
       tells: ['roblet:say', 'roblet:hands'],
-      seconds: 10,
+      seconds: 14,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere' }),
         ...P('riviere', [0.7, 4.25], 200, 'hands_behind', { look: 'roblet' }),
@@ -498,6 +499,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       run: async s => {
         const crew = ['mechanic', 'mechanic_b', 'mechanic_c'].map(id => s.person(id));
         s.tell('roblet:say');
+        // (his face while Robineau and he speak; his hands on the cap for the narrator's «Rivière looked at his hands»)
+        glide(s, SH.roblet_face, 2.5);
         await s.wait(2.5);
         for (const [i, m] of crew.entries()) {
           await s.wait(0.4 + 0.3 * i);
@@ -505,8 +508,9 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
           m.look('roblet');
           m.turn([190, 170, 200][i]);
         }
+        await s.wait(5);
         s.person('roblet').look('roblet#hands');
-        await glide(s, SH.roblet_hands, 4);
+        await glide(s, SH.roblet_hands, 3);
         s.tell('roblet:hands');
         await s.wait(1.5);
       },
@@ -569,10 +573,10 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       run: async s => {
         const r = s.person('riviere'), o = s.person('roblet');
         const crew = ['mechanic', 'mechanic_b', 'mechanic_c'].map(id => s.person(id));
+        // (heads down, not at work: the `engine_work` take holds the arms out level)
         crew.forEach(m => {
-          m.do('engine_work');
-          m.look('plane#cowling');
-          m.turn(20);
+          m.do('stand_easy');
+          m.look('plane#wheel');
         });
         r.look('roblet');
         await glide(s, SH.roblet_riv, 1.5);
@@ -590,7 +594,9 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         s.tell('roblet_go:lift');
         o.gait('walk_carry');
         o.look(null);
-        glide(s, SH.wide, 3);
+        // (the lens goes with him across the lit field, not a wide shot where he is a speck)
+        s.set('camera_shot', 'full');
+        s.set('camera_target', 'roblet');
         await o.walk([[-2.5, 8.0], [-6.0, 20.0], [-9.0, 34.0]]);
         s.tell('roblet_go:gate');
         o.here(false);

@@ -199,7 +199,7 @@ export default {
       if (f.ending === 'victory') {
         await piece(g, 'victory_map', {}, () => g.scene('bureau', { beat: 'victory_map', here: ['riviere', 'telegraphist', ...nearby(f)], moods: { riviere: 'tired', telegraphist: 'neutral', robineau: 'sad' }, keys: at3 }));
         await g.play(flag_red);
-        await g.say('narrator', 'Rivière the Great, Rivière the Conqueror, bearing his heavy victory');
+        await piece(g, 'great', { face: () => g.say('narrator', 'Rivière the Great, Rivière the Conqueror, bearing his heavy victory') });
       } else if (f.ending === 'silence') {
         await piece(g, 'silence_map', {}, () => g.scene('bureau', { beat: 'silence_map', here: ['riviere', 'telegraphist', ...nearby(f)], moods: { riviere: 'tired', telegraphist: 'neutral', robineau: 'sad' }, keys: at3 }));
       } else {
