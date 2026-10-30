@@ -36,6 +36,8 @@ export const BEDS = {
   typewriter: { file: 'typewriter.mp3', gain: 4.5 },
   evening: { file: 'evening.mp3', gain: 3.1 },
 };
+// the beds, all of them, a little under the music (−6 dB: measured in the play)
+const BEDS_DOWN = 0.5;
 // the one-off sounds (each brought to a peak near −1 dBFS): name → its file
 export const ONCE = {
   switch: 'switch.mp3', flood: 'flood.mp3', ring: 'ring.mp3', receiver: 'receiver.mp3',
@@ -52,7 +54,8 @@ function audio() {
     limit.threshold.value = -10;
     limit.ratio.value = 4;
     master = ctx.createGain();
-    // (the places heard under the music and the voices: measured in the play, the beds were 10 dB under the music)
+    // (the places heard under the music and the voices: measured in the play, the beds were first 10 dB under the music,
+    // then — at twice this and their gains raised — 5 dB over it; the beds are now halved, `bedsDown`)
     master.gain.value = 1.8;
     master.connect(limit).connect(MooodVolume.output(ctx)).connect(ctx.destination);
     // through a wall, across the field: the highs gone
@@ -101,7 +104,7 @@ function bed(name, level, seconds) {
     }, () => {});
   }
   clearTimeout(b.stop);
-  ramp(b.gain.gain, level * BEDS[name].gain, seconds);
+  ramp(b.gain.gain, level * BEDS[name].gain * BEDS_DOWN, seconds);
   if (!level) b.stop = setTimeout(() => {
     b.on = false;
     b.src?.stop();

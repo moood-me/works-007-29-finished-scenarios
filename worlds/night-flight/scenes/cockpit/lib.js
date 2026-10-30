@@ -228,7 +228,9 @@ function film(scene) {
         f.reach(null);
         await write(s, 'fabien', 2);
         s.tell('lamp_note:write');
-        f.look('radioman');
+        // (his face stays to the light in the gap while his words are heard — turned back to the operator, the lens had
+        // only his helmet)
+        f.look(GAP);
         await hand(s, 'fabien', 'radioman', 'pass_back');
         f.do('fly_seated');
         f.look(GAP);
@@ -250,7 +252,7 @@ function film(scene) {
         await s.wait(2.5);
         await write(s, 'fabien', 2);
         s.tell('laugh_note:write');
-        f.look('radioman');
+        f.look(GAP);
         await hand(s, 'fabien', 'radioman', 'pass_back');
         f.do('fly_seated');
         f.look(GAP);

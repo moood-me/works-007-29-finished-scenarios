@@ -77,10 +77,11 @@ export default {
     async g => {
       const { roblet, robineau, exceptions, bends } = facts(g.state);
       const here = ['riviere', 'pilot', ...crew(roblet), ...(roblet === 'fire' ? [] : ['roblet']), 'robineau'];
-      g.sound('runup', { loud: 0.8, delay: 0.3 });
+      // (the run-up while the choice is made; faded before the lines that follow it)
+      g.sound('runup', { loud: 0.7, delay: 0.3, cut: 9 });
       await piece(g, 'runup', {}, () => g.scene('field', { beat: 'runup', here, moods: { riviere: 'tired', roblet: 'sad', robineau: 'sad', pilot: 'neutral' },
         keys: { ...FIELD.lit, ...ready(roblet), madame_window: 1, robineau, bends, roblet, robineau_look: 'riviere', roblet_look: 'riviere', pilot_look: 'riviere' },
-        air: { field: 0.3, idle: 0.5 } }, { cut: true }));
+        air: { field: 0.3, idle: 0.35 } }, { cut: true }));
       const european = await g.choose('european', { 'riviere#chest': [
         { id: 'fly', label: tr('Raise his hand: fly') },
         { id: 'ground', label: tr('“Stand down. Till dawn”') },
@@ -95,6 +96,8 @@ export default {
         });
         g.here('pilot', false);
       } else if (european === 'ground') {
+        // (the engine throttled back under the words)
+        g.air({ field: 0.3, idle: 0.15 });
         await g.say('riviere', 'Stand down. Till dawn');
         await piece(g, 'stand_down', {
           pilot: async () => {

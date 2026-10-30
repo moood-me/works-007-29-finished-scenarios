@@ -76,7 +76,7 @@ export default {
     async g => {
       // (the clock loud in the silence while the minute is chosen)
       await piece(g, 'minute', {}, () => g.scene('bureau', { beat: 'minute', here: ALL, moods: MOODS, keys: { ...bureau(clock(2, 16)), riviere_look: 'telegraphist', madame_look: 'tel_inker' },
-        air: { clock: 0.5, field: 0.08 } }, { cut: true }));
+        air: { clock: 0.4, field: 0.08 } }, { cut: true }));
       const minute = await g.choose('minute', { 'riviere#chest': [
         { id: 'bearing', label: tr('The service: the bearing') },
         { id: 'hers', label: tr('Her words') },

@@ -59,9 +59,10 @@ function film(scene) {
     box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
     // M4: the two face to face in profile, the hands between them at the waist, close
-    // (close on the hands: the spanner in Roblet's, Rivière's open palm under it — the faces come in the next shot,
-    // `chocks_pick`)
-    two_hands: CAM([-0.55, 2.95, 1.35], [-0.6, 3.75, 0.98]),
+    // (the two turned to the lens and to each other (135/225), their eyes on the hands at their waists: the eye low, so
+    // the bowed faces are seen three-quarters, the spanner and the open palm between them — the engine's author, seen in
+    // the browser: from eye height the bowed heads showed their crowns, read as backs)
+    two_hands: CAM([-0.6, 2.0, 1.15], [-0.6, 3.85, 1.25]),
     roblet_riv: CAM([1.6, 2.2, 1.65], [-0.5, 4.1, 1.5]), // from the right: Roblet turned to Rivière in profile, Rivière's face,
     // chapter IV: Rivière at R4 left of the nose and the pilot by the fuselage at PILOT, level with each other (each looking
     // at the other in profile): each shot from the front on the side he looks to
@@ -663,9 +664,9 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         o.wear(CAP_ON);
         o.with(['spanner_l']);
         o.do('stand_easy');
-        o.walk([[-0.15, 3.85]]).then(() => o.turn(315));
+        o.walk([[-0.15, 3.85]]).then(() => o.turn(225));
         await r.walk([[-0.3, 4.5], [-1.05, 3.85]]);
-        await r.turn(45);
+        await r.turn(135);
         r.do('stand');
         o.look('riviere#hand_r');
         r.look('roblet#hand_l');
@@ -681,8 +682,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       tells: ['chocks_pick:say', 'chocks_pick:pick', 'chocks_pick:gone'],
       seconds: 8,
       from: () => ({
-        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...P('roblet', [-0.15, 3.85], 315, 'stand_easy', { look: 'riviere', wear: CAP_ON }),
-        ...P('riviere', [-1.05, 3.85], 45, 'stand', { look: 'roblet' }),
+        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...P('roblet', [-0.15, 3.85], 225, 'stand_easy', { look: 'riviere', wear: CAP_ON }),
+        ...P('riviere', [-1.05, 3.85], 135, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.two_hands,
       }),
       run: async s => {

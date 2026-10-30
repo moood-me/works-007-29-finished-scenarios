@@ -131,7 +131,7 @@ export const OFFICE = f => ({
 export const AIR = {
   bureau: k => {
     // (the room under its music: the clock and the wind at the door heard, not guessed at)
-    const t = k.time ?? 0, a = { clock: 0.3 };
+    const t = k.time ?? 0, a = { clock: 0.2 };
     if (k.tape) a.inker = 0.4;
     if (t >= 180 && t < 330) a.rain = 0.35;
     else if (t >= 330 && t < 480) a.field = 0.14;
