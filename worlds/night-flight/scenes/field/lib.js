@@ -336,8 +336,9 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         r.reach(null);
         s.tell('touch:hand');
         r.do('hands_behind');
-        // (he turns his head to Rivière, his body still to the lens: turned round, he showed his back)
-        p.look('riviere');
+        // (he turns his head after the hand, toward Rivière's side and the lens: looking at him, his head went round past
+        // the profile and showed its back)
+        p.look([-1.4, 7.6, 1.65]);
         await s.wait(0.6);
         s.tell('touch:turn');
         await s.wait(1);
