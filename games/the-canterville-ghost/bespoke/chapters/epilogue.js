@@ -89,10 +89,18 @@ export default {
         // (the last shot: nothing stirs, nothing is heard)
         await piece(g, 'candle_last', {}, () => g.scene('tapestry', { beat: 'candle_last', here: ['otis'], moods: { otis: 'sad' }, air: {} }));
       } else {
-        // (the chain heard from the Tapestry Chamber's windows — once, and only while he plays: the piece tells it then)
+        // (her look up at the house: the Tapestry Chamber's window as she sees it — and while he plays, the chain heard from
+        // it, once)
         await piece(g, 'porch', {
           board: () => { g.sound('carriage', { loud: 0.7 }); },
-          ...(f.plays ? { chain: () => { g.sound('chain_clink', { loud: 0.9 }); } } : {}),
+          look: async () => {
+            // (between the twins she does not look back: the chain only heard)
+            if (!f.shares) g.set('facade_open', 1, 0.8);
+            await g.wait(1400);
+            if (f.plays) g.sound('chain_clink', { loud: 0.9 });
+            await g.wait(2400);
+            if (!f.shares) g.set('facade_open', 0, 0.8);
+          },
         }, () => g.scene('hall', { air: { clock: 0.1, birds: 0.2 }, beat: 'porch', here: ['virginia', 'otis', 'mrs_otis', 'washington', 'twin_star', 'twin_stripes'], moods: { otis: 'neutral', virginia: 'sad' }, keys: { wake: f.door === 'wake', shares: f.shares, plays: f.plays } }));
         if (f.wished) {
           await g.say('virginia', 'Good night, sir', { how: 'a whisper, in broad daylight' });

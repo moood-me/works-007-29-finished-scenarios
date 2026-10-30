@@ -89,6 +89,8 @@ never set by a piece. Shots are cameras of their own (the eye and what it looks 
 | `coat` | the morning of leaving: Mr Otis buttons his coat (`button_coat`), Virginia by him |
 | `porch` | they go out to the carriage: `shares` — she between the twins; else last, his hand given her (`wake`), turning on the porch to look up at the house — her face to us; `porch:chain` (only when `plays`) — the chain heard |
 
+The insert `facade` (`facade_open`, 2026-10-30): what her look up at the house sees — the Tapestry Chamber's window from below, leaded, dark, nobody at it; the game opens it at `porch:look`.
+
 Not right yet: the strokes and the chain are the game's sound; «she sits between the twins» in the carriage is seen as
 going out with them (the carriage's inside is not shown); the façade with the Tapestry Chamber's windows is not
 painted: she looks up at the house over the viewer.

@@ -28,6 +28,18 @@
         "lights": {
           "moon": 0.25
         }
+      },
+      "morning": {
+        "ambient": 0.8,
+        "ambientColor": "#d6cdb8",
+        "tint": "#fff2dc",
+        "tintStrength": 0.05,
+        "shafts": 0.3,
+        "haze": 0.03,
+        "hazeColor": "#8a8478",
+        "lights": {
+          "moon": 0
+        }
       }
     }
   },
@@ -206,7 +218,8 @@
     "pillow_a": 1.9,
     "pillow_d": 10.2,
     "pillow_e": 1.5,
-    "pillow_spin": 0
+    "pillow_spin": 0,
+    "morning": 0
   },
   "states": {
     "evening": {
@@ -380,6 +393,14 @@
     "pillow_spin": {
       "type": "number",
       "means": "the pillow: how it is turned over as it flies (degrees)"
+    },
+    "morning": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "0 the night, 1 a pale autumn morning (daylight at the windows, the moon's light gone, the room lit grey and even)"
     }
   },
   "objects": [

@@ -67,6 +67,8 @@ export default {
         });
       } else {
         g.mood('virginia', 'thinking');
+        // (she keeps it: the thunder going away, the rain, the laughter dying down behind her)
+        g.sound('thunder', { far: true, delay: 1, loud: 0.6 });
         await piece(g, 'face_silent');
       }
       g.apply('face');

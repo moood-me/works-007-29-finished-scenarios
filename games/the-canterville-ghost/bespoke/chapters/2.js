@@ -113,7 +113,7 @@ export default {
             g.sound('laugh', { loud: 0.6 });
             await g.say('twin_stripes', 'Ginny’s on the ghost’s side! “He’s o-old!”', { how: 'sing-song, teasing, at the top of his voice' });
           },
-        }, () => g.scene('corridor', { beat: 'gallop', here: ['twin_star', 'twin_stripes'], moods: { twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.morning, air: { wind: 0.08 } }));
+        }, () => g.scene('corridor', { beat: 'gallop', here: ['twin_star', 'twin_stripes'], moods: { twin_star: 'laugh', twin_stripes: 'laugh' }, keys: CORRIDOR.morning, air: { birds: 0.08, wind: 0.05 } }));
       }
       g.apply('trap');
     },

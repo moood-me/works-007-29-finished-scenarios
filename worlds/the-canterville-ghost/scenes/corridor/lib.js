@@ -152,7 +152,7 @@ function portrait(g, x, y, w, h, seed) {
 const CAM0 = { camera_target: null, camera_shot: 'full', camera_frame: null, camera_glide: 1.5, camera_x: 0, camera_h: 0, camera_z: 0,
   camera_look: 0, camera_pitch: 0, camera_yaw: 0, camera_roll: 0 };
 // the corridor's own keys at rest: the night, the doors shut, nothing on the floor, no candles
-const NIGHT = { evening: 0, sconces: 0, door_parents: 90, door_virginia: 270, door_twins: 270, bottle: 'none', spook: 'none', armchair: false,
+const NIGHT = { evening: 0, morning: 0, sconces: 0, door_parents: 90, door_virginia: 270, door_twins: 270, bottle: 'none', spook: 'none', armchair: false,
   stand_candle: true, pillow: false, pillow_a: 1.9, pillow_d: 10.2, pillow_e: 1.5, pillow_spin: 0, ghost_light: 0, otis_candle: 0, virginia_candle: 0 };
 // one of the people where they stand: across, along, turn, what they do, and the rest of their keys at rest
 function at(id, a, d, turn, does = 'stand', more = {}) {
@@ -506,7 +506,7 @@ function film(scene) {
     // 2.5 the next morning: the twins run down the corridor toward the Tapestry Chamber
     gallop: {
       after: [], tells: ['gallop:run'], seconds: 6,
-      from: () => ({ ...CAM0, ...NIGHT, evening: 1, ...at('twin_stripes', 0.35, 2.2, 0), ...at('twin_star', -0.35, 1.6, 0) }),
+      from: () => ({ ...CAM0, ...NIGHT, morning: 1, ...at('twin_stripes', 0.35, 2.2, 0), ...at('twin_star', -0.35, 1.6, 0) }),
       run: async s => {
         const star = s.person('twin_star'), stripes = s.person('twin_stripes');
         s.tell('gallop:run');

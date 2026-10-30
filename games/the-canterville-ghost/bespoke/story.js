@@ -105,7 +105,7 @@ export const CORRIDOR = {
   // 2.5 «warn»: a quarter to midnight, the turnip ghost at the corner, she at her door with a candle
   candle: { spook: 'standing', ghost_light: 0, door_parents: 90, door_virginia: 330, virginia_a: 1.8, virginia_d: 6.3, virginia_with: ['candle_l'], virginia_candle: 1 },
   // the next morning
-  morning: { evening: 1, sconces: 0, ghost_light: 0, door_parents: 90, twin_star_a: -0.3, twin_star_d: 9, twin_stripes_a: 0.4, twin_stripes_d: 10.5 },
+  morning: { evening: 0, morning: 1, sconces: 0, ghost_light: 0, door_parents: 90, twin_star_a: -0.3, twin_star_d: 9, twin_stripes_a: 0.4, twin_stripes_d: 10.5 },
   // 4С.2: the evening, the armchair at her door, Mr Otis by it, she in her doorway
   word: { evening: 1, sconces: 1, armchair: true, ghost_light: 0, otis_a: 1.2, otis_d: 6, otis_with: [], otis_candle: 0, virginia_a: 1.8, virginia_d: 6.3, virginia_with: [], virginia_candle: 0, door_virginia: 330, door_parents: 90 },
   // 4С.3–4С.4: night, Mr Otis asleep in the armchair, Sir Simon at the far end, she at her open door

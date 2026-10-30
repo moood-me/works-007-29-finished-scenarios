@@ -126,8 +126,8 @@ back or come too near, a piece sets its own camera (`CAM`: an eye and a point, c
 
 - `read_seated` holds the open book up before the chest, while the cast's `book` lies shut on the knees: his hands are
   empty over it.
-- `gallop` is a morning in the evening's light (`evening` 1 — dusk at the windows, as the game's `CORRIDOR.morning`
-  has it; the contract's row says `evening` 0, the moonlit night): the corridor has no daylight look.
+- (2026-10-30) `gallop` has its morning: the key and look `morning` — a pale autumn sky at the windows (sky layer
+  `day`), the moon's light out, the room lit grey and even.
 - `candle_walk` waits for М4 to bring `virginia_d` to 13.2 m; М4 moves only `virginia_d`, so she walks along the right
   side (across 1.8) and steps to the far door at the end.
 - In `wake_papa` she reaches for his hand from where М8б left her (the shoulder mini-game sets only her reach).

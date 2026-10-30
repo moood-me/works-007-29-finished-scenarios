@@ -244,7 +244,8 @@
     "cecil_mood": "surprised",
     "mrs_umney_here": false,
     "mrs_umney_a": -1.0,
-    "mrs_umney_d": 5.6
+    "mrs_umney_d": 5.6,
+    "facade_open": 0
   },
   "states": {
     "moment": {
@@ -485,6 +486,14 @@
     "plays": {
       "type": "boolean",
       "means": "the game's: Sir Simon still plays - the chain heard from the Tapestry Chamber's windows as they leave"
+    },
+    "facade_open": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "«Пятно», the porch: what she sees looking up at the house — the Tapestry Chamber's window from below (the insert `facade`), 0 shut … 1 open"
     }
   },
   "objects": [
@@ -1126,6 +1135,17 @@
         "distance": "mrs_umney_d"
       },
       "inside": true
+    },
+    {
+      "id": "facade",
+      "name": "The Tapestry Chamber's window from below, from the porch (her look)",
+      "insert": "facade_open",
+      "iris": [
+        0.889,
+        0.5,
+        0.56,
+        0.48
+      ]
     }
   ],
   "music": {
