@@ -212,7 +212,7 @@ export default {
 };
 
 // 4.6 / 4С.5: midnight — the clock strikes twelve, and with the last stroke the whole house falls silent at once: the
-// clock, the wind, the boards (every bed of sound out). far — heard from the hall below
+// clock, the wind, the boards (every bed of sound out), and the music with them. far — heard from the hall below
 async function twelve(g, { far = false } = {}) {
   for (let i = 0; i < 12; i++) {
     g.sound('strike', { far, loud: far ? 0.9 : 1, cut: 1.9 });
@@ -220,6 +220,7 @@ async function twelve(g, { far = false } = {}) {
   }
   await g.wait(600);
   g.air({});
+  g.music(0, 1);
   await g.wait(1400);
 }
 // 4.1 / 4С.5: the dark beyond the wall, the voices; holding his hand (`dark`, М6)

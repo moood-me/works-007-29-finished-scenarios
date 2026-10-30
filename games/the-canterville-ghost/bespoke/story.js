@@ -15,6 +15,7 @@
 //     its keys stand (AIR). Always opened anew; `cut` — in one cut, else through black
 //   g.air(levels) — the beds under the shown scene from now on (a change within it: the nightingale stops, the house
 //     falls silent)
+//   g.music(level, seconds) — the shown scene's music as loud as `level` (0 … 1) over `seconds` (the next scene: 1 again)
 //   g.sound(name, {loud, far, delay, rate}) — a one-off sound (sound.js ONCE); nothing where the step is unseen or hurried
 //     (the page's ⏭)
 //   g.beat(name, {wait}) — a piece of the shown scene (its key `beat`; world module `beats`); → once it has ended (the
@@ -354,6 +355,10 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
     air(levels) {
       if (gone()) return;
       if (unseen()) { if (j.shown) j.shown.air = levels; } else b.background(levels);
+    },
+    music(level, seconds) {
+      if (gone() || unseen()) return;
+      b.music?.(level, seconds); // (an engine before bespoke.music: the music goes on)
     },
     sound(name, o) {
       if (gone() || unseen() || fast) return;
