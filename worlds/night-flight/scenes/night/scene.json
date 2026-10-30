@@ -59,7 +59,7 @@
     {
       "id": "bureau_0",
       "across": -8,
-      "distance": -1,
+      "distance": 0.5,
       "elevation": 2.2,
       "color": "#ffd39a",
       "strength": 1.1,
@@ -68,7 +68,7 @@
     {
       "id": "bureau_1",
       "across": 4,
-      "distance": -1,
+      "distance": 0.5,
       "elevation": 2.2,
       "color": "#ffd39a",
       "strength": 1.1,
@@ -77,7 +77,7 @@
     {
       "id": "bureau_2",
       "across": 16,
-      "distance": -1,
+      "distance": 0.5,
       "elevation": 2.2,
       "color": "#ffd39a",
       "strength": 1.1,
