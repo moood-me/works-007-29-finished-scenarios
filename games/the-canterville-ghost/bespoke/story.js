@@ -59,7 +59,7 @@ import { once } from './sound.js';
 // The game's places (scenario §4) and the world's scene each is played on — the one map of them: a place whose own
 // scene is not made yet stands in one of the ready ones, its people there, and `where` says (a label high on the left)
 // where it really is. When the place's own scene comes, its line here becomes `{ folder: '<its folder>' }` — nothing
-// else changes: the steps name places, never folders. (The library is also the map's background, game.js.)
+// else changes: the steps name places, never folders. (The map has a scene of its own: `night`, game.js.)
 export const PLACES = {
   library: { folder: 'library' }, // С1 the library
   corridor: { folder: 'corridor' }, // С2 the corridor

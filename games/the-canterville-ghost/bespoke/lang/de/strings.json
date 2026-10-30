@@ -252,7 +252,7 @@
   {"text":"Finale","translation":"Finale","where":"games/the-canterville-ghost/bespoke/game.js"},
   {"text":"Replay","translation":"Wiederholung","where":"games/the-canterville-ghost/bespoke/map.js"},
   {"text":"continue\nthe replay","translation":"Wiederholung\nfortsetzen","where":"games/the-canterville-ghost/bespoke/map.js"},
-  {"text":"the author’s map","translation":"die Karte des Autors","where":"games/the-canterville-ghost/bespoke/map.js"},
+  {"text":"the author","translation":"der Autor","where":"games/the-canterville-ghost/bespoke/map.js"},
   {"text":"The Candle","translation":"Die Kerze","where":"games/the-canterville-ghost/bespoke/minigames/candle.js"},
   {"text":"A quarter to midnight. A candle, and the long corridor to the Tapestry Chamber.","translation":"Viertel vor zwölf. Eine Kerze und der lange Korridor bis zum Gobelinzimmer.","where":"games/the-canterville-ghost/bespoke/minigames/candle.js"},
   {"text":"The flame is out. The corridor is dark to its end.","translation":"Die Flamme ist aus. Der Korridor ist dunkel bis ans Ende.","where":"games/the-canterville-ghost/bespoke/minigames/candle.js"},

@@ -72,38 +72,119 @@
 #layer .author-panel .minigames { display: flex; flex-direction: column; }
 #layer .author-panel section button.minigame { padding: 3px 10px 3px 24px; font-size: 14px; }
 
-/* the map (map.js): a row of paper leaves over the library at night, scrolled sideways */
-#underlay .map { --paper: #f4ecd8; --paper-edge: #d6c4a0; --ink: #2b211b; --ink-soft: #6b5a4b; --pencil: #a0927f; --lamp: #d99a3a;
-  position: absolute; inset: 0; font-family: Georgia, "Times New Roman", serif; }
-#underlay .map .strip { position: absolute; left: 0; right: 0; top: 70px; bottom: 24px; display: flex;
-  align-items: flex-start; gap: 18px; padding: 0 24px; overflow-x: auto; overflow-y: hidden; pointer-events: auto; scrollbar-width: thin; }
-#underlay .map .leaf { position: relative; flex: 0 0 auto; box-sizing: border-box; width: min(300px, 78vw); max-height: 100%; overflow-y: auto;
-  padding: 14px 16px 16px; color: var(--ink); background: var(--paper); border: 1px solid var(--paper-edge); border-radius: 4px;
-  box-shadow: 0 8px 26px rgba(25, 18, 14, 0.3); }
-#underlay .map .leaf.future { width: 120px; opacity: 0.7; }
-#underlay .map .leaf.here, #underlay .map .leaf.next { border-top: 4px solid var(--lamp); }
-#underlay .map button { font: inherit; color: inherit; background: none; border: 0; padding: 0; text-align: left; cursor: default; }
-#underlay .map .can { cursor: pointer; }
-#underlay .map .can:hover { color: #5a3a28; }
-#underlay .map .head { display: flex; flex-direction: column; gap: 2px; width: 100%; min-height: 44px; margin-bottom: 10px; }
-#underlay .map .num { font-size: 13px; letter-spacing: 0.2em; color: var(--ink-soft); }
-#underlay .map .title { font-size: 21px; line-height: 1.2; }
-#underlay .map .rows { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
-#underlay .map .leaf.grow .row { animation: cg-row 0.8s ease-out both; animation-delay: calc(var(--k) * 0.6s); }
-@keyframes cg-row { from { opacity: 0; translate: 0 -6px; } }
-#underlay .map .q { display: flex; align-items: center; gap: 8px; min-height: 30px; font-size: 14px; color: var(--ink-soft); }
-#underlay .map .q .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ink-soft); flex: 0 0 auto; }
-#underlay .map .q.can .dot { background: var(--lamp); box-shadow: 0 0 0 4px rgba(217, 154, 58, 0.3); }
-#underlay .map .opts { margin: 2px 0 0 17px; padding: 0; list-style: none; font-size: 15px; line-height: 1.3; }
-#underlay .map .opt.chosen, #underlay .map .opt.both { color: var(--ink); font-weight: 700; }
-#underlay .map .opt.tried { color: #3a6ea5; font-style: italic; }
-#underlay .map .opt.open { color: var(--pencil); }
-#underlay .map .came { margin: 4px 0 0 17px; font-size: 13px; line-height: 1.3; font-style: italic; color: var(--ink-soft); }
-#underlay .map .opt.unseen { height: 0.9em; border-bottom: 1px dotted var(--paper-edge); width: 60%; }
-#underlay .map .go { display: block; margin-top: 14px; min-height: 44px; padding: 8px 14px; border-radius: 22px; background: var(--ink); color: var(--paper);
-  white-space: pre-line; text-align: center; width: 100%; }
-#underlay .map .go.replay { background: #3a6ea5; }
-#underlay .map .go.can:hover { background: #5a3a28; color: var(--paper); }
-#underlay .map .badge { position: absolute; top: -10px; right: 12px; padding: 3px 10px; border-radius: 10px; background: #3a6ea5; color: var(--paper); font-size: 13px; }
-#underlay .map .author { flex: 0 0 auto; align-self: center; min-height: 44px; padding: 10px 14px; border-radius: 4px; background: var(--paper);
-  border: 1px dashed var(--ink-soft); font-size: 14px; color: var(--ink-soft); }
+/* the map (map.js): each chapter's tree under the language's marks (bespoke.underlay), at its chapter's point of the
+   scene «Canterville by Night». Sizes in the frame's height (--u: its 900th). After «Cinema Paradiso»'s */
+#underlay .map{--u:calc(var(--h) / 900)}
+@keyframes m-breathe{from{transform:translate(-50%,-50%) scale(.84);opacity:.6}to{transform:translate(-50%,-50%) scale(1.12);opacity:1}}
+@keyframes m-row-in{from{opacity:0;transform:translateY(calc(var(--u) * -6))}to{opacity:1;transform:none}}
+@keyframes m-nudge{from{transform:translateX(calc(var(--u) * -3))}to{transform:translateX(calc(var(--u) * 2))}}
+@keyframes m-tip{from{opacity:.45}to{opacity:1}}
+#underlay .map .stand{position:absolute;left:0;top:0;width:0;height:0;transform-origin:0 0}
+#underlay .map .stand[hidden]{display:none}
+#underlay .map .tree{position:absolute;box-sizing:border-box;width:var(--w);--s:1;--gut:calc(var(--u) * 44);--L:calc(var(--u) * var(--s) * 21);
+  font-family:var(--f-text);color:var(--c-name)}
+#underlay .map .tree.dense{--s:.84}
+#underlay .map .tree.grow .row{animation:m-row-in .9s ease-out both}
+#underlay .map .tree .head{text-align:center;padding-bottom:calc(var(--u) * 4)}
+#underlay .map .tree .num{font-family:var(--f-num);font-size:calc(var(--u) * 14);letter-spacing:.24em;line-height:1.5;color:var(--c-num)}
+#underlay .map .tree .title{font-family:var(--f-title);font-size:calc(var(--u) * 29);font-style:italic;line-height:1.15;color:var(--c-title)}
+#underlay .map .tree.future{background:none;box-shadow:none}
+#underlay .map .tree.future .head{border:0}
+#underlay .map .tree.future .num{opacity:.55}
+#underlay .map .knot{position:relative;height:calc(var(--u) * 36)}
+#underlay .map .knot .seg{top:calc(var(--u) * 10);height:calc(100% - var(--u) * 10)}
+#underlay .map .knot .halo{position:absolute;left:50%;top:calc(var(--u) * 10);width:calc(var(--u) * 56);height:calc(var(--u) * 56);border-radius:50%;
+  background:radial-gradient(circle,var(--c-halo) 0%,transparent 68%);animation:m-breathe 4.6s ease-in-out infinite alternate}
+#underlay .map .knot .core{position:absolute;left:50%;top:calc(var(--u) * 10);width:calc(var(--u) * 10);height:calc(var(--u) * 10);transform:translate(-50%,-50%);
+  border-radius:50%;background:var(--c-core)}
+#underlay .map .tree.current .halo{width:calc(var(--u) * 90);height:calc(var(--u) * 90)}
+#underlay .map .tree.current .core{width:calc(var(--u) * 13);height:calc(var(--u) * 13);box-shadow:0 0 calc(var(--u) * 10) var(--c-halo)}
+#underlay .map .rows{margin:0;padding:0;list-style:none}
+#underlay .map .row{display:grid;grid-template-columns:minmax(0,1fr) var(--gut) minmax(0,1fr);padding-bottom:calc(var(--u) * var(--s) * 13)}
+#underlay .map .row .name{text-align:right;font-style:italic;font-size:calc(var(--u) * var(--s) * 14.5);line-height:var(--L);color:var(--c-name)}
+#underlay .map .row.key .name{color:var(--c-key)}
+#underlay .map .row .flag{font-style:normal;color:var(--c-main)}
+#underlay .map .row .stem{position:relative}
+#underlay .map .seg{position:absolute;left:50%;top:0;height:100%;width:calc(var(--u) * 10);transform:translateX(-50%);overflow:visible}
+#underlay .map .seg path{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+#underlay .map .seg .line{stroke:var(--c-main);stroke-width:var(--trunk)}
+#underlay .map .seg .glow{stroke:var(--c-glow);stroke-width:var(--glow)}
+#underlay .map .row:last-child .seg{height:calc(var(--L) / 2)}
+#underlay .map .stem .dot{position:absolute;left:50%;top:calc(var(--L) / 2);width:calc(var(--u) * var(--s) * 10);height:calc(var(--u) * var(--s) * 10);
+  transform:translate(-50%,-50%);border-radius:50%;background:var(--c-main)}
+#underlay .map .stem .rseg{position:absolute;left:calc(50% - var(--u) * 9);top:0;bottom:0;border-left:1.5px dashed var(--c-replay)}
+#underlay .map .row.r-start .rseg{top:calc(var(--L) / 2)}
+#underlay .map .opts{list-style:none;margin:0;padding:0;min-width:0}
+#underlay .map .opt{position:relative}
+#underlay .map .opt.chosen{font-size:calc(var(--u) * var(--s) * 16);line-height:var(--L);color:var(--c-chosen)}
+#underlay .map .opt.alt{padding-left:calc(var(--u) * var(--s) * 13);font-size:calc(var(--u) * var(--s) * 13.5);line-height:1.32;color:var(--c-alt)}
+#underlay .map .opt.alt .pip{position:absolute;left:0;top:.66em;width:calc(var(--u) * 5);height:calc(var(--u) * 5);transform:translateY(-50%);border-radius:50%;background:var(--c-alt);opacity:.8}
+#underlay .map .opt.alt .twig{position:absolute;left:calc(var(--gut) / -2);top:calc(.66em - var(--u) * 16);width:calc(var(--gut) / 2);height:calc(var(--u) * 16);overflow:visible}
+#underlay .map .twig path{fill:none;stroke:var(--c-thin);stroke-width:1px;vector-effect:non-scaling-stroke}
+#underlay .map .opt.tried{color:var(--c-replay);font-style:italic}
+#underlay .map .opt.tried .pip{background:var(--c-replay);opacity:1}
+#underlay .map .opt.tried .twig path{stroke:var(--c-replay);stroke-dasharray:4 3}
+#underlay .map .opt.unseen{font-size:calc(var(--u) * var(--s) * 16);line-height:var(--L);letter-spacing:.35em;color:var(--c-alt);opacity:.7}
+#underlay .map .row.cursor,#underlay .map .row.pending{--L:calc(var(--u) * var(--s) * 36);min-height:calc(var(--L) + var(--u) * 6)}
+#underlay .map .row.cursor .dot,#underlay .map .row.pending .dot{display:none}
+#underlay .map .row.cursor .rseg{bottom:auto;height:calc(var(--L) / 2)}
+#underlay .map .row.pending .seg .line{stroke-dasharray:3 4;opacity:.6}
+#underlay .map .row.pending .seg .glow{display:none}
+#underlay .map .row.cursor .name,#underlay .map .row.pending .name{position:relative}
+#underlay .map .stem .tip{position:absolute;left:50%;top:calc(var(--L) / 2);width:calc(var(--u) * 12);height:calc(var(--u) * 8);transform:translate(-50%,-40%);
+  overflow:visible;animation:m-tip 1.4s ease-in-out infinite alternate}
+#underlay .map .stem .tip.r{left:calc(50% - var(--u) * 9)}
+#underlay .map .tip path{fill:none;stroke:var(--c-main);stroke-width:1.8px;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+#underlay .map .tip.r path{stroke:var(--c-replay)}
+#underlay .map .go{position:absolute;right:0;top:calc(var(--L) / 2);transform:translateY(-50%);display:flex;align-items:center;gap:calc(var(--u) * 8);
+  min-height:max(44px,calc(var(--u) * 44));padding:0;border:0;background:none;text-align:right;white-space:nowrap;font:italic calc(var(--u) * var(--s) * 15)/1.15 var(--f-text)}
+#underlay .map .go-game{color:var(--c-chosen)}
+#underlay .map .go-replay{color:var(--c-replay)}
+#underlay .map .go .arr{width:calc(var(--u) * 26);height:calc(var(--u) * 10);flex:none;overflow:visible;animation:m-nudge 1.1s ease-in-out infinite alternate}
+#underlay .map .arr path{fill:none;stroke:currentColor;stroke-width:1.6px;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+#underlay .map .badge{position:absolute;left:0;top:calc(var(--u) * -34);display:inline-flex;align-items:center;gap:calc(var(--u) * 7);
+  padding:calc(var(--u) * 3) calc(var(--u) * 11);border-radius:999px;font-size:calc(var(--u) * 12.5);font-style:italic;color:var(--c-replay)}
+#underlay .map .badge i{width:calc(var(--u) * 16);border-top:1.5px dashed var(--c-replay)}
+/* (the plate pressed — its mark: the replay on, or dropped; its touch at least 44 px) */
+#underlay .map .badge::after { content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); translate: -50% -50%; }
+#underlay .map .author{position:absolute;display:flex;flex-direction:column;align-items:center;gap:calc(var(--u) * 6)}
+#underlay .map .author svg{width:calc(var(--u) * 52);height:calc(var(--u) * 52);overflow:visible}
+#underlay .map .author span{font:italic calc(var(--u) * 14)/1 var(--f-text);color:var(--c-name)}
+#underlay .map .can{pointer-events:auto;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#underlay .map .hit{position:absolute;width:max(44px,calc(var(--u) * 44));height:max(44px,calc(var(--u) * 44));margin:0;padding:0;transform:translate(-50%,-50%);
+  border:0;border-radius:50%;background:none}
+#underlay .map .hit:not(.can){display:none}
+#underlay .map .knot .hit{left:50%;top:calc(var(--u) * 10)}
+#underlay .map .stem .hit{left:50%;top:calc(var(--L) / 2)}
+#underlay .map .stem .at{position:absolute;left:50%;top:calc(var(--L) / 2)}
+#underlay .map .author .hit{left:50%;top:calc(var(--u) * 26);width:max(44px,calc(var(--u) * 60));height:max(44px,calc(var(--u) * 60))}
+#underlay .map button:focus{outline:none}
+#underlay .map button:focus-visible{outline:1px solid var(--c-main);outline-offset:2px}
+#underlay .map .go.can:hover{filter:brightness(1.25)}
+#underlay .map .tree:has(.head.can:hover,.knot .hit.can:hover) .title{color:var(--c-main)}
+#underlay .map .tree:has(.head.can:hover,.knot .hit.can:hover) .core{filter:brightness(1.4)}
+#underlay .map .row:has(.hit.can:hover,.opt.chosen.can:hover) .opt.chosen{color:var(--c-main)}
+
+/* Canterville's look: each chapter a leaf of old letter paper under the night, brown-black ink, the candle's amber for
+   what is the player's to press, what came of a choice in a smaller italic hand */
+#underlay .map.cant{--f-text:Georgia,'Times New Roman',serif;--f-title:Georgia,'Times New Roman',serif;--f-num:Georgia,serif;
+  --c-main:#b06a1e;--c-glow:rgba(217,154,58,.18);--c-chosen:#2b211b;--c-title:#2b211b;--c-num:#6b5a4b;
+  --c-name:#5a4a3c;--c-key:#2b211b;--c-alt:#9a8b77;--c-thin:rgba(107,90,75,.45);--c-replay:#3a6ea5;
+  --c-halo:rgba(217,154,58,.55);--c-core:#d99a3a;--trunk:1.5px;--glow:6px;--w:calc(var(--u) * 430)}
+#underlay .map.cant .tree{min-height:calc(var(--u) * 120);padding:calc(var(--u) * 16) calc(var(--u) * 22) calc(var(--u) * 12);
+  background:#f4ecd8;border:1px solid #d6c4a0;border-radius:calc(var(--u) * 4);box-shadow:0 calc(var(--u) * 8) calc(var(--u) * 26) rgba(0,0,0,.45)}
+#underlay .map.cant .tree.future{background:rgba(244,236,216,.55);box-shadow:none;min-height:0}
+#underlay .map.cant .tree.future .core{visibility:hidden}
+#underlay .map.cant .tree.current{border-top:calc(var(--u) * 4) solid #d99a3a}
+#underlay .map.cant .row{border-top:1px solid rgba(107,90,75,.16);padding-top:calc(var(--u) * var(--s) * 6)}
+#underlay .map.cant .row.cursor,#underlay .map.cant .row.pending{border-top-color:transparent}
+#underlay .map.cant .opt.chosen{font-weight:700}
+#underlay .map.cant .came{list-style:none;margin-top:calc(var(--u) * 3);font-size:calc(var(--u) * var(--s) * 12.5);line-height:1.3;font-style:italic;color:#6b5a4b}
+#underlay .map.cant .stem .dot{background:#d99a3a;box-shadow:0 0 0 calc(var(--u) * 2.5) rgba(217,154,58,.28)}
+#underlay .map.cant .badge{left:calc(var(--u) * 16);top:calc(var(--u) * -30);background:#f4ecd8;color:var(--c-replay);border:1px solid rgba(58,110,165,.45);
+  padding:calc(var(--u) * 3) calc(var(--u) * 10);border-radius:calc(var(--u) * 10);font-size:calc(var(--u) * 13)}
+#underlay .map.cant .author svg circle{fill:rgba(244,236,216,.9);stroke:#d6c4a0;stroke-width:1.4px}
+#underlay .map.cant .author svg .wax{fill:#efe6cf;stroke:#6b5a4b;stroke-width:1px}
+#underlay .map.cant .author svg .flame{fill:#d99a3a}
+#underlay .map.cant .author svg .dish{stroke:#6b5a4b;stroke-width:1.6px}
+#underlay .map.cant .author span{color:#f4ecd8;text-shadow:0 1px 3px rgba(0,0,0,.8)}

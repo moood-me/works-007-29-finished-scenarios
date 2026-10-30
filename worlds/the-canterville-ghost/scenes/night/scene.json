@@ -1,0 +1,231 @@
+{
+  "engine": 3,
+  "title": "Canterville by Night",
+  "caption": "",
+  "camera": {
+    "mode": "panorama",
+    "span": [
+      -3.2,
+      30
+    ]
+  },
+  "horizon": 0.5,
+  "light": {
+    "grain": 0.08,
+    "vignette": 0.45
+  },
+  "state": {
+    "shown": 0,
+    "come": 0,
+    "camera_x": 0
+  },
+  "states": {
+    "shown": {
+      "type": "number",
+      "means": "the chapter the player is at: the view goes to its point c<i> (camera_x)"
+    },
+    "come": {
+      "type": "number",
+      "means": "each new value brings the view back to the chapter shown (camera_x), the player's drag with it"
+    }
+  },
+  "music": {
+    "prompts": [
+      {
+        "text": "chamber gothic comedy, pizzicato strings tiptoeing, a harpsichord, sly and dry, Victorian manor at night",
+        "weight": 0
+      },
+      {
+        "text": "solo cello, slow and tender, a lament for someone three hundred years tired",
+        "weight": 0.3
+      },
+      {
+        "text": "music box waltz, slightly out of tune, old English country house, moonlight",
+        "weight": 0.6
+      },
+      {
+        "text": "distant church organ, low and soft, through thick stone walls",
+        "weight": 0
+      },
+      {
+        "text": "bassoon and clarinet, comic and pompous, a theatrical villain's entrance",
+        "weight": 0
+      },
+      {
+        "text": "celesta and harp, a girl's quiet pity, glassy and clear",
+        "weight": 0.3
+      },
+      {
+        "text": "low string drone with clanking metallic percussion, chains in a corridor",
+        "weight": 0
+      },
+      {
+        "text": "Elizabethan lute galliard, faded, as if remembered",
+        "weight": 0
+      },
+      {
+        "text": "ragtime piano, American, cheerful, very far away in another wing",
+        "weight": 0
+      },
+      {
+        "text": "thunderstorm rumble under a slow minor piano",
+        "weight": 0
+      },
+      {
+        "text": "string quartet, Victorian, restrained melancholy",
+        "weight": 0.4
+      },
+      {
+        "text": "boys' choir, a single held note, a garden under the moon",
+        "weight": 0
+      },
+      {
+        "text": "nightingale-like flute over soft strings, peaceful, an almond tree in blossom",
+        "weight": 0
+      },
+      {
+        "text": "ticking clock and creaking floorboards, sparse pizzicato, suspense",
+        "weight": 0
+      },
+      {
+        "text": "mock-heroic brass fanfare, muted, slightly ridiculous",
+        "weight": 0
+      },
+      {
+        "text": "slow harpsichord pavane, dignified and dusty",
+        "weight": 0
+      }
+    ],
+    "bpm": 60,
+    "density": 0.15,
+    "brightness": 0.3,
+    "scale": "D_MAJOR_B_MINOR"
+  },
+  "objects": [
+    {
+      "id": "sky",
+      "sky": true,
+      "name": "Canterville by night"
+    },
+    {
+      "id": "c0",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 0,
+      "distance": 10,
+      "elevation": 2.65,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c1",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 5,
+      "distance": 10,
+      "elevation": 2.65,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c2",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 10,
+      "distance": 10,
+      "elevation": 2.65,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c3",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 15,
+      "distance": 10,
+      "elevation": 2.65,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c4",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 20,
+      "distance": 10,
+      "elevation": 2.65,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c5",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 25,
+      "distance": 10,
+      "elevation": 2.65,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "c6",
+      "name": "Chapter",
+      "unseen": true,
+      "across": 30,
+      "distance": 10,
+      "elevation": 2.65,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "author",
+      "name": "The author’s map",
+      "unseen": true,
+      "across": -3.2,
+      "distance": 10,
+      "elevation": 2.0,
+      "height": 0.1,
+      "box": [
+        -0.05,
+        -0.1,
+        0.05,
+        0
+      ]
+    }
+  ]
+}

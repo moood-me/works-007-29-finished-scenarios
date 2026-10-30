@@ -252,7 +252,7 @@
   {"text":"Finale","translation":"피날레","where":"games/the-canterville-ghost/bespoke/game.js"},
   {"text":"Replay","translation":"다시 하기","where":"games/the-canterville-ghost/bespoke/map.js"},
   {"text":"continue\nthe replay","translation":"다시 하기\n계속","where":"games/the-canterville-ghost/bespoke/map.js"},
-  {"text":"the author’s map","translation":"작가의 지도","where":"games/the-canterville-ghost/bespoke/map.js"},
+  {"text":"the author","translation":"작가","where":"games/the-canterville-ghost/bespoke/map.js"},
   {"text":"The Candle","translation":"촛불","where":"games/the-canterville-ghost/bespoke/minigames/candle.js"},
   {"text":"A quarter to midnight. A candle, and the long corridor to the Tapestry Chamber.","translation":"자정 십오 분 전. 촛불 하나, 그리고 태피스트리 방까지 이어진 긴 복도.","where":"games/the-canterville-ghost/bespoke/minigames/candle.js"},
   {"text":"The flame is out. The corridor is dark to its end.","translation":"불꽃이 꺼졌다. 복도는 끝까지 캄캄하다.","where":"games/the-canterville-ghost/bespoke/minigames/candle.js"},
