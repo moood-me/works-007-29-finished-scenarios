@@ -62,7 +62,8 @@ function film(scene) {
     choose: CAM([0.9, 9.2, 1.9], [-0.6, 13.2, 1.6]),
     wall: CAM([-2.6, 13.1, 1.7], [-3.4, 17.6, 1.5]),
     box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
-    two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
+    // (the eye low: from eye height their heads, bowed to the box, showed their crowns, read as backs)
+    two_box: CAM([-0.4, 1.8, 1.15], [-1.0, 3.9, 1.4]),
     // M4: the two face to face in profile, the hands between them at the waist, close
     // (the two turned to the lens and to each other (135/225), their eyes on the hands at their waists: the eye low, so
     // the bowed faces are seen three-quarters, the spanner and the open palm between them — the engine's author, seen in
@@ -632,7 +633,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         // (the two turned to each other and half to the lens — 135 / 225 here — so both faces are seen over the box)
         const o = s.person('roblet');
         o.turn(225);
-        o.look('riviere#hand_r');
+        o.look('riviere');
         r.look('roblet');
         await r.turn(135);
         await r.do('give_box');

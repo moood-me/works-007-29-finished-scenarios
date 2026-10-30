@@ -256,7 +256,8 @@ function film(scene) {
         const r = s.person('riviere'), b = s.person('robineau');
         await b.walk([[1.6, 4.6], [0.5, 5.7]]);
         glide(s, SH.two_map, 2);
-        await s.all(b.turn(210), r.turn(150));
+        // (260: Rivière turned from the map to Robineau and the lens — seen on the GPU, 150 had his back to us)
+        await s.all(b.turn(210), r.turn(260));
         s.tell('papers:near');
         await s.wait(1.5);
       },
@@ -267,7 +268,7 @@ function film(scene) {
       tells: ['out:door'],
       seconds: 6,
       from: () => ({ ...NIGHT, time: clock(22, 8), ...FLAGS.julian,
-        ...ALL({ ...at('riviere', [-0.35, 5.85, 150, 'hands_behind'], 'robineau'), ...at('robineau', [0.5, 5.7, 210, 'hold_waist'], 'riviere') }), ...SH.two_map }),
+        ...ALL({ ...at('riviere', [-0.35, 5.85, 260, 'hands_behind'], 'robineau'), ...at('robineau', [0.5, 5.7, 210, 'hold_waist'], 'riviere') }), ...SH.two_map }),
       run: async s => {
         const r = s.person('riviere'), b = s.person('robineau');
         glide(s, SH.wide, 2);
