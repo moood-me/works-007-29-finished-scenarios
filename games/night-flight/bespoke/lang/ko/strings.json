@@ -342,5 +342,8 @@
   {"text":"The Heavy Victory","translation":"무거운 승리","where":"games/night-flight/bespoke/story.js"},
   {"text":"Without an Order","translation":"지령 없이","where":"games/night-flight/bespoke/story.js"},
   {"text":"Dawn","translation":"새벽","where":"games/night-flight/bespoke/story.js"},
-  {"text":"Next","translation":"다음","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"Next","translation":"다음","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"one","context":"exceptions tonight: one","translation":"한 번","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"How many times tonight the rule has bent before everyone.","translation":"오늘 밤 규칙이 모두의 앞에서 몇 번 휘었는가.","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"What she knows","translation":"그녀가 아는 것","where":"games/night-flight/bespoke/ui.js"}
 ]}

@@ -342,5 +342,8 @@
   {"text":"The Heavy Victory","translation":"Der schwere Sieg","where":"games/night-flight/bespoke/story.js"},
   {"text":"Without an Order","translation":"Ohne Befehl","where":"games/night-flight/bespoke/story.js"},
   {"text":"Dawn","translation":"Morgengrauen","where":"games/night-flight/bespoke/story.js"},
-  {"text":"Next","translation":"Weiter","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"Next","translation":"Weiter","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"one","context":"exceptions tonight: one","translation":"eine","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"How many times tonight the rule has bent before everyone.","translation":"Wie oft sich die Regel heute Nacht vor allen gebogen hat.","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"What she knows","translation":"Was sie weiß","where":"games/night-flight/bespoke/ui.js"}
 ]}

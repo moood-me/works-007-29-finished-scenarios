@@ -1,8 +1,10 @@
 // What the game shows over the scene (bespoke.layer), as slips of paper — telegraph forms: cream, black-brown ink, the
 // lamp's amber for what is the player's to press.
-//   view.gauge({scales, shown, marks} | null) — the scales low on the left (story.js SCALES, ORDER): each one the
-//     player has met — its name, its two ends and the pips between them; under “What she was told”, once the last
-//     minute is given, what is left her of it (MINUTE); null — none (the map)
+//   view.gauge({scales, shown, marks} | null) — the scales on a slip low on the left, shown on the map only (story.js
+//     SCALES, ORDER; scenario §8), each one the player has met: “Exceptions” as a bar — as many marks filled as the
+//     rule has bent, where that leaves it in words (not one; one; the rule bends), and what it counts; “What she
+//     knows” as two lines — what she was told on the telephone, and, once the last minute is given, what is left her of
+//     it (MINUTE); null — none
 //   view.toast(text, kind, arrows) — a slip in the corner: 'scale' (a scale moved: its side and arrows), 'rule' (what
 //     a scale means, the first time), 'mark' (remembered); three at most
 //   view.plate(text, {signal}) — a plate low over the scene: what happens here that the scene does not show, and
@@ -28,6 +30,7 @@ const button = (text, title, onclick, cls) =>
 
 export function ui(layer) {
   const gauge = el('div', 'gauge', layer);
+  gauge.hidden = true;
   const toasts = el('div', 'toasts', layer);
   const label = el('p', 'where', layer);
   label.hidden = true;
@@ -50,23 +53,30 @@ export function ui(layer) {
   return {
     gauge(state) {
       gauge.replaceChildren();
-      if (!state) return;
-      for (const name of ORDER) {
-        if (!state.shown[name]) continue;
-        const S = SCALES[name], v = state.scales[name];
-        const row = el('div', 'row', gauge);
+      gauge.hidden = !state || !ORDER.some(name => state.shown[name]);
+      if (gauge.hidden) return;
+      if (state.shown.exceptions) {
+        const S = SCALES.exceptions, v = state.scales.exceptions;
+        const row = el('div', 'row bar', gauge);
         el('span', 'name', row).textContent = S.name;
-        el('span', 'side', row).textContent = S.sides[0];
-        const pips = el('span', 'pips', row);
-        const on = S.spent ? S.max - v : v - S.min; // (spent: the bar from the left end grows as the value falls)
-        for (let i = 1; i <= S.max - S.min; i++) el('i', i <= on ? 'on' : '', pips);
-        el('span', 'side', row).textContent = S.sides[1];
+        const cells = el('span', 'cells', row);
+        for (let i = S.min + 1; i <= S.max; i++) el('i', i <= v ? 'on' : '', cells);
+        el('span', 'reads', row).textContent = v >= 2 ? S.sides[1] : v === 1 ? tr.c('exceptions tonight: one', 'one') : S.sides[0];
+        el('span', 'why', row).textContent = tr('How many times tonight the rule has bent before everyone.');
       }
-      // “What she knows”, its second line: what is left her of the last minute (story.js MINUTE)
-      if (state.shown.told && MINUTE[state.marks?.minute]) {
-        const row = el('div', 'row line', gauge);
-        el('span', 'name', row).textContent = MINUTE.name;
-        el('span', 'side', row).textContent = MINUTE[state.marks.minute];
+      if (state.shown.told) {
+        const S = SCALES.told;
+        const knows = el('div', 'row knows', gauge);
+        el('span', 'name', knows).textContent = tr('What she knows');
+        const told = el('span', 'line', knows);
+        el('span', 'side', told).textContent = S.name;
+        el('span', 'reads', told).textContent = S.sides[state.scales.told];
+        // its second line: what is left her of the last minute (story.js MINUTE)
+        if (MINUTE[state.marks?.minute]) {
+          const minute = el('span', 'line', knows);
+          el('span', 'side', minute).textContent = MINUTE.name;
+          el('span', 'reads', minute).textContent = MINUTE[state.marks.minute];
+        }
       }
     },
     toast(text, kind, arrows = '') {

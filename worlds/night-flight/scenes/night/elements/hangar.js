@@ -96,5 +96,5 @@ for (const x of [-3.6, 3.6]) {
   g.fill();
 }
 e.light(0, -GH - 0.35, 4, '#ffd6a0', 1, 'gate');
-e.light(-3.6, -GH + 0.6, 6, '#ffd49a', 1, 'in0');
-e.light(3.6, -GH + 0.6, 6, '#ffd49a', 1, 'in1');
+e.light(-3.6, -GH + 0.6, 6, '#ffd49a', 1.6, 'in0');
+e.light(3.6, -GH + 0.6, 6, '#ffd49a', 1.6, 'in1');

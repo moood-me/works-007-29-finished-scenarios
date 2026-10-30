@@ -16,7 +16,7 @@ for (let i = 0; i < 360; i++) {
   g.fill();
 }
 // the landing strip: a long band of worn, paler grass between its lamps
-g.fillStyle = 'rgba(160,160,120,0.55)';
+g.fillStyle = 'rgba(178,176,136,0.7)';
 g.fillRect(24, Y(2900), 32, 2900 - 60);
 // wheel tracks along it, and curving in toward the apron and the hangar
 g.strokeStyle = 'rgba(120,112,86,0.6)';

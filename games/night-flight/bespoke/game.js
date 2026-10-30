@@ -9,8 +9,10 @@
 // decides the finale (story.js facts).
 // Stage 5 under way (moood-me/moood docs/writing/game-stages.md): every place on its own scene, the mini-games real
 // (minigames/); the scenes' pieces in place of the plates as they come (game.md «Stage 5 — pieces»).
-//   The map of the play (moood docs/games/games.md §2), at stage 3 a row of leaves over the bureau (map.js) — the
-// world has no map's scene yet. What can be done on it is its own drawing — pressed, the language's mark opens there,
+//   The map of the play (moood docs/games/games.md §2): the chapters' trees (map.js) over the world's scene «The
+// Airfield at Night» (`night`), the view brought to the chapter the play is at, dragged by the player; the scales in
+// its corner (scenario §8: «Exceptions» a bar, «What she knows» two lines — in the play only their slips as they
+// move). What can be done on it is its own drawing — pressed, the language's mark opens there,
 // born open (story.js hub.ask): the main run's pointer — “Start”, “Continue” (from the beginning of the step it stopped
 // in); a chapter played — “Replay the chapter”; each fork the main run reached in it — “Replay from here”. The play
 // begins on the map, comes to it after each chapter, by ☰ (the step going on is left — played again from its
@@ -26,7 +28,7 @@
 // choices } —, steps: {chapter: [the main run as each of its steps began, and as it ended]}, seen: {chapter: how many
 // of its steps the player has ever played through} — never lessened. The page's ⏭ (bespoke.forward, story.js) is the
 // player's only where they have been. Where the play is and how it ended — bespoke.at, bespoke.ended.
-import { EFFECTS, ENDINGS, SCALES, PLACES, bureau, clock, context, facts, listen } from './story.js';
+import { EFFECTS, ENDINGS, SCALES, context, facts, listen } from './story.js';
 import { ui } from './ui.js';
 import { trees } from './map.js';
 import { jump as unseen } from './jump.js';
@@ -41,8 +43,10 @@ import four from './chapters/4.js';
 export const CHAPTERS = [prologue, one, two, three, four];
 const END = CHAPTERS.length; // the play played through: no chapter of the main run
 const EPILOGUE = CHAPTERS.length - 1; // the last chapter: the finale and the epilogue are its last steps
-// a replay's end asks on its knot once the map has stood a moment
-const SETTLE = 600;
+const MAP = 'night'; // the map's scene (its folder)
+const REVEAL = 6; // s: a chapter's rows growing on its form, as it has been played through
+// a replay's end asks on its knot once the knot has stood still REST looks REST_STEP ms apart (REST_MAX s at most)
+const REST = 3, REST_STEP = 100, REST_MAX = 12;
 // every step of the play in order, and where each chapter's first one is among them
 const STEPS = CHAPTERS.flatMap(ch => ch.steps);
 const FIRST = CHAPTERS.map((_, c) => CHAPTERS.slice(0, c).reduce((n, ch) => n + ch.steps.length, 0));
@@ -118,6 +122,8 @@ export default async function (b) {
       continue;
     }
     const done = kept.chapter;
+    // (a breath before the map: the slips the chapter's last choice left are read)
+    if (done < EPILOGUE) await new Promise(ok => setTimeout(ok, 3000));
     await onward();
     if (kept.chapter === END) {
       ended();
@@ -141,7 +147,6 @@ export default async function (b) {
     for (;;) {
       const r = replay ? replay.run : kept, ch = CHAPTERS[r.chapter];
       if (r.step >= ch.steps.length) return 'done';
-      view.gauge(r); // (the scales stay in sight to the end: the epilogue reads them too)
       const g = context(b, view, hub, structuredClone(run(r)), r.play != null ? unseen(r.play) : null,
         { forward: r.step < (kept.seen[r.chapter] ?? 0) });
       b.at({ chapter: r.chapter, step: r.step, replay: !!replay });
@@ -185,23 +190,35 @@ export default async function (b) {
     return keep({ ...on, steps: { ...pick(kept.steps, j => j < i), [i]: steps, [i + 1]: [on] }, seen: kept.seen });
   }
 
-  // the map, over the bureau at night, no one there. What brought the play here: a chapter played through (reveal: its rows come one
-  // by one). → what was picked: an option's id, or {jump} — the author's map
+  // the map, «The Airfield at Night»: the view at the chapter the play is at (the replay's, else the main run's), the
+  // scales in its corner. What brought the play here: a chapter played through (reveal: its rows grow — its forks
+  // offered once they have —, then the view goes on to where the play is now). → what was picked: an option's id, or
+  // {jump} — the author's map
   async function map({ reveal = null }) {
     b.menu(null);
     b.hush();
     view.quiet();
-    view.gauge(null);
-    await b.show(PLACES.bureau.folder, { state: { ...bureau(clock(1, 0)), madame_here: false, riviere_here: false, pilot_here: false, telegraphist_here: false, robineau_here: false, asuncion_here: false }, captions: false });
+    const here = replay ? replay.run.chapter : Math.min(kept.chapter, EPILOGUE);
+    await b.show(MAP, { state: { shown: reveal ?? here }, captions: false, background: { field: 0.2 } });
     if (closed) { closed = false; b.fade(0, 1.5); }
-    const drawn = trees(b, sky(), { grow: reveal, author: !!author });
+    view.gauge(replay ? replay.run : kept);
+    const drawn = trees(b, sky(), { grow: reveal, seconds: REVEAL, author: !!author });
     const notice = replay?.done && anew() ? view.hint(tr('If you keep it, the chapters after this one will have to be played again.')) : () => {};
-    let asked = null; // (an option that would leave the replay: asked again)
+    let grown = reveal == null, asked = null; // (an option that would leave the replay: asked again)
+    let at = reveal ?? here; // (the chapter the view is at)
+    const go = i => { if (i !== at) { at = i; b.set('shown', i); } };
+    // (something of a chapter pressed — the view goes to it; pressed on the chapter already shown, wherever the player
+    // dragged the view: back to it)
+    let come = 0;
+    const bring = i => { if (i === at) b.set('come', ++come); else go(i); };
+    const touched = ref => { const i = /^(?:knot|fork|go|goreplay|badge):(\d+)/.exec(ref)?.[1]; if (i != null) bring(Number(i)); };
     let pressed = () => {};
-    const offer = () => drawn.offer(Object.keys(marks(asked)), ref => pressed(ref));
+    const offer = () => drawn.offer(Object.keys(marks(asked, grown ? null : reveal)), ref => pressed(ref));
+    // (the chapter just played grown: its forks offered too, the view on to where the play is)
+    const growing = grown ? null : setTimeout(() => { grown = true; offer(); go(here); }, REVEAL * 1000);
     try {
       // (a replay played to its end: its knot's mark opens by itself — keep it or not)
-      const asking = replay?.done ? await new Promise(ok => setTimeout(() => ok(`knot:${replay.run.chapter}`), SETTLE)) : null;
+      const asking = replay?.done ? await standing(drawn, `knot:${replay.run.chapter}`) : null;
       for (let again = asking; ;) {
         offer();
         const ref = again ?? await new Promise(ok => { pressed = ok; jumped = ok; });
@@ -209,7 +226,8 @@ export default async function (b) {
         jumped = () => {};
         again = null;
         if (ref.jump) return ref;
-        const options = marks(asked)[ref];
+        touched(ref);
+        const options = marks(asked, grown ? null : reveal)[ref];
         const picked = options ? await hub.ask(drawn.at(ref), options) : null;
         if (!picked) { asked = null; continue; }
         if (picked.id === 'author') { author(); continue; }
@@ -217,15 +235,31 @@ export default async function (b) {
         return picked.id;
       }
     } finally {
+      clearTimeout(growing);
       jumped = () => {};
       hub.withdraw();
       notice();
       drawn.remove();
+      view.gauge(null);
     }
   }
+  // a ref of the map's drawing once it has come to rest in the frame (a mark opened on it while the view still moves
+  // could go out of sight); none within REST_MAX s — null
+  function standing(drawn, ref) {
+    return new Promise(ok => {
+      let last = null, still = 0, waited = 0;
+      const look = setInterval(() => {
+        const p = drawn.at(ref)();
+        still = p && last && Math.hypot(p.x - last.x, p.y - last.y) < 0.5 ? still + 1 : 0;
+        last = p;
+        waited += REST_STEP;
+        if (still >= REST || waited >= REST_MAX * 1000) { clearInterval(look); ok(still >= REST ? ref : null); }
+      }, REST_STEP);
+    });
+  }
   // what can be done on the map: {ref: options} — `asked`: the option that would leave the replay, now “Drop the
-  // replay”
-  function marks(asked) {
+  // replay”; `growing`: the chapter whose rows are still growing (its forks not offered yet)
+  function marks(asked, growing = null) {
     const offers = {};
     const add = (ref, id, label) => { (offers[ref] ??= []).push({ id, label: id === asked ? tr('Drop the replay') : label }); };
     if (replay) {
@@ -240,6 +274,7 @@ export default async function (b) {
     if (kept.chapter < END) add(`go:${kept.chapter}`, 'main', replay ? tr('Drop the replay') : kept.step || kept.chapter ? tr('Continue') : tr('Start'));
     for (let i = 0; i < Math.min(kept.chapter, END); i++) {
       if (kept.steps[i]?.[0]) add(`knot:${i}`, `chapter:${i}`, tr('Replay the chapter'));
+      if (i === growing) continue;
       CHAPTERS[i].choices.forEach((c, k) => {
         const s = fork(i, c.id);
         if (s != null) add(`fork:${i}:${k}`, `fork:${i}:${s}`, tr('Replay from here'));
