@@ -51,8 +51,9 @@ function film(scene) {
     // the mechanics at the Chilean's engine, turned to Rivière before them (1.2 «tear»)
     crew: CAM([-0.4, 9.0, 1.7], [-0.7, 12.7, 1.55]),
     // Robineau by the hangar wall, Rivière at the switch beyond him not looking (4.1, went out alone)
-    // Ш3's choice: Rivière (left), the pilot by his plane (right), and high beyond them her lit window upstairs
-    choose: CAM([0.5, 8.4, 1.8], [-0.9, 18.4, 2.7]),
+    // Ш3's choice: the two of them across the plane's nose — Rivière (left, three-quarters) and the pilot looking at him
+    // (her window was the shot before)
+    choose: CAM([0.9, 9.2, 1.9], [-0.6, 13.2, 1.6]),
     wall: CAM([-2.6, 13.1, 1.7], [-3.4, 17.6, 1.5]),
     box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),

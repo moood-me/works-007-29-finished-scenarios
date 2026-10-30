@@ -1013,7 +1013,7 @@ function film(scene) {
     dawn: {
       tells: ['dawn:window'],
       seconds: 8,
-      from: () => ({ ...NIGHT, time: clock(6, 0), lamps: 0, outside: 'rolled', ...FLAGS.late,
+      from: () => ({ ...NIGHT, time: clock(6, 0), outside: 'rolled', ...FLAGS.late,
         ...ALL({ ...at('riviere', 'map', 'map'), ...at('telegraphist', 'bench', null, { telegraphist_do: 'doze_drop' }), ...robIV() }), ...SH.wide }),
       run: async s => {
         const r = s.person('riviere');
@@ -1034,7 +1034,7 @@ function film(scene) {
     flags_down: {
       tells: ['flags_down:end'],
       seconds: 10,
-      from: () => ({ ...NIGHT, time: clock(6, 2), lamps: 0, outside: 'rolled', drawer: 1, ...FLAGS.late, red: 'off',
+      from: () => ({ ...NIGHT, time: clock(6, 2), outside: 'rolled', drawer: 1, ...FLAGS.late, red: 'off',
         ...ALL({ ...at('riviere', 'flags', 'map'), ...at('telegraphist', 'bench', null, { telegraphist_do: 'doze_drop' }),
           ...(scene.get('robineau') === 'sit' ? at('robineau', [-0.2, 6.6, 20, 'stand'], 'map', { robineau_wear: { parts: ['moustache'] } }) : robIV()) }),
         ...SH.flags }),
