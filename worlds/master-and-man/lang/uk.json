@@ -1,4 +1,4 @@
 {"strings": [
   {"text":"Master and Man","translation":"Хазяїн і робітник","where":"worlds/master-and-man/world.json title"},
-  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift. White, grey-blue and ice-blue, warmed by a red fox fur, a red sash, a yellow window.","translation":"За повістю Льва Толстого: одна зимова ніч, купець, його робітник, кінь і замет. Біле, сіро-блакитне, крижано-синє — і тепло рудої лисячої шуби, червоного пояса, жовтого вікна.","where":"worlds/master-and-man/world.json description"}
+  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift.","translation":"За повістю Льва Толстого: одна зимова ніч, купець, його робітник, кінь і замет.","where":"worlds/master-and-man/world.json description"}
 ]}

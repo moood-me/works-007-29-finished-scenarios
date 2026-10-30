@@ -1,4 +1,4 @@
 {"strings": [
   {"text":"Master and Man","translation":"主人與僕人","where":"worlds/master-and-man/world.json title"},
-  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift. White, grey-blue and ice-blue, warmed by a red fox fur, a red sash, a yellow window.","translation":"改編自列夫．托爾斯泰的小說：一個冬夜、一個商人、他的僱工、一匹馬和一座雪堆。白、灰藍與冰藍，被紅狐皮大衣、紅腰帶和一扇黃色的窗暖了起來。","where":"worlds/master-and-man/world.json description"}
+  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift.","translation":"改編自列夫．托爾斯泰的小說：一個冬夜、一個商人、他的僱工、一匹馬和一座雪堆。","where":"worlds/master-and-man/world.json description"}
 ]}

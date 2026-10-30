@@ -1,4 +1,4 @@
 {"strings": [
   {"text":"Pride and Prejudice","translation":"Orgulho e Preconceito","where":"worlds/pride-and-prejudice/world.json title"},
-  {"text":"Jane Austen's England in light watercolour and fine pen: Longbourn, Meryton, Netherfield, Hunsford, Pemberley. Green and cream, warm candlelit ballrooms, bright early evenings.","translation":"A Inglaterra de Jane Austen em aquarela leve e pena fina: Longbourn, Meryton, Netherfield, Hunsford, Pemberley. Verde e creme, salões de baile cálidos à luz de velas, fins de tarde claros.","where":"worlds/pride-and-prejudice/world.json description"}
+  {"text":"Jane Austen's England: Longbourn, Meryton, Netherfield, Hunsford, Pemberley. Five sisters to be married off, candlelit ballrooms, and a first impression that proves wrong.","translation":"A Inglaterra de Jane Austen: Longbourn, Meryton, Netherfield, Hunsford, Pemberley. Cinco irmãs para casar, salões de baile à luz de velas e uma primeira impressão que se revela errada.","where":"worlds/pride-and-prejudice/world.json description"}
 ]}

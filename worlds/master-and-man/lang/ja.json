@@ -1,4 +1,4 @@
 {"strings": [
   {"text":"Master and Man","translation":"主人と下男","where":"worlds/master-and-man/world.json title"},
-  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift. White, grey-blue and ice-blue, warmed by a red fox fur, a red sash, a yellow window.","translation":"レフ・トルストイの短編より。ある冬の夜、商人と、その下男と、一頭の馬と、吹きだまり。白と灰青と氷の青、そこに赤い狐の毛皮、赤い帯、黄色い窓のぬくもり。","where":"worlds/master-and-man/world.json description"}
+  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift.","translation":"レフ・トルストイの短編より。ある冬の夜、商人と、その下男と、一頭の馬と、吹きだまり。","where":"worlds/master-and-man/world.json description"}
 ]}

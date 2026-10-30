@@ -1,4 +1,4 @@
 {"strings": [
   {"text":"Master and Man","translation":"Gospodarz i parobek","where":"worlds/master-and-man/world.json title"},
-  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift. White, grey-blue and ice-blue, warmed by a red fox fur, a red sash, a yellow window.","translation":"Według opowiadania Lwa Tołstoja: jedna zimowa noc, kupiec, jego parobek, koń i zaspa. Biel, szaroniebieski i lodowy błękit, ogrzane rudym lisim futrem, czerwonym pasem, żółtym oknem.","where":"worlds/master-and-man/world.json description"}
+  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift.","translation":"Według opowiadania Lwa Tołstoja: jedna zimowa noc, kupiec, jego parobek, koń i zaspa.","where":"worlds/master-and-man/world.json description"}
 ]}

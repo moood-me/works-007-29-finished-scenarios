@@ -1,4 +1,4 @@
 {"strings": [
   {"text":"Master and Man","translation":"주인과 하인","where":"worlds/master-and-man/world.json title"},
-  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift. White, grey-blue and ice-blue, warmed by a red fox fur, a red sash, a yellow window.","translation":"레프 톨스토이의 단편에 따라: 어느 겨울밤, 상인과 그의 일꾼, 말 한 필, 그리고 눈더미. 하양, 잿빛 도는 파랑, 얼음빛 파랑을 붉은 여우 털외투와 붉은 허리띠와 노란 창문이 데운다.","where":"worlds/master-and-man/world.json description"}
+  {"text":"After Leo Tolstoy's story: one winter night, a merchant, his workman, a horse and a snowdrift.","translation":"레프 톨스토이의 단편에 따라: 어느 겨울밤, 상인과 그의 일꾼, 말 한 필, 그리고 눈더미.","where":"worlds/master-and-man/world.json description"}
 ]}
