@@ -127,6 +127,7 @@
     "beats"
   ],
   "state": {
+    "receiver_off": false,
     "lamps": 1,
     "office": 1,
     "tape": 1,
@@ -443,6 +444,10 @@
       ],
       "smooth": true,
       "means": "the tape drawn out of the inker hand over hand (М9): 0 none … 1 a long strip out, its words come"
+    },
+    "receiver_off": {
+      "type": "boolean",
+      "means": "the telephone's earpiece off its hook, in someone's hand (2.4)"
     },
     "tape_mark": {
       "values": [

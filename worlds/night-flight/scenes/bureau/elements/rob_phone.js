@@ -1,5 +1,5 @@
 // The bureau's telephone on Robineau's desk: a black candlestick — round foot, upright stem, the mouthpiece on top —
-// its earpiece hung on the hook at the side, the cord down off the desk. Its point `phone`.
+// its earpiece hung on the hook at the side (off it while `receiver_off`), the cord down off the desk. Its point `phone`.
 g.fillStyle = '#151413';
 g.beginPath();
 g.ellipse(0, -0.02, 0.07, 0.02, 0, 0, Math.PI * 2);
@@ -10,10 +10,13 @@ g.ellipse(0.0, -0.32, 0.035, 0.025, 0, 0, Math.PI * 2);
 g.fill();
 g.fillRect(0.01, -0.34, 0.03, 0.02);
 g.fillRect(0.035, -0.26, 0.05, 0.012);
-g.fillRect(0.07, -0.26, 0.022, 0.1);
-g.beginPath();
-g.ellipse(0.081, -0.15, 0.022, 0.03, 0, 0, Math.PI * 2);
-g.fill();
+// the earpiece on its hook — gone from it while someone holds it (`receiver_off`)
+if (!e.state.receiver_off) {
+  g.fillRect(0.07, -0.26, 0.022, 0.1);
+  g.beginPath();
+  g.ellipse(0.081, -0.15, 0.022, 0.03, 0, 0, Math.PI * 2);
+  g.fill();
+}
 g.strokeStyle = '#2a2622';
 g.lineWidth = 0.008;
 g.beginPath();

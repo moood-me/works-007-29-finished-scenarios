@@ -123,12 +123,14 @@ export default {
         await g.say('riviere', 'He is delayed. The wind');
         await g.wait(1500);
         await g.say('madame', 'Thank you. Forgive me', { at: 'narrator', how: 'on the telephone, small and far' });
-        await piece(g, 'phone_down', { end: () => g.sound('receiver', { loud: 0.7 }) });
+        g.sound('receiver', { loud: 0.7, delay: 0.8 });
+        await piece(g, 'phone_down');
       } else if (phone === 'storm') {
         await g.say('riviere', 'He is in the storm. We are listening for him');
         await g.wait(3000);
         await g.say('madame', 'I am coming', { at: 'narrator', how: 'on the telephone, small and far' });
-        await piece(g, 'phone_down', { end: () => g.sound('receiver', { loud: 0.7 }) });
+        g.sound('receiver', { loud: 0.7, delay: 0.8 });
+        await piece(g, 'phone_down');
       } else {
         await piece(g, 'phone_robineau', {
           talk: () => g.say('robineau', 'The wind, madame… the line is bad… don’t you worry…', { how: 'flustered, into the receiver' }),

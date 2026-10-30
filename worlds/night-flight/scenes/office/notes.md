@@ -84,3 +84,11 @@ the room's middle; the window's keys (lamp, floods, rain, plane, yard_*) are the
 ## After the motions (2026-10-29)
 
 - `leave_turn` nod: the cast's `nod` has no nod (a still stand) — her look dips to his hands and comes back up.
+
+## Polish (2026-10-30)
+
+- Her shots on the chair («Dawn»): she looks up at him by the window, so the lens is in the room's middle, three
+  quarters to her face, turned toward the back wall enough to keep the room's open side out of the frame (before, the
+  medium shot saw the back of her head).
+- Seen on the GPU: the yard through the glass (`log_done`, render 3908) — the figures by the hangar do not read at all
+  (70 m off, behind Rivière's reflection); the game keeps its plates for Roblet and Robineau below.

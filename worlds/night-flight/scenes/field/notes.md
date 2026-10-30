@@ -51,6 +51,18 @@ Still no motions of people.
 - Not: the plane rolled into the hangar (only seen in the bureau's window, as the scenario has it); the floodlights
   going out one by one (`floods` is smooth, all together — one by one is stage 5's).
 
+## Polish (2026-10-30)
+
+- `roblet_ask` — Ш1's choice on the two faces (the game opened 1.4 on the wide picture right after the close on his
+  hands); `order`, `box_lift`, `palm` go on after it.
+- 1.2 «tear»: the mechanics turn round to Rivière, and the tear cuts to them (`SH.crew`) — their faces, looking at one
+  another — not to the wide shot where they were specks behind the plane's nose.
+- 4.1 `european` by the game's `robineau`: sat with him — Robineau comes out with Rivière and stops at his shoulder's
+  place; went out alone — a shot (`SH.wall`) of him by the hangar wall, the folder to his chest, his eyes down, and
+  Rivière at the switch beyond, not looking (render 3904).
+- Tells for the game's sounds: `fine_tear:rip` (the tear begun), `roblet_go:lift`, `box_lift:lift` (the box off the
+  ground), `chocks_pick:pick`, `twice:shut` (the cowling).
+
 ## Contract for the check
 
 ```json
@@ -96,6 +108,7 @@ point it looks at), from where the faces look.
 | fine | — | Robineau before the Chilean with the form; Rivière comes to him |
 | fine_robineau / fine_self / fine_tear | fine | he signs and pockets it / Rivière signs it and gives it back / Rivière tears it before the mechanics |
 | roblet | — | Roblet before the gate with his cap, the box at his feet; the mechanics slow and turn; close on his hands |
+| roblet_ask | roblet | before Ш1: the two (Roblet's eyes on his cap, Rivière looking at him), the mechanics turned to listen |
 | order | roblet | Rivière lays the order on the box (М2 next: the insert `paper`) |
 | roblet_go | order | Roblet's cap on, the box up, across the lit field to the dark, gone |
 | box_lift / box_given | roblet / box_lift | Rivière lifts the box and holds it out (М3) / Roblet holds it; the mechanics look at Rivière |

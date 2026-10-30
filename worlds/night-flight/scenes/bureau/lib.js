@@ -120,7 +120,7 @@ function film(scene) {
   const ODOOR = [-2.27, 7.42]; // the office door's threshold
   const OIN = [-2.2, 6.75]; // just out of it
   const PILOT_UP = { pilot_a: 0.0, pilot_d: 6.45, pilot_turn: 200, pilot_do: 'stand_easy', pilot_on: null };
-  const NIGHT = { lamps: 1, office: 1, tape: 0, outside: 'european', flag_hand: 'none', flag_to: 'san_julian', flag_u: 0, flag_slip: 0,
+  const NIGHT = { lamps: 1, office: 1, tape: 0, receiver_off: false, outside: 'european', flag_hand: 'none', flag_to: 'san_julian', flag_u: 0, flag_slip: 0,
     drawer: 0, tape_pull: 0, office_door: 180 };
   const FLAGS = {
     evening: { blue: 'south', west: 'air', north: 'air', red: 'field' },
@@ -430,6 +430,7 @@ function film(scene) {
         await s.wait(0.8);
         r.reach(null);
         r.with(['receiver']);
+        s.set('receiver_off', true);
         r.do('phone_listen');
         r.look(null);
         await glide(s, SH.desk_close, 1.5);
@@ -444,7 +445,7 @@ function film(scene) {
       tells: ['phone_robineau:talk', 'phone_robineau:down'],
       seconds: 9,
       from: () => ({ ...NIGHT, time: clock(1, 36), ...FLAGS.night,
-        ...ALL({ ...at('riviere', 'desk', null, { riviere_with: ['receiver'], riviere_do: 'phone_listen' }), ...at('robineau', 'desk', 'riviere') }), ...SH.desk_close }),
+        ...ALL({ ...at('riviere', 'desk', null, { riviere_with: ['receiver'], riviere_do: 'phone_listen' }), ...at('robineau', 'desk', 'riviere') }), receiver_off: true, ...SH.desk_close }),
       run: async s => {
         const r = s.person('riviere'), b = s.person('robineau');
         glide(s, SH.phone_two, 1.5);
@@ -466,6 +467,7 @@ function film(scene) {
         await s.wait(0.8);
         b.reach(null);
         b.with([]);
+        s.set('receiver_off', false);
         s.set('robineau_wear', null);
         b.do('hold_waist');
         b.look('rob_top');
@@ -479,13 +481,14 @@ function film(scene) {
       tells: ['phone_down:end'],
       seconds: 3,
       from: () => ({ ...NIGHT, time: clock(1, 36), ...FLAGS.night,
-        ...ALL({ ...at('riviere', 'desk', null, { riviere_with: ['receiver'], riviere_do: 'phone_listen' }) }), ...SH.desk_close }),
+        ...ALL({ ...at('riviere', 'desk', null, { riviere_with: ['receiver'], riviere_do: 'phone_listen' }) }), receiver_off: true, ...SH.desk_close }),
       run: async s => {
         const r = s.person('riviere');
         r.reach({ l: 'rob_phone#phone' });
         await s.wait(0.8);
         r.reach(null);
         r.with([]);
+        s.set('receiver_off', false);
         r.do('hands_behind');
         r.look('rob_phone');
         await s.wait(1.5);

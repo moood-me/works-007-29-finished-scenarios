@@ -157,8 +157,12 @@ said to someone is in a medium or close shot.
 
 - Faces turned to someone at the back of the room are seen in profile (the room is seen from its open side; a camera
   behind them would look into the nothing there).
-- The receiver stays painted on the telephone while Rivière holds one (`rob_phone` has no key for it).
 - Sitting down on the bench is `sit_down` played where they stand before it, then the seat (`_on`) and `fly_seated`.
+
+## Polish (2026-10-30)
+
+- `receiver_off` (bool): the telephone's earpiece gone from its hook while Rivière or Robineau holds it (2.4: `phone`
+  sets it, `phone_robineau` and `phone_down` clear it as it is hung up).
 
 ## Contract for the check
 
