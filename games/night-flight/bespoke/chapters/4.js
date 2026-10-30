@@ -185,8 +185,8 @@ export default {
       if (f.robineau === 'sit') await piece(g, 'doorway', { in: () => g.say('robineau', 'I am here, sir', { how: 'in the doorway, quietly' }) });
       else if (f.robineau === 'work') {
         // (behind the wall a typewriter: his report)
-        g.air({ rain: 0.5, typewriter: 0.32 });
-        await g.wait(4500);
+        g.air({ rain: 0.3, typewriter: 0.3 });
+        await g.wait(6500);
       } else await g.plate(tr('In the window: he is still by the hangar wall, in the rain, without his coat.'));
     },
     // Ф.5: the bureau — by the finale (`victory_map` | `silence_map` | `dawn`, `flags_down`)
@@ -201,7 +201,7 @@ export default {
         await piece(g, 'silence_map', {}, () => g.scene('bureau', { beat: 'silence_map', here: ['riviere', 'telegraphist', ...nearby(f)], moods: { riviere: 'tired', telegraphist: 'neutral', robineau: 'sad' }, keys: at3 }));
       } else {
         await piece(g, 'dawn', {}, () => g.scene('bureau', { beat: 'dawn', here: ['riviere', 'telegraphist', ...nearby(f)], moods: { riviere: 'tired', telegraphist: 'eyes_closed', robineau: 'sad' },
-          keys: { ...bureau(clock(6, 0), { flags: night(f), outside: 'rolled' }), ...desk(f), robineau: f.robineau, roblet: f.roblet, telegraphist_spot: 'bench', riviere_look: 'map', telegraphist_look: null } }));
+          keys: { ...bureau(clock(6, 0), { flags: night(f), outside: 'rolled', lamps: 0.4 }), ...desk(f), robineau: f.robineau, roblet: f.roblet, telegraphist_spot: 'bench', riviere_look: 'map', telegraphist_look: null } }));
         await g.play(flag_down);
         await piece(g, 'flags_down');
         if (f.robineau === 'silent') await g.plate(tr('Robineau is not here: he went home without a word.'));

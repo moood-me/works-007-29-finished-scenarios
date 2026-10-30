@@ -63,7 +63,6 @@ export default {
           await g.say('robineau', 'Forty minutes… The Andes…');
         },
       }, () => g.scene('field', { beat: 'fine', here: ['riviere', 'robineau', ...MECHANICS], moods: { riviere: 'neutral', robineau: 'sad' }, keys: { ...FIELD.lit, ...PLANE.stand('chilean'), toolbox: 0, riviere_look: 'robineau', robineau_look: 'riviere' } }));
-      g.gauge('exceptions');
       const fine = await g.choose('fine', { 'riviere#chest': [
         { id: 'robineau', label: tr('“You will sign it, Robineau”') },
         { id: 'self', label: tr('“I will sign it myself”') },
@@ -93,6 +92,7 @@ export default {
         });
       }
       g.apply('fine');
+      g.gauge('exceptions');
     },
     // 1.3: Roblet (`roblet`)
     async g => {

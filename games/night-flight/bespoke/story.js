@@ -130,12 +130,13 @@ export const OFFICE = f => ({
 // the clouds the engine alone, quieter. The office at three: the rain on its window.
 export const AIR = {
   bureau: k => {
-    const t = k.time ?? 0, a = { clock: 0.12 };
-    if (k.tape) a.inker = 0.3;
-    if (t >= 180 && t < 330) a.rain = 0.22;
-    else if (t >= 330 && t < 480) a.field = 0.05;
-    else if (t >= 1110 && t < 1230) a.evening = 0.14;
-    else a.field = t >= 1400 || t < 180 ? 0.1 : 0.06;
+    // (the room under its music: the clock and the wind at the door heard, not guessed at)
+    const t = k.time ?? 0, a = { clock: 0.3 };
+    if (k.tape) a.inker = 0.4;
+    if (t >= 180 && t < 330) a.rain = 0.35;
+    else if (t >= 330 && t < 480) a.field = 0.14;
+    else if (t >= 1110 && t < 1230) a.evening = 0.3;
+    else a.field = t >= 1400 || t < 180 ? 0.24 : 0.16;
     return a;
   },
   field: k => ({ field: 0.3, ...(k.engine > 0 && !k.plane_h ? { idle: 0.35 } : {}), ...(k.engine > 0 && k.plane_h > 0 ? { drone: 0.3 } : {}) }),
@@ -166,7 +167,7 @@ export const MINUTE = {
 // the player is told). What depends on more than the option the chapter does itself.
 export const EFFECTS = {
   touch: {
-    tap: { marks: [['touched', true, tr('You touched his shoulder. Pellerin turned round.')]] },
+    tap: { marks: [['touched', true, null]] }, // (the scene has just shown it)
     pass: { marks: [['touched', false, null]] },
   },
   fine: {
@@ -175,14 +176,15 @@ export const EFFECTS = {
     tear: { exceptions: 1, marks: [['fine', 'tear', tr('You tore up the fine before the mechanics. They looked at one another.')]] },
   },
   roblet: {
-    fire: { marks: [['roblet', 'fired', tr('Roblet is dismissed. He went across the field with his box.')]] },
-    keep: { exceptions: 1, marks: [['roblet', 'engines', tr('Roblet stays on the engines. “Twice.”')]] },
-    remove: { marks: [['roblet', 'field', tr('Roblet is taken off the engines: the chocks, the store. “Better you had fired me.”')]] },
+    // (what came of it the scene has just shown; the marks are kept and the map says them)
+    fire: { marks: [['roblet', 'fired', null]] },
+    keep: { exceptions: 1, marks: [['roblet', 'engines', null]] },
+    remove: { marks: [['roblet', 'field', null]] },
   },
   phone: {
     wind: { marks: [['phone', 'wind', tr('You told her: the wind.')]] },
     storm: { told: 1, marks: [['phone', 'storm', null]] },
-    robineau: { marks: [['phone', 'robineau', tr('You gave the receiver to Robineau. He told her: the wind — and did not raise his eyes.')]] },
+    robineau: { marks: [['phone', 'robineau', null]] },
   },
   minute: {
     bearing: { marks: [['bearing', true, tr('The minute went to the bearing. Nobody will read his last words.')], ['minute', 'place', null]] },
@@ -190,14 +192,14 @@ export const EFFECTS = {
     own: { exceptions: 1, marks: [['bearing', false, tr('You signed your name. The director never signs.')], ['minute', 'begun', null]] },
   },
   robineau: {
-    work: { marks: [['robineau', 'working', tr('“Get to work, Robineau.” He sat down to his report.')]] },
+    work: { marks: [['robineau', 'working', null]] },
     sit: { marks: [['robineau', 'remembers', tr('Robineau will remember.')]] },
-    silent: { marks: [['robineau', 'alone', tr('Robineau went out onto the field alone, without his coat.')]] },
+    silent: { marks: [['robineau', 'alone', null]] },
   },
   european: {
-    fly: { marks: [['european', 'fly', tr('You raised your hand. The lights went north.')]] },
-    ground: { marks: [['european', 'ground', tr('You said “stand down”. The floodlights went out.')]] },
-    silent: { marks: [['european', 'silent', tr('You said nothing. “Since you say nothing — by the timetable.”')]] },
+    fly: { marks: [['european', 'fly', null]] },
+    ground: { marks: [['european', 'ground', null]] },
+    silent: { marks: [['european', 'silent', null]] },
   },
 };
 export const ENDINGS = [

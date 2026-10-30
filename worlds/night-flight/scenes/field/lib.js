@@ -51,6 +51,8 @@ function film(scene) {
     // the mechanics at the Chilean's engine, turned to Rivière before them (1.2 «tear»)
     crew: CAM([-0.4, 9.0, 1.7], [-0.7, 12.7, 1.55]),
     // Robineau by the hangar wall, Rivière at the switch beyond him not looking (4.1, went out alone)
+    // Ш3's choice: Rivière (left), the pilot by his plane (right), and high beyond them her lit window upstairs
+    choose: CAM([0.5, 8.4, 1.8], [-0.9, 18.4, 2.7]),
     wall: CAM([-2.6, 13.1, 1.7], [-3.4, 17.6, 1.5]),
     box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
@@ -895,14 +897,16 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     // 4.2: the engine runs up; the pilot looks at Rivière; close on Rivière while the timer runs (Ш3 next)
     runup: {
       tells: ['runup:look'],
-      seconds: 4,
+      seconds: 5.5,
       from: () => ({ ...CH4(LIT), engine: 0.6, cowling: 0, madame_window: 1, pilot_wear: HELMET, pilot_do: 'hand_on_side', pilot_look: 'riviere', riviere_look: 'pilot', ...SH.pilot }),
       run: async s => {
         s.move('engine', 1, { over: 1.5 });
         await s.wait(1);
         await cut(s, SH.riviere);
+        await s.wait(1.2);
+        await glide(s, SH.choose, 1.8);
         s.tell('runup:look');
-        await s.wait(1.5);
+        await s.wait(0.5);
       },
     },
     // Ш3 «fly»: Rivière raises his hand and holds it (М7 `chocks` next)

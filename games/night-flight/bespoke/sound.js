@@ -33,7 +33,7 @@ export const BEDS = {
   drone: { file: 'idle.mp3', gain: 2.6, far: true },
   clock: { file: 'clock.mp3', gain: 2.4 },
   inker: { file: 'inker.mp3', gain: 2.2 },
-  typewriter: { file: 'typewriter.mp3', gain: 4, far: true },
+  typewriter: { file: 'typewriter.mp3', gain: 3.2 },
   evening: { file: 'evening.mp3', gain: 2.2 },
 };
 // the one-off sounds (each brought to a peak near −1 dBFS): name → its file

@@ -265,14 +265,15 @@ function film(scene) {
     // operator passes «Beautiful»; Fabien writes his last and passes it back; the operator taps it out
     above: {
       tells: ['above:face', 'above:note', 'above:last'],
-      seconds: 18,
+      seconds: 21.5,
       from: () => ({ ...SKY.above, ...AIR, ...SEATS, fabien_look: [-4, 2.5, 3.6], radioman_look: [-1.5, 3.5, 4.2], ...SH.wide }),
       run: async s => {
         const f = s.person('fabien'), r = s.person('radioman');
         await s.wait(2);
         await glide(s, SH.fab_close, 4);
         s.tell('above:face');
-        await s.wait(3);
+        // (his face in the moonlight held while the narrator speaks)
+        await s.wait(6.5);
         await glide(s, SH.two, 2);
         await write(s, 'radioman', 1.5);
         r.look('fabien');

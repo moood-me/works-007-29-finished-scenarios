@@ -25,12 +25,17 @@ export default {
       const { roblet } = facts(g.state);
       // (over the roof the drone of an engine: the Asunción mail coming down on time — in the window, the floodlights lit
       // and its lamp over the field)
-      await g.scene('bureau', { here: ['riviere', 'telegraphist', 'asuncion'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
+      await g.scene('bureau', { here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
         keys: { ...bureau(clock(23, 20), { tape: 1, flags: FLAGS.trelew, outside: 'landing' }), riviere_spot: 'flags', riviere_look: 'map', telegraphist_look: 'tel_inker', asuncion_look: 'riviere' } });
       g.sound('landing', { far: true });
       await g.wait(4500);
       await g.say('telegraphist', 'Asunción: landed');
+      // (the map close: the northern flag comes home)
+      g.set('camera_target', 'map');
+      g.set('camera_shot', 'medium');
+      await g.wait(1600);
       await g.play(flag_north);
+      g.here('asuncion', true);
       g.set('tape', 0);
       g.air(null);
       await piece(g, 'asuncion_in');
@@ -113,7 +118,6 @@ export default {
           return g.say('madame', 'Forgive me for… We have such a wind here. He said — by two. He hasn’t come down somewhere to wait it out?', { at: 'narrator', how: 'on the telephone, small and far; behind her the wind bangs a shutter' });
         },
       });
-      g.gauge('told');
       const phone = await g.choose('phone', { 'riviere#chest': [
         { id: 'wind', label: tr('“He is delayed. The wind”') },
         { id: 'storm', label: tr('“He is in the storm. We are listening for him”') },
@@ -138,6 +142,7 @@ export default {
         });
       }
       g.apply('phone');
+      g.gauge('told');
     },
   ],
 };

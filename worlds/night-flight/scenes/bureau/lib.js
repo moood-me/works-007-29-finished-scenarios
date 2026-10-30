@@ -92,8 +92,10 @@ function film(scene) {
     her: CAM([-1.05, 3.3, 1.6], [-2.3, 4.55, 1.55]), // her by the field door
     her_close: CAM([-1.55, 3.75, 1.57], [-2.3, 4.55, 1.53]),
     her_inker: CAM([0.9, 4.9, 1.6], [1.6, 6.7, 1.5]), // her behind the telegraphist
-    desk: CAM([0.6, 2.6, 1.65], [1.1, 3.95, 1.62]), // Rivière at the telephone
-    desk_close: CAM([0.85, 3.0, 1.65], [1.1, 3.95, 1.63]),
+    // Rivière at the telephone: from before his face (he stands turned to Robineau's desk and the telephone on it, to
+    // the right of the lens; listening, he looks out past it)
+    desk: CAM([1.6, 2.55, 1.65], [1.1, 3.95, 1.62]),
+    desk_close: CAM([1.5, 2.95, 1.65], [1.1, 3.95, 1.63]),
     rob: CAM([2.15, 2.6, 1.6], [2.65, 4.05, 1.5]), // Robineau at his desk
     rob_close: CAM([2.35, 3.0, 1.55], [2.7, 4.05, 1.52]),
     rob_phone: CAM([1.25, 2.7, 1.6], [1.6, 3.85, 1.55]), // Robineau at the telephone, beside Rivière,
@@ -109,6 +111,9 @@ function film(scene) {
     // the last minute's choice (3.3): from the front right, Rivière at the inker on the left, his face, the
     // telegraphist's hand over the key and his face on the right — the one who chooses and what waits on it
     minute: CAM([2.4, 3.6, 1.6], [1.75, 5.6, 1.25]),
+    // ... and then the choice itself: Rivière at the inker turned to her by the field door, the telegraphist's hand over
+    // the key on the right — the one who chooses, the one it is for, the one who waits on it
+    minute_her: CAM([-0.5, 1.95, 1.65], [-0.45, 5.0, 1.42]),
     // Robineau's shoulders (3.7): the two — Robineau at his desk on the right, Rivière at the map looking at him on the
     // left — for what Rivière says to him
     shoulders: CAM([1.1, 1.0, 1.7], [1.4, 4.9, 1.45]),
@@ -432,7 +437,7 @@ function film(scene) {
         r.with(['receiver']);
         s.set('receiver_off', true);
         r.do('phone_listen');
-        r.look(null);
+        r.look([1.8, 2.4, 1.55]);
         await glide(s, SH.desk_close, 1.5);
         s.tell('phone:receiver');
         await s.wait(0.5);
@@ -598,6 +603,11 @@ function film(scene) {
         t.look([1.95, 5.95, 0.83]);
         await s.wait(1);
         await glide(s, SH.minute, 1.2);
+        await s.wait(0.6);
+        const r = s.person('riviere');
+        r.look('madame');
+        await glide(s, SH.minute_her, 1.6);
+        r.turn(215);
         s.tell('minute:ready');
       },
     },
@@ -987,7 +997,7 @@ function film(scene) {
     dawn: {
       tells: ['dawn:window'],
       seconds: 8,
-      from: () => ({ ...NIGHT, time: clock(6, 0), outside: 'rolled', ...FLAGS.late,
+      from: () => ({ ...NIGHT, time: clock(6, 0), lamps: 0.4, outside: 'rolled', ...FLAGS.late,
         ...ALL({ ...at('riviere', 'map', 'map'), ...at('telegraphist', 'bench', null, { telegraphist_do: 'doze_drop' }), ...robIV() }), ...SH.wide }),
       run: async s => {
         const r = s.person('riviere');
@@ -1008,7 +1018,7 @@ function film(scene) {
     flags_down: {
       tells: ['flags_down:end'],
       seconds: 10,
-      from: () => ({ ...NIGHT, time: clock(6, 2), outside: 'rolled', drawer: 1, ...FLAGS.late, red: 'off',
+      from: () => ({ ...NIGHT, time: clock(6, 2), lamps: 0.4, outside: 'rolled', drawer: 1, ...FLAGS.late, red: 'off',
         ...ALL({ ...at('riviere', 'flags', 'map'), ...at('telegraphist', 'bench', null, { telegraphist_do: 'doze_drop' }),
           ...(scene.get('robineau') === 'sit' ? at('robineau', [-0.2, 6.6, 20, 'stand'], 'map', { robineau_wear: { parts: ['moustache'] } }) : robIV()) }),
         ...SH.flags }),

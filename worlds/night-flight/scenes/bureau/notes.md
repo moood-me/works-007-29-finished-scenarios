@@ -163,6 +163,10 @@ said to someone is in a medium or close shot.
 
 - `receiver_off` (bool): the telephone's earpiece gone from its hook while Rivière or Robineau holds it (2.4: `phone`
   sets it, `phone_robineau` and `phone_down` clear it as it is hung up).
+- 2.4: the telephone's shots from before his face (`SH.desk`, `desk_close` on the right, toward Robineau's desk —
+  before, they were behind his shoulder); listening, he looks out past the lens.
+- 3.3: `minute` ends on all three — Rivière at the inker turning to her by the field door, she, the telegraphist's
+  hand over the key (`SH.minute_her`): the one who chooses, the one the choice is for.
 
 ## Contract for the check
 
