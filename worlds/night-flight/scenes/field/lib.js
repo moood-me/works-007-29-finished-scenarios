@@ -655,8 +655,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         o.with(['spanner']);
         o.do('stand_easy');
         await r.walk([[-0.2, 3.9]]);
-        await r.turn(231);
-        o.turn(110);
+        await r.turn(205);
+        o.turn(155);
         o.look('riviere#hand_r');
         r.look('roblet#hand_r');
         r.do('palm_out');
@@ -671,8 +671,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       tells: ['chocks_pick:say', 'chocks_pick:pick', 'chocks_pick:gone'],
       seconds: 8,
       from: () => ({
-        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere', wear: CAP_ON, turn: 110 }),
-        ...P('riviere', [-0.2, 3.9], 231, 'stand', { look: 'roblet' }),
+        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere', wear: CAP_ON, turn: 155 }),
+        ...P('riviere', [-0.2, 3.9], 205, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.two_hands,
       }),
       run: async s => {
