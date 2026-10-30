@@ -11,8 +11,8 @@
   },
   "horizon": 0.62,
   "light": {
-    "ambient": 0.5,
-    "ambientColor": "#8296cc",
+    "ambient": 0.4,
+    "ambientColor": "#7088c4",
     "bounce": 0.5,
     "haze": 0.12,
     "hazeColor": "#2e3d61",
@@ -39,22 +39,22 @@
       "id": "flood_0",
       "of": "floods#f0",
       "color": "#e8eeff",
-      "strength": 2.8,
-      "reach": 130
+      "strength": 1.3,
+      "reach": 110
     },
     {
       "id": "flood_1",
       "of": "floods#f1",
       "color": "#e8eeff",
-      "strength": 2.8,
-      "reach": 130
+      "strength": 1.3,
+      "reach": 110
     },
     {
       "id": "flood_2",
       "of": "floods#f2",
       "color": "#e8eeff",
-      "strength": 2.8,
-      "reach": 130
+      "strength": 1.3,
+      "reach": 110
     }
   ],
   "state": {
@@ -167,7 +167,7 @@
       "plane": true,
       "across": 0,
       "distance": 1500,
-      "width": 6000,
+      "width": 10000,
       "depth": 3000
     },
     {
@@ -509,7 +509,7 @@
     {
       "id": "plane",
       "name": "The European mail",
-      "across": -26,
+      "across": -12,
       "distance": 59,
       "facing": 180,
       "height": 4.2,

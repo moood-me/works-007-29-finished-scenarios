@@ -5,7 +5,7 @@
 // to the apron.
 const Y = d => 1500 - d;
 g.fillStyle = '#82926c';
-g.fillRect(-3000, -1500, 6000, 3000);
+g.fillRect(-5000, -1500, 10000, 3000);
 // patches of grass a shade off: broad and soft, over the near kilometre and a half
 for (let i = 0; i < 360; i++) {
   const x = -700 + 1500 * e.rnd();

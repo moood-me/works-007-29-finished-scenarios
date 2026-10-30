@@ -86,16 +86,13 @@ e.layer('clouds', { box: [X0, H - 0.12, X1, H + 0.01] }, c => {
 // the storm far to the south: dark lumps along the horizon, their tops a little lighter
 e.layer('storm', { box: [X0, H - 0.22, A * 0.5, H + 0.02] }, c => {
   for (let i = 0; i < 26; i++) {
-    const x = X0 + (A * 0.5 - X0) * (i / 25) + 0.03 * (e.rnd() - 0.5);
+    const x = X0 + (A * 0.44 - X0) * (i / 25) + 0.03 * (e.rnd() - 0.5);
     const big = 1 - Math.abs(x - A * 0.08) / (A * 0.5);
     const r = 0.03 + 0.055 * Math.max(0, big) * (0.6 + 0.4 * e.rnd());
     glow(c, x, H - r * 0.4, r * 1.6, r, '#2a2948', 0.95);
   }
-  const base = c.createLinearGradient(0, H - 0.04, 0, H + 0.01);
-  base.addColorStop(0, 'rgba(36,36,64,0)');
-  base.addColorStop(1, 'rgba(32,33,58,0.9)');
-  c.fillStyle = base;
-  c.fillRect(X0, H - 0.04, A * 0.5 - X0, 0.06);
+  // its foot along the horizon, thinning out toward the west
+  glow(c, X0 + 0.2, H - 0.01, A * 0.62, 0.035, '#20213a', 0.9);
 });
 // the light inside the storm's bank when lightning goes off in it
 e.layer('flash', { blend: 'add', box: [X0, H - 0.22, A * 0.5, H + 0.02] }, c => {

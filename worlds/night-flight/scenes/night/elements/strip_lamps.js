@@ -6,4 +6,4 @@ g.fillStyle = '#fff1cf';
 g.beginPath();
 g.arc(0, -0.62, 0.07, 0, Math.PI * 2);
 g.fill();
-e.light(0, -0.62, 0.3, '#ffe6b0', 0.9, 'glass');
+e.light(0, -0.62, 0.9, '#ffe6b0', 1, 'glass');
