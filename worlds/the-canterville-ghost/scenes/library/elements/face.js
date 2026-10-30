@@ -36,14 +36,18 @@ e.layer('face', {}, f => {
   }
   // the face: long and gaunt
   const skin = f.createRadialGradient(CX, CY - 0.06, 0.03, CX, CY, 0.3);
-  skin.addColorStop(0, 'rgba(222,238,228,0.86)');
-  skin.addColorStop(1, 'rgba(170,198,185,0.8)');
+  skin.addColorStop(0, 'rgba(196,220,206,0.9)');
+  skin.addColorStop(1, 'rgba(120,150,138,0.88)');
   f.fillStyle = skin;
   f.beginPath();
   f.ellipse(CX, CY, 0.2, 0.29, 0, 0, Math.PI * 2);
   f.fill();
+  // (its edge dark against the lit glass: it reads in the flash)
+  f.strokeStyle = 'rgba(30,48,42,0.7)';
+  f.lineWidth = 0.014;
+  f.stroke();
   // the fallen cheeks and temples
-  f.fillStyle = 'rgba(80,105,95,0.35)';
+  f.fillStyle = 'rgba(50,75,66,0.5)';
   for (const s of [-1, 1]) {
     f.beginPath();
     f.ellipse(CX + s * 0.12, CY + 0.06, 0.06, 0.11, s * 0.2, 0, Math.PI * 2);

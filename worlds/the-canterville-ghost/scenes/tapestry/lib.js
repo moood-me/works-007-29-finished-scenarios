@@ -278,23 +278,20 @@ function people(scene) {
     washington_reach: null, washington_with: [],
   };
 }
-// The talk (3.2–3.6): her face seen from beside him, his from beside her — the camera's own eye a third of the way from
-// the one toward the other and a step aside toward the room, so the face looked at turns to us (from the scene's camera
-// they stand level and both show their profiles). Where they are now: she where she stopped, he on the seat or standing.
+// The talk (3.2–3.6): her face, his face, each turned to us — from the scene's camera they stand level and both show
+// their profiles. Her face: the eye a metre to her right, level with her (between her and him, near his line of sight:
+// she looks at him), looking along the room toward the door wall — never toward the open side the room has no wall on.
+// His: the eye a metre and a half before him where he faces from the seat (toward the room and the door), looking up
+// the room at him and the window. Where they are now: she where she stopped, he on the seat or standing.
 const HEAD = 1.42; // her face, standing
-function faces(scene) {
-  const her = [scene.get('virginia_a') ?? NEAR[0], scene.get('virginia_d') ?? NEAR[1], HEAD];
-  const on = scene.get('simon_on');
-  const him = Array.isArray(on) ? [on[0] - 0.05, on[1] - 0.1, 1.12] : [scene.get('simon_a'), scene.get('simon_d'), 1.6];
-  return { her, him };
+function herEye(scene) {
+  const a = scene.get('virginia_a') ?? NEAR[0], d = scene.get('virginia_d') ?? NEAR[1];
+  return eye([a + 1.05, d + 0.05, 1.38], [a, d, HEAD]);
 }
-// the eye beside `from`, looking at `to`'s face
-function over(from, to) {
-  const dx = to[0] - from[0], dz = to[1] - from[1], l = Math.hypot(dx, dz) || 1;
-  // (aside: across the line between them, on the room's side — nearer the viewer, away from the window)
-  const flip = dx / l > 0 ? -1 : 1, px = (-dz / l) * flip, pz = (dx / l) * flip;
-  const ex = from[0] + dx * 0.3 + px * 0.25, ez = from[1] + dz * 0.3 + pz * 0.25;
-  return eye([ex, ez, (from[2] + to[2]) / 2 + 0.05], to);
+function hisEye(scene) {
+  const on = scene.get('simon_on');
+  const [a, d, h] = Array.isArray(on) ? [on[0], on[1], 1.1] : [scene.get('simon_a'), scene.get('simon_d'), 1.6];
+  return eye([a - 0.86, d - 1.23, h + 0.15], [a - 0.05, d - 0.1, h]);
 }
 // the talk's start, when a piece of it opens the scene: he on the seat looking at her, she near him
 const TALK = () => ({ ...ROOM, simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, virginia_look: 'simon' });
@@ -534,12 +531,10 @@ function film(scene) {
       tells: [],
       seconds: 0.5,
       from: () => {
-        const v = { ...people(scene), ...TALK() };
-        return { ...v, ...over([SEAT[0] - 0.05, SEAT[1] - 0.1, 1.12], [NEAR[0], NEAR[1], HEAD]) };
+        return { ...people(scene), ...TALK(), ...eye([NEAR[0] + 1.05, NEAR[1] + 0.05, 1.38], [NEAR[0], NEAR[1], HEAD]) };
       },
       run: async s => {
-        const { her, him } = faces(scene);
-        s.cut(over(him, her));
+        s.cut(herEye(scene));
         await s.wait(0.5);
       },
     },
@@ -547,10 +542,9 @@ function film(scene) {
       after: ['talk', 'sandwich', 'stamp', 'her_face', 'his_face', 'room'],
       tells: [],
       seconds: 0.5,
-      from: () => ({ ...people(scene), ...TALK(), ...over([NEAR[0], NEAR[1], HEAD], [SEAT[0] - 0.05, SEAT[1] - 0.1, 1.12]) }),
+      from: () => ({ ...people(scene), ...TALK(), ...eye([SEAT[0] - 0.86, SEAT[1] - 1.23, 1.25], [SEAT[0] - 0.05, SEAT[1] - 0.1, 1.1]) }),
       run: async s => {
-        const { her, him } = faces(scene);
-        s.cut(over(her, him));
+        s.cut(hisEye(scene));
         await s.wait(0.5);
       },
     },
