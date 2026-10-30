@@ -660,9 +660,9 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         o.wear(CAP_ON);
         o.with(['spanner_l']);
         o.do('stand_easy');
-        o.walk([[-0.15, 3.85]]).then(() => o.turn(225));
+        o.walk([[-0.15, 3.85]]).then(() => o.turn(315));
         await r.walk([[-0.3, 4.5], [-1.05, 3.85]]);
-        await r.turn(135);
+        await r.turn(45);
         r.do('stand');
         o.look('riviere#hand_r');
         r.look('roblet#hand_l');
@@ -678,8 +678,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       tells: ['chocks_pick:say', 'chocks_pick:pick', 'chocks_pick:gone'],
       seconds: 8,
       from: () => ({
-        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...P('roblet', [-0.15, 3.85], 225, 'stand_easy', { look: 'riviere', wear: CAP_ON }),
-        ...P('riviere', [-1.05, 3.85], 135, 'stand', { look: 'roblet' }),
+        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...P('roblet', [-0.15, 3.85], 315, 'stand_easy', { look: 'riviere', wear: CAP_ON }),
+        ...P('riviere', [-1.05, 3.85], 45, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.two_hands,
       }),
       run: async s => {
