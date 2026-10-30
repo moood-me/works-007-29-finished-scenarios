@@ -592,15 +592,16 @@ function film(scene) {
         await s.wait(1);
       },
     },
-    // 3.7 before the choice: her face, over his shoulder and the hand he holds out
+    // 3.7 before the choice: her face, from between them and a step toward the room (he stands at her right, out of
+    // the frame, his hand held out)
     wall_her: {
       after: ['wall_parts'],
       tells: [],
       seconds: 1,
       from: () => ({ ...ROOM, ...people(scene), wall: 1, stir: 1, simon_on: null, simon_a: 1.3, simon_d: 4.95, simon_turn: 250, simon_do: 'offer',
-        simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, ...eye([1.75, 4.55, 1.5], [NEAR[0], NEAR[1], HEAD]) }),
+        simon_look: 'virginia', virginia_a: NEAR[0], virginia_d: NEAR[1], virginia_turn: 115, ...eye([0.85, 4.45, 1.45], [NEAR[0], NEAR[1], HEAD]) }),
       run: async s => {
-        s.cut(eye([1.75, 4.55, 1.5], [scene.get('virginia_a') ?? NEAR[0], scene.get('virginia_d') ?? NEAR[1], HEAD]));
+        s.cut(eye([0.85, 4.45, 1.45], [scene.get('virginia_a') ?? NEAR[0], scene.get('virginia_d') ?? NEAR[1], HEAD]));
         await s.wait(1);
       },
     },
