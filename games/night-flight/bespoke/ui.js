@@ -57,7 +57,7 @@ export function ui(layer) {
       if (gauge.hidden) return;
       if (state.shown.exceptions) {
         const S = SCALES.exceptions, v = state.scales.exceptions;
-        const row = el('div', 'row bar', gauge);
+        const row = el('div', 'row count', gauge);
         el('span', 'name', row).textContent = S.name;
         const cells = el('span', 'cells', row);
         for (let i = S.min + 1; i <= S.max; i++) el('i', i <= v ? 'on' : '', cells);
