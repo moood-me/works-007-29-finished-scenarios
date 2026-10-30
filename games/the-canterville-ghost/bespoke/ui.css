@@ -170,7 +170,7 @@
 #underlay .map.cant{--f-text:Georgia,'Times New Roman',serif;--f-title:Georgia,'Times New Roman',serif;--f-num:Georgia,serif;
   --c-main:#b06a1e;--c-glow:rgba(217,154,58,.18);--c-chosen:#2b211b;--c-title:#2b211b;--c-num:#6b5a4b;
   --c-name:#5a4a3c;--c-key:#2b211b;--c-alt:#9a8b77;--c-thin:rgba(107,90,75,.45);--c-replay:#3a6ea5;
-  --c-halo:rgba(217,154,58,.55);--c-core:#d99a3a;--trunk:1.5px;--glow:6px;--w:calc(var(--u) * 430)}
+  --c-halo:rgba(217,154,58,.55);--c-core:#d99a3a;--trunk:1.5px;--glow:6px;--w:calc(var(--u) * 400)}
 #underlay .map.cant .tree{min-height:calc(var(--u) * 120);padding:calc(var(--u) * 16) calc(var(--u) * 22) calc(var(--u) * 12);
   background:#f4ecd8;border:1px solid #d6c4a0;border-radius:calc(var(--u) * 4);box-shadow:0 calc(var(--u) * 8) calc(var(--u) * 26) rgba(0,0,0,.45)}
 #underlay .map.cant .tree.future{width:calc(var(--u) * 200);background:none;border:1px dashed rgba(244,236,216,.45);box-shadow:none;min-height:0}

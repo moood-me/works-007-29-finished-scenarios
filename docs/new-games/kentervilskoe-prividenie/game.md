@@ -8,8 +8,7 @@
   `bespoke/lang/ru/strings.json`). Мир — `worlds/the-canterville-ghost` (`game.json` `world`).
 - **Каркас** — «Летней книги» стадии 3 (works-006, `176a0fe`/`7de43f9`): `bespoke/game.js` (главы, карта, переигровки,
   карта автора, сохранение), `story.js` (`context`, `PLACES`, `SCALES`, `EFFECTS`, `ENDINGS`, `facts`), `ui.js`/`ui.css`
-  (плашки, тосты, шкалы, подпись места, карточка заглушки, карта автора), `map.js` (карта — ряд листков над пустой
-  библиотекой), `jump.js`, `chapters/`, `minigames/` (`stub.js`, `all.js`), `check/run.mjs`.
+  (плашки, тосты, шкалы, подпись места, карточка заглушки, карта автора), `map.js` (карта — деревья глав над сценой мира `night`, с 2026-10-30), `jump.js`, `chapters/`, `minigames/` (`stub.js`, `all.js`), `check/run.mjs`.
 
 ## Места — одна карта
 
