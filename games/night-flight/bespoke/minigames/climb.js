@@ -17,7 +17,7 @@ export default {
   points: ['fabien#hands'],
   keys: ['climb'],
   async run(g, b, opts, signal) {
-    const mg = g.minigame({ phrase: tr('Overhead, the stars. Pull the plane up, slowly.') });
+    const mg = g.minigame({ phrase: tr('The minute is over. Overhead, in the gap, the stars.') });
     const send = keys(g);
     const over = settle(signal, () => g.set('climb', 1));
     g.set('climb', 0);

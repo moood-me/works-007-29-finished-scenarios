@@ -46,6 +46,12 @@ function film(scene) {
     fine: CAM([0.9, 3.0, 1.7], [1.15, 5.5, 1.55]),
     robineau_I: CAM([1.3, 3.6, 1.7], [1.7, 5.4, 1.5]),
     roblet_hands: CAM([-0.6, 2.4, 1.2], [-0.75, 3.35, 1.0]),
+    // the two before the choice: Roblet (his eyes on his cap) and Rivière, faces toward the lens, the mechanics behind
+    ask: CAM([0.1, 1.2, 1.65], [0.0, 3.9, 1.45]),
+    // the mechanics at the Chilean's engine, turned to Rivière before them (1.2 «tear»)
+    crew: CAM([-0.4, 9.0, 1.7], [-0.7, 12.7, 1.55]),
+    // Robineau by the hangar wall, Rivière at the switch beyond him not looking (4.1, went out alone)
+    wall: CAM([-2.6, 13.1, 1.7], [-3.4, 17.6, 1.5]),
     box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
     two_hands: CAM([-0.3, 2.3, 1.3], [-0.5, 3.6, 1.05]),
@@ -113,7 +119,6 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     ...P('mechanic_b', [0.9, 12.5], 160, 'load_sack'),
     ...P('mechanic_c', [3.6, 12.9], 220, 'load_sack'),
   };
-  const robineauAt = () => (scene.get('robineau') === 'silent' ? WALL : BESIDE);
 
   // a mechanic who pulls the chocks: Roblet if he was taken off the engines, else the young one if he is there
   const chocksMan = () => {
@@ -426,7 +431,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     // 1.2 «tear»: Rivière takes the form and tears it up before the mechanics; they look at one another
     fine_tear: {
       after: ['fine'],
-      tells: ['fine_tear:torn', 'fine_tear:look'],
+      tells: ['fine_tear:rip', 'fine_tear:torn', 'fine_tear:look'],
       seconds: 6,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, ...R('front'), ...ENGINES, ...AWAY,
@@ -443,16 +448,21 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         r.with(['form']);
         r.reach(null);
         await r.turn(160);
-        crew.forEach(m => {
+        crew.forEach((m, i) => {
           m.do('stand_easy');
+          m.turn([190, 170, 200][i]);
           m.look('riviere');
         });
-        await r.do('tear_paper');
+        const tearing = r.do('tear_paper');
+        s.tell('fine_tear:rip');
+        await tearing;
         r.with([]);
         r.do('hands_behind');
         s.tell('fine_tear:torn');
         b.look('riviere');
-        await glide(s, SH.wide, 2);
+        // (the mechanics, who saw it: their faces, between him and them)
+        await cut(s, SH.crew);
+        await s.wait(0.8);
         crew[0].look('mechanic_b');
         crew[1].look('mechanic');
         crew[2].look('mechanic_b');
@@ -486,9 +496,29 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         await s.wait(1.5);
       },
     },
+    // Ш1, before the choice: the two of them, Roblet's eyes on his cap in his hands, Rivière looking at him — the
+    // mechanics turned to listen (the choice's mark on Roblet next)
+    roblet_ask: {
+      after: ['roblet'],
+      tells: ['roblet_ask:ready'],
+      seconds: 2,
+      from: () => ({
+        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'roblet#hands' }),
+        ...P('mechanic', [-0.6, 12.4], 190, 'stand_easy', { look: 'roblet' }),
+        ...P('mechanic_b', [-1.8, 12.9], 170, 'stand_easy', { look: 'roblet' }),
+        ...P('mechanic_c', [0.3, 12.8], 200, 'stand_easy', { look: 'roblet' }),
+        ...P('riviere', [0.7, 4.25], 200, 'hands_behind', { look: 'roblet' }),
+        ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.ask,
+      }),
+      run: async s => {
+        await s.wait(1);
+        s.tell('roblet_ask:ready');
+        await s.wait(0.5);
+      },
+    },
     // Ш1 «dismiss»: Rivière lays the order on the box (М2 `pen` next: the insert)
     order: {
-      after: ['roblet'],
+      after: ['roblet', 'roblet_ask'],
       tells: ['order:laid'],
       seconds: 4,
       from: () => ({
@@ -514,7 +544,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     // light; the mechanics keep their heads down
     roblet_go: {
       after: ['order'],
-      tells: ['roblet_go:cap', 'roblet_go:gate'],
+      tells: ['roblet_go:cap', 'roblet_go:lift', 'roblet_go:gate'],
       seconds: 16,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere' }),
@@ -542,6 +572,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         await o.do('lift_box');
         o.with(['toolbox_held']);
         s.set('toolbox', 0);
+        s.tell('roblet_go:lift');
         o.gait('walk_carry');
         o.look(null);
         glide(s, SH.wide, 3);
@@ -555,8 +586,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     },
     // Ш1 «keep»: Rivière lifts the box himself and holds it out to Roblet (М3 `box` next)
     box_lift: {
-      after: ['roblet'],
-      tells: ['box_lift:held'],
+      after: ['roblet', 'roblet_ask'],
+      tells: ['box_lift:lift', 'box_lift:held'],
       seconds: 4,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere' }),
@@ -572,6 +603,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         await r.do('lift_box');
         s.set('toolbox', 0);
         r.with(['toolbox_held']);
+        s.tell('box_lift:lift');
         r.look('roblet');
         await r.turn(145);
         await r.do('give_box');
@@ -604,7 +636,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     },
     // Ш1 «take him off»: Roblet has the spanner in his hand; Rivière holds out his palm for it (М4 `spanner` next)
     palm: {
-      after: ['roblet'],
+      after: ['roblet', 'roblet_ask'],
       tells: ['palm:out'],
       seconds: 3,
       from: () => ({
@@ -631,7 +663,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     // Ш1 after М4: Roblet picks up the chocks — «Better you had fired me» — and walks to the plane's wheel
     chocks_pick: {
       after: ['palm'],
-      tells: ['chocks_pick:say', 'chocks_pick:gone'],
+      tells: ['chocks_pick:say', 'chocks_pick:pick', 'chocks_pick:gone'],
       seconds: 8,
       from: () => ({
         ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere', wear: CAP_ON, turn: 110 }),
@@ -647,6 +679,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         await s.wait(1.5);
         o.look(null);
         await o.do('pick_chocks');
+        s.tell('chocks_pick:pick');
         o.do('stand');
         glide(s, SH.wide, 3);
         await o.walk([[-1.0, 8.0], SPOTS.chocks.at]);
@@ -664,18 +697,30 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     european: {
       tells: ['european:switch'],
       seconds: 10,
+      // (sat with him, 3.7: Robineau comes out with Rivière and stops at his shoulder's place; went out alone: he has
+      // long been by the hangar wall, no coat, the folder to his chest — Rivière comes to the switch near him and does not
+      // look at him)
       from: () => ({
         ...CH4(),
         ...P('riviere', [-4.0, 6.0], 20, 'stand', { look: 'hangar_front#switch' }),
-        ...P('robineau', robineauAt(), scene.get('robineau') === 'silent' ? 150 : 110, 'hold_waist', { look: 'riviere' }),
+        ...(scene.get('robineau') === 'silent' ? P('robineau', WALL, 150, 'hold_waist', { look: 'robineau#hands' })
+          : scene.get('robineau') === 'sit' ? P('robineau', [-4.7, 5.6], 20, 'hold_waist', { look: 'riviere' })
+            : P('robineau', BESIDE, 110, 'hold_waist', { look: 'riviere' })),
         ...SH.wide,
       }),
       run: async s => {
-        const r = s.person('riviere');
+        const r = s.person('riviere'), b = s.person('robineau');
+        const how = scene.get('robineau');
+        if (how === 'sit') b.walk([[-3.4, 9.0], BESIDE]).then(() => { b.turn(110); b.look('riviere'); });
         await r.walk([[-2.4, 12.0], SWITCH]);
         await r.turn(16);
         r.do('hands_behind');
         r.reach(AT_SWITCH);
+        if (how === 'silent' && scene.get('robineau_here') !== false) {
+          r.look('hangar_front#switch');
+          await cut(s, SH.wall);
+          await s.wait(2.8);
+        }
         await glide(s, SH.switch, 2.5);
         s.tell('european:switch');
         await s.wait(0.5);
@@ -685,7 +730,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
     // Rivière
     twice: {
       after: ['european'],
-      tells: ['twice:wipe', 'twice:look'],
+      tells: ['twice:shut', 'twice:wipe', 'twice:look'],
       seconds: 8,
       from: () => ({ ...CH4(LIT), ...R('engine'), ...P('riviere', SWITCH, 16, 'stand', { look: 'plane' }), ...SH.pilot_roblet }),
       run: async s => {
@@ -696,6 +741,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         o.do('engine_work');
         await s.wait(1.5);
         s.set('cowling', 0);
+        s.tell('twice:shut');
         await s.wait(0.5);
         await o.turn(110);
         o.look('pilot');

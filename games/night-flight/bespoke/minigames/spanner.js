@@ -23,7 +23,7 @@ export default {
   points: ['riviere#hand_r'],
   keys: ['roblet_reach', 'roblet_with', 'riviere_with'],
   async run(g, b, opts, signal) {
-    const mg = g.minigame({ phrase: tr('Rivière’s palm, held out under the spanner. Do not take it back.') });
+    const mg = g.minigame({ phrase: tr('Rivière’s palm under the spanner; Roblet’s fingers are slow to open.') });
     const passed = () => { g.set('roblet_reach', null); g.set('roblet_with', null); g.set('riviere_with', HELD); };
     const over = settle(signal, passed);
     g.set('roblet_with', HELD);
@@ -58,7 +58,7 @@ export default {
     passed();
     if (hold.state.held) {
       // (the spanner in the palm: now take the hand back)
-      mg.plate.set({ phrase: tr('The spanner is in your palm. Take your hand back.') });
+      mg.plate.set({ phrase: tr('The spanner is in Rivière’s palm.') });
       mark.set({ time: 1 });
       const t1 = mg.t;
       if (!(await until(mg, ({ t }) => {

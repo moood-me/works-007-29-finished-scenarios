@@ -8,11 +8,16 @@
 // moments (g.beat, g.told, piece()).
 //   g.state — what the play carries: {scales, shown, marks, choices} (game.js); what follows from it: facts(g.state)
 //   g.signal — aborts when the step is left
-//   g.scene(place, {here, moods, keys}, {cut}) — that place of the game (PLACES: the world's scene it is played on, and
-//     where it really is when that scene only stands in for it), full-screen: of the game's people only `here` are
+//   g.scene(place, {here, moods, keys, air}, {cut}) — that place of the game (PLACES: the world's scene it is played on,
+//     and where it really is when that scene only stands in for it), full-screen: of the game's people only `here` are
 //     there — those of them the scene has (`<id>_here`, the engine's key; whom it has not are not seen: voices only) —,
 //     their faces as `moods` say ({id: mood}); `keys` — values of the scene's own keys (its scene.json's states) or a
-//     person's (`<id>_look`). Always opened anew; `cut` — in one cut, else through black
+//     person's (`<id>_look`); `air` — the beds of sound under it (sound.js BEDS: {bed: level}), else the place's own as
+//     its keys stand (AIR). Always opened anew; `cut` — in one cut, else through black
+//   g.air(levels) — the beds under the shown scene from now on (a change within it: the engine warming, the inker
+//     falling silent); g.air(null) — the place's own again, as its keys stand now
+//   g.sound(name, {loud, far, delay, rate, cut}) — a one-off sound (sound.js ONCE); g.tone(seconds, o) — the key held
+//     down, one long note; nothing where the step is unseen or hurried (the page's ⏭)
 //   g.here(id, on) — someone of the shown scene comes or goes (in one cut); g.mood(id, mood) — their face (both: only
 //     the game's people the scene has; others are let be)
 //   g.beat(name, {wait}) — a piece of the shown scene (its key `beat`; world module `beats`); → once it has ended (the
@@ -53,6 +58,8 @@
 // A step may be played up to a minigame unseen, without time (the author's map: a jump — jump.js j), or all through
 // (a dry run: game.js, check/run.mjs): then nothing of it is said, shown or heard, a plate goes by at once, and a
 // minigame gives its `skipped` (or what the dry run asks: j.result — check/run.mjs plays the misses too).
+
+import { once, tone } from './sound.js';
 
 // The game's places (scenario §4) and the world's scene each is played on — the one map of them. At stage 3 a place
 // whose own scene was not made yet stood in one of the ready ones with a label (`where`) saying where it really was;
@@ -113,6 +120,28 @@ export const OFFICE = f => ({
   lamp: 1, floods: f.ending === 'dawn' ? 0 : 1, rain: 0.6, plane: f.ending === 'dawn' ? 'standing' : 'gone',
   yard_roblet: f.roblet === 'keep' ? 'hangar' : f.roblet === 'remove' ? 'chocks' : 'none', yard_robineau: f.robineau === 'silent' ? 1 : 0,
 });
+
+// The places' sound (scenario §4: sound is the game's main instrument) — the beds under each place as its keys stand
+// (sound.js BEDS: {bed: level}); a step gives its own `air` where the moment differs (the engine warming, the inker
+// running, the clock while the minute runs out). Low: the voices are over them. The bureau: its wall clock always;
+// the inker while it runs; through the open field door the wind — stronger once the storm is coming (23:20 on), the
+// rain from three (the storm at the field), the next evening's crickets at dusk. The field: the wind over it; an engine
+// warming by the hangar, or one far off over the dark coming in. The cockpit: the engine and the wind; the storm; over
+// the clouds the engine alone, quieter. The office at three: the rain on its window.
+export const AIR = {
+  bureau: k => {
+    const t = k.time ?? 0, a = { clock: 0.12 };
+    if (k.tape) a.inker = 0.3;
+    if (t >= 180 && t < 330) a.rain = 0.22;
+    else if (t >= 330 && t < 480) a.field = 0.05;
+    else if (t >= 1110 && t < 1230) a.evening = 0.14;
+    else a.field = t >= 1400 || t < 180 ? 0.1 : 0.06;
+    return a;
+  },
+  field: k => ({ field: 0.3, ...(k.engine > 0 && !k.plane_h ? { idle: 0.35 } : {}), ...(k.engine > 0 && k.plane_h > 0 ? { drone: 0.3 } : {}) }),
+  cockpit: k => (k.above ? { cockpit: 0.22 } : k.storm ? { storm: 0.45, cockpit: 0.3 } : { cockpit: 0.38 }),
+  office: k => ({ rain: 0.3 + 0.2 * (k.rain ?? 0) }),
+};
 
 // The scales (scenario §8), each with two sides: where they start, their bounds, its name in the gauge, its two ends
 // (`sides`: the left one, the right one), the side the player reads when it moves (up: delta > 0, down: delta < 0),
@@ -229,6 +258,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   const put = (key, value, seconds) => (unseen() ? j.did([key, value]) : b.set(key, value, seconds));
   let people = new Set(), present = new Set(); // the shown scene's people; those of them there now
   let opening = null; // the piece the scene was opened with, till g.beat takes it up: {name, ended}
+  let shownPlace = null; // the place shown (its own air: AIR)
   let playing = null; // the minigame played now: {signal, end, skippable}
   // the page's ⏭ as the step stands now: none while a choice or a plate waits or the step is still unseen; in a
   // minigame — its skip, where it may be skipped; else, where the step is seen, on to the next interaction
@@ -258,7 +288,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
     for (const h of j.seen()) hub.told(h.text, h.ms).then(h.ok);
     view.gauge(state);
     if (shown) {
-      await alive(b.show(shown.folder, { state: shown.state, captions: false, then }));
+      await alive(b.show(shown.folder, { state: shown.state, captions: false, then, background: shown.air }));
       view.where(shown.where);
     }
     ahead();
@@ -274,7 +304,7 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
   const g = {
     state,
     signal: left.signal,
-    async scene(place, { beat = null, here = [], moods = {}, keys = {} } = {}, { cut = false } = {}) {
+    async scene(place, { beat = null, here = [], moods = {}, keys = {}, air = null } = {}, { cut = false } = {}) {
       if (gone()) return never;
       const at = PLACES[place];
       if (!at) throw new Error(`no place “${place}”`);
@@ -288,9 +318,12 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
       for (const [id, mood] of Object.entries(moods)) if (people.has(id)) st[`${id}_mood`] = mood;
       Object.assign(st, keys);
       if (beat) st.beat = beat;
+      shownPlace = place;
+      const background = air ?? AIR[place]?.(st) ?? {};
       if (unseen()) {
         opening = beat ? { name: beat, ended: g.told(`beat:${beat}`, BEAT) } : null;
         j.scene(folder, st, where);
+        j.shown.air = background;
         return;
       }
       showing = true;
@@ -299,13 +332,26 @@ export function context(b, view, hub, state, j = null, { forward = null } = {}) 
         opening = beat ? { name: beat, ended: g.told(`beat:${beat}`, BEAT) } : null;
         hub.withdraw();
         view.where(null);
-        await alive(b.show(folder, { state: st, captions: false, fade: !cut }));
+        await alive(b.show(folder, { state: st, captions: false, fade: !cut, background }));
         view.where(where);
       } finally { showing = false; }
     },
     set(key, value, seconds) {
       if (gone()) return;
       put(key, value, seconds);
+    },
+    air(levels) {
+      if (gone()) return;
+      const to = levels ?? AIR[shownPlace]?.(new Proxy({}, { get: (_, k) => g.get(k) })) ?? {};
+      if (unseen()) { if (j.shown) j.shown.air = to; } else b.background(to);
+    },
+    sound(name, o) {
+      if (gone() || unseen() || fast) return;
+      once(name, o);
+    },
+    tone(seconds, o) {
+      if (gone() || unseen() || fast) return;
+      tone(seconds, o);
     },
     async beat(name, { wait = true } = {}) {
       if (gone()) return never;

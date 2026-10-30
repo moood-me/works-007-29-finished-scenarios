@@ -23,15 +23,17 @@ export default {
     // 2.1: the Asunción mail; М1 the flag; the storm from the south (`asuncion_in`, `storm_south`)
     async g => {
       const { roblet } = facts(g.state);
+      // (over the roof the drone of an engine: the Asunción mail coming down on time — in the window, the floodlights lit
+      // and its lamp over the field)
       await g.scene('bureau', { here: ['riviere', 'telegraphist', 'asuncion'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
-        keys: { ...bureau(clock(23, 20), { tape: 1, flags: FLAGS.trelew }), riviere_spot: 'flags', riviere_look: 'map', telegraphist_look: 'tel_inker', asuncion_look: 'riviere' } });
-      await g.plate(tr('Twenty past eleven. Over the roof, the drone of an engine — the Asunción mail is landing on time.'));
+        keys: { ...bureau(clock(23, 20), { tape: 1, flags: FLAGS.trelew, outside: 'landing' }), riviere_spot: 'flags', riviere_look: 'map', telegraphist_look: 'tel_inker', asuncion_look: 'riviere' } });
+      g.sound('landing', { far: true });
+      await g.wait(4500);
       await g.say('telegraphist', 'Asunción: landed');
       await g.play(flag_north);
       g.set('tape', 0);
-      await piece(g, 'asuncion_in', {
-        report: () => g.plate(tr('The Asunción mail’s pilot comes in and lays his report on Robineau’s empty desk — Robineau is at supper with Pellerin.')),
-      });
+      g.air(null);
+      await piece(g, 'asuncion_in');
       if (roblet === 'fire') {
         await g.say('asuncion', 'Sorry for the old man');
         await g.wait(1200);
@@ -45,6 +47,9 @@ export default {
         await g.wait(1200);
         await g.say('asuncion', 'He didn’t look at me');
       }
+      // (the inker runs again: the south)
+      g.set('tape', 1);
+      g.air(null);
       await piece(g, 'storm_south', {
         read: async () => {
           await g.say('telegraphist', 'Trelew: storm from the south. Field closed');
@@ -52,15 +57,16 @@ export default {
         },
         order: () => g.say('riviere', 'All stations listen for Fabien. Bearing on request. Hold the European until he comes in'),
       });
+      g.air(null);
     },
     // 2.2: the storm; М5 the stick (`storm`)
     async g => {
+      g.sound('thunder', { loud: 0.7, delay: 1.6 });
       await piece(g, 'storm', {
         note: () => g.say('radioman', 'Trelew closed. Comodoro closed. Where to?', { how: 'a note written in the air, read short over the engine' }),
         answer: () => g.say('fabien', 'I don’t know', { how: 'a note written in the air, read short over the engine' }),
       }, () => g.scene('cockpit', { beat: 'storm', here: ['fabien', 'radioman'], moods: { fabien: 'thinking', radioman: 'afraid' }, keys: SKY.storm }));
-      const { lost } = await g.play(stick);
-      if (lost) await g.plate(tr('The plane went over on a wing; Fabien righted it himself. In the lightning, for a moment, there was water below.'));
+      await g.play(stick);
       await g.say('narrator', 'He no longer knew whether he was over land');
     },
     // 2.3: Robineau back from supper; the European pilot comes in (`back`, `folder_shift`, `to_map`, `coat_off`,
@@ -94,10 +100,18 @@ export default {
     async g => {
       await g.scene('bureau', { here: ['riviere', 'telegraphist', 'pilot', 'robineau'], moods: { riviere: 'neutral', telegraphist: 'neutral', pilot: 'neutral', robineau: 'neutral' },
         keys: { ...bureau(clock(1, 35)), riviere_spot: 'desk', pilot_spot: 'bench', robineau_spot: 'desk', riviere_look: 'rob_phone', pilot_look: 'riviere', telegraphist_look: 'riviere', robineau_look: 'riviere' } });
-      await g.plate(tr('Twenty-five to two. The telephone rings.'));
+      // (the telephone rings; the telegraphist, nearer, has it first)
+      await g.wait(800);
+      g.sound('ring');
+      await g.wait(2600);
+      g.sound('ring');
+      await g.wait(2000);
       await g.say('telegraphist', 'Madame Fabien');
       await piece(g, 'phone', {
-        receiver: () => g.say('madame', 'Forgive me for… We have such a wind here. He said — by two. He hasn’t come down somewhere to wait it out?', { at: 'narrator', how: 'on the telephone, small and far; behind her the wind bangs a shutter' }),
+        receiver: () => {
+          g.sound('receiver', { loud: 0.7 });
+          return g.say('madame', 'Forgive me for… We have such a wind here. He said — by two. He hasn’t come down somewhere to wait it out?', { at: 'narrator', how: 'on the telephone, small and far; behind her the wind bangs a shutter' });
+        },
       });
       g.gauge('told');
       const phone = await g.choose('phone', { 'riviere#chest': [
@@ -109,15 +123,16 @@ export default {
         await g.say('riviere', 'He is delayed. The wind');
         await g.wait(1500);
         await g.say('madame', 'Thank you. Forgive me', { at: 'narrator', how: 'on the telephone, small and far' });
-        await piece(g, 'phone_down');
+        await piece(g, 'phone_down', { end: () => g.sound('receiver', { loud: 0.7 }) });
       } else if (phone === 'storm') {
         await g.say('riviere', 'He is in the storm. We are listening for him');
         await g.wait(3000);
         await g.say('madame', 'I am coming', { at: 'narrator', how: 'on the telephone, small and far' });
-        await piece(g, 'phone_down');
+        await piece(g, 'phone_down', { end: () => g.sound('receiver', { loud: 0.7 }) });
       } else {
         await piece(g, 'phone_robineau', {
           talk: () => g.say('robineau', 'The wind, madame… the line is bad… don’t you worry…', { how: 'flustered, into the receiver' }),
+          down: () => g.sound('receiver', { loud: 0.7 }),
         });
       }
       g.apply('phone');

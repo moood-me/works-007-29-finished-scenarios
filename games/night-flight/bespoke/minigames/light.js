@@ -6,7 +6,8 @@
 //   What he does: Rivière gives the light to every landing himself — and on «Stand down» puts it out himself.
 //   What he wants: the field light for the man coming down out of the dark; then, the night closed by his own hand.
 //   How it is for him: the drone lower and lower; then the floodlights he lit ten minutes ago.
-//   What the player feels: a slow pull with a clack at each mast.
+//   What the player feels: a slow pull with a clack at each mast (the switch's clack as the hand takes it, each mast's
+//   own as it comes on or goes out — sound.js).
 //   → { helped: someone else finished it }
 import { keys, settle, slowly, count } from './hands.js';
 
@@ -26,12 +27,19 @@ export function light({ phrase, down = false, pulls = 3, helped }) {
       const over = settle(signal, () => { g.set('lever', end); g.set('floods', end); });
       g.set('lever', 1 - end);
       g.set('floods', 1 - end);
-      let jammed = false;
-      const r = await slowly(g, b, mg, { at: 'hangar_front#switch', pulls, frame: u => at(u, send),
+      let jammed = false, taken = false, masts = 0;
+      // (the switch's clack as the hand takes it; a mast's as each third is passed)
+      const heard = u => {
+        if (!taken && u > 0.02) { taken = true; g.sound('switch'); }
+        for (; masts < Math.min(3, Math.floor(u * 3 + 1e-6)); masts++) g.sound('flood', { loud: 0.8 });
+      };
+      const r = await slowly(g, b, mg, { at: 'hangar_front#switch', pulls, frame: u => { at(u, send); heard(u); },
         jerk: () => { jammed = true; mg.plate.set({ phrase: helped }); return true; } });
       if (!r) return this.skipped;
       g.set('lever', end);
       g.set('floods', end);
+      if (!taken) g.sound('switch');
+      for (let k = 0; masts < 3; masts++, k++) g.sound('flood', { loud: 0.8, delay: 0.4 * k });
       if (!(await count(mg, 0.6))) return this.skipped;
       over();
       await mg.end({ as: jammed ? 'flawed' : 'clean' });

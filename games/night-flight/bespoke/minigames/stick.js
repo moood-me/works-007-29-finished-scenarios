@@ -20,11 +20,12 @@ export default {
   points: ['fabien#hands'],
   keys: ['roll', 'water'],
   async run(g, b, opts, signal) {
-    const mg = g.minigame({ phrase: tr('Darkness, lightning; the plane is thrown about. Keep it level.') });
+    const mg = g.minigame({ phrase: tr('Darkness and lightning; the plane is thrown about, and Fabien holds it level.') });
     const send = keys(g);
     const over = settle(signal, () => { g.set('roll', 0, 0.8); g.set('water', 0, 0.5); });
     // (gone over: the wing down for a moment, the water below in the flash, then Fabien rights it)
     let lost = false, at = -Infinity, side = 1;
+    g.sound('thunder', { loud: 0.6, delay: 1.5 });
     const r = await balance(g, b, mg, { at: 'fabien#hands', seconds: SECONDS, width: 0.45,
       push: t => wobble(t, 1.1, 0.4),
       frame: ({ arrow }) => {
@@ -42,6 +43,7 @@ export default {
         lost = true;
         at = mg.t;
         side = Math.sign(g.get('roll') || 1);
+        g.sound('thunder', { loud: 0.9 });
         mg.plate.set({ phrase: tr('Over on a wing — and water below, in the lightning. Fabien rights it.') });
       } });
     if (!r) return this.skipped;

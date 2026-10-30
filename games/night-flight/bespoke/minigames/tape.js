@@ -17,7 +17,7 @@ export default {
   points: ['tel_inker#ink'],
   keys: ['tape_pull'],
   async run(g, b, opts, signal) {
-    const mg = g.minigame({ phrase: tr('The inker comes to life. Draw the tape out, word by word.') });
+    const mg = g.minigame({ phrase: tr('The inker comes to life. Fabien’s words, one by one.') });
     const send = keys(g);
     const over = settle(signal, () => g.set('tape_pull', 1));
     g.set('tape_pull', 0);

@@ -26,7 +26,7 @@ export default {
     g.set('riviere_with', HELD);
     const how = await letGo(g, b, mg, { at: 'riviere#hand_r', take: 1.2, wait: WAIT, sign: () => {
       g.set('roblet_reach', { r: 'riviere#hand_r' });
-      mg.plate.set({ phrase: tr('Roblet’s hand is on the handle. Let go.') });
+      mg.plate.set({ phrase: tr('Roblet’s hand is on the handle.') });
     } });
     if (!how) return this.skipped;
     if (how === 'long') mg.plate.set({ phrase: tr('Roblet takes the box himself.') });

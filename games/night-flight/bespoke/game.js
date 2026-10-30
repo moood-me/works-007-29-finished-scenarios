@@ -28,6 +28,7 @@
 // player's only where they have been. Where the play is and how it ended — bespoke.at, bespoke.ended.
 import { EFFECTS, ENDINGS, SCALES, PLACES, bureau, clock, context, facts, listen } from './story.js';
 import { ui } from './ui.js';
+import { beds } from './sound.js';
 import { trees } from './map.js';
 import { jump as unseen } from './jump.js';
 import prologue from './chapters/prologue.js';
@@ -67,6 +68,8 @@ export default async function (b) {
     colors: { mark: '#f4ead2', fill: '#f4ead2', good: '#ffe08a', danger: '#c8553d', fork: '#c9d2e4', ghost: '#f4ead2' },
   });
   const hub = listen(b);
+  // the game's background — its beds of sound — as the page sounds it, where the picture changes (sound.js)
+  b.onBackground((levels, seconds) => beds(levels, seconds));
   const view = ui(b.layer);
   // PLAYS[as] played unseen: its n-th step of all (STEPS) from where the steps before leave it → {state: the play
   // after it, games: the minigames it played}

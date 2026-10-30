@@ -46,9 +46,8 @@ export default {
       const here = ['riviere', 'pilot', 'robineau', ...crew(roblet), ...(roblet === 'fire' ? [] : ['roblet'])];
       await piece(g, 'european', {}, () => g.scene('field', { beat: 'european', here, moods: { riviere: 'tired', roblet: 'sad', robineau: 'sad', pilot: 'neutral' },
         keys: { ...FIELD.dark, ...ready(roblet), robineau, bends, roblet, riviere_look: 'hangar_front#switch', robineau_look: 'riviere', roblet_look: 'riviere', pilot_look: 'plane' } }));
-      await g.plate(tr('Ten to three. The European mail by the hangar under the lamps, its engine warming up; the mechanics are loading the mail bags; the field behind it is dark. The pilot by the wing. Rivière goes out to the switch.'));
       await g.play(light_european);
-      if (roblet === 'keep') await piece(g, 'twice', { wipe: () => g.say('roblet', 'Checked it twice') });
+      if (roblet === 'keep') await piece(g, 'twice', { shut: () => g.sound('cowling', { loud: 0.7 }), wipe: () => g.say('roblet', 'Checked it twice') });
       else if (roblet === 'remove') await piece(g, 'at_chocks');
       else {
         await piece(g, 'who_checked', {
@@ -58,9 +57,9 @@ export default {
           },
         });
       }
-      if (robineau === 'sit') await g.plate(tr('Robineau came out with Rivière and stands at his shoulder.'));
-      else if (robineau === 'work') await piece(g, 'robineau_out');
-      else await g.plate(tr('Robineau is already here, by the hangar wall a step from the switch: no coat, the folder pressed to his chest; he has been standing in the wind a long time. Rivière has come to the switch beside him — and has not looked at him.'));
+      // (Robineau as 3.7 left him: come out with Rivière and at his shoulder, or by the hangar wall without his coat — the
+      // piece `european` shows both; sent to work, he comes out now, buttoned up, with his report)
+      if (robineau === 'work') await piece(g, 'robineau_out');
       await piece(g, 'window', {
         pilot: async () => {
           await g.say('pilot', 'They said to hold it till he came in');
@@ -78,9 +77,10 @@ export default {
     async g => {
       const { roblet, robineau, exceptions, bends } = facts(g.state);
       const here = ['riviere', 'pilot', ...crew(roblet), ...(roblet === 'fire' ? [] : ['roblet']), 'robineau'];
+      g.sound('runup', { loud: 0.8, delay: 0.3 });
       await piece(g, 'runup', {}, () => g.scene('field', { beat: 'runup', here, moods: { riviere: 'tired', roblet: 'sad', robineau: 'sad', pilot: 'neutral' },
-        keys: { ...FIELD.lit, ...ready(roblet), madame_window: 1, robineau, bends, roblet, robineau_look: 'riviere', roblet_look: 'riviere', pilot_look: 'riviere' } }, { cut: true }));
-      await g.plate(tr('The engine runs up; the pilot looks at Rivière. There are ten seconds to choose: nothing chosen — Rivière says nothing.'));
+        keys: { ...FIELD.lit, ...ready(roblet), madame_window: 1, robineau, bends, roblet, robineau_look: 'riviere', roblet_look: 'riviere', pilot_look: 'riviere' },
+        air: { field: 0.3, idle: 0.5 } }, { cut: true }));
       const european = await g.choose('european', { 'riviere#chest': [
         { id: 'fly', label: tr('Raise his hand: fly') },
         { id: 'ground', label: tr('“Stand down. Till dawn”') },
@@ -88,9 +88,9 @@ export default {
       ] }, { within: 10000, otherwise: 'silent' });
       if (european === 'fly') {
         await piece(g, 'hand_up');
-        const { long } = await g.play(chocks);
-        if (long) await g.plate(tr('His hand still up, the pilot moves off by himself at the mechanic’s sign.'));
+        await g.play(chocks);
         await piece(g, 'takeoff', {
+          chocks: () => { g.air({ field: 0.3 }); g.sound('takeoff'); },
           gone: () => (robineau === 'work' ? g.say('robineau', 'Two fifty-two', { how: 'writing the time down' }) : null),
         });
         g.here('pilot', false);
@@ -109,6 +109,8 @@ export default {
           },
         });
         await g.play(light_off);
+        g.air({ field: 0.3 });
+        g.sound('engine_off', { loud: 0.8 });
         await piece(g, 'dark_field', {
           still: async () => {
             if (roblet !== 'keep') return;
@@ -125,6 +127,7 @@ export default {
           },
         });
         await piece(g, 'timetable', {
+          chocks: () => { g.air({ field: 0.3 }); g.sound('takeoff'); },
           gone: () => (robineau === 'sit' ? g.say('robineau', 'Gone', { how: 'quietly, beside him' }) : null),
         });
         g.here('pilot', false);
@@ -140,12 +143,11 @@ export default {
           keys: { ...OFFICE(f), riviere_spot: f.ending === 'dawn' ? 'window' : 'room', madame_spot: { victory: 'door', silence: 'window', dawn: 'chair' }[f.ending],
             riviere_look: 'madame', madame_look: f.ending === 'silence' ? 'pane' : 'riviere' } });
         g.title(label(f.ending));
+        // (the storm at the field: thunder over the rain; and where the European went without an order, the last of its
+        // drone dying away as she stands at the window)
+        g.sound('thunder', { loud: 0.55, far: true, delay: 2.5 });
+        if (f.ending === 'silence') g.sound('takeoff', { loud: 0.45, far: true, delay: 0.5 });
       });
-      await g.plate(tr('Three o’clock; Rivière’s office. The storm has reached the field: the first rain on the glass. From the window she has seen the field.'));
-      if (f.ending === 'victory') await g.plate(tr('She has already left the window: she stands by the door in her buttoned coat, her back to the field.'));
-      else if (f.ending === 'silence') await g.plate(tr('She has stood at the window till the drone died away — as he did, below. She turns round as he comes in.'));
-      else await g.plate(tr('Under her window the floodlights went out one after another. For the first time she has sat down — on the visitor’s chair, her gloves on her knees. Rivière stays standing at the window.'));
-      await g.plate(f.ending === 'dawn' ? tr('Nobody keeps her. She gets up first.') : tr('Nobody keeps her.'));
       if (f.ending === 'dawn') await piece(g, 'rises');
       if (f.minute === 'bearing') {
         await g.say('madame', 'Will they go there?');
@@ -176,15 +178,16 @@ export default {
         keys: { ...OFFICE(f), rain: 1, riviere_spot: 'desk', riviere_look: 'desk_top#log', robineau_look: 'riviere' } }, { cut: true }));
       const { blot } = await g.play(log, { line: f.bearing ? 'bearing' : 'unknown' });
       if (blot) await g.plate(tr('Rivière blots it himself.'));
-      if (f.bearing) await g.plate(tr('Rivière writes: “Fabien, radio operator. Over the sea, a hundred and fifty east of Trelew. 2:45.”'));
-      else await g.plate(tr('Rivière writes: “Fabien, radio operator. Position unknown.”'));
       await piece(g, 'log_done');
       if (f.roblet === 'keep') await g.plate(tr('Below, in the rain, Roblet stands by the hangar.'));
       else if (f.roblet === 'remove') await g.plate(tr('Below, in the rain, Roblet is gathering up the chocks.'));
       else await g.plate(tr('Below, under the lamp by the hangar, Roblet’s empty workbench in the rain.'));
       if (f.robineau === 'sit') await piece(g, 'doorway', { in: () => g.say('robineau', 'I am here, sir', { how: 'in the doorway, quietly' }) });
-      else if (f.robineau === 'work') await g.plate(tr('Behind the wall a typewriter clatters: the report.'));
-      else await g.plate(tr('In the window: he is still by the hangar wall, in the rain, without his coat.'));
+      else if (f.robineau === 'work') {
+        // (behind the wall a typewriter: his report)
+        g.air({ rain: 0.5, typewriter: 0.32 });
+        await g.wait(4500);
+      } else await g.plate(tr('In the window: he is still by the hangar wall, in the rain, without his coat.'));
     },
     // Ф.5: the bureau — by the finale (`victory_map` | `silence_map` | `dawn`, `flags_down`)
     async g => {
@@ -199,7 +202,6 @@ export default {
       } else {
         await piece(g, 'dawn', {}, () => g.scene('bureau', { beat: 'dawn', here: ['riviere', 'telegraphist', ...nearby(f)], moods: { riviere: 'tired', telegraphist: 'eyes_closed', robineau: 'sad' },
           keys: { ...bureau(clock(6, 0), { flags: night(f), outside: 'rolled' }), ...desk(f), robineau: f.robineau, roblet: f.roblet, telegraphist_spot: 'bench', riviere_look: 'map', telegraphist_look: null } }));
-        await g.plate(tr('The rain has passed. The bureau at dawn, grey; the inker is silent, the telegraphist dozes.'));
         await g.play(flag_down);
         await piece(g, 'flags_down');
         if (f.robineau === 'silent') await g.plate(tr('Robineau is not here: he went home without a word.'));
@@ -248,13 +250,18 @@ export default {
         }
       }
       if (f.ending === 'victory') {
+        g.set('tape', 1);
+        g.air(null);
         await piece(g, 'montevideo', {
           read: async () => {
             await g.say('telegraphist', 'European: passed Montevideo on time');
             await g.say('telegraphist', 'Patagonian: passed San Julián. Sky clear');
           },
         });
+        g.set('tape', 0);
+        g.air(null);
         await g.play(flag_blue);
+        g.sound('landing', { loud: 0.7, far: true });
         await piece(g, 'chilean_lands');
       } else if (f.ending === 'silence') {
         await piece(g, 'release', {

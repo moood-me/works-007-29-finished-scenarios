@@ -23,16 +23,20 @@ export default {
       });
       await piece(g, 'note_back', {
         read: () => g.say('fabien', 'San Julián. Sky clear', { how: 'a note written in the air, read short over the engine' }),
+        // (the radio operator's key — the knock the bureau's inker takes up)
+        tap: () => g.sound('key', { loud: 0.8 }),
       });
     },
     // П.2: the tap becomes the inker's; М1 the flag; “three in the air” (`inker`, `ache`)
     async g => {
+      g.sound('key', { loud: 0.7, far: true });
       await piece(g, 'inker', {
         read: () => g.say('telegraphist', 'Patagonian: passed San Julián. Sky clear'),
       }, () => g.scene('bureau', { beat: 'inker', here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
         keys: { ...bureau(clock(19, 50), { tape: 1, flags: FLAGS.evening }), riviere_look: 'map', telegraphist_look: 'tel_inker' } }));
       await g.play(flag);
       g.set('tape', 0);
+      g.air(null);
       await g.plate(tr('On the map two more flags are in the air — over the Andes, and over the river in the north; the red one, the European mail’s, stands at the field.'));
       await piece(g, 'ache', {
         say: async () => {

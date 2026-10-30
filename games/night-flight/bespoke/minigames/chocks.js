@@ -25,7 +25,7 @@ export default {
     // (the engine from where it runs now up to its full roar)
     const from = Math.min(1, g.get('engine') ?? 1);
     const how = await letGo(g, b, mg, { at: 'riviere#hand_r', take: 1.5, wait: WAIT, held: u => send('engine', from + (1 - from) * u),
-      sign: () => { g.set('engine', 1); mg.plate.set({ phrase: tr('The engine at its full roar. Let your hand fall.') }); } });
+      sign: () => { g.set('engine', 1); mg.plate.set({ phrase: tr('The engine at its full roar.') }); } });
     if (!how) return this.skipped;
     if (how === 'long') mg.plate.set({ phrase: tr('The mechanic signs to the pilot; the plane moves off by itself.') });
     if (!(await count(mg, 0.8))) return this.skipped;

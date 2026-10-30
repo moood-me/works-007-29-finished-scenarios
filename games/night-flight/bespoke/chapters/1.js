@@ -36,9 +36,11 @@ export default {
     async g => {
       await piece(g, 'dark_drone', {}, () => g.scene('field', { beat: 'dark_drone', here: ['riviere', 'pellerin', ...MECHANICS], moods: { riviere: 'neutral', pellerin: 'smile' },
         keys: { ...FIELD.dark, ...PLANE.coming('chilean'), toolbox: 0, riviere_look: 'hangar_front#switch', mechanic_look: 'plane#nose', mechanic_b_look: 'plane#nose', mechanic_c_look: 'plane#nose' } }));
-      await g.plate(tr('Twenty past ten. The field is dark; over it the drone of an engine, lower and lower. Rivière stands at the switch on the hangar wall.'));
       await g.play(light);
-      await piece(g, 'landing');
+      // (the drone comes down onto the light: the landing heard, the engine dying at the stand)
+      g.air({ field: 0.3 });
+      g.sound('landing');
+      await piece(g, 'landing', { stop: () => g.sound('engine_off', { loud: 0.8 }) });
       await piece(g, 'breeze', {
         say: () => g.say('pellerin', 'Fine. A bit of a breeze', { how: 'to the mechanics, offhand, with a grin' }),
         hands: () => g.say('pellerin', 'The ridge like a wall — and me under it, like a fly under the ceiling', { how: 'showing it with his hands, laughing' }),
@@ -82,6 +84,7 @@ export default {
         await g.plate(tr('He stops short — there is nothing to thank him for —, blushes, and puts the form away.'));
       } else {
         await piece(g, 'fine_tear', {
+          rip: () => g.sound('tear'),
           torn: async () => {
             g.mood('robineau', 'surprised');
             await g.say('robineau', 'You… but you never…');
@@ -103,7 +106,7 @@ export default {
     },
     // 1.4: ⚑ Roblet (`order`, М2, `roblet_go` | `box_lift`, М3, `box_given` | `palm`, М4, `chocks_pick`)
     async g => {
-      await g.scene('field', { here: ['riviere', 'robineau', 'roblet', ...MECHANICS], moods: { riviere: 'neutral', robineau: 'thinking', roblet: 'sad' }, keys: { ...FIELD.lit, ...PLANE.stand('chilean'), ...AT_ENGINES } }, { cut: true });
+      await piece(g, 'roblet_ask', {}, () => g.scene('field', { beat: 'roblet_ask', here: ['riviere', 'robineau', 'roblet', ...MECHANICS], moods: { riviere: 'neutral', robineau: 'thinking', roblet: 'sad' }, keys: { ...FIELD.lit, ...PLANE.stand('chilean'), ...AT_ENGINES } }, { cut: true }));
       const roblet = await g.choose('roblet', { 'roblet#chest': [
         { id: 'fire', label: tr('Dismiss him') },
         { id: 'keep', label: tr('Keep him on the engines') },
@@ -118,10 +121,11 @@ export default {
             await g.say('riviere', 'I am not dismissing you. I am dismissing the mistake');
             await g.say('roblet', 'I understand');
           },
+          lift: () => g.sound('toolbox', { loud: 0.7 }),
         });
         g.here('roblet', false);
       } else if (roblet === 'keep') {
-        await piece(g, 'box_lift');
+        await piece(g, 'box_lift', { lift: () => g.sound('toolbox', { loud: 0.7 }) });
         await g.play(box);
         await g.say('riviere', 'The European mail is yours tonight. You will check it twice');
         await g.say('roblet', 'Twice');
@@ -131,9 +135,8 @@ export default {
         await g.say('riviere', 'Not the engines. The field: the chocks, the store');
         g.set('roblet_with', ['spanner']);
         await piece(g, 'palm');
-        const { bench } = await g.play(spanner);
-        if (bench) await g.plate(tr('Roblet lays the spanner on the workbench himself.'));
-        await piece(g, 'chocks_pick', { say: () => g.say('roblet', 'Better you had fired me') });
+        await g.play(spanner);
+        await piece(g, 'chocks_pick', { say: () => g.say('roblet', 'Better you had fired me'), pick: () => g.sound('chocks', { loud: 0.7 }) });
       }
       g.apply('roblet');
     },

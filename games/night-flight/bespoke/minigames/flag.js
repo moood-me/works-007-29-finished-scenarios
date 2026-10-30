@@ -76,7 +76,7 @@ export function hold({ phrase, flag, at }) {
       let rocked = -Infinity;
       const r = await keep(g, b, mg, { at, seconds: SECONDS, take: 0.8,
         frame: () => { const k = mg.t - rocked; send('flag_slip', k < ROCK ? 0.6 * Math.sin(Math.PI * k / ROCK) : 0); },
-        slip: () => { rocked = mg.t; mg.plate.set({ phrase: tr('The finger slipped; the flag rocked and stayed where it was. Hold it again.') }); } });
+        slip: () => { rocked = mg.t; mg.plate.set({ phrase: tr('The finger slipped; the flag rocked and stayed where it was.') }); } });
       if (!r) return this.skipped;
       g.set('flag_hand', 'none');
       over();
