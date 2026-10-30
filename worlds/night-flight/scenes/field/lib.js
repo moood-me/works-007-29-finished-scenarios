@@ -328,11 +328,13 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       run: async s => {
         const r = s.person('riviere'), p = s.person('pellerin');
         glide(s, SH.touch, 2.5);
-        // (a step farther than arm's length to the eye: the touch leans in, and nearer his head went through Pellerin's;
-        // Pellerin turns to him half toward the lens, his surprise seen)
-        await r.walk([[-1.75, 8.8]]);
+        // (Pellerin turns to him half toward the lens, his surprise seen)
+        // (the hand laid on him, not the Kimodo take: its arm went out straight past his shoulder toward his head)
+        await r.walk([[-1.5, 8.8]]);
         await r.turn(95);
-        await r.do('shoulder_touch');
+        r.reach({ r: 'pellerin#chest' });
+        await s.wait(1.3);
+        r.reach(null);
         s.tell('touch:hand');
         r.do('hands_behind');
         p.look('riviere');
