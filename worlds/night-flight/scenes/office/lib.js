@@ -41,7 +41,7 @@ function film(scene) {
       hands: CAM([-1.0, 3.0, 1.45], [-1.9, 4.2, 1.15]) },
     // (on the chair she looks up at him by the window: her face is seen from the room's middle, three-quarters, the lens
     // turned enough toward the back wall that the room's open side stays out of the frame)
-    chair: { medium: CAM([0.5, 2.5, 1.45], [-1.3, 2.95, 1.12]), close: CAM([-0.3, 2.65, 1.35], [-1.3, 2.9, 1.15]),
+    chair: { medium: CAM([0.5, 2.6, 1.45], [-1.3, 3.05, 1.12]), close: CAM([-0.3, 2.65, 1.35], [-1.3, 2.9, 1.15]),
       hands: CAM([-0.55, 1.85, 1.2], [-1.3, 2.8, 0.8]) },
   };
   const SH = {
