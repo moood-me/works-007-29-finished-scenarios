@@ -205,12 +205,16 @@ return {
       toolbox_held: {
         name: 'tool box in the hand',
         draw: F => {
-          const { add } = V();
+          // (turned with him: its length along the way he faces, its breadth across — a box, not a plate edge-on, from
+          // whichever side it is seen)
+          const { add, unit } = V();
           const m = F.fit.h;
-          const axes = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
-          const c = add(F.P('RightHand'), [0, -0.2 * m, 0.03 * m]);
-          F.ball(c, axes, [0.075 * m, 0.15 * m, 0.36 * m], [0.48, 0.35, 0.24, 1], 4, 10);
-          F.ball(add(c, [0, 0.14 * m, 0]), axes, [0.07 * m, 0.02 * m, 0.3 * m], [0.56, 0.42, 0.29, 1], 4, 10);
+          const fwd = F.fwd('Chest');
+          const ahead = unit([fwd[0], 0, fwd[2]]);
+          const axes = [[ahead[2], 0, -ahead[0]], [0, 1, 0], ahead];
+          const c = add(F.P('RightHand'), [0, -0.19 * m, 0]);
+          F.ball(c, axes, [0.11 * m, 0.13 * m, 0.3 * m], [0.48, 0.35, 0.24, 1], 4, 10);
+          F.ball(add(c, [0, 0.135 * m, 0]), axes, [0.105 * m, 0.02 * m, 0.27 * m], [0.56, 0.42, 0.29, 1], 4, 10);
         },
       },
       // a big spanner in the right hand, along the forearm's line: a steel shank, an open jaw at its end

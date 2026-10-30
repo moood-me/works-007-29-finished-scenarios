@@ -629,8 +629,12 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         s.set('toolbox', 0);
         r.with(['toolbox_held']);
         s.tell('box_lift:lift');
+        // (the two turned to each other and half to the lens — 135 / 225 here — so both faces are seen over the box)
+        const o = s.person('roblet');
+        o.turn(225);
+        o.look('riviere#hand_r');
         r.look('roblet');
-        await r.turn(145);
+        await r.turn(135);
         await r.do('give_box');
         s.tell('box_lift:held');
       },
@@ -641,8 +645,8 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       tells: ['box_given:look'],
       seconds: 5,
       from: () => ({
-        ...LIT, ...STAND('chilean'), ...THINGS, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere', with: ['toolbox_held'] }),
-        ...P('riviere', [-1.35, 4.3], 145, 'stand', { look: 'roblet' }),
+        ...LIT, ...STAND('chilean'), ...THINGS, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere', with: ['toolbox_held'], turn: 225 }),
+        ...P('riviere', [-1.35, 4.3], 135, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.two_box,
       }),
       run: async s => {
