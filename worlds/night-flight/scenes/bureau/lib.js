@@ -80,6 +80,7 @@ function film(scene) {
     wide: CAM0,
     inker: CAM([2.05, 4.55, 1.3], [2.35, 5.8, 0.95]), // the inker and its tape, close
     tel: CAM([1.55, 4.35, 1.35], [2.15, 6.3, 1.2]), // the telegraphist's face over the table
+    tel_r: CAM([2.45, 4.75, 1.45], [2.1, 6.3, 1.2]), // the telegraphist from the table's right
     tel_med: CAM([0.45, 3.85, 1.6], [1.8, 6.0, 1.15]), // the telegraphist and the inker, Rivière at it
     key: CAM([1.65, 5.0, 1.3], [1.95, 5.95, 0.85]), // his hand over the key
     clock: CAM([-0.3, 5.5, 2.15], [-0.5, 7.35, 2.95]), // the clock's face
@@ -335,7 +336,8 @@ function film(scene) {
       run: async s => {
         const r = s.person('riviere'), t = s.person('telegraphist');
         s.set('tape', 1);
-        await glide(s, SH.tel, 1.2);
+        // (from the table's right: the Asunción pilot, mid-room, is not before the lens)
+        await glide(s, SH.tel_r, 1.2);
         t.look('tel_inker#ink');
         s.tell('storm_south:read');
         await s.wait(1.5);
