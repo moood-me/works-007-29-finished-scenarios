@@ -43,7 +43,8 @@ function film(scene) {
     both_I: CAM([-1.5, 6.0, 1.75], [-2.0, 9.2, 1.5]),
     touch: CAM([-0.9, 6.3, 1.7], [-1.0, 8.7, 1.6]),
     pass: CAM([-1.0, 5.6, 1.75], [-1.4, 10.0, 1.5]),
-    fine: CAM([0.9, 3.0, 1.7], [1.15, 5.5, 1.55]),
+    // (from Robineau's side and in front: Rivière's face, turned to him, three-quarters — the choice is his)
+    fine: CAM([2.4, 3.3, 1.7], [1.0, 5.55, 1.55]),
     robineau_I: CAM([1.3, 3.6, 1.7], [1.7, 5.4, 1.5]),
     roblet_hands: CAM([-0.6, 2.4, 1.2], [-0.75, 3.35, 1.0]),
     // the two before the choice: Roblet (his eyes on his cap) and Rivière, faces toward the lens, the mechanics behind
