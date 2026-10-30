@@ -91,6 +91,7 @@ function film(scene) {
     two_map: CAM([0.05, 3.85, 1.65], [0.05, 5.75, 1.55]), // two by the map
     her: CAM([-1.05, 3.3, 1.6], [-2.3, 4.55, 1.55]), // her by the field door
     her_close: CAM([-1.55, 3.75, 1.57], [-2.3, 4.55, 1.53]),
+    her_all: CAM([-0.6, 3.9, 1.6], [-2.3, 4.55, 1.5]), // her face by the field door, turned to the telegraphist
     her_inker: CAM([0.9, 4.9, 1.6], [1.6, 6.7, 1.5]), // her behind the telegraphist
     // Rivière at the telephone: from before his face (he stands turned to Robineau's desk and the telephone on it, to
     // the right of the lens; listening, he looks out past it)
@@ -807,6 +808,20 @@ function film(scene) {
         s.tell('silence:count');
         await s.wait(1.5);
         await glide(s, SH.flags, 1.2);
+      },
+    },
+    // 3.6 (after М1, before «By the fuel… that's all»): her face by the field door, turned to the telegraphist
+    all_gone: {
+      after: ['silence'],
+      tells: ['all_gone:her'],
+      seconds: 2,
+      from: () => ({ ...NIGHT, time: clock(2, 45), ...FLAGS.night,
+        ...ALL({ ...at('riviere', 'flags', 'map#blue'), ...at('pilot', 'bench', 'map'), ...at('madame', 'door', 'map'),
+          ...at('telegraphist', 'table', 'clock#face'), ...at('robineau', 'desk', 'map') }), ...SH.flags }),
+      run: async s => {
+        s.person('madame').look('telegraphist');
+        await glide(s, SH.her_all, 1.4);
+        s.tell('all_gone:her');
       },
     },
     // 3.6 (after М1): the pilot gets up, puts his helmet on, goes out by the field door

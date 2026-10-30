@@ -14,7 +14,9 @@
 //   → lead: { slid }; hold: { slips }
 import { keys, settle, count, line, keep } from './hands.js';
 
-const FAST = 0.45; // of the line a second: quicker — the flag slides off
+// (of the line a second: quicker — the flag slides off. The language's ghost leads a line at a px a ms, a short one in
+// 0.4–1 s: what it shows must not be a mistake)
+const FAST = 2.6;
 const SECONDS = 5;
 const ROCK = 1; // s the flag rocks
 

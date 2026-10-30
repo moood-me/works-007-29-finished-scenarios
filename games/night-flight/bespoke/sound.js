@@ -25,16 +25,16 @@
 //   telegraph's receiver running · typewriter — a typewriter behind the wall · evening — the next evening at the field's
 //   edge
 export const BEDS = {
-  field: { file: 'field.mp3', gain: 2.2 },
-  rain: { file: 'rain.mp3', gain: 2.2 },
-  storm: { file: 'storm.mp3', gain: 2.2 },
-  cockpit: { file: 'cockpit.mp3', gain: 2.2 },
-  idle: { file: 'idle.mp3', gain: 2.2 },
-  drone: { file: 'idle.mp3', gain: 2.6, far: true },
-  clock: { file: 'clock.mp3', gain: 2.4 },
-  inker: { file: 'inker.mp3', gain: 2.2 },
-  typewriter: { file: 'typewriter.mp3', gain: 3.2 },
-  evening: { file: 'evening.mp3', gain: 2.2 },
+  field: { file: 'field.mp3', gain: 3.1 },
+  rain: { file: 'rain.mp3', gain: 3.1 },
+  storm: { file: 'storm.mp3', gain: 3.1 },
+  cockpit: { file: 'cockpit.mp3', gain: 3.1 },
+  idle: { file: 'idle.mp3', gain: 3.1 },
+  drone: { file: 'idle.mp3', gain: 3.6, far: true },
+  clock: { file: 'clock.mp3', gain: 3.4 },
+  inker: { file: 'inker.mp3', gain: 3.1 },
+  typewriter: { file: 'typewriter.mp3', gain: 4.5 },
+  evening: { file: 'evening.mp3', gain: 3.1 },
 };
 // the one-off sounds (each brought to a peak near −1 dBFS): name → its file
 export const ONCE = {
@@ -52,7 +52,8 @@ function audio() {
     limit.threshold.value = -10;
     limit.ratio.value = 4;
     master = ctx.createGain();
-    master.gain.value = 0.9;
+    // (the places heard under the music and the voices: measured in the play, the beds were 10 dB under the music)
+    master.gain.value = 1.8;
     master.connect(limit).connect(MooodVolume.output(ctx)).connect(ctx.destination);
     // through a wall, across the field: the highs gone
     dull = ctx.createBiquadFilter();

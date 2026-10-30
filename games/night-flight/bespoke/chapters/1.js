@@ -46,6 +46,8 @@ export default {
         hands: () => g.say('pellerin', 'The ridge like a wall — and me under it, like a fly under the ceiling', { how: 'showing it with his hands, laughing' }),
       });
       g.mood('riviere', 'thinking');
+      // (the laugh gone from his face as the gloves come off)
+      g.mood('pellerin', 'tired');
       await piece(g, 'gloves');
       const touch = await g.choose('touch', { 'pellerin#chest': [
         { id: 'tap', label: tr('Touch his shoulder') },

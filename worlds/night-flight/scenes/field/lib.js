@@ -57,7 +57,8 @@ function film(scene) {
     wall: CAM([-2.6, 13.1, 1.7], [-3.4, 17.6, 1.5]),
     box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
-    two_hands: CAM([-0.3, 2.3, 1.3], [-0.5, 3.6, 1.05]),
+    // M4: Rivière's palm under the spanner in Roblet's hand — from before Rivière's face, the two hands in the middle
+    two_hands: CAM([-1.55, 2.45, 1.6], [-0.45, 3.75, 1.3]),
     roblet_riv: CAM([1.6, 2.2, 1.65], [-0.5, 4.1, 1.5]), // from the right: Roblet turned to Rivière in profile, Rivière's face,
     // chapter IV: Rivière at R4 left of the nose and the pilot by the fuselage at PILOT, level with each other (each looking
     // at the other in profile): each shot from the front on the side he looks to
@@ -97,9 +98,10 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
   const SHADOW = [-3.6, 9.8];
   const GROUP = {
     ...P('pellerin', PELLERIN, 180, 'stand_easy', { look: 'mechanic_b' }),
-    ...P('mechanic', [-1.8, 9.6], 125, 'stand_easy', { look: 'pellerin' }),
-    ...P('mechanic_b', [0.6, 9.8], 230, 'stand_easy', { look: 'pellerin' }),
-    ...P('mechanic_c', [1.3, 8.8], 255, 'stand_easy', { look: 'pellerin' }),
+    // (the mechanics round him on the lens's side, so that his face, turned to them, is seen)
+    ...P('mechanic', [-1.9, 7.7], 55, 'stand_easy', { look: 'pellerin' }),
+    ...P('mechanic_b', [0.8, 7.5], 308, 'stand_easy', { look: 'pellerin' }),
+    ...P('mechanic_c', [1.6, 8.5], 273, 'stand_easy', { look: 'pellerin' }),
   };
   // the people not in a piece: where they wait out of the way (the game says who is here)
   const AWAY = {
@@ -239,13 +241,13 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         s.tell('landing:stop');
         p.here(true);
         crew.forEach(m => m.look('plane#cockpit'));
-        crew[0].walk([[-1.8, 9.6]]);
-        crew[1].walk([[0.6, 9.8]]);
-        crew[2].walk([[1.3, 8.8]]);
+        crew[0].walk([[-1.9, 7.7]]);
+        crew[1].walk([[0.8, 7.5]]);
+        crew[2].walk([[1.6, 8.5]]);
         await p.walk([[-2.5, 14.1], PELLERIN]);
         await p.turn(180);
         crew.forEach((m, i) => {
-          m.turn([125, 230, 255][i]);
+          m.turn([55, 308, 273][i]);
           m.look('pellerin');
         });
         await glide(s, SH.pellerin, 1.5);

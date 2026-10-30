@@ -194,7 +194,7 @@ export async function keep(g, b, mg, { at, seconds, take = 1, frame = () => {}, 
   return { slips, alone: begun == null };
 }
 
-const TEAR = 0.1, FAST = 6, BACK = 0.12, LIMIT = 15, SELF = 1.5;
+const TEAR = 0.1, FAST = 6, BACK = 0.12, LIMIT = 25, SELF = 1.5;
 export async function slowly(g, b, mg, { at, pulls = 3, frame = () => {}, jerk = () => {} }) {
   mg.plate.set({ notches: Array.from({ length: pulls - 1 }, (_, i) => (i + 1) / pulls) });
   const end = mg.mark({ at, kind: 'dash' });

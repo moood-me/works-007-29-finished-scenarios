@@ -51,6 +51,7 @@ export default {
       mark.remove();
       g.set('roblet_reach', null);
       g.set('roblet_with', null);
+      g.sound('spanner', { loud: 0.8, delay: 0.4 });
       mg.plate.set({ phrase: untouched ? tr('Roblet lays the spanner on the workbench himself.') : tr('The palm came back too soon. Roblet lays the spanner on the workbench himself.') });
       if (!(await count(mg, 1.2))) return this.skipped;
       over();

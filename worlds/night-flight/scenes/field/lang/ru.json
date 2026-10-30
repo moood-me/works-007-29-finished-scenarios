@@ -1,7 +1,7 @@
 {"strings": [
   {"text":"The Board of the Line","translation":"Правление линии","where":"worlds/night-flight/scenes/field/elements/folder.js"},
   {"text":"To the Director of the Southern Line","translation":"Директору Южной линии","where":"worlds/night-flight/scenes/field/elements/folder.js"},
-  {"text":"On suspending","translation":"О прекращении","where":"worlds/night-flight/scenes/field/elements/folder.js"},
+  {"text":"On suspending","translation":"О приостановке","where":"worlds/night-flight/scenes/field/elements/folder.js"},
   {"text":"the night flights","translation":"ночных полётов","where":"worlds/night-flight/scenes/field/elements/folder.js"},
   {"text":"In view of the losses","translation":"Ввиду потерь","where":"worlds/night-flight/scenes/field/elements/folder.js"},
   {"text":"of last winter, the Board","translation":"прошлой зимы правление","where":"worlds/night-flight/scenes/field/elements/folder.js"},

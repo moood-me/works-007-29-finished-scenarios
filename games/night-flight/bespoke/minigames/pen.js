@@ -10,7 +10,8 @@
 //   → { blot }
 import { keys, settle, count, line } from './hands.js';
 
-const FAST = 0.4; // of the line a second: quicker — a blot
+// (of the line a second: quicker — a blot; the ghost's own pace must not be one)
+const FAST = 2.6;
 
 export function pen({ phrase, insert, open, blotted, hesitant }) {
   return {
@@ -28,8 +29,9 @@ export function pen({ phrase, insert, open, blotted, hesitant }) {
       if (opts.line) g.set('log_line', opts.line);
       g.set(open, 1, 0.4);
       const send = keys(g);
-      let blot = false;
-      const r = await line(g, b, mg, { from: `${insert}#from`, to: `${insert}#to`, fast: FAST, progress: u => send('ink', u),
+      let blot = false, scratch = false;
+      // (the nib on the paper as the line begins)
+      const r = await line(g, b, mg, { from: `${insert}#from`, to: `${insert}#to`, fast: FAST, progress: u => { send('ink', u); if (!scratch && u > 0.03) { scratch = true; g.sound('pen', { loud: 0.7 }); } },
         off: () => { if (!blot) { blot = true; g.set('blot', 1); mg.plate.set({ phrase: blotted }); } } });
       if (!r) return this.skipped;
       // (never touched: the line wrote itself, slowly, and the pen stood — a blot)

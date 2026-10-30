@@ -19,9 +19,9 @@ export { default as tape } from './tape.js';
 
 // М1 “The Flag” — the bureau's map
 export const flag = lead({ flag: 'blue', at: 'map#blue', to: 'san_julian', target: 'map#san_julian',
-  phrase: tr('“Patagonian: passed San Julián. Sky clear.” The blue flag goes up the south line, to San Julián.') });
+  phrase: tr('The blue flag goes up the south line, to San Julián.') });
 export const flag_north = lead({ flag: 'north', at: 'map#north', to: 'field', target: 'map#field',
-  phrase: tr('“Asunción: landed.” The northern flag comes home to the field.') });
+  phrase: tr('The northern flag comes home to the field.') });
 export const flag_sea = lead({ flag: 'blue', at: 'map#blue', to: 'sea', target: 'map#sea',
   phrase: tr('By the bearing — over the sea, a hundred and fifty east of Trelew. She watches where he puts it.') });
 export const flag_hold = hold({ flag: 'blue', at: 'map#blue',
@@ -29,9 +29,9 @@ export const flag_hold = hold({ flag: 'blue', at: 'map#blue',
 export const flag_red = lead({ flag: 'red', at: 'map#red', to: 'north', target: 'map#north_end',
   phrase: tr('The red flag at the field; the line north.') });
 export const flag_blue = lead({ flag: 'blue', at: 'map#blue', to: 'san_julian', target: 'map#san_julian',
-  phrase: tr('“Patagonian: passed San Julián. Sky clear.” The same knock as yesterday.') });
+  phrase: tr('The same knock as yesterday, the same words.') });
 export const flag_late = lead({ flag: 'red', at: 'map#red', to: 'north', target: 'map#north_end',
-  phrase: tr('“Release.” Yesterday’s red flag, still at the field.') });
+  phrase: tr('Yesterday’s red flag, the European’s, still at the field where he left it — north at last.') });
 export const flag_down = lead({ flag: 'red', at: 'map#red', to: 'off', target: 'map_drawer#drawer',
   phrase: tr('Dawn, grey. The inker is silent. The red flag comes off the map, into the drawer.'),
   slid: tr('Too quick — the flag fell. Rivière picks it up.'), fell: tr('The flag fell. Rivière picks it up.') });

@@ -192,7 +192,7 @@ export default {
         air: { clock: 0.45, field: 0.1 } }));
       if (bearing) await g.play(flag_sea);
       else await g.play(flag_hold);
-      await g.say('telegraphist', 'By the fuel… that’s all');
+      await piece(g, 'all_gone', { her: () => g.say('telegraphist', 'By the fuel… that’s all') });
       g.air(null);
       await piece(g, 'pilot_out');
       g.here('pilot', false);

@@ -90,7 +90,7 @@ export default {
         await piece(g, 'hand_up');
         await g.play(chocks);
         await piece(g, 'takeoff', {
-          chocks: () => { g.air({ field: 0.3 }); g.sound('takeoff'); },
+          chocks: () => { g.sound('chocks', { loud: 0.8 }); g.air({ field: 0.3 }); g.sound('takeoff', { delay: 0.4 }); },
           gone: () => (robineau === 'work' ? g.say('robineau', 'Two fifty-two', { how: 'writing the time down' }) : null),
         });
         g.here('pilot', false);
@@ -127,7 +127,7 @@ export default {
           },
         });
         await piece(g, 'timetable', {
-          chocks: () => { g.air({ field: 0.3 }); g.sound('takeoff'); },
+          chocks: () => { g.sound('chocks', { loud: 0.8 }); g.air({ field: 0.3 }); g.sound('takeoff', { delay: 0.4 }); },
           gone: () => (robineau === 'sit' ? g.say('robineau', 'Gone', { how: 'quietly, beside him' }) : null),
         });
         g.here('pilot', false);
@@ -186,7 +186,7 @@ export default {
       else if (f.robineau === 'work') {
         // (behind the wall a typewriter: his report)
         g.air({ rain: 0.3, typewriter: 0.3 });
-        await g.wait(6500);
+        await g.wait(4000);
       } else await g.plate(tr('In the window: he is still by the hangar wall, in the rain, without his coat.'));
     },
     // Ф.5: the bureau — by the finale (`victory_map` | `silence_map` | `dawn`, `flags_down`)
@@ -229,6 +229,7 @@ export default {
           },
         });
       } else {
+        g.sound('cough', { loud: 0.7, delay: 0.3 });
         await piece(g, 'cough', {
           end: async () => {
             await g.say('robineau', 'I seem to have caught a cold…');
