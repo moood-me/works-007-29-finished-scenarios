@@ -67,7 +67,7 @@ Pieces (seconds without lines). Shots: the room is small and the operator comes 
 | talk | leaves, reuben | she walks nearer (1.6 m), a two-shot | |
 | sandwich | talk, the talk's shots | she holds out the parcel; he takes it; she steps back to where she stood | |
 | stamp | talk, sandwich, the talk's shots | she stamps | |
-| her_face · his_face · room | the talk and its shots | the talk's shots (3.2–3.6): a cut to her face (the eye a metre to her right, level with her, looking along the room toward the door wall) or to his (the eye a metre and a half before him, on his left: his right hand is at his brow) — each face turned to us (from the scene's camera they stand level and show profiles), or back to the scene's camera (the room: М5's vision in the window); no one moves | the talk: he on the seat, she near (as `talk` leaves them) |
+| her_face · his_face · room | the talk and its shots | the talk's shots (3.2–3.6): a cut to her face (the eye a metre to her right, level with her, looking along the room toward the door wall) or to his (sitting sideways on the seat he faces the right wall: the eye there, a little below his face) — each face turned to us (from the scene's camera they stand level and show profiles), or back to the scene's camera (the room: М5's vision in the window); no one moves | the talk: he on the seat, she near (as `talk` leaves them) |
 | wall_parts | talk, sandwich, stamp, the talk's shots | the tapestry stirs, the wall parts; he stands, holds out his hand | |
 | into_wall | wall_parts | hand in hand into the opening; the wall shuts | |
 | hand_down | wall_parts | he bows (plays) or sits back; the wall shuts; she runs out | |
