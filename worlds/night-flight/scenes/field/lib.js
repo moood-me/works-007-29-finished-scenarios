@@ -729,7 +729,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       tells: ['below:roblet', 'below:robineau'],
       seconds: 9,
       from: () => ({
-        ...STAND('european'), ...THINGS, workbench: scene.get('roblet') === 'fire' ? 'empty' : 'tools', rain: 1, hangar: 1, office: 1,
+        ...STAND(scene.get('plane') ?? 'none'), ...THINGS, workbench: scene.get('roblet') === 'fire' ? 'empty' : 'tools', rain: 1, hangar: 1, office: 1,
         lever: scene.get('floods') ?? 1, flood_0: scene.get('floods') ?? 1, flood_1: scene.get('floods') ?? 1, flood_2: scene.get('floods') ?? 1,
         ...(scene.get('roblet') === 'remove' ? R('chocks', { look: 'plane#wheel', wear: CAP_ON }) : R('engine', { look: 'plane', wear: CAP_ON, turn: 200 })),
         ...P('robineau', WALL, 150, 'hold_waist', { look: [-4.0, 14.0, 0.5] }),
