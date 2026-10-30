@@ -12,6 +12,9 @@ import { keys, settle, count, line } from './hands.js';
 
 // (of the line a second: quicker — a blot; the ghost's own pace must not be one)
 const FAST = 2.6;
+// (to come, when the engine's branch minigame-ghost-tempo is in main: `trace({..., seconds})` — the ghost draws the line in
+// those seconds, evenly, and `trace.state.seconds` tells how long its stroke takes; «too quick» is then tied to it —
+// faster than k / trace.state.seconds, k about 1.6 — instead of the FAST picked here by hand (hands.js line))
 
 export function pen({ phrase, insert, open, blotted, hesitant }) {
   return {

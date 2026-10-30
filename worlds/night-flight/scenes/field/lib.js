@@ -57,7 +57,8 @@ function film(scene) {
     wall: CAM([-2.6, 13.1, 1.7], [-3.4, 17.6, 1.5]),
     box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
-    two_hands: CAM([-0.3, 2.3, 1.3], [-0.5, 3.6, 1.05]),
+    // M4: the two face to face in profile, the hands between them at the waist, close
+    two_hands: CAM([-0.6, 2.15, 1.6], [-0.6, 3.85, 1.25]),
     roblet_riv: CAM([1.6, 2.2, 1.65], [-0.5, 4.1, 1.5]), // from the right: Roblet turned to Rivière in profile, Rivière's face,
     // chapter IV: Rivière at R4 left of the nose and the pilot by the fuselage at PILOT, level with each other (each looking
     // at the other in profile): each shot from the front on the side he looks to
@@ -108,9 +109,10 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
   };
   // chapter I at the engines (1.2–1.4): the Chilean standing, the mechanics working at it
   const ENGINES = {
-    ...P('mechanic', [-0.6, 12.4], 10, 'engine_work', { look: 'plane#cowling' }),
-    ...P('mechanic_b', [-1.8, 12.9], 40, 'engine_work', { look: 'plane#cowling' }),
-    ...P('mechanic_c', [0.3, 12.8], 340, 'engine_work', { look: 'plane#cowling' }),
+    // (close up to the cowling, so that their working hands are on it, not out in the air)
+    ...P('mechanic', [-0.6, 12.95], 10, 'engine_work', { look: 'plane#cowling' }),
+    ...P('mechanic_b', [-1.7, 13.15], 40, 'engine_work', { look: 'plane#cowling' }),
+    ...P('mechanic_c', [0.3, 13.05], 340, 'engine_work', { look: 'plane#cowling' }),
   };
   // chapter IV: Rivière left of the plane's nose, level with the pilot by its side (they look at each other across it) (his right hand to the fuselage), the
   // mechanics at the bags, the young one at the engine; Robineau at Rivière's shoulder (or by the hangar's wall)
@@ -650,15 +652,19 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       }),
       run: async s => {
         const r = s.person('riviere'), o = s.person('roblet');
+        // (the two turned to each other and half to the lens, faces three-quarters — Roblet on the right, the spanner in
+        // his right hand on the lens's side; Rivière's open hand held out between them at the waist, under the spanner in Roblet's hand — not the Kimodo `palm_out`, whose take turns the body away and lifts the hand to the
+        // other's face)
         o.wear(CAP_ON);
         o.with(['spanner']);
         o.do('stand_easy');
-        await r.walk([[-0.2, 3.9]]);
-        await r.turn(231);
-        o.turn(110);
+        o.walk([[-0.15, 3.85]]).then(() => o.turn(315));
+        await r.walk([[-0.3, 4.5], [-1.05, 3.85]]);
+        await r.turn(45);
+        r.do('stand');
         o.look('riviere#hand_r');
         r.look('roblet#hand_r');
-        r.do('palm_out');
+        r.reach({ r: [-0.6, 3.6, 1.0] });
         await cut(s, SH.two_hands);
         s.tell('palm:out');
         await s.wait(1);
@@ -670,12 +676,13 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       tells: ['chocks_pick:say', 'chocks_pick:pick', 'chocks_pick:gone'],
       seconds: 8,
       from: () => ({
-        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere', wear: CAP_ON, turn: 110 }),
-        ...P('riviere', [-0.2, 3.9], 231, 'stand', { look: 'roblet' }),
+        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...P('roblet', [-0.15, 3.85], 315, 'stand_easy', { look: 'riviere', wear: CAP_ON }),
+        ...P('riviere', [-1.05, 3.85], 45, 'stand', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.two_hands,
       }),
       run: async s => {
         const r = s.person('riviere'), o = s.person('roblet');
+        r.reach(null);
         r.do('hands_behind');
         await glide(s, SH.roblet_riv, 1.5);
         o.look('riviere');

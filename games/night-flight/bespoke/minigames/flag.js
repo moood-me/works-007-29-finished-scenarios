@@ -17,6 +17,9 @@ import { keys, settle, count, line, keep } from './hands.js';
 // (of the line a second: quicker — the flag slides off. The language's ghost leads a line at a px a ms, a short one in
 // 0.4–1 s: what it shows must not be a mistake)
 const FAST = 2.6;
+// (to come, when the engine's branch minigame-ghost-tempo is in main: `trace({..., seconds})` — the ghost draws the line in
+// those seconds, evenly, and `trace.state.seconds` tells how long its stroke takes; «too quick» is then tied to it —
+// faster than k / trace.state.seconds, k about 1.6 — instead of the FAST picked here by hand (hands.js line))
 const SECONDS = 5;
 const ROCK = 1; // s the flag rocks
 
