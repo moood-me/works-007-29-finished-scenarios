@@ -316,5 +316,13 @@
   {"text":"Next","translation":"Siguiente","where":"games/night-flight/bespoke/ui.js"},
   {"text":"one","context":"exceptions tonight: one","translation":"una","where":"games/night-flight/bespoke/ui.js"},
   {"text":"How many times tonight the rule has bent before everyone.","translation":"Cuántas veces esta noche se ha doblado la regla ante todos.","where":"games/night-flight/bespoke/ui.js"},
-  {"text":"What she knows","translation":"Lo que ella sabe","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"What she knows","translation":"Lo que ella sabe","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"The switch is pulled for him — a mechanic’s hand.","translation":"Otro baja el interruptor por él: la mano de un mecánico.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The switch is pulled for him — Robineau’s hand.","translation":"Otro baja el interruptor por él: la mano de Robineau.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The tape runs out by itself.","translation":"La cinta sale sola.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Fabien drags it up himself, with a jerk.","translation":"Fabien lo sube él mismo, de un tirón.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The pen hesitates — a blot.","translation":"La pluma duda: un borrón.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag slid off the line.","translation":"La banderita se salió de la línea.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag fell. Rivière picks it up.","translation":"La banderita cayó. Rivière la recoge.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Roblet lays the spanner on the workbench himself.","translation":"Roblet deja él mismo la llave sobre el banco.","where":"games/night-flight/bespoke/minigames"}
 ]}

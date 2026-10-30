@@ -32,13 +32,15 @@ export default {
     const hold = mg.hold({ on: mark, seconds: TAKE, drain: 0.4 });
     const taught = teach(b, mg, [hold]);
     // (the palm taken back once the fingers had begun to open: too soon)
-    let early = false, begun = false;
+    let early = false, begun = false, untouched = false;
     const offs = [hold.on('down', () => { begun = true; }), hold.on('up', () => { if (hold.state.fill > 0.1 && hold.state.fill < 1) early = true; })];
     const t0 = mg.t;
     const took = await until(mg, ({ t }) => {
       const s = hold.state;
       mg.plate.set({ fill: 0.7 * s.fill, glow: s.held ? 'good' : 'idle' });
-      return s.fill >= 1 || early || (!begun && t - t0 >= ALONE);
+      // (never touched: the palm waits for nothing — Roblet lays the spanner on the workbench himself)
+      if (!begun && t - t0 >= ALONE) { early = true; untouched = true; }
+      return s.fill >= 1 || early;
     });
     offs.forEach(f => f());
     taught.remove();
@@ -49,7 +51,7 @@ export default {
       mark.remove();
       g.set('roblet_reach', null);
       g.set('roblet_with', null);
-      mg.plate.set({ phrase: tr('The palm came back too soon. Roblet lays the spanner on the workbench himself.') });
+      mg.plate.set({ phrase: untouched ? tr('Roblet lays the spanner on the workbench himself.') : tr('The palm came back too soon. Roblet lays the spanner on the workbench himself.') });
       if (!(await count(mg, 1.2))) return this.skipped;
       over();
       await mg.end({ as: 'flawed' });

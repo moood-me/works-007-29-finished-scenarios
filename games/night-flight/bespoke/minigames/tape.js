@@ -25,6 +25,8 @@ export default {
     const r = await slowly(g, b, mg, { at: 'tel_inker#ink', pulls: 4, frame: u => send('tape_pull', u),
       jerk: () => { ran = true; mg.plate.set({ phrase: tr('Too quick — the tape runs out by itself.') }); return true; } });
     if (!r) return this.skipped;
+    // (never touched, or left: it ran out by itself — the telegraphist reads it)
+    if (r.self && !ran) { ran = true; mg.plate.set({ phrase: tr('The tape runs out by itself.') }); }
     g.set('tape_pull', 1);
     if (!(await count(mg, 0.6))) return this.skipped;
     over();

@@ -8,7 +8,7 @@
 //   How it is for him: darkness, lightning, no ground, no answer.
 //   What the player feels: carrying something through gusts.
 //   → { lost: it went over on a wing }
-import { keys, settle, balance, wobble } from './hands.js';
+import { keys, settle, balance, wobble, count } from './hands.js';
 
 const SECONDS = 10, ROLL = 22, OVER = 60, RIGHT = 1.6; // s Fabien takes to right it
 
@@ -47,6 +47,15 @@ export default {
         mg.plate.set({ phrase: tr('Over on a wing — and water below, in the lightning. Fabien rights it.') });
       } });
     if (!r) return this.skipped;
+    // (never touched: nobody held it — over on a wing, the water below in the flash, Fabien rights it)
+    if (r.alone && !lost) {
+      lost = true;
+      g.sound('thunder', { loud: 0.9 });
+      g.set('roll', 55, 0.8);
+      g.set('water', 1, 0.4);
+      mg.plate.set({ phrase: tr('Over on a wing — and water below, in the lightning. Fabien rights it.') });
+      if (!(await count(mg, 1.8))) return this.skipped;
+    }
     g.set('roll', 0, 0.8);
     g.set('water', 0, 0.5);
     over();

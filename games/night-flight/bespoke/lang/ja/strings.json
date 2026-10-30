@@ -316,5 +316,13 @@
   {"text":"Next","translation":"次へ","where":"games/night-flight/bespoke/ui.js"},
   {"text":"one","context":"exceptions tonight: one","translation":"一度","where":"games/night-flight/bespoke/ui.js"},
   {"text":"How many times tonight the rule has bent before everyone.","translation":"今夜、規則が皆の前で何度曲がったか。","where":"games/night-flight/bespoke/ui.js"},
-  {"text":"What she knows","translation":"彼女が知っていること","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"What she knows","translation":"彼女が知っていること","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"The switch is pulled for him — a mechanic’s hand.","translation":"スイッチは彼の代わりに引かれる——整備士の手で。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The switch is pulled for him — Robineau’s hand.","translation":"スイッチは彼の代わりに引かれる——ロビノーの手で。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The tape runs out by itself.","translation":"テープはひとりでに出てくる。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Fabien drags it up himself, with a jerk.","translation":"ファビアンが自分で、ぐいと機首を引き上げる。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The pen hesitates — a blot.","translation":"ペンがためらう——インクのしみ。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag slid off the line.","translation":"小旗が線から外れた。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag fell. Rivière picks it up.","translation":"小旗が落ちた。リヴィエールが拾い上げる。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Roblet lays the spanner on the workbench himself.","translation":"ロブレは自分でスパナを作業台に置く。","where":"games/night-flight/bespoke/minigames"}
 ]}

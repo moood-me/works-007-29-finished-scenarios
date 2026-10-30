@@ -18,7 +18,7 @@ const FAST = 0.45; // of the line a second: quicker — the flag slides off
 const SECONDS = 5;
 const ROCK = 1; // s the flag rocks
 
-export function lead({ phrase, flag, at, to, target, slid = tr('Too quick — the flag slid off the line.') }) {
+export function lead({ phrase, flag, at, to, target, slid = tr('Too quick — the flag slid off the line.'), fell = tr('The flag slid off the line.') }) {
   return {
     title: tr('The Flag'),
     about: 6,
@@ -47,6 +47,8 @@ export function lead({ phrase, flag, at, to, target, slid = tr('Too quick — th
       const r = await line(g, b, mg, { from: at, to: target, fast: FAST, progress: u => send('flag_u', u),
         off: () => { if (!off) { off = true; g.set('flag_slip', 1, 0.3); mg.plate.set({ phrase: slid }); } } });
       if (!r) return this.skipped;
+      // (never touched: it went without his care — slid, and set by hand)
+      if (r.alone && !off) { off = true; g.set('flag_slip', 1, 0.3); mg.plate.set({ phrase: fell }); await count(mg, 0.6); }
       // (slid: Rivière sets it by hand)
       if (off) g.set('flag_slip', 0, 0.6);
       if (!(await count(mg, off ? 1 : 0.5))) return this.skipped;
@@ -78,10 +80,12 @@ export function hold({ phrase, flag, at }) {
         frame: () => { const k = mg.t - rocked; send('flag_slip', k < ROCK ? 0.6 * Math.sin(Math.PI * k / ROCK) : 0); },
         slip: () => { rocked = mg.t; mg.plate.set({ phrase: tr('The finger slipped; the flag rocked and stayed where it was.') }); } });
       if (!r) return this.skipped;
+      // (never held: the flag rocked and stayed — the slip the play remembers)
+      if (r.alone) { rocked = mg.t; mg.plate.set({ phrase: tr('The finger slipped; the flag rocked and stayed where it was.') }); await count(mg, 1); }
       g.set('flag_hand', 'none');
       over();
-      await mg.end({ as: r.slips ? 'flawed' : 'clean' });
-      return r;
+      await mg.end({ as: r.alone ? 'neutral' : r.slips ? 'flawed' : 'clean' });
+      return { slips: r.alone ? Math.max(1, r.slips) : r.slips };
     },
   };
 }

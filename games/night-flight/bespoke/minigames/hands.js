@@ -191,7 +191,7 @@ export async function keep(g, b, mg, { at, seconds, take = 1, frame = () => {}, 
   if (!done) return null;
   mg.snap({ at: mark });
   mark.remove();
-  return { slips };
+  return { slips, alone: begun == null };
 }
 
 const TEAR = 0.1, FAST = 6, BACK = 0.12, LIMIT = 15, SELF = 1.5;
@@ -205,13 +205,13 @@ export async function slowly(g, b, mg, { at, pulls = 3, frame = () => {}, jerk =
   const speed = pace();
   pull.on('tear', () => { if (!spent) { drawn += 1 / pulls; spent = true; } });
   pull.on('up', () => { spent = false; speed.reset(); });
-  // (the way out by time: never touched for ALONE s — done; not done LIMIT s after the first touch — the rest comes by
-  // itself, over SELF s)
+  // (the way out by time: never touched for ALONE s, or not done LIMIT s after the first touch — the rest comes by
+  // itself, over SELF s: someone else's hand; the minigame tells it as such — {self, alone})
   let begun = null, self = null;
   const touch = mg.on('down', () => { begun ??= mg.t; });
   const t00 = mg.t;
   const done = await until(mg, ({ t, dt }) => {
-    if (begun == null && t - t00 >= ALONE) return true;
+    if (self == null && begun == null && t - t00 >= ALONE) { self = t; end.remove(); }
     if (self == null && begun != null && t - begun >= LIMIT) { self = t; end.remove(); }
     if (self != null) {
       const u = clamp(drawn + (1 - drawn) * (t - self) / SELF);
@@ -240,7 +240,7 @@ export async function slowly(g, b, mg, { at, pulls = 3, frame = () => {}, jerk =
     mg.snap({ at: end });
     end.remove();
   }
-  return { jerks, self: self != null };
+  return { jerks, self: self != null, alone: begun == null };
 }
 
 const OFF = 0.9, GOOD = 0.6; // (a balance played well: kept in the zone, the finger on it, this share of the time)
@@ -308,10 +308,12 @@ export async function line(g, b, mg, { from, to, tolerance = 40, fast = null, pr
     // (too quick: one mistake, then a breath before the next can count)
     if (fast != null && self == null && s.tracing && speed.at(s.u, dt) > fast && t >= calm) { calm = t + 1; slip(); }
     if (self == null && begun != null && t - begun >= LIMIT) { self = t; was = s.u; }
+    // (never touched for ALONE s: it goes by itself too — the minigame tells it, {alone})
+    if (self == null && begun == null && t - t00 >= ALONE) { self = t; was = s.u; }
     const u = self == null ? s.u : clamp(was + (1 - was) * (t - self) / SELF);
     progress(u);
     mg.plate.set({ fill: u, glow: s.tracing ? 'good' : 'idle' });
-    return u >= 0.99 || (begun == null && t - t00 >= ALONE);
+    return u >= 0.99;
   });
   touch();
   wrong();
@@ -321,5 +323,5 @@ export async function line(g, b, mg, { from, to, tolerance = 40, fast = null, pr
   mg.snap({ at: mark });
   trace.remove();
   mark.remove();
-  return { offs, self: self != null };
+  return { offs, self: self != null, alone: begun == null };
 }

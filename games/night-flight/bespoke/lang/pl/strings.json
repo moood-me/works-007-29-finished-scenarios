@@ -316,5 +316,13 @@
   {"text":"Next","translation":"Dalej","where":"games/night-flight/bespoke/ui.js"},
   {"text":"one","context":"exceptions tonight: one","translation":"jeden","where":"games/night-flight/bespoke/ui.js"},
   {"text":"How many times tonight the rule has bent before everyone.","translation":"Ile razy tej nocy zasada ugięła się przy wszystkich.","where":"games/night-flight/bespoke/ui.js"},
-  {"text":"What she knows","translation":"Co ona wie","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"What she knows","translation":"Co ona wie","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"The switch is pulled for him — a mechanic’s hand.","translation":"Ktoś ciągnie wyłącznik za niego — ręka mechanika.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The switch is pulled for him — Robineau’s hand.","translation":"Ktoś ciągnie wyłącznik za niego — ręka Robineau.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The tape runs out by itself.","translation":"Taśma wychodzi sama.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Fabien drags it up himself, with a jerk.","translation":"Fabien sam wyciąga maszynę, szarpnięciem.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The pen hesitates — a blot.","translation":"Pióro się waha — kleks.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag slid off the line.","translation":"Chorągiewka zsunęła się z linii.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag fell. Rivière picks it up.","translation":"Chorągiewka spadła. Rivière ją podnosi.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Roblet lays the spanner on the workbench himself.","translation":"Roblet sam kładzie klucz na warsztacie.","where":"games/night-flight/bespoke/minigames"}
 ]}

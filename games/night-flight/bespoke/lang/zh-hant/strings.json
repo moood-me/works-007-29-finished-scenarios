@@ -316,5 +316,13 @@
   {"text":"Next","translation":"下一步","where":"games/night-flight/bespoke/ui.js"},
   {"text":"one","context":"exceptions tonight: one","translation":"一次","where":"games/night-flight/bespoke/ui.js"},
   {"text":"How many times tonight the rule has bent before everyone.","translation":"今夜規定當著大家的面彎了幾次。","where":"games/night-flight/bespoke/ui.js"},
-  {"text":"What she knows","translation":"她知道什麼","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"What she knows","translation":"她知道什麼","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"The switch is pulled for him — a mechanic’s hand.","translation":"電閘由別人替他拉下——一個機械師的手。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The switch is pulled for him — Robineau’s hand.","translation":"電閘由別人替他拉下——羅比諾的手。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The tape runs out by itself.","translation":"紙帶自己吐了出來。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Fabien drags it up himself, with a jerk.","translation":"法比安自己猛地把飛機拉了上去。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The pen hesitates — a blot.","translation":"筆遲疑了——一團墨漬。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag slid off the line.","translation":"小旗滑出了線。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag fell. Rivière picks it up.","translation":"小旗掉了。里維耶把它撿起來。","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Roblet lays the spanner on the workbench himself.","translation":"羅布萊自己把扳手放到工作檯上。","where":"games/night-flight/bespoke/minigames"}
 ]}

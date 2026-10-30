@@ -12,7 +12,7 @@ import { keys, settle, count, line } from './hands.js';
 
 const FAST = 0.4; // of the line a second: quicker — a blot
 
-export function pen({ phrase, insert, open, blotted }) {
+export function pen({ phrase, insert, open, blotted, hesitant }) {
   return {
     title: tr('The Pen'),
     about: 6,
@@ -32,6 +32,8 @@ export function pen({ phrase, insert, open, blotted }) {
       const r = await line(g, b, mg, { from: `${insert}#from`, to: `${insert}#to`, fast: FAST, progress: u => send('ink', u),
         off: () => { if (!blot) { blot = true; g.set('blot', 1); mg.plate.set({ phrase: blotted }); } } });
       if (!r) return this.skipped;
+      // (never touched: the line wrote itself, slowly, and the pen stood — a blot)
+      if (r.alone && !blot) { blot = true; g.set('blot', 1); mg.plate.set({ phrase: hesitant }); }
       if (!(await count(mg, 0.8))) return this.skipped;
       g.set(open, 0, 0.4);
       over();

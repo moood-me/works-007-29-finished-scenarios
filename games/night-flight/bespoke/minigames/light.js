@@ -11,7 +11,7 @@
 //   → { helped: someone else finished it }
 import { keys, settle, slowly, count } from './hands.js';
 
-export function light({ phrase, down = false, pulls = 3, helped }) {
+export function light({ phrase, down = false, pulls = 3, helped, other }) {
   const at = (u, send) => { send('lever', down ? 1 - u : u); send('floods', down ? 1 - u : u); };
   return {
     title: tr('The Light'),
@@ -36,6 +36,8 @@ export function light({ phrase, down = false, pulls = 3, helped }) {
       const r = await slowly(g, b, mg, { at: 'hangar_front#switch', pulls, frame: u => { at(u, send); heard(u); },
         jerk: () => { jammed = true; mg.plate.set({ phrase: helped }); return true; } });
       if (!r) return this.skipped;
+      // (never touched: someone else's hand pulled it — the play remembers it so)
+      if (r.self && !jammed) { jammed = true; mg.plate.set({ phrase: other }); }
       g.set('lever', end);
       g.set('floods', end);
       if (!taken) g.sound('switch');

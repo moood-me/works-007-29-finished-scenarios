@@ -316,5 +316,13 @@
   {"text":"Next","translation":"Дальше","where":"games/night-flight/bespoke/ui.js"},
   {"text":"one","context":"exceptions tonight: one","translation":"одно","where":"games/night-flight/bespoke/ui.js"},
   {"text":"How many times tonight the rule has bent before everyone.","translation":"Сколько раз этой ночью правило гнулось при всех.","where":"games/night-flight/bespoke/ui.js"},
-  {"text":"What she knows","translation":"Что она знает","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"What she knows","translation":"Что она знает","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"The switch is pulled for him — a mechanic’s hand.","translation":"Рубильник тянут за него — рука механика.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The switch is pulled for him — Robineau’s hand.","translation":"Рубильник тянут за него — рука Робино.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The tape runs out by itself.","translation":"Лента выходит сама.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Fabien drags it up himself, with a jerk.","translation":"Фабьен сам вытягивает машину, рывком.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The pen hesitates — a blot.","translation":"Перо медлит — клякса.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag slid off the line.","translation":"Флажок съехал с линии.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag fell. Rivière picks it up.","translation":"Флажок упал. Ривьер поднимает его.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Roblet lays the spanner on the workbench himself.","translation":"Робле сам кладёт ключ на верстак.","where":"games/night-flight/bespoke/minigames"}
 ]}

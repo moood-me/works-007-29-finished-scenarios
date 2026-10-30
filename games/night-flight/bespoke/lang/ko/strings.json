@@ -316,5 +316,13 @@
   {"text":"Next","translation":"다음","where":"games/night-flight/bespoke/ui.js"},
   {"text":"one","context":"exceptions tonight: one","translation":"한 번","where":"games/night-flight/bespoke/ui.js"},
   {"text":"How many times tonight the rule has bent before everyone.","translation":"오늘 밤 규칙이 모두의 앞에서 몇 번 휘었는가.","where":"games/night-flight/bespoke/ui.js"},
-  {"text":"What she knows","translation":"그녀가 아는 것","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"What she knows","translation":"그녀가 아는 것","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"The switch is pulled for him — a mechanic’s hand.","translation":"스위치를 그 대신 당긴다 — 정비공의 손이.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The switch is pulled for him — Robineau’s hand.","translation":"스위치를 그 대신 당긴다 — 로비노의 손이.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The tape runs out by itself.","translation":"테이프가 저절로 풀려 나온다.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Fabien drags it up himself, with a jerk.","translation":"파비앵이 스스로 기체를 홱 끌어올린다.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The pen hesitates — a blot.","translation":"펜이 머뭇거린다 — 잉크 얼룩.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag slid off the line.","translation":"깃발이 선에서 미끄러졌다.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag fell. Rivière picks it up.","translation":"깃발이 떨어졌다. 리비에르가 주워 든다.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Roblet lays the spanner on the workbench himself.","translation":"로블레가 스스로 스패너를 작업대에 내려놓는다.","where":"games/night-flight/bespoke/minigames"}
 ]}

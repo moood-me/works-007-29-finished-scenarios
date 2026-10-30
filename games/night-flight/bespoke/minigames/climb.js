@@ -29,6 +29,7 @@ export default {
         return true;
       } });
     if (!r) return this.skipped;
+    if (r.self && !jerked) { jerked = true; mg.plate.set({ phrase: tr('Fabien drags it up himself, with a jerk.') }); }
     g.set('climb', 1);
     if (!(await count(mg, 0.6))) return this.skipped;
     over();

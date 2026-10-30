@@ -34,16 +34,16 @@ export const flag_late = lead({ flag: 'red', at: 'map#red', to: 'north', target:
   phrase: tr('“Release.” Yesterday’s red flag, still at the field.') });
 export const flag_down = lead({ flag: 'red', at: 'map#red', to: 'off', target: 'map_drawer#drawer',
   phrase: tr('Dawn, grey. The inker is silent. The red flag comes off the map, into the drawer.'),
-  slid: tr('Too quick — the flag fell. Rivière picks it up.') });
+  slid: tr('Too quick — the flag fell. Rivière picks it up.'), fell: tr('The flag fell. Rivière picks it up.') });
 // М2 “The Pen”
 export const pen = write({ insert: 'paper', open: 'paper_open',
-  phrase: tr('The order lies on the packed tool box; the pen in Rivière’s hand.'), blotted: tr('Too quick — a blot.') });
+  phrase: tr('The order lies on the packed tool box; the pen in Rivière’s hand.'), blotted: tr('Too quick — a blot.'), hesitant: tr('The pen hesitates — a blot.') });
 export const log = write({ insert: 'log_page', open: 'log_open',
-  phrase: tr('The log open under the lamp; rain on the glass. One line for Fabien.'), blotted: tr('Too quick — a blot.') });
+  phrase: tr('The log open under the lamp; rain on the glass. One line for Fabien.'), blotted: tr('Too quick — a blot.'), hesitant: tr('The pen hesitates — a blot.') });
 // М8 “The Light”
 export const light = lights({ phrase: tr('Twenty past ten. Over the dark field the drone of an engine, lower and lower; Rivière’s hand on the switch.'),
-  helped: tr('Too quick — the switch jams; a mechanic finishes pulling it.') });
+  helped: tr('Too quick — the switch jams; a mechanic finishes pulling it.'), other: tr('The switch is pulled for him — a mechanic’s hand.') });
 export const light_european = lights({ phrase: tr('Ten to three. The European mail under the hangar’s lamps, its engine warming; the field behind it dark.'),
-  helped: tr('Too quick — the switch jams; a mechanic finishes pulling it.') });
+  helped: tr('Too quick — the switch jams; a mechanic finishes pulling it.'), other: tr('The switch is pulled for him — a mechanic’s hand.') });
 export const light_off = lights({ down: true, phrase: tr('The field lit to its edge, the plane ready. The same switch, the same hand.'),
-  helped: tr('Too quick — the switch jams; Robineau finishes pulling it.') });
+  helped: tr('Too quick — the switch jams; Robineau finishes pulling it.'), other: tr('The switch is pulled for him — Robineau’s hand.') });

@@ -316,5 +316,13 @@
   {"text":"Next","translation":"Suivant","where":"games/night-flight/bespoke/ui.js"},
   {"text":"one","context":"exceptions tonight: one","translation":"une","where":"games/night-flight/bespoke/ui.js"},
   {"text":"How many times tonight the rule has bent before everyone.","translation":"Combien de fois cette nuit la règle a plié devant tous.","where":"games/night-flight/bespoke/ui.js"},
-  {"text":"What she knows","translation":"Ce qu’elle sait","where":"games/night-flight/bespoke/ui.js"}
+  {"text":"What she knows","translation":"Ce qu’elle sait","where":"games/night-flight/bespoke/ui.js"},
+  {"text":"The switch is pulled for him — a mechanic’s hand.","translation":"Quelqu’un tire le commutateur à sa place — la main d’un mécanicien.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The switch is pulled for him — Robineau’s hand.","translation":"Quelqu’un tire le commutateur à sa place — la main de Robineau.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The tape runs out by itself.","translation":"La bande se déroule toute seule.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Fabien drags it up himself, with a jerk.","translation":"Fabien la tire lui-même vers le haut, d’un coup sec.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The pen hesitates — a blot.","translation":"La plume hésite — une tache.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag slid off the line.","translation":"Le fanion a glissé hors de la ligne.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"The flag fell. Rivière picks it up.","translation":"Le fanion est tombé. Rivière le ramasse.","where":"games/night-flight/bespoke/minigames"},
+  {"text":"Roblet lays the spanner on the workbench himself.","translation":"Roblet pose lui-même la clé sur l’établi.","where":"games/night-flight/bespoke/minigames"}
 ]}
