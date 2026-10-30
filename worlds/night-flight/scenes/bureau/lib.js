@@ -278,6 +278,22 @@ function film(scene) {
     // ——— chapter II ———
     // 2.1 (after М1 `flag_north` in the step's opening shot — Rivière at the map, riviere_spot `flags`): the Asunción
     // pilot comes in by the field door, lays his report on Robineau's desk, turns to Rivière, who comes forward
+    // 2.1, before М1 `flag_north`: twenty past eleven, the Asunción mail coming down — in the window the floodlight
+    // and its lamp over the field (`outside` the game's: landing); the inker; then close on Rivière at the map's south
+    asuncion_flag: {
+      tells: ['asuncion_flag:landed', 'asuncion_flag:map'],
+      seconds: 7,
+      from: () => ({ ...NIGHT, time: clock(23, 20), tape: 1, ...FLAGS.night, north: 'air', west: 'field', blue: 'trelew',
+        ...ALL({ ...at('riviere', 'flags', 'map'), ...at('telegraphist', 'table', 'tel_inker'), ...at('asuncion', [OUT[0], OUT[1], 90, 'stand_easy'], null) }),
+        ...SH.wide }),
+      run: async s => {
+        await s.wait(4.5);
+        s.tell('asuncion_flag:landed');
+        await s.wait(1);
+        await glide(s, SH.flags, 1.6);
+        s.tell('asuncion_flag:map');
+      },
+    },
     asuncion_in: {
       tells: ['asuncion_in:report'],
       seconds: 8,
@@ -997,7 +1013,7 @@ function film(scene) {
     dawn: {
       tells: ['dawn:window'],
       seconds: 8,
-      from: () => ({ ...NIGHT, time: clock(6, 0), lamps: 0.4, outside: 'rolled', ...FLAGS.late,
+      from: () => ({ ...NIGHT, time: clock(6, 0), lamps: 0, outside: 'rolled', ...FLAGS.late,
         ...ALL({ ...at('riviere', 'map', 'map'), ...at('telegraphist', 'bench', null, { telegraphist_do: 'doze_drop' }), ...robIV() }), ...SH.wide }),
       run: async s => {
         const r = s.person('riviere');
@@ -1018,7 +1034,7 @@ function film(scene) {
     flags_down: {
       tells: ['flags_down:end'],
       seconds: 10,
-      from: () => ({ ...NIGHT, time: clock(6, 2), lamps: 0.4, outside: 'rolled', drawer: 1, ...FLAGS.late, red: 'off',
+      from: () => ({ ...NIGHT, time: clock(6, 2), lamps: 0, outside: 'rolled', drawer: 1, ...FLAGS.late, red: 'off',
         ...ALL({ ...at('riviere', 'flags', 'map'), ...at('telegraphist', 'bench', null, { telegraphist_do: 'doze_drop' }),
           ...(scene.get('robineau') === 'sit' ? at('robineau', [-0.2, 6.6, 20, 'stand'], 'map', { robineau_wear: { parts: ['moustache'] } }) : robIV()) }),
         ...SH.flags }),

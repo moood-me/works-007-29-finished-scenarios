@@ -25,15 +25,10 @@ export default {
       const { roblet } = facts(g.state);
       // (over the roof the drone of an engine: the Asunción mail coming down on time — in the window, the floodlights lit
       // and its lamp over the field)
-      await g.scene('bureau', { here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
-        keys: { ...bureau(clock(23, 20), { tape: 1, flags: FLAGS.trelew, outside: 'landing' }), riviere_spot: 'flags', riviere_look: 'map', telegraphist_look: 'tel_inker', asuncion_look: 'riviere' } });
-      g.sound('landing', { far: true });
-      await g.wait(4500);
-      await g.say('telegraphist', 'Asunción: landed');
-      // (the map close: the northern flag comes home)
-      g.set('camera_target', 'map');
-      g.set('camera_shot', 'medium');
-      await g.wait(1600);
+      g.sound('landing', { far: true, delay: 0.8 });
+      await piece(g, 'asuncion_flag', { landed: () => g.say('telegraphist', 'Asunción: landed') },
+        () => g.scene('bureau', { beat: 'asuncion_flag', here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
+          keys: { ...bureau(clock(23, 20), { tape: 1, flags: FLAGS.trelew, outside: 'landing' }) } }));
       await g.play(flag_north);
       g.here('asuncion', true);
       g.set('tape', 0);
