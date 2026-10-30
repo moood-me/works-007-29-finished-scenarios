@@ -60,8 +60,9 @@ Still no motions of people.
 - 4.1 `european` by the game's `robineau`: sat with him — Robineau comes out with Rivière and stops at his shoulder's
   place; went out alone — a shot (`SH.wall`) of him by the hangar wall, the folder to his chest, his eyes down, and
   Rivière at the switch beyond, not looking (render 3904).
-- Ш3: `runup` ends on the choice's frame (`SH.choose`): Rivière and the pilot across the plane's nose (her window
-  in the frame too was tried: from where it is seen Rivière, turned to the pilot, shows his back — render 7003).
+- Ш3: `runup` ends on the choice's frame (`SH.choose`): Rivière and the pilot across the plane's nose, and between
+  them, far off, her lit window upstairs with her silhouette (render 7057; with Roblet at the engine he stands before
+  Rivière a little).
 - Tells for the game's sounds: `fine_tear:rip` (the tear begun), `roblet_go:lift`, `box_lift:lift` (the box off the
   ground), `chocks_pick:pick`, `twice:shut` (the cowling).
 
