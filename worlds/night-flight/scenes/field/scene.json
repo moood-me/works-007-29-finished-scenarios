@@ -188,7 +188,8 @@
     "paper_open": 0,
     "ink": 0,
     "blot": 0,
-    "folder_open": 0
+    "folder_open": 0,
+    "rain": 0
   },
   "states": {
     "floods": {
@@ -524,6 +525,14 @@
         "remove"
       ],
       "means": "the game's: what Ш1 did with Roblet (piece `takeoff`: who pulls the chocks; `dark_field`: his question)"
+    },
+    "rain": {
+      "range": [
+        0,
+        1
+      ],
+      "smooth": true,
+      "means": "rain over the field: 0 none … 1 the storm's downpour (three o'clock, the finale — seen from Rivière's window)"
     }
   },
   "objects": [
@@ -1075,6 +1084,22 @@
         0.82,
         0.5
       ]
+    },
+    {
+      "id": "rain",
+      "name": "Rain over the field",
+      "particles": {
+        "kind": "rain",
+        "amount": "rain",
+        "count": 2500,
+        "reach": 40,
+        "area": [
+          -20,
+          2,
+          25,
+          60
+        ]
+      }
     }
   ],
   "music": {

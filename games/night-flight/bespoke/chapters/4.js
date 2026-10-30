@@ -182,15 +182,23 @@ export default {
       const { blot } = await g.play(log, { line: f.bearing ? 'bearing' : 'unknown' });
       if (blot) await g.plate(tr('Rivière blots it himself.'));
       await piece(g, 'log_done');
-      if (f.roblet === 'keep') await g.plate(tr('Below, in the rain, Roblet stands by the hangar.'));
-      else if (f.roblet === 'remove') await g.plate(tr('Below, in the rain, Roblet is gathering up the chocks.'));
-      else await g.plate(tr('Below, under the lamp by the hangar, Roblet’s empty workbench in the rain.'));
-      if (f.robineau === 'sit') await piece(g, 'doorway', { in: () => g.say('robineau', 'I am here, sir', { how: 'in the doorway, quietly' }) });
-      else if (f.robineau === 'work') {
-        // (behind the wall a typewriter: his report)
-        g.air({ rain: 0.3, typewriter: 0.3 });
+      // (what he sees below, in the rain: Roblet where Ш1 put him, or his empty workbench; Robineau by the hangar wall if
+      // he went out alone)
+      await piece(g, 'below', {}, () => g.scene('field', { beat: 'below',
+        here: [...(f.roblet === 'fire' ? [] : ['roblet']), ...(f.robineau === 'silent' ? ['robineau'] : [])],
+        moods: { roblet: 'sad', robineau: 'sad' },
+        keys: { roblet: f.roblet, robineau: f.robineau, floods: f.ending === 'dawn' ? 0 : 1, plane: f.ending === 'dawn' ? 'european' : 'none' },
+        air: { field: 0.25, rain: 0.5 } }, { cut: true }));
+      if (f.robineau === 'sit') {
+        await g.scene('office', { here: ['riviere', 'robineau'], moods: { riviere: 'tired', robineau: 'sad' },
+          keys: { ...OFFICE(f), rain: 1, riviere_spot: 'desk', robineau_look: 'riviere' } }, { cut: true });
+        await piece(g, 'doorway', { in: () => g.say('robineau', 'I am here, sir', { how: 'in the doorway, quietly' }) });
+      } else if (f.robineau === 'work') {
+        // (back in the office: behind the wall a typewriter — his report)
+        await g.scene('office', { here: ['riviere'], moods: { riviere: 'tired' }, keys: { ...OFFICE(f), rain: 1, riviere_spot: 'desk', riviere_look: [0.4, 12, 1.5] },
+          air: { rain: 0.3, typewriter: 0.3 } }, { cut: true });
         await g.wait(4000);
-      } else await g.plate(tr('In the window: he is still by the hangar wall, in the rain, without his coat.'));
+      }
     },
     // Ф.5: the bureau — by the finale (`victory_map` | `silence_map` | `dawn`, `flags_down`)
     async g => {

@@ -926,7 +926,7 @@ function film(scene) {
         // (the hand over his shoulder, not touching, and down again — a reach: the Kimodo `hand_hover` swung the arm out
         // level at head height, past him, read as a blow)
         r.do('stand');
-        r.reach({ r: [2.25, 4.2, 1.45] });
+        r.reach({ r: [2.3, 4.15, 1.2] });
         await s.wait(1.6);
         r.reach(null);
         r.do('hands_behind');

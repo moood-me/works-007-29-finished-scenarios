@@ -52,6 +52,10 @@ function film(scene) {
     ask: CAM([0.1, 1.2, 1.65], [0.0, 3.9, 1.45]),
     // the mechanics at the Chilean's engine, turned to Rivière before them (1.2 «tear»)
     crew: CAM([-0.4, 9.0, 1.7], [-0.7, 12.7, 1.55]),
+    // Ф.4, from above as from Rivière's window: Roblet by the plane in the rain; his empty workbench; Robineau by the wall
+    below_roblet: CAM([-5.5, 7.0, 4.2], [-1.0, 12.6, 1.0]),
+    below_bench: CAM([9.0, 7.0, 3.8], [12.6, 11.8, 0.9]),
+    below_wall: CAM([-3.0, 11.0, 4.0], [-4.8, 16.0, 1.0]),
     // Robineau by the hangar wall, Rivière at the switch beyond him not looking (4.1, went out alone)
     // Ш3's choice: the two of them across the plane's nose — Rivière (left, three-quarters) and the pilot looking at him
     // (her window was the shot before)
@@ -492,7 +496,7 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
       tells: ['roblet:say', 'roblet:hands'],
       seconds: 14,
       from: () => ({
-        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'riviere' }),
+        ...LIT, ...STAND('chilean'), ...THINGS, toolbox: 1, ...ENGINES, ...AWAY, ...R('front', { look: 'roblet#hands' }),
         ...P('riviere', [0.7, 4.25], 200, 'hands_behind', { look: 'roblet' }),
         ...P('robineau', [2.1, 3.85], 245, 'hold_waist', { look: 'roblet' }), ...SH.wide,
       }),
@@ -713,6 +717,36 @@ const R = (spot, more = {}) => P('roblet', SPOTS[spot].at, SPOTS[spot].turn, SPO
         o.do('hold_low');
         o.look('plane#wheel');
         s.tell('chocks_pick:gone');
+      },
+    },
+
+    // ——— the finale, Ф.4 ———
+    // three o'clock, the rain: what Rivière sees from his window above — Roblet where Ш1 put him (by the hangar's gate in
+    // the rain, or gathering up the chocks; dismissed: his workbench empty under its lamp), and, if he went out alone
+    // (3.7), Robineau still by the hangar's wall without his coat. The game's keys: `roblet`, `robineau`, `floods`,
+    // `plane`. A shot each, from above, as from the window
+    below: {
+      tells: ['below:roblet', 'below:robineau'],
+      seconds: 9,
+      from: () => ({
+        ...STAND('european'), ...THINGS, workbench: scene.get('roblet') === 'fire' ? 'empty' : 'tools', rain: 1, hangar: 1, office: 1,
+        lever: scene.get('floods') ?? 1, flood_0: scene.get('floods') ?? 1, flood_1: scene.get('floods') ?? 1, flood_2: scene.get('floods') ?? 1,
+        ...(scene.get('roblet') === 'remove' ? R('chocks', { look: 'plane#wheel', wear: CAP_ON }) : R('engine', { look: 'plane', wear: CAP_ON, turn: 200 })),
+        ...P('robineau', WALL, 150, 'hold_waist', { look: [-4.0, 14.0, 0.5] }),
+        ...(scene.get('roblet') === 'fire' ? SH.below_bench : SH.below_roblet),
+      }),
+      run: async s => {
+        if (scene.get('roblet') === 'remove') {
+          const o = s.person('roblet');
+          o.do('pick_chocks');
+        }
+        await s.wait(3.5);
+        s.tell('below:roblet');
+        if (scene.get('robineau') === 'silent') {
+          await glide(s, SH.below_wall, 2);
+          await s.wait(3);
+        }
+        s.tell('below:robineau');
       },
     },
 
