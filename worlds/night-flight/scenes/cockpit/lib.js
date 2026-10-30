@@ -20,7 +20,7 @@ function film(scene) {
     two: CAM([0.6, 0.7, 2.3], [0.95, 3.6, 1.95]),
     two_up: CAM([0.55, 0.9, 1.95], [0.95, 3.6, 2.55]),
     radio: CAM([1.3, 2.4, 2.2], [1.75, 3.6, 2.05]),
-    below: CAM([-1.4, 1.2, 2.3], [-6, 3.5, -4]), // past the wing and the nose, down at the steppe and the lone house
+    below: CAM([-1.4, 1.2, 2.3], [-7, 10, -1.5]), // past the wing and the nose, down at the steppe and the lone house
     // the stick in his hands, for М5 and М6: Fabien from the waist up, his hands in the frame's middle — wide enough that
     // the plane may bank, bob and pitch (the anchor turns about his seat) and his hands stay well inside it
     stick: CAM([-1.2, 0.9, 2.05], [0.15, 3.3, 1.6]),
