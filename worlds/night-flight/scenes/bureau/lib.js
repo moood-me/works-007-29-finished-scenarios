@@ -898,8 +898,6 @@ function film(scene) {
         await b.turn(190);
         b.look('rob_top');
         b.do('shoulders_shake');
-        // (Rivière turned from the map toward him and the lens: at the map's own turn his face went away from both)
-        await s.person('riviere').turn(140);
         await glide(s, SH.shoulders, 1.5);
         s.tell('shoulders:stand');
         await s.wait(1);
