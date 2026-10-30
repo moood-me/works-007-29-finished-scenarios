@@ -59,7 +59,9 @@ function film(scene) {
     box: CAM([-2.5, 2.5, 1.6], [-1.0, 4.0, 1.15]), // from the left: Roblet, facing the viewer, does not stand in it,
     two_box: CAM([-0.4, 1.8, 1.6], [-1.0, 3.9, 1.35]),
     // M4: the two face to face in profile, the hands between them at the waist, close
-    two_hands: CAM([-0.6, 2.15, 1.6], [-0.6, 3.85, 1.25]),
+    // (close on the hands: the spanner in Roblet's, Rivière's open palm under it — the faces come in the next shot,
+    // `chocks_pick`)
+    two_hands: CAM([-0.55, 2.95, 1.35], [-0.6, 3.75, 0.98]),
     roblet_riv: CAM([1.6, 2.2, 1.65], [-0.5, 4.1, 1.5]), // from the right: Roblet turned to Rivière in profile, Rivière's face,
     // chapter IV: Rivière at R4 left of the nose and the pilot by the fuselage at PILOT, level with each other (each looking
     // at the other in profile): each shot from the front on the side he looks to

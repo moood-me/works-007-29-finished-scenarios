@@ -109,6 +109,7 @@ function film(scene) {
     door: CAM([-0.6, 3.1, 1.7], [-2.6, 4.6, 1.5]), // the field door
     office: CAM([-0.6, 5.0, 1.7], [-2.25, 7.1, 1.4]), // the office door
     window: CAM([0.6, 4.6, 1.75], [1.8, 7.6, 1.65]), // toward the window and the field beyond
+    last: CAM([-0.2, 3.0, 1.75], [0.7, 7.4, 1.85]), // the map and the window together, Rivière before the map
     at_window: CAM([1.2, 4.7, 1.75], [2.3, 7.5, 1.55]), // Rivière at the window, the field beyond
     // the last minute's choice (3.3): from the front right, Rivière at the inker on the left, his face, the
     // telegraphist's hand over the key and his face on the right — the one who chooses and what waits on it
@@ -1177,8 +1178,11 @@ function film(scene) {
       from: () => ({ ...EVE, time: clock(19, 43), tape: 0, ...ALL({ ...at('riviere', 'flags', 'pane'), ...at('telegraphist', 'table', 'tel_inker'), ...at('robineau', 'desk', 'pane') }),
         ...SH.flags }),
       run: async s => {
-        await glide(s, SH.window, 3);
-        await s.wait(2.5);
+        // (the last shot of «The Heavy Victory», as the scenario has it: the map with its flags and the window on the
+        // field together, Rivière before the map, the Chilean coming down beyond the glass)
+        s.person('riviere').look('pane');
+        await glide(s, SH.last, 3);
+        await s.wait(3);
         s.tell('chilean_lands:end');
       },
     },
