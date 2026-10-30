@@ -255,6 +255,8 @@ export default {
         await piece(g, 'montevideo', {
           read: async () => {
             await g.say('telegraphist', 'European: passed Montevideo on time');
+            // (the same knock as in the prologue, the same words)
+            g.sound('key', { loud: 0.6, far: true, words: 'SAN JULIAN CIEL CLAIR' });
             await g.say('telegraphist', 'Patagonian: passed San Julián. Sky clear');
           },
         });

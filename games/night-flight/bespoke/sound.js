@@ -12,6 +12,9 @@
 //     wall, from across the field (dull, quieter); delay — seconds from now; rate — its speed (and pitch); cut — seconds
 //     after which its tail fades out
 //   tone(seconds, {loud, far, delay}) — the radio key held down: one long note (the bearing)
+//   once('key', {loud, far, delay, cut, words}) — the radio operator's key: Morse as its buzzer gives it (dots and
+//     dashes of a tone — no CC0 recording of a real key with words was found, sounds/README.md); words — what it
+//     spells (by default a call and a few groups), cut — seconds at most
 
 // the beds — what lasts under a scene: a recording each, looped, as loud as level × gain (the recordings are brought to
 // −24 dBFS RMS, sounds/README.md); far — through the dull filter (an engine across the field, a typewriter behind the
@@ -30,12 +33,12 @@ export const BEDS = {
   drone: { file: 'idle.mp3', gain: 2.6, far: true },
   clock: { file: 'clock.mp3', gain: 2.4 },
   inker: { file: 'inker.mp3', gain: 2.2 },
-  typewriter: { file: 'typewriter.mp3', gain: 2.6, far: true },
+  typewriter: { file: 'typewriter.mp3', gain: 4, far: true },
   evening: { file: 'evening.mp3', gain: 2.2 },
 };
 // the one-off sounds (each brought to a peak near −1 dBFS): name → its file
 export const ONCE = {
-  key: 'key.mp3', switch: 'switch.mp3', flood: 'flood.mp3', ring: 'ring.mp3', receiver: 'receiver.mp3',
+  switch: 'switch.mp3', flood: 'flood.mp3', ring: 'ring.mp3', receiver: 'receiver.mp3',
   landing: 'landing.mp3', takeoff: 'takeoff.mp3', runup: 'runup.mp3', engine_off: 'engine_off.mp3', thunder: 'thunder.mp3',
   tear: 'tear.mp3', pen: 'pen.mp3', door: 'door.mp3', toolbox: 'toolbox.mp3', spanner: 'spanner.mp3', chocks: 'chocks.mp3',
   sack: 'sack.mp3', cowling: 'cowling.mp3', cough: 'cough.mp3',
@@ -106,7 +109,8 @@ function bed(name, level, seconds) {
   }, (Math.max(0.05, seconds) + 0.2) * 1000);
 }
 
-export function once(name, { loud = 1, far = false, delay = 0, rate = 1, cut = null } = {}) {
+export function once(name, { loud = 1, far = false, delay = 0, rate = 1, cut = null, words = null } = {}) {
+  if (name === 'key') return morse(words ?? KEYED[Math.floor(Math.random() * KEYED.length)], { loud: 0.3 * loud, far, delay, cut });
   const file = ONCE[name];
   if (!file) return;
   const a = audio();
@@ -126,9 +130,30 @@ export function once(name, { loud = 1, far = false, delay = 0, rate = 1, cut = n
   }, () => {});
 }
 
+// the key: Morse at some eighteen words a minute, a dot a unit, a dash three, the gaps one, three (letters), seven
+// (words); played as the tone below, each element its own soft-edged note
+const CODE = { A: '.-', B: '-...', C: '-.-.', D: '-..', E: '.', F: '..-.', G: '--.', H: '....', I: '..', J: '.---', K: '-.-', L: '.-..',
+  M: '--', N: '-.', O: '---', P: '.--.', Q: '--.-', R: '.-.', S: '...', T: '-', U: '..-', V: '...-', W: '.--', X: '-..-', Y: '-.--',
+  Z: '--..', 1: '.----', 2: '..---', 3: '...--', 4: '....-', 5: '.....', 6: '-....', 7: '--...', 8: '---..', 9: '----.', 0: '-----' };
+const KEYED = ['SAN JULIAN QRV', 'CIEL CLAIR', 'QTH TRELEW', 'QRZ DE F', 'PAT QSL'];
+function morse(text, { loud = 0.3, far = false, delay = 0, cut = null } = {}) {
+  const unit = 0.066;
+  let t = delay;
+  for (const ch of text.toUpperCase()) {
+    if (cut != null && t - delay > cut) break;
+    if (ch === ' ') { t += unit * 4; continue; }
+    for (const el of CODE[ch] ?? '') {
+      const d = el === '.' ? unit : unit * 3;
+      tone(d, { loud, far, delay: t, edge: 0.006 });
+      t += d + unit;
+    }
+    t += unit * 2;
+  }
+}
+
 // the key held down: a radio note (the operator's buzzer as the ear has it — a pure tone a little rough at its edge),
 // coming in and going out softly so it does not click
-export function tone(seconds, { loud = 0.35, far = false, delay = 0 } = {}) {
+export function tone(seconds, { loud = 0.35, far = false, delay = 0, edge = 0.03 } = {}) {
   const a = audio(), t = a.currentTime + delay;
   const o = a.createOscillator(), rough = a.createOscillator(), g = a.createGain(), rg = a.createGain();
   o.type = 'sine';
@@ -137,8 +162,8 @@ export function tone(seconds, { loud = 0.35, far = false, delay = 0 } = {}) {
   rough.frequency.value = 1520;
   rg.gain.value = 0.08;
   g.gain.setValueAtTime(0, t);
-  g.gain.linearRampToValueAtTime(loud * (far ? 0.6 : 1), t + 0.03);
-  g.gain.setValueAtTime(loud * (far ? 0.6 : 1), t + seconds - 0.05);
+  g.gain.linearRampToValueAtTime(loud * (far ? 0.6 : 1), t + edge);
+  g.gain.setValueAtTime(loud * (far ? 0.6 : 1), t + Math.max(edge, seconds - edge));
   g.gain.linearRampToValueAtTime(0, t + seconds);
   o.connect(g);
   rough.connect(rg).connect(g);

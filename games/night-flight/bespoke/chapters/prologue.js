@@ -24,12 +24,11 @@ export default {
       await piece(g, 'note_back', {
         read: () => g.say('fabien', 'San Julián. Sky clear', { how: 'a note written in the air, read short over the engine' }),
         // (the radio operator's key — the knock the bureau's inker takes up)
-        tap: () => g.sound('key', { loud: 0.8 }),
+        tap: () => g.sound('key', { loud: 0.8, words: 'SAN JULIAN CIEL CLAIR' }),
       });
     },
     // П.2: the tap becomes the inker's; М1 the flag; “three in the air” (`inker`, `ache`)
     async g => {
-      g.sound('key', { loud: 0.7, far: true });
       await piece(g, 'inker', {
         read: () => g.say('telegraphist', 'Patagonian: passed San Julián. Sky clear'),
       }, () => g.scene('bureau', { beat: 'inker', here: ['riviere', 'telegraphist'], moods: { riviere: 'neutral', telegraphist: 'neutral' },
