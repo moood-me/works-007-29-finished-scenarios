@@ -65,8 +65,16 @@ export default {
       await Promise.all(heard);
       if (self) await g.say('telegraphist', 'We see nothing. Trying to climb. Fuel for thirty minutes');
       else for (let k = said ?? 0; k < 3; k++) await PARTS[k]();
+      // (Comodoro's rule in short lines the player hears one by one: the minute, the long tone — heard —, no words; and
+      // the telegraphist, looking up at the director, puts the choice plainly: words or the bearing, not both)
       await piece(g, 'comodoro', {
-        read: () => g.say('telegraphist', 'Comodoro: we catch him every other time. A gap — perhaps a minute. We ask for him under bearing, for the search: the key held in one long tone, the lines silent. Give him no words: if he answers, there will be no tone'),
+        read: async () => {
+          await g.say('telegraphist', 'Comodoro: we catch him every other time. A gap — perhaps a minute');
+          g.tone(2.4, { loud: 0.22, far: true, delay: 0.3 });
+          await g.say('telegraphist', 'We ask for him under bearing, for the search: the key held in one long tone, the lines silent');
+          await g.say('telegraphist', 'Give him no words: if he answers, there will be no tone');
+        },
+        eyes: () => g.say('telegraphist', 'Words, sir, or the bearing. Not both', { how: 'looking up at the director, quietly, putting it plainly' }),
       });
       g.set('tape', 0);
       g.air(null);

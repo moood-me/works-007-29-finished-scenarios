@@ -592,7 +592,7 @@ function film(scene) {
     // pilot at the tape
     comodoro: {
       tells: ['comodoro:read', 'comodoro:eyes'],
-      seconds: 8,
+      seconds: 20,
       from: () => ({ ...NIGHT, time: clock(2, 15), tape: 1, tape_pull: 1, tape_mark: 'words', ...FLAGS.night,
         ...ALL({ ...at('riviere', 'inker', 'riviere#hands', { riviere_with: ['tape'] }), ...at('pilot', [0.0, 6.45, 200, 'stand_easy'], 'riviere#hands'),
           ...at('madame', 'door', 'tel_inker'), ...at('telegraphist', 'table', 'riviere#hands'), ...at('robineau', 'desk', 'tel_inker') }),
@@ -602,10 +602,12 @@ function film(scene) {
         s.set('tape', 0);
         tapeRead(s);
         s.tell('comodoro:read');
-        await s.wait(2.5);
+        // (the rule read in short lines off the tape, on his face; then he looks up at the director — «words or the
+        // bearing, not both» — still on his face; then her, then the pilot)
+        await s.wait(13.5);
         t.look('riviere');
         s.tell('comodoro:eyes');
-        await s.wait(1);
+        await s.wait(3);
         await glide(s, SH.her_close, 1.2);
         await s.wait(1.2);
         await glide(s, SH.pilot, 1.2);
