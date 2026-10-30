@@ -16,9 +16,9 @@
 //   Death's, the funeral's, the last shot's · birds — a summer morning in the garden · trees — autumn wind in the limes ·
 //   night — a still night out of doors
 export const BEDS = {
-  storm: { file: 'storm-859807.mp3', gain: 2.2 },
-  fire: { file: 'fire-484338.mp3', gain: 2.6 },
-  wind: { file: 'wind-797666.mp3', gain: 2.4 },
+  storm: { file: 'storm.mp3', gain: 2.2 },
+  fire: { file: 'fire.mp3', gain: 2.6 },
+  wind: { file: 'wind.mp3', gain: 2.4 },
   clock: { file: 'clock.mp3', gain: 2.4 },
   nightingale: { file: 'nightingale.mp3', gain: 2.4 },
   birds: { file: 'birds.mp3', gain: 2.2 },
