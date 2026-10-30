@@ -28,7 +28,7 @@
 // choices } —, steps: {chapter: [the main run as each of its steps began, and as it ended]}, seen: {chapter: how many
 // of its steps the player has ever played through} — never lessened. The page's ⏭ (bespoke.forward, story.js) is the
 // player's only where they have been. Where the play is and how it ended — bespoke.at, bespoke.ended.
-import { EFFECTS, ENDINGS, SCALES, context, facts, listen } from './story.js';
+import { ENDINGS, SCALES, context, facts, listen } from './story.js';
 import { ui } from './ui.js';
 import { trees } from './map.js';
 import { jump as unseen } from './jump.js';
@@ -332,17 +332,12 @@ function load(saved) {
 const run = p => structuredClone({ chapter: p.chapter, step: p.step, scales: p.scales, shown: p.shown, marks: p.marks, choices: p.choices });
 const pick = (o, keep) => Object.fromEntries(Object.entries(o).filter(([j]) => keep(Number(j))));
 // a chapter's choices as rows: the main run's chosen, a replay's tried (both — the same), could have been, never
-// reached; and what came of the main run's choice (scenario §10: the mark it left, as the player was told it — or,
-// where the mark is told nothing, the scale it moved)
+// reached. Each answer's label on the map is its line of scenario §10 — the promise and what came of it («You touched
+// his shoulder — Pellerin turned round»): no line under it repeats what came.
 function rows(ch, mainChoices, triedChoices) {
   return ch.choices.map(c => {
     const m = mainChoices[c.id], t = triedChoices[c.id];
-    return { title: c.title, weight: c.weight, came: m ? came(c.id, m) : null, options: c.options.map(o => ({ label: o.label,
+    return { title: c.title, weight: c.weight, options: c.options.map(o => ({ label: o.label,
       state: m === o.id && t === o.id ? 'both' : m === o.id ? 'chosen' : t === o.id ? 'tried' : m || t ? 'open' : 'unseen' })) };
   });
-}
-function came(choice, option) {
-  const fx = EFFECTS[choice]?.[option];
-  if (!fx) return null;
-  return fx.marks?.find(m => m[2])?.[2] ?? Object.keys(SCALES).filter(k => fx[k] > 0).map(k => SCALES[k].up)[0] ?? null;
 }

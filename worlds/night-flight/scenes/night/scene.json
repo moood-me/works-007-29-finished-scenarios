@@ -6,7 +6,7 @@
     "mode": "panorama",
     "span": [
       -3.2,
-      20
+      24
     ]
   },
   "horizon": 0.62,
@@ -580,7 +580,7 @@
       "id": "c1",
       "name": "Chapter",
       "unseen": true,
-      "across": 5,
+      "across": 6,
       "distance": 10,
       "elevation": 11.5,
       "height": 0.1,
@@ -595,7 +595,7 @@
       "id": "c2",
       "name": "Chapter",
       "unseen": true,
-      "across": 10,
+      "across": 12,
       "distance": 10,
       "elevation": 11.5,
       "height": 0.1,
@@ -610,7 +610,7 @@
       "id": "c3",
       "name": "Chapter",
       "unseen": true,
-      "across": 15,
+      "across": 18,
       "distance": 10,
       "elevation": 11.5,
       "height": 0.1,
@@ -625,7 +625,7 @@
       "id": "c4",
       "name": "Chapter",
       "unseen": true,
-      "across": 20,
+      "across": 24,
       "distance": 10,
       "elevation": 11.5,
       "height": 0.1,

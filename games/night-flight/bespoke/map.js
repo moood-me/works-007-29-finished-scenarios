@@ -3,7 +3,7 @@
 // in the south). The scene is only the background and a point for each chapter (c<i>: unseen, where the chapter's
 // knot is) and the author's sign's (author); each tree is the game's own, HTML laid out by CSS in normal flow (its
 // words never run into one another) — each chapter a telegraph form; the forks its rows, what was chosen in ink, the
-// rest in pencil, under a row what came of it (scenario §10) typed as on the tape —, in bespoke.underlay (under the
+// rest in pencil (each answer its line of scenario §10: the promise and what came of it) —, in bespoke.underlay (under the
 // language's marks, which stand on its knots, forks and pointers). A tree: its number and title, its knot, its rows —
 // the question left, the trunk and its dot in the middle (a short SVG, seg), the answers right: the one chosen first,
 // the others on twigs; a replay's thread dashed beside the trunk, its badge over the tree; where the play stands — a
@@ -19,7 +19,7 @@
 //     (refs: knot:<i>, fork:<i>:<k> — the dot of row k —, go:<i> — the main run's pointer —, goreplay:<i> — the
 //     replay's —, badge:<i> — the replay's plate —, author); offer(refs, fn) — those take a press, fn(ref) told; remove() }
 //   chapters — as game.js sky() gives them: [{number, title, kind: here | played | next | future, rows: [{title, weight,
-//     options: [{label, state: chosen | tried | both | open | unseen}], came}], go: the play's pointer's words | null,
+//     options: [{label, state: chosen | tried | both | open | unseen}], came: a line under the row | none}], go: the play's pointer's words | null,
 //     replay: a replay goes on in it, badge: a replay of it — its plate, badge:<i>}]; grow — the chapter whose rows
 //     come one after another over `seconds`; author — the author's sign shown
 const DIST = 10; // m: the points' distance from the eye — a tree drawn at its size there

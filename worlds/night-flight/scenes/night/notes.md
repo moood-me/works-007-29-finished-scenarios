@@ -27,10 +27,10 @@ is blue, the floodlights and the lamps, not blackness).
   from the north — slowly down toward the field, one line at a time (`sky.animate.js`; each lamp a layer whose box
   covers its way).
 - **The points.** `c0`…`c4` (the prologue and the four chapters; the finale and the epilogue are chapter IV's last
-  steps, so its tree carries them) 5 m apart at across 0…20, 10 m from the eye, 11.5 m up (the knots high in the
+  steps, so its tree carries them) 6 m apart at across 0…24 (the forms 480 of the frame's 900ths wide: the long lines of §10 wrap less), 10 m from the eye, 11.5 m up (the knots high in the
   frame, at about 0.24 of its height; the trees hanging down to the middle); `author` — the author's sign, across
-  −3.2. Span [−3.2, 20].
-- **Keys.** `shown` — the chapter the player is at; `camera_x` = shown · 5 (`script.js`: at once on opening, over a
+  −3.2. Span [−3.2, 24].
+- **Keys.** `shown` — the chapter the player is at; `camera_x` = shown · 6 (`script.js`: at once on opening, over a
   second on a change); `come` — each new value brings the view back to the chapter shown. The showcase walks the view
   along the chapters and back.
 - **Music** — the world's palette (D/Bm): the nocturnal piano, celesta and harp for the stars over the clouds, the

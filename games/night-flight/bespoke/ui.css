@@ -12,7 +12,7 @@
 
 /* the scales on their slip, low on the left — on the map only (ui.js gauge) */
 #layer .gauge { position: absolute; left: 14px; bottom: 20px; z-index: 5; display: flex; flex-direction: column; gap: 10px;
-  box-sizing: border-box; max-width: min(380px, calc(100vw - 28px)); padding: 10px 14px 12px; color: var(--ink);
+  box-sizing: border-box; width: max-content; max-width: min(380px, calc(100vw - 28px)); padding: 10px 14px 12px; color: var(--ink);
   font-family: var(--serif); background: var(--paper); border: 1px solid var(--paper-edge); border-top: 3px solid var(--sea);
   border-radius: 4px; box-shadow: 0 6px 22px rgba(10, 14, 30, 0.45); }
 #layer .gauge[hidden] { display: none; }
@@ -174,12 +174,11 @@
 #underlay .map .row:has(.hit.can:hover,.opt.chosen.can:hover) .opt.chosen{color:var(--c-main)}
 
 /* Night Flight's look: each chapter a telegraph form under the blue night — cream paper, its printed rules and
-   number in the line's blue, brown-black ink, the lamp's amber for what is the player's to press, what came of a
-   choice typed as on the tape */
+   number in the line's blue, brown-black ink, the lamp's amber for what is the player's to press */
 #underlay .map.nf{--f-text:Georgia,'Times New Roman',serif;--f-title:Georgia,'Times New Roman',serif;--f-num:Georgia,serif;
   --c-main:#b06a1e;--c-glow:rgba(217,154,58,.18);--c-chosen:#2b211b;--c-title:#2b211b;--c-num:#4f6f86;
   --c-name:#5a4a3c;--c-key:#2b211b;--c-alt:#9a8b77;--c-thin:rgba(107,90,75,.45);--c-replay:#3a6ea5;
-  --c-halo:rgba(217,154,58,.55);--c-core:#d99a3a;--trunk:1.5px;--glow:6px;--w:calc(var(--u) * 400)}
+  --c-halo:rgba(217,154,58,.55);--c-core:#d99a3a;--trunk:1.5px;--glow:6px;--w:calc(var(--u) * 480)}
 #underlay .map.nf .tree{min-height:calc(var(--u) * 120);padding:calc(var(--u) * 14) calc(var(--u) * 22) calc(var(--u) * 12);
   background:#f4ecd8;border:1px solid #d6c4a0;border-top:calc(var(--u) * 4) solid #4f6f86;border-radius:calc(var(--u) * 3);
   box-shadow:0 calc(var(--u) * 8) calc(var(--u) * 26) rgba(5,10,30,.55)}
@@ -194,7 +193,6 @@
 #underlay .map.nf .row{border-top:1px solid rgba(79,111,134,.16);padding-top:calc(var(--u) * var(--s) * 6)}
 #underlay .map.nf .row.cursor,#underlay .map.nf .row.pending{border-top-color:transparent}
 #underlay .map.nf .opt.chosen{font-weight:700}
-#underlay .map.nf .came{list-style:none;margin-top:calc(var(--u) * 3);font:calc(var(--u) * var(--s) * 12)/1.3 'Courier New',Courier,monospace;color:#4a3d32}
 #underlay .map.nf .stem .dot{background:#d99a3a;box-shadow:0 0 0 calc(var(--u) * 2.5) rgba(217,154,58,.28)}
 #underlay .map.nf .badge{left:calc(var(--u) * 16);top:calc(var(--u) * -30);background:#f4ecd8;color:var(--c-replay);border:1px solid rgba(58,110,165,.45);
   padding:calc(var(--u) * 3) calc(var(--u) * 10);border-radius:calc(var(--u) * 10);font-size:calc(var(--u) * 13)}
